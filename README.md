@@ -36,18 +36,6 @@
 <details>
  <summary><b> 💫 Comandos</b></summary>
 
-#### **✨️ Instalación automatica por termux No disponible por ahora la instalación manual si está funcional**
-
-> Copia los códigos uno por uno, no los pegues todos juntos a la vez.
-
-```bash
-termux-setup-storage
-```
-
-```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/The-King-Destroy/Yuki_Suou-Bot/master/mini.sh | bash
-```
-
 #### **✨ Instalación manual por termux**
 
 ```bash
