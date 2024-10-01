@@ -45,7 +45,7 @@ termux-setup-storage
 ```
 
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/The-King-Destroy/Yuki_Suou-Bot/master/mini.sh
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/The-King-Destroy/Yuki_Suou-Bot/master/mini.sh | bash
 ```
 
 #### **✨ Instalación manual por termux**
