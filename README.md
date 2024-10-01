@@ -107,7 +107,7 @@ Si después de instalar el bot en Termux y iniciar la session del bot (el numero
 
 2. Elimina la carpeta MiniSession:
     ```bash
-    rm -rf MeguminSession
+    rm -rf YukiSession
     ```
 
 3. Inicia el bot nuevamente:
