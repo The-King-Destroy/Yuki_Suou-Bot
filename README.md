@@ -45,7 +45,7 @@ termux-setup-storage
 ```
 
 ```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/David-Chian/Megumin-Bot-MD/master/megu.sh | bash
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/The-King-Destroy/Yuki_Suou-Bot/master/megu.sh | bash
 ```
 
 #### **✨ Instalación manual por termux**
