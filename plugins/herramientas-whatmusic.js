@@ -1,30 +1,73 @@
-import fs from 'fs'
-import acrcloud from 'acrcloud'
-let acr = new acrcloud({
-host: 'identify-eu-west-1.acrcloud.com',
-access_key: 'c33c767d683f78bd17d4bd4991955d81',
-access_secret: 'bvgaIAEtADBTbLwiPGYlxupWqkNGIjT7J9Ag2vIu'
-})
-let handler = async (m) => {
-let q = m.quoted ? m.quoted : m
-let mime = (q.msg || q).mimetype || ''
-if (/audio|video/.test(mime)) { if ((q.msg || q).seconds > 20) return m.reply('᥀·࣭࣪̇˖⚙️◗ 𝙀𝙡 𝙖𝙧𝙘𝙝𝙞𝙫𝙤 𝙚𝙨 𝙙𝙚𝙢𝙖𝙨𝙞𝙖𝙙𝙤 𝙜𝙧𝙖𝙣𝙙𝙚, 𝙧𝙚𝙘𝙤𝙧𝙩𝙚𝙡𝙤 𝙢𝙞𝙣𝙞𝙢𝙤 𝙙𝙚 10 𝙖 20 𝙨𝙚𝙜𝙪𝙣𝙙𝙤𝙨 𝙥𝙖𝙧𝙖 𝙗𝙪𝙨𝙘𝙖𝙧 𝙧𝙚𝙨𝙪𝙡𝙩𝙖𝙙𝙤𝙨.')
-await conn.reply(m.chat, wait, m)
-let media = await q.download()
-let ext = mime.split('/')[1]
-fs.writeFileSync(`./tmp/${m.sender}.${ext}`, media)
-let res = await acr.identify(fs.readFileSync(`./tmp/${m.sender}.${ext}`))
-let { code, msg } = res.status
-if (code !== 0) throw msg
-let { title, artists, album, genres, release_date } = res.metadata.music[0]
-let txt = `
-𝐍𝐎𝐌𝐁𝐑𝐄: ${title}
-𝐀𝐑𝐓𝐈𝐒𝐓𝐀: ${artists !== undefined ? artists.map(v => v.name).join(', ') : 'No encontrado'}
-`.trim()
-fs.unlinkSync(`./tmp/${m.sender}.${ext}`)
-m.reply(txt)
-} else throw '᥀·࣭࣪̇˖⛔◗ 𝙊𝙘𝙪𝙧𝙧𝙞𝙤 𝙪𝙣 𝙚𝙧𝙧𝙤𝙧 𝙞𝙣𝙚𝙨𝙥𝙚𝙧𝙖𝙙𝙤, 𝙞𝙣𝙩𝙚𝙣𝙩𝙖𝙡𝙤 𝙙𝙚 𝙣𝙪𝙚𝙫𝙤, 𝙧𝙚𝙨𝙥𝙤𝙣𝙙𝙖 𝙖 𝙪𝙣 𝙖𝙪𝙙𝙞𝙤 𝙤 𝙫𝙞𝙙𝙚𝙤.'
-}
-handler.tags = ['herramientas']
-handler.command = ['quemusica','quemusicaes','whatmusic']
-export default handler
+import { Shazam } from 'node-shazam';
+import fetch from 'node-fetch';
+import fs from 'fs';
+import ytSearch from 'yt-search'; 
+import path from 'path';
+const shazam = new Shazam();
+
+const handler = async (m, { conn }) => {
+  const idioma = global.db.data.users[m.sender].language || global.defaultLenguaje;
+  const traductor = JSON.parse(fs.readFileSync(`./src/languages/${idioma}.json`)).plugins.herramientas_whatmusic;
+
+  const q = m.quoted || m;
+  const mime = (q.msg || q).mimetype || '';
+  if (/audio|video/.test(mime)) {
+    const media = await q.download();
+    const ext = mime.split('/')[1];
+    const baseFilePath = `./src/tmp/${m.sender}`; 
+    const tempPath = await getUniqueFileName(baseFilePath, ext); 
+    fs.writeFileSync(tempPath, media);
+
+    let recognisePromise;
+    if (/audio/.test(mime)) {
+      recognisePromise = shazam.fromFilePath(tempPath, false, 'en');
+    } else if (/video/.test(mime)) {
+      recognisePromise = shazam.fromVideoFile(tempPath, false, 'en');
+    }
+
+    const recognise = await recognisePromise;
+    if (!recognise || !recognise?.track) return m.reply('> *[❗] Error: Audio not found.*')
+    const { title, subtitle, artists, genres, images } = recognise.track;
+    const apiTitle = `${title} - ${subtitle || ''}`.trim();
+
+    let ytUrl = 'https://github.com/BrunoSobrino';
+    try {
+      const searchResult = await ytSearch(apiTitle);
+      if (searchResult && searchResult.videos.length > 0) {
+        ytUrl = searchResult.videos[0].url;
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
+    const texto = `${traductor.texto3[0]}\n\n${traductor.texto3[1]} ${title || traductor.texto2}\n${traductor.texto3[2]} ${subtitle || traductor.texto2}\n${traductor.texto3[4]} ${genres.primary || traductor.texto2}`;
+    const imagen = await (await fetch(images.coverart)).buffer();
+    
+    conn.sendMessage(m.chat, { text: texto.trim(), contextInfo: { forwardingScore: 9999999, isForwarded: true, externalAdReply: { showAdAttribution: true, containsAutoReply: true, renderLargerThumbnail: true, title: apiTitle, mediaType: 1, thumbnail: imagen, thumbnailUrl: imagen, mediaUrl: ytUrl, sourceUrl: ytUrl }}}, { quoted: m });
+
+    try {
+      const audiolink = `${global.MyApiRestBaseUrl}/api/v1/ytmp3?url=${encodeURIComponent(ytUrl)}&apikey=${global.MyApiRestApikey}`;
+      const audiobuff = await conn.getFile(audiolink);
+      await conn.sendMessage(m.chat, { audio: audiobuff.data, fileName: `${title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+    } catch (error) {
+      console.error(error);
+    }
+
+    fs.unlinkSync(tempPath);
+  } else {
+    throw traductor.texto4;
+  }
+};
+
+handler.command = /^(quemusica|quemusicaes|whatmusic|shazam)$/i;
+export default handler;
+
+async function getUniqueFileName(basePath, extension) {
+  let fileName = `${basePath}.${extension}`;
+  let counter = 1;
+  while (fs.existsSync(fileName)) {
+    fileName = `${basePath}_${counter}.${extension}`;
+    counter++;
+  }
+  return fileName;
+};
