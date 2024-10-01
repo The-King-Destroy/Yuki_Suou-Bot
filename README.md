@@ -36,7 +36,7 @@
 <details>
  <summary><b> 💫 Comandos</b></summary>
 
-#### **✨️ Instalación automatica por termux**
+#### **✨️ Instalación automatica por termux No disponible por ahora la instalación manual si está funcional**
 
 > Copia los códigos uno por uno, no los pegues todos juntos a la vez.
 
