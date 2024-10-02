@@ -32,12 +32,12 @@
 ---
 
 #### **`🚀 Instalación por termux`**
-> Copia los códigos uno por uno, no los pegues todos juntos a la vez.
 
 <details>
  <summary><b> 💫 Comandos</b></summary>
 
 #### **✨ Instalación manual por termux**
+> Copia los códigos uno por uno, no los pegues todos juntos a la vez.
 
 ```bash
 termux-setup-storage
