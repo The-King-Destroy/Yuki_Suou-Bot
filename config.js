@@ -28,7 +28,7 @@ global.owner = [
 global.mods = ['584120346669', '522441357601', '50557865603', '573142051545', '584128382768']
 
 global.suittag = ['584120346669']
-global.prems = []
+global.prems = ['584120346669']
 
 //cambiar a true si el bot detecta sus propios comandos.
 global.isBaileysFail = false
