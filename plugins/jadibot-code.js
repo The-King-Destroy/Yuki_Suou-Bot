@@ -13,7 +13,7 @@ import { makeWASocket } from '../lib/simple.js';
 if (!(global.conns instanceof Array)) global.conns = [];
 let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner, isROwner }) => {
 if (!global.db.data.settings[_conn.user.jid].jadibotmd && !isROwner) {
-conn.reply(m.chat, '🚩 Este Comando está deshabilitado por mi creador.', m, rcanal)
+conn.reply(m.chat, '✨ Este Comando está deshabilitado por mi creador.', m, rcanal)
 return
 }
 let parent = args[0] && args[0] == 'plz' ? _conn : await global.conn;
@@ -67,7 +67,7 @@ process.exit(0);
 setTimeout(async () => {
 let codeBot = await conn.requestPairingCode(cleanedNumber);
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot;
-let txt = '╭━╴╶╴╶╴╶╴ꖒ╶╴╶╴╶╴╶━╮\n│🌟 *S E R B O T - Y U K I - S U O U* 💥\n├╶╴ʸᵘᵏⁱ_ᔆᵘᵒᵘ⁻ᴮᵒᵗ ᴹᴰ╶╴\n│ *𝑈𝑠𝑎 𝑒𝑠𝑡𝑒 𝐶ó𝑑𝑖𝑔𝑜 𝑝𝑎𝑟𝑎 𝑐𝑜𝑛𝑣𝑒𝑟𝑡𝑖𝑟𝑡𝑒 𝑒𝑛 𝑢𝑛 𝑆𝑢𝑏 𝐵𝑜𝑡*\n├╶╴╶╴╶╴╶╴╶╴╶╴╶╴╶╴╶╴\n│✨ 𝑷𝒂𝒔𝒐𝒔:\n├╶╴╶╴╶╴╶╴╶╴╶╴╶╴╶╴\n│ `1` : 𝐻𝑎𝑔𝑎 𝑐𝑙𝑖𝑐𝑘 𝑒𝑛 𝑙𝑜𝑠 3 𝑝𝑢𝑛𝑡𝑜𝑠\n├╶╴╶╴╶╴╶╴╶╴╶╴╶╴\n│ `2` : 𝑇𝑜𝑞𝑢𝑒 𝑑𝑖𝑠𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑜𝑠 𝑣𝑖𝑛𝑐𝑢𝑙𝑎𝑑𝑜𝑠\n├╶╴╶╴╶╴╶╴╶╴╶╴\n│ `3` : 𝑆𝑒𝑙𝑒𝑐𝑐𝑖𝑜𝑛𝑎 𝑉𝑖𝑛𝑐𝑢𝑙𝑎𝑟 𝑐𝑜𝑛 𝑒𝑙 𝑛ú𝑚𝑒𝑟𝑜 𝑑𝑒 𝑡𝑒𝑙é𝑓𝑜𝑛𝑜\n├╶╴╶╴╶╴╶╴╶╴\n│ `4` : 𝐸𝑠𝑐𝑟𝑖𝑏𝑎 𝑒𝑙 𝐶𝑜𝑑𝑖𝑔𝑜\n├╶╴╶╴╶╴╶╴\n> *𝑵𝒐𝒕𝒂:* 𝑬𝒔𝒕𝒆 𝑪ó𝒅𝒊𝒈𝒐 𝒔𝒐𝒍𝒐 𝒇𝒖𝒏𝒄𝒊𝒐𝒏𝒂 𝒆𝒏 𝒆𝒍 𝒏ú𝒎𝒆𝒓𝒐 𝒒𝒖𝒆 𝒍𝒐 𝒔𝒐𝒍𝒊𝒄𝒊𝒕𝒐.\n╰━╴╶╴╶╴╶╴ꗰ╶╴╶╴╶╴╶━╯';
+let txt = '╭━╴╶╴╶╴╶╴ꖒ╶╴╶╴╶╴╶━╮\n│✨ *S E R B O T - Y U K I - S U O U* 🌟\n├╶╴ʸᵘᵏⁱ_ᔆᵘᵒᵘ⁻ᴮᵒᵗ ᴹᴰ╶╴\n│ *𝑈𝑠𝑎 𝑒𝑠𝑡𝑒 𝐶ó𝑑𝑖𝑔𝑜 𝑝𝑎𝑟𝑎 𝑐𝑜𝑛𝑣𝑒𝑟𝑡𝑖𝑟𝑡𝑒 𝑒𝑛 𝑢𝑛 𝑆𝑢𝑏 𝐵𝑜𝑡*\n├╶╴╶╴╶╴╶╴╶╴╶╴╶╴╶╴╶╴\n│✨ 𝑷𝒂𝒔𝒐𝒔:\n├╶╴╶╴╶╴╶╴╶╴╶╴╶╴╶╴\n│ `1` : 𝐻𝑎𝑔𝑎 𝑐𝑙𝑖𝑐𝑘 𝑒𝑛 𝑙𝑜𝑠 3 𝑝𝑢𝑛𝑡𝑜𝑠\n├╶╴╶╴╶╴╶╴╶╴╶╴╶╴\n│ `2` : 𝑇𝑜𝑞𝑢𝑒 𝑑𝑖𝑠𝑝𝑜𝑠𝑖𝑡𝑖𝑣𝑜𝑠 𝑣𝑖𝑛𝑐𝑢𝑙𝑎𝑑𝑜𝑠\n├╶╴╶╴╶╴╶╴╶╴╶╴\n│ `3` : 𝑆𝑒𝑙𝑒𝑐𝑐𝑖𝑜𝑛𝑎 𝑉𝑖𝑛𝑐𝑢𝑙𝑎𝑟 𝑐𝑜𝑛 𝑒𝑙 𝑛ú𝑚𝑒𝑟𝑜 𝑑𝑒 𝑡𝑒𝑙é𝑓𝑜𝑛𝑜\n├╶╴╶╴╶╴╶╴╶╴\n│ `4` : 𝐸𝑠𝑐𝑟𝑖𝑏𝑎 𝑒𝑙 𝐶𝑜𝑑𝑖𝑔𝑜\n├╶╴╶╴╶╴╶╴\n> *𝑵𝒐𝒕𝒂:* 𝑬𝒔𝒕𝒆 𝑪ó𝒅𝒊𝒈𝒐 𝒔𝒐𝒍𝒐 𝒇𝒖𝒏𝒄𝒊𝒐𝒏𝒂 𝒆𝒏 𝒆𝒍 𝒏ú𝒎𝒆𝒓𝒐 𝒒𝒖𝒆 𝒍𝒐 𝒔𝒐𝒍𝒊𝒄𝒊𝒕𝒐.\n╰━╴╶╴╶╴╶╴ꗰ╶╴╶╴╶╴╶━╯';
 await parent.reply(m.chat, txt, m, rcanal);
 await parent.reply(m.chat, codeBot, m, rcanal);
 rl.close();
@@ -84,16 +84,16 @@ let i = global.conns.indexOf(conn);
 if (i < 0) return console.log(await creloadHandler(true).catch(console.error));
 delete global.conns[i];
 global.conns.splice(i, 1);
-if (code !== DisconnectReason.connectionClosed) { parent.sendMessage(m.chat, { text: "🚩 Conexión perdida con el servidor." }, { quoted: m });
+if (code !== DisconnectReason.connectionClosed) { parent.sendMessage(m.chat, { text: "🛜 Conexión perdida con el servidor." }, { quoted: m });
 }}
 if (global.db.data == null) loadDatabase();
 if (connection == 'open') {
 conn.isInit = true;
 global.conns.push(conn);
-await parent.reply(m.chat, args[0] ? '🐢 Conectado con éxito al WhatsApp.' : '🚩 Vinculaste un Sub-Bot con éxito.', m, rcanal);
+await parent.reply(m.chat, args[0] ? '🐢 Conectado con éxito al WhatsApp.' : '✅ Vinculaste un Sub-Bot con éxito.', m, rcanal);
 await sleep(5000);
 if (args[0]) return;
-await parentw.reply(conn.user.jid, `🚩 *Para volver a vincular un sub Bot use su token`, m, rcanal)
+await parentw.reply(conn.user.jid, `👾 *Para volver a vincular un sub Bot use su token`, m, rcanal)
 }}
 setInterval(async () => {
 if (!conn.user) {

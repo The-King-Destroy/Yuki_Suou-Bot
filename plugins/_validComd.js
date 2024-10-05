@@ -15,7 +15,7 @@ let som = sim * 100
 await conn.sendPresenceUpdate('composing', m.chat)
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let name = await conn.getName(who)
-let caption = `*🍧  Hola* @${who.split('@')[0]}
+let caption = `*👋  Hola* @${who.split('@')[0]}
 El comando no existe, pero se encontraron resultados similares 
 ✔️ *${usedPrefix + mean}*
  ❗ *Similitud:* _${parseInt(som)}%_`

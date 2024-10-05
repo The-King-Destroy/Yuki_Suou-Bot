@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-if (!text) return conn.reply(m.chat, `🚩 Menciona a un usuario.`, m, rcanal)
+if (!text) return conn.reply(m.chat, `👤 Menciona a un usuario.`, m, rcanal)
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let bio = await conn.fetchStatus(who).catch(_ => 'undefined')
   let biot = bio.status?.toString() || 'Sin Info'

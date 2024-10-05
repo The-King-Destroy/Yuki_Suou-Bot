@@ -3,7 +3,7 @@
 import { ttdl } from 'ruhend-scraper';
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
- if (!args || !args[0]) return conn.reply(m.chat, '*\`Ingresa El link De la canción a descargar 🤍\`*', m, fake, )
+ if (!args || !args[0]) return conn.reply(m.chat, '*\`Ingresa El link De la canción a descargar 🌟\`*', m, fake, )
  if (!args[0].match(/tiktok/gi)) return conn.reply(m.chat, `Verifica que el link sea de TikTok`, m, fake).then(_ => m.react('✖️'))
     try {
 await m.react('🕓');

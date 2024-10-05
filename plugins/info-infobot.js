@@ -37,7 +37,7 @@ const handler = async (m, { conn, usedPrefix }) => {
 │
 │•°•°•°•°•°•°•°•°•°•°•°•°•°•°•°•
 │
-│➸ ৎ୭࠭͢𝑴𝒆̤𝒈𝒖̣֟፝֯𝒎̤𝒊̣𝒏🔥̤ʙⷪᴏ͓ᷫᴛⷭ𓆪͟͞ 🧸📍
+│➸ ৎ୭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮✨𝐁𝐨𝐭ⷭ𓆪͟͞ 🧸📍
 ╰━━━━━━･❪ ❁ ❫ ･━━━━━━❖`.trim();
   const doc = [
     "pdf",
@@ -50,7 +50,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   const Message = {
     document: { url: `https://chat.whatsapp.com/H5bw4MJucS1BBHnZ9wv3vI` },
     mimetype: `application/${document}`,
-    fileName: `「 𝘔𝘦𝘨𝘶𝘮𝘪𝘯-𝘉𝘰𝘵💥 」`,
+    fileName: `「 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✨ 」`,
     fileLength: 99999999999999,
     pageCount: 200,
     contextInfo: {
@@ -60,10 +60,10 @@ const handler = async (m, { conn, usedPrefix }) => {
 showAdAttribution: !![],
             mediaType: 0x1,
             previewType: "PHOTO",
-        title: "Eʟ Bᴏᴛ Mᴀs Exᴘʟᴏsɪᴠᴏ!",
+        title: "𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉",
         thumbnail: imagen10,
         renderLargerThumbnail: !![],
-        sourceUrl: "https://chat.whatsapp.com/H5bw4MJucS1BBHnZ9wv3vI",
+        sourceUrl: "https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ",
       },
     },
     caption: info,

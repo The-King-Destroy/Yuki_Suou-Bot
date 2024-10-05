@@ -1,6 +1,6 @@
 function handler(m, { text }) {
-if (!text) return conn.reply(m.chat, '🚩 Ingresa tu nombre junto al comando.', m, rcanal)
-conn.reply(m.chat, '🚩 Buscando El Nombre....', m, {
+if (!text) return conn.reply(m.chat, '✍️ Ingresa tu nombre junto al comando.', m, rcanal)
+conn.reply(m.chat, '🔍 Buscando El Nombre....', m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: packname,
 body: wm,

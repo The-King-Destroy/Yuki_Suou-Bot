@@ -33,7 +33,7 @@ const handler = async (m, {args, usedPrefix, command}) => {
       const result2 = loll.result.translated;
       await m.reply('*Traducción:* ' + result2);
     } catch {
-      await m.reply('✨️ *Ocurrió Un Error*');
+      await m.reply('⚙️ *Ocurrió Un Error*');
     }
   }
 };

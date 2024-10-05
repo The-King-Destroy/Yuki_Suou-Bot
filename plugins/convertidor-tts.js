@@ -16,7 +16,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
   } catch (e) {
     m.reply(e + '');
     text = args.join(' ');
-    if (!text) throw `*🤍 Te Faltó Un Texto*\n\nEjemplo:\n- !tts Hola Yuki`;
+    if (!text) throw `*🌟 Te Faltó Un Texto*\n\nEjemplo:\n- !tts Hola Yuki`;
     res = await tts(text, defaultLang);
   } finally {
     if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true);

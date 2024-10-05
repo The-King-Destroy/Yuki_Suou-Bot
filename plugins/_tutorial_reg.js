@@ -2,7 +2,7 @@ let handler = async (m, { conn }) => {
   const usuario = m.pushName || 'Usuario';
   const videoUrl = 'https://telegra.ph/file/330a7838421e8f555b7be.mp4';
 
-  const texto = `Hola @${m.sender.split('@')[0]} aquí está el tutorial para registrarte en Megumin-Bot.`;
+  const texto = `Hola @${m.sender.split('@')[0]} aquí está el tutorial para registrarte en Yuki_Suou-Bot.`;
 
   const options = {
     quoted: m,

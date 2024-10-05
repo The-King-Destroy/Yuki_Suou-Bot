@@ -6,7 +6,7 @@ async function handler(m, {usedPrefix}) {
         await conn.reply(m.chat, `El token te permite iniciar sesion en otros bots, recomendamos no compartirlo con nadie.\n\n*Tu token es:*`, m, rcanal)
         await conn.reply(m.chat, token, m, rcanal)
     } else {
-        await conn.reply(m.chat, `🚩 No tienes token, crea tu token usando: ${usedPrefix}serbot.`, m, rcanal)
+        await conn.reply(m.chat, `👾 No tienes token, crea tu token usando: ${usedPrefix}serbot.`, m, rcanal)
     }
   }
   handler.command = handler.help = ['token', 'gettoken', 'serbottoken'];

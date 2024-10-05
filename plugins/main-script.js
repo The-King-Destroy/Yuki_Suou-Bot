@@ -15,7 +15,7 @@ let handler = async (m, { conn, args }) => {
     txt += `✩  *Url* : ${json.html_url}\n`;
     txt += `✩  *Forks* : ${json.forks_count}\n`;
     txt += `✩  *Stars* : ${json.stargazers_count}\n\n`;
-    txt += `💥 *${packname}*`;
+    txt += `✨ *${packname}*`;
 
     let img = imagen1;
 

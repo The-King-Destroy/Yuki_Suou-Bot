@@ -5,7 +5,7 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 let handler = async (m, { conn, text, args, command, usedPrefix }) => {
-    if (!text) throw m.reply('*\`Ingresa El link De la imagen a descargar 🤍\`*')
+    if (!text) throw m.reply('*\`Ingresa El link De la imagen a descargar ✨\`*')
 
     // Cambie la URL principal y la URL de respaldo según sea necesario
     let mainUrl = `https://dlpanda.com/id?url=${text}&token=G7eRpMaa`;
@@ -76,7 +76,7 @@ let handler = async (m, { conn, text, args, command, usedPrefix }) => {
         }
 
         if (asd[0].imgSrc.length === 0) {
-            throw '🤍 ɴᴏ ʜᴀʏ ɪᴍᴀɢᴇɴ';
+            throw '⭕ ɴᴏ ʜᴀʏ ɪᴍᴀɢᴇɴ';
         }
         await m.react('🕓');
         for (let i of asd[0].imgSrc) {

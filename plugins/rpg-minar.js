@@ -10,17 +10,17 @@ if (new Date - global.db.data.users[m.sender].lastmiming < 600000) return conn.r
 let hasil = Math.floor(Math.random() * 1000)
 let info = `⛏️ *Te has adentrando en lo profundo de las cuevas*
 
-> *💥 Obtuviste estos recursos*
+> *🧰 Obtuviste estos recursos*
 
-💣 *Exp*: ${hasil}
+✨ *Exp*: ${hasil}
 🍪 *Cookies 🍪*: ${cookies}
-💥 *Esmeralda*: ${emerald}
+💎 *Esmeralda*: ${emerald}
 🔩 *Hierro*: ${iron}
 🏅 *Oro*: ${gold}
 🕋 *Carbón*: ${coal}
 🪨 *Piedra*: ${stone}`
 
-conn.fakeReply(m.chat, info, '0@s.whatsapp.net', '💥 *Minando.. - Yuki_Suou-Bot* 💣', 'status@broadcast' )
+conn.fakeReply(m.chat, info, '0@s.whatsapp.net', '⚒️ *Minando.. - Yuki_Suou-Bot* ✨', 'status@broadcast' )
 await m.react('⛏️')
 
 user.health -= 50

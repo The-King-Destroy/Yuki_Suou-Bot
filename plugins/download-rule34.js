@@ -51,14 +51,14 @@ const handler = async (m, { conn, text }) => {
   }
   
   try {
-  conn.reply(m.chat, '🔥  *ENVIANDO SUS RESULTADOS..*', m, {
+  conn.reply(m.chat, '🥵  *ENVIANDO SUS RESULTADOS..*', m, {
       contextInfo: { 
         externalAdReply: { 
           mediaUrl: null, 
           mediaType: 1, 
           showAdAttribution: true,
           title: '♡  ͜ ۬︵࣪᷼⏜݊᷼𝙍𝙪𝙡𝙚 𝟑𝟒⏜࣪᷼︵۬ ͜ ',
-          body: '(⁄ ⁄•⁄ω⁄•⁄ ⁄) 𝙈𝙚𝙜𝙪𝙢𝙞𝙣🔥',
+          body: '(⁄ ⁄•⁄ω⁄•⁄ ⁄) 𝙔𝙪𝙠𝙞_𝙎𝙪𝙤𝙪🥵',
           previewType: 0, 
           thumbnail: rule,
           sourceUrl: cn 
@@ -123,7 +123,7 @@ const handler = async (m, { conn, text }) => {
               text: `✨️ RESULTADO DE: ${text}`
             }),
             footer: proto.Message.InteractiveMessage.Footer.create({
-              text: "ᥫᩣᎠ꯭I𝚫⃥꯭M꯭Ꭷ꯭Ꮑ꯭Ꭰ࠭⋆̟(◣_◢)凸"
+              text: "ᥫᩣⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"
             }),
             header: proto.Message.InteractiveMessage.Header.create({
               hasMediaAttachment: false

@@ -28,7 +28,7 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
 
   var messa = await prepareWAMessageMedia({ image: {url: randomVideo.thumbnail}}, { upload: conn.waUploadToServer })
   const interactiveMessage = {
-    body: { text: `*╭┈─────⸌̗⸃》̗̀✨̖́《⸍̖⸂─────┈╮*\n*│≣ 🌟 ʀᴇsᴜʟᴛᴀᴅᴏs ᴏʙᴛᴇɴɪᴅᴏs:* ${results.videos.length}\n*│≡ 🎲 Video aleatorio:*\n*│≠ 🌹-› Title:* ${randomVideo.title}\n*│≜ 👤-› Author:* ${randomVideo.author.name}\n*│≚ 💫-› Views:* ${randomVideo.views}\n*│≋ 🌱-› Link :* ${randomVideo.url}\n*│≍ 🏞-› Imagen:* ${randomVideo.thumbnail}\n*╰┈─────⸌̗⸃》̗̀⭐̖́《⸍̖⸂─────┈╯*`.trim() },
+    body: { text: `*╭┈─────⸌̗⸃》̗̀🌟̖́《⸍̖⸂─────┈╮*\n*│≣ ✨ ʀᴇsᴜʟᴛᴀᴅᴏs ᴏʙᴛᴇɴɪᴅᴏs:* ${results.videos.length}\n*│≡ 🎲 Video aleatorio:*\n*│≠ 🌹-› Title:* ${randomVideo.title}\n*│≜ 👤-› Author:* ${randomVideo.author.name}\n*│≚ 💫-› Views:* ${randomVideo.views}\n*│≋ 👁️‍🗨️-› Link :* ${randomVideo.url}\n*│≍ 🏞-› Imagen:* ${randomVideo.thumbnail}\n*╰┈─────⸌̗⸃》̗̀🌟̖́《⸍̖⸂─────┈╯*`.trim() },
     footer: { text: `${global.wm}`.trim() },  
       header: {
           title: `*✨ 𝐘𝐮𝐤𝐢 𝐒𝐞𝐚𝐫𝐜𝐡 ✨*\n`,
@@ -48,13 +48,13 @@ const handler = async (m, { conn, text, usedPrefix: prefijo }) => {
                   header: video.title,
                   title: video.author.name,
                   description: 'Descargar MP3',
-                  id: `${prefijo}play.1 ${video.url}`
+                  id: `${prefijo}musica ${video.url}`
                 },
                 {
                   header: video.title,
                   title: video.author.name,
                   description: 'Descargar MP4',
-                  id: `${prefijo}play.2 ${video.url}`
+                  id: `${prefijo}video ${video.url}`
                 }
               ]
             }))

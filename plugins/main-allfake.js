@@ -40,9 +40,9 @@ global.namechannel2 = '𝙔𝙪𝙠𝙞_𝙎𝙪𝙤𝙪-𝘽𝙤𝙩 - 𝗧𝗲
 global.namegrupo = '𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭'
 global.namecomu = '𝗖𝗼𝗺𝘂𝗻𝗶𝗱𝗮𝗱 𝕐𝕦𝕜𝕚_𝕊𝕦𝕠𝕦-𝔹𝕠𝕥'
 global.namecomu2 = '𝗖𝗼𝗺𝘂𝗻𝗶𝗱𝗮𝗱 𝙔𝙪𝙠𝙞_𝙎𝙪𝙤𝙪-𝘽𝙤𝙩'
-global.colab1 = 'Niño Piña'
-global.colab2 = 'Diomar'
-global.colab3 = 'Dino'
+global.colab1 = 'Emma-Violets-Versión'
+global.colab2 = 'Niño Piña'
+global.colab3 = 'Legends'
 
 //Reacciones De Comandos.!
 global.rwait = '🕒'
@@ -66,7 +66,7 @@ global.waitttt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻�
 var grupo = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ'
 var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
 var git = 'https://github.com/The-King-Destroy' 
-var youtube = 'https://youtube.com/@user-the-king-destroy?si=8kNB8k2k3ESQ_J9j' 
+var youtube = 'https://youtube.com/@user-the-king-destroy' 
 var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
 let correo = 'thekingdestroy507@gmail.com'
 
@@ -109,6 +109,6 @@ global.icono = [
 'https://i.ibb.co/YjKbY7j/Sylph.jpg'
 ].getRandom()
 
-global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363322713003916@newsletter", serverMessageId: 100, newsletterName: namechannel, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '✨ ꜞᴱˡ ᵇᵒᵗ ᵐᵃˢ ᵉˣᵖˡᵒˢⁱᵛᵒꜝ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
+global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363322713003916@newsletter", serverMessageId: 100, newsletterName: namechannel, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '✨ 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
 
 export default handler

@@ -34,7 +34,7 @@ let handler = async (_0x55976e, {
     try {
         let _0x2538c6 = _0x14ced5[_0x2359c0(0x1c2)][_0x2359c0(0x1b2)]
             , _0xf17176 = _0x55976e[_0x2359c0(0x1bb)] ? _0x55976e['quoted'] : _0x55976e;
-        if (!_0x55976e[_0x2359c0(0x1bb)]) return _0x55976e.reply('🚩 Responde a una *Imagen.*')
+        if (!_0x55976e[_0x2359c0(0x1bb)]) return _0x55976e.reply('🖼️ Responde a una *Imagen.*')
         let _0x353a82 = (_0xf17176[_0x2359c0(0x1b1)] || _0xf17176)[_0x2359c0(0x1cf)] || '';
         var _0x434471 = await _0xf17176[_0x2359c0(0x1ba)]();
         let _0x3aeaf4 = await _0x2538c6;
@@ -66,7 +66,7 @@ let handler = async (_0x55976e, {
             }]
         }), _0x55976e[_0x2359c0(0x1b8)](_0x2359c0(0x1c7));
     } catch {
-        return _0x55976e.reply('🚩 Responde a una *Imagen.*')
+        return _0x55976e.reply('🖼️ Responde a una *Imagen.*')
     }
 };
 handler.tags = ['owner']
@@ -76,7 +76,7 @@ handler.owner = true
 export default handler;
 
 function _0x14c2() {
-    const _0x1897e4 = ['AUTO', 'user', '8CJixwu', 'getHeight', 'getBufferAsync', 'w:profile:picture', '🚩 Foto cambiada con exito.', 'picture', 'read', '1419731ZjYevm', 'MIME_JPEG', '82272azbcaw', '350agtQLJ', '279gQMikZ', 'mimetype', '188728rlRvtO', 'msg', 'jid', 'image', '1705364hxGRFM', '14905ZvBfug', '2578255zmHnCy', 'getWidth', 'reply', '1780230pdlTpE', 'download', 'quoted', 'query', '2810ZHRQDi', 'resize', '🚩 Responde a una *Imagen.*', 'rowner']
+    const _0x1897e4 = ['AUTO', 'user', '8CJixwu', 'getHeight', 'getBufferAsync', 'w:profile:picture', '📸 Foto cambiada con exito.', 'picture', 'read', '1419731ZjYevm', 'MIME_JPEG', '82272azbcaw', '350agtQLJ', '279gQMikZ', 'mimetype', '188728rlRvtO', 'msg', 'jid', 'image', '1705364hxGRFM', '14905ZvBfug', '2578255zmHnCy', 'getWidth', 'reply', '1780230pdlTpE', 'download', 'quoted', 'query', '2810ZHRQDi', 'resize', '🖼️ Responde a una *Imagen.*', 'rowner']
     _0x14c2 = function () {
         return _0x1897e4;
     };

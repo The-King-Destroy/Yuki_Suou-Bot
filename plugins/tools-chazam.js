@@ -12,13 +12,13 @@ let shp = await fetch(`https://apis-starlights-team.koyeb.app/starlight/chazam?u
 let json = await shp.json()
 let app = { title: json.title, artist: json.artist, type: json.type, url: json.url }
 let txt = `*\`-• C H A Z A M - M U S I C •-\`*\n\n` +
-`🍟 *Nombre:* ${app.title}\n` +
-`🍟 *Artista:* ${app.artist}\n` +
-`🍟 *Tipo:* ${app.type}\n` +
-`🍟 *Link:* ${app.url}`
+`👤 *Nombre:* ${app.title}\n` +
+`🎵 *Artista:* ${app.artist}\n` +
+`🌀 *Tipo:* ${app.type}\n` +
+`🔗 *Link:* ${app.url}`
 m.reply(txt)
 } else {
-throw '🚩 *Responde a un audio/video*'
+throw '✍️ *Responde a un audio/video*'
 }}
 handler.help = ['chazam *<audio>*']
 handler.tags = ['tools']

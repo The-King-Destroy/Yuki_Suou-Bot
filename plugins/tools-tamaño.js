@@ -3,8 +3,8 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command, args, text }) => {
 let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || ''
-if (!mime) return conn.reply(m.chat, `🚩 Responde a una *Imagen* o *Video.*`, m)
-if (!text) return conn.reply(m.chat, `🚩 Ingresa el peso nuevo de la imágen/video.`, m)
+if (!mime) return conn.reply(m.chat, `✍️ Responde a una *Imagen* o *Video.*`, m)
+if (!text) return conn.reply(m.chat, `🔢 Ingresa el peso nuevo de la imágen/video.`, m)
 await m.react('🕓')
 try {
 if (isNaN(text)) return conn.reply(m.chat, 'Sólo números.', m).then(_ => m.react('✖️'))

@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
-  if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `💥 *¡Estos comandos están desactivados!*`; 
+  if (!db.data.chats[m.chat].modohorny && m.isGroup) throw `⚠️ *¡Estos comandos están desactivados!*`; 
   try {
     const pp = imagen5
     // let vn = './media/menu.mp3'
@@ -65,7 +65,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
       conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
     }
   } catch {
-    conn.reply(m.chat, '💥 *¡Ocurrió Un Error!*', m);
+    conn.reply(m.chat, '⚙️ *¡Ocurrió Un Error!*', m);
   }
 };
 handler.tags = ['main']

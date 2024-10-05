@@ -4,7 +4,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 let who
 if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false
 else who = m.chat
-if (!who) throw `🚩 Por favor, menciona el usuario`
+if (!who) throw `👤 Por favor, menciona el usuario`
 if (usedPrefix == 'a' || usedPrefix == 'A') return;
 let pp = "https://telegra.ph/file/4d80ab3a945a8446f0b15.mp4"
 let pp2 = "https://telegra.ph/file/ef3a13555dfa425fcf8fd.mp4"
@@ -24,7 +24,7 @@ conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6].getRandom
 conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6].getRandom() }, gifPlayback: true, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak});
 }
 } catch {
-conn.reply(m.chat, '🍟 *¡Ocurrio un error!*', m, rcanal);
+conn.reply(m.chat, '⚙️ *¡Ocurrio un error!*', m, rcanal);
 }};
 
 handler.help = ['abrazar'].map((v) => v + ' <@usuario>');

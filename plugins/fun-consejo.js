@@ -2,7 +2,7 @@ const { generateWAMessageFromContent, proto } = (await import('@whiskeysockets/b
 
 var handler = async (m, { conn, text}) => {
 
-conn.reply(m.chat, '🚩 Buscando un consejo...', m, {
+conn.reply(m.chat, '⌛ Buscando un consejo...', m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: packname,
 body: wm,

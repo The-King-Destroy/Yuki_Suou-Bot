@@ -1,5 +1,5 @@
 const handler = async (m, {text, conn, usedPrefix, command}) => {
-  const why = `🧡 *Mal Uso Del Comando, Uso Correcto:*\n*${usedPrefix + command} @${m.sender.split('@')[0]}*`;
+  const why = `⭕ *Mal Uso Del Comando, Uso Correcto:*\n*${usedPrefix + command} @${m.sender.split('@')[0]}*`;
   const who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : false;
   if (!who) conn.reply(m.chat, why, m, {mentions: [m.sender]});
   const res = [];
@@ -19,7 +19,7 @@ const handler = async (m, {text, conn, usedPrefix, command}) => {
       } else conn.reply(m.chat, why, m, {mentions: [m.sender]});
       break;
   }
-  if (res[0]) conn.reply(m.chat, `🖤 *Exito Se Uso El Comando ${command} Para El Usuario ${res ? `${res.map((v) => '@' + v.split('@')[0])}` : ''}*`, m, {mentions: res});
+  if (res[0]) conn.reply(m.chat, `✅ *Exito Se Uso El Comando ${command} Para El Usuario ${res ? `${res.map((v) => '@' + v.split('@')[0])}` : ''}*`, m, {mentions: res});
 };
 handler.command = ['block','unblock'];
 handler.rowner = true;

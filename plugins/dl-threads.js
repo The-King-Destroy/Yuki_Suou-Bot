@@ -5,7 +5,7 @@ import cheerio from 'cheerio';
 
 let handler = async (m, { args, conn }) => { 
     if (!args[0]) {
-        return conn.reply(m.chat, '*\`Ingresa el link de la imagen a descargar 🤍\`*', m, fake);
+        return conn.reply(m.chat, '*\`Ingresa el link de la imagen a descargar ✨\`*', m, fake);
     }
 
     try {

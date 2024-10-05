@@ -1,4 +1,4 @@
-/*let handler = async (m, { conn, usedPrefix, text }) => {
+  let handler = async (m, { conn, usedPrefix, text }) => {
   let { key } = await conn.sendMessage(m.chat, { text: "Tas caliente! Ahora te hare una paja" }, { quoted: m });
   const array = [
     "8==👊==D", "8===👊=D", "8=👊===D", "8=👊===D", "8==👊==D", "8===👊=D", "8====👊D", "8==👊=D", "8==👊==D", "8=👊===D", "8👊====D", "8=👊===D","8==👊==D", "8===👊=D", "8====👊D","8==👊==D", "8===👊=D", "8=👊===D", "8=👊===D", "8==👊==D", "8===👊=D", "8====👊D💦"
@@ -15,4 +15,4 @@ handler.help = ['pajeame'];
 handler.tags = ['fun'];
 handler.command = /^pajeame|paja$/i;
 
-export default handler;*/
+export default handler;

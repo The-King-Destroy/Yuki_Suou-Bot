@@ -13,16 +13,16 @@ const handler = async (m, {conn, usedPrefix}) => {
   const _clue = json.response;
   const clue = _clue.replace(/[A-Za-z]/g, '_');
   const caption = `
-ⷮ🚩 *ACERTIJOS*
+ⷮ🌟 *ACERTIJOS*
 ✨️ *${json.question}*
 
 ⏱️ *Tiempo:* ${(timeout / 1000).toFixed(2)} Segundos
-🎁 *Premio:* *+${poin}* Centavos 🪙`.trim();
+🎁 *Premio:* *+${poin}* yukicoins 🪙`.trim();
   conn.tekateki[id] = [
     await conn.reply(m.chat, caption, m), json,
     poin,
     setTimeout(async () => {
-      if (conn.tekateki[id]) await conn.reply(m.chat, `🤍 Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0]);
+      if (conn.tekateki[id]) await conn.reply(m.chat, `⌛ Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0]);
       delete conn.tekateki[id];
     }, timeout)];
 };

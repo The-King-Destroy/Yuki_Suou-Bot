@@ -3,7 +3,7 @@ import FormData from "form-data";
 import cheerio from "cheerio";
 
 let handler = async (m, { conn, usedPrefix, command, text, args }) => {
-  if (!text) return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🤍\`*', m, rcanal)
+  if (!text) return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar ✨\`*', m, rcanal)
     try {
 let data = await tiktokdl(text)
 console.log(data)

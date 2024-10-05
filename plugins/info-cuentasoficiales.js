@@ -21,13 +21,13 @@ let handler = async (m, { conn, command }) => {
 Wa.me/584120346669
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ❤️‍🔥 *Edicion*
-wa.me/584128382768
+wa.me/522441357601
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 🌹 *Colaborador 1:*
-Wa.me/593984964830
+Wa.me/50557865603
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 🌹 *Colaborador 2:*
-wa.me/528711426787
+wa.me/573142051545
 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 🧩 *Grupos Oficiales:*
 1) *${gp1}*\n

@@ -6,7 +6,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         lang = args[0] ? args[0] : "id", text = args.slice(1).join(" ")
     } else if (m.quoted && m.quoted.text) {
         lang = args[0] ? args[0] : "id", text = m.quoted.text
-    } else return conn.reply(m.chat, `*🚩 Ejemplo: ${usedPrefix + command} es Hello World*`, m, rcanal)
+    } else return conn.reply(m.chat, `*✍️ Ejemplo: ${usedPrefix + command} es Hello World*`, m, rcanal)
     try {
     const prompt = encodeURIComponent(text)
         let reis = await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=" + lang + "&dt=t&q=" + prompt)

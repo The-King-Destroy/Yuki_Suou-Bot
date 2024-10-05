@@ -16,10 +16,10 @@ let menu = `
 
  `.trim()
 
-const vi = ['https://telegra.ph/file/fab2b6db04085256bfd63.mp4',
-            'https://telegra.ph/file/d164d846965838a33c04a.mp4',
-            'https://telegra.ph/file/67f2d7c486afa90895d07.mp4',
-           'https://telegra.ph/file/6f57e5130cf58fb3b9e98.mp4']
+const vi = ['https://qu.ax/yiMt.mp4',
+            'https://qu.ax/cdKQ.mp4',
+            'https://qu.ax/ycZW.mp4',
+           'https://qu.ax/XmLe.mp4']
 
 try {
 await conn.sendMessage(m.chat, { video: { url: vi.getRandom() }, gifPlayback: true, caption: menu, mentions: await conn.parseMention(menu) }, { quoted: fkontak })

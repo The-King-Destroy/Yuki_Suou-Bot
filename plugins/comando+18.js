@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 const handler = async (m, {conn, command, usedPrefix}) => {
-  if (!db.data.chats[m.chat].modohorny && m.isGroup) throw '🚩 *¡Estos comandos están desactivados!*';
-conn.reply(m.chat, `🚩 Enviando el *${command}*`, m, {
+  if (!db.data.chats[m.chat].modohorny && m.isGroup) throw '🚫 *¡Estos comandos están desactivados!*';
+conn.reply(m.chat, `📤 Enviando el *${command}*`, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: packname,
 body: wm,

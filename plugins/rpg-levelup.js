@@ -7,7 +7,7 @@ let name = conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
 if (!canLevelUp(user.level, user.exp, global.multiplier)) {
 let { min, xp, max } = xpRange(user.level, global.multiplier)
-let txt = `💥 *Nombre* ${name}\n\n`
+let txt = `👤 *Nombre* ${name}\n\n`
 txt += `✨ *Nivel* ${user.level}\n`
 txt += `🌟 *XP* ${user.exp - min} / ${xp}\n\n`
 txt += `💫 No es suficiente XP *${max - user.exp}* ¡De nuevo! ✨`

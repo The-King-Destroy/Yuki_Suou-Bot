@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, isOwner }) => {
   if (!text) return m.reply(`> _📝 Ingresa el link del grupo para rentar el bot._`);
 
   let [_, code] = text.match(linkRegex) || [];
-  if (!code) return m.reply('🚩 Enlace inválido.');
+  if (!code) return m.reply('⭕ Enlace inválido.');
 
   global.db.data.groupRents = global.db.data.groupRents || {};
   let userRents = global.db.data.userRents[m.sender];
@@ -42,7 +42,7 @@ let handler = async (m, { conn, text, isOwner }) => {
   chats.expired = global.db.data.groupRents[groupId].startTime + global.db.data.groupRents[groupId].duration;
   global.db.data.chats[groupId] = chats;
 
-  let pp = 'https://telegra.ph/file/32e696946433c03588726.mp4';
+  let pp = 'https://qu.ax/MTch.mp4';
   await conn.sendMessage(groupMetadata, { video: { url: pp }, gifPlayback: true, caption: '> ¡Ya llegué! El bot estará disponible por el tiempo acordado.', mentions: [m.sender] }, { quoted: estilo })
 };
 handler.tags = ['grupos']

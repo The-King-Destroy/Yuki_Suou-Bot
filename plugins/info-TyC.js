@@ -2,7 +2,7 @@ const handler = async (m, {conn}) => {
 
 conn.reply(m.chat, `MENSAJE DEL DESARROLLADOR 😊
 
-⚠️ ADVERTENCIA DEL CREADOR (David / Diamond) ⚠️
+⚠️ ADVERTENCIA DEL CREADOR (I'am|Destroy) ⚠️
 
 Yo no me hago responsable del mal uso del bot o subbot, cada persona maneja el bot a su manera. Yo no me hago cargo de lo que le puede pasar a su cuenta de WhatsApp.
 
@@ -10,7 +10,7 @@ El bot es simple pero con comandos divertidos, para ver los comandos utiliza: !m
 
 Bot uso publico para todas las personas que le guste usarlo, gracias por preferir nuestro servicio. 🌟
 
-💥 ¡Contactanos! 💥
+✨ ¡Contactanos! ✨
 
 👑 Creador:
 • ${global.creador}

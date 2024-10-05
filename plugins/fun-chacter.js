@@ -23,13 +23,13 @@ let handler = async (m, { conn, command, text, usedPrefix, participants }) => {
     const userCharacterSeletion =
       userChar[Math.floor(Math.random() * userChar.length)]
 
-    let message = `Character of @${mentionedUser.split("@")[0]}  is *${userCharacterSeletion}* 🔥⚡`
+    let message = `Chacter of @${mentionedUser.split("@")[0]}  is *${userCharacterSeletion}* 🔥⚡`
     
     conn.sendMessage(m.chat, { text: message, mentions: [mentionedUser] }, { quoted: m })
     
 }
-handler.help = ["character @tag"]
+handler.help = ["chacter @tag"]
 handler.tags = ['fun']
-handler.command = /^(character)/i
+handler.command = /^(chacter)/i
 
 export default handler 

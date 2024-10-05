@@ -10,7 +10,7 @@ handler.before = async function(m) {
     const json = JSON.parse(JSON.stringify(this.tekateki[id][1]));
     if (m.text.toLowerCase() == json.response.toLowerCase().trim()) {
       global.db.data.users[m.sender].estrellas += this.tekateki[id][2];
-      m.reply(`🤍 *Respuesta correcta!*\n+${this.tekateki[id][2]} Centavos`);
+      m.reply(`✅ *Respuesta correcta!*\n+${this.tekateki[id][2]} Centavos`);
       clearTimeout(this.tekateki[id][3]);
       delete this.tekateki[id];
     } else if (similarity(m.text.toLowerCase(), json.response.toLowerCase().trim()) >= threshold) m.reply(`Casi lo logras!`);
