@@ -26,7 +26,7 @@ participant: '0@s.whatsapp.net'
         return conn.reply(m.chat, '[❗] Inserte el comando más el enlace/link de un video de YouTube', vcard, m, rcanal);
     }
 let name = conn.getName(m.sender);
-  let apislap = await fetch(`https://qu.ax/LFSZS.mp4`);
+  let apislap = await fetch(`https://qu.ax/UjekN.mp4`);
 let url = apislap.url;
     let stiker = await sticker(null, url, `${name} está descargando...`, `Estoy haciendo lo mejor que puedo..!#€ Aahh!`);
   const stickerMessage = await conn.sendFile(m.chat, stiker, null, { asSticker: true }, m, true, { contextInfo: { forwardingScore: 200, isForwarded: true } }, { quoted: m });
