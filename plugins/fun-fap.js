@@ -3,7 +3,7 @@ import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-    if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false;
+    if (m.isGroup) who = m.quoted ? m.quoted.sender : false;
     else who = m.chat;
 
     let user = global.db.data.users[who];
