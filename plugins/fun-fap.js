@@ -1,16 +1,17 @@
-import fs from 'fs';
+import import fs from 'fs';
 import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-    if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender;
+    if (m.isGroup) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false;
     else who = m.chat;
-    if (!who) throw ' fap o fap @ ';
+    if (!who) throw 'Etiqueta o menciona a alguien';
 
     let user = global.db.data.users[who];
     let name = conn.getName(who);
     let name2 = conn.getName(m.sender);
     m.react('😛');
+    let str = `${name} le esta lamiendo el coño a`.who();
     let str = `${name2} le esta lamiendo el coño a`.trim();
     if (m.isGroup){
     
