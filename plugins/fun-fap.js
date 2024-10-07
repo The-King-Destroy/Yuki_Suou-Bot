@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let user = global.db.data.users[who];
     let name = conn.getName(who);
     m.react('😛');
-    let str = `${who} le esta lamiendo el coño a`.trim();
+    let str = `${who} le esta lamiendo el coño a';
     
     let pp = 'https://qu.ax/Kejmn.mp4' 
     let pp2 = 'https://qu.ax/PSBkz.mp4' 
@@ -21,7 +21,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let pp8 = 'https://qu.ax/SFFq.mp4'
     const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
     const video = videos[Math.floor(Math.random() * videos.length)];
-    conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption:str, mentions: [m.sender] },{ quoted: estilo })
+    conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: [m.sender] },{ quoted: estilo })
     };
    
 }
