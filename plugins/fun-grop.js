@@ -29,7 +29,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 handler.help = ['grop @tag'];
 handler.tags = ['fun'];
-handler.command = ['grop', ' manosear'];
+handler.command = ['grop', 'manosear'];
 handler.group = true;
 
 export default handler;
