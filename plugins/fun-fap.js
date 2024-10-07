@@ -11,7 +11,6 @@ let handler = async (m, { conn, usedPrefix }) => {
     let name2 = conn.getName(m.sender);
     m.react('😛');
     let str = `${name2} le esta lamiendo el coño a`.trim();
-    if (m.isGroup){
     
     let pp = 'https://qu.ax/Kejmn.mp4' 
     let pp2 = 'https://qu.ax/PSBkz.mp4' 
