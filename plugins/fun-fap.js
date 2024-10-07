@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let user = global.db.data.users[who];
     let name = conn.getName(who);
     m.react('😛');
-    let str = `${name} le esta lamiendo el coño a`.trim();
+    let str = `${who} le esta lamiendo el coño a`.trim();
     
     let pp = 'https://qu.ax/Kejmn.mp4' 
     let pp2 = 'https://qu.ax/PSBkz.mp4' 
