@@ -43,7 +43,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 };
 handler.tags = ['descargas']
 handler.help = ['apk']
-handler.command = /^(apkp|apkpure|apkdl)$/i;
+handler.command = /^(apk|apkpure|apkdl)$/i;
 handler.register = true;
 handler.limit = 2;
 export default handler;
