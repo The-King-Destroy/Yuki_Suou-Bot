@@ -1,7 +1,7 @@
 let handler = async (m, { conn, command, text }) => {
     // Verifica si se proporcionó un texto
     if (!text) {
-        return conn.reply(m.chat, `*Por favor, menciona al usuario o escribe su nombre para saber si puedes ${command.replace('how', '')}*`, m);
+        return conn.reply(m.chat, `*Por favor, menciona al usuario para saber si puedes ${command.replace('how', '')}*`, m);
     }
 
     // Obtiene el usuario mencionado o el que respondió al mensaje
