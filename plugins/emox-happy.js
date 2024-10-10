@@ -32,8 +32,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (m.isGroup) {
         let pp = 'https://files.catbox.moe/92bs9b.mp4'; 
         let pp2 = 'https://files.catbox.moe/d56pfs.mp4; 
-        let pp3 = 'https://files.catbox.moe/kh6ii0.mp4';
-        let pp4 = 'https://files.catbox.moe/gmya70.mp4';
+        let pp3 = 'https://files.catbox.moe/gmya70.mp4';
+        let pp4 = 'https://files.catbox.moe/kh6ii0.mp4';
         let pp5 = 'https://files.catbox.moe/6mjruj.mp4';
         let pp6 = 'https://files.catbox.moe/kgggyv.mp4';
         
