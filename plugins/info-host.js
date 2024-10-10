@@ -7,16 +7,16 @@ Descubre *SkayUltraPlus*, tu solución ideal con servidores dedicados y precios 
 🟢 *Información del Host*
 
 🔮 *Dashboard:*  
-• [Accede a tu Dashboard](https://dash.skyultraplus.com)
+• (https://dash.skyultraplus.com)
 
 🧃 *Panel de Control:*  
-• [Visita el Panel](https://panel.skyultraplus.com)
+• (https://panel.skyultraplus.com)
 
 🌟 *Únete a nuestro Canal:*  
-• [Canal de WhatsApp](https://whatsapp.com/channel/0029VamOVm08fewr5jix2Z3t)
+• (https://whatsapp.com/channel/0029VamOVm08fewr5jix2Z3t)
 
-⚜️ *Contacto (Gata-Lina):*  
-• [Escríbenos aquí](https://wa.me/524531287294)
+⚜️ *Contacto (Soporte):*  
+• (https://wa.me/524531287294)
 
 > *¡Únete a nuestra comunidad y disfruta de un servicio excepcional! No dejes pasar la oportunidad de llevar tus proyectos al siguiente nivel con SkayUltraPlus. ¡Estamos aquí para ayudarte! :D*` 
 await conn.sendMessage(m.chat, { text: txt,
