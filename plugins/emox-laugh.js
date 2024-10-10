@@ -17,27 +17,27 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
     let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
-    m.react('😁');
+    m.react('🤣');
 
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} está feliz por ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `${name2} se esta riendo de ${name || who}.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} está feliz por ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} se esta riendo de ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} está muy feliz hoy.`.trim();
+        str = `${name2} se esta riendo.`.trim();
     }
     
     if (m.isGroup) {
-        let pp = 'https://files.catbox.moe/92bs9b.mp4'; 
-        let pp2 = 'https://files.catbox.moe/d56pfs.mp4'; 
-        let pp3 = 'https://files.catbox.moe/kh6ii0.mp4';
-        let pp4 = 'https://files.catbox.moe/gmya70.mp4';
-        let pp5 = 'https://files.catbox.moe/6mjruj.mp4';
-        let pp6 = 'https://files.catbox.moe/kgggyv.mp4';
-        let pp7 = 'https://files.catbox.moe/84d71w.mp4';
-        let pp8 = 'https://files.catbox.moe/hlifrw.mp4';
+        let pp = 'https://telegra.ph/file/5fa4fd7f4306aa7b2e17a.mp4'; 
+        let pp2 = 'https://telegra.ph/file/b299115a77fadb7594ca0.mp4'; 
+        let pp3 = 'https://telegra.ph/file/9938a8c2e54317d6b8250.mp4';
+        let pp4 = 'https://telegra.ph/file/e6c7b3f7d482ae42db9a7.mp4';
+        let pp5 = 'https://telegra.ph/file/a61b52737df7459580129.mp4';
+        let pp6 = 'https://telegra.ph/file/f34e1d5c8f17bd2739a51.mp4';
+        let pp7 = 'https://telegra.ph/file/c345ed1ca18a53655f857.mp4';
+        let pp8 = 'https://telegra.ph/file/4eec929f54bc4d83293a3.mp4';
         
         const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
         const video = videos[Math.floor(Math.random() * videos.length)];
@@ -48,9 +48,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
 }
 
-handler.help = ['happy/feliz @tag'];
+handler.help = ['laugh/reirse @tag'];
 handler.tags = ['emox'];
-handler.command = ['happy', 'feliz'];
+handler.command = ['laugh', 'reirse'];
 handler.group = true;
 
 export default handler;
