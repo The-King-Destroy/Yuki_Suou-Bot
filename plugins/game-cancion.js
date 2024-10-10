@@ -14,6 +14,7 @@ const handler = async (m, {conn, usedPrefix}) => {
   const caption = `
 ADIVINA EL TITULO DE LA CANCION
 Tiempo ${(timeout / 1000).toFixed(2)} segundos
+Escribe *${usedPrefix}pista* Para obtener una pista
 Premio: ${poin} XP
 RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
   conn.tebaklagu[id] = [
@@ -27,7 +28,7 @@ RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
   const aa = await conn.sendMessage(m.chat, {audio: {url: json.link_song}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
   if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m);
 };
-handler.help = ['cancion'];
+handler.help = ['tebaklagu'];
 handler.tags = ['game'];
 handler.command = /^cancion|canción$/i;
 export default handler;
