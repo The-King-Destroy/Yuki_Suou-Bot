@@ -35,5 +35,5 @@ sourceUrl: 'https://dash.skyultraplus.com'}}},
 }
 handler.tags =['info'] 
 handler.help = ['host', 'hosting'] 
-handler.command = ['host', 'olympus', 'olympushost', 'hosting']
+handler.command = ['host', 'skay', 'skayultraplus', 'hosting']
 export default handler
