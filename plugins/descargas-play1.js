@@ -38,7 +38,7 @@ console.log(`❗❗ᴇʀʀᴏʀ ${usedPrefix + command} ❗❗`)
 console.log(e)
 handler.limit = 0
 }}
-handler.command = ['play']
+handler.command = ['play', 'play2', 'play3', 'play4']
 //handler.limit = 3
 handler.register = true 
 handler.group = true

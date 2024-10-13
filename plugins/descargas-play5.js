@@ -125,9 +125,9 @@ m.react(error)
 return conn.reply(m.chat, '⚠️ Error ⚠️ *intentelo de nuevo*', m, rcanal, )}
 
 }
-handler.help = ['audio', 'video']
+handler.help = ['play5', 'play6']
 handler.tags = ['descargas']
-handler.command = /^audio|video$/i
+handler.command = /^play5|play6$/i
 
 handler.register = true
 handler.limit = true
