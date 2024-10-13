@@ -2,7 +2,7 @@ let handler = async (m, { conn, command, usedPrefix }) => {
 let txt = `✨ *S K A Y - U L T R A - P L U S* 
 
 *¿Buscas un hosting de alta calidad a precios imbatibles?*  
-Descubre *SkayUltraPlus*, tu solución ideal con servidores dedicados y precios accesibles  Ofrecemos un Uptime garantizado 24/7, asegurando que tus proyectos funcionen de manera óptima en todo momento.
+Descubre *SkayUltraPlus*, tu solución ideal con servidores dedicados a precios accesibles  Ofrecemos un Uptime garantizado 24/7, asegurando que tus proyectos funcionen de manera óptima en todo momento.
 
 🟢 *Información del Host*
 
