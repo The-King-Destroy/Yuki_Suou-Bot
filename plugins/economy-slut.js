@@ -4,13 +4,15 @@ let handler = async (m, { conn }) => {
   let user = global.db.data.users[m.sender]
   let tiempoEspera = 1 * 58
 
-  if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
-    const tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
-    conn.reply(m.chat, `⏳ ¡Ten paciencia! Debes esperar *${tiempoRestante}* para volver a usar *slut* .`)
+  // Usa el ID del chat como clave para los cooldowns
+  let chatId = m.chat
+  if (cooldowns[chatId] && Date.now() - cooldowns[chatId] < tiempoEspera * 1000) {
+    const tiempoRestante = segundosAHMS(Math.ceil((cooldowns[chatId] + tiempoEspera * 1000 - Date.now()) / 1000))
+    conn.reply(m.chat, `⏳ ¡Ten paciencia! Debes esperar *${tiempoRestante}* para volver a usar *slut* en este grupo.`)
     return
   }
 
-  cooldowns[m.sender] = Date.now()
+  cooldowns[chatId] = Date.now()
   let resultado = Math.floor(Math.random() * 2500)
   let cookiesGanadas = Math.floor(Math.random() * 50) + 10 // Gana entre 10 y 59 Cookies 🍪
 
