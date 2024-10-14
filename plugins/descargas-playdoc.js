@@ -116,7 +116,7 @@ await conn.reply(m.chat, '🌟 *Ocurrió un fallo*', m, rcanal, )
 return conn.reply(m.chat, '🌟 *Inténtelo de nuevo*', m, rcanal, )}
 
 }
-handler.help = ['play3', 'play4']
+handler.help = ['playdoc', 'playdoc2']
 handler.tags = ['descargas']
 handler.command = /^(playdoc|playdoc2|play3|play4)$/i
 
