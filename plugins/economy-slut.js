@@ -1,37 +1,43 @@
 let cooldowns = {}
 
-let handler = async (m, { conn, isPrems }) => {
-let user = global.db.data.users[m.sender]
+let handler = async (m, { conn }) => {
+  let user = global.db.data.users[m.sender]
   let tiempoEspera = 1 * 58
+
   if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
     const tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
     conn.reply(m.chat, `᪥ Debes espera *${tiempoRestante}* para volver a usar *slut* .`)
     return
   }
-  let resultado = Math.floor(Math.random() * 2500)
+
   cooldowns[m.sender] = Date.now()
-  await conn.reply(m.chat, `᪥ ${pickRandom(works)} *${toNum(resultado)}* ( *${resultado}* ) *YukiCoins* .`)
+  let resultado = Math.floor(Math.random() * 2500)
+  let cookiesGanadas = Math.floor(Math.random() * 50) + 10 // Gana entre 10 y 59 Cookies 🍪
+  
   user.limit += resultado
+  user.cookies = (user.cookies || 0) + cookiesGanadas
+
+  await conn.reply(m.chat, `᪥ ${pickRandom(works)} *${toNum(resultado)}* ( *${resultado}* ) *YukiCoins* y *${cookiesGanadas} Cookies 🍪* .`)
 }
 
 handler.help = ['slut']
 handler.tags = ['economy']
-handler.command = ['slut','prost']
+handler.command = ['slut', 'prost']
 handler.register = true 
 export default handler
 
 function toNum(number) {
-    if (number >= 1000 && number < 1000000) {
-        return (number / 1000).toFixed(1) + 'k'
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'M'
-    } else if (number <= -1000 && number > -1000000) {
-        return (number / 1000).toFixed(1) + 'k'
-    } else if (number <= -1000000) {
-        return (number / 1000000).toFixed(1) + 'M'
-    } else {
-        return number.toString()
-    }
+  if (number >= 1000 && number < 1000000) {
+    return (number / 1000).toFixed(1) + 'k'
+  } else if (number >= 1000000) {
+    return (number / 1000000).toFixed(1) + 'M'
+  } else if (number <= -1000 && number > -1000000) {
+    return (number / 1000).toFixed(1) + 'k'
+  } else if (number <= -1000000) {
+    return (number / 1000000).toFixed(1) + 'M'
+  } else {
+    return number.toString()
+  }
 }
 
 function segundosAHMS(segundos) {
@@ -44,13 +50,11 @@ function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())];
 }
 
-
 const works = [
-   " Dejaste que un grupo de jovenes te vistieran de puta a cambio de",
-   "Ayudaste al admin a eyacular y te dió",
-   "Te vistieron de maid en publico y te dieron",
-   "Le sobaste el pito a un cliente habitual y ganaste",
-   "Te vistieron de colegiala en publico y te dieron",
-   "Le diste los sentones de su vida a un hombre que encontraste por ahi y ganaste",
-  ]
- 
+  "Dejaste que un grupo de jóvenes te vistieran de puta a cambio de",
+  "Ayudaste al admin a eyacular y te dió",
+  "Te vistieron de maid en público y te dieron",
+  "Le sobaste el pito a un cliente habitual y ganaste",
+  "Te vistieron de colegiala en público y te dieron",
+  "Le diste los sentones de su vida a un hombre que encontraste por ahí y ganaste",
+]
