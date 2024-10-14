@@ -6,26 +6,26 @@ let handler = async (m, { conn }) => {
 
   if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
     const tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
-    conn.reply(m.chat, `⏳ ¡Paciencia! Debes esperar *${tiempoRestante}* para volver a usar *slut*.`)
+    conn.reply(m.chat, `⏳ ¡Ten paciencia! Debes esperar *${tiempoRestante}* para volver a usar *slut* .`)
     return
   }
 
   cooldowns[m.sender] = Date.now()
   let resultado = Math.floor(Math.random() * 2500)
   let cookiesGanadas = Math.floor(Math.random() * 50) + 10 // Gana entre 10 y 59 Cookies 🍪
-  
+
   user.limit += resultado
   user.cookies = (user.cookies || 0) + cookiesGanadas
 
+  let mensajeAleatorio = pickRandom(works)
+
   await conn.reply(m.chat, `
-✨ ¡Felicidades, ${conn.getName(m.sender)}! ✨
-Has realizado una acción audaz y has conseguido:
+✨ *${mensajeAleatorio}*
 🪙 *${toNum(resultado)} YukiCoins* ( *${resultado}* )
 🍪 *${cookiesGanadas} Cookies 🍪*
 
-Tu total de Cookies ahora es: *${user.cookies} Cookies 🍪* 
-
-¡Sigue así y acumula más riquezas! 💰🌟
+✨ Tu total de Cookies ahora es: *${user.cookies} Cookies 🍪* 
+¡Sigue acumulando riquezas y sorprende a todos! 💰🌟
   `.trim())
 }
 
@@ -53,6 +53,10 @@ function segundosAHMS(segundos) {
   let minutos = Math.floor((segundos % 3600) / 60)
   let segundosRestantes = segundos % 60
   return `${minutos} minutos y ${segundosRestantes} segundos`
+}
+
+function pickRandom(list) {
+  return list[Math.floor(list.length * Math.random())];
 }
 
 const works = [
