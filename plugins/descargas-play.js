@@ -21,7 +21,7 @@ sourceUrl: channel }}})
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play') {
+if (command === 'play1') {
 additionalText = 'audio'
 } else if (command === 'play2') {
 additionalText = 'video'}
@@ -45,7 +45,7 @@ let texto1 = `☁ *Título:*
 🌸 Espere un momento`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: dev, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: fkontak })
 
-if (command == 'play') {        
+if (command == 'play1') {        
 try {
 let q = '128kbps'
 let v = yt_play[0].url
