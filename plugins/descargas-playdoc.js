@@ -6,7 +6,7 @@ import {youtubedl, youtubedlv2} from '@bochilteam/scraper'
 
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
-if (!text) return conn.reply(m.chat, `✨ *Ingrese el nombre de un video de YouTube*\n\nEjemplo, !${command} Huellas - Maiye Torrex`,  m, rcanal, )
+if (!text) return conn.reply(m.chat, `✨ *Ingrese el nombre de un video de YouTube*\n\nEjemplo, !${command} Yuki - Suou`,  m, rcanal, )
 m.react(rwait)
 
 try {
@@ -20,35 +20,34 @@ sourceUrl: channel }}})
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'ytmp3doc' || command == 'playdoc') {
+if (command === 'play3' || command == 'playdoc') {
 additionalText = 'audio'
-} else if (command === 'ytmp4doc' || command == 'playdoc2') {
+} else if (command === 'play4' || command == 'playdoc2') {
 additionalText = 'video'}
 
-let texto1 = `・₊✧★。..・✫・🎸🎧°⋆♡₊˚ 🔮
-> 🌩 τιτυℓο:
+let texto1 = `
+> 🌸 *Titulo*
 > • ${yt_play[0].title}
-> ◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪───ׅ──ׅ─ׅ─ׅ┈ ─๋︩︪─◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸
-> 🌦 ρυϐℓιϲα∂ο єи: 
+> ────────────────────────────>
+> 🌸 *Publicado en:* 
 > • ${yt_play[0].ago}
-> ◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎─ׅ─ׅ┈ ─๋︩︪───ׅ──ׅ─ׅ─ׅ┈ ─๋︩︪─⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸
-> 🍭 єиℓαϲє:
+> ────────────────────────────>
+> 🌸 *Enlace:*
 > • ${yt_play[0].url}
-> ◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪───ׅ──ׅ─ׅ─ׅ┈ ─๋︩︪─⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸
-> 🍒 αմԵօɾ:
+> ────────────────────────────>
+> 🌸 *Autor:*
 > • ${yt_play[0].author.name}
-> ◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪──ׅ──ׅ──ׅ─ׅ┈ ─๋︩︪─◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸
-> 🧃 cαɳαℓ:
+> ────────────────────────────>
+> 🌸 *Canal:*
 > • ${yt_play[0].author.url}
-> ◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸─ׅ─ׅ┈ ─๋︩︪───ׅ──ׅ─ׅ─ׅ┈ ─๋︩︪─◌⃘࣭ٜ࣪࣪࣪۬☪︎︎︎︎̸
-> 🍇 ժմɾαcíօ́ղ:
+> ────────────────────────────>
+> 🌸 *Duracion:*:
 > • ${secondString(yt_play[0].duration.seconds)}
-・₊✧。..・★🎸🎧°⋆♡₊˚ 🔮
 
-> _*🍬 εɳѵเαɳ∂σ รµ ${additionalText}, αɠµαɾ∂ε µɳ ɱσɱεɳƭσ 🍓...*_`.trim()
+> _*🍁 Enviando su ${additionalText}, aguarde un momento ☁...*_`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: dev, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: fkontak })
 
-if (command == 'ytmp3doc' || command == 'playdoc') {
+if (command == 'play3' || command == 'playdoc') {
 
 try {
 
@@ -80,7 +79,7 @@ conn.sendMessage(m.chat, {audio: {url: ress.url}, fileName: __res[0].title + '.m
 await conn.reply(m.chat, '🌟 *Ocurrió un fallo*', m, rcanal, )
 }}}}
 
-if (command == 'ytmp4doc' || command == 'playdoc2') {
+if (command == 'play4' || command == 'playdoc2') {
 
 try {
 const qu = '360'
@@ -117,12 +116,11 @@ await conn.reply(m.chat, '🌟 *Ocurrió un fallo*', m, rcanal, )
 return conn.reply(m.chat, '🌟 *Inténtelo de nuevo*', m, rcanal, )}
 
 }
-handler.help = ['ytmp3doc', 'ytmp4doc']
+handler.help = ['play3', 'play4']
 handler.tags = ['descargas']
-handler.command = ['playdoc','playdoc2','ytmp3doc','ytmp4doc']
+handler.command = /^(playdoc|playdoc2|play3|play4)$/i
 
 //handler.estrellas = 1
-handler.group = true;
 handler.register = true
 
 export default handler
