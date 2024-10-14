@@ -30,7 +30,7 @@ let handler = async (m, { conn }) => {
   `.trim())
 
   // Agregar la reacción al mensaje
-  await conn.react(m.chat, '🥵', m.key)
+  await conn.sendMessage(m.chat, { react: { text: '🥵', key: m.key } })
 }
 
 handler.help = ['slut']
