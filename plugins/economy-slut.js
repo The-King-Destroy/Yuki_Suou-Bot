@@ -17,6 +17,8 @@ let handler = async (m, { conn }) => {
   user.limit += resultado
   user.cookies = (user.cookies || 0) + cookiesGanadas
 
+  let mensajeAleatorio = pickRandom(works).toUpperCase()
+
   await conn.reply(m.chat, `
 ✨ *${mensajeAleatorio}*
 
@@ -26,6 +28,9 @@ let handler = async (m, { conn }) => {
 ✨ Tu total de Cookies ahora es: *${user.cookies} Cookies 🍪* 
 ¡Sigue acumulando riquezas y sorprende a todos! 💰🌟
   `.trim())
+
+  // Agregar la reacción al mensaje
+  await conn.react(m.chat, '🥵', m.key)
 }
 
 handler.help = ['slut']
