@@ -148,8 +148,8 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 
 ### **`COLABORADORES`**
 <a
-href="https://github.com/elpapiema"<>img
-src="https://github.com/elpapiema.png" widgh="130" height="130" alt="𝓔𝓶𝓶𝓪 (𝓥𝓲𝓸𝓵𝓮𝓽'𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷)"/></a>
+href="https://github.com/Elpapiema"<>img
+src="https://github.com/Elpapiema.png" widgh="130" height="130" alt="𝓔𝓶𝓶𝓪 (𝓥𝓲𝓸𝓵𝓮𝓽'𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷)"/></a>
 
 ### **`🌹 CREDITOS`**
 <a
