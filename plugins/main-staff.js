@@ -6,11 +6,11 @@ let staff = `✨ *EQUIPO DE AYUDANTES*
 👑 *Propietario:*
 
 • Destroy
-🍟 *Rol:* Propietario
-🚩 *Número:* wa.me/584120346669
+🤴 *Rol:* Propietario
+📱 *Número:* wa.me/584120346669
 ✨️ *GitHub:* https://github.com/The-King-Destroy
 
-🌸  *Colaboradores:*
+🚀  *Colaboradores:*
 
 • Emma-Violets-Versión 
 🍟 *Rol:* Developer
