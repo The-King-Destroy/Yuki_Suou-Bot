@@ -2,10 +2,11 @@ let marriageDivorceConfirmation = {};
 
 let handleMarriageDivorce = async (m, { conn, usedPrefix, isGroup }) => {
   const action = m.text.split(' ')[0]; // "casarse" o "divorciarse"
-  let who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false;
+  let who = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : false);
   if (!who) throw 'Etiqueta o menciona a alguien';
 
-  if (marriageDivorceConfirmation[m.sender]) {
+  // Verifica si ya hay una solicitud pendiente
+  if (marriageDivorceConfirmation[who]) {
     return m.reply('Ya tienes una solicitud pendiente. Espera a que finalice.');
   }
 
@@ -57,21 +58,10 @@ handleMarriageDivorce.before = async (m) => {
   if (/acepto|si/i.test(m.text)) {
     let finalStr;
     if (type === 'marriage') {
-      let imgs = [
-        'https://qu.ax/OpVX.mp4',
-        'https://qu.ax/ChmG.mp4',
-        'https://qu.ax/yUBa.mp4'
-      ];
-      let img = imgs[Math.floor(Math.random() * imgs.length)];
       finalStr = `@${sender.split('@')[0]} se ha casado con @${to.split('@')[0]}! ¡Felicidades!`;
+      await conn.sendMessage(m.chat, { text: finalStr, mentions: conn.parseMention(finalStr) }, { quoted: message });
 
-      await conn.sendMessage(m.chat, {
-        video: { url: img },
-        gifPlayback: true,
-        caption: finalStr,
-        mentions: conn.parseMention(finalStr)
-      }, { quoted: message });
-
+      // Actualiza la base de datos
       global.db.data.users[sender].casado = true;
       global.db.data.users[to].casado = true;
       global.db.data.users[sender].pareja = to;
@@ -81,6 +71,7 @@ handleMarriageDivorce.before = async (m) => {
       finalStr = `@${sender.split('@')[0]} se ha divorciado de @${to.split('@')[0]}.`;
       await conn.sendMessage(m.chat, { text: finalStr, mentions: conn.parseMention(finalStr) }, { quoted: message });
 
+      // Actualiza la base de datos
       global.db.data.users[sender].casado = false;
       global.db.data.users[to].casado = false;
       global.db.data.users[sender].pareja = null;
@@ -96,4 +87,5 @@ handleMarriageDivorce.help = ['casarse @tag', 'divorciarse @tag'];
 handleMarriageDivorce.tags = ['fun'];
 handleMarriageDivorce.command = ['casarse', 'divorciarse', 'marry', 'divorce'];
 handleMarriageDivorce.group = true;
+
 export default handleMarriageDivorce;
