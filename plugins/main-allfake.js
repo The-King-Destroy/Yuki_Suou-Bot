@@ -101,12 +101,12 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 }}, { quoted: m }
 
 global.icono = [ 
-'https://qu.ax/SbEf.jpg',
-'https://i.ibb.co/mGPP1kX/Sylph.jpg',
-'https://i.ibb.co/TRQL6nY/Sylph.jpg',
-'https://i.ibb.co/fMmYhHC/Sylph.jpg',
-'https://i.ibb.co/M7QMt3H/Sylph.jpg',
-'https://i.ibb.co/YjKbY7j/Sylph.jpg'
+'https://files.catbox.moe/028uxb.jpg',
+'https://files.catbox.moe/jh2rwk.jpg',
+'https://files.catbox.moe/guvo2k.jpg',
+'https://files.catbox.moe/xuwxy7.jpg',
+'https://files.catbox.moe/tp697d.jpg',
+'https://files.catbox.moe/qpkq55.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363322713003916@newsletter", serverMessageId: 100, newsletterName: namechannel, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '✨ 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
