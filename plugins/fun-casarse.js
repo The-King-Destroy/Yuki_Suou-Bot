@@ -1,74 +1,99 @@
-import fs from 'fs';
-import path from 'path';
+let marriageDivorceConfirmation = {};
 
-let marriageConfirmation = {};
-
-let marryHandler = async (m, { conn, usedPrefix, isGroup }) => {
+let handleMarriageDivorce = async (m, { conn, usedPrefix, isGroup }) => {
+  const action = m.text.split(' ')[0]; // "casarse" o "divorciarse"
   let who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false;
   if (!who) throw 'Etiqueta o menciona a alguien';
 
-  let name1 = conn.getName(who);
-  let name2 = conn.getName(m.sender);
+  if (marriageDivorceConfirmation[m.sender]) {
+    return m.reply('Ya tienes una solicitud pendiente. Espera a que finalice.');
+  }
 
-  if (marriageConfirmation[m.sender]) return m.reply('Ya tienes una propuesta pendiente.');
+  let str;
+  if (action === 'casarse') {
+    str = `@${m.sender.split('@')[0]} te ha propuesto matrimonio @${who.split('@')[0]}! Responde con "acepto" o "rechazo" en los próximos 5 minutos.`;
+    await conn.sendMessage(m.chat, { text: str, mentions: conn.parseMention(str) }, { quoted: m });
 
-  let proposalTime = Date.now();
+    marriageDivorceConfirmation[who] = {
+      sender: m.sender,
+      to: who,
+      type: 'marriage',
+      message: m,
+      timeout: setTimeout(() => {
+        conn.sendMessage(m.chat, `⏳ Tiempo de respuesta agotado para la propuesta de matrimonio.`, { quoted: m });
+        delete marriageDivorceConfirmation[who];
+      }, 5 * 60 * 1000) // 5 minutos
+    };
+  } else if (action === 'divorciarse') {
+    str = `@${m.sender.split('@')[0]} ha solicitado el divorcio de @${who.split('@')[0]}! Responde con "acepto" o "rechazo" en los próximos 5 minutos.`;
+    await conn.sendMessage(m.chat, { text: str, mentions: conn.parseMention(str) }, { quoted: m });
 
-  let str = `@${m.sender.split('@')[0]} te ha propuesto matrimonio @${who.split('@')[0]}! Responde con "acepto" o "rechazo" en los próximos 5 minutos.`;
-  await conn.sendMessage(m.chat, { text: str, mentions: conn.parseMention(str) }, { quoted: m });
-
-  marriageConfirmation[who] = {
-    sender: m.sender,
-    to: who,
-    message: m,
-    timeout: setTimeout(() => {
-      m.reply(`⏳ Tiempo de respuesta agotado.`);
-      delete marriageConfirmation[m.sender];
-    }, 5 * 60 * 1000) // 5 minutos
-  };
+    marriageDivorceConfirmation[who] = {
+      sender: m.sender,
+      to: who,
+      type: 'divorce',
+      message: m,
+      timeout: setTimeout(() => {
+        conn.sendMessage(m.chat, `⏳ Tiempo de respuesta agotado para la solicitud de divorcio.`, { quoted: m });
+        delete marriageDivorceConfirmation[who];
+      }, 5 * 60 * 1000) // 5 minutos
+    };
+  }
 };
 
-marryHandler.before = async (m) => {
-  if (!(m.sender in marriageConfirmation)) return;
+handleMarriageDivorce.before = async (m) => {
+  if (!(m.sender in marriageDivorceConfirmation)) return;
   if (!m.text) return;
 
-  let { timeout, sender, message, to } = marriageConfirmation[m.sender];
+  let { timeout, sender, message, to, type } = marriageDivorceConfirmation[m.sender];
   if (m.id === message.id) return;
 
   if (/rechazo|no/i.test(m.text)) {
     clearTimeout(timeout);
-    delete marriageConfirmation[sender];
-    return m.reply(`❌ La propuesta de matrimonio fue rechazada por @${to.split('@')[0]}.`);
+    delete marriageDivorceConfirmation[m.sender];
+    return m.reply(`❌ La propuesta fue rechazada por @${to.split('@')[0]}.`);
   }
 
   if (/acepto|si/i.test(m.text)) {
-    let imgs = [
-      'https://qu.ax/OpVX.mp4',
-      'https://qu.ax/ChmG.mp4',
-      'https://qu.ax/yUBa.mp4'
-    ];
-    let img = imgs[Math.floor(Math.random() * imgs.length)];
-    let finalStr = `@${sender.split('@')[0]} se ha casado con @${to.split('@')[0]}! ¡Felicidades!`.trim();
+    let finalStr;
+    if (type === 'marriage') {
+      let imgs = [
+        'https://qu.ax/OpVX.mp4',
+        'https://qu.ax/ChmG.mp4',
+        'https://qu.ax/yUBa.mp4'
+      ];
+      let img = imgs[Math.floor(Math.random() * imgs.length)];
+      finalStr = `@${sender.split('@')[0]} se ha casado con @${to.split('@')[0]}! ¡Felicidades!`;
 
-    await conn.sendMessage(m.chat, {
-      video: { url: img },
-      gifPlayback: true,
-      caption: finalStr,
-      mentions: conn.parseMention(finalStr)
-    }, { quoted: message });
+      await conn.sendMessage(m.chat, {
+        video: { url: img },
+        gifPlayback: true,
+        caption: finalStr,
+        mentions: conn.parseMention(finalStr)
+      }, { quoted: message });
 
-    global.db.data.users[sender].casado = true;
-    global.db.data.users[to].casado = true;
-    global.db.data.users[sender].pareja = to;
-    global.db.data.users[to].pareja = sender;
+      global.db.data.users[sender].casado = true;
+      global.db.data.users[to].casado = true;
+      global.db.data.users[sender].pareja = to;
+      global.db.data.users[to].pareja = sender;
+
+    } else if (type === 'divorce') {
+      finalStr = `@${sender.split('@')[0]} se ha divorciado de @${to.split('@')[0]}.`;
+      await conn.sendMessage(m.chat, { text: finalStr, mentions: conn.parseMention(finalStr) }, { quoted: message });
+
+      global.db.data.users[sender].casado = false;
+      global.db.data.users[to].casado = false;
+      global.db.data.users[sender].pareja = null;
+      global.db.data.users[to].pareja = null;
+    }
 
     clearTimeout(timeout);
-    delete marriageConfirmation[sender];
+    delete marriageDivorceConfirmation[m.sender];
   }
 };
 
-marryHandler.help = ['casarse @tag'];
-marryHandler.tags = ['fun'];
-marryHandler.command = ['casarse', 'marry'];
-marryHandler.group = true;
-export default marryHandler;
+handleMarriageDivorce.help = ['casarse @tag', 'divorciarse @tag'];
+handleMarriageDivorce.tags = ['fun'];
+handleMarriageDivorce.command = ['casarse', 'divorciarse', 'marry', 'divorce'];
+handleMarriageDivorce.group = true;
+export default handleMarriageDivorce;
