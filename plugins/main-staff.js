@@ -13,16 +13,16 @@ let staff = `✨ *EQUIPO DE AYUDANTES*
 🚀  *Colaboradores:*
 
 • Emma-Violets-Versión 
-🍟 *Rol:* Developer
-🚩 *Número:* Wa.me/522441357601
+🦁 *Rol:* Developer
+📱 *Número:* Wa.me/522441357601
 
 • Niño Piña
-🍟 *Rol:* Contribuidor
-🚩 *Número:* Wa.me/50557865603
+🐯 *Rol:* Contribuidor
+📱 *Número:* Wa.me/50557865603
 
 • Legna
-🍟 *Rol:* Soporte 
-🚩 *Número:* Wa.me/526671548329
+💻 *Rol:* Soporte 
+📱 *Número:* Wa.me/526671548329
 `
 await conn.sendFile(m.chat, icons, 'yaemori.jpg', staff.trim(), fkontak, true, {
 contextInfo: {
