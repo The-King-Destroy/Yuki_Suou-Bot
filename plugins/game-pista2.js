@@ -9,5 +9,5 @@ const handler = async (m, {conn}) => {
   const nyanya = nya.replace(/[bcdfghjklmnñpqrstvwxyzBCDEFGHJKLMNÑPQRSTVWXYZ]/g, '_');
   m.reply('' + nyanya + '');
 };
-handler.command = /^hint2|pista2$/i;
+handler.command = /^hint|pista$/i;
 export default handler;
