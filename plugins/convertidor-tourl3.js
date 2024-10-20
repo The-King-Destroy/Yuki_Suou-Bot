@@ -52,8 +52,8 @@ const uploadImageHandler = async (message, { args, command, usedPrefix }) => {
   }
 }
 
-uploadImageHandler.help = ['upload'];
+uploadImageHandler.help = ['tourl3'];
 uploadImageHandler.tags = ['transformador'];
-uploadImageHandler.command = ['upload'];
+uploadImageHandler.command = ['upload3', 'tourl3'];
 
 export default uploadImageHandler;
