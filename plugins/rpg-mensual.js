@@ -3,7 +3,13 @@ const baseCoinReward = 20000;
 var handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender];
     let groupId = m.chat; // ID del grupo
-    let cooldown = global.db.data.groups[groupId]?.monthlyCooldown || 604800000 * 4; // Tiempo por defecto: 4 semanas
+
+    // Inicializar el objeto del grupo si no existe
+    if (!global.db.data.groups[groupId]) {
+        global.db.data.groups[groupId] = {};
+    }
+
+    let cooldown = global.db.data.groups[groupId].monthlyCooldown || 604800000 * 4; // Tiempo por defecto: 4 semanas
 
     let timeRemaining = user.monthly + cooldown - new Date();
 
@@ -11,13 +17,11 @@ var handler = async (m, { conn }) => {
         return m.reply(`⏱️ ¡Ya reclamaste tu regalo mensual! Vuelve en:\n *${msToTime(timeRemaining)}*`);
     }
 
-    // Recompensas aleatorias
     let coinReward = pickRandom([5000, 10000, 15000, 20000, baseCoinReward]);
     let cookieReward = pickRandom([1, 2, 3, 4, 5]);
     let expReward = pickRandom([500, 1000, 1500, 2000, 2500]);
     let diamondReward = pickRandom([1, 2, 3]);
 
-    // Actualizar los valores del usuario
     user.coin += coinReward;
     user.cookies = (user.cookies || 0) + cookieReward;
     user.exp = (user.exp || 0) + expReward;
