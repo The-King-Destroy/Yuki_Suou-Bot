@@ -1,7 +1,8 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
-const timeout = 60000;
-const poin = 1000;
+const timeout = 30000;
+const poin = 200;
+let img = 'https://files.catbox.moe/sni1uy.jpg'
 const handler = async (m, {conn, usedPrefix}) => {
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
   const id = m.chat;
@@ -14,11 +15,11 @@ const handler = async (m, {conn, usedPrefix}) => {
   const caption = `
 ADIVINA EL TITULO DE LA CANCION
 Tiempo ${(timeout / 1000).toFixed(2)} segundos
-Escribe *${usedPrefix}pista2* Para obtener una pista
-Premio: ${poin} XP
+Escribe *${usedPrefix}pista* Para obtener una pista
+Premio: ${poin} Cookies 
 RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
   conn.tebaklagu[id] = [
-    await m.reply(caption),
+    await conn.sendButton(m.chat, caption, wm, img, [['Pedir Pista', '/pista'] ], m, rcanal),
     json, poin,
     setTimeout(() => {
       if (conn.tebaklagu[id]) conn.reply(m.chat, `Se acabó el tiempo!\nLa respuesta es ${json.jawaban}`, conn.tebaklagu[id][0]);
@@ -28,9 +29,11 @@ RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
   const aa = await conn.sendMessage(m.chat, {audio: {url: json.link_song}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
   if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m);
 };
-handler.help = ['tebaklagu'];
+handler.help = ['cancion'];
 handler.tags = ['game'];
 handler.command = /^cancion|canción$/i;
+handler.group = true;
+handler.register = true;
 export default handler;
 async function fetchJson(url, options) {
   try {
