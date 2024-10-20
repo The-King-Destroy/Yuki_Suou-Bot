@@ -7,5 +7,5 @@ let nya = json.judul
 let nyanya = nya.replace(/[bcdfghjklmnñpqrstvwxyzBCDEFGHJKLMNÑPQRSTVWXYZ]/g, '_')
 m.reply('' + nyanya + '')
 }
-handler.command = /^hint|pista$/i
+handler.command = /^hint2|pista2$/i
 export default handler
