@@ -3,6 +3,8 @@ import { performance } from 'perf_hooks'
 var handler = async (m, { conn, text }) => {
     // Verifica si hay texto o si se está respondiendo a un mensaje
     let who;
+    let userName;
+
     if (m.isGroup) {
         who = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : null);
     } else {
@@ -10,6 +12,15 @@ var handler = async (m, { conn, text }) => {
     }
 
     if (!who) return conn.reply(m.chat, '🗣️ *Ingrese el tag de algún usuario o responda a un mensaje*', m);
+
+    // Obtener el nombre del usuario mencionado
+    if (m.mentionedJid.length > 0) {
+        userName = await conn.getName(who);
+    } else if (m.quoted) {
+        userName = await conn.getName(m.quoted.sender);
+    } else {
+        userName = text; // Usar el texto proporcionado si no hay menciones
+    }
 
     let start = `👨‍💻 *Iniciando doxeo* 👨‍💻`;
     let boost = `*${pickRandom(['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'])}%*`;
@@ -40,7 +51,7 @@ var handler = async (m, { conn, text }) => {
 
 📢 Resultados:
 
-*Nombre:* ${text}
+*Nombre:* ${userName}
 *Ip:* 92.28.211.234
 *N:* 43 7462
 *W:* 12.4893
