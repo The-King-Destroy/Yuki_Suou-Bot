@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix }) => {
             : `El usuario @${who.split('@')[0]} tiene *${user.bank} Cookies 🍪*, *${user.coin} YukiCoins 🪙* y *${user.diamonds} Diamantes 💎* en el Banco.`}`;
 
         // Enviar el mensaje con botones
-        await conn.sendButton(m.chat, texto, wm, img, 
+        await conn.sendButton(m.chat, texto, 'Banco de Yuki', img, 
             [['Retirar Todo', `${usedPrefix}retirar all`], ['Depositar Todo', `${usedPrefix}dep all`]], 
             null, null, { mentions: [who] });
     } catch (error) {
@@ -42,6 +42,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
 }
 
+// Configuración del comando
 handler.help = ['bank'];
 handler.tags = ['economy'];
 handler.command = ['bank', 'banco'];
