@@ -29,46 +29,41 @@ let handler = async (m, { conn }) => {
   }
 
   let randomOption = Math.floor(Math.random() * 3);
+  let mensajeFinal = `✨ *${mensajeAleatorio}*\n\n`;
+
   switch (randomOption) {
     case 0:
       global.db.data.users[randomUserId].cookies -= cookiesGanadas;
-      conn.sendMessage(m.chat, {
-        text: `🚩¡Te Postituiste Y Ganaste *${cookiesGanadas} Cookies 🍪* Dejaste Casi Seco A @${randomUserId.split("@")[0]}!`,
-        contextInfo: { mentionedJid: [randomUserId] }
-      }, { quoted: m });
+      mensajeFinal += `🚩¡Te Postituiste Y Ganaste *${cookiesGanadas} Cookies 🍪*! Dejaste Casi Seco A @${randomUserId.split("@")[0]}!\n`;
       break;
     case 1:
       let amountSubtracted = Math.min(Math.floor(Math.random() * (user.cookies - 10) + 10), 50);
       user.cookies -= amountSubtracted;
-      conn.reply(m.chat, `🚩 Te cobraron y se te quitaron *-${amountSubtracted} Cookies 🍪* a ${conn.getName(m.sender)}.`, m);
+      mensajeFinal += `🚩 Te cobraron y se te quitaron *-${amountSubtracted} Cookies 🍪* a ${conn.getName(m.sender)}.\n`;
       break;
     case 2:
       let smallAmountTaken = Math.min(Math.floor(Math.random() * (global.db.data.users[randomUserId].cookies / 2) + 10), 50);
       user.cookies += smallAmountTaken;
       global.db.data.users[randomUserId].cookies -= smallAmountTaken;
-      conn.sendMessage(m.chat, {
-        text: `🚩 Vuelves A Las Calles Y Te Vas A Un Motel, te pagaron *${smallAmountTaken} Cookies 🍪* de @${randomUserId.split("@")[0]}.`,
-        contextInfo: { mentionedJid: [randomUserId] }
-      }, { quoted: m });
+      mensajeFinal += `🚩 Vuelves A Las Calles Y Te Vas A Un Motel, te pagaron *${smallAmountTaken} Cookies 🍪* de @${randomUserId.split("@")[0]}.\n`;
       break;
   }
 
-  await conn.reply(m.chat, `
-✨ *${mensajeAleatorio}*
-
+  mensajeFinal += `
 🪙 *${toNum(resultado)} YukiCoins* ( *${resultado}* ) 
 🍪 *${cookiesGanadas} Cookies 🍪*
 
 ✨ Tu total de Cookies ahora es: *${user.cookies} Cookies 🍪* 
-¡Sigue acumulando riquezas y sorprende a todos! 💰🌟
-  `.trim());
+¡Sigue acumulando riquezas y sorprende a todos! 💰🌟`;
+
+  await conn.reply(m.chat, mensajeFinal.trim(), { contextInfo: { mentionedJid: [randomUserId] } });
 
   // Agregar la reacción al mensaje
   await conn.sendMessage(m.chat, { react: { text: '🥵', key: m.key } });
 }
 
 handler.help = ['slut']
-handler.tags = ['economy']
+handler.tags = ['economy', 'rpg']
 handler.command = ['slut', 'prost']
 handler.register = true; 
 handler.group = true;
