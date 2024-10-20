@@ -2,14 +2,9 @@ const baseCoinReward = 20000;
 
 var handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender];
-    let groupId = m.chat; // ID del grupo
 
-    // Inicializar el objeto del grupo si no existe
-    if (!global.db.data.groups[groupId]) {
-        global.db.data.groups[groupId] = {};
-    }
-
-    let cooldown = global.db.data.groups[groupId].monthlyCooldown || 604800000 * 4; // Tiempo por defecto: 4 semanas
+    // Tiempo de cooldown fijo: 4 semanas (en milisegundos)
+    const cooldown = 604800000 * 4;
 
     let timeRemaining = user.monthly + cooldown - new Date();
 
