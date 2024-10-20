@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
 
     // Verifica si el texto ingresado es válido
     if (!text || !['cara', 'cruz'].includes(text.toLowerCase())) {
-        return conn.reply(m.chat, '[ ✰ ] Elige una opción ( *Cara o Cruz* ) para lanzar la moneda.\n\n`» Ejemplo :`\n' + `> *${usedPrefix + command}* cara`, m);
+        return conn.reply(m.chat, '[ ✨ ] Elige una opción ( *Cara o Cruz* ) para lanzar la moneda.\n\n`» Ejemplo :`\n' + `> *${usedPrefix + command}* cara`, m);
     }
 
     // Inicializa el límite de cookies si no existe
@@ -25,13 +25,21 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     const resultado = Math.random() < 0.5 ? 'cara' : 'cruz'; // Genera el resultado aleatorio
     const esGanador = text.toLowerCase() === resultado; // Verifica si el usuario ganó
 
+    // Define la cantidad de cookies a sumar/restar
+    const cantidadGanada = 1000;
+    const cantidadPerdida = 500;
+
     // Actualiza las cookies del usuario según el resultado
     if (esGanador) {
-        global.database.users[m.sender].limit += 1000;
-        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de ganar *1000 🍪 Cookies*`, m);
+        global.database.users[m.sender].limit += cantidadGanada;
+        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de ganar *${cantidadGanada} 🍪 Cookies*`, m);
     } else {
-        global.database.users[m.sender].limit -= 500;
-        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de perder *500 🍪 Cookies*`, m);
+        // Asegúrate de que el usuario no tenga menos de 0 cookies
+        if (global.database.users[m.sender].limit < cantidadPerdida) {
+            return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, pero no tienes suficientes cookies para perder *${cantidadPerdida} 🍪 Cookies*`, m);
+        }
+        global.database.users[m.sender].limit -= cantidadPerdida;
+        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de perder *${cantidadPerdida} 🍪 Cookies*`, m);
     }
 }
 
