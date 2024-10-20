@@ -1,30 +1,31 @@
 const we = 5000;
-let cooldown = 604800000; // 1 semana
-let handler = async (m, {conn}) => {
-	
-  let user = global.db.data.users[m.sender];
-  if (new Date - user.weekly < cooldown) throw `⏱️ ¡Ya reclamaste tu regalo semanal! Vuelve en:\n *${msToTime((user.weekly + cooldown) - new Date())}*`;
+let handler = async (m, { conn }) => {
+    let user = global.db.data.users[m.sender];
+
+    // Tiempo de cooldown fijo: 1 semana (en milisegundos)
+    const cooldown = 604800000;
+
+    if (new Date - user.weekly < cooldown) throw `⏱️ ¡Ya reclamaste tu regalo semanal! Vuelve en:\n *${msToTime((user.weekly + cooldown) - new Date())}*`;
   
-  // Recompensas adicionales
-  let cookieReward = pickRandom([1, 2, 3]); // Cantidad de cookies
-  let expReward = pickRandom([100, 200, 300]); // Recompensa de experiencia
+    let cookieReward = pickRandom([1, 2, 3]);
+    let expReward = pickRandom([100, 200, 300]);
 
-  user.coin += we;
-  user.cookies = (user.cookies || 0) + cookieReward; // Añadir cookies
-  user.exp = (user.exp || 0) + expReward; // Añadir experiencia
+    user.coin += we;
+    user.cookies = (user.cookies || 0) + cookieReward;
+    user.exp = (user.exp || 0) + expReward;
 
-  m.reply(`
+    m.reply(`
 🎁 ¡Ha pasado una semana! ¡Disfruta de tu regalo semanal! 🐢
 
 🪙 *YukiCoins* : +${we.toLocaleString()}
 🍪 *Cookies* : +${cookieReward}
 ✨ *Experiencia* : +${expReward}`);
 
-  user.weekly = new Date * 1; // Actualizar la fecha de reclamación
+    user.weekly = new Date * 1; // Actualizar la fecha de reclamación
 }
 
 handler.help = ['weekly'];
-handler.tags = ['rpg'];
+handler.tags = ['econ'];
 handler.command = ['semanal', 'weekly']; 
 
 export default handler;
