@@ -32,14 +32,14 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     // Actualiza las cookies del usuario según el resultado
     if (esGanador) {
         global.database.users[m.sender].limit += cantidadGanada;
-        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de ganar *${cantidadGanada} 🍪 Cookies*`, m);
+        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de ganar *${cantidadGanada} YukiCoins 🪙*`, m);
     } else {
         // Asegúrate de que el usuario no tenga menos de 0 cookies
         if (global.database.users[m.sender].limit < cantidadPerdida) {
             return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, pero no tienes suficientes cookies para perder *${cantidadPerdida} 🍪 Cookies*`, m);
         }
         global.database.users[m.sender].limit -= cantidadPerdida;
-        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de perder *${cantidadPerdida} 🍪 Cookies*`, m);
+        return conn.reply(m.chat, `✨ La moneda cayó en *${resultado}*, acabas de perder *${cantidadPerdida} YukiCoins 🪙*`, m);
     }
 }
 
