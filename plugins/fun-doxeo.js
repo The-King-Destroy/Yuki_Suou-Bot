@@ -1,25 +1,28 @@
 import { performance } from 'perf_hooks'
 
 var handler = async (m, { conn, text }) => {
-    // Verifica si hay texto o si se está respondiendo a un mensaje
     let who;
     let userName;
 
     if (m.isGroup) {
-        who = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : null);
+        if (m.mentionedJid.length > 0) {
+            who = m.mentionedJid[0];
+            userName = await conn.getName(who);
+        } else if (m.quoted) {
+            who = m.quoted.sender;
+            userName = await conn.getName(who);
+        } else {
+            who = m.chat;
+        }
     } else {
         who = m.chat;
     }
 
     if (!who) return conn.reply(m.chat, '🗣️ *Ingrese el tag de algún usuario o responda a un mensaje*', m);
 
-    // Obtener el nombre del usuario mencionado
-    if (m.mentionedJid.length > 0) {
-        userName = await conn.getName(who);
-    } else if (m.quoted) {
-        userName = await conn.getName(m.quoted.sender);
-    } else {
-        userName = text; // Usar el texto proporcionado si no hay menciones
+    // Si no se obtuvo el nombre del usuario, usar el texto proporcionado
+    if (!userName) {
+        userName = text || 'Usuario desconocido';
     }
 
     let start = `👨‍💻 *Iniciando doxeo* 👨‍💻`;
