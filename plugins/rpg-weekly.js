@@ -1,16 +1,20 @@
 const we = 5000;
 let handler = async (m, { conn }) => {
-    let user = global.db.data.users[m.sender];
+    if (!m.isGroup) return m.reply("❌ Este comando solo puede usarse en grupos.");
 
-    // Tiempo de cooldown fijo: 1 semana (en milisegundos)
-    const cooldown = 604800000;
+    let user = global.db.data.users[m.sender] || {};
+    user.weekly = user.weekly || 0; // Asegurarse de que user.weekly esté definido
 
-    if (new Date - user.weekly < cooldown) throw `⏱️ ¡Ya reclamaste tu regalo semanal! Vuelve en:\n *${msToTime((user.weekly + cooldown) - new Date())}*`;
-  
+    const cooldown = 604800000; // 1 semana
+
+    if (new Date - user.weekly < cooldown) {
+        return m.reply(`⏱️ ¡Ya reclamaste tu regalo semanal! Vuelve en:\n *${msToTime((user.weekly + cooldown) - new Date())}*`);
+    }
+
     let cookieReward = pickRandom([1, 2, 3]);
     let expReward = pickRandom([100, 200, 300]);
 
-    user.coin += we;
+    user.coin = (user.coin || 0) + we;
     user.cookies = (user.cookies || 0) + cookieReward;
     user.exp = (user.exp || 0) + expReward;
 
@@ -25,8 +29,8 @@ let handler = async (m, { conn }) => {
 }
 
 handler.help = ['weekly'];
-handler.tags = ['econ'];
-handler.command = ['semanal', 'weekly']; 
+handler.tags = ['rpg'];
+handler.command = ['semanal', 'weekly'];
 
 export default handler;
 
@@ -35,16 +39,9 @@ function pickRandom(list) {
 }
 
 function msToTime(duration) {
-    var milliseconds = parseInt((duration % 1000) / 100),
-        seconds = Math.floor((duration / 1000) % 60),
-        minutes = Math.floor((duration / (1000 * 60)) % 60),
-        hours = Math.floor((duration / (1000 * 60 * 60)) % 24), 
-        days = Math.floor((duration / (1000 * 60 * 60 * 24)) % 365);
+    var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
     
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-    days = (days > 0) ? days : 0;
-
-    return days + ` días ` + hours + ` horas ` + minutes + ` minutos`;
+    return `${days} días ${hours} horas ${minutes} minutos`;
 }
