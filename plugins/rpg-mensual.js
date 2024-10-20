@@ -1,8 +1,10 @@
-const cooldown = 604800000 * 4; // 4 semanas
 const baseCoinReward = 20000;
 
 var handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender];
+    let groupId = m.chat; // ID del grupo
+    let cooldown = global.db.data.groups[groupId]?.monthlyCooldown || 604800000 * 4; // Tiempo por defecto: 4 semanas
+
     let timeRemaining = user.monthly + cooldown - new Date();
 
     if (timeRemaining > 0) {
@@ -11,15 +13,15 @@ var handler = async (m, { conn }) => {
 
     // Recompensas aleatorias
     let coinReward = pickRandom([5000, 10000, 15000, 20000, baseCoinReward]);
-    let cookieReward = pickRandom([1, 2, 3, 4, 5]); // Cantidad de cookies
-    let expReward = pickRandom([500, 1000, 1500, 2000, 2500]); // Recompensa de experiencia
-    let diamondReward = pickRandom([1, 2, 3]); // Cantidad de diamantes
+    let cookieReward = pickRandom([1, 2, 3, 4, 5]);
+    let expReward = pickRandom([500, 1000, 1500, 2000, 2500]);
+    let diamondReward = pickRandom([1, 2, 3]);
 
     // Actualizar los valores del usuario
     user.coin += coinReward;
-    user.cookies = (user.cookies || 0) + cookieReward; // Añadir cookies
-    user.exp = (user.exp || 0) + expReward; // Añadir experiencia
-    user.diamonds = (user.diamonds || 0) + diamondReward; // Añadir diamantes
+    user.cookies = (user.cookies || 0) + cookieReward;
+    user.exp = (user.exp || 0) + expReward;
+    user.diamonds = (user.diamonds || 0) + diamondReward;
 
     m.reply(`
 \`\`\`🎁 ¡Ha pasado un mes! ¡Disfruta de tu regalo mensual! 🐢\`\`\`
@@ -33,7 +35,7 @@ var handler = async (m, { conn }) => {
 }
 
 handler.help = ['monthly'];
-handler.tags = ['rpg'];
+handler.tags = ['econ'];
 handler.command = ['mensual', 'monthly'];
 
 export default handler;
