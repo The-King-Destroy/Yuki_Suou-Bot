@@ -1,45 +1,58 @@
 import db from '../lib/database.js';
 
-let img = 'https://qu.ax/EKcDO.jpg';
-let handler = async (m, { conn, usedPrefix }) => {
+const img = 'https://qu.ax/EKcDO.jpg';
+
+const handler = async (m, { conn, usedPrefix }) => {
     try {
-        // Verificar que el mensaje tenga la propiedad mentionedJid o quoted
-        if (!m.mentionedJid && !m.quoted) {
+        const targetUser = getTargetUser(m);
+        if (!targetUser) {
             return m.reply(`*Por favor menciona a un usuario o responde a un mensaje.*`);
         }
-
-        // Determinar el usuario objetivo
-        let who = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.sender);
-        if (who === conn.user.jid) return m.react('✖️');
-
-        // Verificar si el usuario existe en la base de datos
-        if (!(who in global.db.data.users)) {
-            return m.reply(`*El usuario no se encuentra en la base de datos.*`);
+        
+        const userData = getUserData(targetUser);
+        if (!userData) {
+            return m.reply(`*El usuario no se encuentra en la base de datos o tiene datos inválidos.*`);
         }
 
-        let user = global.db.data.users[who];
-
-        // Comprobar si el usuario tiene datos válidos
-        if (!user || 
-            typeof user.bank !== 'number' || 
-            typeof user.coin !== 'number' || 
-            typeof user.diamonds !== 'number') {
-            return m.reply(`*Los datos del usuario están incompletos o son inválidos.*`);
-        }
-
-        // Formatear el mensaje con información de cookies, YukiCoins y diamantes
-        const texto = `${who === m.sender 
-            ? `Tienes *${user.bank} Cookies 🍪*, *${user.coin} YukiCoins 🪙* y *${user.diamonds} Diamantes 💎* en el Banco.` 
-            : `El usuario @${who.split('@')[0]} tiene *${user.bank} Cookies 🍪*, *${user.coin} YukiCoins 🪙* y *${user.diamonds} Diamantes 💎* en el Banco.`}`;
-
-        // Enviar el mensaje con botones
-        await conn.sendButton(m.chat, texto, 'Banco de Yuki', img, 
-            [['Retirar Todo', `${usedPrefix}retirar all`], ['Depositar Todo', `${usedPrefix}dep all`]], 
-            null, null, { mentions: [who] });
+        const responseMessage = formatResponseMessage(targetUser, userData);
+        await sendResponseMessage(conn, m, responseMessage, usedPrefix, targetUser);
     } catch (error) {
         console.error('Error en el manejador de banco:', error);
         m.reply(`*Ocurrió un error inesperado. Por favor, intenta nuevamente más tarde.*`);
     }
+}
+
+const getTargetUser = (m) => {
+    if (m.mentionedJid.length > 0) {
+        return m.mentionedJid[0];
+    } else if (m.quoted) {
+        return m.quoted.sender;
+    }
+    return null;
+}
+
+const getUserData = (who) => {
+    if (!(who in global.db.data.users)) return null;
+    
+    const user = global.db.data.users[who];
+    if (typeof user.bank !== 'number' || typeof user.coin !== 'number' || typeof user.diamonds !== 'number') {
+        return null;
+    }
+    
+    return user;
+}
+
+const formatResponseMessage = (who, user) => {
+    return `${who === m.sender
+        ? `Tienes *${user.bank} Cookies 🍪*, *${user.coin} YukiCoins 🪙* y *${user.diamonds} Diamantes 💎* en el Banco.`
+        : `El usuario @${who.split('@')[0]} tiene *${user.bank} Cookies 🍪*, *${user.coin} YukiCoins 🪙* y *${user.diamonds} Diamantes 💎* en el Banco.`
+    }`;
+}
+
+const sendResponseMessage = async (conn, m, text, usedPrefix, who) => {
+    await conn.sendButton(m.chat, text, 'Banco de Yuki', img, 
+        [['Retirar Todo', `${usedPrefix}retirar all`], ['Depositar Todo', `${usedPrefix}dep all`]], 
+        null, null, { mentions: [who] });
 }
 
 // Configuración del comando
