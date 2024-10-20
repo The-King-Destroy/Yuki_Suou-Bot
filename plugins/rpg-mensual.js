@@ -1,10 +1,12 @@
 const baseCoinReward = 20000;
 
 var handler = async (m, { conn }) => {
-    let user = global.db.data.users[m.sender];
+    if (!m.isGroup) return m.reply("❌ Este comando solo puede usarse en grupos.");
 
-    // Tiempo de cooldown fijo: 4 semanas (en milisegundos)
-    const cooldown = 604800000 * 4;
+    let user = global.db.data.users[m.sender] || {};
+    user.monthly = user.monthly || 0; // Asegurarse de que user.monthly esté definido
+
+    const cooldown = 604800000 * 4; // 4 semanas
 
     let timeRemaining = user.monthly + cooldown - new Date();
 
@@ -17,7 +19,7 @@ var handler = async (m, { conn }) => {
     let expReward = pickRandom([500, 1000, 1500, 2000, 2500]);
     let diamondReward = pickRandom([1, 2, 3]);
 
-    user.coin += coinReward;
+    user.coin = (user.coin || 0) + coinReward;
     user.cookies = (user.cookies || 0) + cookieReward;
     user.exp = (user.exp || 0) + expReward;
     user.diamonds = (user.diamonds || 0) + diamondReward;
@@ -34,7 +36,7 @@ var handler = async (m, { conn }) => {
 }
 
 handler.help = ['monthly'];
-handler.tags = ['econ'];
+handler.tags = ['rpg'];
 handler.command = ['mensual', 'monthly'];
 
 export default handler;
@@ -44,16 +46,9 @@ function pickRandom(list) {
 }
 
 function msToTime(duration) {
-    var milliseconds = parseInt((duration % 1000) / 100),
-        seconds = Math.floor((duration / 1000) % 60),
-        minutes = Math.floor((duration / (1000 * 60)) % 60),
-        hours = Math.floor((duration / (1000 * 60 * 60)) % 24),
-        days = Math.floor((duration / (1000 * 60 * 60 * 24)) % 365);
-
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-    days = (days > 0) ? days : 0;
-
+    var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+    
     return `${days} días ${hours} horas ${minutes} minutos`;
 }
