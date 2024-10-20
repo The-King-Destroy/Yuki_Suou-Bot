@@ -3,6 +3,11 @@ import db from '../lib/database.js';
 let img = 'https://qu.ax/EKcDO.jpg';
 let handler = async (m, { conn, usedPrefix }) => {
     try {
+        // Verificar que el mensaje tenga la propiedad mentionedJid o quoted
+        if (!m.mentionedJid && !m.quoted) {
+            return m.reply(`*Por favor menciona a un usuario o responde a un mensaje.*`);
+        }
+
         // Determinar el usuario objetivo
         let who = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.sender);
         if (who === conn.user.jid) return m.react('✖️');
