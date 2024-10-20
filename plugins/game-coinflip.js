@@ -2,13 +2,12 @@ let cooldowns = {};
 
 // Función principal que maneja la apuesta de cara o cruz
 let handler = async (m, { conn, text, command, usedPrefix }) => {
-    // Tiempo de espera en segundos
-    let tiempoEspera = 5;
+    const tiempoEspera = 5 * 1000; // 5 segundos en milisegundos
 
     // Verifica si el usuario está en cooldown
-    if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
-        let tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000));
-        return m.reply(`[ ✨ ] Ya has iniciado una apuesta recientemente, espera *⏱ ${tiempoRestante}* para apostar nuevamente.`);
+    if (cooldowns[m.sender] && Date.now() < cooldowns[m.sender] + tiempoEspera) {
+        let tiempoRestante = Math.ceil((cooldowns[m.sender] + tiempoEspera - Date.now()) / 1000);
+        return m.reply(`[ ✨ ] Espera *${tiempoRestante}* segundos para apostar nuevamente.`);
     }
 
     // Verifica si el texto ingresado es válido
@@ -16,10 +15,15 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
         return conn.reply(m.chat, '[ ✰ ] Elige una opción ( *Cara o Cruz* ) para lanzar la moneda.\n\n`» Ejemplo :`\n' + `> *${usedPrefix + command}* cara`, m);
     }
 
+    // Inicializa el límite de cookies si no existe
+    global.database = global.database || {};
+    global.database.users = global.database.users || {};
+    global.database.users[m.sender] = global.database.users[m.sender] || { limit: 0 };
+
     // Inicia el cooldown para el usuario
     cooldowns[m.sender] = Date.now();
-    let resultado = Math.random() < 0.5 ? 'cara' : 'cruz'; // Genera el resultado aleatorio
-    let esGanador = text.toLowerCase() === resultado; // Verifica si el usuario ganó
+    const resultado = Math.random() < 0.5 ? 'cara' : 'cruz'; // Genera el resultado aleatorio
+    const esGanador = text.toLowerCase() === resultado; // Verifica si el usuario ganó
 
     // Actualiza las cookies del usuario según el resultado
     if (esGanador) {
@@ -39,8 +43,3 @@ handler.register = true;
 
 // Exporta el manejador
 export default handler;
-
-// Función para convertir segundos en un formato legible
-function segundosAHMS(segundos) {
-    return `${segundos} segundos`;
-}
