@@ -38,7 +38,7 @@ let handler = async (m, { conn, usedPrefix }) => {
             null, null, { mentions: [who] });
     } catch (error) {
         console.error('Error en el manejador de banco:', error);
-        m.reply(`*Ocurrió un error inesperado: ${error.message}. Por favor, intenta nuevamente más tarde.*`);
+        m.reply(`*Ocurrió un error inesperado. Por favor, intenta nuevamente más tarde.*`);
     }
 }
 
