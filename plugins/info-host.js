@@ -1,5 +1,5 @@
 let handler = async (m, { conn, usedPrefix, command, text }) => {
-    let txt = `✨ *S K Y - U L T R A - P L U S* 
+    let txt = `☁️ *S K Y - U L T R A - P L U S* ☁️
 
 ¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7? 📱⏳
 
