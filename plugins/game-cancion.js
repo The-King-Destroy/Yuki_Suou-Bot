@@ -1,29 +1,12 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
+const timeout = 60000; // Tiempo de 60 segundos
+const poin = 1000; // Premio de 1000 Cookies
+let img = 'https://files.catbox.moe/sni1uy.jpg'; // Imagen a mostrar
 
-const timeout = 30000;
-const poin = 200;
-let img = 'https://files.catbox.moe/sni1uy.jpg';
-
-const fetchJson = async (url, options) => {
-  try {
-    options ? options : {};
-    const res = await axios({
-      method: 'GET',
-      url: url,
-      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36' },
-      ...options
-    });
-    return res.data;
-  } catch (err) {
-    return err;
-  }
-};
-
-const handler = async (m, { conn, usedPrefix }) => {
+const handler = async (m, {conn, usedPrefix}) => {
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
   const id = m.chat;
-
   if (id in conn.tebaklagu) {
     conn.reply(m.chat, 'Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0]);
     throw false;
@@ -47,7 +30,8 @@ RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
     }, timeout),
   ];
 
-  await conn.sendMessage(m.chat, { audio: { url: json.link_song }, fileName: `error.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
+  const aa = await conn.sendMessage(m.chat, {audio: {url: json.link_song}, fileName: `error.mp3`, mimetype: 'audio/mpeg'}, {quoted: m});
+  if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m);
 };
 
 handler.help = ['cancion'];
@@ -57,3 +41,13 @@ handler.group = true;
 handler.register = true;
 
 export default handler;
+
+async function fetchJson(url, options) {
+  try {
+    options ? options : {};
+    const res = await axios({method: 'GET', url: url, headers: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'}, ...options});
+    return res.data;
+  } catch (err) {
+    return err;
+  }
+}
