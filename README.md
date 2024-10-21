@@ -3,7 +3,7 @@
 </p>
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF0000&lines=Bienvenido+al+Repositorio;✨𝐘𝐮𝐤𝐢+-+𝐒𝐮𝐨𝐮+-+𝐁𝐨𝐭✨;Gracias+por+preferirnos;Creado+por+𝕀'𝕒𝕞|𝔻𝕖𝕤𝕥𝕣𝕠𝕪𒆜;✨+💘🫦💖!!!)](https://git.io/typing-svg)
-![𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭](https://qu.ax/gEvrL.jpg)
+![𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭](https://files.catbox.moe/0iw0dc.mp4)
 
 ---
 
