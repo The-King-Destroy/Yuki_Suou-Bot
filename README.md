@@ -137,7 +137,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 |------|-------------|-------|
 | WhatsApp | Canal Oficial | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
 | WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
-| WhatsApp | Grupo de Bots | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
+| WhatsApp | Grupo Bots | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
 
 ---
 
