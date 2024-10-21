@@ -135,9 +135,9 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 | APP | TIPO | ENLACE |
 |------|-------------|-------|
-| WhatsApp | ✨ℂ𝕙𝕒𝕟𝕟𝕖𝕝 𝕐𝕦𝕜𝕚_𝕊𝕦𝕠𝕦-𝔹𝕠𝕥✨ | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
-| WhatsApp | 🌟𝙔𝙪𝙠𝙞_𝙎𝙪𝙤𝙪-𝘽𝙤𝙩 𝙂𝙚𝙣𝙚𝙧𝙖𝙡🌟 | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
-| WhatsApp | ✨𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 𝐎𝐟𝐢𝐜𝐢𝐚𝐥✨ | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
+| WhatsApp | Canal Oficial | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
+| WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
+| WhatsApp | Grupo de Bots | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
 
 ---
 
