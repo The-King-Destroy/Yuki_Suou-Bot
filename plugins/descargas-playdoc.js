@@ -18,7 +18,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
                     mediaUrl: null,
                     mediaType: 1,
                     showAdAttribution: true,
-                    title: '✰ 𝙺𝚊𝚗𝙱𝚘𝚝 ✰',
+                    title: '✰ 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉 ✰',
                     body: 'Espere un momento por favor...',
                     previewType: 0,
                     sourceUrl: channel
