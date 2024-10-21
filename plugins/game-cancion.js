@@ -1,6 +1,5 @@
 import fetch from 'node-fetch';
 import axios from 'axios';
-import similarity from 'similarity';
 
 const timeout = 30000;
 const poin = 200;
@@ -48,8 +47,7 @@ RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
     }, timeout),
   ];
 
-  const aa = await conn.sendMessage(m.chat, { audio: { url: json.link_song }, fileName: `error.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
-  if (!aa) return conn.sendFile(m.chat, json.link_song, 'coba-lagi.mp3', '', m);
+  await conn.sendMessage(m.chat, { audio: { url: json.link_song }, fileName: `error.mp3`, mimetype: 'audio/mpeg' }, { quoted: m });
 };
 
 handler.help = ['cancion'];
@@ -57,3 +55,5 @@ handler.tags = ['game'];
 handler.command = /^cancion|canción$/i;
 handler.group = true;
 handler.register = true;
+
+export default handler;
