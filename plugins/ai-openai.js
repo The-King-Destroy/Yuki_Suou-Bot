@@ -42,7 +42,7 @@ const groq = new Groq({ apiKey: 'gsk_pvUGuoYY3unKEUcIrBglWGdyb3FYRWLcTPe7H39DyzO
         return m.reply(e.message)
       }
   }
-handler.command = ['ai2', 'openai', 'ia', 'chatgpt'];
-handler.help = ['openai', 'ia', 'chatgpt'];
+handler.command = ['openai'];
+handler.help = ['openai'];
 handler.tags = ['ai'];
 export default handler;
