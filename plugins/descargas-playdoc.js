@@ -1,136 +1,76 @@
-import fetch from 'node-fetch'
-import yts from 'yt-search'
-import ytdl from 'ytdl-core'
-import axios from 'axios'
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+import fetch from 'node-fetch';
+import yts from 'yt-search';
+import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
-const lolkeysapi = '8fdb6bf3e9d527f7a6476f4b'; // Aquí defines tu clave API
-const MAX_FILE_SIZE_MB = 200; // Límite de tamaño de archivo en MB
+const MAX_FILE_SIZE_MB = 200;
 
-const handler = async (m, { conn, command, args, text, usedPrefix }) => {
-    if (!text) return conn.reply(m.chat, `🧿 *Ingrese un nombre de una canción de YouTube*\n\nEjemplo, !${command} falling - Daniel Trevor`, m);
+const handler = async (m, { conn, command, args }) => {
+    if (!args.length) return conn.reply(m.chat, '🧿 *Ingrese un nombre de una canción de YouTube*', m);
     m.react('⏳');
 
     try {
-        conn.reply(m.chat, '🔄 Procesando su solicitud...', m, {
-            contextInfo: {
-                externalAdReply: {
-                    mediaUrl: null,
-                    mediaType: 1,
-                    showAdAttribution: true,
-                    title: '✰ 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉 ✰',
-                    body: 'Espere un momento por favor...',
-                    previewType: 0,
-                    sourceUrl: channel
-                }
-            }
-        });
+        conn.reply(m.chat, '🔄 Procesando su solicitud...', m);
 
         const yt_play = await search(args.join(' '));
-        let additionalText = '';
-        if (command === 'play7' || command == 'playdoc') {
-            additionalText = 'audio';
-        } else if (command === 'play8' || command == 'playdoc2') {
-            additionalText = 'video';
-        }
+        if (!yt_play.length) return conn.reply(m.chat, '❌ No se encontró ningún video.', m);
 
-        let texto1 = `
+        const video = yt_play[0];
+        let additionalText = command.includes('7') ? 'audio' : 'video';
+
+        let responseText = `
 ┏◚◚◚◚🅓🅞🅒🅢◚◚◚◚┓
-🍁 𝚃𝚒𝚝𝚞𝚕𝚘:
-${yt_play[0].title}
-
-🎀 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚍𝚘:
-${yt_play[0].ago}
-
-🧿 𝚄𝚁𝙻:
-${yt_play[0].url}
-
-🖋️ 𝙰𝚞𝚝𝚘𝚛:
-${yt_play[0].author.name}
-
-📌 𝙲𝚊𝚗𝚊𝚕:
-${yt_play[0].author.url}
-
-⏰ 𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗:
-${secondString(yt_play[0].duration.seconds)}
-
+🍁 𝚃𝚒𝚝𝚞𝚕𝚘: ${video.title}
+🎀 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚍𝚘: ${video.ago}
+🧿 𝚄𝚁𝙻: ${video.url}
+🖋️ 𝙰𝚞𝚝𝚘𝚛: ${video.author.name}
+📌 𝙲𝚊𝚗𝚊𝚕: ${video.author.url}
+⏰ 𝙳𝚞𝚛𝚊𝚌𝚒𝚘𝚗: ${secondString(video.duration.seconds)}
 ┗◛◛◛𝙔𝙪𝙠𝙞_𝙎𝙪𝙤𝙪-𝘽𝙤𝙩◛◛◛┛
-
-𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚜𝚞 ${additionalText}, 𝙿𝚘𝚛 𝙵𝚊𝚟𝚘𝚛 𝙴𝚜𝚙𝚎𝚛𝚎 
+𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚜𝚞 ${additionalText}, 𝙿𝚘𝚛 𝙵𝚊𝚟𝚘𝚛 𝙴𝚜𝚙𝚎𝚛𝚎
 `.trim();
 
-        await conn.sendMessage(m.chat, { text: texto1 }, { quoted: m });
+        await conn.sendMessage(m.chat, { text: responseText }, { quoted: m });
 
-        // Comando para audio
-        if (command == 'play7' || command == 'playdoc') {
-            try {
-                let q = '128kbps';
-                let v = yt_play[0].url;
-                let yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
-                let dl_url = await yt.audio[q].download();
-                let ttl = await yt.title;
-                let size = parseFloat(yt.audio[q].fileSizeH.split(' ')[0]);
+        const downloadUrl = await getDownloadUrl(video.url, command);
+        if (!downloadUrl) return conn.reply(m.chat, '❌ Ocurrió un error al obtener el enlace de descarga.', m);
 
-                // Comprobación del tamaño del archivo
-                if (size > MAX_FILE_SIZE_MB) {
-                    return conn.reply(m.chat, `❌ El archivo es demasiado pesado (${size} MB). El límite es de ${MAX_FILE_SIZE_MB} MB.`, m, rcanal);
-                }
-
-                await conn.sendMessage(m.chat, { document: { url: dl_url }, mimetype: 'audio/mpeg', fileName: `${ttl}.mp3` }, { quoted: m });
-            } catch (error) {
-                await conn.reply(m.chat, '*❌ Ocurrió un error al descargar el audio.*', m);
-            }
+        const size = parseFloat(downloadUrl.fileSizeH.split(' ')[0]);
+        if (size > MAX_FILE_SIZE_MB) {
+            return conn.reply(m.chat, `❌ El archivo es demasiado pesado (${size} MB). El límite es de ${MAX_FILE_SIZE_MB} MB.`, m);
         }
 
-        // Comando para video
-        if (command == 'play8' || command == 'playdoc2') {
-            try {
-                const q = '360p';
-                const v = yt_play[0].url;
-                const yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
-                const dl_url = await yt.video[q].download();
-                const ttl = await yt.title;
-                const size = parseFloat(yt.video[q].fileSizeH.split(' ')[0]);
-
-                // Comprobación del tamaño del archivo
-                if (size > MAX_FILE_SIZE_MB) {
-                    return conn.reply(m.chat, `❌ El archivo es demasiado pesado (${size} MB). El límite es de ${MAX_FILE_SIZE_MB} MB.`, m);
-                }
-
-                await conn.sendMessage(m.chat, { document: { url: dl_url }, fileName: `${ttl}.mp4`, mimetype: 'video/mp4' }, { quoted: m });
-            } catch (error) {
-                await conn.reply(m.chat, '*❌ Ocurrió un error al descargar el video.*', m);
-            }
-        }
+        await conn.sendMessage(m.chat, {
+            document: { url: downloadUrl.url },
+            mimetype: command.includes('7') ? 'audio/mpeg' : 'video/mp4',
+            fileName: `${downloadUrl.title}.${command.includes('7') ? 'mp3' : 'mp4'}`
+        }, { quoted: m });
     } catch (error) {
-        return conn.reply(m.chat, '*❌ Ocurrió un error, intente de nuevo.*', m);
+        console.error(error);
+        return conn.reply(m.chat, '❌ Ocurrió un error, intente de nuevo.', m);
     }
 };
 
-handler.help = ['play7', 'play8', 'playdoc', 'playdoc2'];
-handler.tags = ['descargas'];
-handler.command = ['playdoc', 'playdoc2', 'play7', 'play8'];
-handler.group = true;
-handler.register = true;
+async function search(query) {
+    const searchResults = await yts.search({ query, hl: 'es', gl: 'ES' });
+    return searchResults.videos;
+}
 
-export default handler;
-
-// Funciones auxiliares como search(), secondString(), etc.
-
-async function search(query, options = {}) {
-    var search = await yts.search({ query, hl: 'es', gl: 'ES', ...options });
-    return search.videos;
+async function getDownloadUrl(url, command) {
+    try {
+        const yt = await youtubedl(url).catch(async (_) => await youtubedlv2(url));
+        return command.includes('7') ? await yt.audio['128kbps'].download() : await yt.video['360p'].download();
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }
 
 function secondString(seconds) {
     seconds = Number(seconds);
-    var d = Math.floor(seconds / (3600 * 24));
-    var h = Math.floor((seconds % (3600 * 24)) / 3600);
-    var m = Math.floor((seconds % 3600) / 60);
-    var s = Math.floor(seconds % 60);
-    var dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
-    var hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
-    var mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
-    var sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
-    return dDisplay + hDisplay + mDisplay + sDisplay;
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    return `${h} horas, ${m} minutos, ${s} segundos`;
 }
+
+export default handler;
