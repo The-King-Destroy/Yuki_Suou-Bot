@@ -76,7 +76,7 @@ let _0x1a2b = async (_0x1b2c, { conn: _0x2b3d, args: _0x4a5e }) => {
 
 _0x1a2b.help = ['searchmanga'].map(_0x1c2d => _0x1c2d + " *<Nombre del manga>*");
 
-_0x1a2b.tags = ['search'];
+_0x1a2b.tags = ['buscador'];
 
 _0x1a2b.command = ['searchmanga'];
 

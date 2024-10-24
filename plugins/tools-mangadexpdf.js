@@ -86,6 +86,6 @@ let handler= async(_0x5562x2,{conn,args})=>{
 };
 
 handler.help=[_0x1a6d[8]].map(v=>v+" *<ID del manga>*"); 
-handler.tags=['tools']; 
+handler.tags=['descargas']; 
 handler.command=['mangadex']; 
 export default handler;
