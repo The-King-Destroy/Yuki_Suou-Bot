@@ -3,7 +3,7 @@ import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-
+    
     // Verificamos si se menciona a alguien o se cita un mensaje
     if (m.mentionedJid.length > 0) {
         who = m.mentionedJid[0]; // Si hay mención, usamos esa
@@ -13,9 +13,9 @@ let handler = async (m, { conn, usedPrefix }) => {
         who = m.sender; // En caso contrario, usamos el emisor
     }
 
-    // Verificamos si el modo NSFW está habilitado
+    // Verificamos si los comandos están desactivados
     if (!db.data.chats[m.chat].nsfwhot && m.isGroup) {
-        return conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
+        throw conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
     }
 
     if (!who) throw 'Etiqueta o menciona a alguien';
@@ -27,13 +27,13 @@ let handler = async (m, { conn, usedPrefix }) => {
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} le está agarrando las tetas a ${name || who}.`;
+        str = `${name2} le está agarrando las tetas a ${name || who}.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} está agarrando las tetas de ${name || who}.`;
+        str = `${name2} esta agarrando las tetas de ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
         str = `${name2} está agarrando unas ricas tetas >.<`.trim();
     }
-
+    
     if (m.isGroup) {
         let pp = 'https://telegra.ph/file/e6bf14b93dfe22c4972d0.mp4'; 
         let pp2 = 'https://telegra.ph/file/075db3ebba7126d2f0d95.mp4'; 
