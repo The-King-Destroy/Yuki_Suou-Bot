@@ -14,11 +14,16 @@ let handler = async (m, { conn }) => {
     throw 'Uno de ustedes ya está casado.';
   }
 
+  // Verifica si ya hay una propuesta pendiente
+  if (global.db.data.users[who].proposedBy) {
+    throw `${name} ya tiene una propuesta pendiente.`;
+  }
+
   let str = `${name2} ha propuesto matrimonio a ${name}. ¿Aceptas? Responde con "sí" o "no".`;
   conn.sendMessage(m.chat, { text: str, mentions: [who] }, { quoted: m });
 
-  // Guardar estado de propuesta
-  global.db.data.users[m.sender].proposedTo = who;
+  // Guardar el estado de la propuesta
+  global.db.data.users[who].proposedBy = m.sender;
 };
 
 handler.help = ['proponer @tag'];
