@@ -24,9 +24,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (m.mentionedJid.length > 0) {
         str = `${name2} está haciendo un 69 con ${name || who}.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} está haciendo un sixnine con ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} hizo un 69 con ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} se está haciendo un 69.`.trim();
+        str = `${name2} está haciendo un 69! >.<.`.trim();
     }
     
     if (m.isGroup) {
@@ -38,7 +38,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         let pp6 = 'https://telegra.ph/file/16f43effd7357e82c94d3.mp4';
         let pp7 = 'https://telegra.ph/file/55cb31314b168edd732f8.mp4';
         let pp8 = 'https://telegra.ph/file/1cbaa4a7a61f1ad18af01.mp4';
-        let pp9 = 'https://telegra.ph/file/1083c19087f6997ec8095.mp4'
+        let pp9 = 'https://telegra.ph/file/1083c19087f6997ec8095.mp4';
         
         const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9];
         const video = videos[Math.floor(Math.random() * videos.length)];
