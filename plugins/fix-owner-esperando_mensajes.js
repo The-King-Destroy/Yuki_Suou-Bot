@@ -1,17 +1,17 @@
-/* Codigo hecho por @Fabri115  */
+/* Codigo hecho por @Fabri115 y mejorado por BrunoSobrino */
 
 import { readdirSync, unlinkSync, existsSync, promises as fs, rmSync } from 'fs';
 import path from 'path';
 
 const handler = async (m, { conn, usedPrefix }) => {
   if (global.conn.user.jid !== conn.user.jid) {
-    return conn.sendMessage(m.chat, {text: '_[🌹]Ejecuta El Comando En El GokuBot-MD Principal._'}, {quoted: m});
+    return conn.sendMessage(m.chat, {text: '*[❗] Utiliza este comando directamente en el número principal del Bot.*'}, {quoted: m});
   }
-  await conn.sendMessage(m.chat, {text: '_[🌹] Se Esta Ejecutando Proceso Eliminacion De Datos Files._'}, {quoted: m});
+  await conn.sendMessage(m.chat, {text: '*[❗] Iniciando proceso de eliminación de todos los archivos de sesión, excepto el archivo creds.json...*'}, {quoted: m});
   const sessionPath = './YukiSession/';
   try {
     if (!existsSync(sessionPath)) {
-      return await conn.sendMessage(m.chat, {text: '_[🌹] No Se Encuantra La Carpeta (Undenifed)_ '}, {quoted: m});
+      return await conn.sendMessage(m.chat, {text: '*[❗] La carpeta YukiSession no existe o está vacía.*'}, {quoted: m});
     }
     const files = await fs.readdir(sessionPath);
     let filesDeleted = 0;
@@ -22,18 +22,18 @@ const handler = async (m, { conn, usedPrefix }) => {
       }
     }
     if (filesDeleted === 0) {
-      await conn.sendMessage(m.chat, {text: '_[🌹] No Se Encuentra La Carpeta (Undefined)._'}, {quoted: m});
+      await conn.sendMessage(m.chat, {text: '*[❗] No se encontró ningún archivo para eliminar en la carpeta YukiSession.*'}, {quoted: m});
     } else {
-      await conn.sendMessage(m.chat, {text: `_[🌹] Se Ah Eliminado Los Files De Manera Correcta *${filesDeleted}* Menos Las Credenciales Del Bot._`}, {quoted: m});
+      await conn.sendMessage(m.chat, {text: `*[❗] Se eliminaron ${filesDeleted} archivos de sesión, excepto el archivo creds.json.*`}, {quoted: m});
     }
   } catch (err) {
     console.error('Error al leer la carpeta o los archivos de sesión:', err);
-    await conn.sendMessage(m.chat, {text: '_[🌹] Ejecución Fallida._'}, {quoted: m});
+    await conn.sendMessage(m.chat, {text: '*[❗] Ocurrió un error al eliminar los archivos de sesión.*'}, {quoted: m});
   }
-  await conn.sendMessage(m.chat, {text: `_📍Listo, Ejecución Perfecta.📍_\n\n[✔️] _Si GokuBot-MD No Responde Haga Un Pequeño Spam._\n\n*—◉ ᴇᴊᴇᴍᴘʟᴏ:*\n${usedPrefix}s\n${usedPrefix}s\n${usedPrefix}s`}, {quoted: m});
+  await conn.sendMessage(m.chat, {text: `*👋 ¡Hola! Ahora me ves?*\n\n*[❗] Si el Bot no le responde a sus comandos por favor haga un pequeño spam*\n\n*—◉ Ejemplo:*\n${usedPrefix}s\n${usedPrefix}s\n${usedPrefix}s`}, {quoted: m});
 };
 handler.help = ['del_reg_in_session_owner'];
 handler.tags = ['owner'];
-handler.command = /^(del_reg_in_session_owner|lobodel|delgoku|clearallsession)$/i;
+handler.command = /^(del_reg_in_session_owner|dsowner|clearallsession)$/i;
 handler.rowner = true
 export default handler;
