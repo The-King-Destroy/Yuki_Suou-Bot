@@ -11,12 +11,12 @@ let handler = async (m, { conn }) => {
     throw 'No están casados.';
   }
 
-  let name = conn.getName(who);
-  let name2 = conn.getName(m.sender);
-  let str = `${name2} y ${name} se han divorciado.`;
+  let name1 = conn.getName(m.sender);
+  let name2 = conn.getName(who);
+  let message = `${name1} y ${name2} se han divorciado.`;
   let img = getRandomImage(['https://qu.ax/ChmG.mp4', 'https://qu.ax/yUBa.mp4', 'https://qu.ax/OpVX.mp4']);
   
-  conn.sendMessage(m.chat, { video: { url: img }, gifPlayback: true, caption: str, mentions: [m.sender] }, { quoted: m });
+  await conn.sendMessage(m.chat, { video: { url: img }, gifPlayback: true, caption: message, mentions: [m.sender, who] }, { quoted: m });
 
   // Actualiza estado casado
   global.db.data.users[m.sender].casado = false;
