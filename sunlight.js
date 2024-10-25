@@ -169,7 +169,7 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['Yuki_Suou-Bot', 'Edge', '2.0.0'] : methodCodeQR ? ['Yuki_Suou-Bot', 'Edge', '2.0.0'] : ['Ubuntu', 'Edge', '110.0.1587.56'],
+browser: opcion == '1' ? ['Yuki-Bot', 'Edge', '2.0.0'] : methodCodeQR ? ['Yuki-Bot', 'Edge', '2.0.0'] : ['Ubuntu', 'Edge', '110.0.1587.56'],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -279,7 +279,7 @@ process.on('uncaughtException', console.error)
 async function connectSubBots() {
 const subBotDirectory = './YukiJadiBot';
 if (!existsSync(subBotDirectory)) {
-console.log('🚩 Yuki_Suou-Bot no tiene Sub-Bots vinculados.');
+console.log('🚩 Yuki-Bot no tiene Sub-Bots vinculados.');
 return;
 }
 
@@ -310,7 +310,7 @@ console.log(chalk.bold.greenBright(`🚩 Ai Yuki_Suou conectado correctamente.`)
 
 await connectSubBots();
 } catch (error) {
-console.error(chalk.bold.cyanBright(`🍭 Error al iniciar Yuki_Suou-Bot: `, error))
+console.error(chalk.bold.cyanBright(`🍭 Error al iniciar Yuki-Bot: `, error))
 }
 })();
 
