@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     // Verificamos si el modo NSFW está habilitado
     if (!db.data.chats[m.chat].nsfwhot && m.isGroup) {
-        throw conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
+        return conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
     }
 
     if (!who) throw 'Etiqueta o menciona a alguien';
@@ -46,7 +46,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         let pp9 = 'https://telegra.ph/file/e999ef6e67a1a75a515d6.mp4';
         let pp10 = 'https://telegra.ph/file/05c1bd3a2ec54428ac2fc.mp4';
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp8, pp9, pp10];
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10];
         const video = videos[Math.floor(Math.random() * videos.length)];
         
         // Enviamos el mensaje con el video y el mensaje correspondiente
