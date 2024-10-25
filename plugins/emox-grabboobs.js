@@ -2,13 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
-    // Verificamos si el modo NSFW está habilitado
-    const nsfwEnabled = false; // Cambia esto a true si deseas habilitar el modo NSFW
-
-    if (!nsfwEnabled) {
-        return conn.sendMessage(m.chat, { text: 'Los comandos NSFW están desactivados.' }, { quoted: m });
-    }
-
     let who;
 
     // Verificamos si se menciona a alguien o se cita un mensaje
@@ -20,6 +13,13 @@ let handler = async (m, { conn, usedPrefix }) => {
         who = m.sender; // En caso contrario, usamos el emisor
     }
 
+    // Verificamos si el modo NSFW está habilitado
+    if (!db.data.chats[m.chat].nsfwhot && m.isGroup) {
+        throw conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
+    }
+
+    if (!who) throw 'Etiqueta o menciona a alguien';
+
     let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
     let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
     m.react('🔥');
@@ -29,11 +29,11 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (m.mentionedJid.length > 0) {
         str = `${name2} le está agarrando las tetas a ${name || who}.`;
     } else if (m.quoted) {
-        str = `${name2} esta agarrando las tetas de ${name || who}.`;
+        str = `${name2} está agarrando las tetas de ${name || who}.`;
     } else {
         str = `${name2} está agarrando unas ricas tetas >.<`.trim();
     }
-    
+
     if (m.isGroup) {
         let pp = 'https://telegra.ph/file/e6bf14b93dfe22c4972d0.mp4'; 
         let pp2 = 'https://telegra.ph/file/075db3ebba7126d2f0d95.mp4'; 
