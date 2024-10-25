@@ -50,7 +50,7 @@ const defaultMenu = {
 ❦🛡 *𝕹𝖎𝖛𝖊𝖑:* %level
 ❦💫 *𝕽𝖆𝖓𝖌𝖔:* %role
 
-\t*𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘* 
+\t*【𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘】* 
 `.trimStart(),
       header: '「 %category 」\n',
   body: '❦ %cmd\n',
@@ -170,7 +170,7 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
 
 // await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
 
-await m.react('✨') 
+await m.react('🌹') 
 
 //await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
 
