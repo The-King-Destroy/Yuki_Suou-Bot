@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else if (m.quoted) {
         str = `${name2} se vino dentro de ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} se vino dentro de Omitiremos eso`.trim();
+        str = `${name2} se vino dentro de,Omitiremos eso`.trim();
     }
     
     if (m.isGroup) {
@@ -38,8 +38,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         let pp6 = 'https://telegra.ph/file/4d97457142dff96a3f382.mp4';
         let pp7 = 'https://telegra.ph/file/b1b4c9f48eaae4a79ae0e.mp4';
         let pp8 = 'https://telegra.ph/file/5094ac53709aa11683a54.mp4';
-        let pp8 = 'https://telegra.ph/file/5094ac53709aa11683a54.mp4';
-        let pp9 = 'https://telegra.ph/file/90ad889125a3ba40bceb8.jpg';
+        let pp9 = 'https://telegra.ph/file/5094ac53709aa11683a54.mp4';
         let pp10 = 'https://telegra.ph/file/dc279553e1ccfec6783f3.mp4';
         let pp11 = 'https://telegra.ph/file/acdb5c2703ee8390aaf33.mp4';
         
