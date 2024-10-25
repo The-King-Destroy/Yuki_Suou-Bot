@@ -14,7 +14,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
 
     // Verificamos si los comandos están desactivados
-    if (!db.data.chats[m.chat].nsfwhot && m.isGroup) {
+    if (!db.data.chats[m.chat].nsfw && m.isGroup) {
         throw conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
     }
 
