@@ -4,26 +4,27 @@ import path from 'path';
 let handler = async (m, { conn }) => {
   if (!m.isGroup) throw 'Este comando solo funciona en grupos';
 
-  let who = m.mentionedJid[0] || m.quoted?.sender;
-  if (!who) throw 'Etiqueta o menciona a alguien';
+  let target = m.mentionedJid[0] || m.quoted?.sender;
+  if (!target) throw 'Por favor, etiqueta o menciona a alguien a quien proponer matrimonio.';
 
-  let name2 = conn.getName(m.sender);
-  let name = conn.getName(who);
+  let proposerName = conn.getName(m.sender);
+  let targetName = conn.getName(target);
 
-  if (global.db.data.users[m.sender].casado || global.db.data.users[who].casado) {
-    throw 'Uno de ustedes ya está casado.';
+  // Comprobaciones de estado
+  if (global.db.data.users[m.sender].casado || global.db.data.users[target].casado) {
+    throw 'Uno de ustedes ya está casado, no se puede realizar la propuesta.';
   }
 
-  // Verifica si ya hay una propuesta pendiente
-  if (global.db.data.users[who].proposedBy) {
-    throw `${name} ya tiene una propuesta pendiente.`;
+  // Verifica si hay una propuesta pendiente
+  if (global.db.data.users[target].proposedBy) {
+    throw `${targetName} ya tiene una propuesta pendiente.`;
   }
 
-  let message = `${name2} ha propuesto matrimonio a ${name}. ¿Aceptas? Responde con "sí" o "no".`;
-  conn.sendMessage(m.chat, { text: message, mentions: [who] }, { quoted: m });
+  let proposalMessage = `${proposerName} ha propuesto matrimonio a ${targetName}. ¿Aceptas? Responde con "sí" o "no".`;
+  conn.sendMessage(m.chat, { text: proposalMessage, mentions: [target] }, { quoted: m });
 
-  // Guardar el estado de la propuesta
-  global.db.data.users[who].proposedBy = m.sender;
+  // Guardar la propuesta
+  global.db.data.users[target].proposedBy = m.sender;
 };
 
 handler.help = ['proponer @tag'];

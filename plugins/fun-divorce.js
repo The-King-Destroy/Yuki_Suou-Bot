@@ -4,30 +4,25 @@ import path from 'path';
 let handler = async (m, { conn }) => {
   if (!m.isGroup) throw 'Este comando solo funciona en grupos';
 
-  let who = m.mentionedJid[0] || m.quoted?.sender;
-  if (!who) throw 'Etiqueta o menciona a alguien';
+  let target = m.mentionedJid[0] || m.quoted?.sender;
+  if (!target) throw 'Por favor, etiqueta o menciona a tu pareja para divorciarte.';
 
-  if (global.db.data.users[m.sender].pareja !== who || global.db.data.users[who].pareja !== m.sender) {
-    throw 'No están casados.';
+  if (global.db.data.users[m.sender].pareja !== target || global.db.data.users[target].pareja !== m.sender) {
+    throw 'No estás casado con esta persona.';
   }
 
-  let name1 = conn.getName(m.sender);
-  let name2 = conn.getName(who);
-  let message = `${name1} y ${name2} se han divorciado.`;
-  let img = getRandomImage(['https://qu.ax/ChmG.mp4', 'https://qu.ax/yUBa.mp4', 'https://qu.ax/OpVX.mp4']);
-  
-  await conn.sendMessage(m.chat, { video: { url: img }, gifPlayback: true, caption: message, mentions: [m.sender, who] }, { quoted: m });
+  let userName = conn.getName(m.sender);
+  let partnerName = conn.getName(target);
+  let message = `${userName} y ${partnerName} se han divorciado.`;
 
-  // Actualiza estado casado
+  // Actualiza el estado de casados
   global.db.data.users[m.sender].casado = false;
-  global.db.data.users[who].casado = false;
+  global.db.data.users[target].casado = false;
   global.db.data.users[m.sender].pareja = null;
-  global.db.data.users[who].pareja = null;
-};
+  global.db.data.users[target].pareja = null;
 
-function getRandomImage(imgs) {
-  return imgs[Math.floor(Math.random() * imgs.length)];
-}
+  conn.sendMessage(m.chat, { text: message }, { quoted: m });
+};
 
 handler.help = ['divorciarse @tag'];
 handler.tags = ['fun'];
