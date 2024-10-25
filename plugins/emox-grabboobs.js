@@ -1,9 +1,14 @@
-//Codígo creado por Destroy wa.me/584120346669
-
 import fs from 'fs';
 import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
+    // Verificamos si el modo NSFW está habilitado
+    const nsfwEnabled = false; // Cambia esto a true si deseas habilitar el modo NSFW
+
+    if (!nsfwEnabled) {
+        return conn.sendMessage(m.chat, { text: 'Los comandos NSFW están desactivados.' }, { quoted: m });
+    }
+
     let who;
 
     // Verificamos si se menciona a alguien o se cita un mensaje
@@ -22,9 +27,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} le está agarrando las tetas a ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `${name2} le está agarrando las tetas a ${name || who}.`;
     } else if (m.quoted) {
-        str = `${name2} esta agarrando las tetas de ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} esta agarrando las tetas de ${name || who}.`;
     } else {
         str = `${name2} está agarrando unas ricas tetas >.<`.trim();
     }
@@ -55,4 +60,4 @@ handler.tags = ['emox'];
 handler.command = ['grabboobs','agarrartetas'];
 handler.group = true;
 
-export default handler
+export default handler;
