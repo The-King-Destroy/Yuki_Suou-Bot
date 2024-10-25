@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn }) => {
   if (!m.isGroup) throw 'Este comando solo funciona en grupos';
 
   let name2 = conn.getName(m.sender);
@@ -9,7 +9,9 @@ let handler = async (m, { conn, usedPrefix }) => {
 
   if (!proposedTo) throw 'No tienes una propuesta de matrimonio pendiente.';
 
-  if (m.text.toLowerCase() === 'sí') {
+  let response = m.text.toLowerCase().trim();
+
+  if (response === 'sí') {
     let name = conn.getName(proposedTo);
     let str = `${name2} ha aceptado la proposición de matrimonio de ${name}! Felicidades!`;
     let img = getRandomImage(['https://qu.ax/OpVX.mp4', 'https://qu.ax/yUBa.mp4', 'https://qu.ax/ChmG.mp4']);
@@ -22,7 +24,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     global.db.data.users[m.sender].pareja = proposedTo;
     global.db.data.users[proposedTo].pareja = m.sender;
 
-  } else if (m.text.toLowerCase() === 'no') {
+  } else if (response === 'no') {
     let name = conn.getName(proposedTo);
     let str = `${name2} ha rechazado la proposición de matrimonio de ${name}.`;
     conn.sendMessage(m.chat, { text: str, mentions: [proposedTo] }, { quoted: m });
@@ -40,7 +42,7 @@ function getRandomImage(imgs) {
 
 handler.help = ['responder "sí" o "no"'];
 handler.tags = ['fun'];
-handler.command = ['si', 'no'];
+handler.command = ['responder', 'respond'];
 handler.group = true;
 
 export default handler;

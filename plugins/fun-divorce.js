@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn }) => {
   if (!m.isGroup) throw 'Este comando solo funciona en grupos';
 
   let who = m.mentionedJid[0] || m.quoted?.sender;
