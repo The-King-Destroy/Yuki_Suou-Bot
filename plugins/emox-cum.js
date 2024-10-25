@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else if (m.quoted) {
         str = `${name2} se vino dentro de ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} se vino dentro de... Omitiremos eso`.trim();
+        str = `${name2} se vino dentro de,Omitiremos eso`.trim();
     }
     
     if (m.isGroup) {
