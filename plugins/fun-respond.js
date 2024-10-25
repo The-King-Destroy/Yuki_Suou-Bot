@@ -40,7 +40,7 @@ function getRandomImage(imgs) {
 
 handler.help = ['responder "sí" o "no"'];
 handler.tags = ['fun'];
-handler.command = ['responder', 'respond'];
+handler.command = ['si', 'no'];
 handler.group = true;
 
 export default handler;
