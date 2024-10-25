@@ -1,9 +1,11 @@
+//Codígo creado por Destroy wa.me/584120346669
+
 import fs from 'fs';
 import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-    
+
     // Verificamos si se menciona a alguien o se cita un mensaje
     if (m.mentionedJid.length > 0) {
         who = m.mentionedJid[0]; // Si hay mención, usamos esa
@@ -12,13 +14,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else {
         who = m.sender; // En caso contrario, usamos el emisor
     }
-
-    // Verificamos si los comandos están desactivados
-    if (!db.data.chats[m.chat].nsfwhot && m.isGroup) {
-        throw conn.reply(m.chat, '🚩 *¡Estos comandos están desactivados!*', m);
-    }
-
-    if (!who) throw 'Etiqueta o menciona a alguien';
+    if (!db.data.chats[m.chat].nsfwhot && m.isGroup) throw conn.reply(m.chat,  '🚩 *¡Estos comandos están desactivados!*', m, fake);
 
     let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
     let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
@@ -46,7 +42,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         let pp9 = 'https://telegra.ph/file/e999ef6e67a1a75a515d6.mp4';
         let pp10 = 'https://telegra.ph/file/05c1bd3a2ec54428ac2fc.mp4';
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10];
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp8, pp9, pp10];
         const video = videos[Math.floor(Math.random() * videos.length)];
         
         // Enviamos el mensaje con el video y el mensaje correspondiente
@@ -60,4 +56,4 @@ handler.tags = ['emox'];
 handler.command = ['grabboobs','agarrartetas'];
 handler.group = true;
 
-export default handler;
+export default handler
