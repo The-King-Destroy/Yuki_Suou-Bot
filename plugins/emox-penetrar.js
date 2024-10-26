@@ -1,4 +1,5 @@
 let handler = async (m, { conn, command, text }) => {
+    if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
     // Obtiene el usuario mencionado o el que respondió al mensaje
     let user = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.sender);
     let userName = user === m.sender ? `@${m.sender.split('@')[0]}` : `@${user.split('@')[0]}`;
@@ -18,7 +19,7 @@ let handler = async (m, { conn, command, text }) => {
 
 // Ayuda y configuración del comando
 handler.help = ['penetrar @user'];
-handler.tags = ['emox'];
+handler.tags = ['nsfws'];
 handler.command = ['penetrar', 'penetrado'];
 handler.register = true;
 handler.group = true;
