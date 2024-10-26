@@ -5,7 +5,7 @@ import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-
+if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
     // Verificamos si se menciona a alguien o se cita un mensaje
     if (m.mentionedJid.length > 0) {
         who = m.mentionedJid[0]; // Si hay mención, usamos esa
@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else if (m.quoted) {
         str = `${name2} se vino dentro de ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} se vino dentro de... Omitiremos eso`.trim();
+        str = `${name2} se vino dentro de,Omitiremos eso`.trim();
     }
     
     if (m.isGroup) {
