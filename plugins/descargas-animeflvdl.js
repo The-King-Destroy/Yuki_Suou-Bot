@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
    
-        if (!args[0]) return m.reply(`\`\`\`🌱 Uso correcto del comando: ${usedPrefix + command} <ID del anime> <capitulo>\n\nEjemplo: ${usedPrefix+command} dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-movie-orion-no-ya 1\`\`\``);
+        if (!args[0]) return m.reply(`\`\`\`🌹 Uso correcto del comando: ${usedPrefix + command} <ID del anime> <capitulo>\n\nEjemplo: ${usedPrefix+command} dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-movie-orion-no-ya 1\`\`\``);
         const animeId = args[0];
         const episode = args[1] || 1;
         const apiUrl = `https://animeflvapi.vercel.app/download/anime/${animeId}/${episode}`;
@@ -15,8 +15,8 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
         if (!megaLink) throw new Error('No se encontró el enlace de MEGA ');
         const file = File.fromURL(megaLink);
         await file.loadAttributes();
-         m.reply(`_Nota: Ten en cuenta que los animes en emisión solo duran 3 días en la nube por lo que no se descargará después de ése lapso de tiempo. gracias por usar a Sylphiette | The best WhatsApp bot. 🌾_`)
-        const caption = `🌴 Nombre: ${file.name}\n✨ Tamaño: ${formatBytes(file.size)}\n\n${wm}`;
+         m.reply(`_Nota: Ten en cuenta que los animes en emisión solo duran 3 días en la nube por lo que no se descargará después de ése lapso de tiempo. gracias por usar a Yuki Suou Bot )
+        const caption = `🍁 Nombre: ${file.name}\n✨ Tamaño: ${formatBytes(file.size)}\n\n${wm}`;
         const dataBuffer = await file.downloadBuffer();
         const fileExtension = path.extname(file.name).toLowerCase();
         const mimeTypes = {
@@ -42,7 +42,7 @@ function formatBytes(bytes) {
 }
 
 handler.help = ['animedl'];
-handler.tags = ['descargas'];
+handler.tags = ['anime'];
 handler.command = ['animedl', 'animeflvdl', 'anidl'];
 handler.register = true
 handler.premium = true
