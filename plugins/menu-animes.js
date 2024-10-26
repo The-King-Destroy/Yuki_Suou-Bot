@@ -7,7 +7,8 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 const { generateWAMessageFromContent, proto } = (await import('@whiskeysockets/baileys')).default
 
-const defaultMenu = { `
+const defaultMenu = { 
+`
 %readmore
 `.trimStart(),
   header: '╭─(❀)❝┊ *_`%category`_* ┊❝(❀)',
@@ -19,7 +20,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
 let tags = {
 'anime': 'ᴍᴇɴᴜ ᴀɴɪᴍᴇ',
 }
-let img = 'https://iili.io/dsSHQRt.md.png'
+let img = 'https://files.catbox.moe/c94tni.jpg'
 
   try {
           // DEFAULT MENU
