@@ -50,7 +50,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
 }
 
 handler.help = ['sixnine/69 @tag'];
-handler.tags = ['emox'];
+handler.tags = ['nsfws'];
 handler.command = ['sixnine','69'];
 handler.group = true;
 

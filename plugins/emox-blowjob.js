@@ -51,7 +51,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
 }
 
 handler.help = ['blowjob/mamada @tag'];
-handler.tags = ['emox'];
+handler.tags = ['nsfws'];
 handler.command = ['blowjob','bj','mamada'];
 handler.group = true;
 

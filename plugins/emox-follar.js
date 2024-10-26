@@ -47,7 +47,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
 }
 
 handler.help = ['follar @tag'];
-handler.tags = ['emox'];
+handler.tags = ['nsfws'];
 handler.command = ['follar'];
 handler.group = true;
 
