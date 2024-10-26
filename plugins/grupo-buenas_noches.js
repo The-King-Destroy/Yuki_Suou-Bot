@@ -17,30 +17,29 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
     let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
-    m.react('☕');
+    m.react('🌚');
 
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} tomá una tácita de café con ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `${name2} buenas noches ${name || who}.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} esta tomándo una tácita de café con ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} buenas noches ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} se toma una tácita de café para estar más activo hoy.`.trim();
+        str = `${name2} buenas noches a todos en el grupo les deseo dulces sueños.`.trim();
     }
     
     if (m.isGroup) {
-        let pp = 'https://files.catbox.moe/k6bzj0.mp4'; 
-        let pp2 = 'https://files.catbox.moe/3pj3nx.mp4'; 
-        let pp3 = 'https://files.catbox.moe/wcpe4z.mp4';
-        let pp4 = 'https://files.catbox.moe/64t3cf.mp4';
-        let pp5 = 'https://files.catbox.moe/qy1qmo.mp4';
-        let pp6 = 'https://files.catbox.moe/va1mu7.mp4';
-        let pp7 = 'https://files.catbox.moe/zqqre3.mp4';
-        let pp8 = 'https://files.catbox.moe/duydzw.mp4';
-        let pp9 = 'https://files.catbox.moe/4mn95m.mp4';
+        let pp = 'https://files.catbox.moe/0n2bf5.mp4'; 
+        let pp2 = 'https://files.catbox.moe/0im4vk.mp4'; 
+        let pp3 = 'https://files.catbox.moe/zua131.mp4';
+        let pp4 = 'https://files.catbox.moe/9cm0x9.mp4';
+        let pp5 = 'https://files.catbox.moe/7kxjhv.mp4';
+        let pp6 = 'https://files.catbox.moe/id09sr.mp4';
+        let pp7 = 'https://files.catbox.moe/3kyhf0.mp4';
+        let pp8 = 'https://files.catbox.moe/4qokmi.mp4';
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9];
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
         const video = videos[Math.floor(Math.random() * videos.length)];
         
         // Enviamos el mensaje con el video y el mensaje correspondiente
@@ -49,9 +48,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
 }
 
-handler.help = ['coffe/cafe @tag'];
-handler.tags = ['emox'];
-handler.command = ['coffe', 'cafe'];
+handler.help = ['buenas noches @tag'];
+handler.tags = ['grupo'];
+handler.command = ['buenas noches','noche','noches'];
 handler.group = true;
 
 export default handler;
