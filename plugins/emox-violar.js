@@ -22,9 +22,11 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} acabás de violar a la putita de ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `${name2} acabás de violar a la putita de ${name || who} mientras te decía " metemela durooo más durooo que rico pitote"...
+Tenemos que volver a sudar juntos!!.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} violaste a la zorra mal parida de ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} violaste a la zorra mal parida de ${name || who} mientras te decía " metemela durooo más durooo que rico pitote"...
+Tenemos que volver a sudar juntos!!.`; // Mensaje cuando se cita a otro usuario
     } else {
         str = `${name2} violo a alguien random del grupo por puta.`.trim();
     }
@@ -38,7 +40,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
         let pp6 = 'https://qu.ax/yiMt.mp4';
         let pp7 = 'https://qu.ax/cdKQ.mp4';
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7];
         const video = videos[Math.floor(Math.random() * videos.length)];
         
         // Enviamos el mensaje con el video y el mensaje correspondiente
