@@ -21,7 +21,7 @@ await m.reply(`Depositaste *${count} Cookies 🍪* al Banco.`)}
 
 handler.help = ['depositar']
 handler.tags = ['economy']
-handler.command = ['deposit', 'depositar', 'dep', 'aguardar']
+handler.command = ['deposit', 'depositar', 'd', 'dep', 'aguardar']
 handler.group = true;
 handler.register = true
 export default handler 
