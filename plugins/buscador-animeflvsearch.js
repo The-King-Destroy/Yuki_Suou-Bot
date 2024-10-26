@@ -32,7 +32,7 @@ let handler = async (message, { conn, text }) => {
 };
 
 handler.help = ['animesearch'];
-handler.tags = ['descargas'];
+handler.tags = ['anime'];
 handler.command = ['animeflvsearch', 'animeflv', 'animesearch'];
 handler.register = true;
 handler.premium = true
