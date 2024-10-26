@@ -22,23 +22,23 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} Acabas de Violar a la putita de ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `${name2} acabás de violar a la putita de ${name || who}.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} Acabas de Violar a la putita de ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} violaste a la zorra mal parida de ${name || who}.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} violo a alguien random del grupo por puta`.trim();
-    }<
+        str = `${name2} violo a alguien random del grupo por puta.`.trim();
+    }
     
     if (m.isGroup) {
-        let pp = 'https://qu.ax/yiMt.mp4'; 
-        let pp2 = 'https://qu.ax/cdKQ.mp4'; 
-        let pp3 = 'https://qu.ax/XmLe.mp4';
-        let pp4 = 'https://files.catbox.moe/cnmn0x.jpg';
-        let pp5 = 'https://files.catbox.moe/xph5x5.mp4';
-        let pp6 = 'https://files.catbox.moe/4ffxj8.mp4';
-        let pp7 = 'https://files.catbox.moe/f6ovgb.mp4';
+        let pp = 'https://files.catbox.moe/cnmn0x.jpg'; 
+        let pp2 = 'https://files.catbox.moe/xph5x5.mp4'; 
+        let pp3 = 'https://files.catbox.moe/4ffxj8.mp4';
+        let pp4 = 'https://files.catbox.moe/f6ovgb.mp4';
+        let pp5 = 'https://qu.ax/XmLe.mp4';
+        let pp6 = 'https://qu.ax/yiMt.mp4';
+        let pp7 = 'https://qu.ax/cdKQ.mp4';
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7];
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
         const video = videos[Math.floor(Math.random() * videos.length)];
         
         // Enviamos el mensaje con el video y el mensaje correspondiente
@@ -47,9 +47,9 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     }
 }
 
-handler.help = ['violar @tag'];
+handler.help = ['violar/perra @tag'];
 handler.tags = ['nsfws'];
-handler.command = ['violar', 'Violar'];
+handler.command = ['violar', 'perra'];
 handler.group = true;
 
 export default handler;
