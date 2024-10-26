@@ -11,13 +11,18 @@ let handler = async (m, { conn, usedPrefix }) => {
   let user = global.db.data.users[who];
   let name = conn.getName(who);
   let name2 = conn.getName(m.sender);
+  
 
-  let str = `${name2} se ha casado con ${name}! Felicidades!`.trim();
+  if (global.db.data.users[m.sender].pareja !== who || global.db.data.users[who].pareja !== m.sender) {
+    throw 'No estás casado con esta persona';
+  }
+
+  let str = `${name2} y ${name} se han divorciado.`.trim();
 
   let imgs = [
-    'https://qu.ax/OpVX.mp4', 
     'https://qu.ax/ChmG.mp4', 
-    'https://qu.ax/yUBa.mp4'
+    'https://qu.ax/yUBa.mp4', 
+    'https://qu.ax/OpVX.mp4'
   ];
   let img = imgs[Math.floor(Math.random() * imgs.length)];
   conn.sendMessage(m.chat, { 
@@ -26,17 +31,17 @@ let handler = async (m, { conn, usedPrefix }) => {
     caption: str, 
     mentions: [m.sender] 
   }, { quoted: m });
-  
+
   // Actualiza estado casado
-  global.db.data.users[m.sender].casado = true;
-  global.db.data.users[who].casado = true;
-  global.db.data.users[m.sender].pareja = who;
-  global.db.data.users[who].pareja = m.sender;
+  global.db.data.users[m.sender].casado = false;
+  global.db.data.users[who].casado = false;
+  global.db.data.users[m.sender].pareja = null;
+  global.db.data.users[who].pareja = null;
 };
 
-handler.help = ['casarse @tag'];
+handler.help = ['divorciarse @tag'];
 handler.tags = ['fun'];
-handler.command = ['casarse', 'marry'];
+handler.command = ['divorciarse', 'divorce'];
 handler.group = true;
 
 export default handler;
