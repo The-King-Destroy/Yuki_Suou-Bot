@@ -1,7 +1,7 @@
 let handler = async (m, { conn, command, text }) => {
     // Obtiene el usuario mencionado o el que respondió al mensaje
     let user = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.sender);
-    let userName = user === m.sender ? 'tú' : `@${user.split('@')[0]}`;
+    let userName = user === m.sender ? `@${m.sender.split('@')[0]}` : `@${user.split('@')[0]}`;
 
     // Mensaje de respuesta
     const responseMessage = `
@@ -24,4 +24,4 @@ handler.register = true;
 handler.group = true;
 handler.fail = null;
 
-export default handler
+export default handler;
