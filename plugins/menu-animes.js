@@ -7,8 +7,7 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 const { generateWAMessageFromContent, proto } = (await import('@whiskeysockets/baileys')).default
 
-const defaultMenu = {
-  before: `
+const defaultMenu = { `
 %readmore
 `.trimStart(),
   header: '╭─(❀)❝┊ *_`%category`_* ┊❝(❀)',
@@ -177,8 +176,8 @@ await m.react('🌸')
         text: text,
         contextInfo: {
         externalAdReply: {
-        title: '𝐆𝐞𝐧𝐞𝐬𝐢𝐬𝐁𝐨𝐭-𝐌𝐃',
-        body: '©𝟐𝟎𝟐𝟒 𝐀𝐧𝐠𝐞𝐥𝐢𝐭𝐨-𝐎𝐅𝐂',
+        title: '𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉',
+        body: 'ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜',
         thumbnailUrl: img,
         sourceUrl: global.canal,
         mediaType: 1,
