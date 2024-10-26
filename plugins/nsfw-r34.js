@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 const handler = async (m, { conn, args, usedPrefix }) => {
 if (!args[0]) {
-if (!db.data.chats[m.chat].modohorny && m.isGroup) return conn.reply(m.chat, `🚩 *¡Este comando está deshabilitado en este grupo!*`, m, rcanal)
+if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
 await conn.reply(m.chat, '🚩 Ingresa el nombre de la imágen que estas buscando', m, rcanal);
 return;
 }
