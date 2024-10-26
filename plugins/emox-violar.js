@@ -1,10 +1,13 @@
+
 import fs, { promises } from 'fs'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
+    // Determinar el usuario al que se refiere el comando
     let user = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender;
-    if (!text && !m.mentionedJid[0]) throw `⚠️ 𝙚𝙩𝙞𝙦𝙪𝙚𝙩𝙖 𝙖 𝙡𝙖 𝙥𝙚𝙧𝙨𝙤𝙣𝙖 𝙦𝙪𝙚 𝙦𝙪𝙞𝙚𝙧𝙚𝙨 𝙫𝙞𝙤𝙡𝙖𝙧.`
     
+    if (!text && !m.mentionedJid[0]) throw `⚠️ 𝙚𝙩𝙞𝙦𝙪𝙚𝙩𝙖 𝙖 𝙡𝙖 𝙥𝙚𝙧𝙨𝙤𝙣𝙖 𝙦𝙪𝙚 𝙦𝙪𝙞𝙚𝙧𝙚𝙨 𝙫𝙞𝙤𝙡𝙖𝙧.`
+
     try {
         let fkontak = { "key": { "participants": "0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { 
             "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
