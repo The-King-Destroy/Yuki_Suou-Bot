@@ -182,7 +182,7 @@ await conn.sendMessage(
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterJid: '120363322713003916@newsletter',
-      newsletterName: '',
+      newsletterName: '© 𝒫𝑜𝓌𝑒𝓇𝑒𝒹 𝐵𝓎 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜',
       serverMessageId: -1,
     },
     forwardingScore: 999,
