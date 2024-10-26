@@ -55,4 +55,4 @@ handler.tags = ['nsfws'];
 handler.command = ['grabboobs','agarrartetas'];
 handler.group = true;
 
-export default handler
+export default handler;
