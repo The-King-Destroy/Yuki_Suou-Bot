@@ -5,11 +5,12 @@ import axios from 'axios';
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
+ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
 if (!args[0]) throw `*Formato incorrecto*\nEjemplo:\n\n${usedPrefix + command} con mi prima`;
 try {
 let searchResults = await searchPornhub(args[0]);
 let teks = searchResults.result.map((v, i) => 
-`🌸 𝐏𝐎𝐑𝐍𝐇𝐔𝐁 メ 𝐒𝐄𝐀𝐑𝐂𝐇 🌸 
+`🥵 𝐏𝐎𝐑𝐍𝐇𝐔𝐁 メ 𝐒𝐄𝐀𝐑𝐂𝐇 🥵 
  𝐓𝐈𝐓𝐔𝐋𝐎: ${v.title} [✰]
  𝐃𝐔𝐑𝐀𝐂𝐈𝐎𝐍: ${v.duration} [✰]
  𝐕𝐈𝐒𝐈𝐓𝐀𝐒: ${v.views} [✰]
