@@ -1,96 +1,61 @@
+//Codígo creado por Destroy wa.me/584120346669
 
-import fs, { promises } from 'fs'
-import fetch from 'node-fetch'
+import fs from 'fs';
+import path from 'path';
 
-let handler = async (m, { conn, usedPrefix, command, text }) => {
-    // Determinar el usuario que se debe mencionar
-    let userMentioned = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.sender);
-    
-    // Si no hay texto y no se menciona a nadie, lanzar un error
-    if (!text && !m.mentionedJid[0]) throw `⚠️ 𝙚𝙩𝙞𝙦𝙪𝙚𝙩𝙖 𝙖 𝙡𝙖 𝙥𝙚𝙧𝙨𝙤𝙣𝙖 𝙦𝙪𝙚 𝙦𝙪𝙞𝙚𝙧𝙚𝙨 𝙫𝙞𝙤𝙡𝙖𝙧.`;
+let handler = async (m, { conn, usedPrefix }) => {
+    let who;
+if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
+    // Verificamos si se menciona a alguien o se cita un mensaje
+    if (m.mentionedJid.length > 0) {
+        who = m.mentionedJid[0]; // Si hay mención, usamos esa
+    } else if (m.quoted) {
+        who = m.quoted.sender; // Si se cita un mensaje, usamos el emisor de ese mensaje
+    } else {
+        who = m.sender; // En caso contrario, usamos el emisor
+    }
 
-    try {
-        let fkontak = {
-            "key": {
-                "participants": "0@s.whatsapp.net",
-                "remoteJid": "status@broadcast",
-                "fromMe": false,
-                "id": "Halo"
-            },
-            "message": {
-                "contactMessage": {
-                    "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-                }
-            },
-            "participant": "0@s.whatsapp.net"
-        };
+    let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
+    let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
+    m.react('🥵');
 
-        let menu = `
-*@${userMentioned.split("@")[0]}* 𝘼𝙘𝙖𝙗á𝙨 𝙙𝙚 𝙫𝙞𝙤𝙡𝙖𝙧 𝙖 𝙡𝙖 𝙥𝙪𝙩𝙞𝙩𝙖 𝙙𝙚 *${text}* 𝙈𝙞𝙚𝙣𝙩𝙧𝙖𝙨 𝙩𝙚 𝙙𝙚𝙘í𝙖 "𝙢𝙚𝙩𝙚𝙢𝙚𝙡𝙖 𝙙𝙪𝙧𝙤𝙤𝙤 𝙢𝙖́𝙨 𝙙𝙪𝙧𝙤𝙤𝙤 𝙦𝙪𝙚 𝙧𝙞𝙘𝙤 𝙥𝙞𝙩𝙤𝙩𝙚"...
-𝙏𝙚𝙣𝙚𝙢𝙤𝙨 𝙦𝙪𝙚 𝙫𝙤𝙡𝙫𝙚𝙧 𝙖 𝙨𝙪𝙙𝙖𝙧 𝙟𝙪𝙣𝙩𝙤𝙨!!
+    // Construimos el mensaje dependiendo de si hay una mención o no
+    let str;
+    if (m.mentionedJid.length > 0) {
+        str = `${name2} Acabas de Violar a la putita de ${name || who} mientras te decía" metemela durooo más durooo que rico pitote"...
+tenemos que volver a sudar juntos!!
 ━━━━━━━━━━━━━━━
+
 *${text}*
  𝙏𝙚 𝙫𝙞𝙤𝙡𝙖𝙧𝙤𝙣 𝙥𝙤𝙧 𝙥𝙪𝙩𝙖.
- 💦💦🍆🍆💦💦
-        `.trim();
-
-        const vi = [
-            'https://qu.ax/yiMt.mp4',
-            'https://qu.ax/cdKQ.mp4',
-            'https://qu.ax/ycZW.mp4',
-            'https://qu.ax/XmLe.mp4'
-        ];
-
-        // Envia un video aleatorio
-        try {
-            await conn.sendMessage(m.chat, {
-                video: { url: vi.getRandom() },
-                gifPlayback: true,
-                caption: menu,
-                mentions: await conn.parseMention(menu)
-            }, { quoted: fkontak });
-        } catch {
-            // Si falla, intenta enviar una imagen (puedes agregar más lógica para manejar imágenes aquí)
-            try {
-                await conn.sendMessage(m.chat, {
-                    image: { url: gataMenu.getRandom() },
-                    caption: menu,
-                    mentions: await conn.parseMention(menu)
-                }, { quoted: fkontak });
-            } catch {
-                // Si también falla, intenta enviar otra imagen o archivo
-                try {
-                    await conn.sendMessage(m.chat, {
-                        image: gataImg.getRandom(),
-                        caption: menu,
-                        mentions: await conn.parseMention(menu)
-                    }, { quoted: fkontak });
-                } catch {
-                    // Intenta enviar un archivo
-                    try {
-                        await conn.sendFile(m.chat, imagen5, 'menu.jpg', menu, fkontak, false, { mentions: await conn.parseMention(menu) });
-                    } catch (error) {
-                        console.error(error);
-                    }
-                }
-            }
-        }
-
-    } catch (e) {
-        await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '\n' + usedPrefix + `${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'}` + '* ' + `${lenguajeGB.smsMensError2()} ` + usedPrefix + command);
-        console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`);
-        console.log(e);
+ 💦💦🍆🍆💦💦.`; // Usamos nombre agendado o número si no está agendado
+    } else if (m.quoted) {
+        str = `${name2} se la metio en el ano a ${name || who}.`; // Mensaje cuando se cita a otro usuario
+    } else {
+        str = `${name2} esta haciendo un anal`.trim();
+    }
+    
+    if (m.isGroup) {
+        let pp = 'https://qu.ax/yiMt.mp4'; 
+        let pp2 = 'https://qu.ax/cdKQ.mp4'; 
+        let pp3 = 'https://qu.ax/XmLe.mp4';
+        let pp4 = 'https://files.catbox.moe/cnmn0x.jpg';
+        let pp5 = 'https://files.catbox.moe/xph5x5.mp4';
+        let pp6 = 'https://files.catbox.moe/4ffxj8.mp4';
+        let pp7 = 'https://files.catbox.moe/f6ovgb.mp4';
+        
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7];
+        const video = videos[Math.floor(Math.random() * videos.length)];
+        
+        // Enviamos el mensaje con el video y el mensaje correspondiente
+        let mentions = [who]; // Mencionamos al usuario que se ha citado o mencionado
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
     }
 }
 
-handler.command = /^(violar)$/i
-handler.register = false
-handler.group = true
-export default handler;
+handler.help = ['violar @tag'];
+handler.tags = ['nsfws'];
+handler.command = ['violar', 'Violar'];
+handler.group = true;
 
-function clockString(ms) {
-    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
+export default handler;
