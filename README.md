@@ -155,4 +155,4 @@ src="https://github.com/Elpapiema.png" widgh="130" height="130" alt="𝓔𝓶�
 <a
 href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
 
-[© Powered By ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜]
+[© 𝕻𝖔𝖜𝖊𝖗𝖊𝖉 𝕭𝖞 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜]
