@@ -5,7 +5,7 @@ import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-
+if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
     // Verificamos si se menciona a alguien o se cita un mensaje
     if (m.mentionedJid.length > 0) {
         who = m.mentionedJid[0]; // Si hay mención, usamos esa
@@ -14,8 +14,6 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else {
         who = m.sender; // En caso contrario, usamos el emisor
     }
-    if (!db.data.chats[m.chat].nsfwhot && m.isGroup) throw conn.reply(m.chat,  '🚩 *¡Estos comandos están desactivados!*', m, fake);
-
     let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
     let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
     m.react('🔥');
