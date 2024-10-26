@@ -182,12 +182,12 @@ await conn.sendMessage(
     isForwarded: true,
     forwardedNewsletterMessageInfo: {
       newsletterJid: '120363322713003916@newsletter',
-      newsletterName: '⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭/ᥫᩣⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜',
+      newsletterName: '',
       serverMessageId: -1,
     },
     forwardingScore: 999,
     externalAdReply: {
-      title: '⏤͟͞ू⃪ ፝͜⁞𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉✰⃔࿐',
+      title: '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ',
       body: dev,
       thumbnailUrl: icono,
       sourceUrl: redes,
