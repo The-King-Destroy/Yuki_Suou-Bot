@@ -23,17 +23,13 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     let str;
     if (m.mentionedJid.length > 0) {
         str = `${name2} Acabas de Violar a la putita de ${name || who} mientras te decía" metemela durooo más durooo que rico pitote"...
-tenemos que volver a sudar juntos!!
-━━━━━━━━━━━━━━━
-
-*${text}*
- 𝙏𝙚 𝙫𝙞𝙤𝙡𝙖𝙧𝙤𝙣 𝙥𝙤𝙧 𝙥𝙪𝙩𝙖.
- 💦💦🍆🍆💦💦.`; // Usamos nombre agendado o número si no está agendado
+tenemos que volver a sudar juntos!!.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} se la metio en el ano a ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} Acabas de Violar a la putita de ${name || who} mientras te decía" metemela durooo más durooo que rico pitote"...
+tenemos que volver a sudar juntos!!.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} esta haciendo un anal`.trim();
-    }
+        str = `${name2} violo a alguien random del grupo por puta`.trim();
+    }<
     
     if (m.isGroup) {
         let pp = 'https://qu.ax/yiMt.mp4'; 
