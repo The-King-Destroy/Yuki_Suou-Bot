@@ -3,8 +3,8 @@ import path from 'path';
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
-    try {
-        if (!args[0]) return m.reply(`𝙻𝚘 𝚊𝚗𝚍𝚊𝚜 𝚑𝚊𝚌𝚒𝚎𝚗𝚍𝚘 𝚖𝚊𝚕 𝚝𝚎 𝚐𝚞𝚒𝚊𝚛𝚎 ${usedPrefix + command} <ᴀɴɪᴍᴇɪᴅ, ᴘᴀʀᴀ ᴄᴏɴꜱᴜʟᴛᴀʀ ᴇʟ ɪᴅ ᴅᴇʟ ᴀɴɪᴍᴇ ᴜꜱᴀ .ᴀɴɪᴍᴇꜰʟᴠꜱᴇᴀʀᴄʜ> <ᴄᴀᴘɪᴛᴜʟᴏ>\n .animedl to-love-ru-ova 1`);
+   
+        if (!args[0]) return m.reply(`\`\`\`🌱 Uso correcto del comando: ${usedPrefix + command} <ID del anime> <capitulo>\n\nEjemplo: ${usedPrefix+command} dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-movie-orion-no-ya 1\`\`\``);
         const animeId = args[0];
         const episode = args[1] || 1;
         const apiUrl = `https://animeflvapi.vercel.app/download/anime/${animeId}/${episode}`;
@@ -15,15 +15,8 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
         if (!megaLink) throw new Error('No se encontró el enlace de MEGA ');
         const file = File.fromURL(megaLink);
         await file.loadAttributes();
-        if (file.size >= 300000000) return m.reply('Error: El archivo es grande (Máximo tamaño: 300MB)');
-        await conn.loadingMsg(m.chat, '🐉 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙉𝘿𝙊 𝙎𝙐 𝘼𝙉𝙄𝙈𝙀 \n ᴛᴇɴɢᴀ ᴇɴ ᴄᴜᴇɴᴛᴀ Qᴜᴇ ᴇʟ ᴠɪᴅᴇᴏ ᴅᴇ ʟᴏꜱ ᴀɴɪᴍᴇꜱ ᴇɴ ᴇꜱᴛʀᴇɴᴏ ꜱᴜ ᴠɪᴅᴇᴏ ꜱᴏʟᴏ ᴅᴜʀᴀ 3 ᴅɪᴀꜱ ᴅᴇɴᴛʀᴏ ᴅᴇ ʟᴀ ɴᴜʙᴇ ꜱᴇᴀ ʀᴀᴘɪᴅᴏ', `✅ ᴍᴀɴᴅᴀɴᴅᴏ ᴀʀᴄʜɪᴠᴏ`, [
-            "▰▱▱▱▱ ᴄᴀʀɢᴀɴᴅᴏ ...",
-            "▰▰▱▱▱ ᴄᴀʀɢᴀɴᴅᴏ ...",
-            "▰▰▰▱▱ ᴄᴀʀɢᴀɴᴅᴏ ...",
-            "▰▰▰▰▱ ᴄᴀʀɢᴀɴᴅᴏ ...",
-            "▰▰▰▰▰ ᴄᴀʀɢᴀɴᴅᴏ ..."
-        ], m);
-        const caption = `*_𝘼𝙉𝙄𝙈𝙀 𝙁𝙇𝙑 𝘿𝙀𝙎𝘾𝘼𝙍𝙂𝘼𝙎..._*\nɴᴏᴍʙʀᴇ: ${file.name}\nᴛᴀᴍᴀÑᴏ: ${formatBytes(file.size)}`;
+         m.reply(`_Nota: Ten en cuenta que los animes en emisión solo duran 3 días en la nube por lo que no se descargará después de ése lapso de tiempo. gracias por usar a Sylphiette | The best WhatsApp bot. 🌾_`)
+        const caption = `🌴 Nombre: ${file.name}\n✨ Tamaño: ${formatBytes(file.size)}\n\n${wm}`;
         const dataBuffer = await file.downloadBuffer();
         const fileExtension = path.extname(file.name).toLowerCase();
         const mimeTypes = {
@@ -39,9 +32,6 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
         const mimetype = mimeTypes[fileExtension] || "application/octet-stream";
 
         await conn.sendFile(m.chat, dataBuffer, file.name, caption, m, null, { mimetype, asDocument: true });
-    } catch (error) {
-        return m.reply(`Error: No especifico el anime`);
-    }
 }
 function formatBytes(bytes) {
     if (bytes === 0) return '0 Bytes';
@@ -51,9 +41,9 @@ function formatBytes(bytes) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-handler.help = ['animedl <anime-id> <episode-number>'];
+handler.help = ['animedl'];
 handler.tags = ['descargas'];
 handler.command = ['animedl', 'animeflvdl', 'anidl'];
 handler.register = true
-
+handler.premium = true
 export default handler;
