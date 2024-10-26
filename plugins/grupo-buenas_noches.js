@@ -48,9 +48,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
 }
 
-handler.help = ['buenas noches @tag'];
+handler.help = ['noches/nights  @tag'];
 handler.tags = ['grupo'];
-handler.command = ['buenas noches','noche','noches'];
+handler.command = ['noches','noche','nights'];
 handler.group = true;
 
 export default handler;
