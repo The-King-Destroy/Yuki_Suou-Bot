@@ -2,7 +2,7 @@ import path from 'path';
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-let handler = async (m, { conn, args, usedPrefix, text, command }) => {
+let handler = async (m, { conn, args, usedPrefix }) => {
     try {
         if (!args[0]) return m.reply(`𝙻𝚘 𝚊𝚗𝚊𝚜 𝚑𝚊𝚌𝚒𝚎𝚗𝚍𝚘 𝚖𝚊𝚕 𝚝𝚎 𝚐𝚞𝚒𝚊𝚛𝚎 ${usedPrefix + command} <ᴀɴɪᴍᴇɪᴅ, ᴘᴀʀᴀ ᴄᴏɴꜱᴜʟᴛᴀʀ ᴇʟ ɪᴅ ᴅᴇʟ ᴀɴɪᴍᴇ ᴜꜱᴀ .ᴀɴɪᴍᴇꜰʟᴠꜱᴇᴀʀᴄʜ> <ᴄᴀᴘɪᴛᴜʟᴏ>\n .animedl to-love-ru-ova 1`);
 
