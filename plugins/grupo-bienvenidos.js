@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else if (m.quoted) {
         str = `${name2} hola ${name || who} bienvenid@ grupo espero lo pasés muy bien y que lo disfrutes.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} Hola le doy la bienvenida a todos los nuevos y espero que lean las reglas sin más que decir pueden disfrutar del grupo y diviértanse.`.trim();
+        str = `${name2} Hola le doy la bienvenida a todos los nuevos y espero que lean las reglas sin más que decir pueden disfrutar del grupo y divertirse.`.trim();
     }
     
     if (m.isGroup) {
