@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn }) => {
     m.react('🌞');
 
     // Mensajes personalizados para los buenos días
@@ -20,20 +20,24 @@ let handler = async (m, { conn, usedPrefix }) => {
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     
     if (m.isGroup) {
-        let pp = 'https://qu.ax/ZVcM.mp4'; 
-        let pp2 = 'https://qu.ax/tCblW.mp4'; 
-        let pp3 = 'https://qu.ax/kGzZr.mp4';
-        let pp4 = 'https://qu.ax/iioMV.mp4';
-        let pp5 = 'https://qu.ax/JgSvx.mp4';
-        let pp6 = 'https://qu.ax/dvrKi.mp4';
-        let pp7 = 'https://qu.ax/TZuhK.mp4';
+        let videos = [
+            'https://qu.ax/ZVcM.mp4', 
+            'https://qu.ax/tCblW.mp4', 
+            'https://qu.ax/kGzZr.mp4',
+            'https://qu.ax/iioMV.mp4',
+            'https://qu.ax/JgSvx.mp4',
+            'https://qu.ax/dvrKi.mp4',
+            'https://qu.ax/TZuhK.mp4'
+        ];
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7];
-        const video = videos[Math.floor(Math.random() * videos.length)];
+        // Seleccionamos un video aleatorio
+        const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         
         // Mencionamos a todos en el grupo
         let mentions = conn.chats[m.chat].participants.map(participant => participant.jid);
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: randomMessage, mentions }, { quoted: m });
+        
+        // Enviamos el mensaje con el video y la mención
+        await conn.sendMessage(m.chat, { video: { url: randomVideo }, gifPlayback: true, caption: randomMessage, mentions }, { quoted: m });
     }
 }
 
