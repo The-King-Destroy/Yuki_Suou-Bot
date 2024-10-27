@@ -3,51 +3,43 @@
 import fs from 'fs';
 import path from 'path';
 
-const goodMorningMessages = [
-    "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes. Recuerda que cada amanecer es una nueva página en tu historia.",
-    "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables. No olvides compartir tu luz con quienes te rodean.",
-    "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle y que tu corazón se llene de felicidad.",
-    "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso que des te acerque a tus sueños. ¡Disfruta cada momento!",
-    "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor. Recuerda que cada nuevo día es una nueva oportunidad para brillar.",
-    "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer. No olvides sonreír y disfrutar del viaje.",
-];
+let handler = async (m, { conn, usedPrefix }) => {
+    m.react('🌞');
 
-let handler = async (m, { conn, participants }) => {
-    try {
-        m.react('🎉');
+    // Mensajes personalizados para los buenos días
+    const messages = [
+        "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes. Recuerda que cada amanecer es una nueva página en tu historia.",
+        "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables. No olvides compartir tu luz con quienes te rodean.",
+        "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle y que tu corazón se llene de felicidad.",
+        "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso que des te acerque a tus sueños. ¡Disfruta cada momento!",
+        "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor. Recuerda que cada nuevo día es una nueva oportunidad para brillar.",
+        "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer. No olvides sonreír y disfrutar del viaje."
+    ];
 
-        if (m.isGroup) {
-            // Seleccionar un mensaje y un video aleatorio
-            const randomMessage = goodMorningMessages[Math.floor(Math.random() * goodMorningMessages.length)];
-            const videoUrl = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4';
-
-            // Mensaje de buenos días
-            let str = `${randomMessage}\n> ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ `.trim();
-
-            // Obtener los JIDs de todos los participantes para mencionarlos
-            const allMembers = participants.map(participant => participant.jid);
-
-            // Enviar el mensaje con el video y el mensaje correspondiente, mencionando a todos
-            await conn.sendMessage(m.chat, {
-                video: { url: videoUrl },
-                gifPlayback: true,
-                caption: str,
-                mentions: allMembers
-            }, { quoted: m });
-        }
-    } catch (error) {
-        console.error('Error al enviar el mensaje de buenos días:', error);
+    // Seleccionamos un mensaje aleatorio
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    
+    if (m.isGroup) {
+        let pp = 'https://qu.ax/ZVcM.mp4'; 
+        let pp2 = 'https://qu.ax/tCblW.mp4'; 
+        let pp3 = 'https://qu.ax/kGzZr.mp4';
+        let pp4 = 'https://qu.ax/iioMV.mp4';
+        let pp5 = 'https://qu.ax/JgSvx.mp4';
+        let pp6 = 'https://qu.ax/dvrKi.mp4';
+        let pp7 = 'https://qu.ax/TZuhK.mp4';
+        
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7];
+        const video = videos[Math.floor(Math.random() * videos.length)];
+        
+        // Mencionamos a todos en el grupo
+        let mentions = conn.chats[m.chat].participants.map(participant => participant.jid);
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: randomMessage, mentions }, { quoted: m });
     }
 }
 
-// Este evento se activará cuando un miembro se una al grupo
-handler.on('group-participants-update', async (update) => {
-    // No es necesario agregar lógica aquí, ya que no se requiere el medidor de tiempo
-});
-
-handler.help = ['buenosdías'];
+handler.help = ['dias/days'];
 handler.tags = ['grupo'];
-handler.command = ['buenosdías'];
+handler.command = ['dias','días','dia','día','days'];
 handler.group = true;
 
 export default handler;
