@@ -49,7 +49,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 }
 
 handler.help = ['undress/encuerar @tag'];
-handler.tags = ['fun'];
+handler.tags = ['emox'];
 handler.command = ['undress', 'encuerar'];
 handler.group = true;
 
