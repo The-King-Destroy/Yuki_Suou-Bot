@@ -32,7 +32,7 @@ let handler = async (m, { conn }) => {
 
         // Comprobación de si es un grupo
         if (!m.isGroup) {
-            console.error("Este comando solo se puede usar en grupos.");
+            await conn.sendMessage(m.chat, { text: "Este comando solo se puede usar en grupos." }, { quoted: m });
             return;
         }
 
@@ -54,7 +54,6 @@ let handler = async (m, { conn }) => {
                 mentions 
             }, { quoted: m });
         } else {
-            console.error("Error: Video, mensaje o menciones no válidos.");
             await conn.sendMessage(m.chat, { text: "Lo siento, no se pudo enviar el video o el mensaje." }, { quoted: m });
         }
     } catch (error) {
