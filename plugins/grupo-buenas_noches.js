@@ -1,56 +1,59 @@
 //Codígo creado por Destroy wa.me/584120346669
 
-import fs from 'fs';
-import path from 'path';
+// Definición del manejador
+let handler = async (m, { conn }) => {
+    // Reacción inicial al mensaje
+    await m.react('🌙');
 
-let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+    // Mensajes personalizados para las buenas noches
+    const messages = [
+        "¡Buenas noches! 🌜 Espero que tengas un descanso reparador y sueñes con cosas hermosas.",
+        "¡Buenas noches! 🌟 Que la tranquilidad de la noche te envuelva y te prepare para un nuevo día.",
+        "¡Buenas noches! 🌌 Recuerda que cada estrella en el cielo es un sueño esperando a hacerse realidad.",
+        "¡Buenas noches! 🌙 Deja atrás las preocupaciones de hoy y abraza la paz de la noche.",
+        "¡Buenas noches! 🌠 Espero que tus sueños sean tan brillantes como las estrellas que iluminan el cielo.",
+        "¡Buenas noches! 💤 Que encuentres serenidad en el silencio de la noche y te despiertes renovado."
+    ];
 
-    // Verificamos si se menciona a alguien o se cita un mensaje
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0]; // Si hay mención, usamos esa
-    } else if (m.quoted) {
-        who = m.quoted.sender; // Si se cita un mensaje, usamos el emisor de ese mensaje
-    } else {
-        who = m.sender; // En caso contrario, usamos el emisor
+    // URLs de los videos disponibles
+    const videos = [
+        'https://files.catbox.moe/0n2bf5.mp4',
+        'https://files.catbox.moe/zua131.mp4',
+        'https://files.catbox.moe/0im4vk.mp4',
+        'https://files.catbox.moe/9cm0x9.mp4',
+        'https://files.catbox.moe/7kxjhv.mp4',
+        'https://files.catbox.moe/id09sr.mp4',
+        'https://files.catbox.moe/3kyhf0.mp4',
+        'https://files.catbox.moe/4qokmi.mp4'
+    ];
+
+    // Comprobación de si es un grupo
+    if (!m.isGroup) {
+        return await conn.sendMessage(m.chat, { text: "Este comando solo se puede usar en grupos." }, { quoted: m });
     }
 
-    let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
-    let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
-    m.react('🌚');
+    // Selección aleatoria de un video y un mensaje
+    const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-    // Construimos el mensaje dependiendo de si hay una mención o no
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `${name2} buenas noches ${name || who}.`; // Usamos nombre agendado o número si no está agendado
-    } else if (m.quoted) {
-        str = `${name2} buenas noches ${name || who}.`; // Mensaje cuando se cita a otro usuario
-    } else {
-        str = `${name2} buenas noches a todos en el grupo les deseo dulces sueños.`.trim();
-    }
-    
-    if (m.isGroup) {
-        let pp = 'https://files.catbox.moe/0n2bf5.mp4'; 
-        let pp2 = 'https://files.catbox.moe/0im4vk.mp4'; 
-        let pp3 = 'https://files.catbox.moe/zua131.mp4';
-        let pp4 = 'https://files.catbox.moe/9cm0x9.mp4';
-        let pp5 = 'https://files.catbox.moe/7kxjhv.mp4';
-        let pp6 = 'https://files.catbox.moe/id09sr.mp4';
-        let pp7 = 'https://files.catbox.moe/3kyhf0.mp4';
-        let pp8 = 'https://files.catbox.moe/4qokmi.mp4';
-        
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
-        const video = videos[Math.floor(Math.random() * videos.length)];
-        
-        // Enviamos el mensaje con el video y el mensaje correspondiente
-        let mentions = [who]; // Mencionamos al usuario que se ha citado o mencionado
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
-    }
-}
+    // Obtener la lista de participantes del grupo
+    let participants = conn.chats[m.chat].participants || [];
+    let mentions = participants.map(participant => participant.jid);
 
-handler.help = ['noches/nights  @tag'];
+    // Enviamos el video con el mensaje y menciones
+    await conn.sendMessage(m.chat, { 
+        video: { url: randomVideo }, 
+        gifPlayback: true, 
+        caption: randomMessage, 
+        mentions 
+    }, { quoted: m });
+};
+
+// Definición de ayuda, etiquetas y comandos
+handler.help = ['noches/nights'];
 handler.tags = ['grupo'];
 handler.command = ['noches','noche','nights'];
 handler.group = true;
 
+// Exportación del manejador
 export default handler;
