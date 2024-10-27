@@ -20,7 +20,7 @@ conn.reply(m.chat, `*rroz y pollo* 😄👌`, m, rcanal, )
 if (/^Destroy|destroy|wilker|Wilker/i.test(m.text)) {
 conn.reply(m.chat, `*ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 Es Mi Creador, Respeta!*`, m, rcanal, )
 }
-if (/^bot|Bot$/i.test(m.text)) {
+if (/^canal$/i.test(m.text)) {
 conn.reply(m.chat, `*Hola Eres Fan De* *𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭*
 *Entonces Sigue El Canal Oficial!*
 > https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
