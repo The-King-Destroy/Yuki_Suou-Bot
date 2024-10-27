@@ -49,7 +49,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 }
 
 handler.help = ['facepalm/palmada @tag'];
-handler.tags = ['fun'];
+handler.tags = ['emox'];
 handler.command = ['facepalm', 'palmada'];
 handler.group = true;
 
