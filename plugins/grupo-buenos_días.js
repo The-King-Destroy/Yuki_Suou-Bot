@@ -13,23 +13,30 @@ const goodMorningMessages = [
 ];
 
 let handler = async (m, { conn, participants }) => {
-    m.react('🎉');
+    try {
+        m.react('🎉');
 
-    if (m.isGroup) {
-        // Seleccionar un mensaje y un video aleatorio
-        const randomMessage = goodMorningMessages[Math.floor(Math.random() * goodMorningMessages.length)];
-        const pp = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4';
-        const videos = [pp];
-        const video = videos[Math.floor(Math.random() * videos.length)];
+        if (m.isGroup) {
+            // Seleccionar un mensaje y un video aleatorio
+            const randomMessage = goodMorningMessages[Math.floor(Math.random() * goodMorningMessages.length)];
+            const videoUrl = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4';
 
-        // Mensaje de buenos días
-        let str = `${randomMessage}\n> ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ `.trim();
+            // Mensaje de buenos días
+            let str = `${randomMessage}\n> ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ `.trim();
 
-        // Obtener los JIDs de todos los participantes para mencionarlos
-        const allMembers = participants.map(participant => participant.jid);
+            // Obtener los JIDs de todos los participantes para mencionarlos
+            const allMembers = participants.map(participant => participant.jid);
 
-        // Enviar el mensaje con el video y el mensaje correspondiente, mencionando a todos
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions: allMembers }, { quoted: m });
+            // Enviar el mensaje con el video y el mensaje correspondiente, mencionando a todos
+            await conn.sendMessage(m.chat, {
+                video: { url: videoUrl },
+                gifPlayback: true,
+                caption: str,
+                mentions: allMembers
+            }, { quoted: m });
+        }
+    } catch (error) {
+        console.error('Error al enviar el mensaje de buenos días:', error);
     }
 }
 
