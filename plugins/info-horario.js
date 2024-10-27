@@ -32,7 +32,7 @@ let handler = async (m, { conn, args }) => {
     .format("HH:mm:ss");
   let puerto_rico = moment.tz("America/Puerto_Rico").format("HH:mm:ss");
 
-                              「 ZONA-HORARIA ⏰ 」
+                            *「 ZONA-HORARIA ⏰ 」*
   
   clockString += `🇲🇦 𝙷𝚘𝚛𝚊 𝚎𝚗 𝙲𝚊𝚜𝚊𝚋𝚕𝚊𝚗𝚌𝚊, Á𝚏𝚛𝚒𝚌𝚊: ${wib}\n─────────────────\n`;
   clockString += `🇵🇪 𝙷𝚘𝚛𝚊 𝚎𝚗 𝙻𝚒𝚖𝚊, 𝙿𝚎𝚛ú: ${peru}\n─────────────────\n`;
