@@ -4,31 +4,38 @@ import fs from 'fs';
 import path from 'path';
 
 let handler = async (m, { conn }) => {
-    m.react('🌞');
+    // Reacción inicial
+    try {
+        await m.react('🌞');
 
-    // Mensajes personalizados para los buenos días
-    const messages = [
-        "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes. Recuerda que cada amanecer es una nueva página en tu historia.",
-        "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables. No olvides compartir tu luz con quienes te rodean.",
-        "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle y que tu corazón se llene de felicidad.",
-        "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso que des te acerque a tus sueños. ¡Disfruta cada momento!",
-        "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor. Recuerda que cada nuevo día es una nueva oportunidad para brillar.",
-        "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer. No olvides sonreír y disfrutar del viaje."
-    ];
+        // Mensajes personalizados para los buenos días
+        const messages = [
+            "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes. Recuerda que cada amanecer es una nueva página en tu historia.",
+            "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables. No olvides compartir tu luz con quienes te rodean.",
+            "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle y que tu corazón se llene de felicidad.",
+            "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso que des te acerque a tus sueños. ¡Disfruta cada momento!",
+            "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor. Recuerda que cada nuevo día es una nueva oportunidad para brillar.",
+            "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer. No olvides sonreír y disfrutar del viaje."
+        ];
 
-    // Videos disponibles
-    const pp1 = 'https://qu.ax/ZVcM.mp4'; 
-    const pp2 = 'https://qu.ax/tCblW.mp4'; 
-    const pp3 = 'https://qu.ax/kGzZr.mp4';
-    const pp4 = 'https://qu.ax/iioMV.mp4';
-    const pp5 = 'https://qu.ax/JgSvx.mp4';
-    const pp6 = 'https://qu.ax/dvrKi.mp4';
-    const pp7 = 'https://qu.ax/TZuhK.mp4';
+        // Videos disponibles
+        const videos = [
+            'https://qu.ax/ZVcM.mp4',
+            'https://qu.ax/tCblW.mp4',
+            'https://qu.ax/kGzZr.mp4',
+            'https://qu.ax/iioMV.mp4',
+            'https://qu.ax/JgSvx.mp4',
+            'https://qu.ax/dvrKi.mp4',
+            'https://qu.ax/TZuhK.mp4'
+        ];
 
-    const videos = [pp1, pp2, pp3, pp4, pp5, pp6, pp7];
+        // Verificar si es un grupo
+        if (!m.isGroup) {
+            console.error("Este comando solo se puede usar en grupos.");
+            return;
+        }
 
-    if (m.isGroup) {
-        // Seleccionamos un video y un mensaje aleatorio
+        // Selección aleatoria de video y mensaje
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
@@ -36,7 +43,7 @@ let handler = async (m, { conn }) => {
         let participants = conn.chats[m.chat].participants || [];
         let mentions = participants.map(participant => participant.jid);
 
-        // Verificamos que el video, el mensaje y las menciones sean válidos antes de enviar
+        // Verificamos que el video, el mensaje y las menciones sean válidos
         if (randomVideo && randomMessage && mentions.length > 0) {
             // Enviamos el video
             await conn.sendMessage(m.chat, { 
@@ -46,8 +53,11 @@ let handler = async (m, { conn }) => {
                 mentions 
             }, { quoted: m });
         } else {
-            console.error("El video, el mensaje o las menciones no son válidos.");
+            console.error("Error: Video, mensaje o menciones no válidos.");
         }
+    } catch (error) {
+        console.error("Ha ocurrido un error:", error);
+        await conn.sendMessage(m.chat, { text: "Lo siento, ha ocurrido un error al enviar el mensaje." }, { quoted: m });
     }
 }
 
