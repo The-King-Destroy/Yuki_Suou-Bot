@@ -17,25 +17,25 @@ let handler = async (m, { conn }) => {
     ];
 
     // Videos disponibles
-    const videos = [
-        'https://qu.ax/ZVcM.mp4', 
-        'https://qu.ax/tCblW.mp4', 
-        'https://qu.ax/kGzZr.mp4',
-        'https://qu.ax/iioMV.mp4',
-        'https://qu.ax/JgSvx.mp4',
-        'https://qu.ax/dvrKi.mp4',
-        'https://qu.ax/TZuhK.mp4'
-    ];
+    const pp1 = 'https://qu.ax/ZVcM.mp4'; 
+    const pp2 = 'https://qu.ax/tCblW.mp4'; 
+    const pp3 = 'https://qu.ax/kGzZr.mp4';
+    const pp4 = 'https://qu.ax/iioMV.mp4';
+    const pp5 = 'https://qu.ax/JgSvx.mp4';
+    const pp6 = 'https://qu.ax/dvrKi.mp4';
+    const pp7 = 'https://qu.ax/TZuhK.mp4';
+
+    const videos = [pp1, pp2, pp3, pp4, pp5, pp6, pp7];
 
     if (m.isGroup) {
         // Seleccionamos un video y un mensaje aleatorio
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        
+
         // Mencionamos a todos en el grupo
         let participants = conn.chats[m.chat].participants || [];
         let mentions = participants.map(participant => participant.jid);
-        
+
         // Verificamos que el video, el mensaje y las menciones sean válidos antes de enviar
         if (randomVideo && randomMessage && mentions.length > 0) {
             // Enviamos el video
