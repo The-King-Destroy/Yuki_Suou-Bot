@@ -3,7 +3,7 @@
 // Definición del manejador
 let handler = async (m, { conn }) => {
     // Reacción inicial al mensaje
-    await m.react('🌞');
+    await m.react('☀️');
 
     // Mensajes personalizados para los buenos días
     const messages = [
