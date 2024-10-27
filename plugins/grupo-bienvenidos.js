@@ -1,47 +1,49 @@
+//Codígo creado por Destroy wa.me/584120346669
+
 import fs from 'fs';
 import path from 'path';
 
-let handler = async (m, { conn }) => {
-    let fakegif = {
-        key: { 
-            participant: `0@s.whatsapp.net`,
-            ...(m.chat ? { remoteJid: m.chat } : {}) 
-        },
-        message: {
-            videoMessage: { 
-                title: 'Megumin', 
-                h: `Hmm`,
-                seconds: '99999', 
-                gifPlayback: true, 
-                caption: '⚘݄𖠵⃕⁖𖥔.𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨❞ ꔷ──᜔◇⃟̣̣⃕✨', 
-                jpegThumbnail: logo5
-            }
-        }
-    };
+let handler = async (m, { conn, usedPrefix }) => {
+    let who;
 
-    let groupMetadata = await conn.groupMetadata(m.chat);
-    let str = `𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨𝐬 𝐚𝐥 𝐠𝐫𝐮𝐩𝐨\n${groupMetadata.subject}\n𝐄𝐬𝐩𝐞𝐫𝐚𝐦𝐨𝐬 𝐪𝐮𝐞 𝐥𝐨 𝐩𝐚𝐬𝐞𝐬 𝐛𝐢𝐞𝐧 𝐲 𝐪𝐮𝐞 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐥𝐞𝐚𝐬 𝐥𝐚𝐬 𝐫𝐞𝐠𝐥𝐚𝐬.\n> ৎ୭࠭͢𝑴𝒆̤𝒈𝒖̣֟፝֯𝒎̤𝒊̣𝒏🔥̤ʙⷪᴏ͓ᷫᴛⷭ𓆪͟͞ `.trim();
+    // Verificamos si se menciona a alguien o se cita un mensaje
+    if (m.mentionedJid.length > 0) {
+        who = m.mentionedJid[0]; // Si hay mención, usamos esa
+    } else if (m.quoted) {
+        who = m.quoted.sender; // Si se cita un mensaje, usamos el emisor de ese mensaje
+    } else {
+        who = m.sender; // En caso contrario, usamos el emisor
+    }
 
+    let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
+    let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
+    m.react('🎉');
+
+    // Construimos el mensaje dependiendo de si hay una mención o no
+    let str;
+    if (m.mentionedJid.length > 0) {
+        str = `${name2} Bienvenid@ al grupo ${name || who} esperemos la pases bien y que porfavor leas las reglas.`; // Usamos nombre agendado o número si no está agendado
+    } else if (m.quoted) {
+        str = `${name2} hola ${name || who} bienvenid@ grupo espero lo pasés muy bien y que lo disfrutes.`; // Mensaje cuando se cita a otro usuario
+    } else {
+        str = `${name2} Hola le doy la bienvenida a todos los nuevos y espero que lean las reglas sin más que decir pueden disfrutar del grupo y diviértanse.`.trim();
+    }
+    
     if (m.isGroup) {
-        let pp = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4';
+        let pp = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4'; 
+        
         const videos = [pp];
         const video = videos[Math.floor(Math.random() * videos.length)];
-
-        const mentionedJid = groupMetadata.participants.map(v => v.id);
-
-        await conn.sendMessage(m.chat, {
-            video: { url: video },
-            caption: str,
-            gifPlayback: true,
-            mentions: mentionedJid
-        }, { quoted: fakegif });
+        
+        // Enviamos el mensaje con el video y el mensaje correspondiente
+        let mentions = [who]; // Mencionamos al usuario que se ha citado o mencionado
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
     }
-};
+}
 
-handler.help = ['bienvenidos'];
-handler.group = true;
-handler.admin = true;
-handler.tags = ['bienvenidos'];
+handler.help = ['bienvenidos/nuevos @tag'];
+handler.tags = ['grupo'];
 handler.command = ['bienvenidos','nuevos'];
+handler.group = true;
 
 export default handler;
