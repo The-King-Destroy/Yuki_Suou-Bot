@@ -32,6 +32,8 @@ let handler = async (m, { conn, args }) => {
     .format("HH:mm:ss");
   let puerto_rico = moment.tz("America/Puerto_Rico").format("HH:mm:ss");
 
+                              「 ZONA-HORARIA ⏰ 」
+  
   clockString += `🇲🇦 𝙷𝚘𝚛𝚊 𝚎𝚗 𝙲𝚊𝚜𝚊𝚋𝚕𝚊𝚗𝚌𝚊, Á𝚏𝚛𝚒𝚌𝚊: ${wib}\n─────────────────\n`;
   clockString += `🇵🇪 𝙷𝚘𝚛𝚊 𝚎𝚗 𝙻𝚒𝚖𝚊, 𝙿𝚎𝚛ú: ${peru}\n─────────────────\n`;
   clockString += `🇨🇱 𝙷𝚘𝚛𝚊 𝚎𝚗 𝚂𝚊𝚗𝚝𝚒𝚊𝚐𝚘, 𝙲𝚑𝚒𝚕𝚎: ${chile}\n─────────────────\n`;
@@ -72,9 +74,9 @@ let handler = async (m, { conn, args }) => {
   }
 };
 
-handler.help = ["hora"];
-handler.tags = ["tools"];
-handler.command = /^(hora)$/i;
+handler.help = ["horario"];
+handler.tags = ["info"];
+handler.command = /^(horario)$/i;
 handler.register = true;
 
 export default handler;
