@@ -7,12 +7,12 @@ let handler = async (m, { conn }) => {
 
     // Mensajes personalizados para los buenos días
     const messages = [
-        "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes.",
-        "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables.",
-        "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle.",
-        "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso te acerque a tus sueños.",
-        "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor.",
-        "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer."
+        "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes.\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ ",
+        "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables.\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ ",
+        "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle.\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ ",
+        "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso te acerque a tus sueños.\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ ",
+        "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor.\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ ",
+        "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer.\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ "
     ];
 
     // URLs de los videos disponibles
