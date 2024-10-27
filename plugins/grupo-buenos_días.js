@@ -16,28 +16,29 @@ let handler = async (m, { conn }) => {
         "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer. No olvides sonreír y disfrutar del viaje."
     ];
 
-    // Seleccionamos un mensaje aleatorio
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    
+    // Videos disponibles
+    const videos = [
+        'https://qu.ax/ZVcM.mp4', 
+        'https://qu.ax/tCblW.mp4', 
+        'https://qu.ax/kGzZr.mp4',
+        'https://qu.ax/iioMV.mp4',
+        'https://qu.ax/JgSvx.mp4',
+        'https://qu.ax/dvrKi.mp4',
+        'https://qu.ax/TZuhK.mp4'
+    ];
+
     if (m.isGroup) {
-        let videos = [
-            'https://qu.ax/ZVcM.mp4', 
-            'https://qu.ax/tCblW.mp4', 
-            'https://qu.ax/kGzZr.mp4',
-            'https://qu.ax/iioMV.mp4',
-            'https://qu.ax/JgSvx.mp4',
-            'https://qu.ax/dvrKi.mp4',
-            'https://qu.ax/TZuhK.mp4'
-        ];
-        
-        // Seleccionamos un video aleatorio
+        // Seleccionamos un video y un mensaje aleatorio
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
         
         // Mencionamos a todos en el grupo
-        let mentions = conn.chats[m.chat].participants.map(participant => participant.jid);
+        let participants = conn.chats[m.chat].participants || [];
+        let mentions = participants.map(participant => participant.jid);
         
-        // Verificamos que el video y el mensaje sean válidos antes de enviar
-        if (randomVideo && randomMessage) {
+        // Verificamos que el video, el mensaje y las menciones sean válidos antes de enviar
+        if (randomVideo && randomMessage && mentions.length > 0) {
+            // Enviamos el video
             await conn.sendMessage(m.chat, { 
                 video: { url: randomVideo }, 
                 gifPlayback: true, 
@@ -45,7 +46,7 @@ let handler = async (m, { conn }) => {
                 mentions 
             }, { quoted: m });
         } else {
-            console.error("El video o el mensaje no son válidos.");
+            console.error("El video, el mensaje o las menciones no son válidos.");
         }
     }
 }
