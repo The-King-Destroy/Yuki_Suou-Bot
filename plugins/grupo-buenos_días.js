@@ -36,8 +36,17 @@ let handler = async (m, { conn }) => {
         // Mencionamos a todos en el grupo
         let mentions = conn.chats[m.chat].participants.map(participant => participant.jid);
         
-        // Enviamos el mensaje con el video y la mención
-        await conn.sendMessage(m.chat, { video: { url: randomVideo }, gifPlayback: true, caption: randomMessage, mentions }, { quoted: m });
+        // Verificamos que el video y el mensaje sean válidos antes de enviar
+        if (randomVideo && randomMessage) {
+            await conn.sendMessage(m.chat, { 
+                video: { url: randomVideo }, 
+                gifPlayback: true, 
+                caption: randomMessage, 
+                mentions 
+            }, { quoted: m });
+        } else {
+            console.error("El video o el mensaje no son válidos.");
+        }
     }
 }
 
