@@ -3,53 +3,44 @@
 import fs from 'fs';
 import path from 'path';
 
-let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+const goodMorningMessages = [
+    "¡Buenos días! 🌸 Espero que tu día esté lleno de alegría y oportunidades brillantes. Recuerda que cada amanecer es una nueva página en tu historia.",
+    "¡Buenos días! ☀️ Que este nuevo día te traiga sonrisas y momentos inolvidables. No olvides compartir tu luz con quienes te rodean.",
+    "¡Buenos días! 🌼 Espero que hoy encuentres belleza en cada pequeño detalle y que tu corazón se llene de felicidad.",
+    "¡Buenos días! ✨ Que este día esté lleno de inspiración y que cada paso que des te acerque a tus sueños. ¡Disfruta cada momento!",
+    "¡Buenos días! 🌷 Espero que hoy sea un día lleno de luz y amor. Recuerda que cada nuevo día es una nueva oportunidad para brillar.",
+    "¡Buenos días! 🌺 Que el día de hoy esté lleno de alegría y oportunidades para crecer. No olvides sonreír y disfrutar del viaje.",
+];
 
-    // Verificamos si se menciona a alguien o se cita un mensaje
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0]; // Si hay mención, usamos esa
-    } else if (m.quoted) {
-        who = m.quoted.sender; // Si se cita un mensaje, usamos el emisor de ese mensaje
-    } else {
-        who = m.sender; // En caso contrario, usamos el emisor
-    }
+let handler = async (m, { conn, participants }) => {
+    m.react('🎉');
 
-    let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
-    let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
-    m.react('🌞');
-
-    // Construimos el mensaje dependiendo de si hay una mención o no
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `${name2} buenos días ${name || who}.`; // Usamos nombre agendado o número si no está agendado
-    } else if (m.quoted) {
-        str = `${name2} buenos días ${name || who}.`; // Mensaje cuando se cita a otro usuario
-    } else {
-        str = `${name2} buenos días para todos y todas les deseo un lindo día.`.trim();
-    }
-    
     if (m.isGroup) {
-        let pp = 'https://qu.ax/ZVcM.mp4'; 
-        let pp2 = 'https://qu.ax/tCblW.mp4'; 
-        let pp3 = 'https://qu.ax/kGzZr.mp4';
-        let pp4 = 'https://qu.ax/iioMV.mp4';
-        let pp5 = 'https://qu.ax/JgSvx.mp4';
-        let pp6 = 'https://qu.ax/dvrKi.mp4';
-        let pp7 = 'https://qu.ax/TZuhK.mp4';
-        
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7];
+        // Seleccionar un mensaje y un video aleatorio
+        const randomMessage = goodMorningMessages[Math.floor(Math.random() * goodMorningMessages.length)];
+        const pp = 'https://telegra.ph/file/c62071be335ec9e97a0cf.mp4';
+        const videos = [pp];
         const video = videos[Math.floor(Math.random() * videos.length)];
-        
-        // Enviamos el mensaje con el video y el mensaje correspondiente
-        let mentions = [who]; // Mencionamos al usuario que se ha citado o mencionado
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+
+        // Mensaje de buenos días
+        let str = `${randomMessage}\n> ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ `.trim();
+
+        // Obtener los JIDs de todos los participantes para mencionarlos
+        const allMembers = participants.map(participant => participant.jid);
+
+        // Enviar el mensaje con el video y el mensaje correspondiente, mencionando a todos
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions: allMembers }, { quoted: m });
     }
 }
 
-handler.help = ['dias/days @tag'];
+// Este evento se activará cuando un miembro se una al grupo
+handler.on('group-participants-update', async (update) => {
+    // No es necesario agregar lógica aquí, ya que no se requiere el medidor de tiempo
+});
+
+handler.help = ['buenosdías'];
 handler.tags = ['grupo'];
-handler.command = ['dias','días','dia','día','days'];
+handler.command = ['buenosdías'];
 handler.group = true;
 
 export default handler;
