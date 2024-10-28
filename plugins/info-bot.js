@@ -11,8 +11,8 @@ conn.reply(m.chat, `🌹 ¡Hola! Soy 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜�
 if (/^niño|piña|Niño Piña$/i.test(m.text)) {
 conn.reply(m.chat, `*Niño Piña 🍍 es la perrita de mi creador* 🥵🥵`, m, rcanal, )
 }
-if (/^tesis|I'am Fz|fz|iam fz$/i.test(m.text)) {
-conn.reply(m.chat, `*I'm fz~🔥 el le mama la verga a mi creador* 🥵🥵`, m, rcanal, )
+if (/^tesis|I'am Fz'|fz|iam|iam fz$/i.test(m.text)) {
+conn.reply(m.chat, `*I'm fz' 🔥 le mama la verga a mi creador* 🥵🥵`, m, rcanal, )
 }
 if (/^sexo$/i.test(m.text)) {
 conn.reply(m.chat, `*pervertido* 🫣`, m, rcanal, )
