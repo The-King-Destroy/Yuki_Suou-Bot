@@ -22,11 +22,11 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} le está agarrando las tetas a ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `\`${name2}\` le está agarrando las tetas a \`${name || who}\`.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} esta agarrando las tetas de ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `\`${name2}\` esta agarrando las tetas de \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} está agarrando unas ricas tetas >.<`.trim();
+        str = `\`${name2}\` está agarrando unas ricas tetas >.<`.trim();
     }
     
     if (m.isGroup) {
