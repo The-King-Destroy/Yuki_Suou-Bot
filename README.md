@@ -1,16 +1,16 @@
 <h1 align="center">𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉</h1>
- <p align="center">🌟 WhatsApp Bot Node-Js.</p>
+ <p align="center">🌹 WhatsApp Bot Node-Js.</p>
 </p>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF0000&lines=Bienvenido+al+Repositorio;Oficial+de+✨𝐘𝐮𝐤𝐢+-+𝐒𝐮𝐨𝐮+-+𝐁𝐨𝐭✨;Gracias+por+preferirnos;Creado+por+𝕀'𝕒𝕞|𝔻𝕖𝕤𝕥𝕣𝕠𝕪𒆜;✨+💘🫦💖!!!)](https://git.io/typing-svg)
-![𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭](https://qu.ax/gEvrL.jpg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF0000&lines=Bienvenido+al+Repositorio;Oficial+de+✨𝐘𝐮𝐤𝐢+-+𝐒𝐮𝐨𝐮+-+𝐁𝐨𝐭✨;Gracias+por+preferirnos;Creado+por+𝕀'𝕒𝕞|𝔻𝕖𝕤𝕥𝕣𝕠𝕪𒆜;✨+🌹🫦💖!!!)](https://git.io/typing-svg)
+![𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉](https://qu.ax/gEvrL.jpg)
 > ⌛ Versión Actual: 1.7.1 
 ---
 
 ### **`❕️ Información importante`**
 
 <details>
- <summary><b> 🌟 Info Bot</b></summary>
+ <summary><b> 🌷 Info Bot</b></summary>
 
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 
@@ -21,7 +21,7 @@
 ### **`💭 Contáctanos`**
 
 <details>
-<summary><b> ✨ Contáctos</b></summary>
+<summary><b> 🌻 Contáctos</b></summary>
 
 * thekingdestroy507@gmail.com
 * https://wa.me/584120346669
@@ -85,7 +85,7 @@ Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdid
 
 ---
 
-#### **🌟 Obtener otro codigo qr en termux**
+#### **⚜️ Obtener otro codigo qr en termux**
 
 Si después de instalar el bot en Termux y iniciar la session del bot (el numero se va a soporte, se cierra la conexión o demorastes al conectar), sigue estos pasos:
 
@@ -141,17 +141,17 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ---
 
-### **`👑 PROPIETARIO`**
+### **`👑 𝕻𝕽𝕺𝕻𝕴𝕰𝕿𝕬𝕽𝕴𝕺'**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`🌟 COLABORADORES`**
+### **`🌟 𝕮𝕺𝕷𝕬𝕭𝕺𝕽𝕬𝕯𝕺𝕽𝕰𝕾'**
 <a
 href="https://github.com/Elpapiema"><img
 src="https://github.com/Elpapiema.png" widgh="130" height="130" alt="𝓔𝓶𝓶𝓪 (𝓥𝓲𝓸𝓵𝓮𝓽'𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷)"/></a>
 
-### **`🌹 CREDITOS`**
+### **`❇️ 𝕮𝕽É𝕯𝕴𝕿𝕺𝕾`**
 <a
 href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
 
