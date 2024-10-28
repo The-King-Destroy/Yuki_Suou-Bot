@@ -9,15 +9,13 @@ sourceUrl: channel }}})
 conn.reply(m.chat, `*┏━_͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡_͜͡━┓*\n\n❥ *"${pickRandom(global.bucin)}"*\n\n*┗━_͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡_͜͡━┛*`, m, rcanal)
 }
 
-handler.help = ['verdad']
-handler.tags = ['game']
-handler.group = true;
-handler.register = true
-handler.command = ['verdad']
-export default handler
+handler.help = ['verdad'];
+handler.tags = ['fun'];
+handler.command = /^verdad/i;
+export default handler;
 
 function pickRandom(list) {
-  return list[Math.floor(list.length * Math.random())]
+  return list[Math.floor(list.length * Math.random())];
 }
 
 global.verdad = [
