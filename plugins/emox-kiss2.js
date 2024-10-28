@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else if (m.quoted) {
         str = `\`${name2}\` beso apasionado a \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `\`${name2}\` se besa asi mismo por qué es un rolo e gay`.trim();
+        str = `\`${name2}\` se besa asi mismo por qué es un rolo e gay.`.trim();
     }
     
     if (m.isGroup) {
@@ -39,7 +39,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         let pp7 = 'https://qu.ax/eCmG.mp4';
         let pp8 = 'https://qu.ax/Rtaw.mp4';
         let pp9 = 'https://qu.ax/Esky.mp4';
-        let pp10 = 'https://qu.ax/AYoP.mp4':
+        let pp10 = 'https://qu.ax/AYoP.mp4';
         let pp11 = 'https://qu.ax/ulK.mp4';
         let pp12 = 'https://qu.ax/xgVd.mp4';
         let pp13 = 'https://qu.ax/gchC.mp4';
