@@ -14,7 +14,7 @@ conn.reply(m.chat, `*Niño Piña 🍍 es la perrita de mi creador* 🥵🥵`, m,
 if (/^tesis|I'am Fz'|fz|iam|iam fz$/i.test(m.text)) {
 conn.reply(m.chat, `*I'm fz' 🔥 le mama la verga a mi creador* 🥵🥵`, m, rcanal, )
 }
-if (/^sexo$/i.test(m.text)) {
+/*if (/^sexo$/i.test(m.text)) {
 conn.reply(m.chat, `*pervertido* 🫣`, m, rcanal, )
 }
 if (/^a$/i.test(m.text)) {
@@ -22,7 +22,7 @@ conn.reply(m.chat, `*rroz y pollo* 😄👌`, m, rcanal, )
 }
 if (/^Destroy|destroy|wilker|Wilker/i.test(m.text)) {
 conn.reply(m.chat, `*ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 Es Mi Creador, Respeta!*`, m, rcanal, )
-}
+}*/
 if (/^porno|cp|xxx|gore|nopor/i.test(m.text)) {
 conn.reply(m.chat, `*Escucha maldita sabandija ni se te ocurra enviar ese tipo de contenido 🤬*`, m, rcanal, )
 }
@@ -44,11 +44,11 @@ conn.reply(m.chat, `*No digas mamadas, Meriyein*`, m, rcanal, )
 if (/^English|inglés$/i.test(m.text)) {
 conn.reply(m.chat, `*The first one to speak is gay*`, m, rcanal, )
 }
-if (!chat.isBanned && m.text.match(/(te amo|teamo|te amo bot|te amo megumin)/gi)) {
+/*if (!chat.isBanned && m.text.match(/(te amo|teamo|te amo bot|te amo megumin)/gi)) {
   conn.sendMessage(m.chat, {
  stiker:{ url: global.stickeramor}
 }, { quoted: fakegif2});
-}
+}*/
 if (/^bug$/i.test(m.text)) {
 conn.reply(m.chat, `*tu mamá we* 😹`, m, rcanal, )
 }
@@ -59,9 +59,9 @@ conn.reply(m.chat, `*¡Contacta Al Creador!*
 if (/^Bot en decadencia|En decadencia|Decadencia/i.test(m.text)) {
 conn.reply(m.chat, `*Calla 🍆🥵*`, m, rcanal, )
 }
-if (/^pene$/i.test(m.text)) {
+/*if (/^pene$/i.test(m.text)) {
 conn.reply(m.chat, `*comes* 😹`, m, rcanal, )
-}
+}*/
 if (/^reglas$/i.test(m.text)) {
 conn.reply(m.chat, `**R꙰EGLAS DEL GRUP❍ꪜ*
 
