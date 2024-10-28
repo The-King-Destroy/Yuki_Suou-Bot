@@ -5,7 +5,8 @@ import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
     let who;
-if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
+    if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos comandos están desactivados!*');
+    
     // Verificamos si se menciona a alguien o se cita un mensaje
     if (m.mentionedJid.length > 0) {
         who = m.mentionedJid[0]; // Si hay mención, usamos esa
@@ -22,9 +23,9 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${`name2`} está haciendo un 69 con ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `${name2} está haciendo un 69 con \`${name || who}\`.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} hizo un 69 con ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `${name2} hizo un 69 con \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
         str = `${name2} está haciendo un 69! >.<.`.trim();
     }
