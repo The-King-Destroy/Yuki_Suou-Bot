@@ -22,11 +22,11 @@ let handler = async (m, { conn, usedPrefix }) => {
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} se sonrojo por ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `\`${name2}\` se sonrojo por \`${name || who}\`.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} se sonrojo por ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `\`${name2}\` se sonrojo por \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} se sonrojo.`.trim();
+        str = `\`${name2}\` se sonrojo.`.trim();
     }
     
     if (m.isGroup) {

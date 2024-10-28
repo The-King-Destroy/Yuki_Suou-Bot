@@ -22,11 +22,11 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} follo fuertemente a la perra de ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `\`${name2}\` follo fuertemente a la perra de \`${name || who}\`.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} se la metió durísimo a la perrita de ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `\`${name2}\` se la metió durísimo a la perrita de \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} está follando ricamente`.trim();
+        str = `\`${name2}\` está follando ricamente`.trim();
     }
     
     if (m.isGroup) {
