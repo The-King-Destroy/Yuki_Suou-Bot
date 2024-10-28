@@ -1,4 +1,4 @@
-<h1 align="center">𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭</h1>
+<h1 align="center">𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉</h1>
  <p align="center">🌟 WhatsApp Bot Node-Js.</p>
 </p>
 
