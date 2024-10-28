@@ -8,7 +8,7 @@ if (chat.isBaneed) return
 if (/^Yuki|yuki$/i.test(m.text)) {
 conn.reply(m.chat, `🌹 ¡Hola! Soy 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉, en que puedo ayudarte hoy?\n\n✰ Usa *!menu* para ver mis comandos.`, m, rcanal, )
 }
-if (/^niño|piña|Niño Piña$/i.test(m.text)) {
+/*if (/^niño|piña|Niño Piña$/i.test(m.text)) {
 conn.reply(m.chat, `*Niño Piña 🍍 es la perrita de mi creador* 🥵🥵`, m, rcanal, )
 }
 if (/^tesis|I'am Fz'|fz|iam|iam fz$/i.test(m.text)) {
@@ -32,12 +32,12 @@ conn.reply(m.chat, `*Hola Eres Fan De* *𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁�
 > https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
  *Gracias por utilizar 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉* `, m, rcanal, )
 }
-if (/^Conoces a Legendary|Legendary|Diomar/i.test(m.text)) { 
+/*if (/^Conoces a Legendary|Legendary|Diomar/i.test(m.text)) { 
 conn.reply(m.chat, `*Si Lo conozco, Es Una Zorra caliente 🥵❤️‍🔥*`, m, rcanal, )
 }
 if (/^Bot de mrd/i.test(m.text)) {
 conn.reply(m.chat, `*Ya te dieron De Comer?🥵🍆*`, m, rcanal, )
-}
+}*/
 if (/^Bot de mierda/i.test(m.text)) {
 conn.reply(m.chat, `*No digas mamadas, Meriyein*`, m, rcanal, )
 }
