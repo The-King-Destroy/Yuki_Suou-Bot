@@ -141,12 +141,12 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ---
 
-### **`👑 𝓟𝓻𝓸𝓹𝓲𝓮𝓽𝓪𝓻𝓲𝓸'**
+### **`👑 𝓟𝓻𝓸𝓹𝓲𝓮𝓽𝓪𝓻𝓲𝓸`**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`🌟 𝓒𝓸𝓵𝓪𝓫𝓸𝓻𝓪𝓭𝓸𝓻𝓮𝓼'**
+### **`🌟 𝓒𝓸𝓵𝓪𝓫𝓸𝓻𝓪𝓭𝓸𝓻𝓮𝓼`**
 <a
 href="https://github.com/Elpapiema"><img
 src="https://github.com/Elpapiema.png" widgh="130" height="130" alt="𝓔𝓶𝓶𝓪 (𝓥𝓲𝓸𝓵𝓮𝓽'𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷)"/></a>
