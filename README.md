@@ -2,7 +2,7 @@
  <p align="center">🌹 WhatsApp Bot Node-Js.</p>
 </p>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF0000&lines=Bienvenido+al+Repositorio;Oficial+de+✨𝐘𝐮𝐤𝐢+-+𝐒𝐮𝐨𝐮+-+𝐁𝐨𝐭✨;Gracias+por+preferirnos;Creado+por+𝕀'𝕒𝕞|𝔻𝕖𝕤𝕥𝕣𝕠𝕪𒆜;✨+🌹🫦💖!!!)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF0000&lines=𝓑𝓲𝓮𝓷𝓿𝓮𝓷𝓲𝓭𝓸+𝓪𝓵+𝓡𝓮𝓹𝓸𝓼𝓲𝓽𝓸𝓻𝓲𝓸;𝓞𝓯𝓲𝓬𝓲𝓪𝓵+𝓭𝓮+✨𝓨𝓾𝓴𝓲-𝓢𝓾𝓸𝓾-𝓑𝓸𝓽✨;Gracias+por+preferirnos;Creado+por+𝕀'𝕒𝕞|𝔻𝕖𝕤𝕥𝕣𝕠𝕪𒆜;✨+🌹🫦💖!!!)](https://git.io/typing-svg)
 ![𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉](https://qu.ax/gEvrL.jpg)
 > ⌛ Versión Actual: 1.7.1 
 ---
@@ -135,23 +135,23 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 | APP | TIPO | ENLACE |
 |------|-------------|-------|
-| WhatsApp | Canal Oficial | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
-| WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
-| WhatsApp | Comunidad Oficial | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
+| WhatsApp | 𝒞𝒶𝓃𝒶𝓁 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
+| WhatsApp | 𝒢𝓇𝓊𝓅𝑜 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
+| WhatsApp | 𝒞𝑜𝓂𝓊𝓃𝒾𝒹𝒶𝒹 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
 
 ---
 
-### **`👑 𝕻𝕽𝕺𝕻𝕴𝕰𝕿𝕬𝕽𝕴𝕺'**
+### **`👑 𝓟𝓻𝓸𝓹𝓲𝓮𝓽𝓪𝓻𝓲𝓸'**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`🌟 𝕮𝕺𝕷𝕬𝕭𝕺𝕽𝕬𝕯𝕺𝕽𝕰𝕾'**
+### **`🌟 𝓒𝓸𝓵𝓪𝓫𝓸𝓻𝓪𝓭𝓸𝓻𝓮𝓼'**
 <a
 href="https://github.com/Elpapiema"><img
 src="https://github.com/Elpapiema.png" widgh="130" height="130" alt="𝓔𝓶𝓶𝓪 (𝓥𝓲𝓸𝓵𝓮𝓽'𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷)"/></a>
 
-### **`❇️ 𝕮𝕽É𝕯𝕴𝕿𝕺𝕾`**
+### **`❇️ 𝓒𝓻é𝓭𝓲𝓽𝓸𝓼`**
 <a
 href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
 
