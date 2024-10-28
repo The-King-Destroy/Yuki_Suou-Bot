@@ -11,6 +11,9 @@ conn.reply(m.chat, `🌹 ¡Hola! Soy 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜�
 if (/^niño|piña|Niño Piña$/i.test(m.text)) {
 conn.reply(m.chat, `*Niño Piña 🍍 es la perrita de mi creador* 🥵🥵`, m, rcanal, )
 }
+if (/^tesis|I'am Fz|fz|iam fz$/i.test(m.text)) {
+conn.reply(m.chat, `*I'm fz~🔥 el le mama la verga a mi creador* 🥵🥵`, m, rcanal, )
+}
 if (/^sexo$/i.test(m.text)) {
 conn.reply(m.chat, `*pervertido* 🫣`, m, rcanal, )
 }
@@ -19,6 +22,9 @@ conn.reply(m.chat, `*rroz y pollo* 😄👌`, m, rcanal, )
 }
 if (/^Destroy|destroy|wilker|Wilker/i.test(m.text)) {
 conn.reply(m.chat, `*ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 Es Mi Creador, Respeta!*`, m, rcanal, )
+}
+if (/^porno|cp|xxx|gore|nopor/i.test(m.text)) {
+conn.reply(m.chat, `*Escucha maldita sabandija ni se te ocurra enviar ese tipo de contenido 🤬*`, m, rcanal, )
 }
 if (/^canal$/i.test(m.text)) {
 conn.reply(m.chat, `*Hola Eres Fan De* *𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭*
