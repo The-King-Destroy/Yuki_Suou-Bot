@@ -53,6 +53,19 @@ throw false
 chat.welcome = isEnable
 break          
 
+case 'autoaceptar': case 'aceptarnuevos':
+if (!m.isGroup) {
+if (!isOwner) {
+global.dfail('group', m, conn)
+throw false
+}
+} else if (!isAdmin) {
+global.dfail('admin', m, conn)
+throw false
+}
+chat.autoAceptar = isEnable
+break
+    
 case 'detect': case 'avisos':
 if (!m.isGroup) {
 if (!isOwner) {
