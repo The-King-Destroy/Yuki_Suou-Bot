@@ -5,8 +5,9 @@ const handler = async (m, { conn }) => {
     global.db.data.users[m.sender].cookies= Infinity;
   global.db.data.users[m.sender].level = Infinity;
  global.db.data.users[m.sender].exp = Infinity;
+global.db.data.users[m.sender].personajes = Infinity;
 };
-handler.help = ['cheat'];
+handler.help = ['chetar'];
 handler.tags = ['owner'];
 handler.command = ['ilimitado','infiniy','chetar'];
 handler.rowner = true;
