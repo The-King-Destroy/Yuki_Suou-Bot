@@ -31,8 +31,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     
     if (m.isGroup) { 
         let pp = 'https://telegra.ph/file/f75aed769492814d68016.mp4';
-        let pp2 = 'https://telegra.ph/file/4f24bb58fe580a5e97b0a.mp4':
-        let pp3 = 'https://telegra.ph/file/30206abdcb7b8a4638510.mp4':
+        let pp2 = 'https://telegra.ph/file/4f24bb58fe580a5e97b0a.mp4';
+        let pp3 = 'https://telegra.ph/file/30206abdcb7b8a4638510.mp4';
         let pp4 = 'https://telegra.ph/file/ecd7aeae5b2242c660d41.mp4';
         let pp5 = 'https://telegra.ph/file/6d3ba201bcdd1fd2c1408.mp4';
         let pp6 = 'https://telegra.ph/file/d5dbdcf845d2739dbe45e.mp4';
