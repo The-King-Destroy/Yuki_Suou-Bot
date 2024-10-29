@@ -17,16 +17,16 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) return m.reply('🚩 *¡Estos coma
 
     let name = conn.getName(who); // Nombre de la persona mencionada o del emisor
     let name2 = conn.getName(m.sender); // Nombre del usuario que envía el comando
-    m.react('🥵');
+    m.react('✂️');
 
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} hizo tijeras con ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `\`${name2}\` hizo tijeras con \`${name || who}\`.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} está haciendo tijeras con ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `\`${name2}\` está haciendo tijeras con \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} está haciendo tijeras! >.<`.trim();
+        str = `\`${name2}\` está haciendo tijeras! >.<`.trim();
     }
     
     if (m.isGroup) {

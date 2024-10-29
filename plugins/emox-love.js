@@ -22,11 +22,11 @@ let handler = async (m, { conn, usedPrefix }) => {
     // Construimos el mensaje dependiendo de si hay una mención o no
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `${name2} está enamorad﹫ de ${name || who}.`; // Usamos nombre agendado o número si no está agendado
+        str = `\`${name2}\` está enamorad﹫ de \`${name || who}\`.`; // Usamos nombre agendado o número si no está agendado
     } else if (m.quoted) {
-        str = `${name2} está enamorad﹫ de ${name || who}.`; // Mensaje cuando se cita a otro usuario
+        str = `\`${name2}\` está enamorad﹫ de \`${name || who}\`.`; // Mensaje cuando se cita a otro usuario
     } else {
-        str = `${name2} está enamorad﹫.`.trim();
+        str = `\`${name2}\` está enamorad﹫.`.trim();
     }
     
     if (m.isGroup) {
@@ -51,7 +51,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 
 handler.help = ['love2/enamorada @tag'];
 handler.tags = ['emox'];
-handler.command = ['love2', 'enamorada'];
+handler.command = ['love2','amor','enamorada'];
 handler.group = true;
 
 export default handler;
