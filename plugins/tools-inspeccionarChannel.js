@@ -1,5 +1,10 @@
 import fetch from 'node-fetch';
 
+function reportError(error) {
+  console.error("Se ha producido un error:", error);
+  // Aquí puedes agregar más lógica, como enviar un mensaje a un canal de soporte
+}
+
 let handler = async (m, { conn, text }) => {
   let newsletterInfo;
   const channelUrl = text?.match(/(?:https:\/\/)?(?:www\.)?(?:chat\.|wa\.)?whatsapp\.com\/(?:channel\/|joinchat\/)?([0-9A-Za-z]{22,24})/i)?.[1];
@@ -86,9 +91,10 @@ function processObject(obj, prefix = "", preview) {
       }
     } else {
       const shortKey = prefix ? prefix.split("_").pop() + "_" + key : key;
-     const displayValue = formatValue(shortKey, value, preview)
-const translatedKey = newsletterKey(shortKey)
-caption += `- *${translatedKey}:*\n${displayValue}\n\n`
-}})
-return caption.trim()
+      const displayValue = formatValue(shortKey, value, preview);
+      const translatedKey = newsletterKey(shortKey);
+      caption += `- *${translatedKey}:*\n${displayValue}\n\n`;
+    }
+  });
+  return caption.trim();
 }
