@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import FormData from 'form-data';
 import fs from 'fs';
@@ -18,7 +17,8 @@ let handler = async (m, { args, command, usedPrefix }) => {
 
   // Verificar que se haya proporcionado un texto
   if (!args[0]) {
-    throw `\`\`\`[ 🌺 ] Ingresa un texto para guardar la imagen. Ejemplo:\n${usedPrefix + command} Yuki\`\`\``;
+    // Enviar mensaje pidiendo un texto
+    return m.reply(`\`\`\`[ 🌺 ] Ingresa un texto para guardar la imagen. Ejemplo:\n${usedPrefix + command} Yuki\`\`\``);
   }
 
   try {
