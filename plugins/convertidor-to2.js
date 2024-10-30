@@ -39,8 +39,8 @@ let handler = async (m, { args, command, usedPrefix }) => {
   }
 }
 
-handler.help = ['to'];
+handler.help = ['to2  <reply image>'];
 handler.tags = ['transformador'];
-handler.command = ['up', 'to'];
+handler.command = ['up2', 'to2'];
 
 export default handler;
