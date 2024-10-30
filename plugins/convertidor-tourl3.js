@@ -9,7 +9,7 @@ const handler = async (m) => {
   const link = await (isTele ? uploadImage : uploadFile)(media);
   m.reply(`*[🌹] Resultado:* ${link}`);
 };
-handler.help = ['tourl <reply image>'];
+handler.help = ['to <reply image>'];
 handler.tags = ['sticker'];
-handler.command = /^(upload3|tourl3)$/i;
+handler.command = /^(up|to)$/i;
 export default handler;
