@@ -1,95 +1,60 @@
-
-import { ytmp3, ytmp4 } from 'ruhend-scraper';
-import yts from 'yt-search'; // Asegúrate de que este paquete esté instalado
-
+import yts from 'yt-search' 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    const fkontak = {
-        'key': {
-            'participants': '0@s.whatsapp.net',
-            'remoteJid': 'status@broadcast',
-            'fromMe': false,
-            'id': 'Halo'
-        },
-        'message': {
-            'contactMessage': {
-                'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
-            }
-        },
-        'participant': '0@s.whatsapp.net'
-    };
+    if (!text) throw `\`\`\`[ 🌴 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
 
-    if (!text) throw `*[🌹] Complementa tu petición con alguna canción o video (Se recomienda especificar al autor)*.\n\n _🥀.- Ejemplo_ *${usedPrefix + command} Enemy tommoee profitt.*`;
-
+    const randomReduction = Math.floor(Math.random() * 5) + 1;
     let search = await yts(text);
-    if (!search.all.length) throw `*[❌] No se encontraron resultados para: ${text}*`;
-
+    let f = `\n\n${String.fromCharCode(68,101,118,101,108,111,112,101,100,32,98,121,32,73,39,109,32,70,122,32,126)}`;
     let isVideo = /vid$/.test(command);
     let urls = search.all[0].url;
+    let body = `\`\`\`⊜─⌈ 📻 ◜YouTube Play◞ 📻 ⌋─⊜
 
-    // Verifica si el URL es válido
-    if (!urls) throw `*[❌] No se encontró un enlace válido para: ${text}*`;
+    ≡ Título : » ${search.all[0].title}
+    ≡ Views : » ${search.all[0].views}
+    ≡ Duration : » ${search.all[0].timestamp}
+    ≡ Uploaded : » ${search.all[0].ago}
+    ≡ URL : » ${urls}
 
-    let body = `*『  𝐘 𝐮 𝐤 𝐢 _ 𝐒 𝐮 𝐨 𝐮 - 𝐁 𝐨 𝐭  』*
+# 🌴 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
+    
+    conn.sendMessage(m.chat, { 
+        image: { url: search.all[0].thumbnail }, 
+        caption: body + f
+    }, { quoted: m });
 
- *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${search.all[0].title}
- *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${search.all[0].views}
- *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚒𝚘́𝚗:* ${search.all[0].ago}
- *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${search.all[0].timestamp}
- *🝤.- 𝙻𝚒𝚗𝚔* ${urls}
-
-*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 ${isVideo ? '𝚟𝚒𝚍𝚎𝚘' : '𝚊𝚞𝚍𝚒𝚘'}, 𝚊𝚐𝚞𝚊𝚛𝚍𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*`;
-
-    conn.sendMessage(m.chat, {
-        image: { url: search.all[0].thumbnail },
-        caption: body
-    }, { quoted: fkontak });
-
-    let res = await DOWNLOAD_YT(urls);
+    let res = await dl_vid(urls)
     let type = isVideo ? 'video' : 'audio';
-    let video = res.video.dl_link;
-    let audio = res.audio.dl_link;
-
-    conn.sendMessage(m.chat, {
-        [type]: { url: isVideo ? video : audio },
-        gifPlayback: false,
-        mimetype: isVideo ? "video/mp4" : "audio/mpeg"
+    let video = res.data.mp4;
+    let audio = res.data.mp3;
+    conn.sendMessage(m.chat, { 
+        [type]: { url: isVideo ? video : audio }, 
+        gifPlayback: false, 
+        mimetype: isVideo ? "video/mp4" : "audio/mpeg" 
     }, { quoted: m });
 }
 
-handler.command = ['play', 'play2'];
+handler.command = ['play', 'playvid'];
+handler.help = ['play', 'playvid'];
+handler.tags = ['descargas'];
 export default handler;
 
-async function DOWNLOAD_YT(input) {
-    let ytSearch = await yts(input);
-    let { title, url, thumbnail, description, views, ago, duration } = ytSearch.videos[0];
+async function dl_vid(url) {
+    const response = await fetch('https://shinoa.us.kg/api/download/ytdl', {
+        method: 'POST',
+        headers: {
+            'accept': '*/*',
+            'api_key': 'free',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            text: url,
+        })
+    });
 
-    let video, quality, size, audio;
-
-    try {
-        ({ video, quality, size } = await ytmp4(url));
-        ({ audio } = await ytmp3(url));
-    } catch (error) {
-        throw `*[❌] Ocurrió un error al descargar el contenido: ${error.message}*`;
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    let resultados = {
-        Status: true,
-        Creator: "Lan",
-        title: title,
-        description: description,
-        views: views,
-        ago: ago,
-        duration: duration,
-        url: url,
-        video: {
-            dl_link: video,
-            size: size,
-            quality: quality
-        },
-        audio: {
-            dl_link: audio
-        }
-    };
-
-    return resultados;
+    const data = await response.json();
+    return data;
 }
