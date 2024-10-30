@@ -25,6 +25,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     let isVideo = /vid$/.test(command);
     let urls = search.all[0].url;
+
+    // Verifica si el URL es válido
+    if (!urls) throw `*[❌] No se encontró un enlace válido para: ${text}*`;
+
     let body = `*『  𝐘 𝐮 𝐤 𝐢 _ 𝐒 𝐮 𝐨 𝐮 - 𝐁 𝐨 𝐭  』*
 
  *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${search.all[0].title}
@@ -59,8 +63,14 @@ async function DOWNLOAD_YT(input) {
     let ytSearch = await yts(input);
     let { title, url, thumbnail, description, views, ago, duration } = ytSearch.videos[0];
 
-    let { video, quality, size } = await ytmp4(url);
-    let { audio } = await ytmp3(url);
+    let video, quality, size, audio;
+
+    try {
+        ({ video, quality, size } = await ytmp4(url));
+        ({ audio } = await ytmp3(url));
+    } catch (error) {
+        throw `*[❌] Ocurrió un error al descargar el contenido: ${error.message}*`;
+    }
 
     let resultados = {
         Status: true,
