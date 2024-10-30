@@ -3,8 +3,10 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args }) => {
   try {
-    let res = await fetch('https://github.com/The-King-Destroy/Yuki_Suou-Bot');
+    // Cambiar el enlace del repositorio a uno nuevo
+    let res = await fetch('https://api.github.com/repos/The-King-Destroy/Yuki_Suou-Bot');
     if (!res.ok) throw new Error('Error al obtener datos del repositorio');
+    
     let json = await res.json();
 
     let txt = `*乂  S C R I P T  -  M A I N  乂*\n\n`;
@@ -17,12 +19,12 @@ let handler = async (m, { conn, args }) => {
     txt += `✩  *Stars* : ${json.stargazers_count}\n\n`;
     txt += `🌹 *${packname}*`;
 
-    let img = imagen1;
+    let img = imagen1; // Asegúrate de que 'imagen1' esté definido
 
     await conn.sendMini(m.chat, packname, wm, txt, img, img, redes, fkontak);
   } catch (error) {
-    console.error(error);
-    await m.react(error);  // Reacciona con un emoji de error si ocurre un problema
+    console.error('Error fetching repository data:', error);
+    await m.react('❌');  // Reacciona con un emoji de error si ocurre un problema
   }
 };
 
@@ -31,4 +33,4 @@ handler.tags = ['main'];
 handler.command = ['script', 'sc'];
 handler.register = true;
 
-export default handler;
+export default handler;.
