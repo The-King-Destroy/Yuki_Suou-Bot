@@ -11,9 +11,9 @@ let handler = async (m, { conn }) => {
           conn.reply(m.chat, `*Pong* 🏓 ${latensi.toFixed(4)} ms`, m, rcanal);
             });
 }
-handler.help = ['ping/p']
+handler.help = ['ping']
 handler.tags = ['info']
-handler.command = ['ping,''p']
+handler.command = ['ping']
 handler.register = true
 
 export default handler
