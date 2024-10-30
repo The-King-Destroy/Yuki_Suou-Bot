@@ -2,7 +2,7 @@ import AdmZip from 'adm-zip';
 import fs from 'fs';
 import path from 'path';
 /************
-https://Github.com/FzTeis
+https://Github.com/The-King-Destroy
 ************/
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     function ZipFiles(directorio, name) {
@@ -30,11 +30,11 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     }
     try {
         const Base = '.'; // Directorio actual
-        const name = 'Sylphiette_Respaldo';
+        const name = 'Yuki_Respaldo';
         const rutaZip = ZipFiles(Base, name);
-        const Sylphiette = fs.readFileSync(rutaZip);
+        const Yuki = destroy.readFileSync(rutaZip);
         await conn.sendMessage(m.chat, { 
-            document: Sylphiette, 
+            document: Yuki, 
             mimetype: 'application/zip', 
             fileName: `${botName}.zip`, 
             caption: "*[ 🌹 ] Successful.*"
