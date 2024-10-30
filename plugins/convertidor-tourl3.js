@@ -1,4 +1,3 @@
-import axios from 'axios';
 import FormData from 'form-data';
 import fs from 'fs';
 import os from 'os';
@@ -9,7 +8,7 @@ let handler = async (m, { args, command, usedPrefix }) => {
   let mime = (q.msg || q).mimetype || '';
   if (!mime) throw `*[🌹] Responde al archivo multimedia que deseas convertir en enlace.*`;
   let media = await q.download();
-  let tempFilePath = path.join(os.tmpdir(), 'Yuki Suou');
+  let tempFilePath = path.join(os.tmpdir(), 'Yuki');
   fs.writeFileSync(tempFilePath, media);
 
   let form = new FormData();
@@ -28,7 +27,7 @@ let handler = async (m, { args, command, usedPrefix }) => {
     fs.unlinkSync(tempFilePath);
 
     m.reply(`
-    
+
 *[🌹] Archivo subido con éxito.*
 
 *🔗.- URL:* ${link}
