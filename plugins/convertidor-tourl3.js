@@ -9,7 +9,7 @@ let handler = async (m, { args, command, usedPrefix }) => {
   let mime = (q.msg || q).mimetype || '';
   if (!mime) throw `*[🌹] Responde al archivo multimedia que deseas convertir en enlace.*`;
   let media = await q.download();
-  let tempFilePath = path.join(os.tmpdir(), '𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉');
+  let tempFilePath = path.join(os.tmpdir(), 'Yuki-Suou');
   fs.writeFileSync(tempFilePath, media);
 
   let form = new FormData();
