@@ -6,7 +6,7 @@ import path from 'path';
 https://Github.com/The-King-Destroy
 ************/
 
-const createZip = (directory, zipName) => {
+const createZip = (directory) => {
     const zip = new AdmZip();
 
     const addFilesToZip = (dir) => {
@@ -20,13 +20,13 @@ const createZip = (directory, zipName) => {
             if (stats.isDirectory()) {
                 addFilesToZip(fullPath); // Recursión para directorios
             } else {
-                zip.addLocalFile(fullPath, path.relative('.', dir));
+                zip.addLocalFile(fullPath);
             }
         });
     };
 
     addFilesToZip(directory);
-    const zipPath = `${zipName}.zip`;
+    const zipPath = path.join(directory, 'Backup_Files.zip');
     zip.writeZip(zipPath);
     return zipPath;
 };
@@ -34,15 +34,14 @@ const createZip = (directory, zipName) => {
 const handler = async (m, { conn, command }) => {
     try {
         const baseDir = '.'; // Directorio actual
-        const zipName = command === 'respaldo' ? 'Yuki_Respaldo' : 'Backup_Files'; // Nombre del archivo basado en el comando
-        const zipPath = createZip(baseDir, zipName);
+        const zipPath = createZip(baseDir);
         const fileBuffer = fs.readFileSync(zipPath);
 
         await conn.sendMessage(m.chat, { 
             document: fileBuffer, 
             mimetype: 'application/zip', 
-            fileName: `${zipName}.zip`, 
-            caption: "*[ 🌹 ] Successful.*" 
+            fileName: 'Backup_Files.zip', 
+            caption: "*[ 🌹 ] Backup successful.*" 
         }, { quoted: m });
 
         fs.unlinkSync(zipPath); // Eliminar el archivo zip después de enviarlo
@@ -53,7 +52,7 @@ const handler = async (m, { conn, command }) => {
 };
 
 // Configuración del comando
-handler.help = ['respaldo', 'getfiless', 'compress'];
+handler.help = ['getfiless, compress'];
 handler.command = ['getfiless', 'respaldo', 'compress'];
 handler.owner = true;
 
