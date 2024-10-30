@@ -28,7 +28,6 @@ let handler = async (m, { args, command, usedPrefix }) => {
     fs.unlinkSync(tempFilePath);
 
     m.reply(`
-
 *[🌹] Archivo subido con éxito.*
 
 *🔗.- URL:* ${link}
