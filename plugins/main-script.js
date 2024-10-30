@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, args }) => {
   try {
-    let res = await fetch('https://api.github.com/The-King-Destroy/Yuki_Suou-Bot');
+    let res = await fetch('https://api.github.com/repos/David-Chian/Megumin-Bot-MD');
     if (!res.ok) throw new Error('Error al obtener datos del repositorio');
     let json = await res.json();
 
@@ -15,7 +15,7 @@ let handler = async (m, { conn, args }) => {
     txt += `✩  *Url* : ${json.html_url}\n`;
     txt += `✩  *Forks* : ${json.forks_count}\n`;
     txt += `✩  *Stars* : ${json.stargazers_count}\n\n`;
-    txt += `✨ *${packname}*`;
+    txt += `💥 *${packname}*`;
 
     let img = imagen1;
 
