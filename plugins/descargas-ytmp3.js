@@ -1,43 +1,29 @@
-import fg from 'api-dylux'
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
+import yts from 'yt-search';
+
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!args || !args[0]) throw `✳️ ${mssg.example} :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
-  if (!args[0].match(/youtu/gi)) throw `❎ ${mssg.noLink('YouTube')}`
-   m.react(rwait)
- let chat = global.db.data.chats[m.chat]
- let q = '128kbps'
+    
+if (!text) throw `*[🌹] Complementa tu peticion con algún enlace de YouTube.*\n_(Puedes hacer una búsqueda utilizando el comando ${usedPrefix}yts)_
 
- try {
-                const yt = await fg.yta(args[0])
-                let { title, dl_url, quality, size, sizeB } = yt
-
-                conn.sendFile(m.chat, dl_url, title + '.mp3', `
- ≡  *TX YTDL*
-  
-❖ *📌${mssg.title}* : ${title}
-❖ *⚖️${mssg.size}* : ${size}
-`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument })
-                m.react(done)
-         } catch {
-  try {
-                let yt = await fg.ytmp3(args[0])
-        let { title, size, sizeB, dl_url } = yt
-                conn.sendFile(m.chat, dl_url, title + '.mp3', `
- ≡  *TX YTDL 2*
-  
-❖ *📌${mssg.title}* : ${title}
-❖ *⚖️${mssg.size}* : ${size}
-`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument })
-                m.react(done)
-        } catch {
-                        await m.reply(`❎ ${mssg.error}`)
-} 
+ _🌷.- Ejemplo:_ *${usedPrefix + command}* https://www.youtube.com/watch?v=a5i-KdUQ47o`;
+ await conn.sendMessage(m.chat, { react: { text: '🥀', key: m.key }})
+const videoSearch = await yts(text);
+if (!videoSearch.all.length) {
+return global.errori;
 }
+const vid = videoSearch.all[0];
+const videoUrl = vid.url;
+const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(videoUrl)}`;
+const apiResponse = await fetch(apiUrl);
+const delius = await apiResponse.json();
 
-}
-handler.help = ['ytmp3 <url>']
-handler.tags = ['descargas']
-handler.command = ['ytmp3', 'bsmp3'] 
-handler.diamond = 5
+if (!delius.status) {
+return global.errori}
+const downloadUrl = delius.data.download.url;
 
+await conn.sendMessage(m.chat, { react: { text: '🌹', key: m.key }})
+await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
+};
+
+handler.command = ['ytmp3', 'yta']
+handler.limit = 5;
 export default handler
