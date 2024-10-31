@@ -36,7 +36,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.command = ['musica', 'video'];
 handler.help = ['play', 'playvid'];
-handler.tags = ['dl'];
+handler.tags = ['descarga'];
 export default handler;
 
 async function dl_vid(url) {
