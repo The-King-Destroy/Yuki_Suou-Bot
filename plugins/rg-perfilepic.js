@@ -38,9 +38,9 @@ var handler = async (m, { conn }) => {
     conn.sendMessage(m.chat, { image: { url: pp }, caption: profileMessage, mentions: [who] }, { quoted: m });
 }
 
-handler.help = ['king'];
+handler.help = ['profill'];
 handler.tags = ['owner'];
-handler.command = /^(king)$/i;
+handler.command = /^(profill)$/i;
 handler.owner = true; // Solo los owner pueden usar este comando
 handler.register = true;
 handler.group = true;
