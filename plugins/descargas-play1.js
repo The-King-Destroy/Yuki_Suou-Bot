@@ -1,6 +1,6 @@
-import yts from 'yt-search';
+import yts from 'yt-search'; 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `\`\`\`[ 🌹 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
+    if (!text) throw `\`\`\`[ 🌴 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
 
     const randomReduction = Math.floor(Math.random() * 5) + 1;
     let search = await yts(text);
@@ -15,8 +15,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     ≡ Uploaded : » ${search.all[0].ago}
     ≡ URL : » ${urls}
 
-# 🌷 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
-
+# 🌴 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
+    
     conn.sendMessage(m.chat, { 
         image: { url: search.all[0].thumbnail }, 
         caption: body + f
@@ -38,8 +38,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: m });
 }
 
-handler.command = ['play1', 'playvid'];
-handler.help = ['play1', 'playvid'];
+handler.command = ['play', 'playvid'];
+handler.help = ['play', 'playvid'];
 handler.tags = ['descargas'];
 export default handler;
 
