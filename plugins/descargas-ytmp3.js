@@ -28,9 +28,11 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
     let body = `*Información del Video/Audío:*
 
  *Título:* ${vid.title}
- *Vistas:* ${vid.views}
+ *Autor:* ${vid.author}
+ *Canal:* ${vid.channel}
  *Fecha de Publicación:* ${vid.ago}
  *Duración:* ${vid.timestamp}
+ *Vistas:* ${vid.views}
  *Link:* ${videoUrl}
 
 *🝩.- Enviando audio, aguarda un momento...*`;
