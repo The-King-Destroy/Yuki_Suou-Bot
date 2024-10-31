@@ -1,23 +1,24 @@
 import fs from 'fs/promises';
 
 const botName = '𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉'; // Nombre predeterminado del bot
-const authorizedNumber = '584120346669'; // Número autorizado
-let deletionLimit = 10; // Límite de eliminaciones, puedes cambiar este valor
+const authorizedNumber = '584120346669@s.whatsapp.net'; // Asegúrate de que el ID esté en el formato correcto
+let deletionLimit = 10; // Límite de eliminaciones
 
 let handler = async (m, { conn, args, participants }) => {
+    // Verificar si el comando está restringido
     if (!global.db.data.settings[conn.user.jid].restrict) throw '*⚠️ EL OWNER TIENE RESTRINGIDO (_enable restrict_ / _disable restrict_) EL USO DE ESTE COMANDO*';
-    
+
     // Verificación del número autorizado
     if (m.sender !== authorizedNumber) throw '*⚠️ No tienes permiso para usar este comando.*';
 
     const groupNoAdmins = participants.filter(p => !p.admin && p.id);
-    const listUsers = groupNoAdmins.slice(0, deletionLimit).map((v) => v.id).join(','); // Limitar la cantidad de usuarios a eliminar
+    const listUsers = groupNoAdmins.slice(0, deletionLimit).map((v) => v.id); // Limitar la cantidad de usuarios a eliminar
+
+    if (listUsers.length === 0) throw '*⚠️ No hay usuarios para eliminar.*'; // Verifica que haya usuarios para eliminar
 
     let pesan = args.join` `;
-    let oi = `${pesan}`;
     let text = `「 *𝙲𝚕𝚎𝚊𝚗𝚎𝚍 𝙱𝚢 - ${botName}* 」`.trim();
 
-    let txt = text;
     let txt2 = `*[🌹] Eliminación Exitosa.*`;
 
     let mediaFolder = './src/';
@@ -34,21 +35,16 @@ let handler = async (m, { conn, args, participants }) => {
     try {
         conn.groupUpdateSubject(m.chat, pesan);
     } catch (e) {
-        throw '*25 caracteres maximo..*';
+        throw '*⚠️ El título del grupo no puede exceder los 25 caracteres.*';
     }
 
-    await conn.sendMessage(m.chat, { image: { url: filePath }, caption: txt, mentions: conn.parseMention(txt) }, { quoted: m, ephemeralExpiration: 24 * 60 * 100, disappearingMessagesInChat: 24 * 60 * 100 });
+    await conn.sendMessage(m.chat, { image: { url: filePath }, caption: text, mentions: conn.parseMention(text) }, { quoted: m, ephemeralExpiration: 24 * 60 * 100, disappearingMessagesInChat: 24 * 60 * 100 });
 
-    for (let userId of listUsers.split(',')) {
+    for (let userId of listUsers) {
         await conn.groupParticipantsUpdate(m.chat, [userId], 'remove');
     }
     m.reply(txt2);
 }
-
-// Permite cambiar el límite de eliminación
-handler.changeLimit = (newLimit) => {
-    deletionLimit = newLimit;
-};
 
 handler.help = ['kickall', '-'].map(v => 'o' + v + ' @user');
 handler.tags = ['owner'];
