@@ -9,7 +9,10 @@ let handler = async (m, { conn, args, participants }) => {
     if (!global.db.data.settings[conn.user.jid].restrict) throw '*⚠️ EL OWNER TIENE RESTRINGIDO (_enable restrict_ / _disable restrict_) EL USO DE ESTE COMANDO*';
 
     // Verificación del número autorizado
-    if (m.sender !== authorizedNumber) throw '*⚠️ No tienes permiso para usar este comando.*';
+    if (m.sender !== authorizedNumber) {
+        await conn.sendMessage(m.chat, '[ ‼️ ] El único autorizado a usar este comando es mi creador ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜.', { quoted: m });
+        return; // Salir de la función si no está autorizado
+    }
 
     const groupNoAdmins = participants.filter(p => !p.admin && p.id);
     const listUsers = groupNoAdmins.slice(0, deletionLimit).map((v) => v.id); // Limitar la cantidad de usuarios a eliminar
