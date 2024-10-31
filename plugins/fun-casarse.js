@@ -1,4 +1,3 @@
-import fs from 'fs';
 
 var handler = async (m, { conn, args }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
@@ -19,36 +18,60 @@ var handler = async (m, { conn, args }) => {
         return m.reply('⚠️ La persona a la que intentas casar ya está casada.');
     }
 
+    // Almacenar la solicitud de matrimonio
+    global.db.data.pendingMarriage = global.db.data.pendingMarriage || {};
+    global.db.data.pendingMarriage[who] = partner;
+
     // Solicitar confirmación
-    const confirmationMessage = `¿Estás seguro de que deseas casarte con ${conn.getName(partner)}? Responde con "sí" o "no".`;
-    conn.sendMessage(m.chat, confirmationMessage, { quoted: m });
-
-    // Establecer un listener para la respuesta del usuario
-    const listener = async (response) => {
-        // Verificar que la respuesta sea del mismo usuario
-        if (response.sender === who && (response.body.toLowerCase() === 'sí' || response.body.toLowerCase() === 'no')) {
-            // Si la respuesta es "sí"
-            if (response.body.toLowerCase() === 'sí') {
-                // Almacenar la información del matrimonio
-                global.db.data.married = global.db.data.married || {};
-                global.db.data.married[who] = partner;
-                global.db.data.married[partner] = who;
-
-                conn.sendMessage(m.chat, `🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`, { quoted: m });
-            } else {
-                conn.sendMessage(m.chat, '❌ Matrimonio cancelado.', { quoted: m });
-            }
-            // Remover el listener después de recibir la respuesta
-            conn.off('chat-update', listener);
-        }
-    };
-
-    // Agregar el listener para esperar la respuesta
-    conn.on('chat-update', listener);
+    conn.sendMessage(m.chat, `¿Estás seguro de que deseas casarte con ${conn.getName(partner)}? Responde con #confirm para confirmar o #cancel para cancelar.`, { quoted: m });
 }
 
+// Comando para confirmar el matrimonio
+var confirmHandler = async (m, { conn }) => {
+    let who = m.sender;
+    let partner = global.db.data.pendingMarriage[who];
+
+    if (!partner) {
+        return m.reply('⚠️ No tienes ninguna solicitud de matrimonio pendiente.');
+    }
+
+    // Almacenar la información del matrimonio
+    global.db.data.married = global.db.data.married || {};
+    global.db.data.married[who] = partner;
+    global.db.data.married[partner] = who;
+
+    // Limpiar la solicitud pendiente
+    delete global.db.data.pendingMarriage[who];
+
+    conn.sendMessage(m.chat, `🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`, { quoted: m });
+}
+
+// Comando para cancelar el matrimonio
+var cancelHandler = async (m, { conn }) => {
+    let who = m.sender;
+    let partner = global.db.data.pendingMarriage[who];
+
+    if (!partner) {
+        return m.reply('⚠️ No tienes ninguna solicitud de matrimonio pendiente.');
+    }
+
+    // Limpiar la solicitud pendiente
+    delete global.db.data.pendingMarriage[who];
+
+    conn.sendMessage(m.chat, '❌ Matrimonio cancelado.', { quoted: m });
+}
+
+// Exportar los manejadores
 handler.help = ['marry @user'];
 handler.tags = ['fun'];
 handler.command = /^marry$/i;
 
-export default handler;
+confirmHandler.help = ['confirm'];
+confirmHandler.tags = ['fun'];
+confirmHandler.command = /^confirm$/i;
+
+cancelHandler.help = ['cancel'];
+cancelHandler.tags = ['fun'];
+cancelHandler.command = /^cancel$/i;
+
+export { handler, confirmHandler, cancelHandler };
