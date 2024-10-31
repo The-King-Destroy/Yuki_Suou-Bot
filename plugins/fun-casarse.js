@@ -1,5 +1,5 @@
 
-var handler = async (m, { conn, args }) => {
+/*var handler = async (m, { conn, args }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
 
     // Verificar si ya está casado
@@ -74,4 +74,4 @@ cancelHandler.help = ['cancel'];
 cancelHandler.tags = ['fun'];
 cancelHandler.command = /^cancel$/i;
 
-export { handler, confirmHandler, cancelHandler };
+export { handler, confirmHandler, cancelHandler };*/
