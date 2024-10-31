@@ -25,17 +25,17 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
     const downloadUrl = delius.data.download.url;
 
     // Crear el mensaje informativo del video/audio
-    let body = `*Información del Video/Audío:*
+    let body = `*『  𝙰 𝙱 𝚂 𝚃 𝚁 𝙰 𝙲 𝚃 - 𝙰 𝙻 𝙻  ł  𝙳 . 𝙻  』*
 
- *Título:* ${vid.title}
- *Autor:* ${vid.author}
- *Canal:* ${vid.channel}
- *Fecha de Publicación:* ${vid.ago}
- *Duración:* ${vid.timestamp}
- *Vistas:* ${vid.views}
- *Link:* ${videoUrl}
+ *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${vid.title}
+ *♕.- 𝙰𝚞𝚝𝚘𝚛:* ${vid.author}
+ *⛨.- 𝙲𝚊𝚗𝚊𝚕* ${vid.channel}
+ *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚒𝚘́𝚗:* ${vid.ago}
+ *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${vid.timestamp}
+ *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${vid.views}
+ *🝤.- 𝙻𝚒𝚗𝚔:* ${videoUrl}
 
-*🝩.- Enviando audio, aguarda un momento...*`;
+🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚊𝚞𝚍𝚒𝚘, 𝚊𝚐𝚞𝚊𝚛𝚍𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*`;
 
     // Enviar el mensaje informativo con la imagen
     await conn.sendMessage(m.chat, { 
