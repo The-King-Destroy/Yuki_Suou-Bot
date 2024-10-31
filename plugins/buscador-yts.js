@@ -67,5 +67,5 @@ conn.reply(m.chat, `Ocurrió un error.${error}`, m)
 }
 }
 
-handler.command = ['playlist|ytbuscar|yts (earch)']
+handler.command = ['playlist','ytbuscar','yts']
 export default handler
