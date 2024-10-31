@@ -33,9 +33,9 @@ case 'video': return `🌸 *Título:*
 conn.sendFile(m.chat, tes[0].thumbnail, 'yts.jpeg', teks, fkontak, m)
 
 }
-handler.help = ['ytsearch']
+handler.help = ['ytsearch2']
 handler.tags = ['buscador']
-handler.command = /^playlist|ytbuscar|yts(earch)?$/i
+handler.command = /^playlist2|ytbuscar2|yts2(earch)?$/i
 
 handler.register = true
 handler.estrellas = 1
