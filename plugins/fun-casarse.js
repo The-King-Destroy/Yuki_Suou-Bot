@@ -23,29 +23,29 @@ var handler = async (m, { conn, args }) => {
     const confirmationMessage = `¿Estás seguro de que deseas casarte con ${conn.getName(partner)}? Responde con "sí" o "no".`;
     conn.sendMessage(m.chat, confirmationMessage, { quoted: m });
 
-    // Escuchar respuesta del usuario
-    const filter = msg => msg.sender === who && (msg.body.toLowerCase() === 'sí' || msg.body.toLowerCase() === 'no');
-    const collector = conn.createMessageCollector({ filter, time: 30000 }); // 30 segundos para responder
+    // Esperar la respuesta del usuario
+    const filter = (msg) => msg.sender === who && (msg.body.toLowerCase() === 'sí' || msg.body.toLowerCase() === 'no');
+    
+    const waitForResponse = async () => {
+        const response = await conn.waitForMessage(filter, { timeout: 30000 }); // 30 segundos para responder
 
-    collector.on('collect', msg => {
-        if (msg.body.toLowerCase() === 'sí') {
-            // Almacenar la información del matrimonio
-            global.db.data.married = global.db.data.married || {};
-            global.db.data.married[who] = partner;
-            global.db.data.married[partner] = who;
+        if (response) {
+            if (response.body.toLowerCase() === 'sí') {
+                // Almacenar la información del matrimonio
+                global.db.data.married = global.db.data.married || {};
+                global.db.data.married[who] = partner;
+                global.db.data.married[partner] = who;
 
-            m.reply(`🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`);
+                m.reply(`🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`);
+            } else {
+                m.reply('❌ Matrimonio cancelado.');
+            }
         } else {
-            m.reply('❌ Matrimonio cancelado.');
-        }
-        collector.stop(); // Detener el colector
-    });
-
-    collector.on('end', collected => {
-        if (collected.size === 0) {
             m.reply('⏳ Tiempo de espera agotado. Matrimonio cancelado.');
         }
-    });
+    };
+
+    waitForResponse();
 }
 
 handler.help = ['marry @user'];
