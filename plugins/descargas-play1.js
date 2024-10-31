@@ -1,7 +1,7 @@
 import yts from 'yt-search'; 
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `\`\`\`[ 🌴 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
+    if (!text) throw `\`\`\`[ 🌹 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
 
     let search = await yts(text);
     let isVideo = /vid$/.test(command);
@@ -15,11 +15,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     ≡ Uploaded : » ${search.all[0].ago}
     ≡ URL : » ${urls}
 
-# 🌴 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
+# 🌹 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
     
     await conn.sendMessage(m.chat, { 
         image: { url: search.all[0].thumbnail }, 
-        caption: body + `\n\n♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`
+        caption: body + `\n\n> ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`
     }, { quoted: m });
 
     let res = await dl_vid(urls);
