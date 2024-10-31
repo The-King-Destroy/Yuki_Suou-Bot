@@ -11,7 +11,7 @@ var handler = async (m, { conn, args }) => {
     // Comprobar el usuario al que se quiere casar
     let partner = args[0];
     if (!partner) {
-        return m.reply('⚠️ Menciona a la persona con la que deseas casarte.');
+        return m.reply('⚠️ Menciona a la persona con la que deseas casarte. Usa @usuario.');
     }
 
     // Verificar si el compañero está casado
@@ -23,29 +23,28 @@ var handler = async (m, { conn, args }) => {
     const confirmationMessage = `¿Estás seguro de que deseas casarte con ${conn.getName(partner)}? Responde con "sí" o "no".`;
     conn.sendMessage(m.chat, confirmationMessage, { quoted: m });
 
-    // Esperar la respuesta del usuario
-    const filter = (msg) => msg.sender === who && (msg.body.toLowerCase() === 'sí' || msg.body.toLowerCase() === 'no');
-    
-    const waitForResponse = async () => {
-        const response = await conn.waitForMessage(filter, { timeout: 30000 }); // 30 segundos para responder
-
-        if (response) {
+    // Establecer un listener para la respuesta del usuario
+    const listener = async (response) => {
+        // Verificar que la respuesta sea del mismo usuario
+        if (response.sender === who && (response.body.toLowerCase() === 'sí' || response.body.toLowerCase() === 'no')) {
+            // Si la respuesta es "sí"
             if (response.body.toLowerCase() === 'sí') {
                 // Almacenar la información del matrimonio
                 global.db.data.married = global.db.data.married || {};
                 global.db.data.married[who] = partner;
                 global.db.data.married[partner] = who;
 
-                m.reply(`🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`);
+                conn.sendMessage(m.chat, `🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`, { quoted: m });
             } else {
-                m.reply('❌ Matrimonio cancelado.');
+                conn.sendMessage(m.chat, '❌ Matrimonio cancelado.', { quoted: m });
             }
-        } else {
-            m.reply('⏳ Tiempo de espera agotado. Matrimonio cancelado.');
+            // Remover el listener después de recibir la respuesta
+            conn.off('chat-update', listener);
         }
     };
 
-    waitForResponse();
+    // Agregar el listener para esperar la respuesta
+    conn.on('chat-update', listener);
 }
 
 handler.help = ['marry @user'];
