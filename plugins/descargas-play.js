@@ -3,7 +3,6 @@ import { ytmp3, ytmp4 } from 'ruhend-scraper';
 import yts from 'yt-search'; // Importar la librería yts correctamente
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    // Mensaje de contacto (para el mensaje inicial)
     const fkontak = {
         key: {
             participants: '0@s.whatsapp.net',
@@ -19,12 +18,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         participant: '0@s.whatsapp.net'
     };
 
-    // Verificar si se proporciona texto
     if (!text) {
         throw `*[ 💠 ] Por favor proporciona el nombre de una canción o video.*\n\n _⚕️.- Ejemplo_ *${usedPrefix + command} Faint - Linkin Park.*`;
     }
 
-    // Buscar el video o audio
     let search = await yts(text);
     if (!search.all.length) {
         throw `*[ ❌ ] No se encontraron resultados para "${text}".*`;
@@ -33,19 +30,18 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     let isVideo = /vid$/.test(command);
     let { title, views, ago, timestamp, url, thumbnail } = search.all[0];
 
-    // Mensaje de respuesta
-    let body = `*『  𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 』*
+    let body = `*Información del Video/Audío:*
 
- *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${title}
- *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${views}
- *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚒𝚘́𝚗:* ${ago}
- *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${timestamp}
- *🝤.- 𝙻𝚒𝚗𝚔:* ${url}
+ *Título:* ${title}
+ *Vistas:* ${views}
+ *Fecha de Publicación:* ${ago}
+ *Duración:* ${timestamp}
+ *Link:* ${url}
 
-*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 ${isVideo ? '𝚟𝚒𝚍𝚎𝚘' : '𝚊𝚞𝚍𝚒𝚘'}, 𝚊𝚐𝚞𝚊𝚛𝚍𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*`;
+*🝩.- Enviando ${isVideo ? 'video' : 'audio'}, aguarda un momento...*`;
 
     // Enviar mensaje inicial
-    conn.sendMessage(m.chat, { 
+    await conn.sendMessage(m.chat, { 
         image: { url: thumbnail }, 
         caption: body 
     }, { quoted: fkontak });
@@ -55,12 +51,17 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     let type = isVideo ? 'video' : 'audio';
     let downloadLink = isVideo ? res.video.dl_link : res.audio.dl_link;
 
-    // Enviar el archivo descargado
-    conn.sendMessage(m.chat, { 
-        [type]: { url: downloadLink }, 
-        gifPlayback: false, 
-        mimetype: isVideo ? "video/mp4" : "audio/mpeg" 
-    }, { quoted: m });
+    // Verificar si se obtuvo el enlace de descarga
+    if (downloadLink) {
+        const mimetype = isVideo ? "video/mp4" : "audio/mpeg";
+        await conn.sendMessage(m.chat, { 
+            [type]: { url: downloadLink }, 
+            gifPlayback: false, 
+            mimetype: mimetype 
+        }, { quoted: m });
+    } else {
+        throw `*[ ❌ ] No se pudo obtener el enlace de ${isVideo ? 'video' : 'audio'}. Inténtalo de nuevo.*`;
+    }
 }
 
 handler.command = ['play1', 'playvid'];
@@ -86,4 +87,4 @@ async function DOWNLOAD_YT(input) {
             dl_link: audio
         }
     };
-}
+    }
