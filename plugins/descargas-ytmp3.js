@@ -27,15 +27,15 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
     // Crear el mensaje informativo del video/audio
     let body = `*『 𝐘 𝐮 𝐤 𝐢 _ 𝐒 𝐮 𝐨 𝐮 - 𝐁 𝐨 𝐭 』*
 
- *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${vid.title}
- *♕.- 𝙰𝚞𝚝𝚘𝚛:* ${vid.author || 'Desconocido'}  // Manejo de casos donde no haya autor
- *⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${vid.channel || 'Desconocido'}  // Manejo de casos donde no haya canal
- *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚒𝚘́𝚗:* ${vid.ago}
- *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${vid.timestamp}
- *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${`${vid.views}`}
+ *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${vid.title || 'Desconocido'}
+ *♕.- 𝙰𝚞𝚝𝚘𝚛:* ${vid.author?.name || 'Desconocido'}  // Manejo de casos donde no haya autor
+ *⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${vid.author?.url ? `[${vid.author.url}](${vid.author.url})` : 'Desconocido'}  // Manejo de casos donde no haya canal
+ *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚘́𝚗:* ${vid.ago || 'Desconocido'}
+ *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${vid.timestamp || 'Desconocido'}
+ *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${`${vid.views || 'Desconocido'}`}
  *🝤.- 𝙻𝚒𝚗𝚔:* ${videoUrl}\n
 
-*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚊𝚞𝚍𝚒𝚘, 𝚊𝚐𝚞𝚊𝚛𝚍𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*
+*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚊𝚞𝚍𝚒𝚘, 𝚊𝚐𝚞𝚊𝚝𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*
 
 > ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ `;
 
