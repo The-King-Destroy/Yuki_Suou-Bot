@@ -29,7 +29,7 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
 
  *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${vid.title || 'Desconocido'}
  *♕.- 𝙰𝚞𝚝𝚘𝚛:* ${vid.author?.name || 'Desconocido'}
- *⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${vid.author?.url ? `[${vid.author.url}](${vid.author.url})` : 'Desconocido'}
+ *⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${vid.author?.url ? `(${vid.author.url})` : 'Desconocido'}
  *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚘́𝚗:* ${vid.ago || 'Desconocido'}
  *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${vid.timestamp || 'Desconocido'}
  *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${`${vid.views || 'Desconocido'}`}
