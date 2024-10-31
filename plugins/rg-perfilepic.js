@@ -1,10 +1,12 @@
 import PhoneNumber from 'awesome-phonenumber';
 import fetch from 'node-fetch';
 
+const owners = ['584120346669@s.whatsapp.net', 'otroOwnerID@s.whatsapp.net']; // Agrega aquí los IDs de los propietarios
+
 var handler = async (m, { conn }) => {
-    // Verificamos si el usuario que ejecuta el comando es el owner
-    if (m.sender !== conn.user.jid) {
-        return m.reply('⚠️ Solo el propietario del bot puede usar este comando.');
+    // Verificamos si el usuario que ejecuta el comando es un owner
+    if (!owners.includes(m.sender)) {
+        return m.reply('⚠️ Solo los propietarios del bot pueden usar este comando.');
     }
 
     // Obtenemos la información del usuario mencionado o del que envió el mensaje
@@ -41,7 +43,7 @@ var handler = async (m, { conn }) => {
 handler.help = ['epicprofile', 'perfilépico'];
 handler.tags = ['owner'];
 handler.command = /^(epicprofile|perfilépico)$/i;
-handler.owner = true; // Solo el owner puede usar este comando
+handler.owner = true; // Solo los owner pueden usar este comando
 handler.register = true;
 handler.group = true;
 
