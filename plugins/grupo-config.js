@@ -8,7 +8,7 @@ await m.react(done)
 }}
 handler.help = ['grupo abrir / cerrar']
 handler.tags = ['grupo']
-handler.command = ['group','grupo']
+handler.command = ['grupo','group']
 handler.admin = true
 handler.botAdmin = true
 
