@@ -1,42 +1,55 @@
 import fs from 'fs';
-import path from 'path';
 
-let handler = async (m, { conn, usedPrefix }) => {
-  if (!m.isGroup) throw 'Este comando solo funciona en grupos';
+var handler = async (m, { conn, args }) => {
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
 
-  let who;
-  who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : false;
-  if (!who) throw 'Etiqueta o menciona a alguien';
+    // Verificar si ya está casado
+    if (global.db.data.married && global.db.data.married[who]) {
+        return m.reply('⚠️ Ya estás casado. Para divorciarte usa el comando #divorce.');
+    }
 
-  let user = global.db.data.users[who];
-  let name = conn.getName(who);
-  let name2 = conn.getName(m.sender);
+    // Comprobar el usuario al que se quiere casar
+    let partner = args[0];
+    if (!partner) {
+        return m.reply('⚠️ Menciona a la persona con la que deseas casarte.');
+    }
 
-  let str = `${name2} se ha casado con ${name}! Felicidades!`.trim();
+    // Verificar si el compañero está casado
+    if (global.db.data.married && global.db.data.married[partner]) {
+        return m.reply('⚠️ La persona a la que intentas casar ya está casada.');
+    }
 
-  let imgs = [
-    'https://qu.ax/OpVX.mp4', 
-    'https://qu.ax/ChmG.mp4', 
-    'https://qu.ax/yUBa.mp4'
-  ];
-  let img = imgs[Math.floor(Math.random() * imgs.length)];
-  conn.sendMessage(m.chat, { 
-    video: { url: img }, 
-    gifPlayback: true, 
-    caption: str, 
-    mentions: [m.sender] 
-  }, { quoted: m });
-  
-  // Actualiza estado casado
-  global.db.data.users[m.sender].casado = true;
-  global.db.data.users[who].casado = true;
-  global.db.data.users[m.sender].pareja = who;
-  global.db.data.users[who].pareja = m.sender;
-};
+    // Solicitar confirmación
+    const confirmationMessage = `¿Estás seguro de que deseas casarte con ${conn.getName(partner)}? Responde con "sí" o "no".`;
+    conn.sendMessage(m.chat, confirmationMessage, { quoted: m });
 
-handler.help = ['casarse @tag'];
+    // Escuchar respuesta del usuario
+    const filter = msg => msg.sender === who && (msg.body.toLowerCase() === 'sí' || msg.body.toLowerCase() === 'no');
+    const collector = conn.createMessageCollector({ filter, time: 30000 }); // 30 segundos para responder
+
+    collector.on('collect', msg => {
+        if (msg.body.toLowerCase() === 'sí') {
+            // Almacenar la información del matrimonio
+            global.db.data.married = global.db.data.married || {};
+            global.db.data.married[who] = partner;
+            global.db.data.married[partner] = who;
+
+            m.reply(`🎉 ¡Felicidades! ${conn.getName(who)} y ${conn.getName(partner)} están ahora casados.`);
+        } else {
+            m.reply('❌ Matrimonio cancelado.');
+        }
+        collector.stop(); // Detener el colector
+    });
+
+    collector.on('end', collected => {
+        if (collected.size === 0) {
+            m.reply('⏳ Tiempo de espera agotado. Matrimonio cancelado.');
+        }
+    });
+}
+
+handler.help = ['marry @user'];
 handler.tags = ['fun'];
-handler.command = ['casarse', 'marry'];
-handler.group = true;
+handler.command = /^marry$/i;
 
 export default handler;
