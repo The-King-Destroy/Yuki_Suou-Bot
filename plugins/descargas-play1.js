@@ -19,7 +19,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     
     conn.sendMessage(m.chat, { 
         image: { url: search.all[0].thumbnail }, 
-        caption: body + f
+        caption: body + f + `\n\n♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`
     }, { quoted: m });
 
     let res = await dl_vid(urls);
@@ -31,15 +31,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         gifPlayback: false, 
         mimetype: isVideo ? "video/mp4" : "audio/mpeg" 
     }, { quoted: m });
-
-    // Agregar la firma al final del mensaje
-    conn.sendMessage(m.chat, { 
-        text: `\n\n♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`
-    }, { quoted: m });
 }
 
-handler.command = ['play1', 'playvid'];
-handler.help = ['play1', 'playvid'];
+handler.command = ['play', 'playvid'];
+handler.help = ['play', 'playvid'];
 handler.tags = ['descargas'];
 export default handler;
 
