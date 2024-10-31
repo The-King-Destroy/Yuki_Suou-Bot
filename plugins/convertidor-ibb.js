@@ -40,7 +40,7 @@ let handler = async (m, { conn }) => {
     await m.react('✖️')
   }
 }
-handler.tags = ['tools']
+handler.tags = ['transformador']
 handler.help = ['ibb']
 handler.command = /^(ibb)$/i
 handler.register = true 
