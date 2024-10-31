@@ -63,7 +63,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: m });
 }
 
-handler.command = ['play', 'playvid'];
+handler.command = ['play1', 'playvid'];
 export default handler;
 
 async function DOWNLOAD_YT(input) {
