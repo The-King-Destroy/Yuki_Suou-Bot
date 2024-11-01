@@ -20,9 +20,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Obtener la imagen en formato buffer de la URL original
     const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
 
-    // Enviar la información y la imagen como foto de perfil
+    // Enviar la información y la imagen como un enlace
     await conn.sendMessage(m.chat, {
-        text: info,
+        image: { url: gyh.result.thumbnail },
+        caption: info,
         contextInfo: {
             externalAdReply: {
                 title: gyh.result.title,
