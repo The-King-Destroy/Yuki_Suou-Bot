@@ -36,8 +36,20 @@
 <details>
  <summary><b> 💫 Comandos</b></summary>
 
+ #### **✨️ Instalación automatica por termux**
+
+> **Nota** Comandos para instalar de forma automática en Termux, Copia los códigos uno por uno, no los pegues todos juntos a la vez.
+
+```bash
+termux-setup-storage
+```
+
+```bash
+apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/The-King-Destroy/Yuki_Suou-Bot/master/yuki.sh | bash
+```
+
 #### **✨ Instalación manual por termux**
-> Copia los códigos uno por uno, no los pegues todos juntos a la vez.
+> **Nota** Comandos para instalar de forma manual, Copia los códigos uno por uno, no los pegues todos juntos a la vez.
 
 ```bash
 termux-setup-storage
@@ -58,9 +70,40 @@ yarn install && npm install
 ```bash
 npm start
 ```
-
+> **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 ---
 
+#### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
+> **Nota** Descargué y Descomprime
+### [`Yuki_Suou-Bot ~ Archivos`](https://github.com/The-King-Destroy/Yuki_Suou-Bot/archive/refs/heads/master.zip)
+
+```bash
+termux-setup-storage
+```
+
+```bash
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
+```
+
+```bash
+cd storage/downloads/Yuki_Suou-Bot-master/Yuki_Suou-Bot-master 
+```
+
+```bash
+yarn install
+```
+
+```bash
+npm install
+```
+
+```bash
+npm start
+```
+* #### APLICACIÓN RECOMENDADA PARA [`DESCOMPRIMIR`](https://play.google.com/store/apps/details?id=com.rarlab.rar)
+* #### APLICACIÓN RECOMENDADA PARA EDITAR [`NÚMERO DE OWNER`](https://play.google.com/store/apps/details?id=com.rhmsoft.code)
+> **Nota** Guardar los archivos en la ubicación: storage/downloads/Yuki_Suou-Bot-master/Yuki_Suou-Bot-master   
+----
 #### **🟢 Activar en caso de detenerse en termux**
 
 Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
