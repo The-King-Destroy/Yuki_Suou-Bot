@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Obtener la imagen en formato buffer de la URL original
     const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
 
-    // Enviar la información y la imagen con un tamaño más pequeño
+    // Enviar la información y la imagen cuadrada
     await conn.sendMessage(m.chat, {
         text: info,
         contextInfo: {
@@ -27,9 +27,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 title: gyh.result.title,
                 body: `Artista: ${gyh.result.artists}`,
                 mediaType: 1,
-                thumbnail: thumbnailBuffer,
-                mediaUrl: shortURL,
-                sourceUrl: shortURL,
+                thumbnail: thumbnailBuffer, // Aquí se envía el buffer de la imagen
+                mediaUrl: shortURL, // URL de la canción
+                sourceUrl: shortURL, // URL de la canción
                 showAdAttribution: true,
             }
         }
