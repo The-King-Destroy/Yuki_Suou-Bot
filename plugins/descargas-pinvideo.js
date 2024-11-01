@@ -29,19 +29,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         throw m.reply('No se pudo encontrar el video. Por favor, verifica el enlace.');
     }
 
-    // Extraer toda la información del video
-    const title = gyh.data.title || "Título no disponible";
-    const author = gyh.data.author || "Autor no disponible";
-    const publishDate = gyh.data.published || "Fecha no disponible";
-    const duration = gyh.data.duration || "Duración no disponible";
     const link = gyh.data.url || "Enlace no disponible";
-    const description = gyh.data.description || "Descripción no disponible";
-    const tags = gyh.data.tags ? gyh.data.tags.join(', ') : "Etiquetas no disponibles";
-
-    const message = `*✧ Título:* ${title}\n*✧ Autor:* ${author}\n*✧ Fecha de publicación:* ${publishDate}\n*✧ Duración:* ${duration}\n*✧ Link:* ${link}\n*✧ Descripción:* ${description}\n*✧ Etiquetas:* ${tags}\n\n> ♡⃝𝒴𝓊𝑘𝒾_𝒮𝑢𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`;
+    const message = `*✧ Link del video:* ${link}\n\n> ♡⃝𝒴𝓊𝑘𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`;
 
     try {
-        // Enviar el video con la información y la firma al final
+        // Enviar el video con solo el enlace y la firma
         await conn.sendFile(m.chat, gyh.data.result, `pinvideobykeni.mp4`, message, m);
         await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
     } catch (sendError) {
