@@ -1,7 +1,7 @@
 import { File } from "megajs";
 import path from "path";
 
-const botName = 'TuBotName'; // Define el nombre de tu bot aquí
+const botName = 'Descarga de MEGA'; // Define el nombre de tu bot aquí
 
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     try {
