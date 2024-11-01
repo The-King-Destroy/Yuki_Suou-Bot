@@ -10,9 +10,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     if (!gyh.result) throw m.reply(`*No se encontró la canción*`);
     
-    const info = `✨ *TITULO:*\n_${gyh.result.title} - ${gyh.result.version || 'Versión original'}_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${gyh.result.urlSpotify}\n\n✨️ *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ⷭ𓆪͟͞ `;
+    const info = `🌹 *TITULO:*\n_${gyh.result.title} - ${gyh.result.version || 'Versión original'}_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${gyh.result.urlSpotify}\n\n🥀 *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ⷭ𓆪͟͞ `;
 
-    m.reply(info);
+    // Enviar la información y la imagen
+    await conn.sendMessage(m.chat, { text: info, thumbnail: await (await conn.getFile(gyh.result.thumbnail)).data }, { quoted: m });
 
     const doc = {
         audio: { url: gyh.result.url },
