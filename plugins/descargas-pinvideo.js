@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw m.reply(`Ingresa un link de pinterest\n*🌹 Ejemplo:* ${usedPrefix}${command} https://pin.it/7I5UODZJB`);
+    if (!text) throw m.reply(`Ingresa un link de pinterest\n*🌹 Ejemplo:* ${usedPrefix}${command} https://pin.it/1q55U8K5K`);
     
     conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
     
@@ -35,7 +35,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     const duration = gyh.data.duration || "Duración no disponible";
     const link = gyh.data.url;
 
-    const message = `*✧ Título:* ${title}\n*✧ Autor:* ${author}\n*✧ Fecha de publicación:* ${publishDate}\n*✧ Duración:* ${duration}\n*✧ Link:* ${link}\n\n> ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`;
+    const message = `*✧ Título:* ${title}\n*✧ Autor:* ${author}\n*✧ Fecha de publicación:* ${publishDate}\n*✧ Duración:* ${duration}\n*✧ Link:* ${link}\n> ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`;
 
     try {
         await conn.sendFile(m.chat, gyh.data.result, `pinvideobykeni.mp4`, message, m);
