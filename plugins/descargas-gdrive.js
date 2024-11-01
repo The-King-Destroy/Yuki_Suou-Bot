@@ -2,6 +2,7 @@ import fg from 'api-dylux';
 
 const mssg = {
     noLink: (service) => `Por favor proporciona un enlace de ${service}.`,
+    usage: (command, prefix) => `\`\`\`[ 🌹 ] Uso correcto del comando:\`\`\` ${prefix + command} https://drive.google.com/file/d/FILE_ID/view`,
     name: 'Nombre del archivo',
     size: 'Tamaño del archivo',
     limitdl: 'Límite de descarga',
@@ -13,7 +14,10 @@ let free = 150; // Límite de descarga
 let prem = 500; // Límite de descarga para miembros premium
 
 let handler = async (m, { conn, args, usedPrefix, command, isOwner, isPrems }) => {
-    if (!args[0]) throw `🌹 ${mssg.noLink('Google Drive')}`;
+    if (!args[0]) {
+        return conn.reply(m.chat, mssg.usage(command, usedPrefix), null, { quoted: m }); // Mensaje de uso correcto
+    }
+    
     m.react(rwait); 
 
     try {
