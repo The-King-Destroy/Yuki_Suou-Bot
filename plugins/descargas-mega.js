@@ -3,17 +3,16 @@ import path from "path";
 
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     try {
-        if (!text) return m.reply(`${usedPrefix + command} https://mega.nz/file/ovJTHaQZ#yAbkrvQgykcH_NDKQ8eIc0zvsN7jonBbHZ_HTQL6lZ8`, m, rcanal);
+        if (!text) return conn.reply(m.chat, `\`\`\`[ 🌹 ] Uso correcto del comando:\`\`\` ${usedPrefix + command} https://mega.nz/file/ovJTHaQZ#yAbkrvQgykcH_NDKQ8eIc0zvsN7jonBbHZ_HTQL6lZ8`, null, { quoted: fkontak});
 
         const file = File.fromURL(text);
         await file.loadAttributes();
 
-        if (file.size >= 300000000) return m.reply('Error: El archivo es grande (Maximo tamaño: 300MB)');
+        if (file.size >= 300000000) return m.reply('Error: El archivo es demasiado pesado (Peso máximo: 300MB ( Premium: 800MB )');
 
-        const downloadingMessage = `🌩️ Descargando Archivo... Porfavor Espera.`;
-        m.reply(downloadingMessage);
+        m.react(rwait);
 
-        const caption = `*_Descarga exitosa..._*\nFile: ${file.name}\nSize: ${formatBytes(file.size)}`;
+        const caption = `   *--- ${botName} ---*\nFile: ${file.name}\nSize: ${formatBytes(file.size)}`;
 
         const data = await file.downloadBuffer();
 
@@ -51,4 +50,4 @@ function formatBytes(bytes) {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}*/
+}
