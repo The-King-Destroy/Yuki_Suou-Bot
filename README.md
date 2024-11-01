@@ -44,29 +44,19 @@ termux-setup-storage
 ```
 
 ```bash
-apt-get update -y && apt-get upgrade -y
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 
 ```bash
-pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn 
+git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot
 ```
 
 ```bash
-git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot 
-```
-
-```bash
-yarn install
-```
-
-```bash
-npm install
+yarn install && npm install
 ```
 
 ```bash
 npm start
-```
-
 ---
 
 #### **🟢 Activar en caso de detenerse en termux**
