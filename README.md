@@ -36,18 +36,6 @@
 <details>
  <summary><b> 💫 Comandos</b></summary>
 
- #### **✨️ Instalación automatica por termux**
-
-> **Nota** Comandos para instalar de forma automática en Termux, Copia los códigos uno por uno, no los pegues todos juntos a la vez.
-
-```bash
-termux-setup-storage
-```
-
-```bash
-apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/The-King-Destroy/Yuki_Suou-Bot/master/yuki.sh | bash
-```
-
 #### **✨ Instalación manual por termux**
 > **Nota** Comandos para instalar de forma manual, Copia los códigos uno por uno, no los pegues todos juntos a la vez.
 
