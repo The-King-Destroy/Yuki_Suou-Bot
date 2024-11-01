@@ -10,7 +10,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let ouh = await fetch(`https://api.nyxs.pw/dl/spotify-direct?title=${text}`);
 
         // Verifica que la respuesta sea correcta
-        if (!ouh.ok) throw m.reply(`Error al acceder a la API: ${ouh.statusText}`);
+        if (!ouh.ok) {
+            throw new Error(`Error al acceder a la API: ${ouh.status} ${ouh.statusText}`);
+        }
 
         let gyh = await ouh.json();
 
