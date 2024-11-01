@@ -1,3 +1,4 @@
+
 import fetch from 'node-fetch';
 import axios from 'axios';
 
@@ -16,14 +17,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     const info = `✨ *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n✨️ *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ⷭ𓆪͟͞ `;
 
-    // Obtener la imagen en formato buffer
+    // Obtener la imagen en formato buffer de la URL original
     const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
 
     // Enviar la información y la imagen
     await conn.sendMessage(m.chat, {
         text: info,
-        image: { url: gyh.result.thumbnail },
-        caption: info
+        image: { url: gyh.result.thumbnail }
     }, { quoted: m });
 
     const doc = {
