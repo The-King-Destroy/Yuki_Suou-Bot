@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import axios from 'axios';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw m.reply(`Ingresa una consulta\n*✧ Ejemplo:* ${usedPrefix}${command} Joji Ew`);
@@ -10,7 +11,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (!gyh.result) throw m.reply(`*No se encontró la canción*`);
 
-    const info = `✨ *TITULO:*\n_${gyh.result.title} - ${gyh.result.version || 'Versión original'}_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${gyh.result.urlSpotify}\n\n✨️ *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ⷭ𓆪͟͞ `;
+    // Usar un acortador para el enlace de Spotify
+    let shortURL = await getTinyURL(gyh.result.urlSpotify);
+
+    const info = `✨ *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n✨️ *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ⷭ𓆪͟͞ `;
 
     // Obtener la imagen en formato buffer
     const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
@@ -42,6 +46,15 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.sendMessage(m.chat, doc, { quoted: m });
     await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
 };
+
+async function getTinyURL(text) {
+    try {
+        let response = await axios.get(`https://tinyurl.com/api-create.php?url=${text}`);
+        return response.data;
+    } catch (error) {
+        return text;
+    }
+}
 
 handler.help = ['spotify'];
 handler.tags = ['descargas'];
