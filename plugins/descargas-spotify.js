@@ -26,7 +26,7 @@ conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 	await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
 handler.help = ['spotify']
-handler.tags = ['descarga']
+handler.tags = ['descargas']
 handler.command = /^(spotify|sp)$/i
 handler.premium = false
 handler.register = true
