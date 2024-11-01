@@ -2,7 +2,7 @@ import fg from 'api-dylux';
 
 const mssg = {
     noLink: (service) => `Por favor proporciona un enlace de ${service}.`,
-    usage: (command, prefix) => `\`\`\`[ 🌹 ] Uso correcto del comando:\`\`\` ${prefix + command} https://drive.google.com/file/d/FILE_ID/view`,
+    usage: (command, prefix) => `\`\`\`[ 🌹 ] Uso correcto del comando:\`\`\` ${prefix + command} https://drive.google.com/file/d/0B_Kq5LGHEATLX080YzJRVWFHMG8/view?resourcekey=0-c8UyatTkwaRkp4skEYYLGg`,
     name: 'Nombre del archivo',
     size: 'Tamaño del archivo',
     limitdl: 'Límite de descarga',
