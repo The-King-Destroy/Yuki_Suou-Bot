@@ -1,9 +1,11 @@
 import { File } from "megajs";
 import path from "path";
 
+const botName = 'TuBotName'; // Define el nombre de tu bot aquí
+
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     try {
-        if (!text) return conn.reply(m.chat, `\`\`\`[ 🌹 ] Uso correcto del comando:\`\`\` ${usedPrefix + command} https://mega.nz/file/ovJTHaQZ#yAbkrvQgykcH_NDKQ8eIc0zvsN7jonBbHZ_HTQL6lZ8`, null, { quoted: fkontak});
+        if (!text) return conn.reply(m.chat, `\`\`\`[ 🌹 ] Uso correcto del comando:\`\`\` ${usedPrefix + command} https://mega.nz/file/ovJTHaQZ#yAbkrvQgykcH_NDKQ8eIc0zvsN7jonBbHZ_HTQL6lZ8`, null, { quoted: fkontak });
 
         const file = File.fromURL(text);
         await file.loadAttributes();
@@ -12,7 +14,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
 
         m.react(rwait);
 
-        const caption = `   *--- ${botName} ---*\nFile: ${file.name}\nSize: ${formatBytes(file.size)}`;
+        const caption = `   *--- ${botName} ---*\nFile: ${file.name}\nSize: ${formatBytes(file.size)}\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝑡𝐭ⷭ𓆪͟͞ `;
 
         const data = await file.downloadBuffer();
 
@@ -37,10 +39,11 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     }
 }
 
-handler.help = ["mega"]
-handler.tags = ["descargas"]
-handler.command = /^(mega)$/i
-export default handler
+handler.help = ["mega"];
+handler.tags = ["descargas"];
+handler.command = /^(mega)$/i;
+
+export default handler;
 
 function formatBytes(bytes) {
     if (bytes === 0) return '0 Bytes';
