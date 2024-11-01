@@ -1,8 +1,9 @@
+
 import fetch from 'node-fetch';
 import axios from 'axios';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw m.reply(`Ingresa una consulta\n*🌹 Ejemplo:* ${usedPrefix}${command} Joji Ew`);
+    if (!text) throw m.reply(`Ingresa una consulta\n*✧ Ejemplo:* ${usedPrefix}${command} Joji Ew`);
 
     conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 
@@ -14,24 +15,22 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Usar un acortador para el enlace de Spotify
     let shortURL = await getTinyURL(gyh.result.urlSpotify);
 
-    const info = `🌹 *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n🥀 *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓣ⷭ𓆪͟͞ `;
+    const info = `✨ *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n✨️ *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓣ⷭ𓆪͟͞ `;
 
     // Obtener la imagen en formato buffer de la URL original
     const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
 
-    // Enviar la información y la imagen un poco más grande
+    // Enviar la información y la imagen como foto de perfil
     await conn.sendMessage(m.chat, {
         text: info,
-        image: { url: gyh.result.thumbnail },
-        caption: info,
         contextInfo: {
             externalAdReply: {
                 title: gyh.result.title,
                 body: `Artista: ${gyh.result.artists}`,
                 mediaType: 1,
                 thumbnail: thumbnailBuffer,
-                mediaUrl: shortURL,
-                sourceUrl: shortURL,
+                mediaUrl: shortURL, // URL de la canción
+                sourceUrl: shortURL, // URL de la canción
                 showAdAttribution: true,
             }
         }
