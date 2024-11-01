@@ -36,21 +36,21 @@ const defaultMenu = {
 “ 👋 ¡𝓗𝓸𝓵𝓪! 𝓒ó𝓶𝓸 𝓔𝓼𝓽á𝓼 𝓮𝓵 𝓓í𝓪 𝓭𝓮 𝓗𝓸𝔂 *%name* 𝓢𝓸𝔂 *𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾*, %greeting ”
 
 ✧･ﾟ: *･ﾟ:*𝕴𝖓𝖋𝖔 𝖉𝖊 𝖑𝖆 𝕭𝖔𝖙*:･ﾟ*:･ﾟ✧
-❦👑 *𝕮𝖗𝖊𝖆𝖉𝖔𝖗:* ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
-❦🕹️ *𝕸𝖔𝖉𝖔:* Público
-❦🌠 *𝕭𝖆𝖎𝖑𝖊𝖞𝖘:* Multi Device
-❦⏱️ *𝕬𝖈𝖙𝖎𝖛𝖆𝖉𝖔:* %muptime
-❦👤 *𝖀𝖘𝖚𝖆𝖗𝖎𝖔𝖘:* %totalreg
+❦⧼👑⧽ *𝕮𝖗𝖊𝖆𝖉𝖔𝖗:* ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
+❦⧼🔱⧽ *𝕸𝖔𝖉𝖔:* Público
+❦⧼🌠⧽ *𝕭𝖆𝖎𝖑𝖊𝖞𝖘:* Multi Device
+❦⧼⏱️⧽ *𝕬𝖈𝖙𝖎𝖛𝖆𝖉𝖔:* %muptime
+❦⧼👥⧽ *𝖀𝖘𝖚𝖆𝖗𝖎𝖔𝖘:* %totalreg
 
 %readmore
 ✧･ﾟ: *･ﾟ:*𝕴𝖓𝖋𝖔 𝖉𝖊 𝖀𝖘𝖚𝖆𝖗𝖎𝖔*:･ﾟ*:･ﾟ✧
-❦👤 *𝕮𝖑𝖎𝖊𝖓𝖙𝖊:* %name
-❦✨ *𝕰𝖃𝕻:* %exp
-❦🍪 *𝕮𝖔𝖔𝖐𝖎𝖊𝖘:* %cookies
-❦🛡 *𝕹𝖎𝖛𝖊𝖑:* %level
-❦💫 *𝕽𝖆𝖓𝖌𝖔:* %role
+❦⧼👤⧽ *𝕮𝖑𝖎𝖊𝖓𝖙𝖊:* %name
+❦⧼✨⧽ *𝕰𝖃𝕻:* %exp
+❦⧼🍪⧽ *𝕮𝖔𝖔𝖐𝖎𝖊𝖘:* %cookies
+❦⧼⚜️⧽ *𝕹𝖎𝖛𝖊𝖑:* %level
+❦⧼🛡⧽ *𝕽𝖆𝖓𝖌𝖔:* %role
 
-\t*【𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘】* 
+\t*【𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘】*  
 `.trimStart(),
       header: '「 %category 」\n',
   body: '❦ %cmd\n',
@@ -143,7 +143,7 @@ npmdesc: _package.description,
 version: _package.version,
 exp: exp - min,
 maxexp: xp,
-botofc: (conn.user.jid == global.conn.user.jid ? '🌟 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🌟 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
+botofc: (conn.user.jid == global.conn.user.jid ? '🌹 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🥀 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
 totalexp: exp,
 xp4levelup: max - exp,
 github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
@@ -151,10 +151,6 @@ greeting, level, cookies, name, weton, week, date, dateIslamic, time, totalreg, 
 readmore: readMore
 }
 text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-
-const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-
-const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegra.ph/file/327f6ad853cb4f405aa80.jpg')
 
   let category = "video"
   const db = './src/database/db.json'
@@ -166,13 +162,9 @@ const pp = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://telegr
   const gif = await response.buffer()
  // const img = imagen1
 
-/*await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.𝐂𝐀𝐑𝐆𝐀𝐍𝐃𝐎,  ꪶꪾ❍̵̤̂̂ꫂ\n├𝐀𝐆𝐔𝐀𝐑𝐃𝐄 𝐔𝐍 𝐌𝐎𝐌𝐄𝐍𝐓𝐎❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: dev, sourceUrl: channel, thumbnail: icons }}})*/
-
-// await conn.reply(m.chat, '🍟 Enviando el menú.....', m, rcanal)
+// await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ,  ꪶꪾ❍̵̤̂̂ꫂ\n├Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: dev, sourceUrl: channel, thumbnail: icons }}})
 
 await m.react('🌹') 
-
-//await conn.sendFile(m.chat, imagen1, 'yaemori.jpg', text.trim(), fkontak, null, rcanal)
 
 await conn.sendMessage(
   m.chat,
@@ -189,7 +181,7 @@ await conn.sendMessage(
     externalAdReply: {
       title: '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ',
       body: dev,
-      thumbnailUrl: icono,
+      thumbnailUrl: fotoperfil,
       sourceUrl: redes,
       mediaType: 1,
       renderLargerThumbnail: false,
