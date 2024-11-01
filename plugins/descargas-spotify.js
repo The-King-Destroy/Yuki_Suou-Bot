@@ -22,8 +22,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     // Enviar la información y la imagen como un enlace
     await conn.sendMessage(m.chat, {
-        image: { url: gyh.result.thumbnail },
-        caption: info,
+        text: info,
         contextInfo: {
             externalAdReply: {
                 title: gyh.result.title,
