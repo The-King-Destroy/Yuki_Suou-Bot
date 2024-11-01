@@ -6,54 +6,63 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 
-    let ouh = await fetch(`https://api.nyxs.pw/dl/spotify-direct?title=${text}`);
-    let gyh = await ouh.json();
+    try {
+        let ouh = await fetch(`https://api.nyxs.pw/dl/spotify-direct?title=${text}`);
 
-    if (!gyh.result) throw m.reply(`*No se encontró la canción*`);
+        // Verifica que la respuesta sea correcta
+        if (!ouh.ok) throw m.reply(`Error al acceder a la API: ${ouh.statusText}`);
 
-    // Usar un acortador para el enlace de Spotify
-    let shortURL = await getTinyURL(gyh.result.urlSpotify);
+        let gyh = await ouh.json();
 
-    const info = `🌹 *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n🥀 *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓣ⷭ𓆪͟͞ `;
+        if (!gyh.result) throw m.reply(`*No se encontró la canción*`);
 
-    // Obtener la imagen en formato buffer de la URL original
-    const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
+        // Usar un acortador para el enlace de Spotify
+        let shortURL = await getTinyURL(gyh.result.urlSpotify);
 
-    // Enviar la información y la imagen como un enlace
-    await conn.sendMessage(m.chat, {
-        text: info,
-        contextInfo: {
-            externalAdReply: {
-                title: gyh.result.title,
-                body: `Artista: ${gyh.result.artists}`,
-                mediaType: 1,
-                thumbnail: thumbnailBuffer,
-                mediaUrl: shortURL, // URL de la canción
-                sourceUrl: shortURL, // URL de la canción
-                showAdAttribution: true,
+        const info = `🌹 *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n🥀 *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓣ⷭ𓆪͟͞ `;
+
+        // Obtener la imagen en formato buffer de la URL original
+        const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
+
+        // Enviar la información y la imagen como un enlace
+        await conn.sendMessage(m.chat, {
+            text: info,
+            contextInfo: {
+                externalAdReply: {
+                    title: gyh.result.title,
+                    body: `Artista: ${gyh.result.artists}`,
+                    mediaType: 1,
+                    thumbnail: thumbnailBuffer,
+                    mediaUrl: shortURL, // URL de la canción
+                    sourceUrl: shortURL, // URL de la canción
+                    showAdAttribution: true,
+                }
             }
-        }
-    }, { quoted: m });
+        }, { quoted: m });
 
-    const doc = {
-        audio: { url: gyh.result.url },
-        mimetype: 'audio/mp4',
-        fileName: `${gyh.result.title}.mp3`,
-        contextInfo: {
-            externalAdReply: {
-                showAdAttribution: true,
-                mediaType: 2,
-                mediaUrl: gyh.result.urlSpotify,
-                title: gyh.result.title,
-                sourceUrl: gyh.result.urlSpotify,
-                thumbnail: thumbnailBuffer
+        const doc = {
+            audio: { url: gyh.result.url },
+            mimetype: 'audio/mp4',
+            fileName: `${gyh.result.title}.mp3`,
+            contextInfo: {
+                externalAdReply: {
+                    showAdAttribution: true,
+                    mediaType: 2,
+                    mediaUrl: gyh.result.urlSpotify,
+                    title: gyh.result.title,
+                    sourceUrl: gyh.result.urlSpotify,
+                    thumbnail: thumbnailBuffer
+                }
             }
-        }
-    };
+        };
 
-    // Enviar el archivo de audio
-    await conn.sendMessage(m.chat, doc, { quoted: m });
-    await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
+        // Enviar el archivo de audio
+        await conn.sendMessage(m.chat, doc, { quoted: m });
+        await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
+    } catch (error) {
+        console.error(error);
+        m.reply(`Error: ${error.message}`);
+    }
 };
 
 async function getTinyURL(text) {
