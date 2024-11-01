@@ -61,7 +61,7 @@ npm start
 > **Warning** Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación 
 ---
 
-#### 📁 (OPCIÓN 3) INSTALACIÓN POR TERMUX - ARCHIVOS
+#### 📁 INSTALACIÓN POR TERMUX - ARCHIVOS
 > **Nota** Descargué y Descomprime
 ### [`Yuki_Suou-Bot ~ Archivos`](https://github.com/The-King-Destroy/Yuki_Suou-Bot/archive/refs/heads/master.zip)
 
