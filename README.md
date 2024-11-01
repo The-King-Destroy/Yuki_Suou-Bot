@@ -57,6 +57,8 @@ yarn install && npm install
 
 ```bash
 npm start
+```
+
 ---
 
 #### **🟢 Activar en caso de detenerse en termux**
