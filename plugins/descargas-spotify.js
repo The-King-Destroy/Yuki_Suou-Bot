@@ -1,9 +1,8 @@
-
 import fetch from 'node-fetch';
 import axios from 'axios';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw m.reply(`Ingresa una consulta\n*✧ Ejemplo:* ${usedPrefix}${command} Joji Ew`);
+    if (!text) throw m.reply(`Ingresa una consulta\n*🌹 Ejemplo:* ${usedPrefix}${command} Joji Ew`);
 
     conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 
@@ -15,12 +14,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     // Usar un acortador para el enlace de Spotify
     let shortURL = await getTinyURL(gyh.result.urlSpotify);
 
-    const info = `✨ *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n✨️ *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓣ⷭ𓆪͟͞ `;
+    const info = `🌹 *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n🥀 *Enviando Canción....*\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓣ⷭ𓆪͟͞ `;
 
     // Obtener la imagen en formato buffer de la URL original
     const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
 
-    // Enviar la información y la imagen
+    // Enviar la información y la imagen con un tamaño más grande
     await conn.sendMessage(m.chat, {
         text: info,
         contextInfo: {
@@ -31,6 +30,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 thumbnail: thumbnailBuffer,
                 mediaUrl: shortURL,
                 sourceUrl: shortURL,
+                showAdAttribution: true,
             }
         }
     }, { quoted: m });
