@@ -1,4 +1,10 @@
 import db from '../lib/database.js';
+import fs from 'fs'; // Importa el módulo fs
+
+// Función para guardar la base de datos
+const saveDatabase = () => {
+    fs.writeFileSync('./database.json', JSON.stringify(db.data, null, 2)); // Guarda la base de datos en un archivo JSON
+};
 
 const COOKIES_REWARD = 100; // Cantidad de cookies que se recibirán por canje
 
@@ -8,15 +14,18 @@ let redeemHandler = async (m, { conn, text }) => {
 
     // Asegúrate de que la base de datos tenga la estructura adecuada
     if (!db.data) {
-        db.data = {}; // Inicializa la base de datos si no existe
-    }
-
-    // Inicializa la sección global si no existe
-    if (!db.data.global) {
-        db.data.global = { codes: [], lastGenerated: null }; // Estructura global
+        db.data = {
+            global: { codes: [], lastGenerated: null }, // Estructura global
+            users: {} // Estructura de usuarios
+        };
     }
 
     const globalData = db.data.global;
+
+    // Inicializa la sección de usuarios si no existe
+    if (!db.data.users) {
+        db.data.users = {}; // Asegúrate de que la sección de usuarios esté inicializada
+    }
 
     // Inicializa el usuario en la base de datos si no existe
     if (!db.data.users[userId]) {
@@ -49,7 +58,7 @@ let redeemHandler = async (m, { conn, text }) => {
         m.reply(`🎉 ¡Canjeo exitoso! Has ganado ${COOKIES_REWARD} cookies 🍪. Tu saldo actual es: ${userData.cookies} cookies.`);
 
         // Guarda la base de datos después del canje
-        await saveDatabase(); // Asegúrate de implementar esta función
+        saveDatabase();
 
         // Verifica si ya no hay códigos disponibles
         if (globalData.codes.length === 0) {
