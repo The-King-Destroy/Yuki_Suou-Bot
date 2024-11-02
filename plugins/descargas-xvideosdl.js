@@ -3,8 +3,6 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 const handler = async (m, { conn, args, command, usedPrefix, text }) => {
-    const datas = global;
-
     // Verificar si el comando NSFW está habilitado en el grupo
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
         return m.reply('[❗] 𝐋𝐨𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 +𝟏𝟖 𝐞𝐬𝐭𝐚́𝐧 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨𝐬 𝐞𝐧 𝐞𝐬𝐭𝐞 𝐠𝐫𝐮𝐩𝐨.\n> 𝐬𝐢 𝐞𝐬 𝐚𝐝𝐦𝐢𝐧 𝐲 𝐝𝐞𝐬𝐞𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨𝐬 𝐮𝐬𝐞 .enable nsfw');
@@ -12,7 +10,7 @@ const handler = async (m, { conn, args, command, usedPrefix, text }) => {
 
     // Verificar si se recibió un argumento (enlace)
     if (!args[0]) {
-        return m.reply(`*[❗𝐈𝐍𝐅𝐎❗] Agrega un link de xvideos: ${usedPrefix + command} https://www.xvideos.com/video70389849/pequena_zorra_follada_duro*`);
+        return conn.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎❗]*\n\n📝 *Instrucciones:* \nPara descargar un video de Xvideos, por favor ingresa un enlace válido.\nEjemplo: \n*${usedPrefix + command} https://www.xvideos.com/video70389849/pequena_zorra_follada_duro*`, m);
     }
 
     try {
