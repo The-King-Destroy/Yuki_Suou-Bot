@@ -2,6 +2,8 @@ import cheerio from 'cheerio';
 import axios from 'axios';
 const { proto, generateWAMessageFromContent } = (await import('@whiskeysockets/baileys')).default;
 
+let searchResultsCache = {}; // Almacena los resultados de búsqueda por chat
+
 let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
     // Verificar si el comando NSFW está habilitado en el grupo
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
@@ -18,6 +20,9 @@ let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
         if (searchResults.result.length === 0) {
             return m.reply('*Sin resultados*');
         }
+
+        // Almacenar resultados en la caché
+        searchResultsCache[m.chat] = searchResults.result;
 
         // Crear datos para el menú interactivo
         const data = {
@@ -57,13 +62,6 @@ let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
 
         conn.relayMessage(m.chat, msgs.message, {});
 
-        // Manejar la respuesta de selección
-        conn.on('interactiveResponse', async (response) => {
-            const selectedIndex = parseInt(response.message.interactiveMessage.selectedButtonId.replace(`${usedPrefix}download `, ''));
-            const selectedVideo = searchResults.result[selectedIndex];
-            await downloadVideo(selectedVideo.url, selectedVideo.title, conn, m);
-        });
-
     } catch (e) {
         console.error('Ocurrió un error al procesar la búsqueda:', e);
         m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nOcurrió un error al buscar en Pornhub. Por favor, intenta de nuevo más tarde.');
@@ -71,7 +69,7 @@ let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
 };
 
 handler.command = /^(phsearch|pornhubsearch)$/i; // Comando para buscar
-export default handler;
+export default searchHandler;
 
 // Función para buscar en Pornhub
 async function searchPornhub(search) {
