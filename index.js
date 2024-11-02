@@ -36,7 +36,7 @@ let args = [join(__dirname, file), ...process.argv.slice(2)];
 say([process.argv[0], ...args].join(' '), {
 font: 'console',
 align: 'center',
-colors: ['dark pink']
+colors: ['pink']
 });
 setupMaster({
 exec: args[0],
