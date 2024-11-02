@@ -1,3 +1,4 @@
+
 import cheerio from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
@@ -34,6 +35,7 @@ let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
             }]
         };
 
+        // Crear el mensaje interactivo
         let msgs = generateWAMessageFromContent(m.chat, {
             interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
