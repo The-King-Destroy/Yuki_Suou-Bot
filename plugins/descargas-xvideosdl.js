@@ -12,7 +12,7 @@ const handler = async (m, { conn, args, command, usedPrefix, text }) => {
 
     // Verificar si se recibió un argumento (enlace)
     if (!args[0]) {
-        throw `*[❗𝐈𝐍𝐅𝐎❗] Agrega un link de xvideos: ${usedPrefix + command} https://www.xvideos.com/video70389849/pequena_zorra_follada_duro*`;
+        return m.reply(`*[❗𝐈𝐍𝐅𝐎❗] Agrega un link de xvideos: ${usedPrefix + command} https://www.xvideos.com/video70389849/pequena_zorra_follada_duro*`);
     }
 
     try {
