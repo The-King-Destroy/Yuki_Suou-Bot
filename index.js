@@ -16,17 +16,17 @@ const rl = createInterface(process.stdin, process.stdout);
 say('Yuki Suou-Bot', {
 font: 'block',
 align: 'center',
-colors: ['Purple']
+colors: ['redBright']
 });
 say(`Multi Device`, {
 font: 'chrome',
 align: 'center',
-colors: ['red']
+colors: ['magentaBright']
 });
 say(`Developed By • Destroy`, {
 font: 'console',
 align: 'center',
-colors: ['blue']
+colors: ['blueBright']
 });
 var isRunning = false;
 function start(file) {
@@ -36,7 +36,7 @@ let args = [join(__dirname, file), ...process.argv.slice(2)];
 say([process.argv[0], ...args].join(' '), {
 font: 'console',
 align: 'center',
-colors: ['pink']
+colors: ['candy']
 });
 setupMaster({
 exec: args[0],
