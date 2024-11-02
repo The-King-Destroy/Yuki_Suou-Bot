@@ -14,7 +14,7 @@ isForwarded: false,
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-title: `[ Yuki_Suou-Bot - I'am|Destroy ]`,
+title: `[ Yuki Suou Bot - Destroy ]`,
 body: ``,
 "previewType": "PHOTO",
 thumbnailUrl: 'https://tinyurl.com/2awg2bch', 
