@@ -17,9 +17,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         await m.react('✖️')
     }
 }
-handler.help = ['blackbox *<petición>*']
+handler.help = ['black *<petición>*']
 handler.tags = ['ai']
-handler.command = ['blackbox']
+handler.command = ['black']
 handler.register = true
 
 export default handler
