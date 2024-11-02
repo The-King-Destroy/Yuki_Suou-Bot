@@ -14,18 +14,19 @@ let downloadHandler = async (m, { conn, args }) => {
         return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nEl índice debe ser un número válido.');
     }
 
-    // Aquí puedes crear una lógica para obtener el video basado en el índice
-    // Asumimos que tienes acceso a los resultados de búsqueda previos
-    const selectedVideo = await getVideoFromPreviousSearch(videoIndex); // Debes implementar esta función
-
-    if (!selectedVideo) {
-        return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nNo se encontró el video para descargar.');
+    // Obtener los resultados de búsqueda almacenados
+    const searchResults = searchResultsCache[m.chat];
+    
+    if (!searchResults || !searchResults[videoIndex]) {
+        return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nNo se encontró el video para descargar. Asegúrate de haber realizado una búsqueda antes.');
     }
+
+    const selectedVideo = searchResults[videoIndex];
 
     await downloadVideo(selectedVideo.url, selectedVideo.title, conn, m);
 };
 
-handler.command = /^(download)$/i; // Comando para descargar
+handler.command = /^download$/i; // Comando para descargar
 export default downloadHandler;
 
 // Función para descargar el video
@@ -40,6 +41,15 @@ async function downloadVideo(videoUrl, title, conn, m) {
 
         if (!videoSource) {
             return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nNo se pudo encontrar el enlace del video para descargar.');
+        }
+
+        // Obtener el tamaño del video
+        const headResponse = await axios.head(videoSource);
+        const contentLength = parseInt(headResponse.headers['content-length']); // Tamaño en bytes
+
+        // Verificar si el tamaño del video es mayor a 150 MB
+        if (contentLength > 150 * 1024 * 1024) { // 150 MB en bytes
+            return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nEl tamaño del video excede el límite de 150 MB.');
         }
 
         const downloadResponse = await axios({
