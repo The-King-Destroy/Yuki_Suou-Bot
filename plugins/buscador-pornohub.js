@@ -1,8 +1,5 @@
-
 import cheerio from 'cheerio';
 import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
 const { proto, generateWAMessageFromContent } = (await import('@whiskeysockets/baileys')).default;
 
 let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
@@ -59,7 +56,7 @@ let searchHandler = async (m, { conn, args, command, usedPrefix }) => {
         }, {});
 
         conn.relayMessage(m.chat, msgs.message, {});
-        
+
         // Manejar la respuesta de selección
         conn.on('interactiveResponse', async (response) => {
             const selectedIndex = parseInt(response.message.interactiveMessage.selectedButtonId.replace(`${usedPrefix}download `, ''));
@@ -97,43 +94,5 @@ async function searchPornhub(search) {
     } catch (error) {
         console.error('Ocurrió un error al buscar en Pornhub:', error);
         return { result: [] };
-    }
-}
-
-// Función para descargar el video
-async function downloadVideo(videoUrl, title, conn, m) {
-    try {
-        const response = await axios.get(videoUrl);
-        const html = response.data;
-        const $ = cheerio.load(html);
-
-        // Obtener el enlace directo del video
-        const videoSource = $("video source").attr("src");
-
-        if (!videoSource) {
-            return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nNo se pudo encontrar el enlace del video para descargar.');
-        }
-
-        const downloadResponse = await axios({
-            url: videoSource,
-            method: 'GET',
-            responseType: 'stream',
-        });
-
-        const downloadPath = path.join(__dirname, `${title}.mp4`);
-        const writer = fs.createWriteStream(downloadPath);
-        downloadResponse.data.pipe(writer);
-
-        writer.on('finish', () => {
-            m.reply(`🌹 *Descarga completada:* ${title}`);
-            conn.sendMessage(m.chat, { document: { url: downloadPath }, mimetype: 'video/mp4', fileName: `${title}.mp4` }, { quoted: m });
-        });
-
-        writer.on('error', () => {
-            m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nOcurrió un error al guardar el video. Por favor, intenta de nuevo más tarde.');
-        });
-    } catch (error) {
-        console.error('Ocurrió un error al intentar descargar el video:', error);
-        m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nOcurrió un error al intentar descargar el video. Por favor, intenta de nuevo más tarde.');
     }
 }
