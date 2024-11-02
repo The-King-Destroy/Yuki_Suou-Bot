@@ -16,12 +16,12 @@ const rl = createInterface(process.stdin, process.stdout);
 say('Yuki Suou-Bot', {
 font: 'block',
 align: 'center',
-colors: ['redBright']
+colors: ['magentaBright']
 });
 say(`Multi Device`, {
 font: 'chrome',
 align: 'center',
-colors: ['magentaBright']
+colors: ['redBright']
 });
 say(`Developed By • Destroy`, {
 font: 'console',
