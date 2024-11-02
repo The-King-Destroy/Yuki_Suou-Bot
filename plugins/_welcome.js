@@ -11,17 +11,17 @@ export async function before(m, {conn, participants, groupMetadata}) {
   let chat = global.db.data.chats[m.chat]
 
   if (chat.welcome && m.messageStubType == 27) {
-    let wel = ` ┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨️ \n │「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n └┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │🌹  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🤍  ${groupMetadata.subject}\n   └───────────────┈ ⳹`
+    let wel = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨ \n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │🌹  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🌹  ${groupMetadata.subject}\n   └───────────────┈ ⳹`
 await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak)
   }
 
   if (chat.welcome && m.messageStubType == 28) {
-   let bye = ` ┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨️ \n │「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n └┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`
+   let bye = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨ \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`
 await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak)
   }
 
   if (chat.welcome && m.messageStubType == 32) {
-    let kick = ` ┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨\n │「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n └┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`
+    let kick = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨ \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${m.messageStubParameters[0].split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`
 await conn.sendMini(m.chat, packname, dev, kick, img2, img2, channel, fkontak)
 }}
 
