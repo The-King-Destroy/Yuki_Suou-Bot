@@ -73,7 +73,7 @@ handler.tags = ['main']
 handler.help = ['hornymenu']
 handler.group = true;
 handler.register = true
-handler.command = ['menuhorny','hornymenu'];
+handler.command = ['menuhorny','nsfw','hornymenu'];
 handler.exp = 50;
 handler.fail = null;
 export default handler;
