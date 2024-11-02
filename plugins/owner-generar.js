@@ -1,8 +1,14 @@
 import db from '../lib/database.js';
+import fs from 'fs'; // Importa el módulo fs
 
 // Función para generar un código aleatorio
 const generateRandomCode = () => {
     return Math.random().toString(36).substring(2, 10).toUpperCase(); // Genera un código aleatorio de 8 caracteres
+};
+
+// Función para guardar la base de datos
+const saveDatabase = () => {
+    fs.writeFileSync('./database.json', JSON.stringify(db.data, null, 2)); // Guarda la base de datos en un archivo JSON
 };
 
 let generateHandler = async (m, { conn }) => {
@@ -10,12 +16,10 @@ let generateHandler = async (m, { conn }) => {
 
     // Asegúrate de que la base de datos tenga la estructura adecuada
     if (!db.data) {
-        db.data = { global: { codes: [], lastGenerated: null } }; // Estructura global
-    }
-
-    // Inicializa la sección global si no existe
-    if (!db.data.global) {
-        db.data.global = { codes: [], lastGenerated: null }; // Estructura global
+        db.data = {
+            global: { codes: [], lastGenerated: null }, // Estructura global
+            users: {} // Estructura de usuarios
+        };
     }
 
     const globalData = db.data.global;
@@ -41,7 +45,7 @@ let generateHandler = async (m, { conn }) => {
         m.reply(`✨ Códigos generados globalmente:\n${formattedCodes}\n¡Los primeros 10 en canjear ganarán cookies! ⏲️`);
         
         // Guarda la base de datos después de la generación
-        await saveDatabase(); // Asegúrate de implementar esta función
+        saveDatabase();
     } catch (error) {
         console.error("Error al generar códigos:", error);
         m.reply("Hubo un error al generar los códigos. Detalles del error: " + error.message);
