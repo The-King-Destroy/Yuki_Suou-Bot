@@ -1,18 +1,18 @@
-
+import cheerio from 'cheerio';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 
 let handler = async (m, { conn, args, command, usedPrefix }) => {
     // Verificar si se recibió un argumento (enlace del video)
-    if (!args[0]) {
+    if (!args[0] || !args[0].startsWith('https://www.pornhub.com/')) {
         return m.reply(`*Formato incorrecto*\n\n🌹 *Instrucciones para usar el comando:*\nEjemplo:\n\n*${usedPrefix + command} <enlace del video>*`);
     }
 
-    const videoUrl = args[0]; // Asumimos que aquí se pasa el enlace del video
+    const videoUrl = args[0];
 
     try {
-        const videoData = await getVideoLink(videoUrl); // Función que obtiene el enlace del video
+        const videoData = await getVideoLink(videoUrl); // Obtener el enlace del video
 
         if (!videoData) {
             return m.reply('*[❗𝐈𝐍𝐅𝐎❗]*\nNo se pudo encontrar el video o no está disponible para descarga.');
@@ -48,9 +48,26 @@ handler.command = /^(phdl|pornhubdl)$/i; // Comandos actualizados
 handler.tags = ['descargas']; // Etiqueta añadida
 export default handler;
 
-// Función para obtener el enlace del video (debes implementar esta función)
+// Función para obtener el enlace del video de Pornhub
 async function getVideoLink(videoUrl) {
-    // Aquí debes implementar la lógica para obtener el enlace de descarga del video
-    // Por ejemplo, si ya tienes un plugin existente que lo hace, puedes llamarlo aquí
-    // Retorna un objeto con el título y el enlace del video
+    try {
+        const response = await axios.get(videoUrl);
+        const html = response.data;
+        const $ = cheerio.load(html);
+
+        // Obtener el título del video
+        const title = $("meta[property='og:title']").attr("content");
+
+        // Obtener el enlace del video
+        const videoSource = $("video source").attr("src");
+
+        if (videoSource) {
+            return { title, url: videoSource }; // Retornar el título y el enlace
+        } else {
+            return null; // No se encontró el enlace del video
+        }
+    } catch (error) {
+        console.error('Ocurrió un error al buscar el video:', error);
+        return null;
+    }
 }
