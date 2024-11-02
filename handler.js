@@ -744,13 +744,13 @@ global.dfail = (type, m, conn) => {
 const msg = {
 rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> Destroy.', 
 owner: '「👑」 *Esta función solo puede ser usada por mi desarrollador.', 
-mods: '「🤴🏻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
-premium: '「🍧」 *Esta función solo es para usuarios Premium.', 
+mods: '「👨‍💻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
+premium: '「⚜️」 *Esta función solo es para usuarios Premium.', 
 group: '「⭐」 *Esta funcion solo puede ser ejecutada en grupos.*', 
-private: '「💥」 *Esta función solo puede ser usada en chat privado.*', 
-admin: '「👑」 *Este comando solo puede ser usado por admins.*', 
+private: '「🌹」 *Esta función solo puede ser usada en chat privado.*', 
+admin: '「⚜️」 *Este comando solo puede ser usado por admins.*', 
 botAdmin: '「✨」 *Para usar esta función debo ser admin.*', 
-unreg: '「🌟」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Destroy.17*',
+unreg: '「🌹」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Destroy.17*',
 restrict: '「💫」 *Esta característica esta desactivada.*'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
