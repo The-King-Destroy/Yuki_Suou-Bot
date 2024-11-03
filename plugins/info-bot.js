@@ -27,11 +27,11 @@ conn.reply(m.chat, `*ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 Es Mi Creador, Respeta
 conn.reply(m.chat, `*Escucha maldita sabandija ni se te ocurra enviar ese tipo de contenido 🤬*`, m, rcanal, )
 }*/
 if (/^canal$/i.test(m.text)) {
-conn.reply(m.chat, `*Hola Eres Nos ayudarías siguiendo el canal*
+conn.reply(m.chat, `*Hola Nos ayudas a cumplir nuestra meta de 500 seguidores*
 
  https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
  
- > *Gracias por utilizar 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉* `, m, rcanal, )
+ \n> *Gracias por utilizar 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉* `, m, rcanal, )
 }
 /*if (/^Conoces a Legendary|Legendary|Diomar/i.test(m.text)) { 
 conn.reply(m.chat, `*Si Lo conozco, Es Una Zorra caliente 🥵❤️‍🔥*`, m, rcanal, )
