@@ -23,7 +23,7 @@ font: 'chrome',
 align: 'center',
 colors: ['redBright']
 });
-say(`Developed By Destroy`, {
+say(`Powered By Destroy`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
