@@ -21,7 +21,7 @@ conn.reply('error :v')
 }
     
 handler.help = ['zedgedl *<link>*']
-handler.corazones = 3
+handler.cookies = 3
 handler.tags = ['descargas']
 handler.command = ['zedgedl'];
 

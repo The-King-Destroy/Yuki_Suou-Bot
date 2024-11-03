@@ -1,49 +1,45 @@
 var handler  = async (m, { conn }) => {
 
-let texto = `💖 *Instalación de Yuki-Bot 🌹*
+let texto = `🍒 *Instalación de Yuki Suou 🌹*
 
 ⬡ Dudas: ${creador}
-⬡ Tutoríal: *¡Pronto!*
+⬡ Tutoríal: *¡Próximamente!* 
 
 *Comandos de instalación via Termux ✏️*
 
 termux-setup-storage
 
-apt-get update -y && apt-get upgrade -y
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 
-pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn
+git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot
 
-git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot && yarn install && npm install 
-
-ls
+yarn install && npm install
 
 npm start
 
-_Utilice "comandos" para enviarle los comandos uno por uno 💖_`
+*Nota: Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación*
+
+_Utilice "comandos" para enviarle los comandos uno por uno 🌸_`
 
 conn.reply(m.chat, texto, m, rcanal )
 
 handler.before = async m => {
 
 if (/^comandos$/i.test(m.text) ) {
-m.reply('termux-setup-storage')
+conn.reply(m.chat, 'termux-setup-storage', m, rcanal)
 await delay(1000 * 1)
-m.reply('apt-get update -y && apt-get upgrade -y')
+conn.reply(m.chat, 'apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn', m, rcanal)
 await delay(1000 * 1)
-m.reply('pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn')
+conn.reply(m.chat, 'git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot', m, rcanal)
 await delay(1000 * 1)
-m.reply('git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot && yarn install && npm install ')
+conn.reply(m.chat, 'yarn install && npm install', m, rcanal)
 await delay(1000 * 1)
-m.reply('ls')
-await delay(1000 * 1)
-m.reply('npm start')
+conn.reply(m.chat, 'npm start', m, rcanal)
 }
 
-}
 handler.help = ['instalaryuki']
 handler.tags = ['info']
-handler.command = /^(instalaryuki|instalarbot)/i
-
+handler.command = ['instalarbot', 'instalar', 'botinstalar', 'instalaryuki', 'yukiinstalar']
 export default handler
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))

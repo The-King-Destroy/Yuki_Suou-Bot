@@ -12,6 +12,8 @@ let caption = `⚠️ 𝙐𝙎𝙐𝘼𝙍𝙄𝙊𝙎 𝘼𝘿𝙑𝙀𝙍𝙏�
 *╰•·–––––––––––––––––––·•*\n\n⚠️ 𝗔𝗗𝗩𝗘𝗥𝗧𝗘𝗡𝗖𝗜𝗔 ⇢ ${warns ? `*${warns}/4*` : '*0/4*'}\n${botname}`
 await conn.reply(m.chat, caption, m, { mentions: await conn.parseMention(caption) })}
 
-handler.command = ['listaadv','listadv','adv','advlist','advlista'] 
+handler.help = ['listadv']
+handler.tags = ['grupo']
+handler.command = ['listadv', 'listaadv', 'listadv', 'adv', 'advlist', 'advlista']
 
 export default handler
