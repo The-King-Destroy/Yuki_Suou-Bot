@@ -2,7 +2,7 @@ import axios from 'axios';
 
 let handler = async (m, { conn, command, args }) => {
   const text = args.join(' ');
-  if (!text) return conn.reply(m.chat, '🍭 Ingresa lo que deseas buscar junto al comando.', m);
+  if (!text) return conn.reply(m.chat, '🌹 Ingresa lo que deseas buscar junto al comando.', m);
   
   await m.react('🕓');
   let img = 'https://i.ibb.co/P5kZNFF/file.jpg';
