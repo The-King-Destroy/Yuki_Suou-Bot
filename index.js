@@ -13,7 +13,7 @@ const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
-say('𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭', {
+say('YUKI_SUOU-BOT ', {
 font: 'block',
 align: 'center',
 colors: ['magentaBright']
@@ -23,7 +23,7 @@ font: 'chrome',
 align: 'center',
 colors: ['redBright']
 });
-say(`𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 𝐃𝐞𝐬𝐭𝐫𝐨𝐲`, {
+say(`powered by destroy`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
