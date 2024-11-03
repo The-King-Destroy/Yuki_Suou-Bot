@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
 
-const errorLogFile = path.join(__dirname, 'error_log.txt');
+const errorLogFile = path.join(process.cwd(), 'error_log.txt'); // Ruta absoluta para el archivo de log
 const whatsappNumber = '584128382768';
 const whatsappApiUrl = 'https://api.whatsapp.com/send?phone=';
 
@@ -17,7 +17,7 @@ const sendErrorNotification = async (message) => {
 
 const handler = async (m, { command }) => {
     console.log("Ejecutando trackErrors..."); // Línea de depuración
-    const pluginsDir = path.join(__dirname);
+    const pluginsDir = path.join(process.cwd(), 'plugins'); // Ruta absoluta para el directorio de plugins
     const files = fs.readdirSync(pluginsDir);
 
     const plugins = files.filter(file => file.endsWith('.js') && file !== 'errorTracker.js');
