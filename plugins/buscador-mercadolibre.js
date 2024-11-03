@@ -19,7 +19,7 @@ handler.help = ['mercadolibre <búsqueda>']
 handler.tags = ['buscador']
 handler.command = ['mercadolibre']
 handler.estrellas = 2
-handler.group = false;
+handler.group = true;
 handler.register = true
 export default handler;
 

@@ -39,7 +39,7 @@ handler.help = ['xnxxsearch'].map((v) => v + ' <query>');
 handler.tags = ['buscador'];
 handler.command = ['xnxxsearch', 'xnxxs'];
 handler.register = true;
-handler.group = false;
+handler.group = true;
 export default handler;
 
 async function xnxxsearch(query) {

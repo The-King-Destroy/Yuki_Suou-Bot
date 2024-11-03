@@ -33,7 +33,7 @@ sourceUrl: channel }}})
   }
 };
 handler.command = ['pack','pack2','pack3','videoxxx','vídeoxxx','videoxxxlesbi','videolesbixxx','pornolesbivid','pornolesbianavid','pornolesbiv','pornolesbianav','pornolesv'];
-handler.group = false;
+handler.group = true;
 handler.register = true
 export default handler;
 

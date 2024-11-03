@@ -22,11 +22,11 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
     if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true);
   }
 };
-handler.help = ['ttss <lang> <teks>'];
+handler.help = ['tts <lang> <teks>'];
 handler.tags = ['transformador'];
-handler.group = false;
+handler.group = true;
 handler.register = true
-handler.command = ['ttss'];
+handler.command = ['tts'];
 export default handler;
 
 function tts(text, lang = 'es') {

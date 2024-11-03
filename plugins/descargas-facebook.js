@@ -8,7 +8,7 @@ try {
 conn.reply(m.chat, `🕒 *Descargando su video de facebook.*`, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: '♡  ͜ ۬︵࣪᷼⏜݊᷼𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙨⏜࣪᷼︵۬ ͜ ',
-body: '<(✿^⁠_⁠^)> 𝙔𝙪𝙠𝙞-𝙎𝙪𝙤𝙪🌹',
+body: '<(✿^⁠_⁠^)> 𝙔𝙪𝙠𝙞-𝙎𝙪𝙤𝙪✨',
 previewType: 0, thumbnail: logo8,
 sourceUrl: channel }}})
 await m.react(rwait)
@@ -31,7 +31,7 @@ return conn.reply(m.chat, '⭕ *No se encontró una resolución adecuada.*', m, 
 let video = data.url
 try {
 await m.react(rwait)
-await conn.sendMessage(m.chat, { video: { url: video }, caption: '🍒 *Tu video de facebook.*\n' + textbot, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
+await conn.sendMessage(m.chat, { video: { url: video }, caption: '✨ *Tu video de facebook.*\n' + textbot, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
 await m.react(done)
 } catch {
 await m.react(error)
@@ -40,8 +40,8 @@ return conn.reply(m.chat, '⚙️ *Error al enviar el video.*', m, rcanal)}}
 handler.help = ['facebook', 'fb']
 handler.tags = ['descargas']
 handler.command = ['facebook', 'fb']
-handler.cookies = 1
-handler.group = false;
+handler.estrellas = 1
+handler.group = true;
 handler.register = true
 
 export default handler

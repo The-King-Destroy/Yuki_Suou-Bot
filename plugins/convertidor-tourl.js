@@ -8,7 +8,7 @@ let handler = async (m) => {
   if (!mime) return conn.reply(m.chat, '🌹 Responde a una *Imagen* o *Vídeo.*', m, rcanal)
   await m.react(rwait)
   try {
-  conn.reply(m.chat, '🍒 Convirtiendo la imagen en url...', m, {
+  conn.reply(m.chat, '🌀 Convirtiendo la imagen en url...', m, {
   contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
   title: packname,
   body: dev,
