@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import fetch from 'node-fetch'; // Asegúrate de tener 'node-fetch' instalado
+import fetch from 'node-fetch';
 
-const errorLogFile = path.join(__dirname, 'error_log.txt'); // Ruta para el archivo de log
-const whatsappNumber = '584128382768'; // Número de WhatsApp para enviar errores
-const whatsappApiUrl = 'https://api.whatsapp.com/send?phone='; // URL base para enviar mensajes
+const errorLogFile = path.join(__dirname, 'error_log.txt');
+const whatsappNumber = '584128382768';
+const whatsappApiUrl = 'https://api.whatsapp.com/send?phone=';
 
 const sendErrorNotification = async (message) => {
     try {
@@ -16,10 +16,11 @@ const sendErrorNotification = async (message) => {
 };
 
 const handler = async (m, { command }) => {
-    const pluginsDir = path.join(__dirname); // Directorio actual donde están los plugins
-    const files = fs.readdirSync(pluginsDir); // Lee todos los archivos en el directorio
+    console.log("Ejecutando trackErrors..."); // Línea de depuración
+    const pluginsDir = path.join(__dirname);
+    const files = fs.readdirSync(pluginsDir);
 
-    const plugins = files.filter(file => file.endsWith('.js') && file !== 'errorTracker.js'); // Excluye este archivo
+    const plugins = files.filter(file => file.endsWith('.js') && file !== 'errorTracker.js');
 
     for (const plugin of plugins) {
         try {
@@ -28,12 +29,10 @@ const handler = async (m, { command }) => {
                 await pluginModule.handler(m, { command });
             }
         } catch (error) {
-            const timestamp = new Date().toISOString(); // Fecha y hora
+            const timestamp = new Date().toISOString();
             const errorMessage = `[${timestamp}] Error en ${plugin}: ${error.message}\n`;
-            console.error(errorMessage); // Muestra el error en la consola
-            
+            console.error(errorMessage);
             fs.appendFileSync(errorLogFile, errorMessage, 'utf8');
-
             await sendErrorNotification(errorMessage);
         }
     }
