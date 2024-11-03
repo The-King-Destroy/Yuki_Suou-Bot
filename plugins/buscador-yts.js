@@ -1,21 +1,32 @@
-import yts from 'yt-search'
+import yts from 'yt-search';
 
 var handler = async (m, { text, conn, args, command, usedPrefix }) => {
+    if (!text) return conn.reply(m.chat, `🌸 *Escriba el título de algún vídeo de Youtube*\n\nEjemplo, !${command} Yuki Suou`, m);
 
-if (!text) return conn.reply(m.chat, `🌸 *Escriba el título de algún vídeo de Youtube*\n\nEjemplo, !${command} Yuki Suou`, m, rcanal, )
+    // Mensaje de espera
+    const waitMessage = '🕒 *Buscando...*'; // Mensaje que se mostrará mientras se busca
+    conn.reply(m.chat, waitMessage, m, {
+        contextInfo: {
+            externalAdReply: {
+                mediaUrl: null,
+                mediaType: 1,
+                showAdAttribution: true,
+                title: packname,
+                body: wm,
+                previewType: 0,
+                thumbnail: icons,
+                sourceUrl: channel
+            }
+        }
+    });
 
-conn.reply(m.chat, wait, m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: packname,
-body: wm,
-previewType: 0, thumbnail: icons,
-sourceUrl: channel }}})
-
-let results = await yts(text)
-let tes = results.all
-let teks = results.all.map(v => {
-switch (v.type) {
-case 'video': return `🌸 *Título:* 
+    try {
+        let results = await yts(text);
+        let tes = results.all;
+        let teks = results.all.map(v => {
+            switch (v.type) {
+                case 'video':
+                    return `🌸 *Título:* 
 » ${v.title}
 
 🔗 *Enlace:* 
@@ -28,16 +39,26 @@ case 'video': return `🌸 *Título:*
 » ${v.ago}
 
 👀 *Vistas:* 
-» ${v.views}`}}).filter(v => v).join('\n\n••••••••••••••••••••••••••••••••••••\n\n')
+» ${v.views}`;
+            }
+        }).filter(v => v).join('\n\n••••••••••••••••••••••••••••••••••••\n\n');
 
-conn.sendFile(m.chat, tes[0].thumbnail, 'yts.jpeg', teks, fkontak, m)
-
+        if (tes.length > 0) {
+            conn.sendFile(m.chat, tes[0].thumbnail, 'yts.jpeg', teks, fkontak, m);
+        } else {
+            conn.reply(m.chat, 'No se encontraron resultados.', m);
+        }
+    } catch (error) {
+        console.error('Error al buscar videos:', error);
+        conn.reply(m.chat, 'Hubo un problema al buscar el video. Por favor, intenta de nuevo más tarde.', m);
+    }
 }
-handler.help = ['ytsearch']
-handler.tags = ['buscador']
-handler.command = /^playlist|ytbuscar|yts(earch)?$/i
 
-handler.register = true
-handler.estrellas = 1
+handler.help = ['ytsearch'];
+handler.tags = ['buscador'];
+handler.command = /^playlist|ytbuscar|yts(earch)?$/i;
 
-export default handler
+handler.register = true;
+handler.estrellas = 1;
+
+export default handler;
