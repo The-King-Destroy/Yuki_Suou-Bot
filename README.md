@@ -143,7 +143,9 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 
 ### **☁️ SKY ULTRA PLUS ☁️**
 <a href="https://dash.corinplus.com"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
-### Información sobre Sky
+<details>
+ <summary><b> 💫 Comandos</b></summary>
+#### *Información sobre Sky*
 - **Dashboard:** [`Aquí`](https://dash.skyultraplus.com)
 - **Panel:** [`Aquí`](https://panel.skyultraplus.com)
 - **Canal de WhatsApp:** [`Aquí`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
