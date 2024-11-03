@@ -162,11 +162,16 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ## **`🔗 Enlaces útiles`**
 
+<details>
+ <summary><b> 🍒 Grupos Oficiales </b></summary>
+
 | APP | TIPO | ENLACE |
 |------|-------------|-------|
 | WhatsApp | 𝒞𝒶𝓃𝒶𝓁 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
 | WhatsApp | 𝒢𝓇𝓊𝓅𝑜 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
 | WhatsApp | 𝒞𝑜𝓂𝓊𝓃𝒾𝒹𝒶𝒹 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
+
+</details>
 
 ---
 
