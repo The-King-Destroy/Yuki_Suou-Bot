@@ -7,13 +7,13 @@ import cfonts from 'cfonts';
 import { createInterface } from 'readline';
 import yargs from 'yargs';
 import chalk from 'chalk';
-console.log('\n✰ Iniciando 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉 ✰');
+console.log('\n✰ 𝐈𝐧𝐢𝐜𝐢𝐚𝐧𝐝𝐨 𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐁𝐨𝐭 ✰');
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
-say('Yuki Suou-Bot', {
+say('𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭', {
 font: 'block',
 align: 'center',
 colors: ['magentaBright']
@@ -23,7 +23,7 @@ font: 'chrome',
 align: 'center',
 colors: ['redBright']
 });
-say(`Powered By Destroy`, {
+say(`𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐁𝐲 𝐃𝐞𝐬𝐭𝐫𝐨𝐲`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
