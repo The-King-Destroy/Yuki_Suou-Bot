@@ -9,7 +9,8 @@ var handler = async (m, { text, usedPrefix, command }) => {
 
         // Verifica si la respuesta es OK
         if (!apii.ok) {
-            throw new Error('Error en la respuesta de la API: ' + apii.statusText);
+            const errorText = await apii.text(); // Captura el texto de error
+            throw new Error(`Error en la respuesta de la API: ${apii.status} - ${errorText}`);
         }
 
         var res = await apii.json();
