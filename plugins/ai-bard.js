@@ -1,10 +1,9 @@
 import fetch from 'node-fetch'
 
 var handler = async (m, { text,  usedPrefix, command }) => {
-if (!text) return conn.reply(m.chat, `🫴 *Ingresé una petición*\n\nEjemplo, ${usedPrefix + command} Conoces a Yuki_Suou-Bot?`, m, rcanal)
+if (!text) return conn.reply(m.chat, `🌹 *Ingresé una petición*\n\nEjemplo, ${usedPrefix + command} Conoces a Yuki Suou?`, m, rcanal)
 try {
 await m.react('🕒')
-conn.sendPresenceUpdate('composing', m.chat)
 var apii = await fetch(`https://aemt.me/bard?text=${text}`)
 var res = await apii.json()
 await conn.reply(m.chat, res.result, m, rcanal)
@@ -17,8 +16,6 @@ return conn.reply(m.chat, '⚙️ *Ocurrió un fallo*', m, rcanal)
 
 handler.command = ['bard']
 handler.help = ['bard']
-handler.group = true;
-handler.register = true
 handler.tags = ['ai']
 handler.premium = false
 export default handler
