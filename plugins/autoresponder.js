@@ -13,4 +13,4 @@ this.sendFile(m.chat, stiker, 'sticker.webp', null, m, false, {
 contextInfo: { externalAdReply: { title: '⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', body: '𝐐𝐮𝐞 𝐲𝐨 𝐪𝐮𝐞!?', sourceUrl: md, thumbnail: logo2}}})}
 
 return !0 }
-export default handler*/
+export default handler
