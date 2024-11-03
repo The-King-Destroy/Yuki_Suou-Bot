@@ -17,7 +17,7 @@ await m.react(done)
 }
 handler.help = ['togifaud']
 handler.tags = ['transformador']
-handler.group = true;
+handler.group = false;
 handler.register = true
 handler.command = ['togifaud']
 export default handler

@@ -15,7 +15,7 @@ return `
 👑 *Creador:* ${repo.owner.login}
 📃 *Nombre:* ${repo.name}
 🫂 *Creado:* ${formatDate(repo.created_at)}
-💥 *Actualizado:* ${formatDate(repo.updated_at)}
+⚜️ *Actualizado:* ${formatDate(repo.updated_at)}
 👀 *Visitas:* ${repo.watchers}
 ✨️ *Bifurcado:* ${repo.forks}
 🌟 *Estrellas:* ${repo.stargazers_count}

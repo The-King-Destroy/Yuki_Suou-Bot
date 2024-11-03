@@ -4,6 +4,9 @@ import cheerio from 'cheerio';
 
 const handler = async (m, { conn, args, command, usedPrefix }) => {
     // Verificar si se recibió un argumento (término de búsqueda)
+    if (!db.data.chats[m.chat].nsfw && m.isGroup) {
+        return m.reply('[?] ??? ???????? +?? ?????? ???????????? ?? ???? ?????.\n> ?? ?? ????? ? ????? ?????????? ??? .enable nsfw');
+    }
     if (!args[0]) {
         return conn.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎❗]*\n\n🌼 *Instrucciones:* \nPara buscar videos en Xvideos, por favor ingresa un término de búsqueda.\nEjemplo: \n*${usedPrefix + command} perro*`, m);
     }
@@ -32,7 +35,7 @@ const handler = async (m, { conn, args, command, usedPrefix }) => {
 
 handler.command = ['xvideossearch', 'xvsearch'];
 handler.register = true;
-handler.group = true;
+handler.group = false;
 
 export default handler;
 

@@ -14,6 +14,6 @@ Ahora estás enfadado hasta que envíes un mensaje
 handler.help = ['afk <razon>']
 handler.tags = ['fun']
 handler.command = ['afk']
-handler.group = true
+handler.group = false
 
 export default handler

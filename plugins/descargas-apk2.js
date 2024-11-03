@@ -15,7 +15,7 @@ await conn.sendFile(m.chat, icon, name + '.jpg', texto, m)
 await conn.sendMessage(m.chat, { document: { url: URL }, mimetype: 'application/vnd.android.package-archive', fileName: name + '.apk', caption: ''}, { quoted: m });
 }
 handler.command = ['apk']
-handler.group = true;
+handler.group = false;
 handler.help = ['apk']
 handler.tags = ['descargas']
 export default handler

@@ -56,9 +56,9 @@ var handler = async (m, { text, conn, args, command, usedPrefix }) => {
 
 handler.help = ['ytsearch'];
 handler.tags = ['buscador'];
-handler.command = /^playlist|ytbuscar|yts(earch)?$/i;
+handler.command = /^ytbuscar|yts(earch)?$/i;
 
 handler.register = true;
-handler.estrellas = 1;
+handler.cookies = 1;
 
 export default handler;

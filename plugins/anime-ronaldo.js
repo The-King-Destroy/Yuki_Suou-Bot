@@ -5,8 +5,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let ronaldo = await cristiano[Math.floor(cristiano.length * Math.random())];
   conn.sendFile(m.chat, ronaldo, "error.jpg", `*CR7*`, m, null, rcanal);
 };
-
-//conn.sendButton(m.chat, "*Siiiuuuuuu*", author, ronaldo, [['⚽ NEXT ⚽', `${usedPrefix + command}`]], m)}
+ conn.sendButton(m.chat, "*Siiiuuuuuu*", author, ronaldo, [['⚽ NEXT ⚽', `${usedPrefix + command}`]], m)}
 
 handler.help = ["cr7"];
 handler.tags = ["anime"];

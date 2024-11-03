@@ -27,7 +27,7 @@ conn.sendFile(m.chat, json.data[0].images.jpg.image_url, 'anjime.jpg', '      âœ
 } 
 handler.help = ['infoanime'] 
 handler.tags = ['anime'] 
-handler.group = true;
+handler.group = false;
 handler.register = true
 handler.command = ['infoanime','animeinfo'] 
 
