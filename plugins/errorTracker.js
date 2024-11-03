@@ -1,6 +1,3 @@
-
-// errorTracker.js
-
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch'; // Asegúrate de tener 'node-fetch' instalado
