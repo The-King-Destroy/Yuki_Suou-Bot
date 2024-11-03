@@ -23,14 +23,15 @@ conn.reply(m.chat, `*rroz y pollo* 😄👌`, m, rcanal, )
 if (/^Destroy|destroy|wilker|Wilker/i.test(m.text)) {
 conn.reply(m.chat, `*ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 Es Mi Creador, Respeta!*`, m, rcanal, )
 }*/
-if (/^porno|cp|xxx|gore|nopor/i.test(m.text)) {
+/*if (/^porno|cp|xxx|gore|nopor/i.test(m.text)) {
 conn.reply(m.chat, `*Escucha maldita sabandija ni se te ocurra enviar ese tipo de contenido 🤬*`, m, rcanal, )
-}
+}*/
 if (/^canal$/i.test(m.text)) {
-conn.reply(m.chat, `*Hola Eres Fan De* *𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭*
-*Entonces Sigue El Canal Oficial!*
-> https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
- *Gracias por utilizar 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉* `, m, rcanal, )
+conn.reply(m.chat, `*Hola Eres Nos ayudarías siguiendo el canal*
+
+ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
+ 
+ > *Gracias por utilizar 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉* `, m, rcanal, )
 }
 /*if (/^Conoces a Legendary|Legendary|Diomar/i.test(m.text)) { 
 conn.reply(m.chat, `*Si Lo conozco, Es Una Zorra caliente 🥵❤️‍🔥*`, m, rcanal, )
