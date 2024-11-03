@@ -20,9 +20,9 @@ await conn.sendFile(m.chat, media.url, 'instagram.mp4', '🎞️ *Tu video de in
 await m.react(error)
 conn.reply(m.chat, '⚙️ Ocurrió un error.', m, fake)}}
 
-handler.command = ['instagram', 'ig']
+handler.command = ['instagram2', 'ig2']
 handler.tags = ['descargas']
-handler.help = ['instagram', 'ig']
+handler.help = ['instagram2', 'ig2']
 handler.estrellas = 1
 handler.group = true;
 handler.register = true
