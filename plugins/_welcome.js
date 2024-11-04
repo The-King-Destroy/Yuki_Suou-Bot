@@ -1,90 +1,61 @@
+import { WAMessageStubType } from '@whiskeysockets/baileys';
+import fetch from 'node-fetch';
+
 export async function before(m, { conn, participants, groupMetadata }) {
     if (!m.messageStubType || !m.isGroup) return true;
 
-    const userId = m.messageStubParameters[0];
-    console.log('ID del usuario:', userId);
+    const welc = 'https://qu.ax/xzbBy.jpg'; // Ruta de la imagen de bienvenida
+    const adi = 'https://qu.ax/iSUCQ.jpg';  // Ruta de la imagen de despedida
+    const chat = global.db.data.chats[m.chat];
 
-    const images = {
-        welcome: 'https://qu.ax/xzbBy.jpg', // Imagen de bienvenida
-        goodbye: 'https://qu.ax/iSUCQ.jpg'  // Imagen de despedida
+    const getMentionedJid = () => {
+        return m.messageStubParameters.map(param => `${param}@s.whatsapp.net`);
     };
 
-    // Obtiene la imagen de perfil o usa la imagen de bienvenida por defecto
-    let pp = await fetchProfilePicture(userId);
-    let img = pp ? await fetchImage(pp) : await fetchImage(images.welcome); // Usa imagen de perfil o imagen de bienvenida
+    const userId = m.messageStubParameters[0] + '@s.whatsapp.net';
 
-    let chat = global.db.data.chats[m.chat];
-    const fkontak = createContact();
+    // Validar existencia del usuario
+    let user;
+    try {
+        user = global.db.data.users[userId];
+        userName = user ? user.name : await conn.getName(userId);
+    } catch (error) {
+        console.error('Error al obtener el nombre del usuario:', error);
+        userName = 'Usuario desconocido';
+    }
 
+    let groupName = groupMetadata.subject || 'Grupo desconocido'; // Nombre del grupo
+
+    // Validar si el chat permite mensajes de bienvenida
     if (chat.welcome) {
-        if (m.messageStubType === 27) { // Tipo de mensaje para bienvenida
-            // Si no se obtiene la imagen de perfil, usa la imagen de bienvenida
-            if (!pp) {
-                img = await fetchImage(images.welcome);
-            }
-            await sendMessage(m.chat, createWelcomeMessage(userId, groupMetadata.subject), img, fkontak);
-        } else if (m.messageStubType === 28 || m.messageStubType === 32) { // Tipo de mensaje para despedida
-            // Si no se obtiene la imagen de perfil, usa la imagen de despedida
-            img = await fetchImage(images.goodbye);
-            await sendMessage(m.chat, createGoodbyeMessage(userId), img, fkontak);
-        }
-    }
-}
-
-async function fetchProfilePicture(userId) {
-    try {
-        return await conn.profilePictureUrl(userId, 'image');
-    } catch (error) {
-        console.error('Error al obtener la imagen de perfil:', error);
-        return null; // Retorna null si hay un error
-    }
-}
-
-async function fetchImage(url) {
-    try {
-        const response = await fetch(url);
-        return await response.arrayBuffer();
-    } catch (error) {
-        console.error('Error al obtener la imagen:', error);
-        return null; // Retorna null si hay un error
-    }
-}
-
-function createContact() {
-    return {
-        key: { fromMe: false, participant: '0@s.whatsapp.net' },
-        message: {
-            contactMessage: {
-                displayName: 'Bot',
-                vcard: 'BEGIN:VCARD\nVERSION:3.0\nN:;Bot;;;\nFN:Bot\nitem1.TEL;waid=1234567890:1234567890\nitem1.X-ABLabel:Mobile\nEND:VCARD'
-            }
-        }
-    };
-}
-
-function createWelcomeMessage(userId, groupName) {
-    return `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨
+        if (m.messageStubType === 27) { // Bienvenida
+            const welcomeMessage = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨
 │「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」
 └┬★ 「 @${userId.split`@`[0]} 」 // Tag del usuario
    │🌹  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀
    │🌹  ${groupName} // Nombre del grupo
    └───────────────┈ ⳹`;
-}
 
-function createGoodbyeMessage(userId) {
-    return `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨
+            try {
+                await conn.sendMessage(m.chat, { text: welcomeMessage, mentions: getMentionedJid() }, { quoted: m });
+            } catch (error) {
+                console.error('Error al enviar el mensaje de bienvenida:', error);
+            }
+        } else if (m.messageStubType === 28 || m.messageStubType === 32) { // Despedida
+            const goodbyeMessage = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨
 │「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」
 └┬★ 「 @${userId.split`@`[0]} 」 // Tag del usuario
    │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎
    │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í
    └───────────────┈ ⳹`;
-}
 
-async function sendMessage(chatId, message, img, fkontak) {
-    if (!img) {
-        img = await fetchImage('https://qu.ax/xzbBy.jpg'); // Imagen de respaldo si img es null
+            try {
+                await conn.sendMessage(m.chat, { text: goodbyeMessage, mentions: getMentionedJid() }, { quoted: m });
+            } catch (error) {
+                console.error('Error al enviar el mensaje de despedida:', error);
+            }
+        }
     }
-    await conn.sendMini(chatId, packname, dev, message, img, img, channel, fkontak);
 }
 
 /*import { WAMessageStubType } from '@whiskeysockets/baileys';
