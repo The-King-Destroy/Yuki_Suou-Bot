@@ -55,13 +55,13 @@ const handler = async (m, { conn, command, text }) => {
         } catch (error) {
             console.error(error); // Registra el error en la consola para depuración
             
-            // Manejo de errores adaptado
+            // Manejo de errores ajustado
             if (error.response) {
                 // Errores de la respuesta de la API
                 m.reply(`🚫 Error en la API: ${error.response.status} - ${error.response.statusText}`);
             } else {
-                // Problemas generales (conexión, errores inesperados, etc.)
-                m.reply("🚫 Ocurrió un problema al intentar procesar tu solicitud. Verifica tu conexión y vuelve a intentarlo.");
+                // Problemas generales (conexión, errores inesperados)
+                m.reply("🚫 Ocurrió un problema al intentar procesar tu solicitud. Por favor, verifica tu conexión.");
             }
         }
     }
