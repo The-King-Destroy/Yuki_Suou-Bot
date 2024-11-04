@@ -1,5 +1,7 @@
 let media = './src/Grupo.jpg'; // Ruta a la imagen
+
 let handler = async (m, { conn, command }) => {
+    // Definición del contacto
     let fkontak = {
         "key": {
             "participants": "0@s.whatsapp.net",
@@ -15,12 +17,13 @@ let handler = async (m, { conn, command }) => {
         "participant": "0@s.whatsapp.net"
     };
 
-    await m.react('🌷'); // Reacción al mensaje
+    try {
+        await m.react('🌷'); // Reacción al mensaje
 
-    let str = `*📍 GRUPOS OFICIALES*
+        let str = `*📍 GRUPOS OFICIALES*
 
    *_〾̷̸‣⃝⃨⃛⃰⁝̵̓ᝒ̷̸͙🌹̶̩ܻᝒ̷̸꯭͙𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭𓆩֟֯፝⃝⃙̻⃮̋⃛⃰⁌̷̸̊͟⿻᳔ ̶̷̸͟͞_*  
-  ┃🪷❏ ${gp4}
+   ┃🪷❏ ${gp4}
 
    *_ ͟͞〾⃝̵͡♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓣 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉ᚐ_*  
    ┃🌸❏ https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ
@@ -34,12 +37,18 @@ let handler = async (m, { conn, command }) => {
    *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*  
    ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T  
    *_╰━━━━━━━━━━━━━━━━⊜_*`;
-
-    await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
-        ['MENU 🌹', '#menu']
-    ], null, [
-        ['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]
-    ], fkontak);
+        
+        // Enviar el mensaje con botón
+        await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
+            ['MENU 🌹', '#menu']
+        ], null, [
+            ['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]
+        ], fkontak);
+        
+    } catch (error) {
+        console.error('Error al enviar el mensaje:', error); // Mensaje de error en consola
+        await conn.sendMessage(m.chat, { text: 'Hubo un error al enviar el mensaje. Intenta de nuevo más tarde.' }); // Mensaje al usuario en caso de error
+    }
 };
 
 handler.command = ['grupos', 'links', 'gruposofc', 'gruposoficiales'];
