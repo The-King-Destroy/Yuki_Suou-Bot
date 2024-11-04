@@ -1,12 +1,7 @@
 let media = './src/Grupo.mp4'; // Ruta del archivo de video
 
 let handler = async (m, { conn, command }) => {
-    // Verificar si se está en un chat grupal
-    let chat = await conn.getChat(m.chat);
-    if (chat.isGroup) {
-        // Enviar mensaje directo al usuario que llamó al comando
-        m.chat = m.sender;
-    }
+    // Asumimos que m.chat es el chat correcto
 
     let fkontak = {
         "key": {
@@ -30,14 +25,14 @@ let handler = async (m, { conn, command }) => {
    *_〾̷̸‣⃝⃨⃛⃰⁝̵̓ᝒ̷̸͙🌹̶̩ܻᝒ̷̸꯭͙𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭𓆩֟֯፝𓆪𝝣⃯ᵴͦ𝛒⃨ᷫ𝛆ͨ🄲⃪⃯𝛊ᷨ𝛂⃨ͦꝆ᷽ͭ🍁⃝⃙̻⃮̋⃛⃰⁌̷̸̊͟⿻᳔̶̷̸_*
   ┃🪷❏ ${gp4}
 
-   *_ ͟͞〾⃝̵͡♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓣 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉ᚐ_*
-┃🌸❏ https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ
+   *_ ͟͞〾⃝̵͡♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓣 𝒩𝐹𝒮𝒲☙_*
+┃🥀❏ https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ
    
-   *_❦𝒴𝓊𝓚𝒾 𝒮𝓊𝑜𝓊 𝐵𝒪𝒯  𝒩𝐹𝒮𝒲☙_*
-┃🥀❏ https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa
+   *_❦𝒴𝓊𝓚𝒾 𝒮𝓊𝒪𝒰 𝐵𝒪𝒯  𝒩𝐹𝒮𝒲☙_*
+┃🍒❏ https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa
 
    *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✧ﾟ･:✿_*
-┃🍒❏ https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN
+┃🌹❏ https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN
 
    *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*
 ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
@@ -53,6 +48,6 @@ let handler = async (m, { conn, command }) => {
 
 handler.command = ['grupos', 'links', 'gruposofc', 'gruposoficiales'];
 handler.register = true;
-handler.exp = 1; // Puedes cambiar esto a 0 si lo deseas
+handler.exp = 33; // Puedes cambiar esto a 0 si lo deseas
 
 export default handler;
