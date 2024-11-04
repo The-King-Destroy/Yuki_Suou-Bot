@@ -9,6 +9,10 @@ const handler = async (m, { conn, command, text }) => {
         // Verificación de texto (IP)
         if (!text) return m.reply("🚩 Por favor proporciona una IP. Ejemplo: .ip 8.8.8.8");
 
+        // Validación de IP
+        const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+        if (!ipRegex.test(text)) return m.reply("🚩 La IP proporcionada no es válida. Asegúrate de que sea una IP pública.");
+
         // URL de la API
         const apiURL = `https://api.ryzendesu.vip/api/tool/iplocation?ip=${encodeURIComponent(text)}`;
 
@@ -18,6 +22,12 @@ const handler = async (m, { conn, command, text }) => {
 
             // Realiza la solicitud a la API
             const response = await fetch(apiURL);
+            
+            // Verifica si la respuesta es OK
+            if (!response.ok) {
+                return m.reply("🚫 Error al obtener información de la IP. Código de estado: " + response.status);
+            }
+
             const result = await response.json();
 
             // Verifica si la respuesta contiene información de IP
@@ -26,7 +36,7 @@ const handler = async (m, { conn, command, text }) => {
 
                 // Mensaje estructurado
                 const message = `
-🌐 *Información de la IP*: ${ipInfo.ip}
+🌐 *Información de la IP*: ${ipInfo.ip || 'No disponible'}
 
 📍 Ubicación: ${ipInfo.city || 'No disponible'}, ${ipInfo.region || 'No disponible'}, ${ipInfo.country_name || 'No disponible'}
 🗺️ Coordenadas: Latitud ${ipInfo.latitude || 'No disponible'}, Longitud ${ipInfo.longitude || 'No disponible'}
@@ -47,7 +57,7 @@ const handler = async (m, { conn, command, text }) => {
             }
         } catch (error) {
             console.error(error); // Registra el error en la consola para depuración
-            m.reply("🚫 Ocurrió un error al procesar la solicitud. Por favor, intenta de nuevo más tarde.");
+            m.reply("🚫 Ocurrió un error al procesar la solicitud. Por favor, verifica la IP ingresada y vuelve a intentarlo.");
         }
     }
 };
