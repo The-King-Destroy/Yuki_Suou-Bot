@@ -64,7 +64,10 @@ let handler = async (m, { conn, args }) => {
 
     const validLanguages = ['es', 'en', 'ja', 'es-la'];
     if (langCode && !validLanguages.includes(langCode)) {
-        return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, (ja) para japonés o (es-la) para español latinoamericano.', m);
+        // Enviar mensaje de idioma no válido solo si se usa el comando sin buscar un capítulo
+        if (args.length === 3) {
+            return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, (ja) para japonés o (es-la) para español latinoamericano.', m);
+        }
     }
 
     try {
