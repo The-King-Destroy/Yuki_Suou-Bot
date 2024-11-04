@@ -1,48 +1,48 @@
-let media = 'https://files.catbox.moe/9b4u20.mp4'; // URL del video
+let media = './src/Grupo.jpg'; // Ruta a la imagen
+let handler = async (m, { conn, command }) => {
+    let fkontak = {
+        "key": {
+            "participants": "0@s.whatsapp.net",
+            "remoteJid": "status@broadcast",
+            "fromMe": false,
+            "id": "Halo"
+        },
+        "message": {
+            "contactMessage": {
+                "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+            }
+        },
+        "participant": "0@s.whatsapp.net"
+    };
 
-let handler = async (m, { conn }) => {
     await m.react('🌷'); // Reacción al mensaje
 
-    let messageText = `*📍 GRUPOS OFICIALES*
+    let str = `*📍 GRUPOS OFICIALES*
 
-   *_〾̷̸‣⃝⃨⃛⃰⁝̵̓ᝒ̷̸͙🌹̶̩ܻᝒ̷̸꯭͙𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭𓆩֟֯፝⃝⃙̻⃮̋⃛⃰⁌̷̸̊͟⿻᳔̶̷̸_*
-   
-   *_ ͟͞〾⃝̵͡♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓣 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉ᚐ_* 
+   *_〾̷̸‣⃝⃨⃛⃰⁝̵̓ᝒ̷̸͙🌹̶̩ܻᝒ̷̸꯭͙𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭𓆩֟֯፝⃝⃙̻⃮̋⃛⃰⁌̷̸̊͟⿻᳔ ̶̷̸͟͞_*  
+  ┃🪷❏ ${gp4}
+
+   *_ ͟͞〾⃝̵͡♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓣 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉ᚐ_*  
    ┃🌸❏ https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ
 
-   *_❦𝒴𝓊𝓀𝒾 𝒮𝓾𝓸𝓊 𝐵𝑜𝓣  𝒩𝐹𝒮𝒲☙_*
+   *_❦𝒴𝓊𝓀𝒾 𝒮𝓾𝓸𝓊 𝐵𝑜𝓣  𝒩𝐹𝒮𝒲☙_*  
    ┃🥀❏ https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa
 
-   *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒳✧ﾟ･:✿_*
+   *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✧ﾟ･:✿_*  
    ┃🍒❏ https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN
 
-   *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*
-   ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
+   *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*  
+   ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T  
    *_╰━━━━━━━━━━━━━━━━⊜_*`;
 
-    let button = [
-        {
-            buttonId: 'join_channel',
-            buttonText: { displayText: 'Unirme al canal' },
-            type: 1
-        }
-    ];
-
-    try {
-        // Enviar el mensaje con el video como GIF y el botón
-        await conn.sendMessage(m.chat, {
-            video: { url: media, caption: messageText, gifPlayback: true }, // Enviar el video como GIF
-            footer: 'Haz clic en el botón para unirte al canal:',
-            buttons: button,
-            headerType: 4 // Tipo de encabezado para incluir el video
-        });
-    } catch (error) {
-        console.error('Error al enviar el mensaje:', error); // Mensaje de error en consola
-    }
+    await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
+        ['MENU 🌹', '#menu']
+    ], null, [
+        ['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]
+    ], fkontak);
 };
 
 handler.command = ['grupos', 'links', 'gruposofc', 'gruposoficiales'];
 handler.register = true;
-handler.exp = 10; // Puedes cambiar esto a 0 si lo deseas
 
 export default handler;
