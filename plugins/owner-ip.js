@@ -1,42 +1,62 @@
-import axios from 'axios'
+import fetch from 'node-fetch';
 
-let handler = async (m, { conn, text }) => {
-//await m.reply('🧑🏻‍💻 Buscando...')
-let bot = '🧑🏻‍💻 Buscando....'
-conn.reply(m.chat, bot, m, rcanal, )
-  if (!text) return conn.reply(m.chat, '🚩 *Te Faltó La <Ip>*', m, rcanal, )
+const handler = async (m, { conn, command, text }) => {
+    if (command === 'ip') {
+        // Mensaje de "buscando..."
+        const searchingMessage = '🧑🏻‍💻 Buscando...';
+        conn.reply(m.chat, searchingMessage, m);
 
-  axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`).then ((res) => {
-    const data = res.data
+        // Verificación de texto (IP)
+        if (!text) return m.reply("🚩 Por favor proporciona una IP. Ejemplo: .ip 8.8.8.8");
 
-      if (String(data.status) !== "success") {
-        throw new Error(data.message || "Falló")
-      }
-    let ipsearch = `
-☁️ *I N F O - I P* ☁️
+        // URL de la API
+        const apiURL = `https://api.ryzendesu.vip/api/tool/iplocation?ip=${encodeURIComponent(text)}`;
 
-IP : ${data.query}
-País : ${data.country}
-Código de País : ${data.countryCode}
-Provincia : ${data.regionName}
-Código de Provincia : ${data.region}
-Ciudad : ${data.city}
-Distrito : ${data.district}
-Código Postal : ${res.data.zip}
-Zona Horaria : ${data.timezone}
-ISP : ${data.isp}
-Organización : ${data.org}
-AS : ${data.as}
-Mobile : ${data.mobile ? "Si" : "No"}
-Hosting : ${data.hosting ? "Si" : "No"}
-`.trim()
+        try {
+            // Actualiza la presencia del bot a 'composing'
+            conn.sendPresenceUpdate('composing', m.chat);
 
-conn.reply(m.chat, ipsearch, m, rcanal, )
-})
-}
+            // Realiza la solicitud a la API
+            const response = await fetch(apiURL);
+            const result = await response.json();
 
-handler.help = ['ip <alamat ip>']
-handler.tags = ['owner']
-handler.command = ['ip']
-handler.rowner = true
-export default handler
+            // Verifica si la respuesta contiene información de IP
+            if (result.ipInfo) {
+                const ipInfo = result.ipInfo;
+
+                // Mensaje estructurado
+                const message = `
+🌐 *Información de la IP*: ${ipInfo.ip}
+
+📍 Ubicación: ${ipInfo.city || 'No disponible'}, ${ipInfo.region || 'No disponible'}, ${ipInfo.country_name || 'No disponible'}
+🗺️ Coordenadas: Latitud ${ipInfo.latitude || 'No disponible'}, Longitud ${ipInfo.longitude || 'No disponible'}
+🌐 Continente: ${ipInfo.continent_code || 'No disponible'}
+🕓 Zona Horaria: ${ipInfo.timezone || 'No disponible'} (UTC${ipInfo.utc_offset || 'No disponible'})
+📞 Código de País: ${ipInfo.country_calling_code || 'No disponible'}
+💵 Moneda: ${ipInfo.currency || 'No disponible'} (${ipInfo.currency_name || 'No disponible'})
+📡 Red: ASN ${ipInfo.asn || 'No disponible'}, Organización: ${ipInfo.org || 'No disponible'}, Rango de Red: ${ipInfo.network || 'No disponible'}
+`.trim();
+
+                // Mensaje de finalización
+                const finishedMessage = '✅ *Búsqueda Finalizada*';
+                m.reply(message.trim());
+                conn.reply(m.chat, finishedMessage, m); // Mensaje de finalización
+
+                // Reacción al mensaje
+                await conn.sendReaction('✅', m.chat, m.key);
+            } else {
+                m.reply("🚫 Error en la respuesta de la API.");
+            }
+        } catch (error) {
+            console.error(error); // Registra el error en la consola para depuración
+            m.reply("🚫 Ocurrió un error al procesar la solicitud. Por favor, intenta de nuevo más tarde.");
+        }
+    }
+};
+
+// Definiciones de ayuda y etiquetas
+handler.help = ['ip <direccion_ip>'];
+handler.tags = ['info'];
+handler.command = /^ip$/i; // Comando para activar el plugin
+
+export default handler;
