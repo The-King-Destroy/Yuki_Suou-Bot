@@ -36,11 +36,16 @@ const createPDF = async (images, part) => {
 };
 
 let handler = async (m, { conn, args }) => {
-    if (args.length < 2) return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo.\nEjemplo: .mangad Naruto 1 es', m);
+    if (args.length < 2) return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo. Ejemplo: .mangad Naruto 1 es', m);
     
-    const mangaName = args.slice(0, -1).join(' ');
-    const chapterRequested = args[args.length - 1];
-    const langQuery = chapterRequested.toLowerCase() === 'es' ? 'translatedLanguage[]=es' : '';
+    const mangaName = args.slice(0, -2).join(' ');
+    const chapterRequested = args[args.length - 2];
+    const langCode = args[args.length - 1].toLowerCase(); // Obtener el código del idioma
+
+    const validLanguages = ['es', 'en', 'ja'];
+    if (!validLanguages.includes(langCode)) return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, o (ja) para japonés.', m);
+
+    const langQuery = langCode === 'es' ? 'translatedLanguage[]=es' : langCode === 'en' ? 'translatedLanguage[]=en' : 'translatedLanguage[]=ja';
 
     try {
         await m.react('🕓');
@@ -55,7 +60,10 @@ let handler = async (m, { conn, args }) => {
 
         // Obtener capítulos del manga
         const chaptersResponse = await fetch(`https://api.mangadex.org/chapter?manga=${mangaId}&limit=100&${langQuery}`);
+        if (!chaptersResponse.ok) throw new Error('No se pudieron obtener los capítulos.');
         const { data: chapters } = await chaptersResponse.json();
+        
+        // Buscar el capítulo solicitado
         const chapterData = chapters.find(ch => ch.attributes.chapter === chapterRequested);
         if (!chapterData) return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
         
@@ -64,6 +72,7 @@ let handler = async (m, { conn, args }) => {
 
         // Obtener URLs de las imágenes del capítulo
         const imageResponse = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`);
+        if (!imageResponse.ok) throw new Error('No se pudo obtener información del capítulo.');
         const imageData = await imageResponse.json();
         if (!imageData.chapter) throw new Error('No se pudo obtener información del capítulo.');
 
@@ -88,7 +97,7 @@ let handler = async (m, { conn, args }) => {
     }
 };
 
-handler.help = ["mangad <nombre del manga> <número del capítulo> [es]"];
+handler.help = ["mangad <nombre del manga> <número del capítulo> <es/en/ja>"];
 handler.tags = ['tools'];
 handler.command = /^(mangad)$/i;
 
