@@ -50,18 +50,22 @@ const handler = async (m, { conn, command, text }) => {
                 // Reacción al mensaje
                 await conn.sendReaction('✅', m.chat, m.key);
             } else {
+                // Si no hay información válida de la IP
                 m.reply("🚫 No se encontró información válida para la IP proporcionada.");
             }
         } catch (error) {
             console.error(error); // Registra el error en la consola para depuración
             
-            // Manejo de errores ajustado
+            // Manejo de errores estructurado
             if (error.response) {
                 // Errores de la respuesta de la API
                 m.reply(`🚫 Error en la API: ${error.response.status} - ${error.response.statusText}`);
+            } else if (error.request) {
+                // Problemas al realizar la solicitud (sin respuesta)
+                m.reply("🚫 No se recibió respuesta de la API. Verifica tu conexión a Internet.");
             } else {
-                // Problemas generales (conexión, errores inesperados)
-                m.reply("🚫 Ocurrió un problema al intentar procesar tu solicitud. Por favor, verifica tu conexión.");
+                // Otros errores inesperados
+                m.reply("🚫 Ocurrió un error inesperado. Por favor, intenta nuevamente más tarde.");
             }
         }
     }
