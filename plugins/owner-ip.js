@@ -37,15 +37,13 @@ const handler = async (m, { conn, command, text }) => {
 📡 Red: ASN ${ipInfo.asn || 'No disponible'}, Organización: ${ipInfo.org || 'No disponible'}, Rango de Red: ${ipInfo.network || 'No disponible'}
 `.trim();
 
-                // Mensaje de finalización
-                const finishedMessage = '✅ *Búsqueda Finalizada*';
+                // Envía el mensaje con la información de la IP
                 m.reply(message.trim());
-                conn.reply(m.chat, finishedMessage, m); // Mensaje de finalización
 
                 // Reacción al mensaje
                 await conn.sendReaction('✅', m.chat, m.key);
             } else {
-                m.reply("🚫 Error en la respuesta de la API.");
+                m.reply("🚫 No se encontró información válida para la IP proporcionada.");
             }
         } catch (error) {
             console.error(error); // Registra el error en la consola para depuración
