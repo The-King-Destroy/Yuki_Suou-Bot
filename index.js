@@ -7,26 +7,26 @@ import cfonts from 'cfonts';
 import { createInterface } from 'readline';
 import yargs from 'yargs';
 import chalk from 'chalk';
-console.log('\n✰ 𝐈𝐧𝐢𝐜𝐢𝐚𝐧𝐝𝐨 𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐁𝐨𝐭 ✰');
+console.log('\n✰ Iniciando Yuki Suou Bot ✰');
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
-say('YUKI_SUOU-BOT ', {
+say('YUKI SUOU', {
 font: 'block',
 align: 'center',
-colors: ['magentaBright']
+colors: ['white']
 });
 say(`Multi Device`, {
 font: 'chrome',
 align: 'center',
-colors: ['redBright']
+colors: ['red']
 });
-say(`powered by destroy`, {
+say(`Developed By • Iam Destroy`, {
 font: 'console',
 align: 'center',
-colors: ['blueBright']
+colors: ['yellow']
 });
 var isRunning = false;
 function start(file) {
@@ -36,7 +36,7 @@ let args = [join(__dirname, file), ...process.argv.slice(2)];
 say([process.argv[0], ...args].join(' '), {
 font: 'console',
 align: 'center',
-colors: ['candy']
+colors: ['green']
 });
 setupMaster({
 exec: args[0],
