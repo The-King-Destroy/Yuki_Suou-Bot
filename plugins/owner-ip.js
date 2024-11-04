@@ -56,17 +56,11 @@ const handler = async (m, { conn, command, text }) => {
         } catch (error) {
             console.error(error); // Registra el error en la consola para depuración
             
-            // Manejo de errores estructurado
+            // Manejo de errores de la API
             if (error.response) {
-                // Errores de la respuesta de la API
                 m.reply(`🚫 Error en la API: ${error.response.status} - ${error.response.statusText}`);
-            } else if (error.request) {
-                // Problemas al realizar la solicitud (sin respuesta)
-                m.reply("🚫 No se recibió respuesta de la API. Verifica tu conexión a Internet.");
-            } else {
-                // Otros errores inesperados
-                m.reply("🚫 Ocurrió un error inesperado. Por favor, intenta nuevamente más tarde.");
             }
+            // No se envía mensaje de error general
         }
     }
 };
