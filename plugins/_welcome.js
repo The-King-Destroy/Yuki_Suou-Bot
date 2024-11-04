@@ -2,7 +2,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     if (!m.messageStubType || !m.isGroup) return true;
 
     let userId = m.messageStubParameters[0];
-    console.log('ID del usuario:', userId);
+    // console.log('ID del usuario:', userId); // Se eliminó el mensaje de ID del usuario
 
     let pp;
     const welcomeImage = 'https://qu.ax/xzbBy.jpg'; // Imagen de bienvenida
@@ -11,9 +11,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
     // Intentar obtener la imagen de perfil
     try {
         pp = await conn.profilePictureUrl(userId, 'image');
-        console.log('URL de perfil:', pp);
+        // console.log('URL de perfil:', pp); // Se eliminó el mensaje de URL de perfil
     } catch (error) {
-        console.error('Error al obtener la imagen de perfil:', error);
         pp = null; // Si no se puede obtener, deja pp como null
     }
 
@@ -22,7 +21,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
     try {
         img = await (await fetch(pp || welcomeImage)).buffer(); // Usa la imagen de perfil o la de bienvenida si no se encuentra
     } catch (fetchError) {
-        console.error('Error al obtener la imagen:', fetchError);
         img = await (await fetch(welcomeImage)).buffer(); // Imagen de respaldo si falla al obtener la imagen
     }
 
