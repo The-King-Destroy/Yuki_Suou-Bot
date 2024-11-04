@@ -1,8 +1,29 @@
-let media = './src/Grupo.jpg'
+let media = './src/Grupo.jpg'; // Ruta de la imagen que se enviará
+
+// Definiciones de variables adicionales
+let gp4 = "Grupo de Yuki Suou"; // Un nombre o descripción del grupo
+let wm = "Yuki Suou Bot"; // Marca de agua o nombre del bot
+
 let handler = async (m, { conn, command }) => {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-    await conn.sendMessage(m.chat, { react: { text: '⚡️', key: m.key } })
-let str = `*📍 GRUPO OFICIAL*
+    let fkontak = {
+        "key": {
+            "participants": "0@s.whatsapp.net",
+            "remoteJid": "status@broadcast",
+            "fromMe": false,
+            "id": "Halo"
+        },
+        "message": {
+            "contactMessage": {
+                "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+            }
+        },
+        "participant": "0@s.whatsapp.net"
+    };
+
+    // Reacción al mensaje
+    await conn.sendMessage(m.chat, { react: { text: '🌼', key: m.key } });
+
+    let str = `*📍 GRUPO OFICIAL*
 
    *_〾̷̸‣⃝⃨⃛⃰⁝̵̓ᝒ̷̸͙✨̶̩ܻᝒ̷̸꯭͙𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭𓆩֟֯፝𓆪𝝣⃯ᵴͦ𝛒⃨ᷫ𝛆ͨ🄲⃪⃯𝛊ᷨ𝛂⃨ͦꝆ᷽ͭ🌸⃙̻⃮⃛⃰⁌̷̸̊͟⿻᳔̶̷̸_*
   ┃🪷❏ ${gp4}
@@ -18,14 +39,18 @@ let str = `*📍 GRUPO OFICIAL*
 
    *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*
 ┃🌸❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
-*_╰━━━━━━━━━━━━━━━━⊜_*
-`
-await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
-['MENU 🌹', '#menu']], null, [
-['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]], fkontak)}
-                      
-handler.command = ['grupos','links','gruposofc','gruposoficiales']
-handler.register = true
-handler.exp = 0
+*_╰━━━━━━━━━━━━━━━━⊜_*`;
 
-export default handler
+    // Enviar el mensaje con botones
+    await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
+        ['MENU 🌹', '#menu']
+    ], null, [
+        ['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]
+    ], fkontak);
+};
+
+handler.command = ['grupos', 'links', 'gruposofc', 'gruposoficiales'];
+handler.register = true;
+handler.exp = 33;
+
+export default handler;
