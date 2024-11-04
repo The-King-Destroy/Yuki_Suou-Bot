@@ -40,13 +40,13 @@ let handler = async (m, { conn, args }) => {
     
     const mangaName = args.slice(0, -1).join(' ');
     const chapterRequested = args[args.length - 1];
-    const langQuery = chapterRequested === 'es' ? 'translatedLanguage[]=es' : '';
+    const langQuery = chapterRequested.toLowerCase() === 'es' ? 'translatedLanguage[]=es' : '';
 
     try {
         await m.react('🕓');
 
         // Buscar el manga por nombre
-        const searchResponse = await fetch(`https://api.mangadex.org/manga/?title=${encodeURIComponent(mangaName)}`);
+        const searchResponse = await fetch(`https://api.mangadex.org/manga?title=${encodeURIComponent(mangaName)}`);
         if (!searchResponse.ok) throw new Error('No se pudo encontrar el manga.');
         const { data: mangaList } = await searchResponse.json();
         if (!mangaList.length) return conn.reply(m.chat, '🚩 Manga no encontrado.', m);
@@ -56,7 +56,7 @@ let handler = async (m, { conn, args }) => {
         // Obtener capítulos del manga
         const chaptersResponse = await fetch(`https://api.mangadex.org/chapter?manga=${mangaId}&limit=100&${langQuery}`);
         const { data: chapters } = await chaptersResponse.json();
-        const chapterData = chapters.find(ch => ch.attributes.chapter === (isNaN(chapterRequested) ? chapterRequested : parseInt(chapterRequested)));
+        const chapterData = chapters.find(ch => ch.attributes.chapter === chapterRequested);
         if (!chapterData) return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
         
         const images = [];
