@@ -44,7 +44,7 @@ const handler = async (m, { conn, text }) => {
     await conn.sendMessage(m.chat, { text: message }, { quoted: m });
 
     // Reaccionar al mensaje del usuario que solicitó la búsqueda
-    await conn.sendMessage(m.chat, { text: "🔍" }, { quoted: m });
+    await m.react('🔍');
 
   } catch (error) {
     console.error("Error fetching from Wikipedia:", error);
