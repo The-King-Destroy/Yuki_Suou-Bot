@@ -17,12 +17,14 @@ let handler = async (m, { conn, command, args }) => {
       for (let g of results) {
         teks += `*${g.title}*\n${g.link}\n${g.description}\n\n`;
       }
-      conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m).then(() => m.react('✅'));
+      teks += `> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ `; // Mensaje final añadido
+      await conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m); // Esperar el envío del archivo antes de reaccionar
+      await m.react('✅');
     } else {
       conn.reply(m.chat, '❌ No se encontraron resultados.', m);
     }
   } catch (error) {
-    console.error(error);
+    console.error("Error al realizar la búsqueda:", error);
     conn.reply(m.chat, '❌ Error al realizar la búsqueda.', m);
   }
 }
