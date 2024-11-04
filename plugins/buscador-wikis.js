@@ -38,15 +38,13 @@ const handler = async (m, { conn, text }) => {
     const message = `     *✧ Wiki Search ✦*\n\n` +
                     `✦ *Titulo*: ${articleTitle}\n` +
                     `✧ *Descripción*:\n${articleContent}\n` +
-                    `✦ *Link*: (${articleUrl})`;
+                    `✦ *Link*: (${articleUrl})\n\n` +
+                    `> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝓸𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ `;
 
     await conn.sendMessage(m.chat, { text: message }, { quoted: m });
 
     // Reaccionar al mensaje del usuario que solicitó la búsqueda
     await conn.sendMessage(m.chat, { text: "🔍" }, { quoted: m });
-    
-    // Mensaje al final
-    await conn.sendMessage(m.chat, { text: ">\u200B ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ " }, { quoted: m });
 
   } catch (error) {
     console.error("Error fetching from Wikipedia:", error);
