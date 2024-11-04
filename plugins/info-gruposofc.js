@@ -1,4 +1,3 @@
-
 let media = 'https://files.catbox.moe/9b4u20.mp4'; // URL del video
 
 let handler = async (m, { conn }) => {
@@ -7,11 +6,10 @@ let handler = async (m, { conn }) => {
     let messageText = `*📍 GRUPOS OFICIALES*
 
    *_〾̷̸‣⃝⃨⃛⃰⁝̵̓ᝒ̷̸͙🌹̶̩ܻᝒ̷̸꯭͙𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭𓆩֟֯፝⃝⃙̻⃮̋⃛⃰⁌̷̸̊͟⿻᳔̶̷̸_*
-   ┃🪷❏ ${gp4}
-
+   
    *_ ͟͞〾⃝̵͡♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓣 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉ᚐ_* 
    ┃🌸❏ https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ
-   
+
    *_❦𝒴𝓊𝓀𝒾 𝒮𝓾𝓸𝓊 𝐵𝑜𝓣  𝒩𝐹𝒮𝒲☙_*
    ┃🥀❏ https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa
 
@@ -31,10 +29,9 @@ let handler = async (m, { conn }) => {
     ];
 
     try {
-        // Enviar el mensaje con el video y el botón
+        // Enviar el mensaje con el video como GIF y el botón
         await conn.sendMessage(m.chat, {
-            video: { url: media }, // Enviar el video
-            caption: messageText, // El mensaje que se enviará
+            video: { url: media, caption: messageText, gifPlayback: true }, // Enviar el video como GIF
             footer: 'Haz clic en el botón para unirte al canal:',
             buttons: button,
             headerType: 4 // Tipo de encabezado para incluir el video
