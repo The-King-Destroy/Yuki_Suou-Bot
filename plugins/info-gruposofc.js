@@ -18,9 +18,6 @@ let str = `*📍 GRUPO OFICIAL*
 
    *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*
 ┃🌸❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
-
-   *_Canal Oficial2_*
-┃🪷❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
 *_╰━━━━━━━━━━━━━━━━⊜_*
 `
 await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
@@ -29,6 +26,6 @@ await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ�
                       
 handler.command = ['grupos','links','gruposofc','gruposoficiales']
 handler.register = true
-handler.exp = 33
+handler.exp = 0
 
 export default handler
