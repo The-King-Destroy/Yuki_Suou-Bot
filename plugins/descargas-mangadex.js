@@ -36,16 +36,20 @@ const createPDF = async (images, part) => {
 };
 
 let handler = async (m, { conn, args }) => {
+    // Verificar argumentos
     if (args.length < 2) return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo. Ejemplo: .mangad Naruto 1 es', m);
     
     const mangaName = args.slice(0, -2).join(' ');
     const chapterRequested = args[args.length - 2];
-    const langCode = args[args.length - 1].toLowerCase(); // Obtener el código del idioma
+    const langCode = args.length === 3 ? args[args.length - 1].toLowerCase() : null; // Obtener el código del idioma si se proporciona
 
     const validLanguages = ['es', 'en', 'ja'];
-    if (!validLanguages.includes(langCode)) return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, o (ja) para japonés.', m);
+    let langQuery = '';
 
-    const langQuery = langCode === 'es' ? 'translatedLanguage[]=es' : langCode === 'en' ? 'translatedLanguage[]=en' : 'translatedLanguage[]=ja';
+    if (langCode) {
+        if (!validLanguages.includes(langCode)) return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, o (ja) para japonés.', m);
+        langQuery = langCode === 'es' ? 'translatedLanguage[]=es' : langCode === 'en' ? 'translatedLanguage[]=en' : 'translatedLanguage[]=ja';
+    }
 
     try {
         await m.react('🕓');
@@ -63,8 +67,11 @@ let handler = async (m, { conn, args }) => {
         if (!chaptersResponse.ok) throw new Error('No se pudieron obtener los capítulos.');
         const { data: chapters } = await chaptersResponse.json();
         
+        // Filtrar capítulos por idioma si se especificó
+        const filteredChapters = langQuery ? chapters.filter(ch => ch.attributes.translatedLanguage === langCode) : chapters;
+        
         // Buscar el capítulo solicitado
-        const chapterData = chapters.find(ch => ch.attributes.chapter === chapterRequested);
+        const chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
         if (!chapterData) return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
         
         const images = [];
@@ -97,8 +104,8 @@ let handler = async (m, { conn, args }) => {
     }
 };
 
-handler.help = ["mangad <nombre del manga> <número del capítulo> <es/en/ja>"];
+handler.help = ["mangad <nombre del manga> <número del capítulo> [es/en/ja]"];
 handler.tags = ['tools'];
 handler.command = /^(mangad)$/i;
 
-export default handler;
+export default handler;      
