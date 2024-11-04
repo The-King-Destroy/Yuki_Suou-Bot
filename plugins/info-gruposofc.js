@@ -1,4 +1,4 @@
-let media = './src/Grupo.jpg'; // Ruta de la imagen que se enviará
+let media = 'https://i.ibb.co/Kzp1rHt/Yuki.jpg'; // URL de la imagen que se enviará
 
 // Definiciones de variables adicionales
 let gp4 = "Grupo de Yuki Suou"; // Un nombre o descripción del grupo
@@ -21,7 +21,7 @@ let handler = async (m, { conn, command }) => {
     };
 
     // Reacción al mensaje
-    await conn.sendMessage(m.chat, { react: { text: '🌼', key: m.key } });
+    await conn.sendMessage(m.chat, { react: { text: '⚡️', key: m.key } });
 
     let str = `*📍 GRUPO OFICIAL*
 
