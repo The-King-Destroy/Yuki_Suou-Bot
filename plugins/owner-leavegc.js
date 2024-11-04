@@ -1,16 +1,12 @@
 let handler = async (m, { conn, text, command }) => {
 let id = text ? text : m.chat  
-let chat = global.db.data.chats[m.chat]
-chat.welcome = false
-await conn.reply(id, `🌹 *Yuki_Suou-Bot* Abandona El Grupo, Fué Genial Estar Aquí 👋`) 
-await conn.groupLeave(id)
-try {  
-chat.welcome = true
-} catch (e) {
-await m.reply(`${fg}`) 
-return console.log(e)
-}}
-handler.command = ['salir','leavegc','salirdelgrupo','leave']
+let pp = 'https://files.catbox.moe/4nw8op.mp4'
+await conn.sendMessage(m.chat, { video: { url: pp }, gifPlayback: true, caption: '*Adios a todos, el Bot se despide! (≧ω≦)ゞ*', mentions: [m.sender] }, { quoted: m })
+await conn.groupLeave(id)}
+handler.help = ['salir']
+handler.tags = ['owner']
+handler.command = /^(salir|out|leavegc|leave|salirdelgrupo)$/i
 handler.group = true
 handler.rowner = true
+
 export default handler
