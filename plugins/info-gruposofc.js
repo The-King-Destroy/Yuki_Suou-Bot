@@ -24,7 +24,7 @@ await conn.sendButton(m.chat, str, `͟͞ 𓆩ꪶꪾ𝘿᪶𝙞ᷨ𝙖ᷞ𝙢ͣ
 ['Menu Lista 💖', '/lista']], null, [
 ['⏤͟͞ू⃪ ፝͜⁞M͢ᴇɢ፝֟ᴜᴍ⃨ɪɴ⃜✰⃔࿐', `${md}`]], fkontak)}
                       
-handler.command = ['grupos','linksk','','gruposoficiales']
+handler.command = ['grupos','linksk','ofc','gruposoficiales']
 handler.register = true
 handler.exp = 33
 
