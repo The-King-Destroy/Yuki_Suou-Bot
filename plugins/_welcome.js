@@ -1,4 +1,4 @@
-export async function before(m, { conn, participants, groupMetadata }) {
+    export async function before(m, { conn, participants, groupMetadata }) {
     if (!m.messageStubType || !m.isGroup) return true;
 
     let userId = m.messageStubParameters[0];
@@ -59,8 +59,8 @@ export async function before(m, { conn, participants, groupMetadata }) {
             console.error('Error al enviar mensaje de expulsión:', sendError);
         }
     }
-}
-
+    }
+ 
 /*let WAMessageStubType = (await import('@whiskeysockets/baileys')).default;
 import fetch from 'node-fetch';
 
