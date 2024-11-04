@@ -41,11 +41,16 @@ const createPDF = async (images, part) => {
 };
 
 const filterChaptersByLanguage = (chapters, langCode) => {
+    const spanishChapters = chapters.filter(ch => ch.attributes.translatedLanguage === 'es');
+    if (spanishChapters.length > 0) {
+        return spanishChapters; // Prioriza capítulos en español
+    }
+    // Si no hay capítulos en español, buscar en el idioma especificado o en inglés
     if (langCode) {
         return chapters.filter(ch => ch.attributes.translatedLanguage === langCode);
     }
-    // Si no se especifica un idioma, buscar en español e inglés
-    return chapters.filter(ch => ch.attributes.translatedLanguage === 'es' || ch.attributes.translatedLanguage === 'en');
+    // Si no se especifica un idioma, buscar en inglés
+    return chapters.filter(ch => ch.attributes.translatedLanguage === 'en');
 };
 
 let handler = async (m, { conn, args }) => {
@@ -76,18 +81,17 @@ let handler = async (m, { conn, args }) => {
         if (!chaptersResponse.ok) throw new Error('No se pudieron obtener los capítulos.');
         const { data: chapters } = await chaptersResponse.json();
 
-        const filteredChapters = filterChaptersByLanguage(chapters, langCode);
-        const chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
+        // Buscar capítulos en español
+        let filteredChapters = filterChaptersByLanguage(chapters, langCode);
+        let chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
 
         if (!chapterData) {
-            // Si no se encuentra el capítulo en el idioma especificado, buscar en español
-            if (langCode) {
-                const fallbackChapters = chapters.filter(ch => ch.attributes.translatedLanguage === 'es');
-                const fallbackChapterData = fallbackChapters.find(ch => ch.attributes.chapter === chapterRequested);
-                if (fallbackChapterData) {
-                    return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName} (${langCode}), pero encontrado en español.`, m);
-                }
-            }
+            // Si no se encuentra el capítulo en español, buscar en inglés
+            filteredChapters = chapters.filter(ch => ch.attributes.translatedLanguage === 'en');
+            chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
+        }
+
+        if (!chapterData) {
             return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
         }
         
