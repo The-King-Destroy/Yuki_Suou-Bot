@@ -1,4 +1,3 @@
-
 let media = 'https://files.catbox.moe/9b4u20.mp4'; // URL del video
 
 let handler = async (m, { conn }) => {
@@ -15,18 +14,21 @@ let handler = async (m, { conn }) => {
    *_❦𝒴𝓊𝓀𝒾 𝒮𝓊𝑜𝓊 𝐵𝑜𝓣  𝒩𝐹𝒮𝒲☙_*
    ┃🥀❏ https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa
 
-   *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✧ﾟ･:✿_*
+   *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒳✧ﾟ･:✿_*
    ┃🍒❏ https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN
 
    *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*
    ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
    *_╰━━━━━━━━━━━━━━━━⊜_*`;
 
-    let menuButton = [['MENU 🌹', '#menu']]; // Botón de menú
-
     try {
-        // Enviar el mensaje con el botón de menú
-        await conn.sendButton(m.chat, messageText, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\nHaz clic en el botón para acceder al menú:`, media, menuButton);
+        // Enviar el mensaje con el enlace al canal
+        await conn.sendMessage(m.chat, {
+            text: messageText,
+            footer: 'Haz clic en el enlace para unirte al canal:',
+            buttons: [{ buttonId: 'join_channel', buttonText: { displayText: 'Unirme al canal' }, type: 1 }],
+            media: { url: media },
+        });
     } catch (error) {
         console.error('Error al enviar el mensaje:', error); // Mensaje de error en consola
     }
