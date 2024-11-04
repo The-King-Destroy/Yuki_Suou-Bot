@@ -1,127 +1,95 @@
-import axios from 'axios';
-import { PDFDocument } from 'pdf-lib';
-import fs from 'fs';
+import fetch from 'node-fetch';
+import { createWriteStream } from 'fs';
+import { promises as fsPromises } from 'fs';
+import PDFDocument from 'pdfkit';
+import { fileURLToPath } from 'url';
 import path from 'path';
-import { fileTypeFromBuffer } from 'file-type';
 
-async function searchManga(title) {
-    try {
-        const response = await axios.get(`https://api.mangadex.org/manga`, {
-            params: { title, limit: 1 },
-        });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-        const mangaList = response.data.data;
-        if (!mangaList.length) throw new Error('Manga no encontrado.');
+const downloadImage = async (url, filename) => {
+    const filePath = path.join(__dirname, `temp_image_${filename}`);
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`No se pudo descargar la imagen: ${url}`);
+    const stream = createWriteStream(filePath);
+    response.body.pipe(stream);
+    return new Promise((resolve, reject) => {
+        stream.on('finish', () => resolve(filePath));
+        stream.on('error', reject);
+    });
+};
 
-        return mangaList[0];
-    } catch (error) {
-        console.error(`Error searching manga: ${error.message}`);
-        throw error;
+const createPDF = async (images, part) => {
+    const pdfPath = path.join(__dirname, `manga_part_${part}.pdf`);
+    const doc = new PDFDocument();
+    const stream = createWriteStream(pdfPath);
+    doc.pipe(stream);
+    for (const image of images) {
+        doc.addPage().image(image, { fit: [500, 700], align: 'center', valign: 'center' });
     }
-}
+    doc.end();
+    return new Promise((resolve, reject) => {
+        stream.on('finish', () => resolve(pdfPath));
+        stream.on('error', reject);
+    });
+};
 
-async function getMangaChapters(mangaId) {
-    try {
-        const response = await axios.get(`https://api.mangadex.org/chapter`, {
-            params: { manga: mangaId, limit: 100 },
-        });
-
-        const chapters = response.data.data;
-        if (!chapters.length) throw new Error('Capítulos no encontrados.');
-
-        return chapters;
-    } catch (error) {
-        console.error(`Error fetching manga chapters: ${error.message}`);
-        throw error;
-    }
-}
-
-async function getChapterImages(chapterId) {
-    try {
-        const response = await axios.get(`https://api.mangadex.org/at-home/server/${chapterId}`);
-        const chapterData = response.data;
-        const baseUrl = chapterData.baseUrl;
-        const chapterHash = chapterData.chapter.hash;
-        const imageList = chapterData.chapter.data;
-
-        return imageList.map(image => `${baseUrl}/data/${chapterHash}/${image}`);
-    } catch (error) {
-        console.error(`Error fetching chapter images: ${error.message}`);
-        throw error;
-    }
-}
-
-async function createMangaPdf(imageUrls, outputPath) {
-    const pdfDoc = await PDFDocument.create();
-
-    for (const imageUrl of imageUrls) {
-        try {
-            const imageResponse = await axios.get(imageUrl, { responseType: 'arraybuffer' });
-            const imageBuffer = Buffer.from(imageResponse.data);
-
-            const fileType = await fileTypeFromBuffer(imageBuffer);
-            let image;
-            if (fileType && fileType.mime === 'image/jpeg') {
-                image = await pdfDoc.embedJpg(imageBuffer);
-            } else if (fileType && fileType.mime === 'image/png') {
-                image = await pdfDoc.embedPng(imageBuffer);
-            } else {
-                console.warn(`Skipping unsupported image type: ${fileType ? fileType.mime : 'unknown'}`);
-                continue;
-            }
-
-            const page = pdfDoc.addPage([image.width, image.height]);
-            page.drawImage(image, {
-                x: 0,
-                y: 0,
-                width: image.width,
-                height: image.height,
-            });
-        } catch (error) {
-            console.error(`Error processing image: ${imageUrl}. Skipping...`);
-            continue;
-        }
-    }
-
-    const pdfBytes = await pdfDoc.save();
-    fs.writeFileSync(outputPath, pdfBytes);
-}
-
-const handler = async (m, { conn, args }) => {
-    if (args.length < 2) {
-        return m.reply('✦ Uso del comando: .mangad <título del manga> <número del capítulo>\nEjemplo: .mangad One Piece 10');
-    }
-
-    const mangaTitle = args.slice(0, -1).join(' ');
-    const chapterRequested = args[args.length - 1];
+let handler = async (m, { conn, args }) => {
+    if (args.length < 2) return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo.\nEjemplo: .mangad Naruto 1 es', m);
     
-    try {
-        const manga = await searchManga(mangaTitle);
-        const mangaId = manga.id;
-        m.reply(`✦ Manga encontrado: ${manga.attributes.title.en}`);
-        
-        const chapters = await getMangaChapters(mangaId);
-        const chapterData = chapters.find(ch => ch.attributes.chapter === chapterRequested);
-        
-        if (!chapterData) return m.reply(`Capítulo ${chapterRequested} no encontrado en el manga ${mangaTitle}.`);
-        
-        const imageUrls = await getChapterImages(chapterData.id);
-        const outputPath = path.join('/tmp', `${manga.attributes.title.en} - Capitulo ${chapterRequested}.pdf`);
-        await createMangaPdf(imageUrls, outputPath);
+    const mangaName = args.slice(0, -1).join(' ');
+    const chapterRequested = args[args.length - 1];
+    const langQuery = chapterRequested === 'es' ? 'translatedLanguage[]=es' : '';
 
-        await conn.sendMessage(m.chat, {
-            document: { url: outputPath },
-            fileName: `${manga.attributes.title.en} - Capitulo ${chapterRequested}.pdf`,
-            mimetype: 'application/pdf',
-        }, { quoted: m });
+    try {
+        await m.react('🕓');
+
+        // Buscar el manga por nombre
+        const searchResponse = await fetch(`https://api.mangadex.org/manga/?title=${encodeURIComponent(mangaName)}`);
+        if (!searchResponse.ok) throw new Error('No se pudo encontrar el manga.');
+        const { data: mangaList } = await searchResponse.json();
+        if (!mangaList.length) return conn.reply(m.chat, '🚩 Manga no encontrado.', m);
         
-        fs.unlinkSync(outputPath); // Eliminar el archivo temporal después de enviar
+        const mangaId = mangaList[0].id;
+
+        // Obtener capítulos del manga
+        const chaptersResponse = await fetch(`https://api.mangadex.org/chapter?manga=${mangaId}&limit=100&${langQuery}`);
+        const { data: chapters } = await chaptersResponse.json();
+        const chapterData = chapters.find(ch => ch.attributes.chapter === (isNaN(chapterRequested) ? chapterRequested : parseInt(chapterRequested)));
+        if (!chapterData) return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
+        
+        const images = [];
+        const chapterId = chapterData.id;
+
+        // Obtener URLs de las imágenes del capítulo
+        const imageResponse = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`);
+        const imageData = await imageResponse.json();
+        if (!imageData.chapter) throw new Error('No se pudo obtener información del capítulo.');
+
+        const { baseUrl, chapter: { hash, data } } = imageData;
+        for (const filename of data) {
+            const imageUrl = `${baseUrl}/data/${hash}/${filename}`;
+            const imagePath = await downloadImage(imageUrl, filename);
+            images.push(imagePath);
+        }
+
+        // Crear PDF
+        const pdfPath = await createPDF(images, chapterRequested);
+        await conn.sendMessage(m.chat, { document: { url: pdfPath }, mimetype: 'application/pdf', fileName: `${mangaName}_Capítulo_${chapterRequested}.pdf` }, { quoted: m });
+
+        // Eliminar archivos temporales
+        await Promise.all(images.map(img => fsPromises.unlink(img)));
+
+        await m.react('✅');
     } catch (error) {
-        m.reply(`⚠️ Error: ${error.message}`);  // Mensaje específico para el usuario
+        await m.react('✖️');
+        return conn.reply(m.chat, `🚩 Error: ${error.message}`, m);
     }
 };
 
-handler.help = ['mangad'];
-handler.tags = ['descargas'];
-handler.command = /^mangad$/i;
+handler.help = ["mangad <nombre del manga> <número del capítulo> [es]"];
+handler.tags = ['tools'];
+handler.command = /^(mangad)$/i;
+
 export default handler;
