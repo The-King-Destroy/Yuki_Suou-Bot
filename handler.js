@@ -166,7 +166,7 @@ if (!('sDemote' in chat)) chat.sDemote = ''
 if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
 if (!('delete' in chat)) chat.delete = false                   
 if (!('nsfw' in chat)) chat.nsfw = false
-if (!('autoAceptar' in chat)) chat.autoAceptar = false
+if (!('autoAceptar' in chat)) chat.autoAceptar = false  
 if (!('autosticker' in chat)) chat.autosticker = false      
 if (!('audios' in chat)) chat.audios = false
 if (!('antiBot' in chat)) chat.antiBot = false 
@@ -204,8 +204,8 @@ sPromote: '',
 sDemote: '', 
 sCondition: JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}]), 
 delete: false,
-nsfw: false,
 autoAceptar: false,
+nsfw: false,
 autosticker: false,
 audios: false,
 antiBot: false,
@@ -743,14 +743,14 @@ console.error(e)
 
 global.dfail = (type, m, conn) => {
 const msg = {
-rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> Destroy.', 
-owner: '「👨‍💻」 *Esta función solo puede ser usada por mi desarrollador.', 
-mods: '「👨‍💻」 *Esta función solo puede ser usada por mis desarrolladores.*', 
-premium: '「⚜️」 *Esta función solo es para usuarios Premium.', 
-group: '「⭐」 *Esta funcion solo puede ser ejecutada en grupos.*', 
-private: '「🌸」 *Esta función solo puede ser usada en chat privado.*', 
+rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> David-Chian.', 
+owner: '「🌸」 *Esta función solo puede ser usada por mi desarrollador.', 
+mods: '「🌸」 *Esta función solo puede ser usada por mis desarrolladores.*', 
+premium: '「🍒」 *Esta función solo es para usuarios Premium.', 
+group: '「🍒」 *Esta funcion solo puede ser ejecutada en grupos.*', 
+private: '「🌹」 *Esta función solo puede ser usada en chat privado.*', 
 admin: '「⚜️」 *Este comando solo puede ser usado por admins.*', 
-botAdmin: '「🍒」 *Para usar esta función debo ser admin.*', 
+botAdmin: '「⚜️」 *Para usar esta función debo ser admin.*', 
 unreg: '「🌹」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Destroy.17*',
 restrict: '「🥀」 *Esta característica esta desactivada.*'
 }[type];
