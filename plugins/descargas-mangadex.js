@@ -41,9 +41,11 @@ const createPDF = async (images, part) => {
 };
 
 const filterChaptersByLanguage = (chapters, langCode) => {
-    return langCode
-        ? chapters.filter(ch => ch.attributes.translatedLanguage === langCode)
-        : chapters.filter(ch => ch.attributes.translatedLanguage === 'es' || ch.attributes.translatedLanguage === 'en');
+    if (langCode) {
+        return chapters.filter(ch => ch.attributes.translatedLanguage === langCode);
+    }
+    // Si no se especifica un idioma, buscar en español e inglés
+    return chapters.filter(ch => ch.attributes.translatedLanguage === 'es' || ch.attributes.translatedLanguage === 'en');
 };
 
 let handler = async (m, { conn, args }) => {
@@ -76,7 +78,18 @@ let handler = async (m, { conn, args }) => {
 
         const filteredChapters = filterChaptersByLanguage(chapters, langCode);
         const chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
-        if (!chapterData) return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
+
+        if (!chapterData) {
+            // Si no se encuentra el capítulo en el idioma especificado, buscar en español
+            if (langCode) {
+                const fallbackChapters = chapters.filter(ch => ch.attributes.translatedLanguage === 'es');
+                const fallbackChapterData = fallbackChapters.find(ch => ch.attributes.chapter === chapterRequested);
+                if (fallbackChapterData) {
+                    return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName} (${langCode}), pero encontrado en español.`, m);
+                }
+            }
+            return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
+        }
         
         const images = [];
         const chapterId = chapterData.id;
