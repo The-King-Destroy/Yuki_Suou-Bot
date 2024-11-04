@@ -31,20 +31,23 @@ let handler = async (m, { conn, command }) => {
    *_❦𝒴𝓊𝓀𝒾 𝒮𝓾𝓸𝓊 𝐵𝑜𝓣  𝒩𝐹𝒮𝒲☙_*  
    ┃🥀❏ https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa
 
-   *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✧ﾟ･:✿_*  
+   *_✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒳✧ﾟ･:✿_*  
    ┃🍒❏ https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN
 
    *_♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ_*  
    ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T  
    *_╰━━━━━━━━━━━━━━━━⊜_*`;
-        
+
         // Enviar el mensaje con botón
         await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
             ['MENU 🌹', '#menu']
         ], null, [
             ['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]
         ], fkontak);
-        
+
+        // Mensaje de confirmación para el usuario
+        await conn.sendMessage(m.chat, { text: 'El mensaje se ha enviado correctamente.' });
+
     } catch (error) {
         console.error('Error al enviar el mensaje:', error); // Mensaje de error en consola
         await conn.sendMessage(m.chat, { text: 'Hubo un error al enviar el mensaje. Intenta de nuevo más tarde.' }); // Mensaje al usuario en caso de error
