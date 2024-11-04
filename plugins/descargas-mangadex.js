@@ -40,35 +40,13 @@ const createPDF = async (images, part) => {
     });
 };
 
-const filterChaptersByLanguage = (chapters, langCode) => {
-    const spanishChapters = chapters.filter(ch => ch.attributes.translatedLanguage === 'es');
-    if (spanishChapters.length > 0) {
-        return spanishChapters; // Prioriza capítulos en español
-    }
-    // Si no hay capítulos en español, buscar en el idioma especificado o en inglés
-    if (langCode) {
-        return chapters.filter(ch => ch.attributes.translatedLanguage === langCode);
-    }
-    // Si no se especifica un idioma, buscar en inglés
-    return chapters.filter(ch => ch.attributes.translatedLanguage === 'en');
-};
-
 let handler = async (m, { conn, args }) => {
     if (args.length < 2) {
         return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo. Ejemplo: .mangad Naruto 1', m);
     }
-    
-    const mangaName = args.slice(0, -2).join(' ');
-    const chapterRequested = args[args.length - 2];
-    const langCode = args.length === 3 ? args[args.length - 1].toLowerCase() : null;
 
-    const validLanguages = ['es', 'en', 'ja', 'es-la'];
-    if (langCode && !validLanguages.includes(langCode)) {
-        // Enviar mensaje de idioma no válido solo si se usa el comando sin buscar un capítulo
-        if (args.length === 3) {
-            return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, (ja) para japonés o (es-la) para español latinoamericano.', m);
-        }
-    }
+    const mangaName = args.slice(0, -1).join(' ');
+    const chapterRequested = args[args.length - 1];
 
     try {
         await m.react('🕓');
@@ -84,15 +62,8 @@ let handler = async (m, { conn, args }) => {
         if (!chaptersResponse.ok) throw new Error('No se pudieron obtener los capítulos.');
         const { data: chapters } = await chaptersResponse.json();
 
-        // Buscar capítulos en español
-        let filteredChapters = filterChaptersByLanguage(chapters, langCode);
-        let chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
-
-        if (!chapterData) {
-            // Si no se encuentra el capítulo en español, buscar en inglés
-            filteredChapters = chapters.filter(ch => ch.attributes.translatedLanguage === 'en');
-            chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
-        }
+        // Buscar el capítulo sin filtrar por idioma
+        let chapterData = chapters.find(ch => ch.attributes.chapter === chapterRequested);
 
         if (!chapterData) {
             return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
@@ -127,8 +98,8 @@ let handler = async (m, { conn, args }) => {
     }
 };
 
-handler.help = ["mangad <nombre del manga> <número del capítulo> [es/en/ja/es-la]"];
-handler.tags = ['tools'];
+handler.help = ["mangad <nombre del manga> <número del capítulo>"];
+handler.tags = ['descargas'];
 handler.command = /^(mangad)$/i;
 
 export default handler;
