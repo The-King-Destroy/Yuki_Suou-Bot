@@ -10,14 +10,19 @@ const __dirname = path.dirname(__filename);
 
 const downloadImage = async (url, filename) => {
     const filePath = path.join(__dirname, `temp_image_${filename}`);
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`No se pudo descargar la imagen: ${url}`);
-    const stream = createWriteStream(filePath);
-    response.body.pipe(stream);
-    return new Promise((resolve, reject) => {
-        stream.on('finish', () => resolve(filePath));
-        stream.on('error', reject);
-    });
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`No se pudo descargar la imagen: ${url}`);
+        const stream = createWriteStream(filePath);
+        response.body.pipe(stream);
+        return new Promise((resolve, reject) => {
+            stream.on('finish', () => resolve(filePath));
+            stream.on('error', reject);
+        });
+    } catch (error) {
+        console.error(error);
+        return null; // Retornar null en caso de error
+    }
 };
 
 const createPDF = async (images, part) => {
@@ -35,10 +40,15 @@ const createPDF = async (images, part) => {
     });
 };
 
+const filterChaptersByLanguage = (chapters, langCode) => {
+    return langCode
+        ? chapters.filter(ch => ch.attributes.translatedLanguage === langCode)
+        : chapters.filter(ch => ch.attributes.translatedLanguage === 'es' || ch.attributes.translatedLanguage === 'en');
+};
+
 let handler = async (m, { conn, args }) => {
-    // Verificar argumentos
     if (args.length < 2) {
-        return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo. Ejemplo: .mangad Naruto 1 es', m);
+        return conn.reply(m.chat, '🚩 Por favor, ingresa el nombre del manga y el número del capítulo. Ejemplo: .mangad Naruto 1', m);
     }
     
     const mangaName = args.slice(0, -2).join(' ');
@@ -46,20 +56,13 @@ let handler = async (m, { conn, args }) => {
     const langCode = args.length === 3 ? args[args.length - 1].toLowerCase() : null;
 
     const validLanguages = ['es', 'en', 'ja', 'es-la'];
-    let langQuery = '';
-
-    // Verificar idioma si se proporciona
-    if (langCode) {
-        if (!validLanguages.includes(langCode)) {
-            return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, (ja) para japonés o (es-la) para español latinoamericano.', m);
-        }
-        langQuery = `translatedLanguage[]=${langCode}`;
+    if (langCode && !validLanguages.includes(langCode)) {
+        return conn.reply(m.chat, '🚩 Idioma no válido. Usa (es) para español, (en) para inglés, (ja) para japonés o (es-la) para español latinoamericano.', m);
     }
 
     try {
         await m.react('🕓');
 
-        // Buscar el manga por nombre
         const searchResponse = await fetch(`https://api.mangadex.org/manga?title=${encodeURIComponent(mangaName)}`);
         if (!searchResponse.ok) throw new Error('No se pudo encontrar el manga.');
         const { data: mangaList } = await searchResponse.json();
@@ -67,46 +70,35 @@ let handler = async (m, { conn, args }) => {
         
         const mangaId = mangaList[0].id;
 
-        // Obtener capítulos del manga
-        const chaptersResponse = await fetch(`https://api.mangadex.org/chapter?manga=${mangaId}&limit=100${langQuery ? '&' + langQuery : ''}`);
+        const chaptersResponse = await fetch(`https://api.mangadex.org/chapter?manga=${mangaId}&limit=100`);
         if (!chaptersResponse.ok) throw new Error('No se pudieron obtener los capítulos.');
         const { data: chapters } = await chaptersResponse.json();
-        
-        // Filtrar capítulos por idioma si se especificó
-        let filteredChapters = langQuery ? chapters.filter(ch => ch.attributes.translatedLanguage === langCode) : chapters;
 
-        // Si no se encuentra el capítulo en el idioma especificado y es español, buscar en español latinoamericano
-        if (langCode === 'es' && filteredChapters.length === 0) {
-            const fallbackLangCode = 'es-la';
-            filteredChapters = chapters.filter(ch => ch.attributes.translatedLanguage === fallbackLangCode);
-        }
-
-        // Buscar el capítulo solicitado
+        const filteredChapters = filterChaptersByLanguage(chapters, langCode);
         const chapterData = filteredChapters.find(ch => ch.attributes.chapter === chapterRequested);
         if (!chapterData) return conn.reply(m.chat, `🚩 Capítulo ${chapterRequested} no encontrado en ${mangaName}.`, m);
         
         const images = [];
         const chapterId = chapterData.id;
 
-        // Obtener URLs de las imágenes del capítulo
         const imageResponse = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`);
         if (!imageResponse.ok) throw new Error('No se pudo obtener información del capítulo.');
         const imageData = await imageResponse.json();
         if (!imageData.chapter) throw new Error('No se pudo obtener información del capítulo.');
 
         const { baseUrl, chapter: { hash, data } } = imageData;
-        for (const filename of data) {
+        const downloadPromises = data.map(filename => {
             const imageUrl = `${baseUrl}/data/${hash}/${filename}`;
-            const imagePath = await downloadImage(imageUrl, filename);
-            images.push(imagePath);
-        }
+            return downloadImage(imageUrl, filename);
+        });
 
-        // Crear PDF
-        const pdfPath = await createPDF(images, chapterRequested);
+        const downloadedImages = await Promise.all(downloadPromises);
+        const validImages = downloadedImages.filter(img => img !== null); // Filtrar imágenes que no se descargaron correctamente
+
+        const pdfPath = await createPDF(validImages, chapterRequested);
         await conn.sendMessage(m.chat, { document: { url: pdfPath }, mimetype: 'application/pdf', fileName: `${mangaName}_Capítulo_${chapterRequested}.pdf` }, { quoted: m });
 
-        // Eliminar archivos temporales
-        await Promise.all(images.map(img => fsPromises.unlink(img)));
+        await Promise.all(validImages.map(img => fsPromises.unlink(img)));
 
         await m.react('✅');
     } catch (error) {
