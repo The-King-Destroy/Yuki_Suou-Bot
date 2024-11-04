@@ -31,13 +31,13 @@ let tags = {
 }
 
 const defaultMenu = {
-  before: `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:✿･:•╯
+  before: `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓚𝒾✧･:✿･:•╯
 
 👋 ¡Hola! ¿Cómo estás el día de hoy *%name*? Soy *𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾*, %greeting
 
 ✧･ﾟ: *･ﾟ:*𝕴𝖓𝖋𝖔 𝖉𝖊 𝖑𝖆 𝕭𝖔𝖙*:･ﾟ*:･ﾟ✧
 ❦⧼👑⧽ *𝕮𝖗𝖊𝖆𝖉𝖔𝖗:* ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
-❦⧼🔱⧽ *𝕸𝖔𝖉𝖔:* Público
+❦⧼🔱⧽ *𝕸𝖔𝖑𝖔:* Público
 ❦⧼🌠⧽ *𝕭𝖆𝖎𝖑𝖊𝖞𝖘:* Multi Device
 ❦⧼⏱️⧽ *𝕬𝖈𝖙𝖎𝖛𝖆𝖉𝖔:* %muptime
 ❦⧼👥⧽ *𝖀𝖘𝖚𝖆𝖗𝖎𝖔𝖘:* %totalreg
@@ -50,13 +50,14 @@ const defaultMenu = {
 ❦⧼⚜️⧽ *𝕹𝖎𝖛𝖊𝖑:* %level
 ❦⧼🛡⧽ *𝕽𝖆𝖓𝖌𝖔:* %role
 
-\t*【𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘】*
-`.trimStart(),
-      header: '「 %category 」\n',
+\t*【 𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘 】*`
+  .trimStart(),
+  header: '「 %category 」\n',
   body: '❦ %cmd\n',
   footer: '',
   after: `> ${dev}`,
 }
+
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
@@ -133,66 +134,60 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       after
     ].join('\n')
     let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
-let replace = {
-'%': '%',
-p: _p, uptime, muptime,
-me: conn.getName(conn.user.jid),
-taguser: '@' + m.sender.split("@s.whatsapp.net")[0],
-npmname: _package.name,
-npmdesc: _package.description,
-version: _package.version,
-exp: exp - min,
-maxexp: xp,
-botofc: (conn.user.jid == global.conn.user.jid ? '🌹 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🥀 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
-totalexp: exp,
-xp4levelup: max - exp,
-github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
-greeting, level, cookies, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
-readmore: readMore
-}
-text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    let replace = {
+      '%': '%',
+      p: _p, uptime, muptime,
+      me: conn.getName(conn.user.jid),
+      taguser: '@' + m.sender.split("@s.whatsapp.net")[0],
+      npmname: _package.name,
+      npmdesc: _package.description,
+      version: _package.version,
+      exp: exp - min,
+      maxexp: xp,
+      botofc: (conn.user.jid == global.conn.user.jid ? '🌹 𝙴𝚂𝚃𝙴 𝙴𝚂 𝙴𝙻 𝙱𝙾𝚃 𝙾𝙵𝙲' : `🥀 𝚂𝚄𝙱-𝙱𝙾𝚃 𝙳𝙴: Wa.me/${global.conn.user.jid.split`@`[0]}`), 
+      totalexp: exp,
+      xp4levelup: max - exp,
+      github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
+      greeting, level, cookies, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+      readmore: readMore
+    }
+    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-  let category = "video"
-  const db = './src/database/db.json'
-  const db_ = JSON.parse(fs.readFileSync(db))
-  const random = Math.floor(Math.random() * db_.links[category].length)
-  const rlink = db_.links[category][random]
-  global.vid = rlink
-  const response = await fetch(vid)
-  const gif = await response.buffer()
- // const img = imagen1
-
-// await conn.reply(m.chat, '╭ׅׄ̇─ׅ̻ׄ╮۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹*\n├ ⚘݄𖠵⃕⁖𖥔.Ƈᴀʀɢᴀɴᴅᴏ,  ꪶꪾ❍̵̤̂̂ꫂ\n├Ąɢᴜᴀʀᴅᴇ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ❞\n╰ׁ̻─ׅׄ─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪', m, { contextInfo:{ forwardingScore: 2024, isForwarded: true, externalAdReply: {title: namechannel, body: dev, sourceUrl: channel, thumbnail: icons }}})
-
-await m.react('🌹') 
-
-await conn.sendMessage(
-  m.chat,
-  { video: { url: vid }, caption: text.trim(),
-  contextInfo: {
-    mentionedJid: [m.sender],
-    isForwarded: true,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363322713003916@newsletter',
-      newsletterName: '© 𝒫𝑜𝓌𝑒𝓇𝑒𝒹 𝐵𝓎 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜',
-      serverMessageId: -1,
-    },
-    forwardingScore: 999,
-    externalAdReply: {
-      title: '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ',
-      body: dev,
-      thumbnailUrl: fotoperfil,
-      sourceUrl: redes,
-      mediaType: 1,
-      renderLargerThumbnail: false,
-    },
-  },
-
-  gifPlayback: true, gifAttribution: 0 },
-  { quoted: fkontak })
+    let category = "video"
+    const db = './src/database/db.json'
+    const db_ = JSON.parse(await promises.readFile(db))
+    const random = Math.floor(Math.random() * db_.links[category].length)
+    const rlink = db_.links[category][random]
+    global.vid = rlink
+    const response = await fetch(vid)
+    const gif = await response.buffer()
+    
+    await conn.sendMessage(
+      m.chat,
+      { video: { url: vid }, caption: text.trim(),
+      contextInfo: {
+        mentionedJid: [m.sender],
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363322713003916@newsletter',
+          newsletterName: '© 𝒫𝑜𝓦𝑒𝓇𝑒𝒹 𝐵𝓎 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜',
+          serverMessageId: -1,
+        },
+        forwardingScore: 999,
+        externalAdReply: {
+          title: '♡⃝𝒴𝓊𝓚𝒾_𝒮𝓊𝓸𝓊-𝐵𝑜𝓉ᚐ҉ᚐ',
+          body: dev,
+          thumbnailUrl: fotoperfil,
+          sourceUrl: redes,
+          mediaType: 1,
+          renderLargerThumbnail: false,
+        },
+      },
+      gifPlayback: true, gifAttribution: 0 },
+      { quoted: fkontak })
 
   } catch (e) {
-    conn.reply(m.chat, '🔵 Lo sentimos, el menú tiene un error', m, rcanal, )
+    conn.reply(m.chat, '🔵 Lo sentimos, el menú tiene un error', m)
     throw e
   }
 }
@@ -213,8 +208,8 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
-  var ase = new Date();
-  var hour = ase.getHours();
+var ase = new Date();
+var hour = ase.getHours();
 switch(hour){
   case 0: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 🌙'; break;
   case 1: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 💤'; break;
@@ -241,4 +236,4 @@ switch(hour){
   case 22: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 🌙'; break;
   case 23: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 🌃'; break;
 }
-  var greeting = hour;
+var greeting = hour;
