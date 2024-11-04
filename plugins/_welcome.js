@@ -1,45 +1,90 @@
-    export async function before(m, { conn, participants, groupMetadata }) {
-    if (!m.messageStubType || !m.isGroup) return !0;
+export async function before(m, { conn, participants, groupMetadata }) {
+    if (!m.messageStubType || !m.isGroup) return true;
 
-    let userId = m.messageStubParameters[0];
+    const userId = m.messageStubParameters[0];
     console.log('ID del usuario:', userId);
 
-    let pp;
-    const welcomeImage = 'https://qu.ax/xzbBy.jpg'; // Imagen de bienvenida
-    const goodbyeImage = 'https://qu.ax/iSUCQ.jpg'; // Imagen de despedida
+    const images = {
+        welcome: 'https://qu.ax/xzbBy.jpg', // Imagen de bienvenida
+        goodbye: 'https://qu.ax/iSUCQ.jpg'  // Imagen de despedida
+    };
 
+    // Obtiene la imagen de perfil o usa la imagen de bienvenida por defecto
+    let pp = await fetchProfilePicture(userId);
+    let img = pp ? await fetchImage(pp) : await fetchImage(images.welcome); // Usa imagen de perfil o imagen de bienvenida
+
+    let chat = global.db.data.chats[m.chat];
+    const fkontak = createContact();
+
+    if (chat.welcome) {
+        if (m.messageStubType === 27) { // Tipo de mensaje para bienvenida
+            // Si no se obtiene la imagen de perfil, usa la imagen de bienvenida
+            if (!pp) {
+                img = await fetchImage(images.welcome);
+            }
+            await sendMessage(m.chat, createWelcomeMessage(userId, groupMetadata.subject), img, fkontak);
+        } else if (m.messageStubType === 28 || m.messageStubType === 32) { // Tipo de mensaje para despedida
+            // Si no se obtiene la imagen de perfil, usa la imagen de despedida
+            img = await fetchImage(images.goodbye);
+            await sendMessage(m.chat, createGoodbyeMessage(userId), img, fkontak);
+        }
+    }
+}
+
+async function fetchProfilePicture(userId) {
     try {
-        pp = await conn.profilePictureUrl(userId, 'image');
-        console.log('URL de perfil:', pp);
+        return await conn.profilePictureUrl(userId, 'image');
     } catch (error) {
         console.error('Error al obtener la imagen de perfil:', error);
-        pp = null; // Si no se puede obtener, deja pp como null
+        return null; // Retorna null si hay un error
     }
-    // Determina qué imagen usar según el tipo de mensaje
-    let img;
-    if (pp) {
-        img = await (await fetch(pp)).buffer();
-    } else {
-        img = await (await fetch(welcomeImage)).buffer(); // Imagen de respaldo para bienvenida
-    }
-  let chat = global.db.data.chats[m.chat];
+}
 
-    if (chat.welcome && m.messageStubType == 27) {
-        let wel = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨ \n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │🌹  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🌹  ${groupMetadata.subject}\n   └───────────────┈ ⳹`;
-        await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
+async function fetchImage(url) {
+    try {
+        const response = await fetch(url);
+        return await response.arrayBuffer();
+    } catch (error) {
+        console.error('Error al obtener la imagen:', error);
+        return null; // Retorna null si hay un error
     }
+}
 
-  if (chat.welcome && m.messageStubType == 28) {
-        let bye = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨ \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
-        let img2 = await (await fetch(goodbyeImage)).buffer(); // Imagen de respaldo para despedida
-        await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak);
-  }
+function createContact() {
+    return {
+        key: { fromMe: false, participant: '0@s.whatsapp.net' },
+        message: {
+            contactMessage: {
+                displayName: 'Bot',
+                vcard: 'BEGIN:VCARD\nVERSION:3.0\nN:;Bot;;;\nFN:Bot\nitem1.TEL;waid=1234567890:1234567890\nitem1.X-ABLabel:Mobile\nEND:VCARD'
+            }
+        }
+    };
+}
 
-  if (chat.welcome && m.messageStubType == 32) {
-        let kick = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨ \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
-        let img3 = await (await fetch(goodbyeImage)).buffer(); // Imagen de respaldo para despedida
-        await conn.sendMini(m.chat, packname, dev, kick, img3, img3, channel, fkontak);
+function createWelcomeMessage(userId, groupName) {
+    return `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨
+│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」
+└┬★ 「 @${userId.split`@`[0]} 」 // Tag del usuario
+   │🌹  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀
+   │🌹  ${groupName} // Nombre del grupo
+   └───────────────┈ ⳹`;
+}
+
+function createGoodbyeMessage(userId) {
+    return `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 ✨
+│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」
+└┬★ 「 @${userId.split`@`[0]} 」 // Tag del usuario
+   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎
+   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í
+   └───────────────┈ ⳹`;
+}
+
+async function sendMessage(chatId, message, img, fkontak) {
+    if (!img) {
+        img = await fetchImage('https://qu.ax/xzbBy.jpg'); // Imagen de respaldo si img es null
     }
+    await conn.sendMini(chatId, packname, dev, message, img, img, channel, fkontak);
 }
 
 /*import { WAMessageStubType } from '@whiskeysockets/baileys';
