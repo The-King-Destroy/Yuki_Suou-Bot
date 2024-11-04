@@ -1,4 +1,4 @@
-import axios from 'axios'
+/*import axios from 'axios'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
@@ -67,9 +67,9 @@ webSearchMode: false
 return response.data.result
 } catch (error) {
 console.error('🥀 Error al obtener:', error)
-throw error }}
+throw error }}*/
 
-/*import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
 if (!text) return m.reply('🌹 Ingresa un texto para hablar con la Bot')
@@ -84,4 +84,4 @@ console.error(error)
 
 handler.command = ['chatgpt']
 
-export default handler*/
+export default handler
