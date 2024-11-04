@@ -3,11 +3,15 @@ import axios from 'axios';
 const handler = async (m, { conn, command, text }) => {
     if (command === 'ip') {
         // Verificación de texto (IP)
-        if (!text) return m.reply("🚩 Por favor proporciona una IP. Ejemplo: .ip 8.8.8.8");
+        if (!text) {
+            return m.reply("🚩 Por favor proporciona una IP. Ejemplo: .ip 8.8.8.8");
+        }
 
-        // Validación de IP
+        // Validación de IP utilizando expresión regular
         const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-        if (!ipRegex.test(text)) return m.reply("🚩 La IP proporcionada no es válida. Asegúrate de que sea una IP pública.");
+        if (!ipRegex.test(text)) {
+            return m.reply("🚩 La IP proporcionada no es válida. Asegúrate de que sea una IP pública.");
+        }
 
         // Mensaje de "buscando..."
         const searchingMessage = '🧑🏻‍💻 Buscando información de la IP...';
@@ -24,7 +28,7 @@ const handler = async (m, { conn, command, text }) => {
             const response = await axios.get(apiURL);
 
             // Verifica si la respuesta contiene información de IP
-            if (response.data.ipInfo) {
+            if (response.data && response.data.ipInfo) {
                 const ipInfo = response.data.ipInfo;
 
                 // Mensaje estructurado
@@ -51,16 +55,13 @@ const handler = async (m, { conn, command, text }) => {
         } catch (error) {
             console.error(error); // Registra el error en la consola para depuración
             
-            // Manejo de errores estructurado
+            // Manejo de errores simplificado
             if (error.response) {
-                // Errores de respuesta de la API
-                m.reply(`🚫 Error en la respuesta de la API: ${error.response.status} - ${error.response.statusText}`);
-            } else if (error.request) {
-                // Errores al realizar la solicitud
-                m.reply("🚫 No se pudo realizar la solicitud. Por favor, verifica tu conexión a Internet.");
+                // Manejo de errores de la respuesta de la API
+                m.reply(`🚫 Error en la API: ${error.response.status} - ${error.response.statusText}`);
             } else {
-                // Otros errores
-                m.reply("🚫 Ocurrió un error inesperado. Por favor, intenta más tarde.");
+                // Manejo de otros errores (conexión, etc.)
+                m.reply("🚫 Ocurrió un error al procesar la solicitud. Por favor, intenta más tarde.");
             }
         }
     }
