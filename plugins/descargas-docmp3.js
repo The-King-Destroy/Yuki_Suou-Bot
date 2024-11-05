@@ -26,7 +26,7 @@ await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
 
 handler.help = ['ytmp3doc']
-handler.tags = ['downloader']
+handler.tags = ['descargas']
 handler.command = /^(ytmp3doc|ytadoc)$/i
 handler.premium = false
 handler.register = true
