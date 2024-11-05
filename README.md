@@ -36,8 +36,6 @@
 href="https://www.mediafire.com/file/3hsvi3xkpq3a64o/termux_118.a"><img src="https://qu.ax/finc.jpg" height="125px"></a>
 
 <div align=>
----
-
 
 #### **`🚀 Instalación por termux`**
 
