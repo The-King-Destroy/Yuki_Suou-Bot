@@ -4,28 +4,48 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
+const cache = new Map();
+
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢𝐜𝐢𝐨́𝐧 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐞𝐣𝐞𝐦𝐩𝐥𝐨:_ \n*${usedPrefix + command} Billie Eilish - Bellyache*`;
-    
+
+    if (cache.has(text)) {
+        return sendResponse(m, conn, cache.get(text), usedPrefix);
+    }
+
     try {
         const yt_play = await search(args.join(' '));
-        const videoInfo = yt_play[0];
-        
-        const texto1 = generateResponseText(videoInfo);
+        if (!yt_play.length) throw 'No se encontraron resultados.';
 
-        await conn.sendButton(m.chat, wm, texto1, videoInfo.thumbnail, 
-            [['', `${usedPrefix}menu`], [' ', `${usedPrefix}supermusic ${videoInfo.url}`], ['', `${usedPrefix}supervideo ${videoInfo.url}`]], null, null, fgif2);
+        cache.set(text, yt_play[0]);
+        sendResponse(m, conn, yt_play[0], usedPrefix);
     } catch (e) {
-        await conn.reply(m.chat, `*[ ! ] ʜᴜʙᴏ ᴜɴ ᴇʀʀᴏʀ ᴇɴ ᴇʟ ᴄᴏᴍᴀɴᴅᴏ. ᴘᴏʀ ғᴀᴠᴏʀ ɪɴᴛᴇɴᴛᴀ ᴍᴀs ᴛᴀʀᴅᴇ..*`, fkontak, m, rcanal);
-        console.error(`❗❗ᴇʀʀᴏʀ ${usedPrefix + command} ❗❗`, e);
+        handleError(e, conn, m, usedPrefix);
     }
 };
 
 handler.command = ['play3', 'play4'];
 
 async function search(query, options = {}) {
-    const searchResult = await yts.search({ query, hl: 'es', gl: 'ES', ...options });
-    return searchResult.videos;
+    try {
+        const searchResult = await yts.search({ query, hl: 'es', gl: 'ES', maxResults: 5, ...options });
+        return searchResult.videos;
+    } catch (error) {
+        console.error('Error al buscar en YouTube:', error);
+        throw new Error('Error de búsqueda en la API de YouTube.');
+    }
+}
+
+function sendResponse(m, conn, videoInfo, usedPrefix) {
+    const texto1 = generateResponseText(videoInfo);
+    conn.sendButton(m.chat, wm, texto1, videoInfo.thumbnail,
+        [['', `${usedPrefix}menu`], [' ', `${usedPrefix}supermusic ${videoInfo.url}`], ['', `${usedPrefix}supervideo ${videoInfo.url}`]], null, null, fgif2);
+}
+
+function handleError(e, conn, m, usedPrefix) {
+    const errorMessage = e instanceof Error ? e.message : 'Error desconocido';
+    conn.reply(m.chat, `*[ ! ] ʜᴜʙᴏ ᴜɴ ᴇʀʀᴏʀ: ${errorMessage}*`, fkontak, m, rcanal);
+    console.error(`❗❗ᴇʀʀᴏʀ ${usedPrefix + command} ❗❗`, e);
 }
 
 function generateResponseText(videoInfo) {
