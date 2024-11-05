@@ -2,7 +2,7 @@
 
 #!/data/data/com.termux/files/usr/bin/bash 
 # Interpretación determinada para la ejecución     
-COMANDOS = "pkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/David-Chian/Megumin-Bot-MD\ncd Megumin-Bot-MD\nyarn install\nnpm install\nnpm start"
+COMANDOS = "pkg install git -y\npkg install nodejs -y\npkg install ffmpeg -y\npkg install imagemagick -y\npkg install -y yarn\ngit clone https://github.com/The-King-Destroy/Yuki_Suou-Bot\ncd Yuki_Suou-Bot\nyarn install\nnpm install\nnpm start"
 
 echo -e "\e[35m
 
