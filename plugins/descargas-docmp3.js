@@ -1,60 +1,34 @@
-import fg from 'api-dylux'
+import fetch from 'node-fetch'
 import yts from 'yt-search'
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
-import fetch from 'node-fetch' 
-let limit = 200
 
-let handler = async (m, { conn: star, args, text, isPrems, isOwner, usedPrefix, command }) => {
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+if (!text) throw m.reply(`Ingresa un link de YouTube\n*✧ Ejemplo:* ${usedPrefix}${command} https://youtu.be/oGmW2CF001I`);
+conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+  let d2 = await fetch(`https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${text}`)
+  let dp = await d2.json()
+  m.reply(`_✧ Enviando ${dp.result.title} (${dp.result.duration})_\n\n> ${text}`)
 
-if (!args || !args[0]) return star.reply(m.chat, '*\`Ingresa El link Del documento a descargar ✨\`*', m, rcanal)
-if (!args[0].match(/youtu/gi)) return star.reply(m.chat, `Verifica que el enlace sea de YouTube.`, m, rcanal).then(_ => m.react('✅'))
-let q = '128kbps'
+const getBuffer = async (url) => {
+  try {
+    const response = await fetch(url);
+    const buffer = await response.arrayBuffer();
+    return Buffer.from(buffer);
+  } catch (error) {
+    console.error("Error al obtener el buffer", error);
+    throw new Error("Error al obtener el buffer");
+  }
+}
 
-await m.react('🕒')
-try {
-let v = args[0]
-let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-let dl_url = await yt.audio[q].download()
-let title = await yt.title
-let size = await yt.audio[q].fileSizeH
-let thumbnail = await yt.thumbnail
+let audiop = await getBuffer(dp.result.media.mp3)
+await conn.sendMessage(m.chat, { document: audiop, caption: `\`✦ Pedido terminado\`\n\n*『 𝐘 𝐮 𝐤 𝐢 _ 𝐒 𝐮 𝐨 𝐮 - 𝐁 𝐨 𝐭 』*\n\n *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${dp.result.title || 'Desconocido'}\n *♕.- 𝙰𝚞𝚝𝚘𝚛:* ${dp.result.author?.name || 'Desconocido'}\n *⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${dp.result.author?.url || 'Desconocido'}\n *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚒𝚘́𝚗:* ${dp.result.ago || 'Desconocido'}\n *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚘́𝚗:* ${dp.result.timestamp || 'Desconocido'}\n *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${`${dp.result.views || 'Desconocido'}`}\n *🝤.- 𝙻𝚒𝚗𝚔:* ${text}\n\n*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚊𝚞𝚍𝚒𝚘, 𝚊𝚐𝚞𝚊𝚝𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*`, mimetype: 'audio/mpeg', fileName: `${dp.result.title}` + `.mp3`}, {quoted: m })
+await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
+}
 
-let img = await (await fetch(`${thumbnail}`)).buffer()  
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se cancelÃ³ la Descarga.`, m, rcanal).then(_ => m.react('✅'))
-await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '*By: YukiBot*', mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: fkontak })
-await m.react('✅')
-} catch {
-await m.react('🕒')
-try {
-let yt = await fg.yta(args[0], q)
-let { title, dl_url, size } = yt 
-let vid = (await yts(text)).all[0]
-let { thumbnail, url } = vid
-
-let img = await (await fetch(`${vid.thumbnail}`)).buffer()  
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se cancelÃ³ la Descarga.`, m, rcanal).then(_ => m.react('✅'))
-await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '*By: YukiBot*', mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: fkontak })
-await m.react('✅')
-} catch {
-await m.react('🕒')
-try {
-let yt = await fg.ytmp3(args[0], q)
-let { title, dl_url, size, thumb } = yt 
-
-let img = await (await fetch(`${thumb}`)).buffer()
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se cancelÃ³ la Descarga.`, m, rcanal).then(_ => m.react('✅'))
-await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '*By: YukiBot*', mimetype: 'audio/mpeg', fileName: `${title}.mp3`}, { quoted: fkontak })
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}}}
-handler.help = ['ytmp3doc *<link yt>*']
-handler.corazones = 2
-handler.tags = ['descargas']
-handler.command = ['ytmp3doc', 'ytadoc'] 
-//handler.limit = 1
-handler.register = true 
+handler.help = ['ytmp3doc']
+handler.tags = ['downloader']
+handler.command = /^(ytmp3doc|ytadoc)$/i
+handler.premium = false
+handler.register = true
 
 export default handler
