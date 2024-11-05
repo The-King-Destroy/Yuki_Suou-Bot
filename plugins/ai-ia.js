@@ -1,4 +1,4 @@
-/*import axios from 'axios'
+import axios from 'axios'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
@@ -22,7 +22,7 @@ await conn.reply(m.chat, description, m, fake)
 console.error('🥀 Error al analizar la imagen:', error)
 await conn.reply(m.chat, '🥀 Error al analizar la imagen.', m, fake)}
 } else {
-if (!text) { return conn.reply(m.chat, `🌹 *Ingrese su petición*\n🍒 *Ejemplo de uso:* ${usedPrefix + command} Como hacer un avión de papel`, m, rcanal)}
+if (!text) { return conn.reply(m.chat, `🌹 *Ingrese su petición*\n🚩 *Ejemplo de uso:* ${usedPrefix + command} Como hacer un avión de papel`, m, rcanal)}
 await m.react('💬')
 try {
 const query = text
@@ -44,7 +44,7 @@ export default handler
 // Función para enviar una imagen y obtener el análisis
 async function fetchImageBuffer(content, imageBuffer) {
 try {
-const response = await axios.post('https://www.blackbox.ai', {
+const response = await axios.post('https://Luminai.my.id', {
 content: content,
 imageBuffer: imageBuffer 
 }, {
@@ -58,7 +58,7 @@ throw error }}
 // Función para interactuar con la IA usando prompts
 async function luminsesi(q, username, logic) {
 try {
-const response = await axios.post("https://www.blackbox.ai", {
+const response = await axios.post("https://Luminai.my.id", {
 content: q,
 user: username,
 prompt: logic,
@@ -67,9 +67,9 @@ webSearchMode: false
 return response.data.result
 } catch (error) {
 console.error('🥀 Error al obtener:', error)
-throw error }}*/
+throw error }}
 
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
 if (!text) return m.reply('🌹 Ingresa un texto para hablar con la Bot')
@@ -84,4 +84,4 @@ console.error(error)
 
 handler.command = ['chatgpt']
 
-export default handler
+export default handler*/
