@@ -31,7 +31,7 @@ const texto1 = `
 ├» ${yt_play[0].url}
 ╰ׁ̻۫─۪۬─۟─۪─۫─۪۬─۟─۪─۟─۪۬─۟─۪─۟─۪۬─۟─۪─۟┄۪۬┄۟┄۪┈۟┈۪`.trim()
 
-await conn.sendButton(m.chat, wm, texto1, yt_play[0].thumbnail, [['✿ 𝕄𝔼ℕ𝕌 ☙', `${usedPrefix}menu`],['❁ 𝔸𝕌𝔻𝕀𝕆 🌹',`${usedPrefix}supermusic ${yt_play[0].url}`],['❀ 𝕍𝕀𝔻𝔼𝕆 🌹',`${usedPrefix}supervideo ${yt_play[0].url}`]], null, null, fgif2)
+await conn.sendButton(m.chat, wm, texto1, yt_play[0].thumbnail, [['', `${usedPrefix}menu`],[' ',`${usedPrefix}supermusic ${yt_play[0].url}`],['',`${usedPrefix}supervideo ${yt_play[0].url}`]], null, null, fgif2)
 } catch (e) {
 await conn.reply(m.chat, `*[ ! ] ʜᴜʙᴏ ᴜɴ ᴇʀʀᴏʀ ᴇɴ ᴇʟ ᴄᴏᴍᴀɴᴅᴏ ᴘᴏʀ ғᴀᴠᴏʀ ɪɴᴛᴇɴᴛᴀ ᴍᴀs ᴛᴀʀᴅᴇ..*`, fkontak, m, rcanal)
 console.log(`❗❗ᴇʀʀᴏʀ ${usedPrefix + command} ❗❗`)
@@ -40,8 +40,8 @@ handler.limit = 0
 }}
 handler.command = ['play3', 'play4']
 //handler.limit = 3
-handler.register = true 
-handler.group = false
+//handler.register = true 
+//handler.group = true
 export default handler;
 
 async function search(query, options = {}) {
