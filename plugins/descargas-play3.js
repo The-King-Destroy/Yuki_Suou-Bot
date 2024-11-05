@@ -22,7 +22,7 @@ await m.react(error)
 }}
 
 handler.command = ['supermusic', 'supervideo'];
-handler.group = true
+handler.group = false
 export default handler;
 
 async function dl_vid(url) {
