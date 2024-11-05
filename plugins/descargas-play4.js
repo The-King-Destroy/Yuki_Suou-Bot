@@ -1,3 +1,4 @@
+
 import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
@@ -7,8 +8,10 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 const cache = new Map();
 
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
+    // Verificar que se haya proporcionado texto para la búsqueda
     if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢𝐜𝐢𝐨́𝐧 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐞𝐣𝐞𝐦𝐩𝐥𝐨:_ \n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 
+    // Verificar en caché
     if (cache.has(text)) {
         return sendResponse(m, conn, cache.get(text), usedPrefix);
     }
@@ -17,6 +20,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
         const yt_play = await search(args.join(' '));
         if (!yt_play.length) throw 'No se encontraron resultados.';
 
+        // Almacenar en caché
         cache.set(text, yt_play[0]);
         sendResponse(m, conn, yt_play[0], usedPrefix);
     } catch (e) {
@@ -24,7 +28,8 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     }
 };
 
-handler.command = ['play3', 'play4'];
+// Registro de comandos
+handler.command = ['play3', 'play4']; // Asegúrate de que estos sean los comandos que deseas usar
 
 async function search(query, options = {}) {
     try {
