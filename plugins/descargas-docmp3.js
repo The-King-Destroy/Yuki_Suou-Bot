@@ -21,6 +21,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         }
     }
 
+    // Comprobar si la respuesta es válida
+    if (!dp.result || !dp.result.media || !dp.result.media.mp3) {
+        throw 'Error al obtener la información del video o el audio.';
+    }
+
     // Obtener información del video
     const vid = {
         title: dp.result.title || 'Desconocido',
@@ -33,23 +38,31 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         audioUrl: dp.result.media.mp3,
     };
 
+    // Verificar que la URL del audio no esté vacía
+    if (!vid.audioUrl) {
+        throw 'No se pudo encontrar la URL del audio.';
+    }
+
     // Crear el mensaje informativo del video/audio
     let body = `*『 𝐘 𝐮 𝐤 𝐢 _ 𝐒 𝐮 𝐨 𝐮 - 𝐁 𝐨 𝐭 』*\n\n` +
-               `*☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${vid.title}\n` +
+               `*☊.- 𝚃𝚒́𝚝𝚞𝚫o:* ${vid.title}\n` +
                `*♕.- 𝙰𝚞𝚝𝚘𝚛:* ${vid.author}\n` +
                `*⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${vid.authorUrl}\n` +
-               `*🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚘́𝚗:* ${vid.ago}\n` +
+               `*🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚌𝚒𝚘́𝚗:* ${vid.ago}\n` +
                `*🜵.- 𝙳𝚞𝚛𝚊𝚌𝚘́𝚗:* ${vid.timestamp}\n` +
                `*🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${vid.views}\n` +
                `*🝤.- 𝙻𝚒𝚗𝚔:* ${text}\n\n` +
                `*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚊𝚞𝚍𝚒𝚘, 𝚊𝚐𝚞𝚊𝚝𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*\n\n` +
                `> ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝓸𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`;
 
-    // Enviar el mensaje informativo
-    await conn.sendMessage(m.chat, { 
-        image: { url: vid.thumbnail }, 
-        caption: body 
-    }, { quoted: m });
+    // Enviar el mensaje informativo con la imagen
+    if (vid.thumbnail) {
+        const imgBuffer = await getBuffer(vid.thumbnail);
+        await conn.sendMessage(m.chat, { 
+            image: imgBuffer, 
+            caption: body 
+        }, { quoted: m });
+    }
 
     // Enviar el audio como un archivo separado
     let audiop = await getBuffer(vid.audioUrl);
