@@ -8,7 +8,7 @@ await conn.reply(m.chat, '✅ *¡YUKI-BOT YA FUÉ DESBANEADA EN ESTE CHAT!*', m,
 handler.help = ['unbanchat'];
 handler.tags = ['mods'];
 handler.command = ['unbanchat','desbanearchat','desbanchat']
-handler.mods = true 
+handler.admin = true 
 //handler.group = true
 
 export default handler
