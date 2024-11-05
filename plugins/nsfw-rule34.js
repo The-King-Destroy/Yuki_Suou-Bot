@@ -153,7 +153,7 @@ const handler = async (m, { conn, text }) => {
 
 handler.help = ['rule34'];
 handler.tags = ['nsfw'];
-handler.group = true;
+handler.group = false;
 handler.register = true
 handler.command = ['rule34','rule'];
 
