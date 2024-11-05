@@ -31,7 +31,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) {
 };
 handler.command = ['hentaipdf'];
 handler.register = true;
-handler.group = true;
+handler.group = false;
 export default handler;
 async function nhentaiScraper(id) {
   const uri = id ? `https://cin.guru/v/${+id}/` : 'https://cin.guru/';
