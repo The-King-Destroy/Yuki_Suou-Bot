@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import yts from 'yt-search'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) throw m.reply(`Ingresa un link de YouTube\n*✧ Ejemplo:* ${usedPrefix}${command} https://youtu.be/oGmW2CF001I`);
+if (!text) throw m.reply(`Ingresa un link de YouTube\n*✧ Ejemplo:* ${usedPrefix}${command} https://youtube.com/watch?v=e-xToC9wNl0`);
 conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 
   let d2 = await fetch(`https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${text}`)
@@ -24,7 +24,7 @@ const getBuffer = async (url) => {
 	await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
 handler.help = ['ytmp3doc']
-handler.tags = ['downloader']
+handler.tags = ['descargas']
 handler.command = /^(ytmp3doc|ytadoc)$/i
 handler.premium = false
 handler.register = true
