@@ -41,7 +41,7 @@ handler.limit = 0
 handler.command = ['play3', 'play4']
 //handler.limit = 3
 handler.register = true 
-handler.group = true
+handler.group = false
 export default handler;
 
 async function search(query, options = {}) {
