@@ -24,7 +24,7 @@ ${listAdmin}
 ◈ *Detect:* ${detect ? '✅' : '❌'}  
 ◈ *Antilink:* ${antiLink ? '✅' : '❌'} 
 ◈ *Antilink 𝟸:* ${antiLink2 ? '✅' : '❌'} 
-◈ *Modohorny:* ${modohorny ? '✅' : '❌'} 
+◈ *NFSW:* ${nfsw ? '✅' : '❌'} 
 ◈ *Autosticker:* ${autosticker ? '✅' : '❌'} 
 ◈ *Audios:* ${audios ? '✅' : '❌'} 
 ◈ *Antiver:* ${antiviewonce ? '✅' : '❌'} 
