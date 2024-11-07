@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import yts from 'yt-search'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) throw m.reply(`Ingresa una consulta\n*✧ Ejemplo:* ${usedPrefix}${command} ULTIMATE - maneskin`);
+if (!text) throw m.reply(`Ingresa una consulta\n*✧ Ejemplo:* ${usedPrefix}${command} Måneskin WANNA BE YOUR SLAVE`);
 conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
     let results = await yts(text);
     let tes = results.all[0]
@@ -50,7 +50,7 @@ conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 	await conn.sendFile(m.chat, audiop, `${title}.mp3`, ``, m)*/
 	await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
-handler.help = ['play']
+handler.help = ['play3']
 handler.tags = ['descargas']
 handler.command = /^(play3|song)$/i
 handler.premium = false
