@@ -48,7 +48,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     }
 };
 
-handler.command = ['play', 'play2', 'play3', 'play4'];
+handler.command = ['play6'];
 handler.group = true;
 
 export default handler;
