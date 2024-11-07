@@ -1,15 +1,14 @@
-
 import yts from 'yt-search';
 
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!text) throw `_𝐄𝐬𝐜𝐫𝐢𝐛𝐞 𝐮𝐧𝐚 𝐩𝐞𝐭𝐢𝐜𝐢𝐨́𝐧 𝐥𝐮𝐞𝐠𝐨 𝐝𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐞𝐣𝐞𝐦𝐩𝐥𝐨:_ \n*${usedPrefix + command} Billie Eilish - Bellyache*`;
 
     try {
-        const yt_play = await search(args.join(' '));
-        if (!yt_play.length) throw `Error: Vídeo no encontrado`;
+        const { videos } = await yts(text);
+        if (!videos.length) throw `Error: Vídeo no encontrado`;
 
-        const video = yt_play[0];
-        const texto1 = `
+        const video = videos[0];
+        const txt = `
 ╭ׅׄ̇─͓̗̗─ׅ̻ׄ╮۪̇߭⊹߭̇︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇⊹۪̇߭︹ׅ̟ׄ̇︹ׅ۪ׄ̇߭︹ׅ̟ׄ̇߭︹ׅ۪ׄ̇߭̇⊹
 ┟─⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪𝔻𝔼𝕊ℂ𝔸ℝ𝔾𝔸𝕊໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪╮
 ╭┄─🍂⬪࣪ꥈ𑁍⃪࣭۪ٜ݊݊݊݊݊໑ٜ࣪𝕐𝕦𝕜𝕚 𝕊𝕦𝕠𝕦໑⃪࣭۪ٜ݊݊݊݊𑁍ꥈ࣪⬪╯
@@ -24,7 +23,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
 ├» ${video.timestamp}
 ├╌╌╌╌╌╌╌╌╌╌╌╌┄
 ├ ⚘݄𖠵⃕⁖𖥔. _*𝕍𝕚𝕤𝕥𝕒𝕤*_
-├» ${MilesNumber(video.views)}
+├» ${video.views}
 ├╌╌╌╌╌╌╌╌╌╌┄
 ├ ⚘݄𖠵⃕⁖𖥔. _*𝔸𝕦𝕥𝕠𝕣(𝕒)*_
 ├» ${video.author.name}
@@ -40,7 +39,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
             { buttonId: `${usedPrefix}ytsearch ${video.url}`, buttonText: { displayText: '🔍 MÁS VÍDEOS' }, type: 1 }
         ];
 
-        await conn.sendButton(m.chat, texto1, video.thumbnail, buttons);
+        await conn.sendButton(m.chat, txt, video.thumbnail, buttons);
 
     } catch (e) {
         console.error(e);
@@ -56,12 +55,4 @@ export default handler;
 async function search(query, options = {}) {
     const search = await yts.search({ query, hl: 'es', gl: 'ES', ...options });
     return search.videos;
-}
-
-function MilesNumber(number) {
-    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
-    const rep = '$1.';
-    const arr = number.toString().split('.');
-    arr[0] = arr[0].replace(exp, rep);
-    return arr[1] ? arr.join('.') : arr[0];
 }
