@@ -138,6 +138,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['mp3', 'mp4', 'ytlist'];
 handler.tags = ['descargas'];
-handler.command = /^(mp3|mp4|ytlist)$/i;
+handler.command = ['mp3','mp4','ytslist'];
 
 export default handler;
