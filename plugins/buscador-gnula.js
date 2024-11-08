@@ -1,3 +1,6 @@
+//Codígo creado por Destroy wa.me/584120346669
+//Créditos a EliasarYt por brindar la API
+
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn }) => {
