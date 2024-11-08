@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import yts from 'yt-search';
 
@@ -36,47 +37,17 @@ const Ytdl = {
     }
   },
 
-  mp3: async (url, { mp3 = '192' } = {}) => {
+  download: async (url, type, quality) => {
     try {
       const videoId = getVideoId(url);
       const videoData = (await yts(videoId)).videos[0];
-      const data = new URLSearchParams({ videoid: videoId, downtype: 'mp3', vquality: mp3 });
+      const data = new URLSearchParams({ videoid: videoId, downtype: type, vquality: quality });
 
       const response = await axios.post('https://api-cdn.saveservall.xyz/ajax-v2.php', data, {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
       });
 
-      const mp3Link = response.data.url;
-      return {
-        status: true,
-        creator: "♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ",
-        msg: "Se descargó el contenido con exito!",
-        title: videoData.title,
-        thumbnail: videoData.image,
-        url: `https://youtu.be/${videoId}`,
-        media: mp3Link,
-      };
-
-    } catch (error) {
-      return {
-        status: false,
-        msg: "No se pudo obtener los datos!",
-        err: error.message,
-      };
-    }
-  },
-
-  mp4: async (url, { mp4 = '480' } = {}) => {
-    try {
-      const videoId = getVideoId(url);
-      const videoData = (await yts(videoId)).videos[0];
-      const data = new URLSearchParams({ videoid: videoId, downtype: 'mp4', vquality: mp4 });
-
-      const response = await axios.post('https://api-cdn.saveservall.xyz/ajax-v2.php', data, {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-      });
-
-      const mp4Link = response.data.url;
+      const mediaLink = response.data.url;
       return {
         status: true,
         creator: "♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ",
@@ -84,7 +55,7 @@ const Ytdl = {
         title: videoData.title,
         thumbnail: videoData.image,
         url: `https://youtu.be/${videoId}`,
-        media: mp4Link,
+        media: mediaLink,
       };
 
     } catch (error) {
@@ -100,11 +71,13 @@ const Ytdl = {
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) throw m.reply(`Ejemplo de uso: ${usedPrefix + command} <link de YouTube>`);
 
+  await m.react('⏳'); // Reacción al mensaje
+
   let result;
   if (command === 'mp3') {
-    result = await Ytdl.mp3(text);
+    result = await Ytdl.download(text, 'mp3', '192');
   } else if (command === 'mp4') {
-    result = await Ytdl.mp4(text);
+    result = await Ytdl.download(text, 'mp4', '480');
   } else {
     result = await Ytdl.search(text);
   }
@@ -138,6 +111,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ['mp3', 'mp4', 'ytlist'];
 handler.tags = ['descargas'];
-handler.command = ['mp3','mp4','ytslist'];
+handler.command = ['mp3', 'mp4', 'ytslist'];
 
 export default handler;
