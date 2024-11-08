@@ -7,22 +7,22 @@ const handler = async (m, {conn, usedPrefix}) => {
   conn.tebaklagu = conn.tebaklagu ? conn.tebaklagu : {};
   const id = m.chat;
   if (id in conn.tebaklagu) {
-    conn.reply(m.chat, '🌷 Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0]);
+    conn.reply(m.chat, 'Todavía hay canciones sin respuesta en este chat.', conn.tebaklagu[id][0]);
     throw false;
   } // 5LTV57azwaid7dXfz5fzJu
   const res = await fetchJson(`https://raw.githubusercontent.com/BrunoSobrino/TheMystic-Bot-MD/master/src/JSON/tebaklagu.json`);
   const json = res[Math.floor(Math.random() * res.length)];
   const caption = `
-🌸 ADIVINA EL TITULO DE LA CANCION
+ADIVINA EL TITULO DE LA CANCION
 Tiempo ${(timeout / 1000).toFixed(2)} segundos
 Escribe *${usedPrefix}pista* Para obtener una pista
-Premio: ${poin} Cookies 🍪 
-🍒 RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
+Premio: ${poin} Cookies 
+RESPONDE A ESTE MENSAJE CON LAS RESPUESTAS!`.trim();
   conn.tebaklagu[id] = [
     await conn.reply(caption),
     json, poin,
     setTimeout(() => {
-      if (conn.tebaklagu[id]) conn.reply(m.chat, `🥀 Se acabó el tiempo!\nLa respuesta es ${json.jawaban}`, conn.tebaklagu[id][0]);
+      if (conn.tebaklagu[id]) conn.reply(m.chat, `Se acabó el tiempo!\nLa respuesta es ${json.jawaban}`, conn.tebaklagu[id][0]);
       delete conn.tebaklagu[id];
     }, timeout),
   ];
@@ -32,7 +32,7 @@ Premio: ${poin} Cookies 🍪
 
 };
 handler.help = ['cancion'];
-handler.tags = ['game'];
+handler.tags = ['fun'];
 handler.command = /^cancion|canción$/i;
 handler.group = true;
 handler.register = true;
