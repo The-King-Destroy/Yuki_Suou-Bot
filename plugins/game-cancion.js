@@ -1,4 +1,4 @@
-
+/*
 import fetch from 'node-fetch';
 import axios from 'axios';
 
@@ -66,4 +66,4 @@ async function fetchJson(url, options) {
         console.error("Error fetching JSON:", err);
         return []; // Retorna un array vacío en caso de error
     }
-}
+}*/
