@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
 
-let handler = async (m) => {
+let handler = async (m, { conn }) => {
     let chat = global.db.data.chats[m.chat];
     if (chat.isBanned) return;
 
     // Verifica si el mensaje es el comando .gnula
     let movieName = m.text.split('.gnula ')[1]; // Extrae el nombre de la película
     if (!movieName) {
-        return this.sendMessage(m.chat, { text: 'Por favor, proporciona el nombre de la película.' }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: 'Por favor, proporciona el nombre de la película.' }, { quoted: m });
     }
 
     let url = `https://gnula.vercel.app/api/search/gnula?nombre=${encodeURIComponent(movieName)}`; // Codifica el nombre de la película
@@ -30,13 +30,13 @@ let handler = async (m) => {
             ).join('\n\n');
 
             // Envía los resultados al chat
-            this.sendMessage(m.chat, { text: results }, { quoted: m });
+            conn.sendMessage(m.chat, { text: results }, { quoted: m });
         } else {
-            this.sendMessage(m.chat, { text: 'No se encontraron resultados para esa película.' }, { quoted: m });
+            conn.sendMessage(m.chat, { text: 'No se encontraron resultados para esa película.' }, { quoted: m });
         }
     } catch (error) {
         console.error(error);
-        this.sendMessage(m.chat, { text: 'Ocurrió un error al buscar.' }, { quoted: m });
+        conn.sendMessage(m.chat, { text: 'Ocurrió un error al buscar.' }, { quoted: m });
     }
 };
 
