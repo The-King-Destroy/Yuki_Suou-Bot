@@ -1,7 +1,7 @@
 import { spawn } from 'child_process'
 let handler = async (m, { conn, isROwner, text }) => {
 
-if (!process.send) throw '*『✦』Reiniciar: node sunlight.js*\n*『✦』Reiniciar: node index.js*'
+if (!process.send) throw '*『✦』Reiniciar: node start.js*\n*『✦』Reiniciar: node index.js*'
 
 if (conn.user.jid == conn.user.jid) {
 
