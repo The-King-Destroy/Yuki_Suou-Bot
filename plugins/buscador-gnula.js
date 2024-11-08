@@ -29,9 +29,9 @@ let handler = async (m, { conn }) => {
                 `📖 Sinopsis: ${movie.descripcion || 'Sinopsis no disponible'}\n` +
                 `🖼️ Imagen: ${movie.imagen || 'Imagen no disponible'}\n` +
                 `🔗 Enlace: ${movie.enlace || 'Enlace no disponible'}\n` +
-                `🎞️ Idioma: ${movie.idioma || 'Idioma no disponible'}\n` +
-                `📺 Calidad: ${movie.calidad || 'Calidad no disponible'}\n` +
-                `⬇️ Descargar: ${movie.enlaceDescarga || 'Descarga no disponible'}`
+                `🎞️ Idioma: ${movie.idioma || 'No disponible'}\n` +
+                `📺 Calidad: ${movie.calidad || 'No disponible'}\n` +
+                `⬇️ Descargar: ${movie.enlaceDescarga || 'No disponible'}`
             ).join('\n\n');
 
             // Envía los resultados al chat
@@ -46,10 +46,10 @@ let handler = async (m, { conn }) => {
 };
 
 // Configuración del handler
-handler.help = ['gnula']
-handler.tags = ['buscador']
-handler.command = /^(gnula)$/i
-handler.premium = false
-handler.register = true
+handler.help = ['gnula'];
+handler.tags = ['buscador'];
+handler.command = /^(gnula)$/i;
+handler.premium = false;
+handler.register = true;
 
 export default handler;
