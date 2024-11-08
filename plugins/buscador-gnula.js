@@ -21,17 +21,17 @@ let handler = async (m, { conn }) => {
         let data = await response.json();
 
         // Verifica si hay resultados
-        if (data && data.length > 0) {
-            let results = data.map(movie => 
-                `🎬 Título: ${movie.title || 'Título no disponible'}\n` +
-                `📅 Publicado: ${movie.release_date || 'Fecha no disponible'}\n` +
-                `🖋️ Autor: ${movie.author || 'Autor no disponible'}\n` +
-                `📖 Sinopsis: ${movie.synopsis || 'Sinopsis no disponible'}\n` +
-                `🖼️ Imagen: ${movie.image || 'Imagen no disponible'}\n` +
-                `🔗 Enlace: ${movie.link || 'Enlace no disponible'}\n` +
-                `🎞️ Idioma: ${movie.language || 'Idioma no disponible'}\n` +
-                `📺 Calidad: ${movie.quality || 'Calidad no disponible'}\n` +
-                `⬇️ Descargar: ${movie.download_link || 'Descarga no disponible'}`
+        if (data && data.peliculas && data.peliculas.length > 0) {
+            let results = data.peliculas.map(movie => 
+                `🎬 Título: ${movie.titulo || 'Título no disponible'}\n` +
+                `📅 Publicado: ${movie.fechaPublicacion || 'Fecha no disponible'}\n` +
+                `🖋️ Autor: ${movie.autor || 'Autor no disponible'}\n` +
+                `📖 Sinopsis: ${movie.descripcion || 'Sinopsis no disponible'}\n` +
+                `🖼️ Imagen: ${movie.imagen || 'Imagen no disponible'}\n` +
+                `🔗 Enlace: ${movie.enlace || 'Enlace no disponible'}\n` +
+                `🎞️ Idioma: ${movie.idioma || 'Idioma no disponible'}\n` +
+                `📺 Calidad: ${movie.calidad || 'Calidad no disponible'}\n` +
+                `⬇️ Descargar: ${movie.enlaceDescarga || 'Descarga no disponible'}`
             ).join('\n\n');
 
             // Envía los resultados al chat
