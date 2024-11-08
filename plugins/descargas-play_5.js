@@ -23,9 +23,9 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
   sourceUrl: channel }}})
     const yt_play = await search(args.join(' '));
     let additionalText = '';
-    if (command === 'play') {
+    if (command === 'play5') {
       additionalText = 'audio 🔊';
-    } else if (command === 'play2') {
+    } else if (command === 'play6') {
       additionalText = 'video 🎥';
     }
     const texto1 = `*乂  Y O U T U B E  -  P L A Y  乂*
