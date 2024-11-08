@@ -14,5 +14,5 @@ const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
     throw `*[❗] Error, no se encontrarón resultados para su búsqueda.*`;
   }    
 };
-handler.command = /^(apkmod|modapk|dapk2|aptoide|aptoidedl)$/i;
+handler.command = /^(apk|apkdl)$/i;
 export default handler;
