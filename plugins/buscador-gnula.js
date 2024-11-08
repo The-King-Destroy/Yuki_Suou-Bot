@@ -34,6 +34,9 @@ let handler = async (m, { conn }) => {
                 `⬇️ Descargar: ${movie.enlaceDescarga || 'No disponible'}`
             ).join('\n\n');
 
+            // Agrega la firma al final del mensaje
+            results += `\n\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝑡𝐭ⷭ𓆪͟͞ `;
+
             // Envía los resultados al chat
             conn.sendMessage(m.chat, { text: results }, { quoted: m });
         } else {
