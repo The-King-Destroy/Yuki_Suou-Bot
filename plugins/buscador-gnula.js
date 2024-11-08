@@ -14,11 +14,16 @@ let handler = async (m, { conn }) => {
 
     try {
         let response = await fetch(url);
+        
+        // Verifica si la respuesta es exitosa
+        if (!response.ok) throw new Error(`Error en la respuesta: ${response.statusText}`);
+
         let data = await response.json();
 
+        // Verifica si hay resultados
         if (data && data.length > 0) {
             let results = data.map(movie => 
-                `🎬 Título: ${movie.title}\n` +
+                `🎬 Título: ${movie.title || 'Título no disponible'}\n` +
                 `📅 Publicado: ${movie.release_date || 'Fecha no disponible'}\n` +
                 `🖋️ Autor: ${movie.author || 'Autor no disponible'}\n` +
                 `📖 Sinopsis: ${movie.synopsis || 'Sinopsis no disponible'}\n` +
@@ -36,7 +41,7 @@ let handler = async (m, { conn }) => {
         }
     } catch (error) {
         console.error(error);
-        conn.sendMessage(m.chat, { text: 'Ocurrió un error al buscar.' }, { quoted: m });
+        conn.sendMessage(m.chat, { text: 'Ocurrió un error al buscar: ' + error.message }, { quoted: m });
     }
 };
 
