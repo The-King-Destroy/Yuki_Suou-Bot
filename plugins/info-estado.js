@@ -20,19 +20,17 @@ let old = performance.now()
 let neww = performance.now()
 let speed = neww - old
 const used = process.memoryUsage()
-let yuki = `🍒 \`\`\`Información - Yuki-
-_Suou-Bot\`\`\` 🍒\n\n`
-yuki += `🌹꙰᠁❥ *◜Creador◞* ⇢ DevDiego\n`
-yuki += `🌸꙰᠁❥ *◜Prefijo◞* ⇢ [ ${usedPrefix} ]\n`
-yuki += `🌹꙰᠁❥ *◜Versión◞* ⇢ ${vs}\n`
-yuki += `🌸꙰᠁❥ *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
-yuki += `🌹꙰᠁❥ *◜Total De Chats◞* ⇢ ${chats.length}\n`
-yuki += `🌸꙰᠁❥ *◜Usuarios◞* ⇢ ${totalreg}\n`
-yuki += `🌹꙰᠁❥ *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
+let yuki = `🌹 \`\`\`Información - Yuki Suou\`\`\` 🌹\n\n`
+yuki += `👑꙰᠁❥ *◜Creador◞* ⇢ DevDiego\n`
+yuki += `⚜️꙰᠁❥ *◜Prefijo◞* ⇢ [ ${usedPrefix} ]\n`
+yuki += `📚꙰᠁❥ *◜Versión◞* ⇢ ${vs}\n`
+yuki += `👤꙰᠁❥ *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
+yuki += `💬꙰᠁❥ *◜Total De Chats◞* ⇢ ${chats.length}\n`
+yuki += `👥꙰᠁❥ *◜Usuarios◞* ⇢ ${totalreg}\n`
 yuki += `🌸꙰᠁❥ *◜Grupos◞* ⇢ ${groupsIn.length}\n`
-yuki += `🌹꙰᠁❥ *◜Actividad◞* ⇢ ${muptime}\n`
-yuki += `🌸꙰᠁❥ *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
-yuki += `🌹꙰᠁❥ *◜SubBots Activos◞* ⇢ ${totalUsers || '0'}`
+yuki += `⏱️꙰᠁❥ *◜Actividad◞* ⇢ ${muptime}\n`
+yuki += `🚀꙰᠁❥ *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
+yuki += `🌷꙰᠁❥ *◜SubBots Activos◞* ⇢ ${totalUsers || '0'}`
 await conn.sendFile(m.chat, pp, 'yuki.jpg', yuki, fkontak, null, rcanal)
 }
 handler.help = ['status']
