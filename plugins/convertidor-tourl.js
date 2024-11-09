@@ -8,12 +8,12 @@ let handler = async (m) => {
   if (!mime) return conn.reply(m.chat, '🌹 Responde a una *Imagen* o *Vídeo.*', m, rcanal)
   await m.react(rwait)
   try {
-  conn.reply(m.chat, '🌀 Convirtiendo la imagen en url...', m, {
+ /* conn.reply(m.chat, global.wait, m, {
   contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
   title: packname,
-  body: dev,
+  body: wm,
   previewType: 0, thumbnail: icons,
-  sourceUrl: channel }}})
+  sourceUrl: channel }}})*/
   let media = await q.download()
   let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let link = await (isTele ? uploadImage : uploadFile)(media)
@@ -28,12 +28,12 @@ let handler = async (m) => {
 await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, fkontak, rcanal)
 await m.react(done)
 } catch {
-await conn.reply(m.chat, '⚙️ Ocurrió un error', m, fake)
 await m.react(error)
 }}
 handler.help = ['tourl']
 handler.tags = ['transformador']
-handler.command = ['tourl', 'upload']
+handler.register = true
+handler.command = ['tourl','upload']
 export default handler
 
 function formatBytes(bytes) {
