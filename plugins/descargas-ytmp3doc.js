@@ -23,9 +23,9 @@ const getBuffer = async (url) => {
 	await conn.sendMessage(m.chat, { document: audiop, caption: `\`✦ Pedido terminado\``, mimetype: 'audio/mpeg', fileName: `${dp.result.title}` + `.mp3`}, {quoted: m })
 	await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
-handler.help = ['ytmp3doc']
+handler.help = ['ytmp3doc2']
 handler.tags = ['descargas']
-handler.command = /^(ytmp3doc|ytadoc)$/i
+handler.command = /^(ytmp3doc2|ytadoc)$/i
 handler.premium = false
 handler.register = true
 export default handler
