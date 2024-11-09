@@ -6,7 +6,7 @@ import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 
 if (command == 'play' || command == 'musica') {
-if (!text) return conn.reply(m.chat, `*🌠En que lo puedo ayudar? 🚩*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play Ozuna 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
+if (!text) return conn.reply(m.chat, `*🌹 En que lo puedo ayudar? 🌸*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play Ozuna 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
 try {
 const yt_play = await search(args.join(' '))
 const ytplay2 = await yts(text);
@@ -34,7 +34,7 @@ console.log(e)}
 }
 
 if (command == 'play2' || command == 'video') {
-if (!text) return conn.reply(m.chat, `*🌠En que te puedo ayudar? 🚩*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play ozuna 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
+if (!text) return conn.reply(m.chat, `*🌹 En que te puedo ayudar? 🌸*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play ozuna 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
 try { 
 const yt_play = await search(args.join(' '))
 const ytplay2 = await yts(text);
@@ -55,7 +55,7 @@ const delius = await apiResponse.json();
 if (!delius.status) {
 return m.react("❌")}
 const downloadUrl = delius.data.download.url;
-await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `error.mp4`, caption: `🌠 𝘼𝙦𝙪𝙞 𝙚𝙨𝙩𝙖 𝙩𝙪 𝙫𝙞𝙙𝙚𝙤 \n💿 𝙏𝙞𝙩𝙪𝙡𝙤: ${yt_play[0].title}`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m })   
+await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `error.mp4`, caption: `🌷 𝘼𝙦𝙪𝙞 𝙚𝙨𝙩𝙖 𝙩𝙪 𝙫𝙞𝙙𝙚𝙤 \n💿 𝙏𝙞𝙩𝙪𝙡𝙤: ${yt_play[0].title}`, thumbnail: yt_play[0].thumbnail, mimetype: 'video/mp4' }, { quoted: m })   
 m.react("✅")
 } catch (e) {
 await m.react('❌')
@@ -63,7 +63,7 @@ console.log(e)}
 }
 
 if (command == 'play3' || command == 'play4') {
-if (!text) return conn.reply(m.chat, `*🌠En Que Te Puedo ayudar? 🚩*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play ozuna 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
+if (!text) return conn.reply(m.chat, `*🌹 En Que Te Puedo ayudar? 🌸*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play ozuna 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
 const yt_play = await search(args.join(' '))
 const texto1 = `💿 *TITULO* : ${yt_play[0].title}\n📆 *PUBLICADO:* ${yt_play[0].ago}\n⌛ *DURACIÓN:* ${secondString(yt_play[0].duration.seconds)}\n👀 *Vistas:* ${MilesNumber(yt_play[0].views)}`.trim()
 
