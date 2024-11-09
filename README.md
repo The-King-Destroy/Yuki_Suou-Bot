@@ -7,6 +7,11 @@
 > ⚜️ Versión Actual: 1.7.9 
 ---
 
+> **`AVISO`**: Yuki Suou Bot aun no se encuentra disponible para Termux, recomiendo usar un hosting en lo que se soluciona el problema con Termux.
+
+> **`Yuki Suou - Bot`** Bot innovador en constante evolucion
+---
+
 ### **`❕️ Información importante`**
 
 <details>
