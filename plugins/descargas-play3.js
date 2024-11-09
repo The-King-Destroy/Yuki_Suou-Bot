@@ -50,9 +50,9 @@ conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 	await conn.sendFile(m.chat, audiop, `${title}.mp3`, ``, m)*/
 	await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
-handler.help = ['play1']
+handler.help = ['play']
 handler.tags = ['descargas']
-handler.command = /^(play1|song)$/i
+handler.command = /^(play|song)$/i
 //handler.premium = false
 handler.register = true
 export default handler
