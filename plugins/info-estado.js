@@ -1,4 +1,5 @@
-let handler = async (m, { conn, isRowner}) => {
+import ws from 'ws'
+let handler = async (m, { conn, usedPrefix, isRowner}) => {
 let _muptime
 let totalreg = Object.keys(global.db.data.users).length
 let totalchats = Object.keys(global.db.data.chats).length
@@ -11,23 +12,32 @@ setTimeout(resolve, 1000)
 }) * 1000
 }
 let muptime = clockString(_muptime)
+let users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
 const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) 
+const totalUsers = users.length;
+let old = performance.now()
+let neww = performance.now()
+let speed = neww - old
 const used = process.memoryUsage()
-let goku = `╭─⬣「 *Estado De 𝐘𝐮𝐤𝐢* 」⬣\n`
-goku += `│ 🚩 *Creador ∙* ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜\n`
-goku += `│ 📚 *Grupos Unidos ∙* ${groupsIn.length}\n`
-goku += `│ 👤 *Chats Privados ∙* ${chats.length - groupsIn.length}\n`
-goku += `│ 💬 *Total De Chats ∙* ${chats.length}\n`
-goku += `│ 🍟 *Usuarios Registrados ∙* ${totalreg}\n`
-goku += `│ 🍭 *Grupos Registrados ∙* ${totalchats}\n`
-goku += `│ 🕜 *Actividad ∙* ${muptime}\n`
-goku += `╰─⬣`
-await conn.sendFile(m.chat, pp, 'luffy.jpg', goku, fkontak, null, rcanal)
+let yuki = `🍒 \`\`\`Información - Yuki-
+_Suou-Bot\`\`\` 🍒\n\n`
+yuki += `🌹꙰᠁❥ *◜Creador◞* ⇢ DevDiego\n`
+yuki += `🌸꙰᠁❥ *◜Prefijo◞* ⇢ [ ${usedPrefix} ]\n`
+yuki += `🌹꙰᠁❥ *◜Versión◞* ⇢ ${vs}\n`
+yuki += `🌸꙰᠁❥ *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
+yuki += `🌹꙰᠁❥ *◜Total De Chats◞* ⇢ ${chats.length}\n`
+yuki += `🌸꙰᠁❥ *◜Usuarios◞* ⇢ ${totalreg}\n`
+yuki += `🌹꙰᠁❥ *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
+yuki += `🌸꙰᠁❥ *◜Grupos◞* ⇢ ${groupsIn.length}\n`
+yuki += `🌹꙰᠁❥ *◜Actividad◞* ⇢ ${muptime}\n`
+yuki += `🌸꙰᠁❥ *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
+yuki += `🌹꙰᠁❥ *◜SubBots Activos◞* ⇢ ${totalUsers || '0'}`
+await conn.sendFile(m.chat, pp, 'yaemori.jpg', yaemori, fkontak, null, rcanal)
 }
 handler.help = ['status']
 handler.tags = ['info']
-handler.command = /^(estado|status|estate|state|stado|stats)$/i
+handler.command = ['estado', 'status', 'estate', 'state', 'stado', 'stats']
 handler.register = true
 export default handler
 
