@@ -33,7 +33,7 @@ yuki += `🌸꙰᠁❥ *◜Grupos◞* ⇢ ${groupsIn.length}\n`
 yuki += `🌹꙰᠁❥ *◜Actividad◞* ⇢ ${muptime}\n`
 yuki += `🌸꙰᠁❥ *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
 yuki += `🌹꙰᠁❥ *◜SubBots Activos◞* ⇢ ${totalUsers || '0'}`
-await conn.sendFile(m.chat, pp, 'yaemori.jpg', yaemori, fkontak, null, rcanal)
+await conn.sendFile(m.chat, pp, 'yuki.jpg', yuki, fkontak, null, rcanal)
 }
 handler.help = ['status']
 handler.tags = ['info']
