@@ -56,7 +56,7 @@
 
 ---
 
-### **`⬇️ Click en la imagen para obtener termux⬇️`**
+### **`⬇️ Click en la imagen para descargar termux⬇️`**
 <a
 href="https://www.mediafire.com/file/3hsvi3xkpq3a64o/termux_118.a"><img src="https://qu.ax/finc.jpg" height="125px"></a>
 
