@@ -196,6 +196,24 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
+### **`🌌 Hosting Py:`**
+
+<a
+href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z2.jpg" height="125px"></a>
+
+<details>
+ <summary><b> 🌠 Servidor HostingPy</b></summary>
+
+* Dashboard  [`Dash`](https://dahs.hostingpy.shop)
+* Panel [`Panel`](https://panel.hostingpy.shop)
+* Canal de WhatsApp [`Canal Hosting`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+* Comunidad  [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
+* Contacto(s) [`Soporte`](https://wa.me/595976126756)
+
+</details>
+
+---
+
 ### **`🔗 Enlaces útiles`**
 
 <details>
