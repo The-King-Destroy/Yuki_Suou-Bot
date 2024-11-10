@@ -4,7 +4,8 @@ import fetch from 'node-fetch'; // Asegúrate de importar fetch
 const lenguaje = {
     lengua: {
         ia2: 'Por favor, utiliza el comando de esta forma:',
-        espere: 'Por favor, espera un momento mientras generamos la imagen...'
+        espere: 'Por favor, espera un momento mientras generamos la imagen...',
+        error: 'Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.'
     }
 };
 
@@ -31,10 +32,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
                 if (url.includes('dorratz')) {
                     imageUrl = json.data; // Ajusta según la estructura de la respuesta de la API
                 } else if (url.includes('vihangayt')) {
-                    if (json.data) {
-                        imageUrl = json.data; // Ajusta según la estructura de la respuesta de la API
-                    } else {
+                    if (json.data && Array.isArray(json.data)) {
                         imageUrl = json.data[0].images[0].url; // Para lexicaart
+                    } else {
+                        imageUrl = json.data; // Otras respuestas
                     }
                 } else if (url.includes('lolhuman')) {
                     imageUrl = json.data; // Ajusta según la estructura de la respuesta de la API
@@ -58,7 +59,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         }
 
         // Si no se pudo obtener ninguna imagen
-        return m.reply(info.error);
+        return m.reply(lenguaje.lengua.error);
     }
 }
 
