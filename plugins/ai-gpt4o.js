@@ -43,11 +43,11 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
                 const gptResponse = result.data.result.trim();
                 await m.reply(gptResponse); // Responde con el resultado
             } else {
-                throw new Error('Error en la respuesta de la API');
+                throw new Error(`Error en la respuesta de la API: ${JSON.stringify(result)}`);
             }
         } catch (error) {
             console.error("Ocurrió un error:", error);
-            await m.reply("Ocurrió un error al procesar la solicitud. Intenta nuevamente más tarde.");
+            await m.reply(`Ocurrió un error al procesar la solicitud: ${error.message}`);
         }
     }
 }
