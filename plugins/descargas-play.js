@@ -49,7 +49,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         }
 
         const videoInfo = yt_play.all[0];
-        const texto1 = `*🎵 Canción Encontrada ✅*\n📌 *Título:* ${videoInfo.title}\n🕒 *Publicado:* ${videoInfo.ago}\n⏱️ *Duración:* ${secondString(videoInfo.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(videoInfo.views)}\n✍️ *Autor:* ${videoInfo.author.name}\n🔗 *Link:* ${videoInfo.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36`;
+        const texto1 = `*🎵 Canción Encontrada ✅*\n📌 *Título:* ${videoInfo.title}\n🕒 *Publicado:* ${videoInfo.ago}\n⏱️ *Duración:* ${secondString(videoInfo.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(videoInfo.views)}\n✍️ *Autor:* ${videoInfo.author.name}\n🔗 *Link:* ${videoInfo.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T`;
 
         await conn.sendMessage(m.chat, {
             image: { url: videoInfo.thumbnail },
