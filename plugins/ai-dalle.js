@@ -5,7 +5,8 @@ const lenguaje = {
     lengua: {
         ia2: 'Por favor, utiliza el comando de esta forma:',
         espere: 'Por favor, espera un momento mientras generamos la imagen...',
-        error: 'Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.'
+        error: 'Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo.',
+        apiError: 'Error en la API: {error}'
     }
 };
 
@@ -25,6 +26,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         for (const url of imageSources) {
             try {
                 const response = await fetch(url);
+
+                // Verifica si la respuesta fue exitosa
+                if (!response.ok) {
+                    const errorDetails = await response.text();
+                    throw new Error(`Error en la respuesta de la API ${url}: ${errorDetails}`);
+                }
+
                 const json = await response.json();
 
                 let imageUrl;
@@ -55,6 +63,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
                 return; // Salimos del bucle si se envió la imagen
             } catch (error) {
                 console.log(`Error al procesar la solicitud para la URL: ${url}`, error);
+                await m.reply(lenguaje.lengua.apiError.replace('{error}', error.message)); // Mensaje de error específico
             }
         }
 
