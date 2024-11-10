@@ -1,5 +1,6 @@
 //Codígo creado por Destroy wa.me/584120346669
 //Créditos a EliasarYt por brindar la API
+//Por favor dején los créditos tal cual están 
 
 import cheerio from 'cheerio';
 import axios from 'axios';
