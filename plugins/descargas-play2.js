@@ -1,6 +1,14 @@
 import yts from 'yt-search';
 import fetch from 'node-fetch';
 
+// Definición del objeto de lenguaje
+const lenguaje = {
+    descargar: {
+        text4: 'Aquí tienes tu video descargado:',
+        title: 'Título del video:'
+    }
+};
+
 // Función para formatear segundos a un formato legible
 const secondString = (seconds) => {
     const hours = Math.floor(seconds / 3600);
