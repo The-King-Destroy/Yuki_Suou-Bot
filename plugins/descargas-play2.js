@@ -52,7 +52,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         }
 
         const video = yt_play.all[0]; // Obtén el primer video
-        const texto1 = `*🎬 Video Encontrado ✅*\n📌 *Título:* ${video.title}\n🕒 *Publicado:* ${video.ago}\n⏱️ *Duración:* ${secondString(video.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(video.views)}\n✍️ *Autor:* ${video.author.name}\n🔗 *Link:* ${video.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36`;
+        const texto1 = `*🎬 Video Encontrado ✅*\n📌 *Título:* ${video.title}\n🕒 *Publicado:* ${video.ago}\n⏱️ *Duración:* ${secondString(video.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(video.views)}\n✍️ *Autor:* ${video.author.name}\n🔗 *Link:* ${video.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T`;
 
         await conn.sendMessage(m.chat, {
             image: { url: video.thumbnail },
