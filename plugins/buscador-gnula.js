@@ -1,47 +1,42 @@
 //Codígo creado por Destroy wa.me/584120346669
 //Créditos a EliasarYt por brindar la API
 
-import fetch from 'node-fetch';
+import cheerio from 'cheerio';
+import axios from 'axios';
 
 let handler = async (m, { conn }) => {
     let chat = global.db.data.chats[m.chat];
     if (chat.isBanned) return;
 
-    // Verifica si el mensaje es el comando .gnula
-    let movieName = m.text.split('.gnula ')[1]; // Extrae el nombre de la película
+    // Extrae el nombre de la película del mensaje
+    let movieName = m.text.split('.gnula ')[1];
     if (!movieName) {
         return conn.sendMessage(m.chat, { text: 'Por favor, proporciona el nombre de la película.' }, { quoted: m });
     }
 
-    let url = `https://gnula.vercel.app/api/search/gnula?nombre=${encodeURIComponent(movieName)}`; // Codifica el nombre de la película
+    let searchUrl = `https://gnulahd.nu/?s=${encodeURIComponent(movieName)}`;
 
     try {
-        let response = await fetch(url);
-        
-        // Verifica si la respuesta es exitosa
-        if (!response.ok) throw new Error(`Error en la respuesta: ${response.statusText}`);
+        const { data } = await axios.get(searchUrl);
+        const $ = cheerio.load(data);
+        const results = [];
 
-        let data = await response.json();
+        $('.post').each((i, element) => {
+            const titulo = $(element).find('h2 a').attr('title')?.replace('Permanent Link to ', '') || 'Título no disponible';
+            const fechaPublicacion = $(element).find('.time span').text().trim() || 'Fecha no disponible';
+            const autor = $(element).find('.date span').text().replace('posted by ', '').trim() || 'Autor no disponible';
+            const sinopsis = $(element).find('p').eq(1).text().trim() || 'Sinopsis no disponible';
+            const imagen = $(element).find('.entry img').attr('src') || 'Imagen no disponible';
+            const enlace = $(element).find('h2 a').attr('href') || 'Enlace no disponible';
+
+            results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}`);
+        });
 
         // Verifica si hay resultados
-        if (data && data.peliculas && data.peliculas.length > 0) {
-            let results = data.peliculas.map(movie => 
-                `🎬 Título: ${movie.titulo || 'Título no disponible'}\n` +
-                `📅 Publicado: ${movie.fechaPublicacion || 'Fecha no disponible'}\n` +
-                `🖋️ Autor: ${movie.autor || 'Autor no disponible'}\n` +
-                `📖 Sinopsis: ${movie.descripcion || 'Sinopsis no disponible'}\n` +
-                `🖼️ Imagen: ${movie.imagen || 'Imagen no disponible'}\n` +
-                `🔗 Enlace: ${movie.enlace || 'Enlace no disponible'}\n` +
-                `🎞️ Idioma: ${movie.idioma || 'No disponible'}\n` +
-                `📺 Calidad: ${movie.calidad || 'No disponible'}\n` +
-                `⬇️ Descargar: ${movie.enlaceDescarga || 'No disponible'}`
-            ).join('\n\n');
-
+        if (results.length > 0) {
             // Agrega la firma al final del mensaje
-            results += `\n\n> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝑡𝐭ⷭ𓆪͟͞ `;
-
-            // Envía los resultados al chat
-            conn.sendMessage(m.chat, { text: results }, { quoted: m });
+            const output = results.join('\n\n') + `\n\n> ৎ୭࠭͢𝒴𝑢𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝑡𝐭ⷭ𓆪͟͞ `;
+            conn.sendMessage(m.chat, { text: output }, { quoted: m });
         } else {
             conn.sendMessage(m.chat, { text: 'No se encontraron resultados para esa película.' }, { quoted: m });
         }
