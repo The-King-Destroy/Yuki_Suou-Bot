@@ -266,7 +266,7 @@ console.log(chalk.bold.yellowBright("╭┄┄┄┄┄┄┄┄┄┄┄┄┄�
 console.log(chalk.bold.redBright(`\n⚠️ SIN CONEXIÓN, BORRE LA CARPETA ${global.authFile} Y ESCANEA EL CÓDIGO QR ⚠️`))
 await global.reloadHandler(true).catch(console.error)
 } else if (reason === DisconnectReason.restartRequired) {
-console.log(chalk.bold.cyanBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ✓\n┆ ❇️ CONECTANDO AL SERVIDOR...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ✓`))
+console.log(chalk.bold.cyanBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ✓\n┆ 🌸 CONECTANDO AL SERVIDOR...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ✓`))
 await global.reloadHandler(true).catch(console.error)
 } else if (reason === DisconnectReason.timedOut) {
 console.log(chalk.bold.yellowBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ▸\n┆ ⌛ TIEMPO DE CONEXIÓN AGOTADO, RECONECTANDO....\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄ ▸`))
@@ -280,7 +280,7 @@ process.on('uncaughtException', console.error);
 async function connectSubBots() {
 const subBotDirectory = './YukiJadiBot';
 if (!existsSync(subBotDirectory)) {
-console.log('🌹 Yuki_Suou-Bot no tiene Sub-Bots vinculados.');
+console.log('🌷 Yuki_Suou-Bot no tiene Sub-Bots vinculados.');
 return;
 }
 
@@ -297,7 +297,7 @@ return await connectionUpdate(authFile);
 
 const bots = await Promise.all(botPromises);
 global.conns = bots.filter(Boolean);
-console.log(chalk.bold.greenBright(`🥀 Todos los Sub-Bots se conectaron con éxito.`))
+console.log(chalk.bold.greenBright(`🍒 Todos los Sub-Bots se conectaron con éxito.`))
 }
 
 (async () => {
@@ -307,7 +307,7 @@ const mainBotAuthFile = 'YukiSession';
 try {
 const mainBot = await connectionUpdate(mainBotAuthFile);
 global.conns.push(mainBot);
-console.log(chalk.bold.greenBright(`🍒 Yuki Suou conectado correctamente.`))
+console.log(chalk.bold.greenBright(`🌹 Ai Yuki conectado correctamente.`))
 
 await connectSubBots();
 } catch (error) {
@@ -497,7 +497,7 @@ if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
 console.log(chalk.bold.cyanBright(`\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVOS RESIDUALES ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))}, 1000 * 60 * 10)
 
-_quickTest().then(() => conn.logger.info(chalk.bold(`🌹  H E C H O\n`.trim()))).catch(console.error)
+_quickTest().then(() => conn.logger.info(chalk.bold(`🍒  H E C H O\n`.trim()))).catch(console.error)
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => {
