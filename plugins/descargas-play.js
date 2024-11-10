@@ -1,10 +1,11 @@
+
 import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
 import axios from 'axios';
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
-const botName = 'ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ '; // Cambia esto al nombre de tu bot
+const botName = 'ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ '; // Nombre del bot
 
 const handler = async (m, { conn, command, args, text, usedPrefix }) => {
     const responseMessage = (msg) => conn.reply(m.chat, msg, m);
@@ -60,7 +61,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
                 return m.react("❌");
             }
             const downloadUrl = delius.data.download.url;
-            await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `error.mp4`, caption: `🔰 Aquí está tu video \n🔥 Título: ${video.title}`, thumbnail: video.thumbnail, mimetype: 'video/mp4' }, { quoted: m });
+            await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `video.mp4`, caption: `🔰 Aquí está tu video \n🔥 Título: ${video.title}`, thumbnail: video.thumbnail, mimetype: 'video/mp4' }, { quoted: m });
             m.react("✅");
         } catch (e) {
             await m.react('❌');
