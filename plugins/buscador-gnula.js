@@ -25,16 +25,36 @@ let handler = async (m, { conn }) => {
             const titulo = $(element).find('h2 a').attr('title')?.replace('Permanent Link to ', '') || 'Título no disponible';
             const fechaPublicacion = $(element).find('.time span').text().trim() || 'Fecha no disponible';
             const autor = $(element).find('.date span').text().replace('posted by ', '').trim() || 'Autor no disponible';
-            const sinopsis = $(element).find('p').eq(1).text().trim() || 'Sinopsis no disponible';
             const imagen = $(element).find('.entry img').attr('src') || 'Imagen no disponible';
             const enlace = $(element).find('h2 a').attr('href') || 'Enlace no disponible';
 
-            results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}`);
+            // Extraemos la sinopsis (que es también la descripción)
+            const sinopsis = $(element).find('p').eq(1).text().trim() || 'Sinopsis no disponible';
+            
+            // Obtenemos más detalles de la película desde el iframe si está disponible
+            let calidad = '';
+            let idioma = '';
+            let enlaceDescarga = '';
+            const iframeSrc = $(element).find('iframe').attr('src');
+
+            // Hacemos la solicitud al iframe para obtener más detalles
+            if (iframeSrc) {
+                axios.get(iframeSrc).then(response => {
+                    const iframePage = cheerio.load(response.data);
+                    calidad = iframePage('td span').first().text().trim() || 'Calidad no disponible';
+                    idioma = iframePage('td:contains("subtitulado")').text().trim() || 'Idioma no disponible';
+                    enlaceDescarga = iframePage('a.btn-download2').attr('href') || 'No disponible';
+
+                    // Una vez que tengamos los detalles, formateamos la salida
+                    results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}\n🎞️ Idioma: ${idioma}\n📺 Calidad: ${calidad}\n⬇️ Descargar: ${enlaceDescarga}`);
+                }).catch(err => console.error(`Error al obtener detalles del iframe: ${err.message}`));
+            } else {
+                results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}\n🎞️ Idioma: ${idioma}\n📺 Calidad: ${calidad}\n⬇️ Descargar: ${enlaceDescarga}`);
+            }
         });
 
         // Verifica si hay resultados
         if (results.length > 0) {
-            // Agrega la firma al final del mensaje
             const output = results.join('\n\n') + `\n\n> ৎ୭࠭͢𝒴𝑢𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝑡𝐭ⷭ𓆪͟͞ `;
             conn.sendMessage(m.chat, { text: output }, { quoted: m });
         } else {
