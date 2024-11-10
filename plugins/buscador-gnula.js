@@ -27,29 +27,25 @@ let handler = async (m, { conn }) => {
             const autor = $(element).find('.date span').text().replace('posted by ', '').trim() || 'Autor no disponible';
             const imagen = $(element).find('.entry img').attr('src') || 'Imagen no disponible';
             const enlace = $(element).find('h2 a').attr('href') || 'Enlace no disponible';
-
-            // Extraemos la sinopsis (que es también la descripción)
             const sinopsis = $(element).find('p').eq(1).text().trim() || 'Sinopsis no disponible';
-            
-            // Obtenemos más detalles de la película desde el iframe si está disponible
-            let calidad = '';
-            let idioma = '';
-            let enlaceDescarga = '';
+
+            // Intentar obtener detalles adicionales de la película
+            let calidad = 'No disponible';
+            let idioma = 'No disponible';
             const iframeSrc = $(element).find('iframe').attr('src');
 
-            // Hacemos la solicitud al iframe para obtener más detalles
+            // Hacer una solicitud al iframe si está disponible
             if (iframeSrc) {
                 axios.get(iframeSrc).then(response => {
                     const iframePage = cheerio.load(response.data);
-                    calidad = iframePage('td span').first().text().trim() || 'Calidad no disponible';
-                    idioma = iframePage('td:contains("subtitulado")').text().trim() || 'Idioma no disponible';
-                    enlaceDescarga = iframePage('a.btn-download2').attr('href') || 'No disponible';
+                    calidad = iframePage('td:contains("Calidad")').next().text().trim() || 'Calidad no disponible';
+                    idioma = iframePage('td:contains("Idioma")').next().text().trim() || 'Idioma no disponible';
 
-                    // Una vez que tengamos los detalles, formateamos la salida
-                    results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}\n🎞️ Idioma: ${idioma}\n📺 Calidad: ${calidad}\n⬇️ Descargar: ${enlaceDescarga}`);
+                    // Al final, formateamos y enviamos los resultados
+                    results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}\n🎞️ Idioma: ${idioma}\n📺 Calidad: ${calidad}`);
                 }).catch(err => console.error(`Error al obtener detalles del iframe: ${err.message}`));
             } else {
-                results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}\n🎞️ Idioma: ${idioma}\n📺 Calidad: ${calidad}\n⬇️ Descargar: ${enlaceDescarga}`);
+                results.push(`🎬 Título: ${titulo}\n📅 Publicado: ${fechaPublicacion}\n🖋️ Autor: ${autor}\n📖 Sinopsis: ${sinopsis}\n🖼️ Imagen: ${imagen}\n🔗 Enlace: ${enlace}\n🎞️ Idioma: ${idioma}\n📺 Calidad: ${calidad}`);
             }
         });
 
