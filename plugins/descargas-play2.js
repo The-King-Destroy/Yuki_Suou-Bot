@@ -16,18 +16,21 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     m.react('⏳'); // Reacción de espera
 
     const yt_play = await yts(text);
-    if (!yt_play || yt_play.length === 0) {
+    
+    // Verifica si hay resultados
+    if (!yt_play || yt_play.all.length === 0) {
         return m.reply("⚠️ No se encontró ningún video.");
     }
 
-    const texto1 = `*🎬 Video Encontrado ✅*\n📌 *Título:* ${yt_play[0].title}\n🕒 *Publicado:* ${yt_play[0].ago}\n⏱️ *Duración:* ${secondString(yt_play[0].duration.seconds)}\n👀 *Vistas:* ${MilesNumber(yt_play[0].views)}\n✍️ *Autor:* ${yt_play[0].author.name}\n🔗 *Link:* ${yt_play[0].url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36`;
+    const video = yt_play.all[0]; // Obtén el primer video
+    const texto1 = `*🎬 Video Encontrado ✅*\n📌 *Título:* ${video.title}\n🕒 *Publicado:* ${video.ago}\n⏱️ *Duración:* ${secondString(video.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(video.views)}\n✍️ *Autor:* ${video.author.name}\n🔗 *Link:* ${video.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36`;
 
     await conn.sendMessage(m.chat, {
-        image: { url: yt_play[0].thumbnail },
+        image: { url: video.thumbnail },
         caption: texto1
     }, { quoted: m });
 
-    const apiUrl = `https://api.ryzendesu.vip/api/downloader/ytdl?url=${encodeURIComponent(yt_play[0].url)}`;
+    const apiUrl = `https://api.ryzendesu.vip/api/downloader/ytdl?url=${encodeURIComponent(video.url)}`;
 
     try {
         const response = await fetch(apiUrl);
@@ -48,7 +51,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         m.react('✅'); // Reacción de éxito
         m.reply(`✅ ¡Video enviado! Tiempo total de envío: ${totalTime} segundos.`);
     } catch (e) {
-        const apiUrlFallback = `https://api.nyxs.pw/dl/yt-direct?url=${encodeURIComponent(yt_play[0].url)}`;
+        const apiUrlFallback = `https://api.nyxs.pw/dl/yt-direct?url=${encodeURIComponent(video.url)}`;
         try {
             const response = await fetch(apiUrlFallback);
             const responseData = await response.json();
