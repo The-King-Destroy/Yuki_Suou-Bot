@@ -1,11 +1,22 @@
 import yts from 'yt-search';
 import fetch from 'node-fetch';
 
+// Función para formatear segundos a un formato legible
 const secondString = (seconds) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
     return `${hours > 0 ? `${hours}h ` : ''}${minutes}m ${secs}s`;
+}
+
+// Función para formatear números grandes
+const MilesNumber = (number) => {
+    if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M'; // Millones
+    } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K'; // Miles
+    }
+    return number; // Menos de mil
 }
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
