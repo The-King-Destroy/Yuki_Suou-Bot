@@ -1,97 +1,101 @@
-
-/*import fetch from 'node-fetch';
 import yts from 'yt-search';
-import ytdl from 'ytdl-core';
+import fetch from 'node-fetch';
 import axios from 'axios';
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper';
 
-const botName = 'ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ '; // Nombre del bot
-
-const handler = async (m, { conn, command, args, text, usedPrefix }) => {
-    const responseMessage = (msg) => conn.reply(m.chat, msg, m);
-
-    if (command === 'play' || command === 'musica') {
-        if (!text) return responseMessage(`*🤔¿Qué estás buscando? 🤔*\n*Ingrese el nombre de la canción*\n\n*Ejemplo:*\n#play emilia 420`);
-
-        try {
-            const yt_play = await search(args.join(' '));
-            if (!yt_play.length) {
-                return responseMessage(`*❌ No se encontraron resultados para: ${text}*`);
-            }
-
-            const video = yt_play[0]; // Obtener el primer resultado
-            const texto1 = `📌 *Título* : ${video.title}\n📆 *Publicado:* ${video.ago}\n⌚ *Duración:* ${secondString(video.duration.seconds)}`.trim();
-
-            await conn.sendFile(m.chat, video.thumbnail, 'error.jpg', texto1, m, null, fake);
-
-            const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp3?url=${encodeURIComponent(video.url)}`;
-            const apiResponse = await fetch(apiUrl);
-            const delius = await apiResponse.json();
-
-            if (!delius.status) {
-                return m.react("❌");
-            }
-            const downloadUrl = delius.data.download.url;
-            await conn.sendMessage(m.chat, { audio: { url: downloadUrl }, mimetype: 'audio/mpeg' }, { quoted: m });
-        } catch (e) {
-            await m.react('❌');
-            console.error(e);
-        }
+// Definición del objeto de lenguaje
+const lenguaje = {
+    descargar: {
+        text4: 'Aquí tienes tu audio descargado:',
+        title: 'Título de la canción:'
     }
-
-    if (command === 'play2' || command === 'video') {
-        if (!text) return responseMessage(`*🤔¿Qué estás buscando? 🤔*\n*Ingrese el nombre de la canción*\n\n*Ejemplo:*\n#play emilia 420`);
-
-        try {
-            const yt_play = await search(args.join(' '));
-            if (!yt_play.length) {
-                return responseMessage(`*❌ No se encontraron resultados para: ${text}*`);
-            }
-
-            const video = yt_play[0]; // Obtener el primer resultado
-            const texto1 = `📌 *Título* : ${video.title}\n📆 *Publicado:* ${video.ago}\n⌚ *Duración:* ${secondString(video.duration.seconds)}`.trim();
-            m.react("⌛");
-            await conn.sendFile(m.chat, video.thumbnail, 'error.jpg', texto1, m, null, fake);
-
-            const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(video.url)}`;
-            const apiResponse = await fetch(apiUrl);
-            const delius = await apiResponse.json();
-
-            if (!delius.status) {
-                return m.react("❌");
-            }
-            const downloadUrl = delius.data.download.url;
-            await conn.sendMessage(m.chat, { video: { url: downloadUrl }, fileName: `video.mp4`, caption: `🔰 Aquí está tu video \n🔥 Título: ${video.title}`, thumbnail: video.thumbnail, mimetype: 'video/mp4' }, { quoted: m });
-            m.react("✅");
-        } catch (e) {
-            await m.react('❌');
-            console.error(e);
-        }
-    }
-
-    // Código para otros comandos...
 };
 
-handler.help = ['play', 'play2'];
-handler.tags = ['downloader'];
-handler.command = ['play', 'play2', 'play3', 'play4', 'audio', 'video'];
-handler.register = true;
-export default handler;
-
-async function search(query, options = {}) {
-    const searchResult = await yts.search({ query, hl: 'es', gl: 'ES', ...options });
-    return searchResult.videos;
+// Función para formatear segundos a un formato legible
+const secondString = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hours > 0 ? `${hours}h ` : ''}${minutes}m ${secs}s`;
 }
 
-function secondString(seconds) {
-    seconds = Number(seconds);
-    const d = Math.floor(seconds / (3600 * 24));
-    const h = Math.floor((seconds % (3600 * 24)) / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = Math.floor(seconds % 60);
-    const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
-    const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
-    const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
-    const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
-    return dDisplay + hDisplay + mDisplay + sDisplay;
-}*/
+// Función para formatear números grandes
+const MilesNumber = (number) => {
+    if (number >= 1000000) {
+        return (number / 1000000).toFixed(1) + 'M'; // Millones
+    } else if (number >= 1000) {
+        return (number / 1000).toFixed(1) + 'K'; // Miles
+    }
+    return number; // Menos de mil
+}
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+    if (command === 'play' || command === 'musica') {
+        if (!text) return m.reply(`*¿Qué está buscando? 🎶*\nEjemplo: *${usedPrefix + command}* ozuna`);
+
+        const startTime = Date.now();
+
+        conn.fakeReply(
+            m.chat,
+            `*ᴇsᴘᴇʀᴀ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ 🔈.*\n\n> No hagas spam de comandos`,
+            '0@s.whatsapp.net',
+            '𝐄𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐚𝐮𝐝𝐢𝐨 𝐞𝐬𝐩𝐞𝐫𝐚'
+        );
+
+        m.react('⏳'); // Reacción de espera
+
+        const yt_play = await yts(text);
+        if (!yt_play || yt_play.all.length === 0) {
+            return m.reply("⚠️ No se encontró ninguna canción.");
+        }
+
+        const videoInfo = yt_play.all[0];
+        const texto1 = `*🎵 Canción Encontrada ✅*\n📌 *Título:* ${videoInfo.title}\n🕒 *Publicado:* ${videoInfo.ago}\n⏱️ *Duración:* ${secondString(videoInfo.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(videoInfo.views)}\n✍️ *Autor:* ${videoInfo.author.name}\n🔗 *Link:* ${videoInfo.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VadxAUkKLaHjPfS1vP36`;
+
+        await conn.sendMessage(m.chat, {
+            image: { url: videoInfo.thumbnail },
+            caption: texto1
+        }, { quoted: m });
+
+        const apiUrl = `https://api.nyxs.pw/dl/yt-direct?url=${encodeURIComponent(videoInfo.url)}`;
+
+        try {
+            const response = await axios.get(apiUrl);
+            if (response.data.status) {
+                const audioUrl = response.data.result.urlAudio;
+                await conn.sendMessage(m.chat, {
+                    audio: { url: audioUrl },
+                    mimetype: 'audio/mpeg'
+                }, { quoted: m });
+
+                const endTime = Date.now();
+                const totalTime = ((endTime - startTime) / 1000).toFixed(2);
+                m.react('✅'); // Reacción de éxito
+                m.reply(`✅ ¡Audio enviado! Tiempo total de envío: ${totalTime} segundos.`);
+            } else {
+                throw new Error('No se pudo obtener el audio');
+            }
+        } catch (e) {
+            const fallbackAudioUrl = `https://api.dorratz.com/v2/yt-mp3?url=${encodeURIComponent(videoInfo.url)}`;
+            try {
+                await conn.sendMessage(m.chat, {
+                    audio: { url: fallbackAudioUrl },
+                    mimetype: 'audio/mpeg'
+                }, { quoted: m });
+
+                const endTime = Date.now();
+                const totalTime = ((endTime - startTime) / 1000).toFixed(2);
+                m.react('✅'); // Reacción de éxito
+                m.reply(`✅ ¡Audio enviado! Tiempo total de envío: ${totalTime} segundos.`);
+            } catch (error) {
+                m.react('❌'); // Reacción de error
+                m.reply(`Ocurrió un error inesperado - ${error.message}`);
+            }
+        }
+    }
+}
+
+// Configuración del comando
+handler.command = ['play', 'musica'];
+handler.help = ['play', 'musica'];
+handler.tags = ['descargas'];
+export default handler;
