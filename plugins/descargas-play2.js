@@ -1,6 +1,13 @@
 import yts from 'yt-search';
 import fetch from 'node-fetch';
 
+const secondString = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${hours > 0 ? `${hours}h ` : ''}${minutes}m ${secs}s`;
+}
+
 const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `*¿Qué video está buscando? 🎥*\nEjemplo: *${usedPrefix + command}* ozuna`, m;
 
