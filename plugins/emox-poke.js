@@ -33,11 +33,11 @@ let handler = async (m, { conn, usedPrefix }) => {
         let pp = 'https://qu.ax/dzdVR.mp4';
         let pp2 = 'https://qu.ax/AXLDz.mp4';
         let pp3 = 'https://qu.ax/AJEfp.mp4';
-        let pp4 = 'https://qu.ax/LEYfb.mp4'
-        let pp5 = 'https://qu.ax/WNGYF.mp4'
-        let pp6 = 'https://qu.ax/WFWaY.mp4'
-        let pp7 = 'https://qu.ax/ditle.mp4'
-        let pp8 = 'https://qu.ax/dzdVR.mp4'
+        let pp4 = 'https://qu.ax/LEYfb.mp4';
+        let pp5 = 'https://qu.ax/WNGYF.mp4';
+        let pp6 = 'https://qu.ax/WFWaY.mp4';
+        let pp7 = 'https://qu.ax/ditle.mp4';
+        let pp8 = 'https://qu.ax/dzdVR.mp4';
 
         const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
         const video = videos[Math.floor(Math.random() * videos.length)];
