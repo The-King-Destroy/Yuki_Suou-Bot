@@ -6,7 +6,7 @@ import path from 'path';
  
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-  if (!text) throw m.reply(`Ejemplo de uso: ${usedPrefix + command} https://web.whatsapp.com`);
+  if (!text) throw m.reply(`🌸 Ejemplo de uso: ${usedPrefix + command} https://web.whatsapp.com`);
 
 const svweb = {
   recording: async (link, responseType = 1, convertOption = '--convert') => {
