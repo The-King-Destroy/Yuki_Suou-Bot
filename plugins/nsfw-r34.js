@@ -31,7 +31,7 @@ console.error(error);
 await m.reply('🥀 Ocurrió un error.');
 }};
 handler.help = ['r34 <texto>'];
-handler.command = ['r34'];
+handler.command = ['r34', 'rule34', 'rule'];
 handler.tags = ['nsfw'];
 handler.register = true;
 // handler.estrellas = 2;
