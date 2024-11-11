@@ -8,7 +8,7 @@ let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://qu.ax/QGAVS.jpg'  
 
 let nombre, foto, edit, newlink, status, admingp, noadmingp
-nombre = `*${usuario}*\n✨️ Ha cambiado el nombre del grupo\n\n🌻 Ahora el grupo se llama:\n${m.messageStubParameters[0]}*`
+nombre = `*${usuario}*\n🌷 Ha cambiado el nombre del grupo\n\n🌻 Ahora el grupo se llama:\n${m.messageStubParameters[0]}*`
 foto = `*${usuario}*\n🌹 Ha cambiado la imagen de:\n*${groupMetadata.subject}*`
 edit = `*${usuario}*\n🌺 Ha permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} puedan configurar el grupo`
 newlink = `🌸 El enlace del grupo ha sido restablecido por:\n*» ${usuario}*`
@@ -37,9 +37,6 @@ await conn.sendMessage(m.chat, { text: admingp, mentions: [`${m.sender}`,`${m.me
 return;
 } if (chat.detect && m.messageStubType == 30) {
 await conn.sendMessage(m.chat, { text: noadmingp, mentions: [`${m.sender}`,`${m.messageStubParameters[0]}`] }, { quoted: fkontak })  
-
-//} else if (chat.detect && m.messageStubType == 145) {
-//await conn.sendMessage(m.chat, { text: '😿 Se ha activado el modo de aprobación para unirse al grupo.', mentions: [m.sender] })
 
 } else {
 //console.log({ messageStubType: m.messageStubType,
