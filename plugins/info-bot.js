@@ -5,7 +5,7 @@ handler.all = async function(m) {
 
 const chat = global.db.data.chats[m.chat];
 if (chat.isBaneed) return
-if (/^Yuki|yuki$/i.test(m.text)) {
+if (/^bot$/i.test(m.text)) {
 conn.reply(m.chat, `🌹 ¡Hola! Soy 𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉, en que puedo ayudarte hoy?\n\n✰ Usa *!menu* para ver mis comandos.`, m, rcanal, )
 }
 /*if (/^niño|piña|Niño Piña$/i.test(m.text)) {
