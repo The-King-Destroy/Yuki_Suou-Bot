@@ -6,7 +6,7 @@ import path from 'path';
  
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-  if (!text) throw m.reply(`🌸 Ejemplo de uso: ${usedPrefix + command} https://web.whatsapp.com`);
+  if (!text) throw m.reply(`Ejemplo de uso: ${usedPrefix + command} https://web.whatsapp.com`);
 
 const svweb = {
   recording: async (link, responseType = 1, convertOption = '--convert') => {
@@ -57,4 +57,4 @@ handler.help = ['ss2','ssvid'];
 handler.tags = ['descargas'];
 handler.command = /^(ss2|ssvid)$/i;
 
-export default handler;```
+export default handler;
