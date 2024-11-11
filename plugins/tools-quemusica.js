@@ -43,10 +43,19 @@ let handler = async (m) => {
             const videoInfo = yt_play.all[0];
             const audioUrl = videoInfo.url; // URL del video en YouTube
             
-            // Aquí puedes agregar la lógica para descargar el audio utilizando la URL
-            // Por ejemplo, puedes usar una API de descarga o un módulo para descargar el audio
-            
-            m.reply(`🔗 Aquí tienes el enlace al video: ${audioUrl}`); // Puedes cambiar esto para descargarlo directamente
+            // Descarga el audio desde YouTube
+            const downloadUrl = `https://api.nyxs.pw/dl/yt-direct?url=${encodeURIComponent(audioUrl)}`;
+            try {
+                const response = await axios.get(downloadUrl);
+                if (response.data.status) {
+                    const audioDownloadUrl = response.data.result.urlAudio;
+                    m.reply(`🔊 Aquí está el audio descargado: ${audioDownloadUrl}`); // Envía el enlace de descarga
+                } else {
+                    m.reply("🔍 No se pudo obtener la URL de descarga.");
+                }
+            } catch (error) {
+                m.reply(`Ocurrió un error al intentar descargar el audio - ${error.message}`);
+            }
         } else {
             m.reply("🔍 No se encontró el video en YouTube.");
         }
