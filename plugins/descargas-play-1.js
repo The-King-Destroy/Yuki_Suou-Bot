@@ -90,8 +90,8 @@ let { title, thumbnail, quality, downloadUrl } = dataos
     };
     await conn.sendMessage(m.chat, doc, { quoted: m });
 }
-handler.help = ['play.1'];
-handler.tags = ['downloader'];
-handler.command = /^(play.1|song)$/i;
+handler.help = ['play3'];
+handler.tags = ['descargas'];
+handler.command = /^(play3|song)$/i;
 
 export default handler;
