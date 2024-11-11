@@ -30,5 +30,5 @@ fs.unlinkSync(`./tmp/${m.sender}.${ext}`)
 m.reply(txt)
 } else throw '💭 Responda A Un Audio O Video'
 }
-handler.command = ['shazam', 'whatmusic']
+handler.command = ['quemusica', 'quemusicaes']
 export default handler
