@@ -74,7 +74,7 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) {
 };
 handler.tags = ['main']
 handler.help = ['hornymenu']
-handler.group = true;
+//handler.group = true;
 handler.register = true
 handler.command = ['menuhorny','nsfw','hornymenu'];
 handler.exp = 50;
