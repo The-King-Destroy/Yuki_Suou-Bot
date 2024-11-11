@@ -1,4 +1,3 @@
-
 import yts from 'yt-search';
 import axios from 'axios';
 
@@ -25,12 +24,15 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     let mime = (q.msg || q).mimetype || q.mediaType || '';
 
     if (/video|audio/.test(mime)) {
-        let buffer = await q.download(); // Descarga el archivo multimedia
-        let user = global.db.data.users[m.sender];
         await m.react('🕓');
+        
+        // Aquí debes implementar una lógica de reconocimiento de música
+        // Por ejemplo, podrías integrar una API de reconocimiento de música aquí
 
-        // Usar 'yt-search' para buscar el título de la canción
-        const yt_play = await yts('canción'); // Aquí puedes usar el texto que necesitas para buscar
+        // Simulación de búsqueda de canción (esto es solo para ilustrar)
+        const text = "Canción simulada"; // Esto debería ser el resultado del reconocimiento
+        const yt_play = await yts(text);
+
         if (!yt_play || yt_play.all.length === 0) {
             return m.reply("🔍 No se encontró ninguna canción.");
         }
