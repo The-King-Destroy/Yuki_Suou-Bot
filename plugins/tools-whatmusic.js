@@ -21,16 +21,16 @@ const MilesNumber = (number) => {
 }
 
 const handler = async (m, { conn, usedPrefix, command }) => {
-    let q = m.quoted ? m.quoted : m;
+    let q = m.quoted ? m.quoted : m; // Obtiene el mensaje citado o el mensaje actual
     let mime = (q.msg || q).mimetype || q.mediaType || '';
-    
+
     if (/video|audio/.test(mime)) {
-        let buffer = await q.download();
+        let buffer = await q.download(); // Descarga el archivo multimedia
         let user = global.db.data.users[m.sender];
         await m.react('🕓');
 
-        // Usando yts para buscar el título de la canción
-        const yt_play = await yts(q.text);
+        // Usar 'yt-search' para buscar el título de la canción
+        const yt_play = await yts('canción'); // Aquí puedes usar el texto que necesitas para buscar
         if (!yt_play || yt_play.all.length === 0) {
             return m.reply("🔍 No se encontró ninguna canción.");
         }
