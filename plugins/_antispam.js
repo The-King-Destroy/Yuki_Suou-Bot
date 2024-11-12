@@ -35,7 +35,7 @@ const timeDifference = currentTime - userData.lastMessageTime
 if (userData.antiBan === 1) {
 if (userData.message < 1) {
 userData.message++  
-motive = `᥀·࣭࣪̇˖😡◗ 𝙉𝙤 𝙝𝙖𝙜𝙖𝙨 𝙨𝙥𝙖𝙢.`
+motive = `᥀·࣭࣪̇˖😠◗ 𝙉𝙤 𝙝𝙖𝙜𝙖𝙨 𝙨𝙥𝙖𝙢.`
 await conn.reply(m.chat, motive, m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 2) {
@@ -58,7 +58,7 @@ userData.messageCount += 1
 
 if (userData.messageCount >= messageLimit) {
 const mention = `@${sender.split("@")[0]}`
-const warningMessage = `😡 _*Mucho Spam*_\n\n𝙐𝙨𝙪𝙖𝙧𝙞𝙤: ${mention}`
+const warningMessage = `🌷 _*Mucho Spam*_\n\n𝙐𝙨𝙪𝙖𝙧𝙞𝙤: ${mention}`
 if (userData.antiBan > 2) return
 await conn.reply(m.chat, warningMessage, m, { mentions: [m.sender] })  
 user.banned = true
