@@ -55,10 +55,10 @@ global.done = '✅'
 global.error = '✖️'
 
 //Emojis determinado de Ai Yaemori
-global.emoji = '🔥'
-global.emoji2 = '💥'
-global.emoji3 = '❤️‍🔥'
-global.emoji4 = '🍭'
+global.emoji = '🌸'
+global.emoji2 = '🌷'
+global.emoji3 = '🌹'
+global.emoji4 = '🍒'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
