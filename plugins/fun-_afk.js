@@ -1,8 +1,13 @@
-export async function before(m) {
+//import db from '../lib/database.js'
+
+export function before(m) {
     let user = global.db.data.users[m.sender]
-    if (user.afk > 0) {
-        await m.reply(`🌸 Dejaste de estar *AFK* despues de *${(new Date - user.afk).toTimeString()}.*`)
-        user.afk = 0
+    if (user.afk > -1) {
+        m.reply(`
+   Dejaste de estar afk ✅
+${user.afkReason ? ' \n💬 *Razon :* ' + user.afkReason : ''}
+⏱️ *Estuviste afk durante* ${(new Date - user.afk).toTimeString()} :3  `.trim())
+        user.afk = -1
         user.afkReason = ''
     }
     let jids = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
@@ -14,7 +19,12 @@ export async function before(m) {
         if (!afkTime || afkTime < 0)
             continue
         let reason = user.afkReason || ''
-        await m.reply(`🌹 El usuario que intentas etiquetar esta *AFK* por la razón *${reason ? reason : '...'}* durante *${(new Date - afkTime).toTimeString()}*.`)
+        m.reply(`
+💤 La persona que mencionas está afk 💤
+
+${reason ? '💬 *Razon* : ' + reason : '💬 *Razon* : Sin razon'}
+⏱️ *Lleva afk :* ${(new Date - afkTime).toTimeString()} :3 
+  `.trim())
     }
     return true
 }
