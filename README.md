@@ -4,7 +4,7 @@
 
   [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=FF0000&lines=𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨+𝐚𝐥+𝐑𝐞𝐩𝐨𝐬𝐢𝐭𝐨𝐫𝐢𝐨+𝐎𝐟𝐢𝐜𝐢𝐚𝐥+𝐝𝐞;✨𝐘𝐮𝐤𝐢-𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✨;𝐆𝐫𝐚𝐜𝐢𝐚𝐬+𝐩𝐨𝐫+𝐩𝐫𝐞𝐟𝐞𝐫𝐢𝐫𝐧𝐨𝐬;𝐂𝐫𝐞𝐚𝐝𝐨+𝐩𝐨𝐫+𝐈'𝐚𝐦|𝐃𝐞𝐬𝐭𝐫𝐨𝐲𒆜;✨+🌹🫦💖!!!)](https://git.io/typing-svg)
 ![𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉](https://files.catbox.moe/om9jai.jpg)
-> ⚜️ Versión Actual: 1.7.9 
+> ⚜️ Versión Actual: 1.8.0 
 ---
 
 > **`AVISO`**: Yuki Suou Bot aun no se encuentra disponible para Termux, recomiendo usar un hosting en lo que se soluciona el problema con Termux.
