@@ -54,7 +54,7 @@ global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de Ai Yaemori
+//Emojis determinado de Yuki Suou Bot 
 global.emoji = '🌸'
 global.emoji2 = '🌷'
 global.emoji3 = '🌹'
@@ -88,7 +88,7 @@ const rimg = await response.buffer()
 global.icons = rimg
 
 //• ↳ ◜𝑻𝑰𝑬𝑴𝑷𝑶 𝑹𝑷𝑮◞ • ⚔
-var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 🌃'; break; case 1: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 🌃'; break; case 2: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓝𝓸𝓬𝓱𝓮𝓼 🌃'; break; case 3: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌄'; break; case 4: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌄'; break; case 5: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌄'; break; case 6: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌄'; break; case 7: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌅'; break; case 8: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌄'; break; case 9: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌄'; break; case 10: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌤'; break; case 11: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌤'; break; case 12: hour = '𝓑𝓾𝓮𝓷𝓸𝓼 𝓓í𝓪𝓼 🌤'; break; case 13: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓣𝓪𝓻𝓭𝓮𝓼 🌤'; break; case 14: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓣𝓪𝓻𝓭𝓮𝓼 🌆'; break; case 15: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓣𝓪𝓻𝓭𝓮𝓼 🌆'; break; case 16: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓣𝓪𝓻𝓭𝓮𝓼 🌆'; break; case 17: hour = '𝓑𝓾𝓮𝓷𝓪𝓼 𝓣𝓪𝓻𝓭𝓮𝓼 🌆'; break; case 18: hour = '𝓛𝓲𝓷𝓭𝓪 𝓝𝓸𝓬𝓱𝓮 🌃'; break; case 19: hour = '𝓛𝓲𝓷𝓭𝓪 𝓝𝓸𝓬𝓱𝓮 🌃'; break; case 20: hour = '𝓛𝓲𝓷𝓭𝓪 𝓝𝓸𝓬𝓱𝓮 🌃'; break; case 21: hour = '𝓛𝓲𝓷𝓭𝓪 𝓝𝓸𝓬𝓱𝓮 🌃'; break; case 22: hour = '𝓛𝓲𝓷𝓭𝓪 𝓝𝓸𝓬𝓱𝓮 🌃'; break; case 23: hour = '𝓛𝓲𝓷𝓭𝓪 𝓝𝓸𝓬𝓱𝓮 🌃'; break;}
+var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 1: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 2: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 3: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌄'; break; case 4: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌄'; break; case 5: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌄'; break; case 6: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌄'; break; case 7: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌅'; break; case 8: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌄'; break; case 9: hour = 'Lɪɴᴅᴀ Mᴀɴ̃ᴀɴᴀ 🌄'; break; case 10: hour = 'Lɪɴᴅᴏ Dɪᴀ 🌤'; break; case 11: hour = 'Lɪɴᴅᴏ Dɪᴀ 🌤'; break; case 12: hour = 'Lɪɴᴅᴏ Dɪᴀ 🌤'; break; case 13: hour = 'Lɪɴᴅᴏ Dɪᴀ 🌤'; break; case 14: hour = 'Lɪɴᴅᴀ Tᴀʀᴅᴇ 🌆'; break; case 15: hour = 'Lɪɴᴅᴀ Tᴀʀᴅᴇ 🌆'; break; case 16: hour = 'Lɪɴᴅᴀ Tᴀʀᴅᴇ 🌆'; break; case 17: hour = 'Lɪɴᴅᴀ Tᴀʀᴅᴇ 🌆'; break; case 18: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 19: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 20: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 21: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 22: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break; case 23: hour = 'Lɪɴᴅᴀ Nᴏᴄʜᴇ 🌃'; break;}
 global.saludo = hour;
 
 //tags
