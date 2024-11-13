@@ -6,7 +6,7 @@ const handler = async (m, { conn, args }) => {
     const text = contentParts.join(" ");
 
     if (!text) {
-        return m.reply("*🌹 nombre y texto para subir\n .paste Yuki-Suou-Bot*");
+        return m.reply("🌹 *nombre y texto para subir*\n *Ejemplo:*\n *.paste Yuki-Suou-Bot*");
     }
 
     const fileName = name || "nombre_no_definifo";
