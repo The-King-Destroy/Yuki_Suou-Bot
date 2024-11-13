@@ -6,7 +6,7 @@ const handler = async (m, { conn, args }) => {
     const text = contentParts.join(" ");
 
     if (!text) {
-        return m.reply("🌹 *nombre y texto.*\n\n *Ejemplo:*\n\n *.paste Yuki Yuki_Suou-Bot*");
+        return m.reply("🌹 *nombre y texto que deseás subír.*\n\n *Ejemplo:*\n\n *.paste Yuki ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ *");
     }
 
     const fileName = name || "nombre_no_definifo";
@@ -56,7 +56,7 @@ const handler = async (m, { conn, args }) => {
     }
 };
 
-handler.tags = ['tools'];
+handler.tags = ['transformador'];
 handler.command = ['paste'];
 handler.help = ['paste nombre txt'];
 
