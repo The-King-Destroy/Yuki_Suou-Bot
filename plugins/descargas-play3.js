@@ -28,7 +28,7 @@ const MilesNumber = (number) => {
 }
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (command === 'play' || command === 'musica') {
+    if (command === 'play3' || command === 'musica') {
         if (!text) return m.reply(`*¿Qué está buscando? 🎶*\nEjemplo: *${usedPrefix + command}* ozuna`);
 
         conn.fakeReply(
