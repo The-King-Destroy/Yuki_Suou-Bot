@@ -1,5 +1,4 @@
 import yts from 'yt-search';
-import fetch from 'node-fetch';
 import axios from 'axios';
 
 // Definición del objeto de lenguaje
@@ -32,16 +31,14 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (command === 'play' || command === 'musica') {
         if (!text) return m.reply(`*¿Qué está buscando? 🎶*\nEjemplo: *${usedPrefix + command}* ozuna`);
 
-        const startTime = Date.now();
-
         conn.fakeReply(
             m.chat,
-            `*ᴇsᴘᴇʀᴀ ᴜ�? ᴍᴏᴍᴇɴᴛᴏ 🔈.*\n\n> No hagas spam de comandos`,
+            `*ᴇsᴘᴇʀᴀ ᴜɴ ᴍᴏᴍᴇɴᴛᴏ 🔈.*\n\n> No hagas spam de comandos`,
             '0@s.whatsapp.net',
             '𝐄𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐚𝐮𝐝𝐢𝐨 𝐞𝐬𝐩𝐞𝐫𝐚'
         );
 
-        m.react('�?'); // Reacción de espera
+        m.react('⏳'); // Reacción de espera
 
         const yt_play = await yts(text);
         if (!yt_play || yt_play.all.length === 0) {
@@ -49,7 +46,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         }
 
         const videoInfo = yt_play.all[0];
-        const texto1 = `*🎵 Canción Encontrada �?*\n📌 *Título:* ${videoInfo.title}\n🕒 *Publicado:* ${videoInfo.ago}\n⏱️ *Duración:* ${secondString(videoInfo.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(videoInfo.views)}\n✍️ *Autor:* ${videoInfo.author.name}\n🔗 *Link:* ${videoInfo.url}\n\n�? *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T`;
+        const texto1 = `*🎵 Canción Encontrada ✅*\n📌 *Título:* ${videoInfo.title}\n🕒 *Publicado:* ${videoInfo.ago}\n⏱️ *Duración:* ${secondString(videoInfo.duration.seconds)}\n👀 *Vistas:* ${MilesNumber(videoInfo.views)}\n✍️ *Autor:* ${videoInfo.author.name}\n🔗 *Link:* ${videoInfo.url}\n\n✨ *Recuerda seguir mi canal, me apoyarías mucho* 🙏: https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T`;
 
         await conn.sendMessage(m.chat, {
             image: { url: videoInfo.thumbnail },
@@ -61,16 +58,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         try {
             const response = await axios.get(apiUrl);
             if (response.data.status) {
-                const audioUrl = response.data.result.urlAudio;
+                const audioUrl = response.data.result.urlAudio; // Asegúrate de que esta URL sea de buena calidad
                 await conn.sendMessage(m.chat, {
                     audio: { url: audioUrl },
                     mimetype: 'audio/mpeg'
                 }, { quoted: m });
-
-                const endTime = Date.now();
-                const totalTime = ((endTime - startTime) / 1000).toFixed(2);
-                m.react('�?'); // Reacción de éxito
-                m.reply(`�? ¡Audio enviado! Tiempo total de envío: ${totalTime} segundos.`);
+                // No enviar mensaje de confirmación
             } else {
                 throw new Error('No se pudo obtener el audio');
             }
@@ -81,13 +74,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
                     audio: { url: fallbackAudioUrl },
                     mimetype: 'audio/mpeg'
                 }, { quoted: m });
-
-                const endTime = Date.now();
-                const totalTime = ((endTime - startTime) / 1000).toFixed(2);
-                m.react('�?'); // Reacción de éxito
-                m.reply(`�? ¡Audio enviado! Tiempo total de envío: ${totalTime} segundos.`);
+                // No enviar mensaje de confirmación
             } catch (error) {
-                m.react('�?'); // Reacción de error
+                m.react('❌'); // Reacción de error
                 m.reply(`Ocurrió un error inesperado - ${error.message}`);
             }
         }
