@@ -48,9 +48,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
 }
 
-handler.help = ['preg/embarazar @tag'];
+handler.help = ['pregg/embarazar @tag'];
 handler.tags = ['emox'];
-handler.command = ['preg','embarazar','preñar'];
+handler.command = ['pregg','embarazar','preñar'];
 handler.group = true;
 
 export default handler;
