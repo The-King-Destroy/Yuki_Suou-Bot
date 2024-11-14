@@ -259,23 +259,23 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝×𝕽×𝕻×𝕲×ᚐ҉ᚐ 」
 
-𒀭 .adventure
-𒀭 .annual
-𒀭 .yearly
-𒀭 .caza
-𒀭 .cofre
-𒀭 .daily
-𒀭 .claim
-𒀭 .halloween
-𒀭 .heal
-𒀭 .lb
-𒀭 .levelup
-𒀭 .mazmorra
-𒀭 .monthly
-𒀭 .navidad
-𒀭 .christmas
-𒀭 .addprem [@user] <days>
-𒀭 .weekly
+♤ .adventure
+♤ .annual
+♤ .yearly
+♤ .caza
+♤ .cofre
+♤ .daily
+♤ .claim
+♤ .halloween
+♤ .heal
+♤ .lb
+♤ .levelup
+♤ .mazmorra
+♤ .monthly
+♤ .navidad
+♤ .christmas
+♤ .addprem [@user] <days>
+♤ .weekly
 
 「 ♡⃝𝕾𝖊𝖗𝖇𝖔𝖙/𝕮𝖔𝖉𝖊ᚐ҉ᚐ 」
 
