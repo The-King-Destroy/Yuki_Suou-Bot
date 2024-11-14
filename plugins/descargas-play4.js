@@ -63,6 +63,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
             const apiUrl = `https://api.ryzendesu.vip/api/downloader/ytdl?url=${encodeURIComponent(video.url)}`;
 
             const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+            }
+
             const data = await response.json();
 
             // Busca video en 360p
