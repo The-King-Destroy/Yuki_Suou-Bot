@@ -441,6 +441,7 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 ❦ .emojimix *<emoji+emoji>*
 ❦ .qc
+❦ .brad<mensaje>
 ❦ .stiker <img>
 ❦ .sticker <url>
 ❦ .toimg (reply)
