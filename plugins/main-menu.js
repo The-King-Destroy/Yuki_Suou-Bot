@@ -428,15 +428,15 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝𝕮𝖔𝖓𝖛𝖊𝖗𝖙𝖎𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」
 
-𒄆 .ibb
-𒄆 .paste nombre txt
-𒄆 .to <reply image>
-𒄆 .toanime
-𒄆 .togifaud
-𒄆 .tourl
-𒄆 .tovideo
-𒄆 .tts <lang> <teks>
-𒄆 .tourl2
+ꕥ .ibb
+ꕥ .paste nombre txt
+ꕥ .to <reply image>
+ꕥ .toanime
+ꕥ .togifaud
+ꕥ .tourl
+ꕥ .tovideo
+ꕥ .tts <lang> <teks>
+ꕥ .tourl2
 
 「 ♡⃝𝕾𝖙𝖎𝖈𝖐𝖊𝖗𝖘ᚐ҉ᚐ 」
 
