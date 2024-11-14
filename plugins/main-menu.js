@@ -102,257 +102,257 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝𝕯𝖎𝖛𝖊𝖗𝖘𝖎ó𝖓ᚐ҉ᚐ 」
 
-❦ .amistad
-❦ .gay <@tag> | <nombre>
-❦ .lesbiana <@tag> | <nombre>
-❦ .pajero <@tag> | <nombre>
-❦ .pajera <@tag> | <nombre>
-❦ .puto <@tag> | <nombre>
-❦ .puta <@tag> | <nombre>
-❦ .manco <@tag> | <nombre>
-❦ .manca <@tag> | <nombre>
-❦ .rata <@tag> | <nombre>
-❦ .prostituta <@tag> | <nombre>
-❦ .prostituto <@tag> | <nombre>
-❦ .casarse @tag
-❦ .consejo
-❦ .divorciarse @tag
-❦ .doxear
-❦ .doxxing <nombre> | <@tag>
-❦ .formarpareja
-❦ .formarpareja5
-❦ .horny
-❦ .hornycard
-❦ .huevo @user
-❦ .iqtest
-❦ .marica
-❦ .meme
-❦ .minovia @user
-❦ .morse *<encode|decode>*
-❦ .nombreninja *<texto>*
-❦ .pajeame
-❦ .personalidad
-❦ .piropo
-❦ .pokedex *<pokemon>*
-❦ .pregunta
-❦ .ship
-❦ .love
-❦ .simpcard
-❦ .sorteo
-❦ .itssostupid
-❦ .estupido
-❦ .stupid
-❦ .top *<texto>*
-❦ .formartrio @usuario1 @usuario2
-❦ .waste @user
-❦ .zodiac *2002 02 25*
-❦ .aceptar
-❦ .apostar
-❦ .seleccionar
+☪ .amistad
+☪ .gay <@tag> | <nombre>
+☪ .lesbiana <@tag> | <nombre>
+☪ .pajero <@tag> | <nombre>
+☪ .pajera <@tag> | <nombre>
+☪ .puto <@tag> | <nombre>
+☪ .puta <@tag> | <nombre>
+☪ .manco <@tag> | <nombre>
+☪ .manca <@tag> | <nombre>
+☪ .rata <@tag> | <nombre>
+☪ .prostituta <@tag> | <nombre>
+☪ .prostituto <@tag> | <nombre>
+☪ .casarse @tag
+☪ .consejo
+☪ .divorciarse @tag
+☪ .doxear
+☪ .doxxing <nombre> | <@tag>
+☪ .formarpareja
+☪ .formarpareja5
+☪ .horny
+☪ .hornycard
+☪ .huevo @user
+☪ .iqtest
+☪ .marica
+☪ .meme
+☪ .minovia @user
+☪ .morse *<encode|decode>*
+☪ .nombreninja *<texto>*
+☪ .pajeame
+☪ .personalidad
+☪ .piropo
+☪ .pokedex *<pokemon>*
+☪ .pregunta
+☪ .ship
+☪ .love
+☪ .simpcard
+☪ .sorteo
+☪ .itssostupid
+☪ .estupido
+☪ .stupid
+☪ .top *<texto>*
+☪ .formartrio @usuario1 @usuario2
+☪ .waste @user
+☪ .zodiac *2002 02 25*
+☪ .aceptar
+☪ .apostar
+☪ .seleccionar
 
 「 ♡⃝𝕵𝖚𝖊𝖌𝖔𝖘ᚐ҉ᚐ 」
 
-❦ .acertijo
-❦ .paises
-❦ .peliculas
-❦ .ahorcado
-❦ .math <mode>
-❦ .mayorque
-❦ .ppt
-❦ .reto
-❦ .sopa
-❦ .buscarpalabras
-❦ .verdad
+✧ .acertijo
+✧ .paises
+✧ .peliculas
+✧ .ahorcado
+✧ .math <mode>
+✧ .mayorque
+✧ .ppt
+✧ .reto
+✧ .sopa
+✧ .buscarpalabras
+✧ .verdad
 
 「 ♡⃝𝕰𝖒𝖔𝖏𝖎-𝕬𝖓𝖎𝖒𝖊ᚐ҉ᚐ 」
 
-❦ .angry/enojado @tag
-❦ .bath/bañarse @tag
-❦ .bite/morder @tag
-❦ .bleh/lengua @tag
-❦ .blush/sonrojarse @tag
-❦ .bored/aburrido @tag
-❦ .coffe/cafe @tag
-❦ .cry/llorar @tag
-❦ .cuddle/acurrucarse @tag
-❦ .dance/bailar @tag
-❦ .drunk/borracho @tag
-❦ .eat/comer @tag
-❦ .facepalm/palmada @tag
-❦ .grop/manosear @tag
-❦ .happy/feliz @tag
-❦ .hello/hola @tag
-❦ .hug/abrazar @tag
-❦ .kill/matar @tag
-❦ .kiss/besar @tag
-❦ .kiss2/besar2 @tag
-❦ .laugh/reirse @tag
-❦ .lick/lamer @tag
-❦ .love2/enamorada @tag
-❦ .patt/acariciar @tag
-❦ .poke/picar @tag
-❦ .pout/pucheros @tag
-❦ .preg/embarazar @tag
-❦ .punch/golpear @tag
-❦ .run/correr @tag
-❦ .sad/triste @tag
-❦ .scared/asustada @tag
-❦ .seduce/seducir @tag
-❦ .shy/timida @tag
-❦ .slap/bofetada @tag
-❦ .sleep/dormir @tag
-❦ .smoke/fumar @tag
-❦ .think/pensando @tag
-❦ .undress/encuerar @tag
+✥ .angry/enojado @tag
+✥ .bath/bañarse @tag
+✥ .bite/morder @tag
+✥ .bleh/lengua @tag
+✥ .blush/sonrojarse @tag
+✥ .bored/aburrido @tag
+✥ .coffe/cafe @tag
+✥ .cry/llorar @tag
+✥ .cuddle/acurrucarse @tag
+✥ .dance/bailar @tag
+✥ .drunk/borracho @tag
+✥ .eat/comer @tag
+✥ .facepalm/palmada @tag
+✥ .grop/manosear @tag
+✥ .happy/feliz @tag
+✥ .hello/hola @tag
+✥ .hug/abrazar @tag
+✥ .kill/matar @tag
+✥ .kiss/besar @tag
+✥ .kiss2/besar2 @tag
+✥ .laugh/reirse @tag
+✥ .lick/lamer @tag
+✥ .love2/enamorada @tag
+✥ .patt/acariciar @tag
+✥ .poke/picar @tag
+✥ .pout/pucheros @tag
+✥ .preg/embarazar @tag
+✥ .punch/golpear @tag
+✥ .run/correr @tag
+✥ .sad/triste @tag
+✥ .scared/asustada @tag
+✥ .seduce/seducir @tag
+✥ .shy/timida @tag
+✥ .slap/bofetada @tag
+✥ .sleep/dormir @tag
+✥ .smoke/fumar @tag
+✥ .think/pensando @tag
+✥ .undress/encuerar @tag
 
 「 ♡⃝𝕹𝕾𝕱𝖂ᚐ҉ᚐ 」
 
-❦ .sixnine/69 @tag
-❦ .anal/culiar @tag
-❦ .blowjob/mamada @tag
-❦ .boobjob/rusa @tag
-❦ .cum/leche @tag
-❦ .fap/paja @tag
-❦ .follar @tag
-❦ .footjob/pies @tag
-❦ .fuck/coger @tag
-❦ .fuck2/coger2 @tag
-❦ .grabboobs/agarrartetas @tag
-❦ .penetrar @user
-❦ .lickpussy/coño @tag
-❦ .sexo/sex @tag
-❦ .spank/nalgada @tag
-❦ .suckboobs/chupartetas @tag
-❦ .violar/perra @tag
-❦ .lesbianas/tijeras @tag
+✤ .sixnine/69 @tag
+✤ .anal/culiar @tag
+✤ .blowjob/mamada @tag
+✤ .boobjob/rusa @tag
+✤ .cum/leche @tag
+✤ .fap/paja @tag
+✤ .follar @tag
+✤ .footjob/pies @tag
+✤ .fuck/coger @tag
+✤ .fuck2/coger2 @tag
+✤ .grabboobs/agarrartetas @tag
+✤ .penetrar @user
+✤ .lickpussy/coño @tag
+✤ .sexo/sex @tag
+✤ .spank/nalgada @tag
+✤ .suckboobs/chupartetas @tag
+✤ .violar/perra @tag
+✤ .lesbianas/tijeras @tag
 
 「 ♡⃝𝕽𝖔𝖑𝖑𝖜𝖆𝖎𝖋𝖚𝖘ᚐ҉ᚐ 」
 
-❦ .character
-❦ .darrw
-❦ .obtenidos
-❦ .c
-❦ .robarpersonaje
-❦ .rw
-❦ .toprw
+✦ .character
+✦ .darrw
+✦ .obtenidos
+✦ .c
+✦ .robarpersonaje
+✦ .rw
+✦ .toprw
 
 「 ♡⃝𝕰𝖈𝖔𝖓𝖔𝖒í𝖆ᚐ҉ᚐ 」
 
-❦ .bal
-❦ .bank
-❦ .cookies
-❦ .apostar *<cantidad>*
-❦ .cf
-❦ .crimen
-❦ .depositar
-❦ .minar
-❦ .retirar
-❦ .rob2
-❦ .rob
-❦ .ruleta *<cantidad> <color>*
-❦ .Buy
-❦ .Buyall
-❦ .slot <apuesta>
-❦ .slut
-❦ .trabajar
-❦ .transfer [tipo] [cantidad] [@tag]
+✱ .bal
+✱ .bank
+✱ .cookies
+✱ .apostar *<cantidad>*
+✱ .cf
+✱ .crimen
+✱ .depositar
+✱ .minar
+✱ .retirar
+✱ .rob2
+✱ .rob
+✱ .ruleta *<cantidad> <color>*
+✱ .Buy
+✱ .Buyall
+✱ .slot <apuesta>
+✱ .slut
+✱ .trabajar
+✱ .transfer [tipo] [cantidad] [@tag]
 
 「 ♡⃝×𝕽×𝕻×𝕲×ᚐ҉ᚐ 」
 
-❦ .adventure
-❦ .annual
-❦ .yearly
-❦ .caza
-❦ .cofre
-❦ .daily
-❦ .claim
-❦ .halloween
-❦ .heal
-❦ .lb
-❦ .levelup
-❦ .mazmorra
-❦ .monthly
-❦ .navidad
-❦ .christmas
-❦ .addprem [@user] <days>
-❦ .weekly
+𒀭 .adventure
+𒀭 .annual
+𒀭 .yearly
+𒀭 .caza
+𒀭 .cofre
+𒀭 .daily
+𒀭 .claim
+𒀭 .halloween
+𒀭 .heal
+𒀭 .lb
+𒀭 .levelup
+𒀭 .mazmorra
+𒀭 .monthly
+𒀭 .navidad
+𒀭 .christmas
+𒀭 .addprem [@user] <days>
+𒀭 .weekly
 
 「 ♡⃝𝕾𝖊𝖗𝖇𝖔𝖙/𝕮𝖔𝖉𝖊ᚐ҉ᚐ 」
 
-❦ .jadibot
-❦ .serbot
-❦ .getcode
-❦ .rentbot
+✾ .jadibot
+✾ .serbot
+✾ .getcode
+✾ .rentbot
 
 「 ♡⃝𝕭𝖚𝖘𝖈𝖆𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」
 
-❦ .animesearch
-❦ .applemusicdetail
-❦ .applemusicsearch
-❦ .githubsearch
-❦ .gnula
-❦ .googlesearch *<texto>*
-❦ .npmjs
-❦ .twitterstalk <username>
-❦ .tiktoksearch <txt>
-❦ .tweetposts *<búsqueda>*
-❦ .wikis
-❦ .xnxxsearch <query>
-❦ .ytsearch
-❦ .imagen <query>
+☸ .animesearch
+☸ .applemusicdetail
+☸ .applemusicsearch
+☸ .githubsearch
+☸ .gnula
+☸ .googlesearch *<texto>*
+☸ .npmjs
+☸ .twitterstalk <username>
+☸ .tiktoksearch <txt>
+☸ .tweetposts *<búsqueda>*
+☸ .wikis
+☸ .xnxxsearch <query>
+☸ .ytsearch
+☸ .imagen <query>
 
 「 ♡⃝𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖘ᚐ҉ᚐ 」
 
-❦ .animedl
-❦ .apk2
-❦ .apkmod
-❦ .applemusic
-❦ .bilibili
-❦ .deezer
-❦ .facebook
-❦ .fb
-❦ .gdrive
-❦ .gitclone *<url git>*
-❦ .instagram2
-❦ .ig2
-❦ .imagen <query>
-❦ .mangad <nombre del manga> <número del capítulo>
-❦ .mediafire
-❦ .mega
-❦ .aptoide
-❦ .pinterest
-❦ .pinvid
-❦ .play
-❦ .musica
-❦ .play1
-❦ .playvid
-❦ .video
-❦ .play2
-❦ .play3
-❦ .play4
-❦ .applemusicplay
-❦ .tiktokrandom
-❦ .snackvideo *<link>*
-❦ .soundclouddl *<link>*
-❦ .spotify
-❦ .threads *<link>*
-❦ .tiktokimg <url>
-❦ .tiktokmp3 *<link>*
-❦ .tiktok
-❦ .tiktok2 *<link>*
-❦ .wallpaper <query>
-❦ .tw
-❦ .zedgedl *<link>*
-❦ .ss2
-❦ .ssvid
+Ѽ .animedl
+Ѽ .apk2
+Ѽ .apkmod
+Ѽ .applemusic
+Ѽ .bilibili
+Ѽ .deezer
+Ѽ .facebook
+Ѽ .fb
+Ѽ .gdrive
+Ѽ .gitclone *<url git>*
+Ѽ .instagram2
+Ѽ .ig2
+Ѽ .imagen <query>
+Ѽ .mangad <nombre del manga> <número del capítulo>
+Ѽ .mediafire
+Ѽ .mega
+Ѽ .aptoide
+Ѽ .pinterest
+Ѽ .pinvid
+Ѽ .play
+Ѽ .musica
+Ѽ .play1
+Ѽ .playvid
+Ѽ .video
+Ѽ .play2
+Ѽ .play3
+Ѽ .play4
+Ѽ .applemusicplay
+Ѽ .tiktokrandom
+Ѽ .snackvideo *<link>*
+Ѽ .soundclouddl *<link>*
+Ѽ .spotify
+Ѽ .threads *<link>*
+Ѽ .tiktokimg <url>
+Ѽ .tiktokmp3 *<link>*
+Ѽ .tiktok
+Ѽ .tiktok2 *<link>*
+Ѽ .wallpaper <query>
+Ѽ .tw
+Ѽ .zedgedl *<link>*
+Ѽ .ss2
+Ѽ .ssvid
 
 「 ♡⃝×𝕬×𝕴×ᚐ҉ᚐ 」
 
-❦ .blackbox <pregunta>
-❦ .demo
-❦ .gemini
-❦ .yuki
-❦ .bot
+🕸 .blackbox <pregunta>
+🕸 .demo
+🕸 .gemini
+🕸 .yuki
+🕸 .bot
 
 「 ♡⃝𝕲𝖗𝖚𝖕𝖔𝖘ᚐ҉ᚐ 」
 
@@ -387,110 +387,110 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝𝕳𝖊𝖗𝖗𝖆𝖒𝖎𝖊𝖓𝖙𝖆𝖘 」
 
-❦ .blur
-❦ .difuminar2
-❦ .cal *<ecuacion>*
-❦ .channelstalk
-❦ .clima *<lugar>*
-❦ .fake
-❦ .getbio
-❦ .getbio *@tag*
-❦ .getname *@tag*
-❦ .remini
-❦ .hd
-❦ .enhance
-❦ .nuevafotochannel
-❦ .nosilenciarcanal
-❦ .silenciarcanal
-❦ .noseguircanal
-❦ .seguircanal
-❦ .avisoschannel
-❦ .resiviravisos
-❦ .inspect
-❦ .inspeccionar
-❦ .eliminarfotochannel
-❦ .reactioneschannel
-❦ .reaccioneschannel
-❦ .nuevonombrecanal
-❦ .nuevadescchannel
-❦ .IPdoxx
-❦ .photo <query>
-❦ .pixel
-❦ .difuminar
-❦ .readmore *<teks>|<teks>*
-❦ .ver
-❦ .reenviar
-❦ .spamwa <number>|<mesage>|<no of messages>
-❦ .ssweb
-❦ .ss
-❦ .tamaño *<cantidad>*
-❦ .document *<audio/video>*
+✰ .blur
+✰ .difuminar2
+✰ .cal *<ecuacion>*
+✰ .channelstalk
+✰ .clima *<lugar>*
+✰ .fake
+✰ .getbio
+✰ .getbio *@tag*
+✰ .getname *@tag*
+✰ .remini
+✰ .hd
+✰ .enhance
+✰ .nuevafotochannel
+✰ .nosilenciarcanal
+✰ .silenciarcanal
+✰ .noseguircanal
+✰ .seguircanal
+✰ .avisoschannel
+✰ .resiviravisos
+✰ .inspect
+✰ .inspeccionar
+✰ .eliminarfotochannel
+✰ .reactioneschannel
+✰ .reaccioneschannel
+✰ .nuevonombrecanal
+✰ .nuevadescchannel
+✰ .IPdoxx
+✰ .photo <query>
+✰ .pixel
+✰ .difuminar
+✰ .readmore *<teks>|<teks>*
+✰ .ver
+✰ .reenviar
+✰ .spamwa <number>|<mesage>|<no of messages>
+✰ .ssweb
+✰ .ss
+✰ .tamaño *<cantidad>*
+✰ .document *<audio/video>*
 
 「 ♡⃝𝕮𝖔𝖓𝖛𝖊𝖗𝖙𝖎𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」
 
-❦ .ibb
-❦ .paste nombre txt
-❦ .to <reply image>
-❦ .toanime
-❦ .togifaud
-❦ .tourl
-❦ .tovideo
-❦ .tts <lang> <teks>
-❦ .tourl2
+𒄆 .ibb
+𒄆 .paste nombre txt
+𒄆 .to <reply image>
+𒄆 .toanime
+𒄆 .togifaud
+𒄆 .tourl
+𒄆 .tovideo
+𒄆 .tts <lang> <teks>
+𒄆 .tourl2
 
 「 ♡⃝𝕾𝖙𝖎𝖈𝖐𝖊𝖗𝖘ᚐ҉ᚐ 」
 
-❦ .emojimix *<emoji+emoji>*
-❦ .qc
-❦ .brat *<mensaje>*
-❦ .stiker <img>
-❦ .sticker <url>
-❦ .toimg (reply)
-❦ .take *<nombre>|<autor>*
+☠︎︎ .emojimix *<emoji+emoji>*
+☠︎︎ .qc
+☠︎︎ .brat *<mensaje>*
+☠︎︎ .stiker <img>
+☠︎︎ .sticker <url>
+☠︎︎ .toimg (reply)
+☠︎︎ .take *<nombre>|<autor>*
 
 「 ♡⃝𝕬𝖓𝖎𝖒𝖊ᚐ҉ᚐ 」
 
-☘ .animelink
-☘ .akira
-☘ .akiyama
-☘ .anna
-☘ .asuna
-☘ .ayuzawa
-☘ .boruto
-☘ .chiho
-☘ .chitoge
-☘ .deidara
-☘ .erza
-☘ .elaina
-☘ .eba
-☘ .emilia
-☘ .hestia
-☘ .hinata
-☘ .inori
-☘ .isuzu
-☘ .itachi
-☘ .itori
-☘ .kaga
-☘ .kagura
-☘ .kaori
-☘ .keneki
-☘ .kotori
-☘ .kurumi
-☘ .madara
-☘ .mikasa
-☘ .miku
-☘ .minato
-☘ .naruto
-☘ .nezuko
-☘ .sagiri
-☘ .sasuke
-☘ .sakura
-☘ .cosplay
-☘ .infoanime
-☘ .messi
-☘ .cr7
-☘ .waifu
-☘ .lolicon
+🝮 .animelink
+🝮 .akira
+🝮 .akiyama
+🝮 .anna
+🝮 .asuna
+🝮 .ayuzawa
+🝮 .boruto
+🝮 .chiho
+🝮 .chitoge
+🝮 .deidara
+🝮 .erza
+🝮 .elaina
+🝮 .eba
+🝮 .emilia
+🝮 .hestia
+🝮 .hinata
+🝮 .inori
+🝮 .isuzu
+🝮 .itachi
+🝮 .itori
+🝮 .kaga
+🝮 .kagura
+🝮 .kaori
+🝮 .keneki
+🝮 .kotori
+🝮 .kurumi
+🝮 .madara
+🝮 .mikasa
+🝮 .miku
+🝮 .minato
+🝮 .naruto
+🝮 .nezuko
+🝮 .sagiri
+🝮 .sasuke
+🝮 .sakura
+🝮 .cosplay
+🝮 .infoanime
+🝮 .messi
+🝮 .cr7
+🝮 .waifu
+🝮 .lolicon
 
 「 ♡⃝𝕱𝖚𝖑𝖑-𝕳𝖔𝖗𝖓𝖞ᚐ҉ᚐ 」
 
@@ -524,28 +524,28 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝𝕬𝖚𝖉𝖎𝖔𝖘ᚐ҉ᚐ 」
 
-❦ .bass [vn]
-❦ .blown [vn]
-❦ .deep [vn]
-❦ .earrape [vn]
-❦ .fast [vn]
-❦ .fat [vn]
-❦ .nightcore [vn]
-❦ .reverse [vn]
-❦ .robot [vn]
-❦ .slow [vn]
-❦ .smooth [vn]
-❦ .tupai [vn]
+♫ .bass [vn]
+♫ .blown [vn]
+♫ .deep [vn]
+♫ .earrape [vn]
+♫ .fast [vn]
+♫ .fat [vn]
+♫ .nightcore [vn]
+♫ .reverse [vn]
+♫ .robot [vn]
+♫ .slow [vn]
+♫ .smooth [vn]
+♫ .tupai [vn]
 
 「 ♡⃝𝕾𝖙𝖆𝖋𝖋ᚐ҉ᚐ 」
 
-❦ .autoadmin
-❦ .banchat
-❦ .banuser <@tag> <razón>
-❦ .grupocrear <nombre>
-❦ .join <link>
-❦ .unbanchat
-❦ .unbanuser <@tag>
+߷ .autoadmin
+߷ .banchat
+߷ .banuser <@tag> <razón>
+߷ .grupocrear <nombre>
+߷ .join <link>
+߷ .unbanchat
+߷ .unbanuser <@tag>
 
 「 ♡⃝𝕮𝖗𝖊𝖆𝖉𝖔𝖗ᚐ҉ᚐ 」
 
