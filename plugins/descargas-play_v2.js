@@ -4,7 +4,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     const randomReduction = Math.floor(Math.random() * 5) + 1;
     let search = await yts(text);
-    let isVideo = /vid$/.test(command);
+    let isVideo = /video$/.test(command);
     let urls = search.all[0].url;
     let body = `\`YouTube Play\`
 
