@@ -1,5 +1,6 @@
-import yts from 'yt-search';
 import fetch from 'node-fetch';
+import axios from 'axios';
+import yts from 'yt-search';
 
 // Definición del objeto de lenguaje
 const lenguaje = {
@@ -29,9 +30,7 @@ const MilesNumber = (number) => {
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (command === 'video' || command === 'play4') {
-        if (!text) {
-            return m.reply(`*¿Qué video está buscando? 🎥*\nEjemplo: *${usedPrefix + command}* ozuna`);
-        }
+        if (!text) return m.reply(`*¿Qué video está buscando? 🎥*\nEjemplo: *${usedPrefix + command}* ozuna`);
 
         const startTime = Date.now();
 
@@ -46,8 +45,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
         try {
             const yt_play = await yts(text);
-            
-            // Verifica si hay resultados
             if (!yt_play || yt_play.all.length === 0) {
                 return m.reply("⚠️ No se encontró ningún video.");
             }
@@ -62,14 +59,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
             const apiUrl = `https://api.ryzendesu.vip/api/downloader/ytdl?url=${encodeURIComponent(video.url)}`;
 
+            // Intentar descargar el video en 360p
             const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
-            }
-
             const data = await response.json();
-
-            // Busca video en 360p
             const videoInfo = data.resultUrl.video.find(v => v.quality === '360p');
 
             if (!videoInfo) throw new Error('No se encontró video en 360p');
@@ -81,12 +73,29 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
                 caption: `${lenguaje.descargar.text4}\n🔰 ${lenguaje.descargar.title} ${data.result.title}`
             }, { quoted: m });
 
-            const endTime = Date.now();
-            const totalTime = ((endTime - startTime) / 1000).toFixed(2);
             m.react('✅'); // Reacción de éxito
         } catch (e) {
-            m.react('❌'); // Reacción de error
-            return m.reply(`Ocurrió un error inesperado - ${e.message}`);
+            // Intentar con la segunda API si la primera falla
+            const apiUrlFallback = `https://api.nyxs.pw/dl/yt-direct?url=${encodeURIComponent(yt_play.all[0].url)}`;
+            try {
+                const response = await axios.get(apiUrlFallback);
+                if (response.data.status) {
+                    const videoUrl = response.data.result.urlVideo;
+                    await conn.sendMessage(m.chat, {
+                        video: { url: videoUrl },
+                        fileName: `${response.data.result.title}.mp4`,
+                        mimetype: 'video/mp4',
+                        caption: `${lenguaje.descargar.text4}\n🔰 ${lenguaje.descargar.title} ${response.data.result.title}`
+                    }, { quoted: m });
+
+                    m.react('✅'); // Reacción de éxito
+                } else {
+                    throw new Error('No se pudo obtener el video de la segunda API');
+                }
+            } catch (error) {
+                m.react('❌'); // Reacción de error
+                return m.reply(`Ocurrió un error inesperado - ${error.message}`);
+            }
         }
     }
 }
