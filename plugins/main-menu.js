@@ -102,53 +102,53 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝𝕯𝖎𝖛𝖊𝖗𝖘𝖎ó𝖓ᚐ҉ᚐ 」
 
-☪ .amistad
-☪ .gay <@tag> | <nombre>
-☪ .lesbiana <@tag> | <nombre>
-☪ .pajero <@tag> | <nombre>
-☪ .pajera <@tag> | <nombre>
-☪ .puto <@tag> | <nombre>
-☪ .puta <@tag> | <nombre>
-☪ .manco <@tag> | <nombre>
-☪ .manca <@tag> | <nombre>
-☪ .rata <@tag> | <nombre>
-☪ .prostituta <@tag> | <nombre>
-☪ .prostituto <@tag> | <nombre>
-☪ .casarse @tag
-☪ .consejo
-☪ .divorciarse @tag
-☪ .doxear
-☪ .doxxing <nombre> | <@tag>
-☪ .formarpareja
-☪ .formarpareja5
-☪ .horny
-☪ .hornycard
-☪ .huevo @user
-☪ .iqtest
-☪ .marica
-☪ .meme
-☪ .minovia @user
-☪ .morse *<encode|decode>*
-☪ .nombreninja *<texto>*
-☪ .pajeame
-☪ .personalidad
-☪ .piropo
-☪ .pokedex *<pokemon>*
-☪ .pregunta
-☪ .ship
-☪ .love
-☪ .simpcard
-☪ .sorteo
-☪ .itssostupid
-☪ .estupido
-☪ .stupid
-☪ .top *<texto>*
-☪ .formartrio @usuario1 @usuario2
-☪ .waste @user
-☪ .zodiac *2002 02 25*
-☪ .aceptar
-☪ .apostar
-☪ .seleccionar
+☬ .amistad
+☬ .gay <@tag> | <nombre>
+☬ .lesbiana <@tag> | <nombre>
+☬ .pajero <@tag> | <nombre>
+☬ .pajera <@tag> | <nombre>
+☬ .puto <@tag> | <nombre>
+☬ .puta <@tag> | <nombre>
+☬ .manco <@tag> | <nombre>
+☬ .manca <@tag> | <nombre>
+☬ .rata <@tag> | <nombre>
+☬ .prostituta <@tag> | <nombre>
+☬ .prostituto <@tag> | <nombre>
+☬ .casarse @tag
+☬ .consejo
+☬ .divorciarse @tag
+☬ .doxear
+☬ .doxxing <nombre> | <@tag>
+☬ .formarpareja
+☬ .formarpareja5
+☬ .horny
+☬ .hornycard
+☬ .huevo @user
+☬ .iqtest
+☬ .marica
+☬ .meme
+☬ .minovia @user
+☬ .morse *<encode|decode>*
+☬ .nombreninja *<texto>*
+☬ .pajeame
+☬ .personalidad
+☬ .piropo
+☬ .pokedex *<pokemon>*
+☬ .pregunta
+☬ .ship
+☬ .love
+☬ .simpcard
+☬ .sorteo
+☬ .itssostupid
+☬ .estupido
+☬ .stupid
+☬ .top *<texto>*
+☬ .formartrio @usuario1 @usuario2
+☬ .waste @user
+☬ .zodiac *2002 02 25*
+☬ .aceptar
+☬ .apostar
+☬ .seleccionar
 
 「 ♡⃝𝕵𝖚𝖊𝖌𝖔𝖘ᚐ҉ᚐ 」
 
@@ -286,20 +286,20 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝𝕭𝖚𝖘𝖈𝖆𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」
 
-☸ .animesearch
-☸ .applemusicdetail
-☸ .applemusicsearch
-☸ .githubsearch
-☸ .gnula
-☸ .googlesearch *<texto>*
-☸ .npmjs
-☸ .twitterstalk <username>
-☸ .tiktoksearch <txt>
-☸ .tweetposts *<búsqueda>*
-☸ .wikis
-☸ .xnxxsearch <query>
-☸ .ytsearch
-☸ .imagen <query>
+❖ .animesearch
+❖ .applemusicdetail
+❖ .applemusicsearch
+❖ .githubsearch
+❖ .gnula
+❖ .googlesearch *<texto>*
+❖ .npmjs
+❖ .twitterstalk <username>
+❖ .tiktoksearch <txt>
+❖ .tweetposts *<búsqueda>*
+❖ .wikis
+❖ .xnxxsearch <query>
+❖ .ytsearch
+❖ .imagen <query>
 
 「 ♡⃝𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖘ᚐ҉ᚐ 」
 
@@ -348,11 +348,11 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 
 「 ♡⃝×𝕬×𝕴×ᚐ҉ᚐ 」
 
-🕸 .blackbox <pregunta>
-🕸 .demo
-🕸 .gemini
-🕸 .yuki
-🕸 .bot
+☢ .blackbox <pregunta>
+☢ .demo
+☢ .gemini
+☢ .yuki
+☢ .bot
 
 「 ♡⃝𝕲𝖗𝖚𝖕𝖔𝖘ᚐ҉ᚐ 」
 
