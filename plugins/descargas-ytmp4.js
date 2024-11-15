@@ -3,10 +3,11 @@ import yts from 'yt-search';
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     if (!text) {
-        const usageMessage = `*[🌹] Para usar este plugin, por favor proporciona un enlace de YouTube o el título del video que deseas descargar.*\n` +
+        const usageMessage = `*[🌹] Complementa tu petición con algún enlace de YouTube.*\n` +
                              `_(Puedes hacer una búsqueda utilizando el comando ${usedPrefix}yts)_\n` +
-                             `🌷 Ejemplo: *${usedPrefix + command} https://youtu.be/sBKR6aUorzA* o *${usedPrefix + command} Nombre del video*`;
-        throw usageMessage;
+                             `🌷 Ejemplo: *${usedPrefix + command}* https://youtu.be/sBKR6aUorzA?si=TmC01EGbXUx2DUca`;
+        await conn.sendMessage(m.chat, { text: usageMessage });
+        return; // Termina la ejecución si no hay texto
     }
     
     await conn.sendMessage(m.chat, { react: { text: '🥀', key: m.key }});
@@ -36,10 +37,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
         // Crear el mensaje informativo del video/audio
         let body = `*『 𝐘 𝐮 𝐤 𝐢 _ 𝐒 𝐮 𝐨 𝐮 - 𝐁 𝐨 𝐭 』*\n\n` +
-                   ` *☊.- 𝚃𝚒́𝚝𝚞𝚝𝚎:* ${vid.title || 'Desconocido'}\n` +
+                   ` *☊.- 𝚃𝚒́𝚝𝚞𝚕𝚘:* ${vid.title || 'Desconocido'}\n` + // Cambiado a "𝚃𝚒́𝚝𝚞𝚗𝚍𝚘"
                    ` *♕.- 𝙰𝚞𝚝𝚘𝚛:* ${vid.author?.name || 'Desconocido'}\n` +
                    ` *⛨.- 𝙲𝚊𝚗𝚊𝚕:* ${vid.author.url || 'Desconocido'}\n` +
-                   ` *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚜𝚒𝚘́𝚗:* ${vid.ago || 'Desconocido'}\n` +
+                   ` *🝓.- 𝙵𝚎𝚌𝚑𝚊 𝚍𝚎 𝙿𝚞𝚋𝚕𝚊𝚌𝚒𝚘́𝚗:* ${vid.ago || 'Desconocido'}\n` +
                    ` *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${vid.timestamp || 'Desconocido'}\n` +
                    ` *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${vid.views || 'Desconocido'}\n` +
                    ` *🝤.- 𝙻𝚒𝚗𝚔:* ${videoUrl}\n\n` +
