@@ -3,7 +3,10 @@ import yts from 'yt-search';
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     
     if (!text) {
-        throw `*[🌹] Complementa tu petición con algún enlace de YouTube.*\n_(Puedes hacer una búsqueda utilizando el comando ${usedPrefix}yts)_\n _🌷.- Ejemplo:_ *${usedPrefix + command}* https://youtu.be/sBKR6aUorzA?si=TmC01EGbXUx2DUca`;
+        const usageMessage = `*[🌹] Para usar este plugin, por favor proporciona un enlace de YouTube o el título del video que deseas descargar.*\n` +
+                             `_(Puedes hacer una búsqueda utilizando el comando ${usedPrefix}yts)_\n` +
+                             `🌷 Ejemplo: *${usedPrefix + command} https://youtu.be/sBKR6aUorzA* o *${usedPrefix + command} Nombre del video*`;
+        throw usageMessage;
     }
     
     await conn.sendMessage(m.chat, { react: { text: '🥀', key: m.key }});
@@ -40,7 +43,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                    ` *🜵.- 𝙳𝚞𝚛𝚊𝚌𝚒𝚘́𝚗:* ${vid.timestamp || 'Desconocido'}\n` +
                    ` *🜚.- 𝚅𝚒𝚜𝚝𝚊𝚜:* ${vid.views || 'Desconocido'}\n` +
                    ` *🝤.- 𝙻𝚒𝚗𝚔:* ${videoUrl}\n\n` +
-                   `*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚍𝚘 𝚟𝚒𝚍𝚎𝚘, 𝚊𝚐𝚞𝚊𝚝𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*\n\n` +
+                   `*🝩.- 𝙴𝚗𝚟𝚒𝚊𝚗𝚝𝚘 𝚟𝚒𝚍𝚎𝚘, 𝚊𝚐𝚞𝚊𝚝𝚊 𝚞𝚗 𝚖𝚘𝚖𝚎𝚗𝚝𝚘...*\n\n` +
                    `> ৎ୭࠭͢𝒴𝓊𝓚𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ `;
 
         // Enviar el mensaje informativo con la imagen
