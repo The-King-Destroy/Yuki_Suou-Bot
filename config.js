@@ -106,9 +106,9 @@ global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid:
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺◞ • 🌿
 global.gp4 = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ' //Grupo Oficial De Yuki_Suou
-global.gp1 = 'https://chat.whatsapp.com/BELmEmNjNlv36w7ElRrOKa' //Grupo 
-global.gp2 = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ'//
-global.comunidad1 = 'https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN' //Comunidad Yuki_Suou
+global.gp1 = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ' //Grupo 
+global.gp2 = 'https://chat.whatsapp.com/B6uCcLp85mG5Xls6QdzT4H'//
+global.comunidad1 = 'https://chat.whatsapp.com/B6uCcLp85mG5Xls6QdzT4H' //Comunidad Yuki_Suou
 global.channel = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' //Canal Oficial
 global.yt = 'https://youtube.com/@user-the-king-destroy?si=8kNB8k2k3ESQ_J9j' //Canal De Youtube
 global.md = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' //Github Oficial
