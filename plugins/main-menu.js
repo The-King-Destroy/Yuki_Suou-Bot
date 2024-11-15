@@ -146,9 +146,7 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 ☬ .formartrio @usuario1 @usuario2
 ☬ .waste @user
 ☬ .zodiac *2002 02 25*
-☬ .aceptar
 ☬ .apostar
-☬ .seleccionar
 
 「 ♡⃝𝕵𝖚𝖊𝖌𝖔𝖘ᚐ҉ᚐ 」
 
@@ -521,21 +519,6 @@ let menu = `╰•:･✿:･✧𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾✧･:�
 ❦ .randomxxx
 ❦ .pechos
 ❦ .r34 <texto>
-
-「 ♡⃝𝕬𝖚𝖉𝖎𝖔𝖘ᚐ҉ᚐ 」
-
-♫ .bass [vn]
-♫ .blown [vn]
-♫ .deep [vn]
-♫ .earrape [vn]
-♫ .fast [vn]
-♫ .fat [vn]
-♫ .nightcore [vn]
-♫ .reverse [vn]
-♫ .robot [vn]
-♫ .slow [vn]
-♫ .smooth [vn]
-♫ .tupai [vn]
 
 「 ♡⃝𝕾𝖙𝖆𝖋𝖋ᚐ҉ᚐ 」
 
