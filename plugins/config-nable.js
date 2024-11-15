@@ -22,7 +22,7 @@ ${usedPrefix + command} modoadmin
 ${usedPrefix + command} antifake
 ${usedPrefix + command} antibot
 
-🌹 *OPCIONES PARA MI PROPIETARIO* 🌹
+🌹 *OPCIONES PARA MI PROPIETARIO*
 
 ${usedPrefix + command} public
 ${usedPrefix + command} status
