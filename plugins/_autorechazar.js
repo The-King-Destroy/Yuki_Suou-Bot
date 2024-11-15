@@ -4,7 +4,7 @@ handler.before = async function (m, {conn, isAdmin, isBotAdmin} ) {
 if (!m.isGroup) return !1
 let chat = global.db.data.chats[m.chat]
 if (isBotAdmin && chat.autoRechazar) {
-if (m.sender.startsWith('591')) {
+if (m.sender.startsWith('1')) {
 await conn.groupRequestParticipantsUpdate(m.chat, [m.sender], 'reject')}
 
 if (m.sender.startsWith('90')) {
