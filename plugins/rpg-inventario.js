@@ -50,7 +50,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 }
 
 handler.help = ['inventario', 'inv']
-handler.tags = ['rpg']
+handler.tags = ['economy']
 handler.command = ['inventario', 'inv'] 
 handler.register = true 
 
