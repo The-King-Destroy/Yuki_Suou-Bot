@@ -170,7 +170,7 @@ const document = doc[Math.floor(Math.random() * doc.length)];
 };
 handler.tags = ['main']
 handler.help = ['menuaudios']
-handler.command = ['menuaudios'];
+handler.command = ['menuaudios','menuaudio'];
 handler.register = true
 handler.exp = 50;
 handler.fail = null;
