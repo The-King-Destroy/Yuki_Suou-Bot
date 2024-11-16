@@ -37,16 +37,16 @@ let user = global.db.data.users[who]
 let pushname = m.pushName || 'Sin nombre'
 
 //creador y otros
-global.creador = 'Wa.me/584120346669'
+global.creador = 'Wa.me/584128382768'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/584128382768'
 global.namechannel = '♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ'
-global.namechannel2 = '╰•:･ﾟ✿:･ﾟ✧ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✧ﾟ･:✿ﾟ･:•╯'
-global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉ᚐ'
-global.namecomu = '❦𝒴𝓊𝓀𝒾 𝒮𝓊𝑜𝓊 𝐵𝑜𝓉 𝑀𝒟☙'
-global.namecomu2 = 'Bʀᴀᴡʟɪɢʜᴛ x ♡⃝𝓨𝓤𝓚𝓘_𝓢𝓤𝓞𝓤-𝓑𝓞𝓣ᚐ҉ᚐ'
+global.namechannel2 = '𝚃𝚎𝚊𝚖 乂𝙰𝙽𝙶 乂 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𝙾𝚏𝚌'
+global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉'
+global.namecomu = '✿ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✿'
+global.namecomu2 = '𝚃𝚎𝚊𝚖 乂𝙰𝙽𝙶'
 global.colab1 = 'Emma-Violets-Versión'
-global.colab2 = 'Niño Piña'
+global.colab2 = 'Niño-Piña'
 global.colab3 = 'Legendary'
 
 //Reacciones De Comandos.!
@@ -54,10 +54,10 @@ global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de Yuki Suou Bot 
-global.emoji = '🌸'
+//Emojis determinado de Yuki Suou
+global.emoji = '🌹'
 global.emoji2 = '🌷'
-global.emoji3 = '🌹'
+global.emoji3 = '🌸'
 global.emoji4 = '🍒'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
@@ -107,11 +107,11 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 
 global.icono = [ 
 'https://files.catbox.moe/028uxb.jpg',
-'https://files.catbox.moe/jh2rwk.jpg',
-'https://files.catbox.moe/guvo2k.jpg',
-'https://files.catbox.moe/xuwxy7.jpg',
+'https://files.catbox.moe/qpkq55.jpg',
 'https://files.catbox.moe/tp697d.jpg',
-'https://files.catbox.moe/qpkq55.jpg'
+'https://files.catbox.moe/xuwxy7.jpg',
+'https://files.catbox.moe/guvo2k.jpg',
+'https://files.catbox.moe/jh2rwk.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363322713003916@newsletter", serverMessageId: 100, newsletterName: namechannel, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
