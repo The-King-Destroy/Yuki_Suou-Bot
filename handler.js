@@ -158,7 +158,7 @@ global.db.data.chats[m.chat] = {}
 if (chat) {
 if (!('isBanned' in chat)) chat.isBanned = false         
 if (!('welcome' in chat)) chat.welcome = true 
-if (!('autoresponder' in chat)) chat.autoresponder = false          
+if (!('autoresponder' in chat)) chat.autoresponder = false           
 if (!('detect' in chat)) chat.detect = true               
 if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
@@ -167,7 +167,7 @@ if (!('sDemote' in chat)) chat.sDemote = ''
 if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
 if (!('delete' in chat)) chat.delete = false                   
 if (!('nsfw' in chat)) chat.nsfw = false
-if (!('autoAceptar' in chat)) chat.autoAceptar = false                   
+if (!('autoAceptar' in chat)) chat.autoAceptar = false  
 if (!('autosticker' in chat)) chat.autosticker = false      
 if (!('audios' in chat)) chat.audios = false
 if (!('antiBot' in chat)) chat.antiBot = false 
@@ -286,8 +286,8 @@ if (opts['swonly'] && m.chat !== 'status@broadcast') return
 if (typeof m.text !== 'string')
 m.text = ''
 
-        //if (m.isBaileys) return 
-        /*if (m.isBaileys || isBaileysFail && m?.sender === this?.this?.user?.jid) {
+        /*//if (m.isBaileys) return 
+        if (m.isBaileys || isBaileysFail && m?.sender === this?.this?.user?.jid) {
         return
         }*/
 m.exp += Math.ceil(Math.random() * 10)
@@ -748,13 +748,13 @@ const msg = {
 rowner: '「👑」 *Esta función solo puede ser usada por mi creador*\n\n> Destroy.', 
 owner: '「🌸」 *Esta función solo puede ser usada por mi desarrollador.', 
 mods: '「🌸」 *Esta función solo puede ser usada por mis desarrolladores.*', 
-premium: '「🎟️」 *Esta función solo es para usuarios Premium.', 
-group: '「🌷」 *Esta funcion solo puede ser ejecutada en grupos.*', 
-private: '「🍒」 *Esta función solo puede ser usada en chat privado.*', 
+premium: '「🍒」 *Esta función solo es para usuarios Premium.', 
+group: '「🍒」 *Esta funcion solo puede ser ejecutada en grupos.*', 
+private: '「🌹」 *Esta función solo puede ser usada en chat privado.*', 
 admin: '「⚜️」 *Este comando solo puede ser usado por admins.*', 
 botAdmin: '「⚜️」 *Para usar esta función debo ser admin.*', 
-unreg: '「🌹」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Destroy.18*',
-restrict: '「🌷」 *Esta característica esta desactivada.*'
+unreg: '「🌹」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Destroy.17*',
+restrict: '「🥀」 *Esta característica esta desactivada.*'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
 const file = global.__filename(import.meta.url, true);
