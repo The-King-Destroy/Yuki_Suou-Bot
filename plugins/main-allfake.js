@@ -37,9 +37,9 @@ let user = global.db.data.users[who]
 let pushname = m.pushName || 'Sin nombre'
 
 //creador y otros
-global.creador = 'Wa.me/584128382768'
+global.creador = 'Wa.me/584120346669'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
-global.asistencia = 'Wa.me/584128382768'
+global.asistencia = 'Wa.me/584120346669'
 global.namechannel = '♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ'
 global.namechannel2 = '𝚃𝚎𝚊𝚖 乂𝙰𝙽𝙶 乂 𝙲𝙷𝙰𝙽𝙽𝙴𝙻 𝙾𝚏𝚌'
 global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉'
