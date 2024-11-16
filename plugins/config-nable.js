@@ -12,7 +12,7 @@ ${usedPrefix + command} detect
 ${usedPrefix + command} antidelete
 ${usedPrefix + command} antilink
 ${usedPrefix + command} antilink2
-${usedPrefix + command} nsfw 
+${usedPrefix + command} nsfw
 ${usedPrefix + command} autolevelup
 ${usedPrefix + command} autosticker
 ${usedPrefix + command} reaction
@@ -80,7 +80,7 @@ throw false
 }
 chat.autoRechazar = isEnable
 break
-    
+
 case 'detect': case 'avisos':
 if (!m.isGroup) {
 if (!isOwner) {
@@ -231,7 +231,7 @@ throw false
 }}
 chat.autoresponder = isEnable          
 break
- 
+
 case 'antithreads':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -258,7 +258,7 @@ throw false
 }}
 chat.nsfw = isEnable          
 break
-
+    
 case 'autolevelup': case 'autonivel': case 'nivelautomatico':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
@@ -459,7 +459,7 @@ default:
 if (!/[01]/.test(command)) return await conn.reply(m.chat, miniopcion, m, rcanal);
 throw false;
 }
-conn.reply(m.chat, `🌹  *La Función ${type} Se Ha ${isEnable ? 'Activado' : 'Desactivado'} En Este ${isAll ? 'Bot' : isUser ? '' : 'Chat.'}*`, m, rcanal, )
+conn.reply(m.chat, `🌷  *La Función ${type} Se Ha ${isEnable ? 'Activado' : 'Desactivado'} En Este ${isAll ? 'Bot' : isUser ? '' : 'Chat.'}*`, m, rcanal, )
 
 }
 handler.help = ['en', 'dis'].map((v) => v + 'able <option>');
