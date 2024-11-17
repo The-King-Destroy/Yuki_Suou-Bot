@@ -39,16 +39,14 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
   if (links.error) throw links.error;
 
-  let messageText = `🌹\n\n\`• 「 ♡⃝Lista de opciones para descargarᚐ҉ᚐ 」\n\n`;
+  let messageText = `🌷\n\n\`• 𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐨𝐩𝐜𝐢𝐨𝐧𝐞𝐬 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐜𝐚𝐫𝐠𝐚𝐫:\n\n`;
 
   for (const [server, link] of Object.entries(links)) {
    // const shortLink = await acc(link); 
-    messageText += `👨‍💻 *\`Servidor:\`* ${server}\n  🔗 *\`Link:\`* ${link}\n┏━━⪩
-┃❥ 
-┗━━━━━━━━━━━━━━━━━━━━━⪩\n`;
+    messageText += `👨‍💻 *\`𝐒𝐞𝐫𝐯𝐢𝐝𝐨𝐫:\`* ${server}\n  🔗 *\`𝐋𝐢𝐧𝐤:\`* ${link}\n─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ─⭒─ׄ─ׄ─\n`;
   }
   messageText += `\n> Para descargar, usa el comando respectivo al servidor.\n`
-  messageText += `\n\`🌷 Nota: Los links no siempre pueden funcionar si son muy viejos.\``;
+  messageText += `\n\`🌹 Nota: Los links no siempre pueden funcionar si son muy viejos.\``;
   await conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
 }
 

@@ -58,20 +58,20 @@ async function getAnimeEpisodes(url) {
 }
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
-  if (!args[0]) throw `*\`🌹 Ingresa el link del anime para obtener información. Ejemplo:.\`*\n\n\`${usedPrefix + command} https://tioanime.com/anime/dungeon-meshi\``;
+  if (!args[0]) throw `*\`🌸 Ingresa el link del anime para obtener información. Ejemplo:.\`*\n\n\`${usedPrefix + command} https://tioanime.com/anime/dungeon-meshi\``;
 
   let data = await getAnimeEpisodes(args[0]);
   if (data.error) throw data.error;
 
-  let messageText = `• 「 ♡⃝Lista de episodios del animeᚐ҉ᚐ 」\n\n`;
+  let messageText = `• 𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐞𝐩𝐢𝐬𝐨𝐝𝐢𝐨𝐬 𝐝𝐞𝐥 𝐚𝐧𝐢𝐦𝐞:\n\n`;
 
   for (const episode of data.episodios) {
     const [key, url] = Object.entries(episode)[0];
     const shortUrl = await getShortUrl(url); // Acortar el enlace aquí
-    messageText += `${key}:\n    ❥ Url: ${shortUrl}\n▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞\n`;
+    messageText += `${key}:\n   ❥Url: ${shortUrl}\n▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭\n`;
   }
 
-  messageText += `\n*♡⃝Próximo Episodio:*${data.proximo_episodio}`;
+  messageText += `\n𝐏𝐫ó𝐱𝐢𝐦𝐨 𝐞𝐩𝐢𝐬𝐨𝐝𝐢𝐨: ${data.proximo_episodio}`;
 
   await conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
 }
