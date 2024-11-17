@@ -56,6 +56,6 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
   await conn.sendCarousel(m.chat, '', `\`\`\`¡Hola! A continuación te muestro la lista de animes encontrados\`\`\``, "", messages, m);
 }
 
-handler.command = handler.help = ['animes', 'animesearch', 'animess']
-handler.tags = ['buscador']
+handler.command = handler.help = ['animes', 'animesearch', 'animess'];
+handler.tags = ['buscador'];
 export default handler;
