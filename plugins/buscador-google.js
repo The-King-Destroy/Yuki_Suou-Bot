@@ -9,7 +9,7 @@ let handler = async (m, { conn, command, args, usedPrefix }) => {
   let img = 'https://i.ibb.co/P5kZNFF/file.jpg'
 const url = 'https://google.com/search?q=' + encodeURIComponent(text);
 google({'query': text}).then(res => {
-let teks = `\t\t\t*乂  S E A R C H  -  G O O G L E*\n\n`
+let teks = `*乂  S E A R C H  -  G O O G L E*\n\n`
 for (let g of res) {
 teks += `*${g.title}*\n${g.link}\n${g.snippet}\n\n`
 } 
