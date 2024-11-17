@@ -68,12 +68,10 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
   for (const episode of data.episodios) {
     const [key, url] = Object.entries(episode)[0];
     const shortUrl = await getShortUrl(url); // Acortar el enlace aquí
-    messageText += `${key}:\n    ❥ Url: ${shortUrl}\n┏━━⪩
-┃
-┗━━━━━━━━━━━━━━━━━━━━━⪩\n`;
+    messageText += `${key}:\n    ❥ Url: ${shortUrl}\n▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞\n`;
   }
 
-  messageText += `\n「 ♡⃝Próximo episodioᚐ҉ᚐ 」 ${data.proximo_episodio}`;
+  messageText += `\n*♡⃝Próximo Episodio:*${data.proximo_episodio}`;
 
   await conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
 }
