@@ -13,7 +13,6 @@ let teks = `\t\t\t*乂  S E A R C H  -  G O O G L E*\n\n`
 for (let g of res) {
 teks += `*${g.title}*\n${g.link}\n${g.snippet}\n\n`
 } 
-teks += `> ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ `;
 conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m).then(_ => m.react('✅'))
 })
 }
