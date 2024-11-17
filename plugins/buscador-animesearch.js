@@ -34,10 +34,9 @@ const searchAnime = async (query) => {
 };
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
-  if (!args[0]) throw `*\`🌸 Ingresa el nombre de un anime para buscar.\`*`
-  // if (args.length > 1) throw `*\`🍒 Sólo se admite un argumento.\`*`
+  if (!args[0]) throw `*\`🌸 Ingresa el nombre de un anime para buscar.\n\n Ejemplo:\n\n .animesearch Tokyo ghoul\`*`;
   const results = await searchAnime(args[0]);
-  if (results.length === 0) throw `*\`🥀 No se encontraron resultados.\`*`
+  if (results.length === 0) throw `*\`🥀 No se encontraron resultados.\`*`;
 
   const messages = [];
   for (const { name, id, url, image } of results) {
@@ -59,4 +58,4 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
 handler.command = handler.help = ['animes', 'animesearch', 'animess']
 handler.tags = ['buscador']
-export default handler
+export default handler;
