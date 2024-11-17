@@ -21,7 +21,7 @@ colors: ['magentaBright']
 say(`Multi Device`, {
 font: 'chrome',
 align: 'center',
-colors: ['red']
+colors: ['redBright']
 });
 say(`Developed By • The-King-Destroy`, {
 font: 'console',
@@ -36,7 +36,7 @@ let args = [join(__dirname, file), ...process.argv.slice(2)];
 say([process.argv[0], ...args].join(' '), {
 font: 'console',
 align: 'center',
-colors: ['green']
+colors: ['candy']
 });
 setupMaster({
 exec: args[0],
