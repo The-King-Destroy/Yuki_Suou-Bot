@@ -1,48 +1,29 @@
 
-import fs from 'fs';
-import FormData from 'form-data';
-import axios from 'axios';
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
+import crypto from "crypto";
+import { FormData, Blob } from "formdata-node";
+import { fileTypeFromBuffer } from "file-type";
+import axios from "axios";
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
+const handler = async (m, { conn, text, usedPrefix }) => {
     const mentionedUser = m.mentionedJid[0] || (m.reply ? m.reply.sender : null);
 
-    // Comprobar si hay un usuario válido
     if (!mentionedUser) {
-        return conn.reply(m.chat, `*🌹 Uso Correcto: ${usedPrefix + command} @usuario*`, m);
+        return conn.reply(m.chat, `*🌹 Uso Correcto: ${usedPrefix}pfp @usuario*`, m);
     }
 
     try {
-        // Obtener la foto de perfil del usuario mencionado
+        // Obtener la imagen de perfil del usuario mencionado
         const profilePicUrl = `https://api.example.com/getProfilePic?user=${mentionedUser}`; // Reemplaza con la API adecuada
-        console.log(`Obteniendo imagen de: ${profilePicUrl}`);
-        
         const response = await axios.get(profilePicUrl, { responseType: 'arraybuffer' });
         const imageBuffer = Buffer.from(response.data, 'binary');
 
-        // Subir la imagen a IMGBB
-        const formData = new FormData();
-        formData.append('image', imageBuffer.toString('base64'));  // Convertir a base64
-
-        console.log('Subiendo imagen a IMGBB...');
-        let apiResponse = await axios.post('https://api.imgbb.com/1/upload?key=1f55ea75f24df783643940f3eacbbc96', formData, {
-            headers: {
-                ...formData.getHeaders(),
-            },
-        });
-
-        // Obtener la URL de la imagen subida
-        const uploadedImageUrl = apiResponse.data.data.url;
-        console.log(`Imagen subida a: ${uploadedImageUrl}`);
-
-        // Descargar la imagen desde IMGBB
-        const imageToSend = await fetch(uploadedImageUrl);
-        if (!imageToSend.ok) throw new Error('Error al descargar la imagen desde IMGBB');
-
-        const imageBufferToSend = await imageToSend.buffer();
-
-        // Enviar la imagen directamente al chat
-        await conn.sendFile(m.chat, imageBufferToSend, 'perfil.jpg', `🌷 Foto de perfil de @${mentionedUser.split('@')[0]}`, m, false, { contextInfo: { mentionedJid: [mentionedUser] } });
+        // Subir la imagen a Catbox
+        let link = await catbox(imageBuffer);
+        
+        // Enviar la imagen al chat
+        await conn.sendFile(m.chat, link, 'perfil.jpg', '', m);
+        await m.react('✅');
 
     } catch (error) {
         console.error('Error en el proceso:', error);
@@ -50,10 +31,28 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 };
 
-handler.help = ['pfp @usuario'];
+handler.command = handler.help = ['pfp'];
 handler.tags = ['perfil'];
-handler.command = ['pfp', 'perfil'];
-handler.group = true;
+handler.group = true; // Si deseas que el comando funcione solo en grupos
 handler.register = true;
 
 export default handler;
+
+async function catbox(content) {
+    const { ext, mime } = (await fileTypeFromBuffer(content)) || {};
+    const blob = new Blob([content.toArrayBuffer()], { type: mime });
+    const formData = new FormData();
+    const randomBytes = crypto.randomBytes(5).toString("hex");
+    formData.append("reqtype", "fileupload");
+    formData.append("fileToUpload", blob, randomBytes + "." + ext);
+
+    const response = await fetch("https://catbox.moe/user/api.php", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36",
+        },
+    });
+
+    return await response.text();
+}
