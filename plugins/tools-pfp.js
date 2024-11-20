@@ -1,23 +1,45 @@
-import { getProfilePic } from '@bochilteam/scraper';  // Importa la función necesaria
+import fs from 'fs';
+import FormData from 'form-data';
+import axios from 'axios';
+import fetch from 'node-fetch';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    // Obtener el usuario mencionado o el que envió el mensaje si se respondió
     const mentionedUser = m.mentionedJid[0] || (m.reply ? m.reply.sender : null);
 
-    // Verificar si se menciona a un usuario o se responde a un mensaje
+    // Comprobar si hay un usuario válido
     if (!mentionedUser) {
         return conn.reply(m.chat, `*🌹 Uso Correcto: ${usedPrefix + command} @usuario*`, m);
     }
 
     try {
-        // Obtener la foto de perfil usando la dependencia
-        const profilePicUrl = await getProfilePic(mentionedUser);
+        // Obtener la foto de perfil del usuario mencionado
+        const profilePicUrl = `https://api.example.com/getProfilePic?user=${mentionedUser}`; // Reemplaza con la API adecuada para obtener la imagen de perfil
+        const response = await axios.get(profilePicUrl, { responseType: 'arraybuffer' });
+        const imageBuffer = Buffer.from(response.data, 'binary');
 
-        // Enviar la foto de perfil al chat
-        await conn.sendFile(m.chat, profilePicUrl, 'pfp.jpg', `🌷 Foto de perfil de @${mentionedUser.split('@')[0]}`, m, false, { contextInfo: { mentionedJid: [mentionedUser] } });
+        // Subir la imagen a IMGBB
+        const formData = new FormData();
+        formData.append('image', imageBuffer.toString('base64'));  // Convertir a base64
+
+        let apiResponse = await axios.post('https://api.imgbb.com/1/upload?key=1f55ea75f24df783643940f3eacbbc96', formData, {
+            headers: {
+                ...formData.getHeaders(),
+            },
+        });
+
+        // Obtener la URL de la imagen subida
+        const uploadedImageUrl = apiResponse.data.data.url;
+
+        // Descargar la imagen desde IMGBB
+        const imageToSend = await fetch(uploadedImageUrl);
+        const imageBufferToSend = await imageToSend.buffer();
+
+        // Enviar la imagen directamente al chat
+        await conn.sendFile(m.chat, imageBufferToSend, 'perfil.jpg', `🌷 Foto de perfil de @${mentionedUser.split('@')[0]}`, m, false, { contextInfo: { mentionedJid: [mentionedUser] } });
+
     } catch (error) {
         console.error(error);
-        return conn.reply(m.chat, '❌ Ocurrió un error al obtener la foto de perfil.', m);
+        return conn.reply(m.chat, '❌ Ocurrió un error al procesar la imagen.', m);
     }
 };
 
