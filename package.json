@@ -1,6 +1,6 @@
 {
 "name":"Yuki_Suou-Bot",
-"version":"V2",
+"version":"1.8.0",
 "description": "Simple WhatsApp Bot Multi Device",
 "main": "index.js",
 "type": "module",
@@ -36,7 +36,7 @@
 "@shineiichijo/marika": "^2.0.6",
 "@tensorflow/tfjs": "^3.18.0",
 "@vitalets/google-translate-api": "^8.0.0",
-"@whiskeysockets/baileys": "github:Dev-Diego/Baile",
+"@whiskeysockets/baileys": "^6.7.7",
 "@xct007/frieren-scraper": "^0.0.2",
 "acrcloud": "^1.4.0",
 "api-dylux": "^1.5.5",
