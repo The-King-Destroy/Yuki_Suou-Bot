@@ -1,9 +1,7 @@
-
 import fetch from "node-fetch";
 import crypto from "crypto";
 import { FormData, Blob } from "formdata-node";
 import { fileTypeFromBuffer } from "file-type";
-import axios from "axios";
 
 const handler = async (m, { conn, text, usedPrefix }) => {
     const mentionedUser = m.mentionedJid[0] || (m.reply ? m.reply.sender : null);
@@ -14,9 +12,9 @@ const handler = async (m, { conn, text, usedPrefix }) => {
 
     try {
         // Obtener la imagen de perfil del usuario mencionado
-        const profilePicUrl = `https://api.example.com/getProfilePic?user=${mentionedUser}`; // Reemplaza con la API adecuada
-        const response = await axios.get(profilePicUrl, { responseType: 'arraybuffer' });
-        const imageBuffer = Buffer.from(response.data, 'binary');
+        const profilePicUrl = await conn.getProfilePicture(mentionedUser); // Obtener la URL de la imagen de perfil
+        const response = await fetch(profilePicUrl);
+        const imageBuffer = await response.buffer(); // Descargar la imagen como buffer
 
         // Subir la imagen a Catbox
         let link = await catbox(imageBuffer);
