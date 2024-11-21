@@ -26,6 +26,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 
 const document = doc[Math.floor(Math.random() * doc.length)];
  const str = `╭━━━(❀)❝┊𝕸𝖊𝖓𝖚 𝕬𝖓𝖎𝖒𝖊┊❝(❀)
+┣⟣❥🌸  _!animelink_
 ┣⟣❥🌸  _!amv 1/2_
 ┣⟣❥🌸  _!sakurita_
 ┣⟣❥🌸  _!karolg_
@@ -46,7 +47,7 @@ const document = doc[Math.floor(Math.random() * doc.length)];
 ┣⟣❥🌸  _!deidara_
 ┣⟣❥🌸  _!erza_
 ┣⟣❥🌸  _!elaina_
-┣⟣❥🌸  _$!eba_
+┣⟣❥🌸  _!eba_
 ┣⟣❥🌸  _!emilia_
 ┣⟣❥🌸  _!hestia_
 ┣⟣❥🌸  _!hinata_
