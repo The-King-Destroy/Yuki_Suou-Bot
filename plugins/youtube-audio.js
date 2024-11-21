@@ -32,7 +32,7 @@ await m.react('✖️')
 }}}
 handler.help = ['Audio']
 handler.tags = ['youtube']
-handler.customPrefix = /^(playdoc2|song)/
+handler.customPrefix = /^(audio|Audio)/
 handler.command = new RegExp
 //handler.limit = 1
 
