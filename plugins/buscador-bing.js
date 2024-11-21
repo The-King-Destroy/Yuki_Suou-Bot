@@ -16,6 +16,6 @@ await conn.sendFile(m.chat, "https://pomf2.lain.la/f/8cg1knm.jpg", null, searchR
 }
 handler.help = ['bingsearch *<consulta>*'];
 handler.tags = ['buscador'];
-handler.command = /^(bin|bingsearch)$/i;
+handler.command = /^(bing|bingsearch)$/i;
 
 export default handler;
