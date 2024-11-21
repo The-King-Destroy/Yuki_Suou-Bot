@@ -5,7 +5,7 @@ if (!text) throw m.reply(`🌸 *Ingresa un link de pinterest*\n*🌹 Ejemplo:* $
 conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 	let ouh = await fetch(`https://api.agatz.xyz/api/pinterest?url=${text}`)
   let gyh = await ouh.json()
-	await conn.sendFile(m.chat, gyh.data.result, `pinvideobykeni.mp4`, `*🌷 Url:* ${gyh.data.url}`, m)
+	await conn.sendFile(m.chat, gyh.data.result, `pinvideobykeni.mp4`, `*🌷 Url:*\n\n> ♡⃝𝒴𝓊𝑘𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ`; ${gyh.data.url}`, m)
 	await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key }})
 }
 handler.help = ['pinvid *<link>*']
