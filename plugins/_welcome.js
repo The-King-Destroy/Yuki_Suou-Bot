@@ -25,7 +25,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     let chat = global.db.data.chats[m.chat];
 
     if (chat.welcome && m.messageStubType === 27) {
-        let wel = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │🌸  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🌷  ${groupMetadata.subject}\n   └───────────────┈ ⳹`;
+        let wel = `┌─⪩ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n└┬⪩ 「 @${userId.split`@`[0]} 」\n   │🌸  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🌷  ${groupMetadata.subject}\n   └───────────────┈ ⳹`;
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
         } catch (sendError) {
@@ -35,7 +35,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     // Mensaje de despedida (cuando se sale)
     if (chat.welcome && m.messageStubType === 28) {
-        let bye = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
+        let bye = `┌─⪩ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬⪩ 「 @${userId.split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
         let img2;
         try {
             img2 = await (await fetch(goodbyeImage)).buffer(); 
@@ -47,7 +47,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
 
     // Mensaje de expulsión (cuando se echa a alguien)
     if (chat.welcome && m.messageStubType === 32) {
-        let kick = `┌─★ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬★ 「 @${userId.split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
+        let kick = `┌─⪩ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐀𝐃𝐈Ó𝐒 🗣️‼️ 」\n└┬⪩ 「 @${userId.split`@`[0]} 」\n   │😒  𝐒𝐄 𝐅𝐔𝐄 𝐄𝐒𝐄 𝐏𝐔𝐓𝐎\n   │🥀 𝐍𝐮𝐧𝐜𝐚 𝐓𝐞 𝐐𝐮𝐢𝐬𝐢𝐦𝐨𝐬 𝐀𝐪𝐮í\n   └───────────────┈ ⳹`;
         let img3;
         try {
             img3 = await (await fetch(goodbyeImage)).buffer();
