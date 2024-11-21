@@ -1,23 +1,33 @@
-/*import didyoumean from 'didyoumean'
-import similarity from 'similarity'
+export async function before(m) {
+  if (!m.text || !global.prefix.test(m.text)) {
+    return;
+  }
 
-export async function before(m, { conn, match, usedPrefix, command }) {
-	
-if ((usedPrefix = (match[0] || '')[0])) {
-let noPrefix = m.text.replace(usedPrefix, '')
-let args = noPrefix.trim().split` `.slice(1)
-let text = args.join` `
-let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
-if (help.includes(noPrefix)) return
-let mean = didyoumean(noPrefix, help)
-let sim = similarity(noPrefix, mean)
-let som = sim * 100
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let name = await conn.getName(who)
-let caption = `*🌹  Hola* @${who.split('@')[0]}
-El comando no existe, pero se encontraron resultados similares 
-✔️ *${usedPrefix + mean}*
- ❗ *Similitud:* _${parseInt(som)}%_`
-if (mean) conn.reply(m.chat, caption, m, { mentions: [who]})
+  const usedPrefix = global.prefix.exec(m.text)[0];
+  const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
+
+  const validCommand = (command, plugins) => {
+    for (let plugin of Object.values(plugins)) {
+     if (plugin.command && (Array.isArray(plugin.command) ? plugin.command : [plugin.command]).includes(command)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  if (validCommand(command, global.plugins)) {
+    let chat = global.db.data.chats[m.chat];
+    let user = global.db.data.users[m.sender];
+    if (chat.isBanned) return;
+    if (!user.commands) {
+      user.commands = 0;
+    }
+    user.commands += 1;
+   // await conn.sendPresenceUpdate('composing', m.chat);
+  } else {
+   const comando = m.text.trim().split(' ')[0];
+   await m.reply(`❁ El comando *${comando}* no existe.
+Para ver la lista de comandos usa:
+» *#help*`);
+  }
 }
-}*/
