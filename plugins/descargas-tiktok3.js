@@ -12,7 +12,6 @@ let JT = `*Titulo:* ${titulo}
 *Proceso:* ${proceso} ms
 *Duracion:* ${duracion}`
 await conn.sendFile(m.chat, video, 'HasumiBotFreeCodes.mp4', JT, m)
-await conn.sendFile(m.chat, audio, 'HasumiBotFreeCodes.mp3', null, m)
 } catch (error) {
 console.error(error)    
 }}
