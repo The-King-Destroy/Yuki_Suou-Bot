@@ -24,5 +24,5 @@ handler.help = ['unbanuser <@tag>'];
 handler.command = ['unbanuser'];
 handler.tags = ['mods'];
 handler.mods = true;
-handler.group = true;
+handler.group = false;
 export default handler;
