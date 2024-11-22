@@ -1,14 +1,12 @@
 import fetch from 'node-fetch'
-import ffmpeg from "fluent-ffmpeg"
 
 var handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!args[0]) {
-        throw m.reply(`*🌸 Ejemplo: ${usedPrefix + command
-        }* https://vm.tiktok.com/ZMhAk8tLx/`);
+        throw m.reply(`*🌸 Ejemplo: ${usedPrefix + command}* https://vm.tiktok.com/ZMhAk8tLx/`);
     }
 
     try {
-        await conn.reply ( m.chat, "🌷 *Espere un momento, estoy descargando su video...*", m, );
+        await conn.reply(m.chat, "🌷 *Espere un momento, estoy descargando su video...*", m);
 
         const tiktokData = await tiktokdl(args[0]);
 
@@ -18,21 +16,13 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
 
         const videoURL = tiktokData.data.play;
         const videoURLWatermark = tiktokData.data.wmplay;
-        const infonya_gan = `*📖 Descripción:* ${tiktokData.data.title}\n*🚀 Publicado:* ${tiktokData.data.create_time
-            }\n\n*⚜️ Estado:*\n=====================\nLikes = ${tiktokData.data.digg_count
-            }\nComentarios = ${tiktokData.data.comment_count}\nCompartidas = ${tiktokData.data.share_count
-            }\nVistas = ${tiktokData.data.play_count}\nDescargas = ${tiktokData.data.download_count
-            }\n=====================\n\nUploader: ${tiktokData.data.author.nickname || "No info"
-            }\n(${tiktokData.data.author.unique_id} - https://www.tiktok.com/@${tiktokData.data.author.unique_id
-            } )\n*🔊 Sonido:* ${tiktokData.data.music
-            }\n`;
+        const infonya_gan = `*📖 Descripción:* ${tiktokData.data.title}\n*🚀 Publicado:* ${tiktokData.data.create_time}\n\n*⚜️ Estado:*\n=====================\nLikes = ${tiktokData.data.digg_count}\nComentarios = ${tiktokData.data.comment_count}\nCompartidas = ${tiktokData.data.share_count}\nVistas = ${tiktokData.data.play_count}\nDescargas = ${tiktokData.data.download_count}\n=====================\n\nUploader: ${tiktokData.data.author.nickname || "No info"}\n(${tiktokData.data.author.unique_id} - https://www.tiktok.com/@${tiktokData.data.author.unique_id})\n*🔊 Sonido:* ${tiktokData.data.music}\n`;
 
         if (videoURL || videoURLWatermark) {
-            await conn.sendFile( m.chat, videoURL, "tiktok.mp4", "`DESCARGA DE TIKTOK`"+`\n\n${infonya_gan}`, m, );
+            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", "`DESCARGA DE TIKTOK`" + `\n\n${infonya_gan}`, m);
             setTimeout(async () => {
-                //await conn.sendFile( m.chat, videoURLWatermark, "tiktokwm.mp4", `*Ini Versi Watermark*\n\n${infonya_gan}`, m, );
-                await conn.sendFile( m.chat, `${tiktokData.data.music}`, "lagutt.mp3", "", m, );
-                //conn.reply( m.chat, "•⩊• Ini kak Videonya ૮₍ ˶ᵔ ᵕ ᵔ˶ ₎ა\nDitonton yah ₍^ >ヮ<^₎", m, );
+                // Aquí se eliminó la línea que enviaba el audio
+                // await conn.sendFile(m.chat, `${tiktokData.data.music}`, "lagutt.mp3", "", m);
             }, 1500);
         } else {
             throw m.reply("No se pudo descargar.");
@@ -56,14 +46,4 @@ async function tiktokdl(url) {
     let tikwm = `https://www.tikwm.com/api/?url=${url}?hd=1`
     let response = await (await fetch(tikwm)).json()
     return response
-}
-
-async function convertVideoToMp3(videoUrl, outputFileName) {
-    return new Promise((resolve, reject) => {
-        ffmpeg(videoUrl)
-            .toFormat("mp3")
-            .on("end", () => resolve())
-            .on("error", (err) => reject(err))
-            .save(outputFileName);
-    });
 }
