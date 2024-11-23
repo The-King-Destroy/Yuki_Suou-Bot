@@ -1,5 +1,3 @@
-/*- `PLUGIN BRAT STICKER`- By Kenisawa*/
-
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 
@@ -18,7 +16,7 @@ let handler = async (m, {
             let cap = `🌹 *Listo~*`
             await conn.sendFile(m.chat, resl.source, "", cap, m)
         } catch (e) {
-            await m.reply(eror)
+            await m.reply(`Error: ${e.message}`);
         }
     }
     if (text == '2') {
@@ -27,7 +25,7 @@ let handler = async (m, {
             let cap = `🌹 *Listo~*`
             await conn.sendFile(m.chat, resl.source, "", cap, m)
         } catch (e) {
-            await m.reply(eror)
+            await m.reply(`Error: ${e.message}`);
         }
     }
 }
@@ -38,7 +36,7 @@ handler.limit = true
 export default handler
 
 async function animeVideo() {
-    const url = 'https://shortstatusvideos.com/anime-video-status-download/'; // Ganti dengan URL yang sesuai
+    const url = 'https://shortstatusvideos.com/anime-video-status-download/';
     const response = await fetch(url);
     const html = await response.text();
     const $ = cheerio.load(html);
@@ -61,7 +59,7 @@ async function animeVideo() {
 }
 
 async function animeVideo2() {
-    const url = 'https://mobstatus.com/anime-whatsapp-status-video/'; // Ganti dengan URL yang sesuai
+    const url = 'https://mobstatus.com/anime-whatsapp-status-video/';
     const response = await fetch(url);
     const html = await response.text();
     const $ = cheerio.load(html);
