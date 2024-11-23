@@ -183,7 +183,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
 
 <details>
- <summary><b> 🌹 Servidor Sky</b></summary>
+ <summary><b> 🌹 Servidor Sky ULTRA PLUS</b></summary>
 
 * Dashboard  [`Dash`](https://dash.skyultraplus.com)
 * Panel [`Panel`](https://panel.skyultraplus.com)
