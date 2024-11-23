@@ -153,7 +153,7 @@ Si después de instalar el bot en Termux y iniciar la session del bot (el numero
     cd Yuki_Suou-Bot
     ```
 
-2. Elimina la carpeta MiniSession:
+2. Elimina la carpeta YukiSession:
     ```bash
     rm -rf YukiSession
     ```
@@ -183,7 +183,7 @@ npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
 
 <details>
- <summary><b> 🌹 Servidor Sky ULTRA PLUS</b></summary>
+ <summary><b> 🌹 Servidor Sky Ultra Plus</b></summary>
 
 * Dashboard  [`Dash`](https://dash.skyultraplus.com)
 * Panel [`Panel`](https://panel.skyultraplus.com)
