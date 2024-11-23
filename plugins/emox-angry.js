@@ -20,11 +20,11 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` está enojado/a con \`${name || who}\`.`; 
+        str = `\`${name2}\` *está enojado/a con* \`${name || who}\`.`; 
     } else if (m.quoted) {
-        str = `\`${name2}\` está enojado/a con \`${name || who}\`.`; 
+        str = `\`${name2}\` *está enojado/a con* \`${name || who}\`.`; 
     } else {
-        str = `\`${name2}\` está enojado/a.`.trim();
+        str = `\`${name2}\` *está enojado/a.*`.trim();
     }
     
     if (m.isGroup) {

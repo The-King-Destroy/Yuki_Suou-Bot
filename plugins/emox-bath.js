@@ -20,9 +20,9 @@ let handler = async (m, { conn, usedPrefix }) => {
 
     let str;
     if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` está bañando a \`${name || who}\`.`; 
+        str = `\`${name2}\` *está bañando a* \`${name || who}\`.`; 
     } else if (m.quoted) {
-        str = `\`${name2}\` está bañando a \`${name || who}\`.`; 
+        str = `\`${name2}\` *está bañando a* \`${name || who}\`.`; 
     } else {
         str = `\`${name2}\` se está duchando.`.trim();
     }
