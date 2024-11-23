@@ -196,16 +196,21 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-### ⭐ Activa En Cloud Starlights
+### **`⭐ Cloud Starlights`**
 
-<a href="https://dash.starlights.uk"><img src="https://i.ibb.co/37T9Nnk/file.jpg" width="300" height="300" alt="Cloud Starlights"/></a>
+<a
+href="https://dash.starlights.uk"><img src="https://i.ibb.co/37T9Nnk/file.jpg" height="125px"></a>
 
-- Dash: [dash.starlights.uk](https://dash.starlights.uk)
-- Panel: [cloud.starlights.uk](https://cloud.starlights.uk/)
-- Tutorial: [https://youtube.com](https://youtu.be/VxCnxpjGAZY)
-- Canal de WhatsApp: [【 ✯ Starlights Team - Oficial Chanel ✰ 】](https://whatsapp.com/channel/0029VaBfsIwGk1FyaqFcK91S)
+<details>
+ <summary><b> 🌟 Cloud Starlights</b></summary>
 
-[![Click Aquí](https://img.shields.io/badge/Soporte-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5218261000681)
+* Dashboard  [`Dash`](https://dash.starlights.uk)
+* Panel  [`Panel`](https://cloud.starlights.uk/)
+* Canal de WhatsApp  [`Canal Starlights`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+* Tutorial  [`YouTube`](https://youtu.be/VxCnxpjGAZY))
+* Contacto(s)  [`Soporte`](https://wa.me/5218261000681)
+
+</details>
 
 ---
 
