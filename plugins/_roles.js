@@ -1,85 +1,247 @@
 //GataNina-Li
 const roles = {
-'*𝗡𝗼𝘃𝗮𝘁𝗼 V* 🍷': 0,
-'*𝗡𝗼𝘃𝗮𝘁𝗼 IV* 🍷': 2,
-'*𝗡𝗼𝘃𝗮𝘁𝗼 III* 🍷': 4,
-'*𝗡𝗼𝘃𝗮𝘁𝗼 II* 🍷': 6,
-'*𝗡𝗼𝘃𝗮𝘁𝗼 I* 🍷': 8,
-'*𝗘𝘀𝘁𝘂𝗱𝗶𝗮𝗻𝘁𝗲 V* 🍹': 10,
-'*𝗘𝘀𝘁𝘂𝗱𝗶𝗮𝗻𝘁𝗲 IV* 🍹': 12,
-'*𝗘𝘀𝘁𝘂𝗱𝗶𝗮𝗻𝘁𝗲 III* 🍹': 14,
-'*𝗘𝘀𝘁𝘂𝗱𝗶𝗮𝗻𝘁𝗲 II* 🍹': 16,
-'*𝗘𝘀𝘁𝘂𝗱𝗶𝗮𝗻𝘁𝗲 I* 🍹': 18,
-'*𝗥𝗮𝗻𝗴𝗼 𝗺𝗲𝗱𝗶𝗼 V* 🥃': 20,
-'*𝗥𝗮𝗻𝗴𝗼 𝗺𝗲𝗱𝗶𝗼 IV* 🥃': 22,
-'*𝗥𝗮𝗻𝗴𝗼 𝗺𝗲𝗱𝗶𝗼 III* 🥃': 24,
-'*𝗥𝗮𝗻𝗴𝗼 𝗺𝗲𝗱𝗶𝗼 II* 🥃': 26,
-'*𝗥𝗮𝗻𝗴𝗼 𝗺𝗲𝗱𝗶𝗼 I* 🥃': 28,
-'*𝗠𝗮𝗲𝘀𝘁𝗿𝗼 V* ☁️': 30,
-'*𝗠𝗮𝗲𝘀𝘁𝗿𝗼 IV* ☁️': 32,
-'*𝗠𝗮𝗲𝘀𝘁𝗿𝗼 III* ☁️': 34,
-'*𝗠𝗮𝗲𝘀𝘁𝗿𝗼 II* ☁️': 36,
-'*𝗠𝗮𝗲𝘀𝘁𝗿𝗼 I* ☁️': 38,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 V* 🪐': 40,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 IV* 🪐': 42,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 III* 🪐': 44,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 II* 🪐': 46,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 I* 🪐': 48,
-'*𝗚𝗲𝗻𝗶𝗼 V* 💧': 50,
-'*𝗚𝗲𝗻𝗶𝗼 IV* 💧': 52,
-'*𝗚𝗲𝗻𝗶𝗼 III* 💧': 54,
-'*𝗚𝗲𝗻𝗶𝗼 II* 💧': 56,
-'*𝗚𝗲𝗻𝗶𝗼 I* 💧': 58,
-'*𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 V* 🍿': 60,
-'*𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 IV* 🍿': 62,
-'*𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 III* 🍿': 64,
-'*𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 II* 🍿': 66,
-'*𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 I* 🍿': 68,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 𝗱𝗲𝗹 𝗯𝗼𝘁 V* 🌐': 70,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 𝗱𝗲𝗹 𝗯𝗼𝘁 IV* 🌐': 72,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 𝗱𝗲𝗹 𝗯𝗼𝘁 III* 🌐': 74,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 𝗱𝗲𝗹 𝗯𝗼𝘁 II* 🌐': 76,
-'*𝗘𝘅𝗽𝗲𝗿𝘁𝗼 𝗱𝗲𝗹 𝗯𝗼𝘁 I* 🌐': 78,
-'*𝗣𝗿𝗼 V* 💰': 80,
-'*𝗣𝗿𝗼 IV* 💰': 82,
-'*𝗣𝗿𝗼 III* 💰': 84,
-'*𝗣𝗿𝗼 II* 💰': 86,
-'*𝗣𝗿𝗼 I* 💰': 88,
-'*𝗣𝗿𝗼 𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 V* 🎁': 90,
-'*𝗣𝗿𝗼 𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 IV* 🎁': 92,
-'*𝗣𝗿𝗼 𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 III* 🎁': 94,
-'*𝗣𝗿𝗼 𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 II* 🎁': 96,
-'*𝗣𝗿𝗼 𝗦𝘂𝗽𝗲𝗿𝗶𝗼𝗿 I* 🎁': 98,
-'*𝗥𝗲𝘆 V* 💻': 100,
-'*𝗥𝗲𝘆 IV* 💻': 102,
-'*𝗥𝗲𝘆 III* 💻': 104,
-'*𝗥𝗲𝘆 II* 💻': 106,
-'*𝗥𝗲𝘆 I* 💻': 108,
-'*𝗥𝗲𝘆 𝗣𝗿𝗼 V* 🎒': 110,
-'*𝗥𝗲𝘆 𝗣𝗿𝗼 IV* 🎒': 112,
-'*𝗥𝗲𝘆 𝗣𝗿𝗼 III* 🎒': 114,
-'*𝗥𝗲𝘆 𝗣𝗿𝗼 II* 🎒': 116,
-'*𝗥𝗲𝘆 𝗣𝗿𝗼 I* 🎒': 118,
-'*𝗜𝗻𝘃𝗲𝗻𝘀𝗶𝗯𝗹𝗲 V* 🔔': 120,
-'*𝗜𝗻𝘃𝗲𝗻𝘀𝗶𝗯𝗹𝗲 IV* 🔔': 122,
-'*𝗜𝗻𝘃𝗲𝗻𝘀𝗶𝗯𝗹𝗲 III* 🔔': 124,
-'*𝗜𝗻𝘃𝗲𝗻𝘀𝗶𝗯𝗹𝗲 II* 🔔': 126,
-'*𝗜𝗻𝘃𝗲𝗻𝘀𝗶𝗯𝗹𝗲 I* 🔔': 128,
-'*𝗠𝗶𝗻𝗶 V* 🌌': 130,
-'*𝗠𝗶𝗻𝗶 IV* 🌌': 132,
-'*𝗠𝗶𝗻𝗶 III* 🌌': 134,
-'*𝗠𝗶𝗻𝗶 II* 🌌': 136,
-'*𝗠𝗶𝗻𝗶 I* 🌌': 138,
-'*𝗣𝗿𝗲𝗺𝗶𝘂𝗺 V* 🏆': 140,
-'*𝗣𝗿𝗲𝗺𝗶𝘂𝗺 IV* 🏆': 145,
-'*𝗣𝗿𝗲𝗺𝗶𝘂𝗺 III* 🏆': 150,
-'*𝗣𝗿𝗲𝗺𝗶𝘂𝗺 II* 🏆': 155,
-'*𝗣𝗿𝗲𝗺𝗶𝘂𝗺 I* 🏆': 160,
-'*𝗥𝗲𝘆 𝗠𝗶𝗻𝗶 V* 👑': 170,
-'*𝗥𝗲𝘆 𝗠𝗶𝗻𝗶 IV* 👑': 185,
-'*𝗥𝗲𝘆 𝗠𝗶𝗻𝗶 III* 👑': 200,
-'*𝗥𝗲𝘆 𝗠𝗶𝗻𝗶 II* 👑': 250,
-'*𝗥𝗲𝘆 𝗠𝗶𝗻𝗶 I* 👑': 300
+// Nivel 0-9: Novatos
+'🪄 *Estudiante Novato*': 0,
+'🪄 *Recluta Demoníaco*': 2,
+'🪄 *Aspirante a Demonio*': 4,
+'🪄 *Discípulo de la Academia*': 6,
+'🪄 *Iniciado Mágico*': 8,
+
+// Nivel 10-19: Aspirantes
+'🛡️ *Guerrero de la Academia*': 10,
+'🛡️ *Mago en Entrenamiento*': 12,
+'🛡️ *Cazador de Demonios*': 14,
+'🛡️ *Luchador de Élite*': 16,
+'🛡️ *Caballero Aspirante*': 18,
+
+// Nivel 20-29: Exploradores
+'🔮 *Mago Explorador*': 20,
+'🔮 *Conjurador de Espíritus*': 22,
+'🔮 *Aventurero en Práctica*': 24,
+'🔮 *Cazador de Bestias*': 26,
+'🔮 *Rastreador de Demonios*': 28,
+
+// Nivel 30-39: Guerreros
+'⚔️ *Guerrero Experimentado*': 30,
+'⚔️ *Héroe de la Academia*': 32,
+'⚔️ *Maestro de la Espada*': 34,
+'⚔️ *Defensor del Reino*': 36,
+'⚔️ *Guerrero Legendario*': 38,
+
+// Nivel 40-49: Guardianes
+'🛡️ *Guardián de la Academia*': 40,
+'🛡️ *Caballero de la Luz*': 42,
+'🛡️ *Protector del Mundo*': 44,
+'🛡️ *Paladín de la Verdad*': 46,
+'🛡️ *Defensor del Honor*': 48,
+
+// Nivel 50-59: Hechiceros
+'🔮 *Mago Supremo*': 50,
+'🔮 *Hechicero de Batalla*': 52,
+'🔮 *Conjurador Avanzado*': 54,
+'🔮 *Maestro de la Magia*': 56,
+'🔮 *Archimago Demoníaco*': 58,
+
+// Nivel 60-79: Héroes
+'🏅 *Héroe Legendario*': 60,
+'🏅 *Campeón de la Academia*': 62,
+'🏅 *Defensor de la Luz*': 64,
+'🏅 *Héroe de la Justicia*': 66,
+'🏅 *Héroe Inmortal*': 68,
+
+// Nivel 80-99: Maestros
+'📜 *Maestro Demoníaco*': 80,
+'📜 *Conjurador Supremo*': 85,
+'📜 *Sabio de la Magia*': 90,
+'📜 *Arcano Legendario*': 95,
+'📜 *Maestro de las Artes Oscuras*': 99,
+
+// Nivel 100-149: Leyendas
+'🌟 *Leyenda Demoníaca*': 100,
+'🌟 *Guerrero Épico*': 110,
+'🌟 *Cazador de Demonios Legendario*': 120,
+'🌟 *Héroe de la Oscuridad*': 130,
+'🌟 *Leyenda del Maou*': 140,
+
+// Nivel 150-199: Monarcas
+'👑 *Rey Demonio*': 150,
+'👑 *Reina de la Academia*': 160,
+'👑 *Monarca de la Luz*': 170,
+'👑 *Soberano del Reino*': 180,
+'👑 *Emperador Demoníaco*': 199,
+
+// Nivel 200-299: Campeones
+'🚀 *Campeón de la Academia*': 200,
+'🚀 *Gran Guerrero*': 225,
+'🚀 *Campeón de la Luz*': 250,
+'🚀 *Defensor de la Verdad*': 275,
+'🚀 *Campeón Legendario*': 299,
+
+// Nivel 300-399: Luz Primigenia
+'✨ *Portador de la Luz*': 300,
+'✨ *Guardián de la Luz*': 325,
+'✨ *Maestro de la Luz*': 350,
+'✨ *Luz Eterna*': 375,
+'✨ *Luz Primigenia*': 399,
+
+// Nivel 400-499: Maestros
+'📜 *Maestro Demoníaco*': 400,
+'📜 *Conjurador Supremo*': 425,
+'📜 *Sabio de la Magia*': 450,
+'📜 *Arcano Legendario*': 475,
+'📜 *Maestro de las Artes Oscuras*': 499,
+
+// Nivel 500-599: Leyendas
+'🌟 *Leyenda Demoníaca*': 500,
+'🌟 *Guerrero Épico*': 525,
+'🌟 *Cazador de Demonios Legendario*': 550,
+'🌟 *Héroe de la Oscuridad*': 575,
+'🌟 *Leyenda del Maou*': 599,
+
+// Nivel 600-699: Gobernantes
+'👑 *Señor del Infierno*': 600,
+'👑 *Rey Demoníaco*': 625,
+'👑 *Soberano de la Oscuridad*': 650,
+'👑 *Emperador del Caos*': 675,
+'👑 *Monarca Supremo*': 699,
+
+// Nivel 700-799: Maestros
+'🧙‍♂️ *Maestro de la Oscuridad*': 700,
+'🧙‍♂️ *Hechicero Supremo*': 725,
+'🧙‍♂️ *Archimago de la Academia*': 750,
+'🧙‍♂️ *Gran Conjurador*': 775,
+'🧙‍♂️ *Maestro del Caos*': 799,
+
+// Nivel 800-899: Inmortales
+'🔥 *Inmortal del Maou*': 800,
+'🔥 *Eterno Guardian*': 825,
+'🔥 *Divinidad Demoníaca*': 850,
+'🔥 *Inmortal Legendario*': 875,
+'🔥 *Deidad del Caos*': 899,
+```
+
+Voy a corregir el problema de los títulos y emojis repetidos. Aquí tienes una versión revisada:
+
+```javascript
+// Nivel 0-9: Novatos
+'🪄 *Estudiante Novato*': 0,
+'🧛 *Recluta Demoníaco*': 2,
+'🧙 *Aspirante a Demonio*': 4,
+'🧝 *Discípulo de la Academia*': 6,
+'🧞 *Iniciado Mágico*': 8,
+
+// Nivel 10-19: Aspirantes
+'🛡️ *Guerrero de la Academia*': 10,
+'🧙‍♂️ *Mago en Entrenamiento*': 12,
+'🧝‍♂️ *Cazador de Demonios*': 14,
+'🧜‍♂️ *Luchador de Élite*': 16,
+'🧚 *Caballero Aspirante*': 18,
+
+// Nivel 20-29: Exploradores
+'🔮 *Mago Explorador*': 20,
+'🔮 *Conjurador de Espíritus*': 22,
+'🔮 *Aventurero en Práctica*': 24,
+'🔮 *Cazador de Bestias*': 26,
+'🔮 *Rastreador de Demonios*': 28,
+
+// Nivel 30-39: Guerreros
+'⚔️ *Guerrero Experimentado*': 30,
+'⚔️ *Héroe de la Academia*': 32,
+'⚔️ *Maestro de la Espada*': 34,
+'⚔️ *Defensor del Reino*': 36,
+'⚔️ *Guerrero Legendario*': 38,
+
+// Nivel 40-49: Guardianes
+'🛡️ *Guardián de la Academia*': 40,
+'🛡️ *Caballero de la Luz*': 42,
+'🛡️ *Protector del Mundo*': 44,
+'🛡️ *Paladín de la Verdad*': 46,
+'🛡️ *Defensor del Honor*': 48,
+
+// Nivel 50-59: Hechiceros
+'🔮 *Mago Supremo*': 50,
+'🔮 *Hechicero de Batalla*': 52,
+'🔮 *Conjurador Avanzado*': 54,
+'🔮 *Maestro de la Magia*': 56,
+'🔮 *Archimago Demoníaco*': 58,
+
+// Nivel 60-79: Héroes
+'🏅 *Héroe Legendario*': 60,
+'🏅 *Campeón de la Academia*': 62,
+'🏅 *Defensor de la Luz*': 64,
+'🏅 *Héroe de la Justicia*': 66,
+'🏅 *Héroe Inmortal*': 68,
+
+// Nivel 80-99: Maestros
+'📜 *Maestro Demoníaco*': 80,
+'📜 *Conjurador Supremo*': 85,
+'📜 *Sabio de la Magia*': 90,
+'📜 *Arcano Legendario*': 95,
+'📜 *Maestro de las Artes Oscuras*': 99,
+
+// Nivel 100-149: Leyendas
+'🌟 *Leyenda Demoníaca*': 100,
+'🌟 *Guerrero Épico*': 110,
+'🌟 *Cazador de Demonios Legendario*': 120,
+'🌟 *Héroe de la Oscuridad*': 130,
+'🌟 *Leyenda del Maou*': 140,
+
+// Nivel 150-199: Monarcas
+'👑 *Rey Demonio*': 150,
+'👑 *Reina de la Academia*': 160,
+'👑 *Monarca de la Luz*': 170,
+'👑 *Soberano del Reino*': 180,
+'👑 *Emperador Demoníaco*': 199,
+
+// Nivel 200-299: Campeones
+'🚀 *Campeón de la Academia*': 200,
+'🚀 *Gran Guerrero*': 225,
+'🚀 *Campeón de la Luz*': 250,
+'🚀 *Defensor de la Verdad*': 275,
+'🚀 *Campeón Legendario*': 299,
+
+// Nivel 300-399: Luz Primigenia
+'✨ *Portador de la Luz*': 300,
+'✨ *Guardián de la Luz*': 325,
+'✨ *Maestro de la Luz*': 350,
+'✨ *Luz Eterna*': 375,
+'✨ *Luz Primigenia*': 399,
+
+// Nivel 400-499: Maestros
+'📜 *Maestro Demoníaco*': 400,
+'📜 *Conjurador Supremo*': 425,
+'📜 *Sabio de la Magia*': 450,
+'📜 *Arcano Legendario*': 475,
+'📜 *Maestro de las Artes Oscuras*': 499,
+
+// Nivel 500-599: Leyendas
+'🌟 *Leyenda Demoníaca*': 500,
+'🌟 *Guerrero Épico*': 525,
+'🌟 *Cazador de Demonios Legendario*': 550,
+'🌟 *Héroe de la Oscuridad*': 575,
+'🌟 *Leyenda del Maou*': 599,
+
+// Nivel 600-699: Gobernantes
+'👑 *Señor del Infierno*': 600,
+'👑 *Rey Demoníaco*': 625,
+'👑 *Soberano de la Oscuridad*': 650,
+'👑 *Emperador del Caos*': 675,
+'👑 *Monarca Supremo*': 699,
+
+// Nivel 700-799: Maestros
+'🧙 *Maestro de la Oscuridad*': 700,
+'🧙‍♂️ *Hechicero Supremo*': 725,
+'🧙‍♀️ *Archimago de la Academia*': 750,
+'🧜 *Gran Conjurador*': 775,
+'🧚 *Maestro del Caos*': 799,
+
+// Nivel 800-900: Inmortales
+'🔥 *Inmortal del Maou*': 800,
+'🔥 *Eterno Guardian*': 825,
+'🔥 *Divinidad Demoníaca*': 850,
+'🔥 *Inmortal Legendario*': 875,
+'🔥 *Deidad del Caos*': 900,
+'🌌 *Monarca Destructor de Universos*': 10000,
 }
 
 let handler = m => m
