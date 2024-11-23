@@ -206,7 +206,7 @@ href="https://dash.starlights.uk"><img src="https://i.ibb.co/37T9Nnk/file.jpg" h
 
 * Dashboard  [`Dash`](https://dash.starlights.uk)
 * Panel  [`Panel`](https://cloud.starlights.uk/)
-* Canal de WhatsApp  [`Canal Starlights`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+* Canal de WhatsApp  [`Canal Starlights`](https://whatsapp.com/channel/0029VaBfsIwGk1FyaqFcK91S)
 * Tutorial  [`YouTube`](https://youtu.be/VxCnxpjGAZY)
 * Contacto(s)  [`Soporte`](https://wa.me/5218261000681)
 
