@@ -1,5 +1,4 @@
-//GataNina-Li
-const roles = {
+export const roles = {
 // Nivel 0-9: Novatos
 '🪄 *Estudiante Novato*': 0,
 '🪄 *Recluta Demoníaco*': 2,
@@ -246,11 +245,23 @@ Voy a corregir el problema de los títulos y emojis repetidos. Aquí tienes una 
 
 let handler = m => m
 handler.before = async function (m, { conn }) {
-        let user = db.data.users[m.sender]
-        let level = user.level
-        let role = (Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level >= minLevel) || Object.entries(roles)[0])[0]
-        user.role = role
-        return !0
-
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+    let user = db.data.users[m.sender]
+    let level = user.level
+    let currentRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level >= minLevel)[0]
+    let nextRole = Object.entries(roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0]
+    
+    if (level < 1) return false
+    if (user.role != currentRole) {
+        user.role = currentRole
+        let userName = m.pushName || 'Anónimo'
+        let chtxt = `✨ *¡Felicidades ${userName}!* \n\nTu nuevo rango es:\n» ${currentRole}.\n` + (nextRole ? ` Para llegar al rango:\n» ${nextRole}\nAlcanza el nivel:\n» *${roles[nextRole]}*.` : '')
+        
+        // Eliminado el envío al canal, ahora se envía al chat original
+        await conn.sendMessage(m.chat, { text: chtxt }, { quoted: null }) 
+        return true
+    }
+    return false
 }
-export default handler 
+export default handler
