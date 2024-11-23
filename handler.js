@@ -163,8 +163,7 @@ if (!('detect' in chat)) chat.detect = true
 if (!('sWelcome' in chat)) chat.sWelcome = ''          
 if (!('sBye' in chat)) chat.sBye = ''                    
 if (!('sPromote' in chat)) chat.sPromote = ''             
-if (!('sDemote' in chat)) chat.sDemote = ''
-if (!('sAutoresponder' in chat)) chat.sAutoresponder = ''
+if (!('sDemote' in chat)) chat.sDemote = '' 
 if (!('sCondition' in chat)) chat.sCondition = JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}])
 if (!('delete' in chat)) chat.delete = false                   
 if (!('nsfw' in chat)) chat.nsfw = false
@@ -203,8 +202,7 @@ detect: true,
 sWelcome: '',
 sBye: '',
 sPromote: '',
-sDemote: '',
-sAutoresponder: '',
+sDemote: '', 
 sCondition: JSON.stringify([{ grupo: { usuario: [], condicion: [], admin: '' }, prefijos: []}]), 
 delete: false,
 autoresponder: false,
@@ -288,6 +286,10 @@ if (opts['swonly'] && m.chat !== 'status@broadcast') return
 if (typeof m.text !== 'string')
 m.text = ''
 
+        /*//if (m.isBaileys) return 
+        if (m.isBaileys || isBaileysFail && m?.sender === this?.this?.user?.jid) {
+        return
+        }*/
 m.exp += Math.ceil(Math.random() * 10)
 let usedPrefix
 let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
@@ -308,6 +310,9 @@ continue
 if (plugin.disabled)
 continue
 const __filename = join(___dirname, name)
+/*if (m.sender === this.user.jid) {
+continue
+}*/
 if (typeof plugin.all === 'function') {
 try {
 await plugin.all.call(this, m, {
