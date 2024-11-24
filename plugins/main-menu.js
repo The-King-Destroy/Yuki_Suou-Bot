@@ -273,9 +273,14 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃♤ .weekly
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕾𝖊𝖗𝖇𝖔𝖙/𝕮𝖔𝖉𝖊ᚐ҉ᚐ 」⪨
-┃✾ .code
+┃✾ .jadibot 
+┃✾ .deletebot
+┃✾ .bots
+┃✾ .stop
 ┃✾ .serbot
+┃✾ .code
 ┃✾ .serbot --code 
+┃✾ .token
 ┃✾ .rentbot
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕭𝖚𝖘𝖈𝖆𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」⪨
