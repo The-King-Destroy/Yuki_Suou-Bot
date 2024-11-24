@@ -70,16 +70,16 @@ const roles = {
 '*Sabio(a) Eterno(a) III* 📜': 134,
 '*Sabio(a) Eterno(a) II* 📜': 136,
 '*Sabio(a) Eterno(a) I* 📜': 138,
-'*Viajero(a) del Multiverso V* 🌌': 140,
-'*Viajero(a) del Multiverso IV* 🌌': 145,
-'*Viajero(a) del Multiverso III* 🌌': 150,
-'*Viajero(a) del Multiverso II* 🌌': 155,
-'*Viajero(a) del Multiverso I* 🌌': 160,
-'*Deidad de la Luz* ⚜️': 170,
-'*Deidad de la Eternidad* ⚜️': 185,
-'*Deidad de la Sabiduría* ⚜️': 200,
-'*Deidad de los Monstruos* ⚜️': 250,
-'*Gran Monarca de las Sombras* ⚜️': 300
+'*Viajero(a) del Multiverso V* ⏳': 140,
+'*Viajero(a) del Multiverso IV* ⏳': 145,
+'*Viajero(a) del Multiverso III* ⏳': 150,
+'*Viajero(a) del Multiverso II* ⏳': 155,
+'*Viajero(a) del Multiverso I* ⏳': 160,
+'*Deidad de la Luz* 🔅': 170,
+'*Deidad de la Eternidad* ⏳': 185,
+'*Deidad de la Sabiduría* 📜': 200,
+'*Deidad del Bosque* 🍃': 250,
+'*Gran Monarca de las Sombras* 🌌': 300
 }
 
 let handler = m => m
