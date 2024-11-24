@@ -20,7 +20,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
         if (audioURL) {
             await conn.sendFile(m.chat, audioURL, "audio.mp3", "`DESCARGA DE AUDIO DE TIKTOK`" + `\n\n${infonya_gan}`, m);
         } else {
-            throw m.reply("No se pudo descargar el audio.");
+            throw m.reply("🥀 *No se pudo descargar el audio.*");
         }
     } catch (error1) {
         conn.reply(m.chat, `Error: ${error1}`, m);
