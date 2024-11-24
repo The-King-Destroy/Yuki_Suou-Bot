@@ -3,7 +3,7 @@ let uptime = await process.uptime()
 let runtime = `${global.packname}
 
 ✰ 𝗧𝗶𝗲𝗺𝗽𝗼 𝗔𝗰𝘁𝗶𝘃𝗼: ${rTime(uptime)}`
-conn.reply(m.chat, runtime, m, { contextInfo: { externalAdReply: { mediaUrl: false, mediaType: 1, description: false, title: packname, body: '🍟 ¡Super Bot De WhatsApp!', previewType: 0, thumbnail: icons, sourceUrl: channel}}})
+conn.reply(m.chat, runtime, m, { contextInfo: { externalAdReply: { mediaUrl: false, mediaType: 1, description: false, title: packname, body: '🌸 ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉𝐭ⷭ𓆪͟͞ ', previewType: 0, thumbnail: icons, sourceUrl: channel}}})
 }
 handler.help = ['runtime']
 handler.tags = ['main']
