@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
-if (!text) return m.reply(`🌸 *Ingresa el nombre de una aplicacion*\n *.appstore WhatsApp*`)
+if (!text) return m.reply(`🌸 *Ingresa el nombre de una aplicacion*\n *Ejemplo: /appstore WhatsApp*`)
 
 try {
 let api = await fetch(`https://deliriussapi-oficial.vercel.app/search/appstore?q=${encodeURIComponent(text)}`)
