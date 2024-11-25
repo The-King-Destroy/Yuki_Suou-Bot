@@ -9,8 +9,8 @@
 
 > **`AVISO`**: Yuki Suou Bot aun no se encuentra disponible para Termux, recomiendo usar un hosting en lo que se soluciona el problema con Termux.
 
-### **`Aviso Importante 🪧**: 
-- La Versión actual de baileys con la que cuenta el Bot en algunos servidores de bajó recursos no descarga el Bot correctamente por ello puedes cambiar a la última versión de baileys editando el package.json [esta sección](https://github.com/The-King-Destroy/Yuki_Suou-Bot/blob/main/package.json#L42)
+### **`Aviso Importante 🪧`**: 
+La Versión actual de baileys con la que cuenta el Bot en algunos servidores de bajó recursos no descarga el Bot correctamente por ello puedes cambiar a la última versión de baileys editando el package.json [esta sección](https://github.com/The-King-Destroy/Yuki_Suou-Bot/blob/main/package.json#L42)
 
 ### **`❕️ Información importante`**
 
