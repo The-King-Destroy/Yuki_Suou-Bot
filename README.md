@@ -13,10 +13,10 @@ La versión actual de Baileys, con la que cuenta el bot en algunos servidores de
 <details>
  <summary><b> 🍃 Sigue estás instrucciones</b></summary>
  
-*Después de presionar la parte que dice `Esta Sección` te llevará al package.json editarás la sección que te indica y le pondrás un "*":
-"@whiskeysockets/baileys": "`github:Dev-Diego/Baileys`",
-Asi debería de quedar 👇:
-"@whiskeysockets/baileys": "`*`",*
+*Después de presionar la parte que dice `Esta Sección` te llevará al package.json editarás la sección que te indica y le pondrás un* "*":
+*"@whiskeysockets/baileys": "`github:Dev-Diego/Baileys`",
+Asi debería de quedar* 👇:
+"@whiskeysockets/baileys": "`*`",
 
 </details>
 
