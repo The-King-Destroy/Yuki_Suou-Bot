@@ -77,4 +77,4 @@ console.warn('🥀 Se excedió el límite de Listeners en:');
 console.warn(warning.stack);
 }
 });
-start('yuki_suou.js');
+start('starcore.js');
