@@ -285,14 +285,17 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕭𝖚𝖘𝖈𝖆𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」⪨
 ┃❖ .animesearch
+┃❖ .appstore
 ┃❖ .applemusicdetail
 ┃❖ .applemusicsearch
 ┃❖ .bingsearch
+┃❖ .cuevana
 ┃❖ .githubsearch
 ┃❖ .gimage
 ┃❖ .gnula
 ┃❖ .googlesearch *<texto>*
 ┃❖ .npmjs
+┃❖ .steam
 ┃❖ .twitterstalk <username>
 ┃❖ .tiktoksearch <txt>
 ┃❖ .tweetposts *<búsqueda>*
