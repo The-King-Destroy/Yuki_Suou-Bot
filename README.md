@@ -18,6 +18,7 @@ Asi debería de quedar 👇:
 "@whiskeysockets/baileys": "`*`",
 
 </details>
+
 ---
 
 ### **`❕️ Información importante`**
