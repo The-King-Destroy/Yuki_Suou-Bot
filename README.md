@@ -7,7 +7,7 @@
 > ⚜️ Versión Actual: 1.8.0 
 ---
 ### **`Aviso Importante 🪧`**: 
-La Versión actual de baileys con la que cuenta el Bot en algunos servidores de bajó recursos no descarga el Bot correctamente por ello puedes cambiar a la última versión de baileys editando el package.json ["Esta Sección"](https://github.com/The-King-Destroy/Yuki_Suou-Bot/blob/main/package.json#L42)
+La versión actual de Baileys, con la que cuenta el bot en algunos servidores de bajo recursos, no descarga el bot correctamente. Por ello, puedes cambiar a la última versión de Baileys editando el `package.json`. ["Esta Sección"](https://github.com/The-King-Destroy/Yuki_Suou-Bot/blob/main/package.json#L42)
 
 ### **`❕️ Información importante`**
 
