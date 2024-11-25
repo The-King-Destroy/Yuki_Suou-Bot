@@ -9,7 +9,7 @@ let json = await api.json()
 
 let JT = '🌐 AppStore  -  Search 🌐';
 json.forEach((app, index) => {
-      JT += `\n\n═════════════════════`;
+      JT += `\n\n══════════════════════`;
       JT += `\n🌹 *Nro :* ${index + 1}`
       JT += `\n⚜️ *Titulo:* ${app.title}`
       JT += `\n👨‍💻 *Desarrollador:* ${app.developer}`

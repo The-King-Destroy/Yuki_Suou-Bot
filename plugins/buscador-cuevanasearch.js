@@ -9,7 +9,7 @@ let json = await api.json()
 
 let JT = '📽️ Cuevana  -  Search 📽️';
 json.data.forEach((app, index) => {
-      JT += `\n\n═════════════════════`;
+      JT += `\n\n══════════════════════`;
       JT += `\n🌹 *Nro :* ${index + 1}`
       JT += `\n🖼️ *Imagen:* ${app.image}`
       JT += `\n⚜️ *Titulo:* ${app.title}`
