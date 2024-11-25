@@ -8,6 +8,10 @@
 ---
 ### **`Aviso Importante 🪧`**: 
 La versión actual de Baileys, con la que cuenta el bot en algunos servidores de bajo recursos, no descarga el bot correctamente. Por ello, puedes cambiar a la última versión de Baileys editando el `package.json`. [`Esta Sección`](https://github.com/The-King-Destroy/Yuki_Suou-Bot/blob/main/package.json#L42)
+Como hacerlo después de presionar la sección te llevará al package.json y en esa parte ejemplo:
+"@whiskeysockets/baileys": "github:Dev-Diego/Baileys",
+Lo pasarás a éste:
+"@whiskeysockets/baileys": "*",
 
 ### **`❕️ Información importante`**
 
