@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
-if (!text) return m.reply(`🌸 *Ingresa el nombre de una aplicacion*`)
+if (!text) return m.reply(`🌸 *Ingresa el nombre de una aplicacion*\n *.appstore WhatsApp*`)
 
 try {
 let api = await fetch(`https://deliriussapi-oficial.vercel.app/search/appstore?q=${encodeURIComponent(text)}`)
@@ -9,7 +9,7 @@ let json = await api.json()
 
 let JT = '🌐 AppStore  -  Search 🌐';
 json.forEach((app, index) => {
-      JT += `\n\n═══════════════════`;
+      JT += `\n\n═════════════════════`;
       JT += `\n🌹 *Nro :* ${index + 1}`
       JT += `\n⚜️ *Titulo:* ${app.title}`
       JT += `\n👨‍💻 *Desarrollador:* ${app.developer}`
