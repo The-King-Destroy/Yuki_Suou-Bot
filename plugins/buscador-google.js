@@ -11,7 +11,7 @@ const handler = async (m, { conn, command, args }) => {
     await m.react('🕓'); // Reacción de espera
 
     const img = 'https://i.ibb.co/P5kZNFF/file.jpg'; // Imagen para enviar
-    const url = `https://eliasar-yt-api.vercel.app/api/google?query=${encodeURIComponent(text)}`;
+    const url = `https://eliasar-yt-api.vercel.app/api/google?query=colombia ${encodeURIComponent(text)}`;
 
     try {
         // Realizar la solicitud a la API de búsqueda
