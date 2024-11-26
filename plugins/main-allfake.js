@@ -49,12 +49,18 @@ global.colab1 = 'Emma-Violets-Versión'
 global.colab2 = 'Niño-Piña'
 global.colab3 = 'Legendary'
 
+//Ids channel
+global.idchannel = '120363343811229130@newsletter'
+global.canalIdM = ["120363343811229130@newsletter", "120363322713003916@newsletter", "120363314192605628@newsletter"]
+global.canalNombreM = ["Yuki Suou - Test 🌸","Yuki Suou - Channel 🌸", "Team StarCore - Channel]
+global.channelRD = await getRandomChannel()
+
 //Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de Yuki Suou
+//Emojis determinado de Ai Yaemori
 global.emoji = '🌹'
 global.emoji2 = '🌷'
 global.emoji3 = '🌸'
@@ -68,14 +74,14 @@ global.waittt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻�
 global.waitttt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
 
 //Enlaces
-var grupo = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ'
 var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
+let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
 var git = 'https://github.com/The-King-Destroy' 
 var youtube = 'https://youtube.com/@user-the-king-destroy' 
 var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
 let correo = 'thekingdestroy507@gmail.com'
 
-global.redes = [canal, grupo, git, youtube, github, correo].getRandom()
+global.redes = [canal, canal2, git, youtube, github, correo].getRandom()
 
 //Imagen
 let category = "imagen"
@@ -102,7 +108,7 @@ global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@
 
 // global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
-global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363314192605628@newsletter', newsletterName: "✫𝚃𝙴𝙰𝙼  乂 𝚂𝚃𝙰𝚁𝙲𝙾𝚁𝙴✫", serverMessageId: -1 }
+global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
 }}, { quoted: m }
 
 global.icono = [ 
@@ -114,6 +120,17 @@ global.icono = [
 'https://files.catbox.moe/jh2rwk.jpg'
 ].getRandom()
 
-global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363322713003916@newsletter", serverMessageId: 100, newsletterName: namechannel, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
+global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
 
 export default handler
+
+function pickRandom(list) {
+return list[Math.floor(Math.random() * list.length)]
+  }
+
+async function getRandomChannel() {
+let randomIndex = Math.floor(Math.random() * canalIdM.length)
+let id = canalIdM[randomIndex]
+let name = canalNombreM[randomIndex]
+return { id, name }
+}         
