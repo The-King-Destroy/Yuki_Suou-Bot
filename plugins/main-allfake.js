@@ -46,13 +46,13 @@ global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞�
 global.namecomu = '✿ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✿'
 global.namecomu2 = '✫𝚃𝙴𝙰𝙼  乂 𝚂𝚃𝙰𝚁𝙲𝙾𝚁𝙴✫'
 global.colab1 = 'Emma-Violets-Versión'
-global.colab2 = 'Niño-Piña'
+global.colab2 = 'Niño Piña'
 global.colab3 = 'Legendary'
 
 //Ids channel
 global.idchannel = '120363343811229130@newsletter'
 global.canalIdM = ["120363343811229130@newsletter", "120363322713003916@newsletter", "120363314192605628@newsletter"]
-global.canalNombreM = ["Yuki Suou - Test 🌸","Yuki Suou - Channel 🌸", "Team StarCore - Channel]
+global.canalNombreM = ["Yuki Suou - Test 🌸", "Yuki Suou - Channel 🌷", "Team StarCore - Bot ⚜️"]
 global.channelRD = await getRandomChannel()
 
 //Reacciones De Comandos.!
@@ -61,10 +61,10 @@ global.done = '✅'
 global.error = '✖️'
 
 //Emojis determinado de Yuki Ai
-global.emoji = '🌹'
-global.emoji2 = '🌷'
-global.emoji3 = '🌸'
-global.emoji4 = '🍒'
+global.emoji = '🌸'
+global.emoji2 = '🌹'
+global.emoji3 = '🍒'
+global.emoji4 = '🌷'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
@@ -112,12 +112,12 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 }}, { quoted: m }
 
 global.icono = [ 
-'https://files.catbox.moe/028uxb.jpg',
-'https://files.catbox.moe/qpkq55.jpg',
-'https://files.catbox.moe/tp697d.jpg',
 'https://files.catbox.moe/xuwxy7.jpg',
-'https://files.catbox.moe/guvo2k.jpg',
-'https://files.catbox.moe/jh2rwk.jpg'
+'https://files.catbox.moe/tp697d.jpg',
+'https://files.catbox.moe/qpkq55.jpg',
+'https://files.catbox.moe/028uxb.jpg',
+'https://files.catbox.moe/jh2rwk.jpg',
+'https://files.catbox.moe/guvo2k.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
