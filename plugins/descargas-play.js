@@ -1,26 +1,19 @@
 import yts from 'yt-search' 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `Ejemplo: ${usedPrefix + command} Daylight`,m ,rcanal;
-
+try {
+    if (!text) { return conn.reply(m.chat, `*🌷 Hace falta el título o enlace del video de YouTube.*\n\n*🍒 𝗘𝗷𝗲𝗺𝗽𝗹𝗼: _${usedPrefix + command} JAWNY - Honeypie Animation*`,m ,rcanal)
+}
     const randomReduction = Math.floor(Math.random() * 5) + 1;
     let search = await yts(text);
     let isVideo = /play2$/.test(command);
     let urls = search.all[0].url;
-    let body = `\`🌸 YouTube Play. 🌸\`
-
-    *🌹 Título:* ${search.all[0].title}
-    *👀 Vistas:* ${search.all[0].views}
-    *🕑 Duración:* ${search.all[0].timestamp}
-    *📆 Subido:* ${search.all[0].ago}
-    *🔗 Url:* ${urls}
-
-[ ℹ️ ] *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*`;
+    let body = `*𖹭.╭╭ִ╼࣪━ִﮩ٨ـﮩ♡̫𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊♡ִ̫ﮩ٨ـﮩ━ִ╾࣪╮╮.𖹭*\n> ♡ *Título:* ${search.all[0].title}\n> ♡ *Vistas:* ${search.all[0].views}\n> ♡ *Duración:* ${search.all[0].timestamp}\n> ♡ *Subido:* ${search.all[0].ago}\n> ♡ *Url:* ${urls}\n*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ׄۛ۫۫۫۫۫۫ۜ*\n🕒 *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*`;
     
-    conn.sendMessage(m.chat, { 
+let sentMessage = await conn.sendMessage(m.chat, { 
         image: { url: search.all[0].thumbnail }, 
-        caption: body
-    }, { quoted: m,rcanal });
-    m.react('react1')
+        caption: body,
+        contextInfo: { externalAdReply: { title: '♡  ͜ ۬︵࣪᷼⏜݊᷼𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙨⏜࣪᷼︵۬ ͜ ', body: '<(✿◠‿◠)> 𝙔𝙪𝙠𝙞 𝙎𝙪𝙤𝙪🌹', sourceUrl: cn, thumbnail: logo7 }}, quoted: estilo, rcanal});
+    m.react('🌸')
 
     let res = await dl_vid(urls)
     let type = isVideo ? 'video' : 'audio';
@@ -31,12 +24,17 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         gifPlayback: false, 
         mimetype: isVideo ? "video/mp4" : "audio/mpeg" 
     }, { quoted: m });
+  // await conn.sendMessage(m.chat, { delete: sentMessage.key });
+    } catch(error) {
+    conn.reply(m.chat, `Hubo un error en la descarga.\nDetalles: ${error}.`, m, rcanal)
+    return
+        }
 }
 
 handler.command = ['play', 'play2'];
-handler.help = ['play1', 'play2'];
+handler.help = ['play', 'play2'];
 handler.tags = ['descargas'];
-//handler.group = true
+handler.group = true
 export default handler;
 
 async function dl_vid(url) {
