@@ -328,10 +328,10 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .pinterest
 ┃Ѽ .pinvid
 ┃Ѽ .play
-┃Ѽ .musica
+┃Ѽ .playdoc
 ┃Ѽ .play1
 ┃Ѽ .playvid
-┃Ѽ .video
+┃Ѽ .playdoc2
 ┃Ѽ .play2
 ┃Ѽ .play3
 ┃Ѽ .play4
