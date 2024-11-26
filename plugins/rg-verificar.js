@@ -1,8 +1,13 @@
 import { createHash } from 'crypto'
+import PhoneNumber from 'awesome-phonenumber'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let handler = async function (m, { conn, text, usedPrefix, command }) {
 let user = global.db.data.users[m.sender]
 let name2 = conn.getName(m.sender)
+  let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+  let paisdata = delirius.data.result
+  let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
+  let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 if (user.registered === true) throw `*『✦』Ya estas registrado, para volver a registrarte, usa el comando: #unreg*`
 if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.18*`
 let [_, name, splitter, age] = text.match(Reg)
@@ -17,10 +22,10 @@ user.age = age
 user.regTime = + new Date
 user.registered = true
 global.db.data.users[m.sender].money += 600
-global.db.data.users[m.sender].cookies += 15
+global.db.data.users[m.sender].cookies += 10
 global.db.data.users[m.sender].exp += 245
 global.db.data.users[m.sender].joincount += 5
-let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 6)        
+let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)        
 m.react('📩') 
 let regbot = `👤 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗢 👤
 •┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
@@ -32,10 +37,34 @@ let regbot = `👤 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗢 👤
 • 5 YukiCoins 🪙
 • 245 Experiencia 💸
 • 12 Tokens 💰
+
+ᴠᴇʀɪғɪᴄᴀ ᴛᴜ ʀᴇɢɪᴛʀᴏ ᴀϙᴜɪ:
+${channel2}
 •┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
 ${packname}`
 await conn.sendMini(m.chat, '⊱『✅𝆺𝅥 𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗔𝗗𝗢(𝗔) 𝆹𝅥✅』⊰', textbot, regbot, imagen1, imagen1, channel, m)
-//await m.reply(`${sn}`)        
+//await m.reply(`${sn}`)   
+  
+let chtxt = `
+👤 *𝚄𝚜𝚎𝚛* » ${m.pushName || 'Anónimo'}
+🌎 *𝙿𝚊𝚒𝚜* » ${mundo}
+🗂 *𝚅𝚎𝚛𝚒𝚏𝚒𝚌𝚊𝚌𝚒𝚘́𝚗* » ${user.name}
+⭐️ *𝙴𝚍𝚊𝚍* » ${user.age} años
+📆 *𝙵𝚎𝚌𝚑𝚊* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
+☁️ *𝙽𝚞𝚖𝚎𝚛𝚘 𝚍𝚎 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚘* »
+⤷ ${sn}
+`.trim()
+  
+await conn.sendMessage(global.idchannel, { text: chtxt, contextInfo: {
+externalAdReply: {
+title: "【 🔔 𝐍𝐎𝐓𝐈𝐅𝐈𝐂𝐀𝐂𝐈𝐎́𝐍 🔔 】",
+body: '🥳 ¡𝚄𝚗 𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝚗𝚞𝚎𝚟𝚘 𝚎𝚗 𝚖𝚒 𝚋𝚊𝚜𝚎 𝚍𝚎 𝚍𝚊𝚝𝚘𝚜!',
+thumbnailUrl: perfil,
+sourceUrl: redes,
+mediaType: 1,
+showAdAttribution: false,
+renderLargerThumbnail: false
+}}}, { quoted: null })
 }
 handler.help = ['reg']
 handler.tags = ['rg']
