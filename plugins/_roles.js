@@ -1,4 +1,4 @@
-//The-King-Destroy 
+/*//The-King-Destroy 
 const roles = {
 '*Aventurero(a) - Novato(a) V* ✨': 0,
 '*Aventurero(a) - Novato(a) IV* ✨': 2,
@@ -91,4 +91,4 @@ handler.before = async function (m, { conn }) {
         return !0
 
 }
-export default handler
+export default handler*/
