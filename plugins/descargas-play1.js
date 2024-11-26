@@ -1,30 +1,26 @@
 import yts from 'yt-search' 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) throw `Ejemplo: ${usedPrefix + command} Enemy Tommoee Profitt`,m ,rcanal;
+    if (!text) throw `🌸 *Ejemplo: ${usedPrefix + command} diles*`,m ,rcanal;
 
     const randomReduction = Math.floor(Math.random() * 5) + 1;
     let search = await yts(text);
     let isVideo = /vid$/.test(command);
     let urls = search.all[0].url;
-    let body = `\`🌸 YouTube Play - Yuki Suou 🌸\`
+    let body = `\`🌸 YouTube Play 🌸\`
 
- ➢   *Título:* ${search.all[0].title}
-     
- ➢   *Vistas:* ${search.all[0].views}
-      
- ➢   *Duración:* ${search.all[0].timestamp}  
-      
- ➢   *Subido:* ${search.all[0].ago} 
-      
- ➢   *Url:* ${urls}
+   📚 *Título:* ${search.all[0].title}
+   👀 *Vistas:* ${search.all[0].views}
+   🕑 *Duración:* ${search.all[0].timestamp}
+   📆 *Subido:* ${search.all[0].ago}
+   🔗 *Url:* ${urls}
 
-🌸 *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*`;
+[ ℹ️ ] *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*`;
     
     conn.sendMessage(m.chat, { 
         image: { url: search.all[0].thumbnail }, 
         caption: body
     }, { quoted: m,rcanal });
-    m.react('✅')
+    m.react('react1')
 
     let res = await dl_vid(urls)
     let type = isVideo ? 'video' : 'audio';
@@ -38,8 +34,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 
 handler.command = ['play1', 'playvid'];
-handler.help = ['play1', 'playvid'];
+handler.help = ['play', 'playvid'];
 handler.tags = ['descargas'];
+handler.group = true
 export default handler;
 
 async function dl_vid(url) {
