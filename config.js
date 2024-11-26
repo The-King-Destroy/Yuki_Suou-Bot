@@ -106,7 +106,7 @@ global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remote
 global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`͟͞ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 ͟͞`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ \n ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜࠭ ͟͞`, 'jpegThumbnail': logo4 }}}
 
 global.ch = {
-ch1: '120363314192605628@newsletter',
+ch1: '120363343811229130@newsletter',
 ch2: '120363322713003916@newsletter',
 ch3: '120363314192605628@newsletter',
 }
