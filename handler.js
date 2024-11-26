@@ -39,7 +39,7 @@ m = smsg(this, m) || m
 if (!m)
 return
 m.exp = 0
-m.cookies = false
+m.yenes = false
 try {
 let user = global.db.data.users[m.sender]
 //if (typeof user !== 'object')
@@ -51,7 +51,7 @@ if (!('premium' in user)) user.premium = false
 if (!('muto' in user)) user.muto = false
 if (!isNumber(user.joincount)) user.joincount = 1
 if (!isNumber(user.money)) user.money = 150
-if (!isNumber(user.cookies)) user.cookies = 20
+if (!isNumber(user.yenes)) user.yenes = 20
 if (!('registered' in user)) user.registered = false
 
 if (!user.registered) {
@@ -103,7 +103,7 @@ lastduel: 0,
 lastpago: 0,
 lastrob: 0,
 level: 0,
-cookies: 20,
+yenes: 20,
 money: 100,
 muto: false,
 premium: false,
@@ -456,8 +456,8 @@ continue
 }
 
 m.exp += xp
-if (!isPrems && plugin.cookies && global.db.data.users[m.sender].cookies < plugin.cookies * 1) {
-conn.reply(m.chat, `❮🍪❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝗖𝗼𝗼𝗸𝗶𝗲𝘀 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼. 𝗣𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝗺𝗮𝘀 𝗖𝗼𝗼𝗸𝗶𝗲𝘀, 𝘂𝘀𝗲 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝗣𝗼𝗿 𝗘𝗷𝗲𝗺𝗽𝗹𝗼:\n\n*${usedPrefix}buyall*\n*${usedPrefix}buy*`, m, rcanal) 
+if (!isPrems && plugin.yenes && global.db.data.users[m.sender].yenes < plugin.yenes * 1) {
+conn.reply(m.chat, `❮💴❯ 𝗡𝗼 𝘁𝗶𝗲𝗻𝗲𝘀 𝘀𝘂𝗳𝗶𝗰𝗶𝗲𝗻𝘁𝗲𝘀 𝙔𝙚𝙣𝙚𝙨 𝗽𝗮𝗿𝗮 𝘂𝘀𝗮𝗿 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼. 𝗣𝗮𝗿𝗮 𝗰𝗼𝗺𝗽𝗿𝗮𝗿 𝗺𝗮𝘀 𝙔𝙚𝙣𝙚𝙨, 𝘂𝘀𝗲 𝗲𝘀𝘁𝗲 𝗰𝗼𝗺𝗮𝗻𝗱𝗼.\n\n• 𝗣𝗼𝗿 𝗘𝗷𝗲𝗺𝗽𝗹𝗼:\n\n*${usedPrefix}buyall*\n*${usedPrefix}buy*`, m, rcanal) 
 continue
 }
 
@@ -492,7 +492,7 @@ __filename
 try {
 await plugin.call(this, m, extra)
 if (!isPrems)
-m.cookies = m.cookies || plugin.cookies || false
+m.yenes = m.yenes || plugin.yenes || false
 m.money = m.money || plugin.money || false
 } catch (e) {
 // Error occured
@@ -517,8 +517,8 @@ await plugin.after.call(this, m, extra)
 } catch (e) {
 console.error(e)
 }}
-if (m.cookies)
-conn.reply(m.chat, `Utilizaste *${+m.cookies}* 🍪`, m, fake)
+if (m.yenes)
+conn.reply(m.chat, `Utilizaste *${+m.yenes}* 💴`, m, fake)
 }
 if (m.money)
 conn.reply(m.chat, `Utilizaste *${+m.money}* 💰`, m, fake)
@@ -541,7 +541,7 @@ await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id:
 }
 if (m.sender && (user = global.db.data.users[m.sender])) {
 user.exp += m.exp
-user.cookies -= m.cookies * 1
+user.yenes -= m.yenes * 1
 user.money -= m.money * 1
 }
 
@@ -583,7 +583,7 @@ if (settingsREAD.autoread2) await this.readMessages([m.key])
 //this.sendPresenceUpdate('recording', m.chat);
 
 if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify|ai|megumin|megu|a|s)/gi)) {
-let emot = pickRandom(["🚩", "🍟", "🔥","✨️", "🌸", "💥", "⭐️", "🌟", "🍂", "🫂", "🍁", "💖", "💞", "💕", "💋"])
+let emot = pickRandom(["🌹", "🍟", "🔥","✨️", "🌸", "💥", "⭐️", "🌟", "🍂", "🫂", "🍁", "💖", "💞", "💕", "💋"])
 if (!m.fromMe) return this.sendMessage(m.chat, { react: { text: emot, key: m.key }})
 }
 function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
