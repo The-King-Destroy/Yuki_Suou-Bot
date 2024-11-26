@@ -14,21 +14,21 @@ global.confirmCode = ''
 
 //• ↳𝑺𝑶𝑳𝑶 𝑫𝑬𝑺𝑨𝑹𝑹𝑶𝑳𝑳𝑨𝑫𝑶𝑹𝑬𝑺 𝑨𝑷𝑹𝑶𝑩𝑨𝑫𝑶𝑺
 global.owner = [
-  ['12013610403', '𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✨', true],
-  ['584120346669', '𝕮𝖗𝖊𝖆𝖉𝖔𝖗 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜', true],
-  ['5212441357601', '𝓔𝓶𝓶𝓪 𝓥𝓲𝓸𝓵𝓮𝓽𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷', true],
+  ['12013610403', '🌸 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭', true],
+  ['5351524614', '⚜️ 𝕮𝖗𝖊𝖆𝖉𝖔𝖗 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜', true],
+  ['5212441357601', '🌷 𝓔𝓶𝓶𝓪 𝓥𝓲𝓸𝓵𝓮𝓽𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷', true],
   ['50557865603',  'Niño Piña🍍', true],
-  ['526671548329', '𝓛𝓮𝓰𝓷𝓪', true],
+  ['5216671548329', '🌹 𝓛𝓮𝓰𝓷𝓪', true],
   ['584148256527', '☆꧁༒ĹєǤ𝒆𝐧𝐃༒꧂☆', true],
-  ['5212431268546', 'Iam Fz', true],
-  ['573154062343', 'vales vrg', true],
+  ['5212431268546', '🍒 Iam Fz', true],
+  ['573154062343', 'vales vrg 🍆', true],
   ['584128382768']
-  ];
+];
 
 //• ↳𝑺𝑶𝑳𝑶 𝑴𝑶𝑫𝑬𝑹𝑨𝑫𝑶𝑹𝑬𝑺!
-global.mods = ['584120346669', '5212441357601', '50557865603', '584148256527', '526671548329']
+global.mods = ['584120346669', '584128382768', '', '', '']
 
-global.suittag = ['584120346669']
+global.suittag = ['5351524614']
 global.prems = []
 
 //cambiar a true si el bot detecta sus propios comandos.
@@ -37,13 +37,13 @@ global.libreria = 'Baileys'
 global.baileys = 'V 6.7.8'
 global.vs = '1.8.0'
 global.languaje = 'Español'
-global.nameqr = 'Yuki Suou Bot'
+global.nameqr = 'Yuki Suou - Bot'
 global.sessions = 'YukiSession'
 global.jadi = 'YukiJadiBot'
 
 //• ↳ ◜𝑴𝑨𝑹𝑪𝑨𝑺 𝑫𝑬 𝑨𝑮𝑼𝑨◞ • 💌
 global.packsticker = `♾ ━━━━━━━━\n├ ɓσƭ:\n├ ρяοριєταяιο:\n├ ƒєϲнα ∂є ϲяєαϲιόи:\n├ нοяα:\n♾━━━━━━━━`
-global.packname = `𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹`
+global.packname = `𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌸`
 global.author = `♾━━━━━━━━\n⇝͟͞ ۵̤͟𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭̈♡̵̑ ͟͞ ⋆\n⇝ ۵-̱̅ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜-͞ˍ\n⇝ ${moment.tz('America/Los_Angeles').format('DD/MM/YY')}\n⇝ ${moment.tz('America/Los_Angeles').format('HH:mm:ss')} \n♾━━━━━━━━\n\n\n\nѕτιϲκєя ϐγ: ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ `;
 global.wm = 'ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ ';
 global.titulowm = '͟͞ ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉̤𓆪 ͟͞';
@@ -97,16 +97,16 @@ global.photoSity = [imagen8, imagen1, imagen4, imagen6]
 //• ↳ ◜𝑭𝑨𝑲𝑬 𝑬𝑺𝑻𝑰𝑳𝑶◞ • 🪩
 global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', orderTitle: 'Bang', thumbnail: catalogo, sellerJid: '0@s.whatsapp.net'}}}
 
-global.fakegif2 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: 'Yuki', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𖥔.𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨❞ ꔷ──᜔◇⃟̣̣⃕🌸', jpegThumbnail: logo5 }}};
+global.fakegif2 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: 'Yuki Suou', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𖥔.𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐨❞ ꔷ──᜔◇⃟̣̣⃕🌸', jpegThumbnail: logo5 }}};
 
-global.fakegif3 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: 'Yuki', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐓𝐨𝐧𝐭𝐨 (￣へ ￣ ) 🌷', jpegThumbnail: logo3 }}};
+global.fakegif3 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: 'Yuki Suou', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐓𝐨𝐧𝐭𝐨 (￣へ ￣ ) 🌹', jpegThumbnail: logo3 }}};
 
-global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: 'Yuki', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '⚘݄𖠵⃕⁖𝐒𝐭𝐢𝐜𝐤𝐞𝐫 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', jpegThumbnail: logo5 }}};
+global.fakegif4 = { key: { participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { videoMessage: { title: 'Yuki Suou', h: `Hmm`, seconds: '99999', gifPlayback: true, caption: '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ 🌷ᚐ', jpegThumbnail: logo5 }}};
 
-global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`ꪾꪾ͟͞ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜࠭`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ \n ꪾⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜`, 'jpegThumbnail': logo4 }}}
+global.fgif2 = { key: {participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "6289643739077-1613049930@g.us" } : {})},message: {"videoMessage": { "title":`͟͞ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜 ͟͞`, "h": `Hmm`,'seconds': '99999', 'gifPlayback': 'true', 'caption': `ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ \n ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜࠭ ͟͞`, 'jpegThumbnail': logo4 }}}
 
 global.ch = {
-ch1: '120363343811229130@newsletter',
+ch1: '120363314192605628@newsletter',
 ch2: '120363322713003916@newsletter',
 ch3: '120363314192605628@newsletter',
 }
@@ -136,7 +136,7 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nYuki Suou - Bot`;
+global.wm2 = `${dia} ${fecha}\nYuki - Bot`;
 global.nomorown = '584120346669';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
