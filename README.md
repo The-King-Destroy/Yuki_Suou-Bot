@@ -206,24 +206,6 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-### **`⭐ Cloud Starlights`**
-
-<a
-href="https://dash.starlights.uk"><img src="https://i.ibb.co/37T9Nnk/file.jpg" height="180px"></a>
-
-<details>
- <summary><b> 🌟 Servidor Cloud Starlights</b></summary>
-
-* Dashboard  [`Dash`](https://dash.starlights.uk)
-* Panel  [`Panel`](https://cloud.starlights.uk/)
-* Canal de WhatsApp  [`Canal Starlights`](https://whatsapp.com/channel/0029VaBfsIwGk1FyaqFcK91S)
-* Tutorial  [`YouTube`](https://youtu.be/VxCnxpjGAZY)
-* Contacto(s)  [`Soporte`](https://wa.me/5218261000681)
-
-</details>
-
----
-
 ### **`🌌 Hosting Py:`**
 
 <a
