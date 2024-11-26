@@ -130,7 +130,7 @@ global.gp1 = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ' //Grupo
 global.gp2 = 'https://chat.whatsapp.com/B6uCcLp85mG5Xls6QdzT4H'//
 global.comunidad1 = 'https://chat.whatsapp.com/B6uCcLp85mG5Xls6QdzT4H' //Comunidad Yuki_Suou
 global.channel = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' //Canal Oficial
-global.channel2 = 'https://whatsapp.com/channel/0029Vaxr2YgLCoWy2NS1Ab0a' //Canal test
+global.channel2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o' //Canal test
 global.yt = 'https://youtube.com/@user-the-king-destroy?si=8kNB8k2k3ESQ_J9j' //Canal De Youtube
 global.md = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' //Github Oficial
 global.correo = 'thekingdestroy507@gmail.com'
