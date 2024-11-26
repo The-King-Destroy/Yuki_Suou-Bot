@@ -7,7 +7,7 @@ import {unwatchFile, watchFile} from 'fs';
 import fs from 'fs';
 import chalk from 'chalk';
 import ws from 'ws';
-import './plugins/main-allfake.js'
+//import './plugins/main-allfake.js'
 
 /**
  * @type {import('@adiwajshing/baileys')}  
@@ -179,7 +179,7 @@ if (!('modoadmin' in chat)) chat.modoadmin = false
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = false
-if (!('autolevelup' in chat))  chat.autolevelup = false
+if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
@@ -220,7 +220,7 @@ modoadmin: false,
 antitoxic: false, 
 simi: false,
 antiTraba: false,
-autolevelup: false,
+autolevelup: true,
 expired: 0,
 }
 let settings = global.db.data.settings[this.user.jid]
@@ -741,7 +741,7 @@ group: '「🍒」 *Esta funcion solo puede ser ejecutada en grupos.*',
 private: '「🍒」 *Esta función solo puede ser usada en chat privado.*', 
 admin: '「🌷」 *Este comando solo puede ser usado por admins.*', 
 botAdmin: '「🌸」 *Para usar esta función debo ser admin.*', 
-unreg: '「🌹」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_❕ Ejemplo_* : */reg Destroy.1000*',
+unreg: '「🌹」 *¡Hey! no estas registrado, registrese para usar esta función*\n\n*/reg nombre.edad*\n\n*_🌸 Ejemplo_* : */reg Destroy.1000*',
 restrict: '「🌸」 *Esta característica esta desactivada.*'
 }[type];
 if (msg) return conn.reply(m.chat, msg, m, rcanal).then(_ => m.react('✖️'))}
@@ -751,7 +751,7 @@ const file = global.__filename(import.meta.url, true);
 watchFile(file, async () => {
 unwatchFile(file);
 console.log(chalk.green('Actualizando "handler.js"'));
-if (global.reloadHandler) console.log(await global.reloadHandler());
+// if (global.reloadHandler) console.log(await global.reloadHandler());
 
 if (global.conns && global.conns.length > 0 ) {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
