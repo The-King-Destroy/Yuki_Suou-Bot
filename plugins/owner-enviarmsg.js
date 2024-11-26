@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 let suggestionQueue = {};
-const idgroup = "120363321171127453@g.us";
+const idgroup = "120363342503310354@g.us";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     let who = m.mentionedJid && m.mentionedJid.length > 0 ? m.mentionedJid[0] : (m.fromMe ? conn.user.jid : m.sender);
