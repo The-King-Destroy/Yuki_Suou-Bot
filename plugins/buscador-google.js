@@ -12,6 +12,10 @@ const handler = async (m, { conn, command, args }) => {
         const response = await axios.get(url);
         const results = response.data;
 
+        if (!results || results.length === 0) {
+            return conn.reply(m.chat, '🚫 No se encontraron resultados para tu búsqueda.', m);
+        }
+
         let responseText = `*乂  S E A R C H  -  G O O G L E*\n\n`;
         for (let result of results) {
             responseText += `*${result.titulo}*\n${result.url}\n${result.descripcion}\n\n`;
@@ -19,7 +23,7 @@ const handler = async (m, { conn, command, args }) => {
 
         conn.sendFile(m.chat, img, 'thumbnail.jpg', responseText, m).then(_ => m.react('✅'));
     } catch (error) {
-        console.error(error);
+        console.error('Error al realizar la búsqueda:', error);
         conn.reply(m.chat, '🚫 Ocurrió un error al realizar la búsqueda. Intenta de nuevo.', m);
     }
 };
