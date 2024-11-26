@@ -7,7 +7,7 @@ try {
     let search = await yts(text);
     let isVideo = /play2$/.test(command);
     let urls = search.all[0].url;
-    let body = `*𖹭.╭╭ִ╼࣪━ִﮩ٨ـﮩ♡̫𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊♡ִ̫ﮩ٨ـﮩ━ִ╾࣪╮╮.𖹭*\n> ♡ *Título:* ${search.all[0].title}\n> ♡ *Vistas:* ${search.all[0].views}\n> ♡ *Duración:* ${search.all[0].timestamp}\n> ♡ *Subido:* ${search.all[0].ago}\n> ♡ *Url:* ${urls}\n*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ׄۛ۫۫۫۫۫۫ۜ*\n🕒 *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*`;
+    let body = `*╭ִ╼࣪━ִﮩ٨ـﮩ♡̫𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊♡ִ̫ﮩ٨ـﮩ━ִ╾࣪╮*\n> ♡ *Título:* ${search.all[0].title}\n> ♡ *Vistas:* ${search.all[0].views}\n> ♡ *Duración:* ${search.all[0].timestamp}\n> ♡ *Subido:* ${search.all[0].ago}\n> ♡ *Url:* ${urls}\n*⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ۛ۫۫۫۫۫۫ۜ⏝ּׅ︣︢ۛ۫۫۫۫۫۫ۜ⏝ּׅ︢︣ׄۛ۫۫۫۫۫۫ۜ*\n🕒 *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*`;
     
 let sentMessage = await conn.sendMessage(m.chat, { 
         image: { url: search.all[0].thumbnail }, 
@@ -34,7 +34,7 @@ let sentMessage = await conn.sendMessage(m.chat, {
 handler.command = ['play', 'play2'];
 handler.help = ['play', 'play2'];
 handler.tags = ['descargas'];
-handler.group = true
+//handler.group = true
 export default handler;
 
 async function dl_vid(url) {
