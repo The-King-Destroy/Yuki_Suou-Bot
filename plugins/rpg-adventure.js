@@ -1,4 +1,4 @@
-
+import fetch from 'node-fetch';
 import db from '../lib/database.js';
 
 const cooldown = 1500000; // 25 minutos
@@ -7,7 +7,7 @@ let handler = async (m, { usedPrefix, conn }) => {
     try {
         let user = global.db.data.users[m.sender];
 
-        if (!user || typeof user !== 'object') {
+        if (!user) {
             return conn.reply(m.chat, '👤 El usuario no se encuentra en la base de Datos.', m);
         }
 
@@ -71,7 +71,7 @@ let handler = async (m, { usedPrefix, conn }) => {
         await conn.sendMessage(m.chat, { text }, { quoted: m });
     } catch (error) {
         console.error(error);
-        conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙾𝙲𝚄𝚁𝚁𝙸𝙾 𝚄𝙽 𝙴𝚁𝚁𝙾𝚁 𝙴𝙽 𝙴𝚂𝚃𝙴 𝙲𝙾𝙽𝙷𝚄𝙳𝙾!*', m);
+        conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙾𝙲𝚄𝚁𝚁𝙸𝙾 𝚄𝙽 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙳𝙴 𝙽𝚄𝙴𝚅𝙾, 𝚂𝙴𝙶𝚄𝚁𝙾 𝙻𝙰 𝙰𝙿𝙸 𝙽𝙾 𝙶𝙴𝙽𝙴𝚁𝙾 𝙻𝙰 𝙸𝙼𝙰𝙶𝙴𝙽*', m);
     }
 };
 
