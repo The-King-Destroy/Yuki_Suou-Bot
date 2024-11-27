@@ -19,7 +19,7 @@ let handler = async (m, { usedPrefix, conn }) => {
             return conn.reply(m.chat, `⏳ Estás en cooldown. Espera ${Math.ceil(timeLeft / 60000)} minutos antes de aventurarte de nuevo.`, m);
         }
 
-        let ct = ['AF','AX','AL','DZ','AS','AD','AO','AI','AQ','AG','AR','AM','AW','AU','AT','AZ','BS','BH','BD','BB','BY','BE','BZ','BJ','BM','BT','BO','BQ','BA','BW','BV','BR','IO','BN','BG','BF','BI','KH','CM','CA','CV','KY','CF','TD','CL','CN','CX','CC','CO','KM','CG','CD','CK','CR','CI','HR','CU','CW','CY','CZ','DK','DJ','DM','DO','EC','EG','SV','GQ','ER','EE','ET','FK','FO','FJ','FI','FR','GF','PF','TF','GA','GM','GE','DE','GH','GI','GR','GL','GD','GP','GU','GT','GG','GN','GW','GY','HT','HM','VA','HN','HK','HU','IS','IN','ID','IR','IQ','IE','IM','IL','IT','JM','JP','JE','JO','KZ','KE','KI','KP','KR','XK','KW','KG','LA','LV','LB','LS','LR','LY','LI','LT','LU','MO','MK','MG','MW','MY','MV','ML','MT','MH','MQ','MR','MU','YT','MX','FM','MD','MC','MN','ME','MS','MA','MZ','MM','NA','NR','NP','NL','AN','NC','NZ','NI','NE','NG','NU','NF','MP','NO','OM','PK','PW','PS','PA','PG','PY','PE','PH','PN','PL','PT','PR','QA','RS','RE','RO','RU','RW','BL','SH','KN','LC','MF','PM','VC','WS','SM','ST','SA','SN','CS','SC','SL','SG','SX','SK','SI','SB','SO','ZA','GS','SS','ES','LK','SD','SR','SJ','SZ','SE','CH','SY','TW','TJ','TZ','TH','TL','TG','TK','TO','TT','TN','TR','XT','TM','TC','TV','UG','UA','AE','GB','US','UM','UY','UZ','VU','VE','VN','VG','VI','WF','EH','YE','ZM','ZW'];
+        let ct = ['AF', 'AX', 'AL', 'DZ', 'AS', 'AD', 'AO', 'AI', 'AQ', 'AG', 'AR', 'AM', 'AW', 'AU', 'AT', 'AZ', 'BS', 'BH', 'BD', 'BB', 'BY', 'BE', 'BZ', 'BJ', 'BM', 'BT', 'BO', 'BQ', 'BA', 'BW', 'BV', 'BR', 'IO', 'BN', 'BG', 'BF', 'BI', 'KH', 'CM', 'CA', 'CV', 'KY', 'CF', 'TD', 'CL', 'CN', 'CX', 'CC', 'CO', 'KM', 'CG', 'CD', 'CK', 'CR', 'CI', 'HR', 'CU', 'CW', 'CY', 'CZ', 'DK', 'DJ', 'DM', 'DO', 'EC', 'EG', 'SV', 'GQ', 'ER', 'EE', 'ET', 'FK', 'FO', 'FJ', 'FI', 'FR', 'GF', 'PF', 'TF', 'GA', 'GM', 'GE', 'DE', 'GH', 'GI', 'GR', 'GL', 'GD', 'GP', 'GU', 'GT', 'GG', 'GN', 'GW', 'GY', 'HT', 'HM', 'VA', 'HN', 'HK', 'HU', 'IS', 'IN', 'ID', 'IR', 'IQ', 'IE', 'IM', 'IL', 'IT', 'JM', 'JP', 'JE', 'JO', 'KZ', 'KE', 'KI', 'KP', 'KR', 'XK', 'KW', 'KG', 'LA', 'LV', 'LB', 'LS', 'LR', 'LY', 'LI', 'LT', 'LU', 'MO', 'MK', 'MG', 'MW', 'MY', 'MV', 'ML', 'MT', 'MH', 'MQ', 'MR', 'MU', 'YT', 'MX', 'FM', 'MD', 'MC', 'MN', 'ME', 'MS', 'MA', 'MZ', 'MM', 'NA', 'NR', 'NP', 'NL', 'AN', 'NC', 'NZ', 'NI', 'NE', 'NG', 'NU', 'NF', 'MP', 'NO', 'OM', 'PK', 'PW', 'PS', 'PA', 'PG', 'PY', 'PE', 'PH', 'PN', 'PL', 'PT', 'PR', 'QA', 'RS', 'RE', 'RO', 'RU', 'RW', 'BL', 'SH', 'KN', 'LC', 'MF', 'PM', 'VC', 'WS', 'SM', 'ST', 'SA', 'SN', 'CS', 'SC', 'SL', 'SG', 'SX', 'SK', 'SI', 'SB', 'SO', 'ZA', 'GS', 'SS', 'ES', 'LK', 'SD', 'SR', 'SJ', 'SZ', 'SE', 'CH', 'SY', 'TW', 'TJ', 'TZ', 'TH', 'TL', 'TG', 'TK', 'TO', 'TT', 'TN', 'TR', 'XT', 'TM', 'TC', 'TV', 'UG', 'UA', 'AE', 'GB', 'US', 'UM', 'UY', 'UZ', 'VU', 'VE', 'VN', 'VG', 'VI', 'WF', 'EH', 'YE', 'ZM', 'ZW'];
 
         let randomCountryCode = ct[Math.floor(Math.random() * ct.length)];
         let response = await fetch(`https://api.worldbank.org/v2/country/${randomCountryCode}?format=json`);
@@ -46,6 +46,7 @@ let handler = async (m, { usedPrefix, conn }) => {
             healthLost: Math.floor(Math.random() * 20)
         };
 
+        // Actualizar recursos del usuario
         user.yenes += rewards.yenes;
         user.exp += rewards.exp;
         user.emerald += rewards.emerald;
@@ -54,15 +55,23 @@ let handler = async (m, { usedPrefix, conn }) => {
         user.health -= rewards.healthLost;
         user.lastAdventure = new Date();
 
+        // Asegurarse de que la salud no sea negativa
+        if (user.health < 0) {
+            user.health = 0;
+        }
+
+        // Guardar el usuario en la base de datos
+        await db.data.users[m.sender] = user;
+
         let mapImageUrl = `https://static-maps.yandex.ru/1.x/?lang=id-ID&ll=${city.longitude},${city.latitude}&z=12&l=map&size=600,300`;
 
         let text = `🛫 𝙴𝚂𝚃𝙰𝚜 𝙰𝚅𝙴𝙽𝚃𝚄𝚁𝙰𝙽𝙳𝙾 𝙴𝙽  *» ${city.name}*\n\n` +
                    `🏞️ *Aventura Finalizada* 🏞️\n` +
-                   `┋ 💰 *Yenes Ganados:* ${rewards.yenes}\n` +
+                   `┋ 💴 *Yenes Ganados:* ${rewards.yenes}\n` +
                    `┋ ✨ *Experiencia Ganada:* ${rewards.exp}\n` +
-                   `┋ 💎 *Esmeraldas Encontradas:* ${rewards.emerald}\n` +
+                   `┋ ♦️ *Esmeraldas Encontradas:* ${rewards.emerald}\n` +
                    `┋ 💎 *Diamantes Encontrados:* ${rewards.diamonds}\n` +
-                   `┋ 🧪 *Pociones Ganadas:* ${rewards.potions}\n` +
+                   `┋ 🥤 *Pociones Ganadas:* ${rewards.potions}\n` +
                    `┋ ❤️ *Salud Perdida:* ${rewards.healthLost}\n` +
                    `┋ ❤️ *Salud Actual:* ${user.health}`;
 
