@@ -21,9 +21,9 @@ let str = `*📍 GRUPOS OFICIALES*
 ┃🌹❏ https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T
 *_╰━━━━━━━━━━━━━━━━⊜_*
 `
-await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
+/*await conn.sendButton(m.chat, str, `͟͞ 𓆩ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜ৎ୭࠱࠭ ͟͞\n` + wm, media, [
 ['MENU 🌹', '#menu']], null, [
-['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]], fkontak)}
+['⏤͟͞ू⃪ ፝͜⁞𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭✰⃔࿐', `${md}`]], fkontak)}*/
                       
 handler.command = ['grupos','links','gruposofc','gruposoficiales']
 handler.register = true
