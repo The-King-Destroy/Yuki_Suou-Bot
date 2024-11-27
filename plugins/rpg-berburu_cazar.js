@@ -1,4 +1,3 @@
-
 let handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender];
     let randomaku1 = `${Math.floor(Math.random() * 5)}`;
@@ -84,35 +83,23 @@ let handler = async (m, { conn }) => {
     }
 
     // Enviando el mensaje inicial
-    let message = await conn.sendMessage(m.chat, {
+    await conn.sendMessage(m.chat, {
         text: hsl,
         quoted: m
     });
 
-    // Editar el mensaje con un resumen de los animales cazados
+    // Mensajes adicionales
     setTimeout(() => {
-        let resumen = `
-*✧ Resumen de animales cazados ✧*
+        conn.reply(m.chat, `@${m.sender.split("@s.whatsapp.net")[0]} *${['OBJETIVO FIJADO 🎯','Carnada en Marcha 🍫 🍇 🍖','ANIMALES DETECTADOS!! 🐂 🐅 🐘 🐼','ANIMALES DETECTADOS!! 🐖 🐃 🐮 🐒'].getRandom()}*`, null, { mentions: [m.sender] });
+    }, 18000);
 
-🐂 Bueyes: ${anti1}
-🐅 Tigres: ${anti2}
-🐘 Elefantes: ${anti3}
-🐐 Cabras: ${anti4}
-🐼 Osos panda: ${anti5}
-🐊 Cocodrilos: ${anti6}
-🐃 Búfalos: ${anti7}
-🐮 Vacas: ${anti8}
-🐒 Monos: ${anti9}
-🐗 Jabalíes: ${anti10}
-🐖 Cerdos: ${anti11}
-🐓 Gallinas: ${anti12}
-        `.trim();
+    setTimeout(() => {
+        conn.reply(m.chat, `@${m.sender.split("@s.whatsapp.net")[0]} *${['Armas lista para la Caza!!','Probando Armas 🔫 💣 🪓 🏹','CARROS PARA LA CAZA!! 🚗 🏍️ 🚜','TIEMPO BUENO PARA LA CAZA 🧤'].getRandom()}*`, null, { mentions: [m.sender] });
+    }, 15000);
 
-        conn.sendMessage(m.chat, {
-            text: resumen,
-            quoted: message
-        });
-    }, 5000); // Tiempo para editar el mensaje después del envío inicial
+    setTimeout(() => {
+        conn.reply(m.chat, `@${m.sender.split("@s.whatsapp.net")[0]} *${['Buscando implementos de caza...','Alistando todo para la caza!!','Estableciendo Lugar de la Caza...','PREPARANDO LUGAR DE CAZA!!'].getRandom()}*`, m, { mentions: [m.sender] });
+    }, 0);
 
     user.lastberburu = new Date * 1;
 };
