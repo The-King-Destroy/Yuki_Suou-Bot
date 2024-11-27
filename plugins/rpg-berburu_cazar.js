@@ -62,42 +62,50 @@ let handler = async (m, { conn }) => {
  *🐼 ${ar5} ${anti5}*			 *🐖 ${ar11} ${anti11}*
  *🐊 ${ar6} ${anti6}*		    *🐓 ${ar12} ${anti12}*`.trim();
 
-global.db.data.users[m.sender].banteng += rbrb1;
-global.db.data.users[m.sender].harimau += rbrb2;
-global.db.data.users[m.sender].gajah += rbrb3;
-global.db.data.users[m.sender].kambing += rbrb4;
-global.db.data.users[m.sender].panda += rbrb5;
-global.db.data.users[m.sender].buaya += rbrb6;
-global.db.data.users[m.sender].kerbau += rbrb7;
-global.db.data.users[m.sender].sapi += rbrb8;
-global.db.data.users[m.sender].monyet += rbrb9;
-global.db.data.users[m.sender].babihutan += rbrb10;
-global.db.data.users[m.sender].babi += rbrb11;
-global.db.data.users[m.sender].ayam += rbrb12;
+    global.db.data.users[m.sender].banteng += rbrb1;
+    global.db.data.users[m.sender].harimau += rbrb2;
+    global.db.data.users[m.sender].gajah += rbrb3;
+    global.db.data.users[m.sender].kambing += rbrb4;
+    global.db.data.users[m.sender].panda += rbrb5;
+    global.db.data.users[m.sender].buaya += rbrb6;
+    global.db.data.users[m.sender].kerbau += rbrb7;
+    global.db.data.users[m.sender].sapi += rbrb8;
+    global.db.data.users[m.sender].monyet += rbrb9;
+    global.db.data.users[m.sender].babihutan += rbrb10;
+    global.db.data.users[m.sender].babi += rbrb11;
+    global.db.data.users[m.sender].ayam += rbrb12;
 
-let time = global.db.data.users[m.sender].lastberburu + 2700000; // 45 minutos
-if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) {
-    return conn.sendMessage(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, `⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`);
-}
+    let time = global.db.data.users[m.sender].lastberburu + 2700000; // 45 minutos
+    if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) {
+        return conn.sendMessage(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, `⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`);
+    }
 
-setTimeout(() => {
-    conn.sendHydrated(m.chat, hsl, wm, null, md, `𝙶𝙸𝚃𝙷𝚄𝙱`, null, null, [
-        [null, null]], null);
-}, 20000);
+    // Enviando el mensaje inicial
+    let message = await conn.sendMessage(m.chat, hsl, { quoted: m });
 
-setTimeout(() => {
-    conn.reply(m.chat, `@${m.sender.split("@s.whatsapp.net")[0]} *${['OBJETIVO FIJADO 🎯','Carnada en Marcha 🍫 🍇 🍖','ANIMALES DETECTADOS!! 🐂 🐅 🐘 🐼','ANIMALES DETECTADOS!! 🐖 🐃 🐮 🐒'].getRandom()}*`, null, { mentions: [m.sender] });
-}, 18000);
+    // Editar el mensaje con un resumen de los animales cazados
+    setTimeout(() => {
+        let resumen = `
+*✧ Resumen de animales cazados ✧*
 
-setTimeout(() => {
-    conn.reply(m.chat, `@${m.sender.split("@s.whatsapp.net")[0]} *${['Armas lista para la Caza!!','Probando Armas 🔫 💣 🪓 🏹','CARROS PARA LA CAZA!! 🚗 🏍️ 🚜','TIEMPO BUENO PARA LA CAZA 🧤'].getRandom()}*`, null, { mentions: [m.sender] });
-}, 15000);
+🐂 Bueyes: ${anti1}
+🐅 Tigres: ${anti2}
+🐘 Elefantes: ${anti3}
+🐐 Cabras: ${anti4}
+🐼 Osos panda: ${anti5}
+🐊 Cocodrilos: ${anti6}
+🐃 Búfalos: ${anti7}
+🐮 Vacas: ${anti8}
+🐒 Monos: ${anti9}
+🐗 Jabalíes: ${anti10}
+🐖 Cerdos: ${anti11}
+🐓 Gallinas: ${anti12}
+        `.trim();
 
-setTimeout(() => {
-    conn.reply(m.chat, `@${m.sender.split("@s.whatsapp.net")[0]} *${['Buscando implementos de caza...','Alistando todo para la caza!!','Estableciendo Lugar de la Caza...','PREPARANDO LUGAR DE CAZA!!'].getRandom()}*`, m, { mentions: [m.sender] });
-}, 0);
+        conn.sendMessage(m.chat, resumen, { quoted: message });
+    }, 5000); // Tiempo para editar el mensaje después del envío inicial
 
-user.lastberburu = new Date * 1;
+    user.lastberburu = new Date * 1;
 };
 
 handler.help = ['caza'];
@@ -111,4 +119,4 @@ function clockString(ms) {
     let m = Math.floor(ms / 60000) % 60;
     let s = Math.floor(ms / 1000) % 60;
     return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
-}
+    }
