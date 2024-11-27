@@ -31,9 +31,7 @@ global.mods = ['584120346669', '584128382768', '', '', '']
 
 global.suittag = ['5351524614']
 global.prems = []
-
-//cambiar a true si el bot detecta sus propios comandos.
-global.isBaileysFail = false 
+ 
 global.libreria = 'Baileys'
 global.baileys = 'V 6.7.8'
 global.vs = '2.0.0'
