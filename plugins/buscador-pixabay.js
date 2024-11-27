@@ -2,7 +2,7 @@ import axios from 'axios'
 const { proto, generateWAMessageFromContent, generateWAMessageContent } = (await import('@whiskeysockets/baileys')).default
 
 let handler = async (m, { conn, text }) => {
-if (!text) return m.reply('🌸 *Ingresa el texto de lo que quieres buscar*')
+if (!text) return m.reply('Ingresa el texto de lo que quieres buscar')
 
 
 async function createImage(url) {
