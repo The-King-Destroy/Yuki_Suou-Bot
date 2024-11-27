@@ -24,7 +24,7 @@ conn.reply('error :v')
 }
     
 handler.help = ['soundclouddl *<link>*']
-handler.corazones = 3
+handler.yenes = 3
 handler.tags = ['descargas']
 handler.command = ['soundclouddl'];
 

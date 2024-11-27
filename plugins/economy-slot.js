@@ -19,7 +19,7 @@ const handler = async (m, { args, usedPrefix, command, conn }) => {
     throw `*[❗] 𝚃𝚄 𝚇𝙿 𝙽𝙾 𝙴𝚂 𝚂𝚄𝙵𝙸𝙲𝙸𝙴𝙽𝚃𝙴 𝙿𝙰𝚁𝙰 𝙰𝙿𝙾𝚂𝚃𝙰𝚁 𝙴𝚂𝙰 𝙲𝙰𝙽𝚃𝙸𝙳𝙰𝙳, 𝙹𝚄𝙴𝙶𝙰 𝙾𝚃𝚁𝙾𝚂 𝙹𝚄𝙴𝙶𝙾𝚂 𝙾 𝙸𝙽𝚃𝙴𝚁𝙰𝙲𝚃𝚄𝙰 𝙲𝙾𝙽 𝙴𝙻 𝙱𝙾𝚃 𝙿𝙰𝚁𝙰 𝙶𝙰𝙽𝙰𝚁 𝙼𝙰𝚂 𝚇𝙿*`;
   }
 
-  const emojis = ['❤️‍🔥', '🔥', '💥'];
+  const emojis = ['🌸', '🌹', '🌷'];
   const getRandomEmojis = () => {
     const x = Array.from({ length: 3 }, () => emojis[Math.floor(Math.random() * emojis.length)]);
     const y = Array.from({ length: 3 }, () => emojis[Math.floor(Math.random() * emojis.length)]);

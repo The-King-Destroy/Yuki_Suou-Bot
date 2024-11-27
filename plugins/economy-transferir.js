@@ -1,4 +1,4 @@
-const items = ['cookies', 'exp'];
+const items = ['yenes', 'exp'];
 const confirmation = {};
 
 async function handler(m, { conn, args, usedPrefix, command }) {
@@ -6,12 +6,12 @@ async function handler(m, { conn, args, usedPrefix, command }) {
   const user = global.db.data.users[m.sender];
   const item = items.filter((v) => v in user && typeof user[v] == 'number');
   const lol = `*┏━┅┉┅┄┄┄⟞⟨⟡⟩⟝┄┄┄┉┉┉━┓*
-*┃✨ 𝑼𝒔𝒐 𝒅𝒆𝒍 𝒄𝒐𝒎𝒂𝒎𝒅𝒐.* 
+*┃🌸 𝑼𝒔𝒐 𝒅𝒆𝒍 𝒄𝒐𝒎𝒂𝒎𝒅𝒐.* 
 *┃◉ ${usedPrefix + command}*  [tipo] [cantidad] [@user]
-*┃🍁 𝑬𝒋𝒆𝒎𝒑𝒍𝒐:* ${usedPrefix + command} exp 65 @${m.sender.split('@')[0]}
+*┃🌷 𝑬𝒋𝒆𝒎𝒑𝒍𝒐:* ${usedPrefix + command} exp 65 @${m.sender.split('@')[0]}
 ┣❣◤▬▭▬▭▬ ◆ ▬▭▬▭▬ ◤❢
-*┃◉ 🌟 𝑨𝒓𝒕𝒊𝒄𝒖𝒍𝒐𝒔 𝒕𝒓𝒂𝒏𝒔𝒇𝒆𝒓𝒊𝒃𝒍𝒆𝒔.*
-┃▢ *cookies* = 𝑪𝒐𝒐𝒌𝒊𝒆𝒔 🍪
+*┃◉ ⚜️ 𝑨𝒓𝒕𝒊𝒄𝒖𝒍𝒐𝒔 𝒕𝒓𝒂𝒏𝒔𝒇𝒆𝒓𝒊𝒃𝒍𝒆𝒔.*
+┃▢ *yenes* = 𝑌𝑒𝑛𝑒𝑠 💴
 ┃▢ *exp* = 𝑬𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂
 *┗━┅┉┅┄┈┄⟞⟨⟠⟩⟝┄┈┄┉┉┉━┛*
 `.trim();

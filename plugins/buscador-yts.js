@@ -2,7 +2,7 @@ import yts from 'yt-search'
 
 var handler = async (m, { text, conn, args, command, usedPrefix }) => {
 
-if (!text) return conn.reply(m.chat, `🌸 *Escriba el título de algún vídeo de Youtube*\n\nEjemplo, !${command} Yuki Suou`, m, rcanal, )
+if (!text) return conn.reply(m.chat, `🌸 *Escriba el título de algún vídeo de Youtube\n\nEjemplo, !${command} Yuki Suou*`, m, rcanal, )
 
 conn.reply(m.chat, wait, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
@@ -38,6 +38,6 @@ handler.tags = ['buscador']
 handler.command = /^playlist|ytbuscar|yts(earch)?$/i
 
 handler.register = true
-handler.estrellas = 1
+handler.yenes = 1
 
 export default handler

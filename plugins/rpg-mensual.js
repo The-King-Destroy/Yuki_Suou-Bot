@@ -15,20 +15,20 @@ var handler = async (m, { conn }) => {
     }
 
     let coinReward = pickRandom([5000, 10000, 15000, 20000, baseCoinReward]);
-    let cookieReward = pickRandom([1, 2, 3, 4, 5]);
+    let yenesReward = pickRandom([1, 2, 3, 4, 5]);
     let expReward = pickRandom([500, 1000, 1500, 2000, 2500]);
     let diamondReward = pickRandom([1, 2, 3]);
 
     user.coin = (user.coin || 0) + coinReward;
-    user.cookies = (user.cookies || 0) + cookieReward;
+    user.yenes = (user.yenes || 0) + yenesReward;
     user.exp = (user.exp || 0) + expReward;
     user.diamonds = (user.diamonds || 0) + diamondReward;
 
     m.reply(`
-\`\`\`🎁 ¡Ha pasado un mes! ¡Disfruta de tu regalo mensual! 🐢\`\`\`
+\`\`\`🎁 ¡Ha pasado un mes! ¡Disfruta de tu regalo mensual! 🌸\`\`\`
 
-🪙 *YukiCoins* : +${coinReward.toLocaleString()}
-🍪 *Cookies* : +${cookieReward}
+🪙 *Coins* : +${coinReward.toLocaleString()}
+💴 *Yenes* : +${yenesReward}
 ✨ *Experiencia* : +${expReward}
 💎 *Diamantes* : +${diamondReward}`);
 

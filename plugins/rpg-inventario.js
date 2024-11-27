@@ -41,17 +41,17 @@ let handler = async (m, { conn, usedPrefix }) => {
     let premium = user.premium ? '✅' : '❌';
 
     let text = `╭━〔 Inventario de ${name} 〕⬣\n` +
-               `┋ 🍪 *Cookies en Cartera:* ${user.cookies || 0} 🍪\n` +  // Cookies
-               `┋ 🏦 *Cookies en Banco:* ${user.bank || 0} 🍪\n` +  // Cookies en banco
-               `┋ 💎 *Esmeraldas:* ${user.emerald || 0}\n` +  // Esmeraldas
+               `┋ 💴 *Yenes en Cartera:* ${user.yenes || 0} 💴\n` +  // Cookies
+               `┋ 🏦 *Yenes en Banco:* ${user.bank || 0} 🍪\n` +  // Cookies en banco
+               `┋ ♦️ *Esmeraldas:* ${user.emerald || 0}\n` +  // Esmeraldas
                `┋ 🔩 *Hierro:* ${user.iron || 0}\n` +  // Hierro
                `┋ 🏅 *Oro:* ${user.gold || 0}\n` +  // Oro
                `┋ 🕋 *Carbón:* ${user.coal || 0}\n` +  // Carbón
                `┋ 🪨 *Piedra:* ${user.stone || 0}\n` +  // Piedra
-               `┋ 💰 *Experiencia:* ${user.exp || 0}\n` +  // Experiencia
+               `┋ ✨ *Experiencia:* ${user.exp || 0}\n` +  // Experiencia
                `┋ ❤️ *Salud:* ${user.health || 100}\n` +  // Salud
                `┋ 💎 *Diamantes:* ${user.diamond || 0}\n` +  // Diamantes
-               `┋ 🪙 *YukiCoins:* ${user.money || 0}\n` +  // YukiCoins
+               `┋ 🪙 *Coins:* ${user.money || 0}\n` +  // 
                `┋ 🍬 *Dulces:* ${user.candies || 0}\n` +  // Dulces (regalos de Halloween)
                `┋ 🎁 *Regalos:* ${user.gifts || 0}\n` +  // Regalos de Halloween
                `┋ 🎟️ *Tokens:* ${user.joincount || 0}\n` +  // Tokens

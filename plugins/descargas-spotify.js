@@ -79,7 +79,7 @@ async function getTinyURL(text) {
 handler.help = ['spotify'];
 handler.tags = ['descargas'];
 handler.command = /^(spotify|sp)$/i;
-handler.premium = false;
+handler.premium = true;
 handler.register = true;
 
 export default handler;

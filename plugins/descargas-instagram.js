@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, command, args }) => {
-if (!args[0]) return m.reply(`Ingresa un enlace de Instagram`)
+if (!args[0]) return m.reply(`🌸 *Ingresa un enlace de Instagram*`)
     
 try {
 let api = await fetch(`https://deliriussapi-oficial.vercel.app/download/instagram?url=${args[0]}`)

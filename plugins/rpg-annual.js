@@ -1,6 +1,6 @@
 const annualReward = {
-    cookie: 100, // Cantidad de Cookies que se otorgan
-    coin: 2000,  // Cantidad de YukiCoins que se otorgan
+    yenes: 100, // Cantidad de Cookies que se otorgan
+    money: 2000,  // Cantidad de YukiCoins que se otorgan
     exp: 5000,   // Experiencia que se otorgan
     diamond: 50, // Cantidad de Diamantes que se otorgan
 };
@@ -16,7 +16,7 @@ var handler = async (m, { conn }) => {
     }
 
     // Asigna las recompensas al usuario
-    global.db.data.users[m.sender].cookie += annualReward.cookie;
+    global.db.data.users[m.sender].yenes += annualReward.yenes;
     global.db.data.users[m.sender].money += annualReward.coin;
     global.db.data.users[m.sender].diamond += annualReward.diamond;
     global.db.data.users[m.sender].exp += annualReward.exp;
@@ -28,9 +28,9 @@ var handler = async (m, { conn }) => {
     conn.reply(m.chat, `🎉 *Recompensa Anual Reclamada*
 
 Recursos:
-🍪 Cookies : *+${annualReward.cookie}*
+💴 Yenes : *+${annualReward.yenes}*
 💎 Diamantes : *+${annualReward.diamond}*
-🪙 YukiCoins : *+${annualReward.coin}*
+🪙 Coins : *+${annualReward.coin}*
 ✨ Xp : *+${annualReward.exp}*`, m);
 }
 

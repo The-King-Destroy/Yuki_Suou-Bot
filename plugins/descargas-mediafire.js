@@ -13,6 +13,6 @@ conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 handler.help = ['mediafire']
 handler.tags = ['descargas']
 handler.command = /^(mediafire|mf)$/i
-handler.premium = false
+handler.premium = true
 handler.register = true
 export default handler

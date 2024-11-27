@@ -8,7 +8,7 @@ m.react(emoji2)
 handler.help = ['meme']
 handler.tags = ['fun']
 handler.command = ['meme', 'memes']
-handler.estrellas = 1
+handler.yenes = 1
 handler.group = true;
 handler.register = true
 export default handler

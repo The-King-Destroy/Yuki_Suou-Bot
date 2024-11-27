@@ -11,18 +11,18 @@ let handler = async (m, { conn }) => {
         return m.reply(`⏱️ ¡Ya reclamaste tu regalo semanal! Vuelve en:\n *${msToTime((user.weekly + cooldown) - new Date())}*`);
     }
 
-    let cookieReward = pickRandom([1, 2, 3]);
+    let yenesReward = pickRandom([1, 2, 3]);
     let expReward = pickRandom([100, 200, 300]);
 
     user.coin = (user.coin || 0) + we;
-    user.cookies = (user.cookies || 0) + cookieReward;
+    user.yenes = (user.yenes || 0) + yenesReward;
     user.exp = (user.exp || 0) + expReward;
 
     m.reply(`
-🎁 ¡Ha pasado una semana! ¡Disfruta de tu regalo semanal! 🐢
+🎁 ¡Ha pasado una semana! ¡Disfruta de tu regalo semanal! 🌷
 
-🪙 *YukiCoins* : +${we.toLocaleString()}
-🍪 *Cookies* : +${cookieReward}
+🪙 *Coins* : +${we.toLocaleString()}
+🍪 *Yenes* : +${yenesReward}
 ✨ *Experiencia* : +${expReward}`);
 
     user.weekly = new Date * 1; // Actualizar la fecha de reclamación

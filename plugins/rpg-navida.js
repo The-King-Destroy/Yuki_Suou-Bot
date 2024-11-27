@@ -24,20 +24,20 @@ var handler = async (m, { conn }) => {
 
     // Aumento en las recompensas
     let coinReward = pickRandom([20000, 30000, 40000, baseCoinReward]);
-    let cookieReward = pickRandom([5, 10, 15, 20]);
+    let yenesReward = pickRandom([5, 10, 15, 20]);
     let expReward = pickRandom([2000, 3000, 4000, 5000]);
     let giftReward = pickRandom([2, 3, 4, 5]); // Regalos navideños
 
     user.coin = (user.coin || 0) + coinReward;
-    user.cookies = (user.cookies || 0) + cookieReward;
+    user.yenes = (user.yenes || 0) + yenesReward;
     user.exp = (user.exp || 0) + expReward;
     user.gifts = (user.gifts || 0) + giftReward; // Añadir regalos navideños
 
     m.reply(`
 \`\`\`🎄 ¡Feliz Navidad! ¡Disfruta de tu regalo navideño! 🎁\`\`\`
 
-🪙 *YukiCoins* : +${coinReward.toLocaleString()}
-🍪 *Cookies* : +${cookieReward}
+🪙 *Coins* : +${coinReward.toLocaleString()}
+💴 *Yenes* : +${yenesReward}
 ✨ *Experiencia* : +${expReward}
 🎁 *Regalos Navideños* : +${giftReward}`);
 

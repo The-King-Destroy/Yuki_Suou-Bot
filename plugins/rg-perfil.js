@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 var handler = async (m, { conn }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1)
-let { premium, level, cookies, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender]
+let { premium, level, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender]
 let username = conn.getName(who)
 let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
@@ -12,7 +12,7 @@ let noprem = `
 🌀 *Registrado:* ${registered ? '✅': '❌'}
 
 「 💰 *RECURSOS* 」
-🍪 *Cookies:* ${cookies}
+💴 *Yenes:* ${yenes}
 🔰 *Nivel:* ${level}
 ✨ *Experiencia:* ${exp}
 ⚜️ *Rango:* ${role}
@@ -25,7 +25,7 @@ let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔�
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
-│⧼🍪⧽ *ᴄᴏᴏᴋɪᴇs:* ${cookies}
+│⧼💴⧽ *ʏᴇɴᴇs:* ${yenes}
 │⧼🔰⧽ *ɴɪᴠᴇʟ:* ${level}
 │⧼✨⧽ *ᴇxᴘᴇʀɪᴇɴᴄɪᴀ:* ${exp}
 │⧼⚜️⧽ *ʀᴀɴɢᴏ:* ${role}

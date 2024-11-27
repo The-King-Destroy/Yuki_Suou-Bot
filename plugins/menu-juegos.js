@@ -21,7 +21,7 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
     const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
     const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
 
- await conn.sendMessage(m.chat, { react: { text: '☂️', key: m.key } })
+ await conn.sendMessage(m.chat, { react: { text: '🎮', key: m.key } })
 
 
 const document = doc[Math.floor(Math.random() * doc.length)];
@@ -53,7 +53,6 @@ const document = doc[Math.floor(Math.random() * doc.length)];
 ┃✧ _!peliculas_
 ┃✧ _!ahorcado_
 ┃✧ _!math <mode>_
-┃✧ _!mayorque_
 ┃✧ _!aplauso_
 ┃✧ _!marron_
 ┃✧ _!suicide_

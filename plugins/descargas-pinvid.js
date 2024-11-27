@@ -11,6 +11,6 @@ conn.sendMessage(m.chat, { react: { text: "🕒", key: m.key } });
 handler.help = ['pinvid *<link>*']
 handler.tags = ['descargas']
 handler.command = /^(pinvid|pinvideo)$/i
-//handler.premium = false
+handler.premium = false
 handler.register = true
 export default handler

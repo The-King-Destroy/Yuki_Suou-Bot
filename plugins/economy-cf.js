@@ -18,11 +18,11 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
     let esGanador = text.toLowerCase() === resultado
 
     if (esGanador) {
-        global.db.data.users[m.sender].cookies += 1000
-        conn.reply(m.chat, `✨︎ La moneda cayó en *${text}*, acabas de ganar *1000 🍪 Cookies*`, m, rcanal)       
+        global.db.data.users[m.sender].yenes += 1000
+        conn.reply(m.chat, `✨︎ La moneda cayó en *${text}*, acabas de ganar *1000 💴 Yenes*`, m, rcanal)       
     } else {
-        global.db.data.users[m.sender].cookies -= 500
-        conn.reply(m.chat, `✨︎ La moneda cayó en *${text}*, acabas de perder *500 🍪 Cookies*`, m, rcanal)
+        global.db.data.users[m.sender].yenes -= 500
+        conn.reply(m.chat, `✨︎ La moneda cayó en *${text}*, acabas de perder *500 💴 Yenes*`, m, rcanal)
     }
 }
 

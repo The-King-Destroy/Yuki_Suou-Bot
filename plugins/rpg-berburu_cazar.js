@@ -71,9 +71,7 @@ global.db.data.users[m.sender].babi += rbrb11
 global.db.data.users[m.sender].ayam += rbrb12
 	
 let time = global.db.data.users[m.sender].lastberburu + 2700000 //45 Minutos
-if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) return conn.sendButton(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, `⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`, null, [
-['🏞️ 𝙰𝙽𝙸𝙼𝙰𝙻𝙴𝚂 𝙲𝙰𝙿𝚃𝚄𝚁𝙰𝙳𝙾𝚂 ', '.kandang'],
-[`🎒 𝙸𝙽𝚅𝙴𝙽𝚃𝙰𝙴𝚁𝙸𝙾`, `.inventario`]], m)	
+if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) return conn.sendButton(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, `⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`, null, m)	
 
 setTimeout(() => {
 conn.sendHydrated(m.chat, hsl, wm, null, md, `𝙶𝙸𝚃𝙷𝚄𝙱`, null, null, [
@@ -99,7 +97,7 @@ user.lastberburu = new Date * 1
 handler.help = ['caza']
 handler.tags = ['rpg']
 handler.command = /^(hunt|berburu|caza(r)?)$/i
-//handler.group = true
+handler.group = true
 export default handler
 
 function clockString(ms) {

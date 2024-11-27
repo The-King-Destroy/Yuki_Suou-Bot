@@ -15,7 +15,7 @@ try {
   }
 }
 handler.help = ['snackvideo *<link>*']
-handler.corazones = 2
+handler.yenes = 2
 handler.tags = ['descargas'];
 handler.command = /^(snackvideo)$/i;
 

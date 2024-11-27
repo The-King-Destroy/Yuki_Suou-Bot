@@ -48,10 +48,10 @@ const total = rewards.reward[rewardItem].getRandom()
 user[rewardItem] += total * 1
 if (total) text += `\n» ${global.rpg.emoticon(rewardItem)} ${total}`
  }
-conn.sendButton(m.chat, 
+/*conn.sendButton(m.chat, 
 `${htki} 𝙰𝚅𝙴𝙽𝚃𝚄𝚁𝙰 ${htka}`, 
 text.trim(), `https://static-maps.yandex.ru/1.x/?lang=id-ID&ll=${kt[1][0].longitude},${kt[1][0].latitude}&z=12&l=map&size=600,300`, [
-[`🔔 𝚁𝙴𝙲𝙻𝙰𝙼𝙾 𝙳𝙸𝙰𝚁𝙸𝙾`, `${usedPrefix}daily`]], fkontak, m)
+[`🔔 𝚁𝙴𝙲𝙻𝙰𝙼𝙾 𝙳𝙸𝙰𝚁𝙸𝙾`, `${usedPrefix}daily`]], fkontak, m)*/
 user.lastadventure = new Date * 1
 }
 catch {
