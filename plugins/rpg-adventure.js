@@ -48,7 +48,7 @@ let handler = async (m, { usedPrefix, conn }) => {
         let kt = await response.json();
 
         if (!kt || !kt[1] || !kt[1][0]) {
-            return conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙾𝙲𝚄𝚁𝚁𝙸𝙾 𝚄𝙽 𝙴𝚁𝚁𝙾𝚁 𝙰𝙻 𝙾𝙱𝚃𝙴𝙽𝙴𝚁 𝙳𝙰𝚃𝙾𝚂 𝙳𝙴 𝙻𝙰 𝙰𝙿𝙸!*', m);
+            return conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙾𝙲𝚄𝚁𝚁𝙸𝙾 𝚄𝙽 𝙴𝚁𝚁𝙾𝚁 𝙰𝙻 𝙾𝙃𝙏𝙀𝙽𝙴𝚁 𝙳𝙰𝚃𝙾𝚂 𝙳𝙴 𝙻𝙰 𝙰𝙿𝙸!*\nAsegúrate de que el código de país sea válido.', m);
         }
 
         let city = {
