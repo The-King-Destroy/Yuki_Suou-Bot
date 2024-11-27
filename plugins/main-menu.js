@@ -155,7 +155,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✧ .peliculas
 ┃✧ .ahorcado
 ┃✧ .math <mode>
-┃✧ .mayorque
 ┃✧ .ppt
 ┃✧ .pvp
 ┃✧ .reto
