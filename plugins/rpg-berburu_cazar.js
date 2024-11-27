@@ -78,11 +78,16 @@ let handler = async (m, { conn }) => {
 
     let time = global.db.data.users[m.sender].lastberburu + 2700000; // 45 minutos
     if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) {
-        return conn.sendMessage(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, { quoted: m });
+        return conn.sendMessage(m.chat, {
+            text: `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾\n⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`
+        });
     }
 
     // Enviando el mensaje inicial
-    let message = await conn.sendMessage(m.chat, hsl, { quoted: m });
+    let message = await conn.sendMessage(m.chat, {
+        text: hsl,
+        quoted: m
+    });
 
     // Editar el mensaje con un resumen de los animales cazados
     setTimeout(() => {
@@ -103,7 +108,10 @@ let handler = async (m, { conn }) => {
 🐓 Gallinas: ${anti12}
         `.trim();
 
-        conn.sendMessage(m.chat, resumen, { quoted: message });
+        conn.sendMessage(m.chat, {
+            text: resumen,
+            quoted: message
+        });
     }, 5000); // Tiempo para editar el mensaje después del envío inicial
 
     user.lastberburu = new Date * 1;
