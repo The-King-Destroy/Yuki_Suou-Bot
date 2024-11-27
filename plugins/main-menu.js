@@ -235,7 +235,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✱ .apostar 
 ┃✱ .bal
 ┃✱ .bank
-┃✱ .cookies
+┃✱ .yenes
 ┃✱ .apostar *<cantidad>*
 ┃✱ .cf
 ┃✱ .crimen
@@ -325,13 +325,13 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .pinterest
 ┃Ѽ .pinvid
 ┃Ѽ .play
-┃Ѽ .playdoc
-┃Ѽ .play1
-┃Ѽ .playvid
-┃Ѽ .playdoc2
 ┃Ѽ .play2
 ┃Ѽ .play3
 ┃Ѽ .play4
+┃Ѽ .playdoc
+┃Ѽ .playdoc2
+┃Ѽ .mp3
+┃Ѽ .mp4
 ┃Ѽ .applemusicplay
 ┃Ѽ .tiktokrandom
 ┃Ѽ .snackvideo *<link>*
