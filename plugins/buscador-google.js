@@ -1,36 +1,25 @@
+
 import axios from 'axios';
 
-let handler = async (m, { conn, command, args, usedPrefix }) => {
+let handler = async (m, { conn, command, args }) => {
     const text = args.join(' ');
     if (!text) return conn.reply(m.chat, '🌸 *Ingresa lo que deseas buscar en Google.*', m);
 
-    conn.reply(m.chat, `🌸 *Buscando Su Información...*`, m, {
-        contextInfo: {
-            externalAdReply: {
-                mediaUrl: null,
-                mediaType: 1,
-                showAdAttribution: true,
-                title: packname,
-                body: dev,
-                previewType: 0,
-                thumbnail: icons,
-                sourceUrl: channel
-            }
-        }
-    });
+    conn.reply(m.chat, `🌸 *Buscando Su Información...*`, m);
 
     const url = `https://api.ryzendesu.vip/api/search/google?query=${encodeURIComponent(text)}`;
 
     try {
         const response = await axios.get(url);
-        const results = response.data;
-        if (!results || results.length === 0) {
+
+        // Verifica que la respuesta tenga el formato esperado
+        if (!response.data || !Array.isArray(response.data.data) || response.data.data.length === 0) {
             return conn.reply(m.chat, '🌸 *No se encontraron resultados.*', m);
         }
 
         let teks = `🌷 *Resultado de* : ${text}\n\n`;
-        results.forEach(result => {
-            teks += `⚜️ *Título ∙* ${result.title}\n📚 *Info ∙* ${result.snippet}\n🔗 *Url ∙* ${result.link}\n\n`;
+        response.data.data.forEach(result => {
+            teks += `⚜️ *Título ∙* ${result.title}\n📚 *Info ∙* ${result.description}\n🔗 *Url ∙* ${result.link}\n\n`;
         });
 
         conn.reply(m.chat, teks, m);
