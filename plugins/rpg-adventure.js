@@ -1,3 +1,4 @@
+
 import db from '../lib/database.js';
 
 const cooldown = 1500000; // 25 minutos
