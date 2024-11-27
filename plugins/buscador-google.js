@@ -11,7 +11,7 @@ title: packname,
 body: dev,
 previewType: 0, thumbnail: icons,
 sourceUrl: channel }}})
-const url = 'https://google.com/search?q=' + encodeURIComponent(text)
+const url = 'https://api.ryzendesu.vip/api/search/google?query=' + encodeURIComponent(text)
 google({'query': text}).then(res => {
 let teks = `🌷 *Resultado de* : ${text}\n\n`
 for (let g of res) {
