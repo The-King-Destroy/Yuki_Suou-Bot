@@ -1,5 +1,3 @@
-export default handler
-
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text }) => {
