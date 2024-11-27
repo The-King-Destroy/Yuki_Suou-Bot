@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 let handler = async (m, { conn, command, args }) => {
@@ -12,13 +11,13 @@ let handler = async (m, { conn, command, args }) => {
     try {
         const response = await axios.get(url);
 
-        // Verifica que la respuesta tenga el formato esperado
-        if (!response.data || !Array.isArray(response.data.data) || response.data.data.length === 0) {
+        // Verifica que la respuesta contenga los datos esperados
+        if (!response.data || !Array.isArray(response.data) || response.data.length === 0) {
             return conn.reply(m.chat, '🌸 *No se encontraron resultados.*', m);
         }
 
         let teks = `🌷 *Resultado de* : ${text}\n\n`;
-        response.data.data.forEach(result => {
+        response.data.forEach(result => {
             teks += `⚜️ *Título ∙* ${result.title}\n📚 *Info ∙* ${result.description}\n🔗 *Url ∙* ${result.link}\n\n`;
         });
 
