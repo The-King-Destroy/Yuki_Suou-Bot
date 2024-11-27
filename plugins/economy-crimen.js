@@ -32,7 +32,7 @@ mentionedJid: [randomUserId],
 }}, { quoted: m })
 break
 case 1:
-let amountSubtracted = Math.min(Math.floor(Math.random() * (senderCookies - minAmount + 1)) + minAmount, maxAmount)
+let amountSubtracted = Math.min(Math.floor(Math.random() * (senderYenes - minAmount + 1)) + minAmount, maxAmount)
 users[senderId].yenes -= amountSubtracted
 conn.reply(m.chat, `⭕ No fuiste cuidadoso y te atraparon mientras cometias tu cirme, se restaron *-${amountSubtracted} Yenes 💴* a ${senderName}.`, m, rcanal)
 break
