@@ -16,7 +16,7 @@ import slot from './economy-slot.js';
 import shop from './economy-shop.js'; 
 import roulette from './economy-ruleta.js'; 
 import stealXP from './economy-robarxp.js'; 
-import stealCookies from './economy-robarcookies.js'; 
+import stealCookies from './economy-robaryenes.js'; 
 import mine from './economy-minar.js'; 
 import crime from './economy-crimen.js'; 
 import casino from './economy-casino.js'; 
