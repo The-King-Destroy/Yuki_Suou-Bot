@@ -256,7 +256,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃♤ .adventure
 ┃♤ .annual
 ┃♤ .yearly
-┃♤ .caza
 ┃♤ .cofre
 ┃♤ .daily
 ┃♤ .claim
@@ -278,7 +277,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✾ .bots
 ┃✾ .stop
 ┃✾ .serbot
-┃✾ .code
 ┃✾ .serbot --code 
 ┃✾ .token
 ┃✾ .rentbot
@@ -505,7 +503,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃❦ .nsfworgy
 ┃❦ .yuri
 ┃❦ .yuri2
-┃❦ .yaoi
+┃❦ .yaoi 
 ┃❦ .yaoi2
 ┃❦ .panties
 ┃❦ .tetas
@@ -534,8 +532,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕮𝖗𝖊𝖆𝖉𝖔𝖗ᚐ҉ᚐ 」⪨
 ┃🜲 .listafk
-┃🜲 .enable <option>
-┃🜲 .disable <option>
 ┃🜲 .expired *<días>*
 ┃🜲 .addyenes *<@user>*
 ┃🜲 .addprem [@user] <days>
@@ -559,7 +555,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃🜲 .delprem <@user>
 ┃🜲 .reunion *<texto>*
 ┃🜲 .removeowner @user
-┃🜲 .removerowner
 ┃🜲 .dsowner
 ┃🜲 $
 ┃🜲 .fetch
@@ -567,8 +562,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃🜲 .getplugin *<nombre>*
 ┃🜲 .groups
 ┃🜲 .grouplist
-┃🜲 .okickall @user
-┃🜲 .o- @user
+┃🜲 .kickall @user
 ┃🜲 .nuevabiobot <teks>
 ┃🜲 .nuevafotobot *<imagen>*
 ┃🜲 .nuevonombrebot <teks>
