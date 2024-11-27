@@ -18,7 +18,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   let args = text.trim().split(" ")
   if (args.length !== 2) return conn.reply(m.chat, `🥀 Formato incorrecto. Debes ingresar una cantidad de *💴 Yenes* y apostar a un color, por ejemplo: *${usedPrefix + command} 20 black*`, m, rcanal)
 
-  let cookies = parseInt(args[0])
+  let yenes = parseInt(args[0])
   let color = args[1].toLowerCase()
 
   if (isNaN(yenes) || yenes <= 0) return conn.reply(m.chat, `🌸 Por favor, ingresa una cantidad válida para la apuesta.`, m, rcanal)
