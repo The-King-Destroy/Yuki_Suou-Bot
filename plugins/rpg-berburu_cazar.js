@@ -1,3 +1,4 @@
+
 let handler = async (m, { conn }) => {
     let user = global.db.data.users[m.sender];
     let randomaku1 = `${Math.floor(Math.random() * 5)}`;
@@ -77,7 +78,7 @@ let handler = async (m, { conn }) => {
 
     let time = global.db.data.users[m.sender].lastberburu + 2700000; // 45 minutos
     if (new Date - global.db.data.users[m.sender].lastberburu < 2700000) {
-        return conn.sendMessage(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, `⫹⫺ 𝚃𝙸𝙴𝙼𝙿𝙾 ${clockString(time - new Date())}\n${wm}`);
+        return conn.sendMessage(m.chat, `𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙳𝙴𝚂𝙲𝙰𝙽𝚂𝙰 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 𝙿𝙰𝚁𝙰 𝚂𝙴𝙶𝚄𝙸𝚁 𝙲𝙰𝚉𝙰𝙽𝙳𝙾`, { quoted: m });
     }
 
     // Enviando el mensaje inicial
@@ -119,4 +120,4 @@ function clockString(ms) {
     let m = Math.floor(ms / 60000) % 60;
     let s = Math.floor(ms / 1000) % 60;
     return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':');
-    }
+}
