@@ -54,6 +54,8 @@ let handler = async (m, { usedPrefix, conn }) => {
         user.health -= rewards.healthLost;
         user.lastAdventure = new Date();
 
+        let mapImageUrl = `https://static-maps.yandex.ru/1.x/?lang=id-ID&ll=${city.longitude},${city.latitude}&z=12&l=map&size=600,300`;
+
         let text = `🛫 𝙴𝚂𝚃𝙰𝚜 𝙰𝚅𝙴𝙽𝚃𝚄𝚁𝙰𝙽𝙳𝙾 𝙴𝙽  *» ${city.name}*\n\n` +
                    `🏞️ *Aventura Finalizada* 🏞️\n` +
                    `┋ 💰 *Yenes Ganados:* ${rewards.yenes}\n` +
@@ -64,7 +66,7 @@ let handler = async (m, { usedPrefix, conn }) => {
                    `┋ ❤️ *Salud Perdida:* ${rewards.healthLost}\n` +
                    `┋ ❤️ *Salud Actual:* ${user.health}`;
 
-        await conn.reply(m.chat, text, m);
+        await conn.sendMessage(m.chat, { text, image: { url: mapImageUrl } }, { quoted: m });
     } catch {
         conn.reply(m.chat, '*[❗𝐈𝐍𝐅𝐎❗] 𝙾𝙲𝚄𝚁𝚁𝙸𝙾 𝚄𝙽 𝙴𝚁𝚁𝙾𝚁, 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝙻𝙾 𝙳𝙴 𝙽𝚄𝙴𝚅𝙾, 𝚂𝙴𝙶𝚄𝚁𝙾 𝙻𝙰 𝙰𝙿𝙸 𝙽𝙾 𝙶𝙴𝙽𝙴𝚁𝙾 𝙻𝙰 𝙸𝙼𝙰𝙶𝙴𝙽*', m);
     }
