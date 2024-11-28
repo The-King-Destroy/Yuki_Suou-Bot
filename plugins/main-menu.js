@@ -149,11 +149,8 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃☬ .zodiac *2002 02 25*
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕵𝖚𝖊𝖌𝖔𝖘ᚐ҉ᚐ 」⪨
-┃✧ .acertijo
-┃✧ .paises
 ┃✧ .cancion
 ┃✧ .pista
-┃✧ .peliculas
 ┃✧ .ahorcado
 ┃✧ .math <mode>
 ┃✧ .ppt
