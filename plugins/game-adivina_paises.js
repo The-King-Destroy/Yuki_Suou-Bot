@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 
 const timeout = 60000;
@@ -15,7 +14,6 @@ const handler = async (m, { conn, usedPrefix }) => {
 
   const tekateki = JSON.parse(fs.readFileSync('./src/game/paises.json'));
   const json = tekateki[Math.floor(Math.random() * tekateki.length)];
-  const clue = json.response.replace(/[A-Za-z]/g, '_');
 
   const caption = `
 ⷮ🌏 *\`ADIVINA EL PAIS\`* 🌎
@@ -36,9 +34,10 @@ const handler = async (m, { conn, usedPrefix }) => {
     }, timeout)
   ];
 
-  const handleResponse = async (message) => {
-    if (conn.tekateki[id]) {
-      const userResponse = message.body.toLowerCase();
+  // Aquí se maneja la respuesta del usuario
+  const handleUserMessage = async (message) => {
+    if (message.key.remoteJid === id && message.message && message.message.conversation) {
+      const userResponse = message.message.conversation.toLowerCase();
       const correctAnswer = json.response.toLowerCase();
 
       if (userResponse === correctAnswer) {
@@ -50,15 +49,10 @@ const handler = async (m, { conn, usedPrefix }) => {
     }
   };
 
-  conn.on('chat-update', (chat) => {
-    if (chat.messages) {
-      chat.messages.all().forEach((msg) => {
-        if (msg.key.remoteJid === id && msg.message && msg.message.conversation) {
-          handleResponse(msg.message);
-        }
-      });
-    }
-  });
+  // Escucha mensajes de forma sincrónica
+  conn.onMessage = (message) => {
+    handleUserMessage(message);
+  };
 };
 
 handler.help = ['paises'];
