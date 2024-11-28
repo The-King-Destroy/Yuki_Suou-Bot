@@ -90,21 +90,25 @@ handler.before = async function (m) {
   this.tekateki = this.tekateki || {};
   if (!(id in this.tekateki)) return m.reply('✨️ Ese acertijo ya ha terminado!');
 
-  if (m.quoted.id == this.tekateki[id][0].id) {
-    const json = JSON.parse(JSON.stringify(this.tekateki[id][1]));
+  if (m.quoted.id === this.tekateki[id][0].id) {
+    const json = this.tekateki[id][1]; // Obtén la pregunta actual
     if (!json || !json.response) {
       return m.reply('Error: Respuesta no válida.');
     }
 
-    if (m.text.toLowerCase() === json.response.toLowerCase().trim()) {
+    // Comprueba la respuesta del usuario
+    const userAnswer = m.text.toLowerCase().trim();
+    const correctAnswer = json.response.toLowerCase().trim();
+
+    if (userAnswer === correctAnswer) {
       global.db.data.users[m.sender].yenes = (global.db.data.users[m.sender].yenes || 0) + this.tekateki[id][2]; // Acumular Yenes
       m.reply(`✅ *Respuesta correcta!*\n+${this.tekateki[id][2]} Yenes 💴`);
       clearTimeout(this.tekateki[id][3]);
       delete this.tekateki[id];
-    } else if (similarity(m.text.toLowerCase(), json.response.toLowerCase().trim()) >= threshold) {
-      m.reply(`Casi lo logras!`);
+    } else if (similarity(userAnswer, correctAnswer) >= threshold) {
+      m.reply(`Casi lo logras! La respuesta correcta era: *${json.response}*`);
     } else {
-      m.reply('Respuesta incorrecta!');
+      m.reply('Respuesta incorrecta! Intenta de nuevo.');
     }
   }
 };
