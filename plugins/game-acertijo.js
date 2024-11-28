@@ -1,11 +1,11 @@
 import fs from 'fs';
 const timeout = 60000;
-const poin = 10;
+const yenes = 10;
 const handler = async (m, {conn, usedPrefix}) => {
   conn.tekateki = conn.tekateki ? conn.tekateki : {};
   const id = m.chat;
   if (id in conn.tekateki) {
-    conn.reply(m.chat, 'Todavía hay acertijos sin responder en este chat', conn.tekateki[id][0]);
+    conn.reply(m.chat, '🌸 *Todavía hay acertijos sin responder en este chat*', conn.tekateki[id][0]);
     throw false;
   }
   const tekateki = JSON.parse(fs.readFileSync(`./src/game/acertijo.json`));
@@ -17,7 +17,7 @@ const handler = async (m, {conn, usedPrefix}) => {
 ✨️ *${json.question}*
 
 ⏱️ *Tiempo:* ${(timeout / 1000).toFixed(2)} Segundos
-🎁 *Premio:* *+${poin}* Yenes 💴`.trim();
+🎁 *Premio:* *+${yenes}* Yenes 💴`.trim();
   conn.tekateki[id] = [
     await conn.reply(m.chat, caption, m), json,
     poin,

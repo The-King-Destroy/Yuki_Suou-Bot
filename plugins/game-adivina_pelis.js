@@ -1,6 +1,6 @@
 import fs from 'fs';
 const timeout = 60000;
-const poin = 10;
+const yenes = 10;
 const handler = async (m, {conn, usedPrefix}) => {
   conn.tekateki = conn.tekateki ? conn.tekateki : {};
   const id = m.chat;
@@ -17,16 +17,16 @@ const handler = async (m, {conn, usedPrefix}) => {
 *${json.question}*
 
 ⏱️ *Tiempo:* ${(timeout / 1000).toFixed(2)} Segundos
-🎁 *Premio:* *+${poin}* Yenes 💴`.trim();
+🎁 *Premio:* *+${yenes}* Yenes 💴`.trim();
   conn.tekateki[id] = [
     await conn.reply(m.chat, caption, m, fake), json,
     poin,
     setTimeout(async () => {
-      if (conn.tekateki[id]) await conn.reply(m.chat, `✨ Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0]);
+      if (conn.tekateki[id]) await conn.reply(m.chat, `⌛ Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0]);
       delete conn.tekateki[id];
     }, timeout)];
 };
-handler.help = ['peliculas'];
+handler.help = ['pelis'];
 handler.tags = ['game'];
-handler.command = /^(peliculas)$/i;
+handler.command = /^(pelis)$/i;
 export default handler;
