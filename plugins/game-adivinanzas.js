@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 import similarity from 'similarity';
 
 const timeout = 60000;
