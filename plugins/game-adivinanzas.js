@@ -79,7 +79,6 @@ handler.before = async function (m) {
   const id = m.chat;
 
   if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/^ⷮ/i.test(m.quoted.text)) {
-    console.log("No es una respuesta válida o no es de este juego.");
     return;
   }
 
@@ -90,13 +89,11 @@ handler.before = async function (m) {
 
   const json = this.tekateki[id][1];
   if (!json || !json.response) {
-    console.log("Respuesta no válida.");
     return m.reply('Error: Respuesta no válida.');
   }
 
   const userAnswer = m.text.toLowerCase().trim();
   const correctAnswer = json.response.toLowerCase().trim();
-  console.log(`Respuesta del usuario: '${userAnswer}', Respuesta correcta: '${correctAnswer}'`);
 
   if (userAnswer === correctAnswer) {
     global.db.data.users[m.sender].yenes = (global.db.data.users[m.sender].yenes || 0) + this.tekateki[id][2];
