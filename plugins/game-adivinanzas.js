@@ -1,4 +1,4 @@
-import fs from 'fs';
+/*import fs from 'fs';
 import similarity from 'similarity';
 
 const timeout = 60000; // Tiempo en milisegundos
@@ -67,7 +67,7 @@ handler.before = async function (m) {
     clearTimeout(timeoutId);
     delete this.tekateki[chatId];
   } else if (similarity(userAnswer, correctAnswer) >= threshold) {
-    m.reply(`Casi lo logras! La respuesta correcta era: *${json.response}*`);
+    m.reply(`Casi lo logras! La respuesta correcta era: *${json.response}*`);*/
   } else {
     m.reply('Respuesta incorrecta! Intenta de nuevo.');
   }
