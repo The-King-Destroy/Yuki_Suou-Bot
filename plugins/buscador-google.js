@@ -1,27 +1,24 @@
 import axios from 'axios';
 
-const handler = async (m, { conn, command, args }) => {
-  const query = args.join(' ');
+let handler = async (m, { conn, command, args }) => {
+  const text = args.join(' ');
+  if (!text) return conn.reply(m.chat, '🌸 *Ingresa lo que deseas buscar junto al comando.*', m);
 
-  if (!query) {
-    return conn.reply(m.chat, '🌸 *Ingresa lo que deseas buscar junto al comando*', m);
-  }
-
-  await conn.reply(m.chat, '🔍 *Buscando...*', m);
+  await m.react('🕓');
+  let img = 'https://i.ibb.co/P5kZNFF/file.jpg';
 
   try {
-    // Realiza la solicitud a la nueva API
-    const apiResponse = await axios.get(`https://api.dorratz.com/v2/google-search?q=${encodeURIComponent(query)}`);
-    
-    // Verifica que la respuesta sea válida
+    const apiResponse = await axios.get(`https://api.dorratz.com/v2/google-search?q=${encodeURIComponent(text)}`);
+
     if (apiResponse.data && apiResponse.data.results && Array.isArray(apiResponse.data.results) && apiResponse.data.results.length > 0) {
       const results = apiResponse.data.results;
 
-      const msg = results.map(({ title, link }) => {
-        return `*${title}*\n_${link}_`;
-      }).join('\n\n');
+      let teks = ` *乂  S E A R C H  -  G O O G L E*\n\n`;
+      for (let g of results) {
+        teks += `*${g.title}*\n${g.link}\n\n`;
+      }
 
-      await conn.reply(m.chat, msg, m); // Envía los resultados como texto
+      conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m).then(() => m.react('✅'));
     } else {
       conn.reply(m.chat, '🔍 *No se encontraron resultados.*', m);
     }
@@ -31,8 +28,9 @@ const handler = async (m, { conn, command, args }) => {
   }
 };
 
-handler.help = ['google'].map((v) => v + ' <pencarian>');
+handler.help = ['google *<texto>*'];
 handler.tags = ['buscador'];
 handler.command = /^google?$/i;
+handler.register = true;
 
 export default handler;
