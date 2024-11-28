@@ -2,15 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import similarity from 'similarity';
 
-const timeout = 60000;
+const timeout = 60000; // Tiempo en milisegundos
 const poin = 10; // Cantidad de Yenes que se ganan
-const threshold = 0.72;
+const threshold = 0.72; // Umbral de similitud
 
 // Rutas de los archivos JSON
 const tekatekiData = {
-  acertijos: JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'game', 'acertijo.json'))),
-  paises: JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'game', 'paises.json'))),
-  peliculas: JSON.parse(fs.readFileSync(path.join(__dirname, 'src', 'game', 'peliculas.json'))),
+  acertijos: JSON.parse(fs.readFileSync('./src/game/acertijo.json')),
+  paises: JSON.parse(fs.readFileSync('./src/game/paises.json')),
+  peliculas: JSON.parse(fs.readFileSync('./src/game/peliculas.json')),
 };
 
 const handler = async (m, { conn, usedPrefix, command }) => {
