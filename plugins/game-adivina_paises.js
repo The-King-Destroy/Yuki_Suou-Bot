@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 
 const timeout = 60000;
@@ -34,6 +35,30 @@ const handler = async (m, { conn, usedPrefix }) => {
       }
     }, timeout)
   ];
+
+  const handleResponse = async (message) => {
+    if (conn.tekateki[id]) {
+      const userResponse = message.body.toLowerCase();
+      const correctAnswer = json.response.toLowerCase();
+
+      if (userResponse === correctAnswer) {
+        await conn.reply(m.chat, `🎉 ¡Correcto! El país es: *${json.response}*`, conn.tekateki[id][0]);
+        delete conn.tekateki[id];
+      } else {
+        await conn.reply(m.chat, `❌ Incorrecto. Intenta de nuevo.`, conn.tekateki[id][0]);
+      }
+    }
+  };
+
+  conn.on('chat-update', (chat) => {
+    if (chat.messages) {
+      chat.messages.all().forEach((msg) => {
+        if (msg.key.remoteJid === id && msg.message && msg.message.conversation) {
+          handleResponse(msg.message);
+        }
+      });
+    }
+  });
 };
 
 handler.help = ['paises'];
