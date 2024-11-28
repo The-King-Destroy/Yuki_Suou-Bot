@@ -78,8 +78,8 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✿ .usuarios
 ┃✿ .user
 ┃✿ .ds
-┃✿ .fixmsgespera
 ┃✿ .status
+┃✿ .solicitud *<mensaje>*
 ┃✿ .sug *<mensaje>*
 ┃✿ .horario
 ┃✿ .skyplus
@@ -90,7 +90,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✿ .speed
 ┃✿ .speedtest
 ┃✿ .reportar
-┃✿ .totalf
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕽𝖊𝖌𝖎𝖘𝖙𝖗𝖔ᚐ҉ᚐ 」⪨
 ┃❋ .profile
@@ -587,7 +586,7 @@ await m.react(error)
 
 handler.help = ['menu']
 handler.tags = ['main']
-handler.command = ['menu', 'help', 'menú', 'allmenú', 'allmenu', 'menucompleto'] 
+handler.command = ['menu', 'help', 'menú'] 
 handler.register = true
 export default handler
 
