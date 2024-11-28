@@ -20,7 +20,7 @@ que pais es: *${json.question}*
 🎁 *Premio:* *+${yenes}* Yenes 💴`.trim();
   conn.tekateki[id] = [
     await conn.reply(m.chat, caption, m, fake), json,
-    poin,
+    yenes,
     setTimeout(async () => {
       if (conn.tekateki[id]) await conn.reply(m.chat, `⌛ Se acabó el tiempo!\n*Respuesta:* ${json.response}`, conn.tekateki[id][0]);
       delete conn.tekateki[id];
