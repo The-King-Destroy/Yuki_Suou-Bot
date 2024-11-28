@@ -6,7 +6,7 @@ const handler = async (m, { conn, command, args }) => {
   const text = args.join(' ');
 
   if (!text) {
-    return conn.reply(m.chat, '🌸 *Ingresa lo que deseas buscar junto al comando.*', m);
+    return conn.reply(m.chat, '🌸 *Ingresa lo que deseas buscar junto al comando*', m);
   }
 
   const loadingMessage = await conn.reply(m.chat, '🔍 *Buscando...*', m);
@@ -28,8 +28,6 @@ const handler = async (m, { conn, command, args }) => {
   } catch (error) {
     console.error(error);
     conn.reply(m.chat, '⚠️ *Ocurrió un error al realizar la búsqueda.*', m);
-  } finally {
-    conn.reply(m.chat, '✅ *Búsqueda completada.*', loadingMessage);
   }
 };
 
