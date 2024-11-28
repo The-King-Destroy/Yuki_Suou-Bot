@@ -1,7 +1,7 @@
-/*import fs from 'fs';
+import fs from 'fs';
 import similarity from 'similarity';
 
-const timeout = 60000; // Tiempo en milisegundos
+const timeout = 60000; // Tiempo máximo para responder
 const poin = 10; // Puntos que se ganan
 const threshold = 0.72; // Umbral de similitud
 
@@ -23,8 +23,13 @@ const tekatekiData = {
 const handler = async (m, { conn, command }) => {
   const chatId = m.chat;
 
-  // Elige un tipo de juego basado en el comando
-  let json, caption;
+  // Inicializa la estructura para el juego en el chat
+  if (!conn.tekateki) conn.tekateki = {};
+  if (!conn.tekateki[chatId]) conn.tekateki[chatId] = {};
+
+  let json;
+  let caption;
+
   if (command === 'acertijo') {
     json = tekatekiData.acertijos[Math.floor(Math.random() * tekatekiData.acertijos.length)];
     caption = `ⷮ🌟 *ACERTIJOS*\n✨️ *${json.question}*\n⏱️ *Tiempo:* ${(timeout / 1000).toFixed(2)} Segundos\n🎁 *Premio:* *+${poin}* Yenes 💴`;
@@ -38,36 +43,35 @@ const handler = async (m, { conn, command }) => {
     return m.reply('Comando no reconocido. Usa uno de los siguientes: acertijo, paises, peliculas.');
   }
 
-  // Envía la pregunta al usuario y establece el temporizador
   const message = await conn.reply(m.chat, caption, m);
   const timeoutId = setTimeout(() => {
     conn.reply(m.chat, `⌛ Se acabó el tiempo!\n*Respuesta:* ${json.response}`, message);
+    delete conn.tekateki[chatId]; // Eliminar el juego después del tiempo
   }, timeout);
 
-  // Guarda la información del juego en la conexión
-  conn.tekateki = conn.tekateki || {};
-  conn.tekateki[chatId] = { json, timeoutId, points: poin };
+  conn.tekateki[chatId].json = json;
+  conn.tekateki[chatId].timeoutId = timeoutId;
 };
 
 handler.before = async function (m) {
   const chatId = m.chat;
 
   // Verifica si hay un juego en curso
-  if (!(chatId in this.tekateki)) {
-    return m.reply('✨️ No hay un juego en curso en este chat.');
+  if (!conn.tekateki || !(chatId in conn.tekateki) || !conn.tekateki[chatId].json) {
+    return; // No se envía ningún mensaje si no hay juego
   }
 
-  const { json, timeoutId } = this.tekateki[chatId];
+  const json = conn.tekateki[chatId].json;
   const userAnswer = m.text.toLowerCase().trim();
   const correctAnswer = json.response.toLowerCase().trim();
 
   if (userAnswer === correctAnswer) {
     global.db.data.users[m.sender].yenes = (global.db.data.users[m.sender].yenes || 0) + poin;
     m.reply(`✅ *Respuesta correcta!*\n+${poin} Yenes 💴`);
-    clearTimeout(timeoutId);
-    delete this.tekateki[chatId];
+    clearTimeout(conn.tekateki[chatId].timeoutId);
+    delete conn.tekateki[chatId];
   } else if (similarity(userAnswer, correctAnswer) >= threshold) {
-    m.reply(`Casi lo logras! La respuesta correcta era: *${json.response}*`);*/
+    m.reply(`Casi lo logras! La respuesta correcta era: *${json.response}*`);
   } else {
     m.reply('Respuesta incorrecta! Intenta de nuevo.');
   }
