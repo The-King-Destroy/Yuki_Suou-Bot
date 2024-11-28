@@ -7,10 +7,9 @@ const handler = async (m, { conn, command, args }) => {
     return conn.reply(m.chat, '🌸 *Ingresa lo que deseas buscar junto al comando*', m);
   }
 
-  const loadingMessage = await conn.reply(m.chat, '🔍 *Buscando...*', m);
+  await conn.reply(m.chat, '🔍 *Buscando...*', m);
 
   try {
-    // Llamada a la API de Ryzendesu
     const apiResponse = await axios.get(`https://api.ryzendesu.vip/api/search/google?query=${encodeURIComponent(text)}`);
     const results = apiResponse.data;
 
@@ -26,8 +25,6 @@ const handler = async (m, { conn, command, args }) => {
   } catch (error) {
     console.error(error);
     conn.reply(m.chat, '⚠️ *Ocurrió un error al realizar la búsqueda.*', m);
-  } finally {
-    conn.reply(m.chat, '✅ *Búsqueda finalizada.*', loadingMessage);
   }
 };
 
