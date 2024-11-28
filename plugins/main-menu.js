@@ -107,6 +107,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃☬ .puta <@tag> | <nombre>
 ┃☬ .manco <@tag> | <nombre>
 ┃☬ .manca <@tag> | <nombre>
+┃☬ .revelargenero *<texto>*
 ┃☬ .rata <@tag> | <nombre>
 ┃☬ .prostituta <@tag> | <nombre>
 ┃☬ .prostituto <@tag> | <nombre>
