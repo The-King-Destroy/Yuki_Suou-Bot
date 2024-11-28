@@ -9,7 +9,7 @@ let handler = async (m, { conn, command, args }) => {
 
   try {
     const apiResponse = await axios.get(`https://api.dorratz.com/v2/google-search?q=${encodeURIComponent(text)}`);
-
+    
     if (apiResponse.data && apiResponse.data.results && Array.isArray(apiResponse.data.results) && apiResponse.data.results.length > 0) {
       const results = apiResponse.data.results;
 
@@ -18,13 +18,13 @@ let handler = async (m, { conn, command, args }) => {
         teks += `*${g.title}*\n${g.link}\n\n`;
       }
 
-      conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m).then(() => m.react('✅'));
+      conn.sendFile(m.rcanal || m.chat, img, 'thumbnail.jpg', teks, m).then(() => m.react('✅'));
     } else {
-      conn.reply(m.chat, '🔍 *No se encontraron resultados.*', m);
+      conn.reply(m.rcanal || m.chat, '🔍 *No se encontraron resultados.*', m);
     }
   } catch (error) {
     console.error(error);
-    conn.reply(m.chat, '⚠️ *Ocurrió un error al realizar la búsqueda: ' + error.message + '*', m);
+    conn.reply(m.rcanal || m.chat, '⚠️ *Ocurrió un error al realizar la búsqueda: ' + error.message + '*', m);
   }
 };
 
