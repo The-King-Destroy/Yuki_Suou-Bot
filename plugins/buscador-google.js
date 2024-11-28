@@ -10,16 +10,18 @@ const handler = async (m, { conn, command, args }) => {
   await conn.reply(m.chat, '🔍 *Buscando...*', m);
 
   try {
-    const apiResponse = await axios.get(`https://api.ryzendesu.vip/api/search/google?query=venezuela${encodeURIComponent(query)}`);
+    // Realiza la solicitud a la nueva API
+    const apiResponse = await axios.get(`https://api.dorratz.com/v2/google-search?q=${encodeURIComponent(query)}`);
     
-    if (apiResponse.data && Array.isArray(apiResponse.data) && apiResponse.data.length > 0) {
-      const results = apiResponse.data;
+    // Verifica que la respuesta sea válida
+    if (apiResponse.data && apiResponse.data.results && Array.isArray(apiResponse.data.results) && apiResponse.data.results.length > 0) {
+      const results = apiResponse.data.results;
 
-      const msg = results.map(({ title, link, description }) => {
-        return `*${title}*\n_${link}_\n_${description}_`;
+      const msg = results.map(({ title, link }) => {
+        return `*${title}*\n_${link}_`;
       }).join('\n\n');
 
-      await conn.reply(m.chat, msg, m);
+      await conn.reply(m.chat, msg, m); // Envía los resultados como texto
     } else {
       conn.reply(m.chat, '🔍 *No se encontraron resultados.*', m);
     }
