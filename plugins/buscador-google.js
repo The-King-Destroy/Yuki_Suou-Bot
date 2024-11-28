@@ -1,8 +1,6 @@
-import { googleIt } from '@bochilteam/scraper';
 import axios from 'axios';
 
 const handler = async (m, { conn, command, args }) => {
-  const fetch = (await import('node-fetch')).default;
   const text = args.join(' ');
 
   if (!text) {
@@ -12,22 +10,24 @@ const handler = async (m, { conn, command, args }) => {
   const loadingMessage = await conn.reply(m.chat, '🔍 *Buscando...*', m);
 
   try {
-    const url = 'https://google.com/search?q=' + encodeURIComponent(text);
-    const search = await googleIt(text);
+    // Llamada a la API de Ryzendesu
+    const apiResponse = await axios.get(`https://api.ryzendesu.vip/api/search/google?query=${encodeURIComponent(text)}`);
+    const results = apiResponse.data;
 
-    if (search.articles.length === 0) {
+    if (!results || results.length === 0) {
       return conn.reply(m.chat, '🔍 *No se encontraron resultados.*', m);
     }
 
-    const msg = search.articles.map(({ title, url, description }) => {
-      return `*${title}*\n_${url}_\n_${description}_`;
+    const msg = results.map(({ title, link, description }) => {
+      return `*${title}*\n_${link}_\n_${description}_`;
     }).join('\n\n');
 
-    const ss = `https://image.thum.io/get/fullpage/${url}`;
-    await conn.sendFile(m.chat, ss, 'error.png', url + '\n\n' + msg, m);
+    await conn.reply(m.chat, msg, m); // Envía los resultados como texto
   } catch (error) {
     console.error(error);
     conn.reply(m.chat, '⚠️ *Ocurrió un error al realizar la búsqueda.*', m);
+  } finally {
+    conn.reply(m.chat, '✅ *Búsqueda finalizada.*', loadingMessage);
   }
 };
 
