@@ -29,8 +29,8 @@ age = parseInt(age)
 if (age > 10000) throw '*『😏』Viejo/a Sabroso/a*'
 if (age < 5) throw '*『🍼』Ven aquí, te adoptare!!*'
 user.name = name.trim()
-user.age = age;
-user.descripcion = bio;
+user.age = age
+user.descripcion = bio
 user.regTime = + new Date
 user.registered = true
 global.db.data.users[m.sender].money += 600
