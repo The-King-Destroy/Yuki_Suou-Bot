@@ -37,9 +37,9 @@ await m.react(done)
 await m.react(error)
 return conn.reply(m.chat, '⚙️ *Error al enviar el video.*', m, rcanal)}}
 
-handler.help = ['facebook', 'fb']
+handler.help = ['facebook2', 'fb2']
 handler.tags = ['descargas']
-handler.command = ['facebook', 'fb']
+handler.command = ['facebook2', 'fb2']
 //handler.yenes = 1
 handler.group = true;
 handler.register = true
