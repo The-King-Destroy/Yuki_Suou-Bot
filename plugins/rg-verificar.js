@@ -7,6 +7,17 @@ let name2 = conn.getName(m.sender)
   let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
+  let bio = 0, fechaBio
+  let who2 = m.isGroup ? _.get(m, "mentionedJid[0]", m.quoted?.sender || m.sender) : m.sender
+  let sinDefinir = '😿 Es privada'
+  let biografia = await conn.fetchStatus(who2).catch(() => null)
+  if (!biografia || !biografia[0] || biografia[0].status === null) {
+  bio = sinDefinir
+  fechaBio = "Fecha no disponible"
+  } else {
+bio = biografia[0].status || sinDefinir
+fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
+  }
   let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 if (user.registered === true) throw `*『✦』Ya estas registrado, para volver a registrarte, usa el comando: #unreg*`
 if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.18*`
@@ -19,6 +30,7 @@ if (age > 10000) throw '*『😏』Viejo/a Sabroso/a*'
 if (age < 5) throw '*『🍼』Ven aquí, te adoptare!!*'
 user.name = name.trim()
 user.age = age
+user.descripcion = bio;
 user.regTime = + new Date
 user.registered = true
 global.db.data.users[m.sender].money += 600
@@ -50,6 +62,8 @@ let chtxt = `
 🌎 *𝙿𝚊𝚒𝚜* » ${mundo}
 🗂 *𝚅𝚎𝚛𝚒𝚏𝚒𝚌𝚊𝚌𝚒𝚘́𝚗* » ${user.name}
 ⭐️ *𝙴𝚍𝚊𝚍* » ${user.age} años
+👀 *Descripción* » ${user.descripcion} 
+⏳ *Modificación de descripción* » ${fechaBio}
 📆 *𝙵𝚎𝚌𝚑𝚊* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ☁️ *𝙽𝚞𝚖𝚎𝚛𝚘 𝚍𝚎 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚘* »
 ⤷ ${sn}
@@ -69,5 +83,4 @@ renderLargerThumbnail: false
 handler.help = ['reg']
 handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
-
 export default handler
