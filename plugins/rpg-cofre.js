@@ -7,7 +7,8 @@ const handler = async (m, {isPrems, conn}) => {
   const timeToNextCofre = lastCofreTime + 86400000;
 
   if (Date.now() < timeToNextCofre) {
-    throw `🎁 Ya reclamaste tu cofre\n⏰️ Regresa en: *${msToTime(timeToNextCofre - Date.now())}* para volver a reclamar.`;
+    const tiempoRestante = timeToNextCofre - Date.now();
+    throw `🎁 Ya reclamaste tu cofre\n⏰️ Regresa en: *${msToTime(tiempoRestante)}* para volver a reclamar.`;
   }
 
   const img = 'https://qu.ax/rZZfy.jpg';
@@ -29,7 +30,7 @@ const handler = async (m, {isPrems, conn}) => {
 ╰━━━━━━━━━━━━⬣
 
 ╭━〔 ${global.botname} 〕⬣
-┃ *${dia} Yenes* 🍪
+┃ *${dia} Yenes* 💴
 ┃ *${tok} Tokens* ⚜️
 ┃ *${ai} Coins* 🪙
 ┃ *${expp} Exp* ✨
