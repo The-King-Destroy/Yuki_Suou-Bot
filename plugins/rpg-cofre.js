@@ -9,8 +9,8 @@ const handler = async (m, { isPrems, conn }) => {
   if (Date.now() < timeToNextCofre) {
     const tiempoRestante = timeToNextCofre - Date.now();
     const mensajeEspera = `🎁 Ya reclamaste tu cofre\n⏰️ Regresa en: *${msToTime(tiempoRestante)}* para volver a reclamar.`;
-    await conn.sendMessage(m.chat, mensajeEspera, { quoted: m });
-    return; // Terminar la ejecución si el tiempo no ha pasado
+    await conn.sendMessage(m.chat, { text: mensajeEspera }, { quoted: m });
+    return;
   }
 
   const img = 'https://qu.ax/rZZfy.jpg';
