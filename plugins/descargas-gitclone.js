@@ -49,5 +49,5 @@ handler.help = ['gitclone *<url git>*']
 handler.tags = ['descargas']
 handler.command = ['gitclone']
 handler.register = true 
-handler.yenes = 1
+//handler.yenes = 1
 export default handler
