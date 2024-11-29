@@ -1,49 +1,45 @@
-import axios from 'axios'
+import { igdl } from 'ruhend-scraper'
 
-let handler = async (m, { conn, args }) => {
-    if (!args[0]) throw m.reply('🌸 *Ingresa el link de Facebook*');
-    const sender = m.sender.split('@')[0];
-    const url = args[0];
+const handler = async (m, { text, conn, args, usedPrefix, command }) => {
+if (!args[0]) {
+return conn.reply(m.chat, '🌸 *Ingresa Un Link De Facebook*', m, rcanal)}
+let res
+try {
+conn.reply(m.chat, `🕒 *Descargando su video de facebook.*`, m, {
+contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
+title: packname,
+body: dev,
+previewType: 0, thumbnail: icons,
+sourceUrl: channel }}})
+await m.react(rwait)
+res = await igdl(args[0])
+} catch {
+await m.react(error)
+return conn.reply(m.chat, '🥀 *Error al obtener datos. Verifica el enlace.*', m, fake)}
+let result = res.data
+if (!result || result.length === 0) {
+return conn.reply(m.chat, '🌹 *No se encontraron resultados.*', m, fake)}
+let data
+try {
+await m.react(rwait)
+data = result.find(i => i.resolution === "720p (HD)") || result.find(i => i.resolution === "360p (SD)")
+} catch {
+await m.react(error)
+return conn.reply(m.chat, '🥀 *Error al procesar los datos.*', m, rcanal)}
+if (!data) {
+return conn.reply(m.chat, '🌹 *No se encontró una resolución adecuada.*', m, rcanal)}
+let video = data.url
+try {
+await m.react(rwait)
+await conn.sendMessage(m.chat, { video: { url: video }, caption: '🌷 *Tu video de facebook.*\n' + textbot, fileName: 'fb.mp4', mimetype: 'video/mp4' }, { quoted: fkontak })
+await m.react(done)
+} catch {
+await m.react(error)
+return conn.reply(m.chat, '🥀 *Error al enviar el video.*', m, rcanal)}}
 
-    m.reply(wait);
-
-    try {
-        const { data } = await axios.get(`https://api.ryzendesu.vip/api/downloader/fbdl?url=${encodeURIComponent(url)}`);
-
-        if (!data.status || !data.data || data.data.length === 0) throw m.reply('Error');
-
-        // Prioritize 720p (HD) and fallback to 360p (SD)
-        let video = data.data.find(v => v.resolution === '720p (HD)') || data.data.find(v => v.resolution === '360p (SD)');
-        
-        if (video && video.url) {
-            const videoBuffer = await axios.get(video.url, { responseType: 'arraybuffer' }).then(res => res.data);
-            const caption = `🌷 *Para:* @${sender}`;
-
-            await conn.sendMessage(
-                m.chat, {
-                video: videoBuffer,
-                mimetype: "video/mp4",
-                fileName: `video.mp4`,
-                caption: caption,
-                mentions: [m.sender],
-            }, {
-                quoted: m
-            }
-            );
-        } else {
-            throw m.reply('Error');
-        }
-    } catch (error) {
-        console.error('Handler Error:', error);
-        conn.reply(m.chat, `Error: ${error}`, m);
-    }
-}
-
-handler.help = ['fb *<link>*']
+handler.help = ['facebook', 'fb']
 handler.tags = ['descargas']
-handler.command = /^(fbdownload|facebook|fb(dl)?)$/i
-
-handler.limit = true
+handler.command = ['facebook', 'fb']
 handler.register = true
 
 export default handler
