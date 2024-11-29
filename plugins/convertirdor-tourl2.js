@@ -19,7 +19,7 @@ let link = await catbox(media);
 }
 handler.command = handler.help = ['tourl2']
 handler.tags = ['transformador']
-handler.yenes = 5
+//handler.yenes = 5
 export default handler
 
 
