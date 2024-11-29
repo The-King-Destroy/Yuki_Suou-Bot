@@ -34,7 +34,7 @@ await m.react('✅')
   }
 }
 handler.help = ['tiktok2 *<link>*']
-handler.yenes = 2
+//handler.yenes = 2
 handler.tags = ['descargas']
 handler.command = /^(tiktok2)$/i;
 
