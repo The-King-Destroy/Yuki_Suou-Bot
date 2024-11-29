@@ -48,6 +48,6 @@ ${isLimit ? `\n❖ ${mssg.limitdl} *+${free} MB* ${mssg.limitdlTe} *${prem} MB*`
 handler.help = ['gdrive'];
 handler.tags = ['descargas'];
 handler.command = ['gdrive'];
-handler.yenes = 10;
+//handler.yenes = 10;
 
 export default handler;
