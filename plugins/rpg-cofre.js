@@ -1,6 +1,14 @@
 const handler = async (m, {isPrems, conn}) => {
-  const time = global.db.data.users[m.sender].lastcofre + 86400000; // 36000000 10 Horas //86400000 24 Horas
-  if (new Date - global.db.data.users[m.sender].lastcofre < 86400000) throw `🎁 Ya Reclamastes Tu Cofre\n⏰️Regresa En: *${msToTime(time - new Date())}* Para Volver A Reclamar`;
+  if (!global.db.data.users[m.sender]) {
+    throw `⚠️ Usuario no encontrado.`;
+  }
+
+  const lastCofreTime = global.db.data.users[m.sender].lastcofre;
+  const timeToNextCofre = lastCofreTime + 86400000;
+
+  if (Date.now() < timeToNextCofre) {
+    throw `🎁 Ya reclamaste tu cofre\n⏰️ Regresa en: *${msToTime(timeToNextCofre - Date.now())}* para volver a reclamar.`;
+  }
 
   const img = 'https://qu.ax/rZZfy.jpg';
   const dia = Math.floor(Math.random() * 30);
@@ -12,15 +20,16 @@ const handler = async (m, {isPrems, conn}) => {
   global.db.data.users[m.sender].money += ai;
   global.db.data.users[m.sender].joincount += tok;
   global.db.data.users[m.sender].exp += expp;
+  global.db.data.users[m.sender].lastcofre = Date.now();
 
   const texto = `
 ╭━〔 ${global.botname} 〕⬣
 ┃🧰 *Obtienes Un Cofre*
-┃ ${saludo}
+┃ ¡Felicidades!
 ╰━━━━━━━━━━━━⬣
 
 ╭━〔 ${global.botname} 〕⬣
-┃ *${dia} Yenes* 💴
+┃ *${dia} Yenes* 🍪
 ┃ *${tok} Tokens* ⚜️
 ┃ *${ai} Coins* 🪙
 ┃ *${expp} Exp* ✨
@@ -41,16 +50,21 @@ const handler = async (m, {isPrems, conn}) => {
     'participant': '0@s.whatsapp.net',
   };
 
-  await conn.sendFile(m.chat, img, 'yuki.jpg', texto, fkontak);
-  // await conn.sendButton(m.chat, texto, wm, img, [['🔰 𝙼𝙴𝙽𝚄', '/menu'] ], fkontak, m)
-  global.db.data.users[m.sender].lastcofre = new Date * 1;
+  try {
+    await conn.sendFile(m.chat, img, 'yuki.jpg', texto, fkontak);
+  } catch (error) {
+    console.error('Error al enviar el mensaje:', error);
+    throw `⚠️ Ocurrió un error al enviar el cofre.`;
+  }
 };
+
 handler.help = ['cofre'];
 handler.tags = ['rpg'];
 handler.command = ['coffer', 'cofre', 'abrircofre', 'cofreabrir'];
 handler.level = 5;
 handler.group = true;
-handler.register = true
+handler.register = true;
+
 export default handler;
 
 function pickRandom(list) {
@@ -67,5 +81,5 @@ function msToTime(duration) {
   minutes = (minutes < 10) ? '0' + minutes : minutes;
   seconds = (seconds < 10) ? '0' + seconds : seconds;
 
-  return hours + ' Horas ' + minutes + ' Minutos';
+  return `${hours} Horas ${minutes} Minutos`;
 }
