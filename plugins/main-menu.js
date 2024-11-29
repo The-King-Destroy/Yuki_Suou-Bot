@@ -538,7 +538,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃🜲 .broadcastgroup
 ┃🜲 .bcgc
 ┃🜲 .bcgc2
-┃🜲 .chetar
 ┃🜲 .clearchat
 ┃🜲 .cleanfiles *
 ┃🜲 .cleartmp
