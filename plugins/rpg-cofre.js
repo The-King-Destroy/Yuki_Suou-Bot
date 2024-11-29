@@ -36,41 +36,21 @@ const handler = async (m, {isPrems, conn}) => {
 ┃ *${expp} Exp* ✨
 ╰━━━━━━━━━━━━⬣`;
 
-  const fkontak = {
-    'key': {
-      'participants': '0@s.whatsapp.net',
-      'remoteJid': 'status@broadcast',
-      'fromMe': false,
-      'id': 'Halo',
-    },
-    'message': {
-      'contactMessage': {
-        'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
-      },
-    },
-    'participant': '0@s.whatsapp.net',
-  };
-
   try {
-    await conn.sendFile(m.chat, img, 'yuki.jpg', texto, fkontak);
+    await conn.sendFile(m.chat, img, 'yuki.jpg', texto);
   } catch (error) {
-    console.error('Error al enviar el mensaje:', error);
     throw `⚠️ Ocurrió un error al enviar el cofre.`;
   }
 };
 
 handler.help = ['cofre'];
 handler.tags = ['rpg'];
-handler.command = ['coffer', 'cofre', 'abrircofre', 'cofreabrir'];
+handler.command = ['cofre'];
 handler.level = 5;
 handler.group = true;
 handler.register = true;
 
 export default handler;
-
-function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)];
-}
 
 function msToTime(duration) {
   const milliseconds = parseInt((duration % 1000) / 100);
