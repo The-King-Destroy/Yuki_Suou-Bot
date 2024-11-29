@@ -31,7 +31,7 @@ let handler = async (m, { args, conn }) => {
 }
 
 handler.help = ['threads *<link>*'];
-handler.yenes = 2;
+//handler.yenes = 2;
 handler.tags = ['descargas'];
 handler.command = ['threads', 'thdl', 'thread'];
 
