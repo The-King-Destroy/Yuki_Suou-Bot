@@ -27,32 +27,35 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         caption: body,
     }, { quoted: m });
 
+    let result;
     try {
-        let stream;
         if (command === 'play1' || command === 'yta' || command === 'ytmp3') {
-            stream = ytdl(videoInfo.url, { filter: 'audioonly' });
-            await conn.sendMessage(m.chat, {
-                audio: { url: stream },
-                mimetype: 'audio/mpeg',
-                caption: `Título: ${videoInfo.title}`,
-            }, { quoted: m });
+            result = await new Promise((resolve, reject) => {
+                const stream = ytdl(videoInfo.url, { filter: 'audioonly' });
+                resolve(stream);
+            });
         } else if (command === 'playvid' || command === 'ytv' || command === 'play5' || command === 'ytmp4') {
-            stream = ytdl(videoInfo.url, { quality: 'highestvideo' });
-            await conn.sendMessage(m.chat, {
-                video: { url: stream },
-                mimetype: 'video/mp4',
-                caption: `Título: ${videoInfo.title}`,
-            }, { quoted: m });
+            result = await new Promise((resolve, reject) => {
+                const stream = ytdl(videoInfo.url, { quality: 'highestvideo' });
+                resolve(stream);
+            });
         } else {
             throw "🌷 *Comando no reconocido.*";
         }
+
+        await conn.sendMessage(m.chat, {
+            [isVideo ? 'video' : 'audio']: { url: result },
+            mimetype: isVideo ? "video/mp4" : "audio/mpeg",
+            caption: `Título: ${videoInfo.title}`,
+        }, { quoted: m });
+
     } catch (error) {
         console.error(error);
         throw "🥀 *Ocurrió un error al procesar tu solicitud.*";
     }
 };
 
-handler.command = handler.help = ['play1', 'playvid', 'ytv', 'ytmp4', 'yta', 'play5', 'ytmp3'];
+handler.command = handler.help = ['play1', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
 handler.tags = ['descargas'];
 
 export default handler;
