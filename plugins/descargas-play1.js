@@ -1,72 +1,67 @@
 import yts from 'yt-search';
-import fetch from 'node-fetch';
-import axios from 'axios';
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `\`\`\`🌸 *Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Enemy Tommoee Profitt*\`\`\``;
 
-const LimitAud = 725 * 1024 * 1024; // 700MB
-const LimitVid = 425 * 1024 * 1024; // 425MB
+  const isVideo = /vid|5|mp4|v$/.test(command);
+  const search = await yts(text);
 
-const handler = async (m, { conn, command, text, usedPrefix }) => {
-    if (!text) return conn.reply(m.chat, `🌸 *Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did I tell you that I miss you*`, m);
+  if (!search.all || search.all.length === 0) {
+    throw "🍒 *No se encontraron resultados para tu búsqueda.*";
+  }
 
-    const isVideo = /vid|5|mp4|v$/.test(command);
-    const searchResults = await yts(text);
+  const videoInfo = search.all[0];
+  const body = `\`\`\`\`⊜─⌈🌸 YouTube Play. 🌸⌋─⊜
 
-    if (!searchResults.all || searchResults.all.length === 0) {
-        return conn.reply(m.chat, "🍒 *No se encontraron resultados para tu búsqueda.*", m);
-    }
-
-    const videoInfo = searchResults.all[0];
-    if (!videoInfo) return conn.reply(m.chat, "🥀 *No se pudo obtener información del video.*", m);
-
-    const body = `\`\`\`⊜─⌈🌸 YouTube Play. 🌸⌋─⊜
-    
     📚 Título : » ${videoInfo.title}
     👀 Vistas : » ${videoInfo.views}
     🕧 Duración : » ${videoInfo.timestamp}
     📆 Publicado : » ${videoInfo.ago}
     🔗 Link : » ${videoInfo.url}
-    
+
 🌸 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
 
-    await conn.sendFile(m.chat, videoInfo.thumbnail, 'thumbnail.jpg', body, m);
+  conn.sendMessage(m.chat, {
+    image: { url: videoInfo.thumbnail },
+    caption: body,
+  }, { quoted: fkontak });
 
-    let result;
-    try {
-        if (command === 'play1' || command === 'yta' || command === 'ytmp3') {
-            const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp3?url=${encodeURIComponent(videoInfo.url)}`;
-            const apiResponse = await fetch(apiUrl);
-            const delius = await apiResponse.json();
-            if (!delius.status) throw "🥀 *Error al obtener el audio.*";
-            result = delius.data.download.url;
-        } else if (command === 'play5' || command === 'ytv' || command === 'playvid' || command === 'ytmp4') {
-            const apiUrl = `https://deliriussapi-oficial.vercel.app/download/ytmp4?url=${encodeURIComponent(videoInfo.url)}`;
-            const apiResponse = await fetch(apiUrl);
-            const delius = await apiResponse.json();
-            if (!delius.status) throw "🥀 *Error al obtener el video.*";
-            result = delius.data.download.url;
-        } else {
-            throw "🌷 *Comando no reconocido.*";
-        }
-
-        await conn.sendMessage(m.chat, {
-            [isVideo ? 'video' : 'audio']: { url: result },
-            mimetype: isVideo ? "video/mp4" : "audio/mpeg",
-            caption: `Título: ${videoInfo.title}`,
-        }, { quoted: m });
-
-    } catch (error) {
-        console.error(error);
-        return conn.reply(m.chat, "🥀 *Ocurrió un error al procesar tu solicitud.*", m);
+  let result;
+  try {
+    if (command === 'play1' || command === 'yta' || command === 'ytmp3') {
+      result = await fg.yta(videoInfo.url);
+    } else if (command === 'playvid' || command === 'ytv' || command === 'play5' || command === 'ytmp4') {
+      result = await fg.ytv(videoInfo.url);
+    } else {
+      throw "🌷 *Comando no reconocido.*";
     }
+
+    conn.sendMessage(m.chat, {
+      [isVideo ? 'video' : 'audio']: { url: result.dl_url },
+      mimetype: isVideo ? "video/mp4" : "audio/mpeg",
+      caption: `Título: ${result.title}`,
+    }, { quoted: m });
+
+  } catch (error) {
+    throw "🥀 *Ocurrió un error al procesar tu solicitud.*";
+  }
 };
 
-handler.command = handler.help = ['play', 'play2', 'yta', 'ytmp3', 'ytv', 'ytmp4'];
+handler.command = handler.help = ['play1', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
 handler.tags = ['descargas'];
+//handler.yenes = 4;
 
 export default handler;
 
-// Función para buscar videos
-async function search(query) {
-    const result = await yts(query);
-    return result.videos;
+const getVideoId = (url) => {
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const match = url.match(regex);
+  if (match) {
+    return match[1];
+  }
+  throw new Error("🍒 *La url de Youtube es invalida*");
+};
+
+async function acc(url) {
+  const respuesta = await axios.get(`http://tinyurl.com/api-create.php?url=${url}`);
+  return respuesta.data;
 }
