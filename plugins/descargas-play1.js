@@ -19,12 +19,14 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!videoInfo) throw "🥀 *No se pudo obtener información del video.*";
 
   const body = `\`\`\`⊜─⌈🌸 YouTube Play. 🌸⌋─⊜
+  
     📚 Título : » ${videoInfo.title}
     👀 Vistas : » ${videoInfo.views}
     🕧 Duración : » ${videoInfo.timestamp}
     📆 Publicado : » ${videoInfo.ago}
     🔗 Link : » ${videoInfo.url}
-🌸 *Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...*\`\`\``;
+    
+🌸 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
 
   conn.sendMessage(m.chat, {
     image: { url: videoInfo.thumbnail },
