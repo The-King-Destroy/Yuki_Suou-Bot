@@ -1,4 +1,4 @@
-//Codígo creado por Destroy wa.me/584120346669
+//Código creado por Destroy wa.me/584120346669
 //El código está en fase Beta hay que ajustarlo pero me da flojera
 
 const items = ['yenes'];
@@ -58,7 +58,6 @@ async function handler(m, { conn, args, command }) {
 
     const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val, 0);
 
-    // Validar si la deuda total es negativa
     if (totalDebt < 0) {
       return conn.sendMessage(m.chat, { text: '*🚫 No puedes realizar pagos mientras tu deuda es negativa.*' }, { quoted: m });
     }
@@ -127,7 +126,6 @@ handler.before = async (m) => {
 
     setInterval(() => {
       loanedUser.debts[m.sender] += DEBT_INCREMENT;
-      conn.sendMessage(m.chat, { text: `*💸 La deuda ha sido aumentada en ${DEBT_INCREMENT} Yenes 💴.*`, mentions: [to] }, { quoted: m });
     }, DEBT_INTERVAL);
 
     clearTimeout(timeout);
