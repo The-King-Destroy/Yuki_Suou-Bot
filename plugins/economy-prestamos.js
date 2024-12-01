@@ -1,3 +1,5 @@
+//Codígo creado por Destroy wa.me/584120346669
+//El código está en fase Beta aún falta mejoras 
 
 const items = ['yenes'];
 const confirmation = {};
@@ -41,8 +43,8 @@ async function handleLoan(m, conn, args, user) {
   const confirmMessage = `*${lenderTag} desea prestarte ${count} yenes. ¿Aceptarás?* 
 *—◉ Tienes 60 segundos para confirmar.*
 *—◉ Escribe:* 
-*◉ si = para aceptar*
-*◉ no = para cancelar*`.trim();
+*◉ Si = para aceptar*
+*◉ No = para cancelar*`.trim();
 
   await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [m.sender] }, { quoted: m });
 
@@ -64,7 +66,7 @@ async function handlePayment(m, conn, user, args) {
     return conn.sendMessage(m.chat, { text: '*💳 No tienes yenes en deuda para pagar.*' }, { quoted: m });
   }
 
-  const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val.amount, 0);
+  const totalDebt = Object.values(user.debts).reduce((acc, debt) => acc + debt.amount, 0);
 
   if (amountToPay < MIN_AMOUNT) {
     return conn.sendMessage(m.chat, { text: `*💰 La cantidad mínima para pagar es ${MIN_AMOUNT} yenes.*` }, { quoted: m });
@@ -74,6 +76,7 @@ async function handlePayment(m, conn, user, args) {
     return conn.sendMessage(m.chat, { text: `*💰 No puedes pagar más de ${totalDebt} yenes.*` }, { quoted: m });
   }
 
+  // Realizar el pago
   for (const [lender, debt] of Object.entries(user.debts)) {
     if (amountToPay <= debt.amount) {
       debt.amount -= amountToPay;
@@ -102,7 +105,7 @@ async function handleDebt(m, conn, user) {
   const mentions = [];
 
   for (const [lender, debt] of Object.entries(user.debts)) {
-    debtMessage += `*— @${lender.split('@')[0]} ${debt.amount} Yenes*\n`; // Muestra el nombre del prestamista y la cantidad
+    debtMessage += `*— @${lender.split('@')[0]} ${debt.amount} Yenes*\n`;
     mentions.push(lender);
   }
 
@@ -117,13 +120,13 @@ handler.before = async (m) => {
   const { timeout, to, count } = confirmation[m.sender];
   const loanedUser = global.db.data.users[to];
 
-  if (/^no$/i.test(m.text)) {
+  if (/^No$/i.test(m.text)) {
     clearTimeout(timeout);
     delete confirmation[to];
     return conn.sendMessage(m.chat, { text: '*🔴 Cancelado, el préstamo no se realizará.*' }, { quoted: m });
   }
 
-  if (/^si$/i.test(m.text)) {
+  if (/^Si$/i.test(m.text)) {
     const lender = global.db.data.users[m.sender];
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
