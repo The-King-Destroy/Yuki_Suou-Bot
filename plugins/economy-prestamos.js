@@ -8,15 +8,11 @@ async function handler(m, { conn, args, usedPrefix, command }) {
   const user = global.db.data.users[m.sender];
 
   if (command === 'prestamo') {
-    if (confirmation[m.sender]) {
-      return conn.sendMessage(m.chat, { text: '*💰 Aún hay fondos en préstamo, aguarde un momento.*', mentions: [m.sender] }, { quoted: m });
-    }
-
     const loanedUser = args[2] ? args[2].replace(/[@ .+-]/g, '') + '@s.whatsapp.net' : '';
     const count = Math.min(Number.MAX_SAFE_INTEGER, Math.max(MIN_AMOUNT, (isNumber(args[1]) ? parseInt(args[1]) : MIN_AMOUNT))) * 1;
 
     if (!loanedUser) {
-      return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que desea prestar yenes.*', mentions: [m.sender] }, { quoted: m });
+      return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que desea recibir yenes.*', mentions: [m.sender] }, { quoted: m });
     }
 
     if (!(loanedUser in global.db.data.users)) {
@@ -25,6 +21,10 @@ async function handler(m, { conn, args, usedPrefix, command }) {
 
     if (user.yenes < count) {
       return conn.sendMessage(m.chat, { text: `*💰 No tienes suficientes yenes para prestar.*`, mentions: [m.sender] }, { quoted: m });
+    }
+
+    if (confirmation[loanedUser]) {
+      return conn.sendMessage(m.chat, { text: '*💰 Ya hay una solicitud de préstamo pendiente para este usuario.*', mentions: [m.sender] }, { quoted: m });
     }
 
     const confirmMessage = `*@${(m.sender.split('@')[0])} desea prestarte ${count} yenes. ¿Aceptarás?* 
