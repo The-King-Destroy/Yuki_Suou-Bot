@@ -55,6 +55,11 @@ async function handler(m, { conn, args, command }) {
 
     const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val, 0);
 
+    // Validar si la deuda total es negativa
+    if (totalDebt < 0) {
+      return conn.sendMessage(m.chat, { text: '*🚫 No puedes realizar pagos mientras tu deuda es negativa.*' }, { quoted: m });
+    }
+
     if (amountToPay < MIN_AMOUNT) {
       return conn.sendMessage(m.chat, { text: `*💰 La cantidad mínima para pagar es ${MIN_AMOUNT} Yenes 💴.*` }, { quoted: m });
     }
@@ -138,4 +143,4 @@ export default handler;
 
 function isNumber(x) {
   return !isNaN(x);
-} 
+}
