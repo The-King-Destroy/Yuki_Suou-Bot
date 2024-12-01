@@ -53,7 +53,7 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: '*💳 No tienes yenes en deuda para pagar.*' }, { quoted: m });
     }
 
-    const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val, 0);
+    const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val.amount, 0);
 
     if (amountToPay < MIN_AMOUNT) {
       return conn.sendMessage(m.chat, { text: `*💰 La cantidad mínima para pagar es ${MIN_AMOUNT} yenes.*` }, { quoted: m });
@@ -63,15 +63,15 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: `*💰 No puedes pagar más de ${totalDebt} yenes.*` }, { quoted: m });
     }
 
-    for (const [lender, debtAmount] of Object.entries(user.debts)) {
-      if (amountToPay <= debtAmount) {
-        user.debts[lender] -= amountToPay;
-        if (user.debts[lender] <= 0) {
+    for (const [lender, debt] of Object.entries(user.debts)) {
+      if (amountToPay <= debt.amount) {
+        debt.amount -= amountToPay;
+        if (debt.amount <= 0) {
           delete user.debts[lender];
         }
         break;
       }
-      amountToPay -= debtAmount;
+      amountToPay -= debt.amount;
       delete user.debts[lender];
     }
 
@@ -89,8 +89,8 @@ async function handler(m, { conn, args, command }) {
     let debtMessage = '*💳 Deudas pendientes:*\n';
     const mentions = [];
 
-    for (const [lender, amount] of Object.entries(user.debts)) {
-      debtMessage += `*— @${lender.split('@')[0]} ${amount} Yenes*\n`; // Muestra el nombre del prestamista y la cantidad
+    for (const [lender, debt] of Object.entries(user.debts)) {
+      debtMessage += `*— @${lender.split('@')[0]} ${debt.amount} Yenes*\n`; // Muestra el nombre del prestamista y la cantidad
       mentions.push(lender);
     }
 
@@ -116,12 +116,13 @@ handler.before = async (m) => {
     const lender = global.db.data.users[m.sender];
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
-    loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + count;
+    loanedUser.debts[m.sender] = loanedUser.debts[m.sender] || { amount: 0 }; // Inicializa la deuda si no existe
+    loanedUser.debts[m.sender].amount += count; // Guarda la cantidad adeudada
 
     conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${to.split('@')[0]}.*`, mentions: [to] }, { quoted: m });
 
     setInterval(() => {
-      loanedUser.debts[m.sender] += DEBT_INCREMENT;
+      loanedUser.debts[m.sender].amount += DEBT_INCREMENT;
       conn.sendMessage(m.chat, { text: `*💸 La deuda ha sido aumentada en ${DEBT_INCREMENT} yenes.*`, mentions: [to] }, { quoted: m });
     }, DEBT_INTERVAL);
 
