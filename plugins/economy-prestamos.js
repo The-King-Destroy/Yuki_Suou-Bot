@@ -127,7 +127,9 @@ handler.before = async (m) => {
     const lender = global.db.data.users[m.sender];
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
-    loanedUser.debts[m.sender] = loanedUser.debts[m.sender] || { amount: 0 }; // Inicializa la deuda si no existe
+    if (!loanedUser.debts[m.sender]) {
+      loanedUser.debts[m.sender] = { amount: 0 }; // Inicializa la deuda si no existe
+    }
     loanedUser.debts[m.sender].amount += count; // Guarda la cantidad adeudada
 
     conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${to.split('@')[0]}.*`, mentions: [to] }, { quoted: m });
