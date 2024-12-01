@@ -87,11 +87,14 @@ async function handler(m, { conn, args, command }) {
     }
 
     let debtMessage = '*💳 Deudas pendientes:*\n';
+    const mentions = []; // Array para las menciones
+
     for (const [lender, amount] of Object.entries(user.debts)) {
       debtMessage += `*— ${amount} yenes a @${lender.split('@')[0]}*\n`; // Menciona correctamente al prestamista
+      mentions.push(lender); // Agregar prestamista a la lista de menciones
     }
 
-    conn.sendMessage(m.chat, { text: debtMessage, mentions: Object.keys(user.debts) }, { quoted: m });
+    conn.sendMessage(m.chat, { text: debtMessage, mentions }, { quoted: m });
   }
 }
 
