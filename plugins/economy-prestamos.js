@@ -1,13 +1,10 @@
-//Codígo creado por Destroy wa.me/584120346669
-//fase beta del código.
-
 const items = ['yenes'];
 const confirmation = {};
 const DEBT_INCREMENT = 10;
 const DEBT_INTERVAL = 5 * 60 * 60 * 1000;
 const MIN_AMOUNT = 10;
 
-async function handler(m, { conn, args, command }) {
+async function handler(m, { conn, args, command, who }) {
   const user = global.db.data.users[m.sender];
 
   if (command === 'prestar') {
@@ -37,7 +34,7 @@ async function handler(m, { conn, args, command }) {
 *◉ si = para aceptar*
 *◉ no = para cancelar*`.trim();
 
-    await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [m.sender] }, { quoted: m });
+    await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [who] }, { quoted: m });
 
     confirmation[loanedUser] = {
       sender: m.sender,
@@ -56,12 +53,14 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: '*💳 No tienes yenes en deuda para pagar.*' }, { quoted: m });
     }
 
+    // Calculamos el total de deuda
     const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val, 0);
 
     if (amountToPay < MIN_AMOUNT) {
       return conn.sendMessage(m.chat, { text: `*💰 La cantidad mínima para pagar es ${MIN_AMOUNT} yenes.*` }, { quoted: m });
     }
 
+    // Verificamos que no se intente pagar más de la deuda total
     if (amountToPay > totalDebt) {
       return conn.sendMessage(m.chat, { text: `*💰 No puedes pagar más de ${totalDebt} yenes.*` }, { quoted: m });
     }
