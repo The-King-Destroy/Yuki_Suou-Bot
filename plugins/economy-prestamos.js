@@ -87,7 +87,7 @@ async function handler(m, { conn, args, command }) {
 
     let debtMessage = '*💳 Deudas pendientes:*\n';
     for (const [lender, amount] of Object.entries(user.debts)) {
-      debtMessage += `*— ${amount} yenes a @${lender.replace(/@s\\.whatsapp\\.net/g, '')}*\n`;
+      debtMessage += `*— ${amount} yenes a @${lender.split('@')[0]}*\n`;
     }
 
     conn.sendMessage(m.chat, { text: debtMessage, mentions: Object.keys(user.debts) }, { quoted: m });
@@ -114,7 +114,7 @@ handler.before = async (m) => {
     loanedUser.debts = loanedUser.debts || {};
     loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + count;
 
-    conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${to.replace(/@s\\.whatsapp\\.net/g, '')}.*`, mentions: [to] }, { quoted: m });
+    conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${to.split('@')[0]}.*`, mentions: [to] }, { quoted: m });
 
     setInterval(() => {
       loanedUser.debts[m.sender] += DEBT_INCREMENT;
