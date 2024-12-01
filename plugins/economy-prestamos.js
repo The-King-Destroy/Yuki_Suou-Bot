@@ -1,6 +1,3 @@
-//Codígo creado por Destroy wa.me/584120346669
-//El código está en fase Beta aún falta mejoras 
-
 const items = ['yenes'];
 const confirmation = {};
 const DEBT_INCREMENT = 10;
@@ -77,7 +74,8 @@ async function handlePayment(m, conn, user, args) {
   }
 
   // Realizar el pago
-  for (const [lender, debt] of Object.entries(user.debts)) {
+  for (const lender of Object.keys(user.debts)) {
+    const debt = user.debts[lender];
     if (amountToPay <= debt.amount) {
       debt.amount -= amountToPay;
       if (debt.amount <= 0) {
