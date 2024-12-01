@@ -27,14 +27,14 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: '*💰 Ya hay una solicitud de préstamo pendiente para este usuario.*' }, { quoted: m });
     }
 
-    const lenderName = m.sender.split('@')[0];
-    const confirmMessage = `*@${lenderName} desea prestarte ${count} yenes. ¿Aceptarás?* 
+    const lenderTag = `@${m.sender.split('@')[0]}`; // Obtener el tag del prestamista
+    const confirmMessage = `*${lenderTag} desea prestarte ${count} yenes. ¿Aceptarás?* 
 *—◉ Tienes 60 segundos para confirmar.*
 *—◉ Escribe:* 
 *◉ si = para aceptar*
 *◉ no = para cancelar*`.trim();
 
-    await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [loanedUser] }, { quoted: m });
+    await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [m.sender] }, { quoted: m });
 
     confirmation[loanedUser] = {
       sender: m.sender,
@@ -88,7 +88,7 @@ async function handler(m, { conn, args, command }) {
 
     let debtMessage = '*💳 Deudas pendientes:*\n';
     for (const [lender, amount] of Object.entries(user.debts)) {
-      debtMessage += `*— ${amount} yenes a @${lender.split('@')[0]}*\n`;
+      debtMessage += `*— ${amount} yenes a @${lender.split('@')[0]}*\n`; // Menciona correctamente al prestamista
     }
 
     conn.sendMessage(m.chat, { text: debtMessage, mentions: Object.keys(user.debts) }, { quoted: m });
