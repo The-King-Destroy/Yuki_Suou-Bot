@@ -63,15 +63,15 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: `*💰 No puedes pagar más de ${totalDebt} yenes.*` }, { quoted: m });
     }
 
-    for (const [lender, debtAmount] of Object.entries(user.debts)) {
-      if (amountToPay <= debtAmount) {
+    for (const lender of Object.keys(user.debts)) {
+      if (amountToPay <= user.debts[lender]) {
         user.debts[lender] -= amountToPay;
         if (user.debts[lender] <= 0) {
           delete user.debts[lender];
         }
         break;
       }
-      amountToPay -= debtAmount;
+      amountToPay -= user.debts[lender];
       delete user.debts[lender];
     }
 
