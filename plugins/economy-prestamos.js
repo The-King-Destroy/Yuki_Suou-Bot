@@ -12,7 +12,7 @@ async function handler(m, { conn, args, command }) {
 
   if (command === 'prestar') {
     const loanedUser = args[1] ? args[1].replace(/[@ .+-]/g, '') + '@s.whatsapp.net' : '';
-    const count = Math.min(Number.MAX_SAFE_INTEGER, Math.max(MIN_AMOUNT, (isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT))) * 1;
+    const count = Math.max(MIN_AMOUNT, isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT);
 
     if (!loanedUser) {
       return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que le deseas hacer el préstamo de Yenes 💴.*' }, { quoted: m });
@@ -50,17 +50,13 @@ async function handler(m, { conn, args, command }) {
     };
 
   } else if (command === 'pagar') {
-    const amountToPay = Math.min(Number.MAX_SAFE_INTEGER, Math.max(MIN_AMOUNT, (isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT))) * 1;
+    const amountToPay = Math.max(MIN_AMOUNT, isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT);
 
     if (!user.debts || Object.keys(user.debts).length === 0) {
       return conn.sendMessage(m.chat, { text: '*💳 No tienes Yenes 💴 en deuda para pagar.*' }, { quoted: m });
     }
 
     const totalDebt = Object.values(user.debts).reduce((acc, val) => acc + val, 0);
-
-    if (totalDebt < 0) {
-      return conn.sendMessage(m.chat, { text: '*🚫 No puedes realizar pagos mientras tu deuda es negativa.*' }, { quoted: m });
-    }
 
     if (amountToPay < MIN_AMOUNT) {
       return conn.sendMessage(m.chat, { text: `*💰 La cantidad mínima para pagar es ${MIN_AMOUNT} Yenes 💴.*` }, { quoted: m });
