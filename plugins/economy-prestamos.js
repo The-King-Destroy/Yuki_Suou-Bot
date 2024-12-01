@@ -15,7 +15,7 @@ async function handler(m, { conn, args, command }) {
     const count = Math.min(Number.MAX_SAFE_INTEGER, Math.max(MIN_AMOUNT, (isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT))) * 1;
 
     if (!loanedUser) {
-      return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que desea recibir yenes.*' }, { quoted: m });
+      return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que le quieres hacer un préstamo de yenes.*' }, { quoted: m });
     }
 
     if (!(loanedUser in global.db.data.users)) {
