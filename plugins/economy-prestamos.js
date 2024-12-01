@@ -1,3 +1,6 @@
+//Codígo creado por Destroy wa.me/584120346669
+//fase beta del código.
+
 const items = ['yenes'];
 const confirmation = {};
 const DEBT_INCREMENT = 10;
