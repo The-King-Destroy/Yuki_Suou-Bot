@@ -27,7 +27,8 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: '*💰 Ya hay una solicitud de préstamo pendiente para este usuario.*' }, { quoted: m });
     }
 
-    const confirmMessage = `*@${m.sender.split('@')[0]} desea prestarte ${count} yenes. ¿Aceptarás?* 
+    const lenderName = m.sender.split('@')[0];
+    const confirmMessage = `*@${lenderName} desea prestarte ${count} yenes. ¿Aceptarás?* 
 *—◉ Tienes 60 segundos para confirmar.*
 *—◉ Escribe:* 
 *◉ si = para aceptar*
