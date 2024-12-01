@@ -103,13 +103,13 @@ handler.before = async (m) => {
   const user = global.db.data.users[sender];
   const loanedUser = global.db.data.users[to];
 
-  if (/^No|no$/i.test(m.text)) {
+  if (/^no$/i.test(m.text)) {
     clearTimeout(timeout);
-    delete confirmation[sender];
+    delete confirmation[to]; // Cambiado para eliminar la entrada correcta
     return conn.sendMessage(m.chat, { text: '*🔴 Cancelado, el préstamo no se realizará.*' }, { quoted: m });
   }
 
-  if (/^Si|si$/i.test(m.text)) {
+  if (/^si$/i.test(m.text)) {
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
     loanedUser.debts[sender] = (loanedUser.debts[sender] || 0) + count;
@@ -122,7 +122,7 @@ handler.before = async (m) => {
     }, DEBT_INTERVAL);
 
     clearTimeout(timeout);
-    delete confirmation[sender];
+    delete confirmation[to]; // Cambiado para eliminar la entrada correcta
   }
 };
 
