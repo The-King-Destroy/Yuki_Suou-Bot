@@ -27,7 +27,7 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: '*💰 Ya hay una solicitud de préstamo pendiente para este usuario.*' }, { quoted: m });
     }
 
-    const confirmMessage = `*@${(m.sender.split('@')[0])} desea prestarte ${count} yenes. ¿Aceptarás?* 
+    const confirmMessage = `*@${m.sender.split('@')[0]} desea prestarte ${count} yenes. ¿Aceptarás?* 
 *—◉ Tienes 60 segundos para confirmar.*
 *—◉ Escribe:* 
 *◉ si = para aceptar*
@@ -36,8 +36,8 @@ async function handler(m, { conn, args, command }) {
     await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [loanedUser] }, { quoted: m });
 
     confirmation[loanedUser] = {
-      sender: loanedUser,
-      to: m.sender,
+      sender: m.sender,
+      to: loanedUser,
       count,
       timeout: setTimeout(() => {
         conn.sendMessage(m.chat, { text: '*⌛ Se acabó el tiempo, no se obtuvo respuesta. Préstamo cancelado.*', mentions: [loanedUser] }, { quoted: m });
@@ -109,11 +109,12 @@ handler.before = async (m) => {
   }
 
   if (/^si$/i.test(m.text)) {
+    const lender = global.db.data.users[m.sender];
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
     loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + count;
 
-    conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${(to || '').replace(/@s\\.whatsapp\\.net/g, '')}.*`, mentions: [to] }, { quoted: m });
+    conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${to.replace(/@s\\.whatsapp\\.net/g, '')}.*`, mentions: [to] }, { quoted: m });
 
     setInterval(() => {
       loanedUser.debts[m.sender] += DEBT_INCREMENT;
