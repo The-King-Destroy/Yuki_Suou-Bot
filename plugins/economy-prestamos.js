@@ -1,7 +1,7 @@
 const items = ['yenes'];
 const confirmation = {};
 const DEBT_INCREMENT = 10;
-const DEBT_INTERVAL = 5 * 60 * 60 * 1000; // 5 horas en milisegundos
+const DEBT_INTERVAL = 5 * 60 * 60 * 1000;
 const MIN_AMOUNT = 10;
 
 async function handler(m, { conn, args, command }) {
@@ -42,8 +42,9 @@ async function handler(m, { conn, args, command }) {
       timeout: setTimeout(() => {
         conn.sendMessage(m.chat, { text: '*⌛ Se acabó el tiempo, no se obtuvo respuesta. Préstamo cancelado.*', mentions: [loanedUser] }, { quoted: m });
         delete confirmation[loanedUser];
-      }, 60 * 1000) // 60 segundos
+      }, 60 * 1000)
     };
+
   } else if (command === 'pagar') {
     const amountToPay = Math.min(Number.MAX_SAFE_INTEGER, Math.max(MIN_AMOUNT, (isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT))) * 1;
 
@@ -78,6 +79,7 @@ async function handler(m, { conn, args, command }) {
     if (Object.keys(user.debts).length === 0) {
       conn.sendMessage(m.chat, { text: '*🎉 Ya no debes nada.*' }, { quoted: m });
     }
+
   } else if (command === 'deuda') {
     if (!user.debts || Object.keys(user.debts).length === 0) {
       return conn.sendMessage(m.chat, { text: '*💳 No tienes deudas pendientes.*' }, { quoted: m });
@@ -97,31 +99,29 @@ handler.before = async (m) => {
   if (!(m.sender in confirmation)) return;
   if (!m.text) return;
 
-  const { timeout, sender, to, count } = confirmation[m.sender];
+  const { timeout, to, count } = confirmation[m.sender];
   const loanedUser = global.db.data.users[to];
 
   if (/^no$/i.test(m.text)) {
     clearTimeout(timeout);
-    delete confirmation[to]; // Eliminar la confirmación del prestamista
+    delete confirmation[to];
     return conn.sendMessage(m.chat, { text: '*🔴 Cancelado, el préstamo no se realizará.*' }, { quoted: m });
   }
 
   if (/^si$/i.test(m.text)) {
-    // Aquí se corrige para asegurarse de que el préstamo se asigne al usuario correcto
-    const lender = global.db.data.users[sender];
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
-    loanedUser.debts[sender] = (loanedUser.debts[sender] || 0) + count;
+    loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + count;
 
     conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} yenes a @${(to || '').replace(/@s\\.whatsapp\\.net/g, '')}.*`, mentions: [to] }, { quoted: m });
 
     setInterval(() => {
-      loanedUser.debts[sender] += DEBT_INCREMENT;
+      loanedUser.debts[m.sender] += DEBT_INCREMENT;
       conn.sendMessage(m.chat, { text: `*💸 La deuda ha sido aumentada en ${DEBT_INCREMENT} yenes.*`, mentions: [to] }, { quoted: m });
     }, DEBT_INTERVAL);
 
     clearTimeout(timeout);
-    delete confirmation[to]; // Eliminar la confirmación del prestamista
+    delete confirmation[to];
   }
 };
 
