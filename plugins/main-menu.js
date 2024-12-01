@@ -255,7 +255,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┏━━⪩「 ♡⃝×𝕽×𝕻×𝕲×ᚐ҉ᚐ 」⪨
 ┃♤ .adventure
 ┃♤ .annual
-┃♤ .yearly
 ┃♤ .cofre
 ┃♤ .daily
 ┃♤ .claim
@@ -267,7 +266,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃♤ .mazmorra
 ┃♤ .monthly
 ┃♤ .navidad
-┃♤ .christmas
 ┃♤ .addprem [@user] <days>
 ┃♤ .weekly
 ┗━━━━━━━━━━━━━━━━━⪩
@@ -284,8 +282,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┏━━⪩「 ♡⃝𝕭𝖚𝖘𝖈𝖆𝖉𝖔𝖗𝖊𝖘ᚐ҉ᚐ 」⪨
 ┃❖ .animesearch
 ┃❖ .appstore
-┃❖ .applemusicdetail
-┃❖ .applemusicsearch
 ┃❖ .bingsearch
 ┃❖ .cuevana
 ┃❖ .githubsearch
@@ -307,9 +303,6 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .animeinfo
 ┃Ѽ .apk2
 ┃Ѽ .apkmod
-┃Ѽ .applemusic
-┃Ѽ .bilibili
-┃Ѽ .deezer
 ┃Ѽ .facebook
 ┃Ѽ .fb
 ┃Ѽ .gdrive
@@ -332,24 +325,18 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .playdoc2
 ┃Ѽ .mp3
 ┃Ѽ .mp4
-┃Ѽ .applemusicplay
 ┃Ѽ .tiktokrandom
-┃Ѽ .snackvideo *<link>*
-┃Ѽ .soundclouddl *<link>*
 ┃Ѽ .spotify
-┃Ѽ .threads *<link>*
 ┃Ѽ .tiktokimg <url>
 ┃Ѽ .tiktokmp3 *<link>*
 ┃Ѽ .tiktok
 ┃Ѽ .tiktok2 *<link>*
 ┃Ѽ .wallpaper <query>
 ┃Ѽ .tw
-┃Ѽ .zedgedl *<link>*
 ┃Ѽ .ss2
 ┃Ѽ .ssvid
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝×𝕬×𝕴×ᚐ҉ᚐ 」⪨
-┃☫ .blackbox <pregunta>
 ┃☫ .demo
 ┃☫ .gemini
 ┃☫ .yuki
