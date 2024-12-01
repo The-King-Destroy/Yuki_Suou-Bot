@@ -67,15 +67,17 @@ async function handler(m, { conn, args, command }) {
     }
 
     for (const [lender, debtAmount] of Object.entries(user.debts)) {
-      if (amountToPay <= debtAmount) {
-        user.debts[lender] -= amountToPay;
-        if (user.debts[lender] <= 0) {
-          delete user.debts[lender];
+      if (debtAmount > 0) {
+        if (amountToPay <= debtAmount) {
+          user.debts[lender] -= amountToPay;
+          if (user.debts[lender] <= 0) {
+            delete user.debts[lender];
+          }
+          break;
         }
-        break;
+        amountToPay -= debtAmount;
+        delete user.debts[lender];
       }
-      amountToPay -= debtAmount;
-      delete user.debts[lender];
     }
 
     conn.sendMessage(m.chat, { text: `*💸 Pago realizado: ${amountToPay} Yenes 💴.*` }, { quoted: m });
@@ -90,11 +92,16 @@ async function handler(m, { conn, args, command }) {
     }
 
     let debtMessage = '*💳 Deudas pendientes:*\n';
+    const mentions = [];
+
     for (const [lender, amount] of Object.entries(user.debts)) {
-      debtMessage += `*— ${amount} Yenes 💴 @${lender.split('@')[0]}*\n`;
+      if (amount > 0) {
+        debtMessage += `*— ${amount} Yenes 💴 @${lender.split('@')[0]}*\n`;
+        mentions.push(lender);
+      }
     }
 
-    conn.sendMessage(m.chat, { text: debtMessage, mentions: Object.keys(user.debts) }, { quoted: m });
+    conn.sendMessage(m.chat, { text: debtMessage.trim(), mentions }, { quoted: m });
   }
 }
 
