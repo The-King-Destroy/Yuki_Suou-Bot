@@ -98,14 +98,11 @@ handler.before = async (m) => {
   if (!m.text) return;
 
   const { timeout, sender, to, count } = confirmation[m.sender];
-  if (m.id === confirmation[m.sender].message.id) return;
-
-  const user = global.db.data.users[sender];
   const loanedUser = global.db.data.users[to];
 
   if (/^no$/i.test(m.text)) {
     clearTimeout(timeout);
-    delete confirmation[to]; // Cambiado para eliminar la entrada correcta
+    delete confirmation[to]; // Eliminar la confirmación del prestamista
     return conn.sendMessage(m.chat, { text: '*🔴 Cancelado, el préstamo no se realizará.*' }, { quoted: m });
   }
 
@@ -122,7 +119,7 @@ handler.before = async (m) => {
     }, DEBT_INTERVAL);
 
     clearTimeout(timeout);
-    delete confirmation[to]; // Cambiado para eliminar la entrada correcta
+    delete confirmation[to]; // Eliminar la confirmación del prestamista
   }
 };
 
