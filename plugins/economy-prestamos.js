@@ -107,6 +107,8 @@ handler.before = async (m) => {
   }
 
   if (/^si$/i.test(m.text)) {
+    // Aquí se corrige para asegurarse de que el préstamo se asigne al usuario correcto
+    const lender = global.db.data.users[sender];
     loanedUser.yenes += count;
     loanedUser.debts = loanedUser.debts || {};
     loanedUser.debts[sender] = (loanedUser.debts[sender] || 0) + count;
