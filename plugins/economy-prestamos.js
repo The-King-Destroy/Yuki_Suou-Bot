@@ -5,15 +5,14 @@ const DEBT_INTERVAL = 5 * 60 * 60 * 1000;
 const MIN_AMOUNT = 10;
 
 async function handler(m, { conn, args, command }) {
-  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : args[2] ? (args[2].replace(/[@ .+-]/g, '') + '@s.whatsapp.net') : '';
   const user = global.db.data.users[m.sender];
 
   if (command === 'prestar') {
-    const loanedUser = who;
+    const loanedUser = args[1] ? args[1].replace(/[@ .+-]/g, '') + '@s.whatsapp.net' : '';
     const count = Math.min(Number.MAX_SAFE_INTEGER, Math.max(MIN_AMOUNT, (isNumber(args[0]) ? parseInt(args[0]) : MIN_AMOUNT))) * 1;
 
     if (!loanedUser) {
-      return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que le quieres hacer un préstamo de yenes.*' }, { quoted: m });
+      return conn.sendMessage(m.chat, { text: '*👤 Menciona al usuario que desea recibir yenes.*' }, { quoted: m });
     }
 
     if (!(loanedUser in global.db.data.users)) {
@@ -28,14 +27,14 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: '*💰 Ya hay una solicitud de préstamo pendiente para este usuario.*' }, { quoted: m });
     }
 
-    const lenderTag = `@${m.sender.split('@')[0]}`;
+    const lenderTag = `@${m.sender.split('@')[0]}`; // Obtener el tag del prestamista
     const confirmMessage = `*${lenderTag} desea prestarte ${count} yenes. ¿Aceptarás?* 
 *—◉ Tienes 60 segundos para confirmar.*
 *—◉ Escribe:* 
 *◉ si = para aceptar*
 *◉ no = para cancelar*`.trim();
 
-    await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [who] }, { quoted: m });
+    await conn.sendMessage(m.chat, { text: confirmMessage, mentions: [m.sender] }, { quoted: m });
 
     confirmation[loanedUser] = {
       sender: m.sender,
@@ -64,15 +63,15 @@ async function handler(m, { conn, args, command }) {
       return conn.sendMessage(m.chat, { text: `*💰 No puedes pagar más de ${totalDebt} yenes.*` }, { quoted: m });
     }
 
-    for (const lender of Object.keys(user.debts)) {
-      if (amountToPay <= user.debts[lender]) {
+    for (const [lender, debtAmount] of Object.entries(user.debts)) {
+      if (amountToPay <= debtAmount) {
         user.debts[lender] -= amountToPay;
         if (user.debts[lender] <= 0) {
           delete user.debts[lender];
         }
         break;
       }
-      amountToPay -= user.debts[lender];
+      amountToPay -= debtAmount;
       delete user.debts[lender];
     }
 
@@ -91,7 +90,7 @@ async function handler(m, { conn, args, command }) {
     const mentions = [];
 
     for (const [lender, amount] of Object.entries(user.debts)) {
-      debtMessage += `*— ${amount} yenes a @${lender.split('@')[0]}*\n`;
+      debtMessage += `*— @${lender.split('@')[0]} ${amount} Yenes*\n`; // Muestra el nombre del prestamista y la cantidad
       mentions.push(lender);
     }
 
