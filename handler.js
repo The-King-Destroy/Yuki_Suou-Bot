@@ -33,7 +33,10 @@ let m = chatUpdate.messages[chatUpdate.messages.length - 1]
 if (!m)
 return;
 if (global.db.data == null)
-await global.loadDatabase()       
+await global.loadDatabase()  
+if (!global.db.data.marriages) {
+    global.db.data.marriages = {};
+}
 try {
 m = smsg(this, m) || m
 if (!m)
