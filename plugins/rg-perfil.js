@@ -21,13 +21,14 @@ var handler = async (m, { conn }) => {
 
     let isMarried = who in global.db.data.marriages;
     let partner = isMarried ? global.db.data.marriages[who] : null;
+    let partnerName = partner ? conn.getName(partner) : 'Nadie'; // Obtiene el nombre de la pareja
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
 🌸 *Tag:* @${who.split('@')[0]}
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
-👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.split('@')[0]}` : 'Nadie'}
+👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -41,7 +42,7 @@ var handler = async (m, { conn }) => {
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
-│👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.split('@')[0]}` : 'Nadie'}
+│👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
@@ -51,7 +52,7 @@ var handler = async (m, { conn }) => {
 │⧼⚜️⧽ *ʀᴀɴɢᴏ:* ${role}
 ╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
 
-    conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, { mentions: [who, partner] });
+    conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, { mentions: [who] });
 }
 
 handler.help = ['profile'];
