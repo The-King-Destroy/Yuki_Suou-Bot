@@ -17,17 +17,17 @@ var handler = async (m, { conn }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
     let { premium, level, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
-    let username = conn.getName(who); // Nombre de usuario
+    let username = conn.getName(who);
 
     let isMarried = who in global.db.data.marriages;
     let partner = isMarried ? global.db.data.marriages[who] : null;
-    let partnerName = partner ? conn.getName(partner) : 'Nadie'; // Nombre de la pareja
+    let partnerName = partner ? conn.getName(partner) : 'Nadie';
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-🌸 *Tag:* @${who.split('@')[0]} // Muestra el nombre de usuario
-🌀 *Registrado:* ${registered ? '✅' : '❌'}
+🌸 *Tag:* @${who.replace(/@.+/, '')}
+🌀 *Registrado:* ${registered ? '✅': '❌'}
 👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 
 「 💰 *RECURSOS* 」
@@ -35,12 +35,12 @@ var handler = async (m, { conn }) => {
 🔰 *Nivel:* ${level}
 ✨ *Experiencia:* ${exp}
 ⚜️ *Rango:* ${role}
-👑 *Premium:* ${premium ? '✅' : '❌'}
+👑 *Premium:* ${premium ? '✅': '❌'}
 `.trim();
 
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
-│⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
+│⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
 │👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 ╰─────────────────⪨
@@ -52,7 +52,7 @@ var handler = async (m, { conn }) => {
 │⧼⚜️⧽ *ʀᴀɴɢᴏ:* ${role}
 ╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
 
-    conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, { mentions: [who] });
+    conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, rcanal, { mentions: [who] });
 }
 
 handler.help = ['profile'];
