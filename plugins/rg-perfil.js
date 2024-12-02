@@ -1,24 +1,33 @@
 import PhoneNumber from 'awesome-phonenumber';
 import fetch from 'node-fetch';
+import fs from 'fs';
+
+const loadMarriages = () => {
+    if (fs.existsSync('./marry.json')) {
+        const data = JSON.parse(fs.readFileSync('./marry.json', 'utf-8'));
+        global.db.data.marriages = data;
+    } else {
+        global.db.data.marriages = {};
+    }
+};
 
 var handler = async (m, { conn }) => {
+    loadMarriages();
+
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
     let { premium, level, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
-    
     let username = conn.getName(who);
+
     let isMarried = who in global.db.data.marriages;
     let partner = isMarried ? global.db.data.marriages[who] : null;
-    
-    // Estado civil
-    let marriageStatus = isMarried ? `✅ Casado` : `❌ Soltero`;
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
 🌸 *Tag:* @${who.replace(/@.+/, '')}
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
-💍 *Estado Civil:* ${marriageStatus}
+💍 *Estado Civil:* ${isMarried ? '✅ Casado' : '❌ Soltero'}
 👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
 
 「 💰 *RECURSOS* 」
@@ -31,10 +40,10 @@ var handler = async (m, { conn }) => {
 
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
-│⧼💌⧽ *ʀᴇɡɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
-│⧼💍⧽ *Estado Civil:* ${marriageStatus}
-│⧼👩‍❤️‍👩⧽ *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
+│⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
+│⧼💍⧽ *Estado Civil:* ${isMarried ? '✅ Casado' : '❌ Soltero'}
+│⧼👩‍❤️‍👩⧽ *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
@@ -45,7 +54,7 @@ var handler = async (m, { conn }) => {
 ╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
 
     conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, { mentions: [who, partner] });
-};
+}
 
 handler.help = ['profile'];
 handler.register = true;
