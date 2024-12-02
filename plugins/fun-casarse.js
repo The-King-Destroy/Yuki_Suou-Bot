@@ -42,7 +42,7 @@ const handler = async (m, { conn, command }) => {
             confirmation[proposee] = {
                 proposer,
                 timeout: setTimeout(() => {
-                    conn.sendMessage(m.chat, { text: '*⌛ Se acabó el tiempo, no se obtuvo respuesta. Propuesta de matrimonio cancelada.*' }, { quoted: m });
+                    conn.sendMessage(m.chat, { text: '*《✧》Se acabó el tiempo, no se obtuvo respuesta. Propuesta de matrimonio cancelada.*' }, { quoted: m });
                     delete confirmation[proposee];
                 }, 60000)
             };
@@ -81,7 +81,10 @@ handler.before = async (m) => {
         marriages[m.sender] = proposer;
         saveMarriages();
 
-        conn.sendMessage(m.chat, { text: `🎉 ¡Felicidades a ${conn.getName(proposer)} y ${conn.getName(m.sender)}! ¡Ahora están casados! 🎉`, mentions: [proposer, m.sender] }, { quoted: m });
+        conn.sendMessage(m.chat, { text: `✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩
+¡Se han Casado! ฅ^•ﻌ•^ฅ*:･ﾟ✧\n\n*•.¸♡ Esposo${conn.getName(proposer)}\n*•.¸♡ Esposa${conn.getName(m.sender)}\n\`Disfruten de su luna de miel\`
+
+✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩`, mentions: [proposer, m.sender] }, { quoted: m });
 
         clearTimeout(timeout);
         delete confirmation[m.sender];
