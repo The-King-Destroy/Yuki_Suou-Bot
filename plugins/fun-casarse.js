@@ -82,7 +82,7 @@ handler.before = async (m) => {
         saveMarriages();
 
         conn.sendMessage(m.chat, { text: `✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩
-¡Se han Casado! ฅ^•ﻌ•^ฅ*:･ﾟ✧\n\n*•.¸♡ Esposo${conn.getName(proposer)}\n*•.¸♡ Esposa${conn.getName(m.sender)}\n\`Disfruten de su luna de miel\`
+¡Se han Casado! ฅ^•ﻌ•^ฅ*:･ﾟ✧\n\n*•.¸♡ Esposo${conn.getName(proposer)}\n*•.¸♡ Esposa${conn.getName(m.sender)}\n\n\`Disfruten de su luna de miel\`
 
 ✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩`, mentions: [proposer, m.sender] }, { quoted: m });
 
