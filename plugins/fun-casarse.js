@@ -36,13 +36,13 @@ const handler = async (m, { conn, command }) => {
             proposals[proposer] = proposee;
             const proposerName = conn.getName(proposer);
             const proposeeName = conn.getName(proposee);
-            const confirmationMessage = `*${proposerName} te ha propuesto matrimonio! a ti ${proposeeName}*\nResponde con "Si" para aceptar o "No" para rechazar.`;
+            const confirmationMessage = `*${proposerName} le ha propuesto matrimonio a ${proposeeName}*\n\nResponde con "Si" para aceptar o "No" para rechazar.`;
             await conn.reply(m.chat, confirmationMessage, m, { mentions: [proposee, proposer] });
 
             confirmation[proposee] = {
                 proposer,
                 timeout: setTimeout(() => {
-                    conn.sendMessage(m.chat, { text: '*⌛ Se acabó el tiempo, no se obtuvo respuesta. Propuesta cancelada.*' }, { quoted: m });
+                    conn.sendMessage(m.chat, { text: '*⌛ Se acabó el tiempo, no se obtuvo respuesta. Propuesta de matrimonio cancelada.*' }, { quoted: m });
                     delete confirmation[proposee];
                 }, 60000)
             };
@@ -72,7 +72,7 @@ handler.before = async (m) => {
     if (/^No$/i.test(m.text)) {
         clearTimeout(timeout);
         delete confirmation[m.sender];
-        return conn.sendMessage(m.chat, { text: '*🔴 Cancelado, la propuesta de matrimonio no se realizará.*' }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: '*🔴 F rechazaron tu propuesta de matrimonio.*' }, { quoted: m });
     }
 
     if (/^Si$/i.test(m.text)) {
