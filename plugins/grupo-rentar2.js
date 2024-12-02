@@ -36,14 +36,14 @@ let handler = async (m, { conn, text, isOwner }) => {
   userRents.tokens = 0;
   userRents.groups.push(groupId);
 
-  conn.reply(m.chat, `> _📝 Me uní correctamente al grupo_ *${groupId}* por ${global.db.data.groupRents[groupId].tokenCount} día(s).`);
+  conn.reply(m.chat, `📝 Me uní correctamente al grupo *${groupId}* por ${global.db.data.groupRents[groupId].tokenCount} día(s).`);
 
   let chats = global.db.data.chats[groupId] || {};
   chats.expired = global.db.data.groupRents[groupId].startTime + global.db.data.groupRents[groupId].duration;
   global.db.data.chats[groupId] = chats;
 
   let pp = 'https://qu.ax/MTch.mp4';
-  await conn.sendMessage(groupMetadata, { video: { url: pp }, gifPlayback: true, caption: '> ¡Ya llegué! El bot estará disponible por el tiempo acordado.', mentions: [m.sender] }, { quoted: estilo })
+  await conn.sendMessage(groupMetadata, { video: { url: pp }, gifPlayback: true, caption: ' ¡Ya llegué! El bot estará disponible por el tiempo acordado.', mentions: [m.sender] }, { quoted: estilo })
 };
 handler.tags = ['grupo']
 handler.help = ['rentar2 *<link>*']
