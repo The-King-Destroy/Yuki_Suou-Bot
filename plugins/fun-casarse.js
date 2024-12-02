@@ -55,7 +55,7 @@ const handler = async (m, { conn, command }) => {
             delete marriages[partner];
             saveMarriages();
 
-            await conn.reply(m.chat, `✐ ${conn.getName(m.sender)} y ${conn.getName(partner)} se han divorciado. 💔`, m);
+            await conn.reply(m.chat, `✐ ${conn.getName(m.sender)} y ${conn.getName(partner)} se han divorciado.`, m);
         }
     } catch (error) {
         await conn.reply(m.chat, `《✧》 ${error.message}`, m);
@@ -72,7 +72,7 @@ handler.before = async (m) => {
     if (/^No$/i.test(m.text)) {
         clearTimeout(timeout);
         delete confirmation[m.sender];
-        return conn.sendMessage(m.chat, { text: '*🔴 F rechazaron tu propuesta de matrimonio.*' }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: '*《✧》Han rechazado tu propuesta de matrimonio.*' }, { quoted: m });
     }
 
     if (/^Si$/i.test(m.text)) {
