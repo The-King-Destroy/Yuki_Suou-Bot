@@ -30,7 +30,13 @@ const handler = async (m, { conn, command }) => {
             const proposee = m.quoted?.sender || m.mentionedJid?.[0];
             const proposer = m.sender;
 
-            if (!proposee) throw new Error('Debes mencionar a alguien para aceptar o proponer matrimonio.\n> Ejemplo » *#marry @⁨Destroy.⁩*');
+            if (!proposee) {
+                if (userIsMarried(proposer)) {
+                    return await conn.reply(m.chat, `《✧》 Ya estás casado con *${conn.getName(marriages[proposer])}*\n> Puedes divorciarte con el comando: *#divorce*`, m);
+                } else {
+                    throw new Error('Debes mencionar a alguien para aceptar o proponer matrimonio.\n> Ejemplo » *#marry @⁨Destroy.⁩*');
+                }
+            }
             if (userIsMarried(proposer)) throw new Error(`Ya estás casado con ${conn.getName(marriages[proposer])}.`);
             if (userIsMarried(proposee)) throw new Error(`${conn.getName(proposee)} ya está casado con ${conn.getName(marriages[proposee])}.`);
             if (proposer === proposee) throw new Error('¡No puedes proponerte matrimonio a ti mismo!');
