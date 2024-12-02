@@ -25,7 +25,7 @@ const handler = async (m, {conn, command, args}) => {
 ┌─『 𝐑𝐞𝐧𝐭𝐚𝐫 𝐚 𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 』*
 │╭──────────────┄
 ││ *Compra Nominal* : + ${count} Token
-││ *Gastado* : -${xppeyenes * count} Yenes 💴
+││ *Gastado* : -${xpperyenes * count} Yenes 💴
 ││ *Tokens Disponibles* : ${userRents[m.sender].tokens}
 │╰──────────────┄
 └──────────────`, m, rcanal);
