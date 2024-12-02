@@ -6,10 +6,7 @@ let proposals = {};
 let marriages = loadMarriages();
 
 function loadMarriages() {
-    if (fs.existsSync(marriagesFile)) {
-        return JSON.parse(fs.readFileSync(marriagesFile, 'utf8'));
-    }
-    return {};
+    return fs.existsSync(marriagesFile) ? JSON.parse(fs.readFileSync(marriagesFile, 'utf8')) : {};
 }
 
 function saveMarriages() {
@@ -18,8 +15,8 @@ function saveMarriages() {
 
 const handler = async (m, { conn, command }) => {
     const isPropose = /^marry$/i.test(command);
-    const isAccept = /^si$/i.test(command);
-    const isReject = /^no$/i.test(command);
+    const isAccept = /^Si$/i.test(m.text);
+    const isReject = /^No$/i.test(m.text);
     const isDivorce = /^divorciarse$/i.test(command);
 
     const replyError = async (message) => {
@@ -41,7 +38,7 @@ const handler = async (m, { conn, command }) => {
             if (proposals[proposer]) throw new Error('Ya has propuesto matrimonio. Espera a que respondan.');
 
             proposals[proposer] = proposee;
-            await conn.reply(m.chat, `¡${conn.getName(proposer)} te ha propuesto matrimonio! Responde en el grupo con "si" para aceptar o "no" para rechazar.`, m);
+            await conn.reply(m.chat, `¡${conn.getName(proposer)} te ha propuesto matrimonio! Responde en el grupo con "Si" para aceptar o "No" para rechazar. @${proposee.split('@')[0]}`, m, { mentions: [proposee] });
 
         } else if (isAccept) {
             if (userIsMarried(m.sender)) throw new Error(`Ya estás casado con ${conn.getName(marriages[m.sender])}.`);
@@ -85,8 +82,8 @@ const handler = async (m, { conn, command }) => {
 }
 
 handler.tags = ['fun'];
-handler.help = ['marry *@usuario*', 'si', 'no', 'divorciarse'];
-handler.command = ['marry', 'si', 'no', 'divorciarse'];
+handler.help = ['marry *@usuario*', 'divorciarse'];
+handler.command = ['marry', 'divorciarse'];
 handler.group = true;
 
 export default handler;
