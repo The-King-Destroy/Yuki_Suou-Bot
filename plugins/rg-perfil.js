@@ -17,16 +17,16 @@ var handler = async (m, { conn }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
     let { premium, level, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
-    let username = conn.getName(who);
+    let username = conn.getName(who); // Nombre de usuario
 
     let isMarried = who in global.db.data.marriages;
     let partner = isMarried ? global.db.data.marriages[who] : null;
-    let partnerName = partner ? conn.getName(partner) : 'Nadie'; // Obtiene el nombre de la pareja
+    let partnerName = partner ? conn.getName(partner) : 'Nadie'; // Nombre de la pareja
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-🌸 *Tag:* @${who.split('@')[0]} // Aquí asegura que se muestra el nombre de usuario
+🌸 *Tag:* @${who.split('@')[0]} // Muestra el nombre de usuario
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
 👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 
@@ -42,7 +42,7 @@ var handler = async (m, { conn }) => {
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
-│⧼👩‍❤️‍👩⧽ *Casado con:* ${isMarried ? partnerName : 'Nadie'}
+│👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
