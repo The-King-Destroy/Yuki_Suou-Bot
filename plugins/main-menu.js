@@ -110,9 +110,9 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃☬ .rata <@tag> | <nombre>
 ┃☬ .prostituta <@tag> | <nombre>
 ┃☬ .prostituto <@tag> | <nombre>
-┃☬ .casarse @tag
+┃☬ .marry @tag
 ┃☬ .consejo
-┃☬ .divorciarse @tag
+┃☬ .divorce
 ┃☬ .doxear
 ┃☬ .doxxing <nombre> | <@tag>
 ┃☬ .formarpareja
