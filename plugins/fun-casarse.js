@@ -1,3 +1,6 @@
+//Código creado por Destroy wa.me/584120346669
+//El código está en fase Beta ando probando si funciona correctamente
+
 import fs from 'fs';
 import path from 'path';
 
@@ -56,7 +59,7 @@ const handler = async (m, { conn, command }) => {
             await conn.reply(m.chat, `💔 ${conn.getName(m.sender)} y ${conn.getName(partner)} se han divorciado. 💔`, m);
         }
     } catch (error) {
-        await conn.reply(m.chat, `🌻 Ocurrió un error: ${error.message}`, m);
+        await conn.reply(m.chat, `🌸 ${error.message}`, m);
     }
 }
 
