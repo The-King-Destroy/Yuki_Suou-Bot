@@ -26,7 +26,7 @@ var handler = async (m, { conn }) => {
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-🌸 *Tag:* @${who.split('@')[0]}
+🌸 *Tag:* @${who.replace(/@.+/, '')}
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
 👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 
@@ -42,7 +42,7 @@ var handler = async (m, { conn }) => {
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
-│👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
+│⧼👩‍❤️‍👩⧽ *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
