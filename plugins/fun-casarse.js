@@ -28,7 +28,7 @@ const handler = async (m, { conn, command }) => {
             const proposee = m.quoted?.sender || m.mentionedJid?.[0];
             const proposer = m.sender;
 
-            if (!proposee) throw new Error('《✧》 Debes mencionar a alguien para aceptar o proponer matrimonio.\n> Ejemplo » *#marry @⁨Destroy.⁩*');
+            if (!proposee) throw new Error('Debes mencionar a alguien para aceptar o proponer matrimonio.\n> Ejemplo » *#marry @⁨Destroy.⁩*');
             if (userIsMarried(proposer)) throw new Error(`Ya estás casado con ${conn.getName(marriages[proposer])}.`);
             if (userIsMarried(proposee)) throw new Error(`${conn.getName(proposee)} ya está casado con ${conn.getName(marriages[proposee])}.`);
             if (proposer === proposee) throw new Error('¡No puedes proponerte matrimonio a ti mismo!');
@@ -36,7 +36,7 @@ const handler = async (m, { conn, command }) => {
             proposals[proposer] = proposee;
             const proposerName = conn.getName(proposer);
             const proposeeName = conn.getName(proposee);
-            const confirmationMessage = `${proposerName} Le ha propuesto matrimonio! a ${proposeeName}\n\nDebes Responde con:\n"Si" para aceptar\n"No" para rechazar.`;
+            const confirmationMessage = `♡ ${proposerName} te ha propuesto matrimonio, ¿aceptas? •(=^●ω●^=)• ${proposeeName}\n\nDebes Responde con:\n> ✐"Si" » para aceptar\n> ✐"No" » para rechazar.`;
             await conn.reply(m.chat, confirmationMessage, m, { mentions: [proposee, proposer] });
 
             confirmation[proposee] = {
