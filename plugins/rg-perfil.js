@@ -25,9 +25,9 @@ var handler = async (m, { conn }) => {
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-🌸 *Tag:* @${who.replace(/@.+/, '')}
+🌸 *Tag:* @${who.split('@')[0]}
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
-👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
+👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.split('@')[0]}` : 'Nadie'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -41,7 +41,7 @@ var handler = async (m, { conn }) => {
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
-│👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
+│⧼👩‍❤️‍👩⧽ *Casado con:* ${isMarried ? `@${partner.split('@')[0]}` : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
