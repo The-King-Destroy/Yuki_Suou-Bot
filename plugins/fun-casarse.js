@@ -19,7 +19,7 @@ function saveMarriages() {
 
 const handler = async (m, { conn, command }) => {
     const isPropose = /^marry$/i.test(command);
-    const isDivorce = /^divorciarse$/i.test(command);
+    const isDivorce = /^divorce$/i.test(command);
 
     const userIsMarried = (user) => marriages[user] !== undefined;
 
@@ -32,7 +32,6 @@ const handler = async (m, { conn, command }) => {
             if (userIsMarried(proposer)) throw new Error(`Ya estás casado con ${conn.getName(marriages[proposer])}.`);
             if (userIsMarried(proposee)) throw new Error(`${conn.getName(proposee)} ya está casado con ${conn.getName(marriages[proposee])}.`);
             if (proposer === proposee) throw new Error('¡No puedes proponerte matrimonio a ti mismo!');
-            if (proposals[proposer]) throw new Error('Ya has propuesto matrimonio. Espera a que respondan.');
 
             proposals[proposer] = proposee;
             const proposerName = conn.getName(proposer);
@@ -90,8 +89,8 @@ handler.before = async (m) => {
 };
 
 handler.tags = ['fun'];
-handler.help = ['marry *@usuario*', 'divorciarse'];
-handler.command = ['marry', 'divorciarse'];
+handler.help = ['marry *@usuario*', 'divorce'];
+handler.command = ['marry', 'divorce'];
 handler.group = true;
 
 export default handler;
