@@ -3,8 +3,8 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 
 const loadMarriages = () => {
-    if (fs.existsSync('./marry.json')) {
-        const data = JSON.parse(fs.readFileSync('./marry.json', 'utf-8'));
+    if (fs.existsSync('./src/database/marry.json')) {
+        const data = JSON.parse(fs.readFileSync('./src/database/marry.json', 'utf-8'));
         global.db.data.marriages = data;
     } else {
         global.db.data.marriages = {};
@@ -27,7 +27,6 @@ var handler = async (m, { conn }) => {
 ☁️ *Nombre:* ${username}
 🌸 *Tag:* @${who.replace(/@.+/, '')}
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
-💍 *Estado Civil:* ${isMarried ? '✅ Casado' : '❌ Soltero'}
 👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
 
 「 💰 *RECURSOS* 」
@@ -42,8 +41,7 @@ var handler = async (m, { conn }) => {
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅' : '❌'}
 │⧼🔱⧽ *ʀᴏʟ:* Vip 👑
-│⧼💍⧽ *Estado Civil:* ${isMarried ? '✅ Casado' : '❌ Soltero'}
-│⧼👩‍❤️‍👩⧽ *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
+│👩‍❤️‍👩 *Casado con:* ${isMarried ? `@${partner.replace(/@.+/, '')}` : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
