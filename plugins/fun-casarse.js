@@ -42,7 +42,7 @@ const handler = async (m, { conn, command }) => {
             confirmation[proposee] = {
                 proposer,
                 timeout: setTimeout(() => {
-                    conn.sendMessage(m.chat, { text: '*《✧》Se acabó el tiempo, no se obtuvo respuesta. Propuesta de matrimonio cancelada.*' }, { quoted: m });
+                    conn.sendMessage(m.chat, { text: '*《✧》Se acabó el tiempo, no se obtuvo respuesta. La propuesta de matrimonio fue cancelada.*' }, { quoted: m });
                     delete confirmation[proposee];
                 }, 60000)
             };
