@@ -26,7 +26,7 @@ var handler = async (m, { conn }) => {
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-🌸 *Tag:* @${who.replace(/@.+/, '')}
+🌸 *Tag:* @${who.split('@')[0]} // Aquí asegura que se muestra el nombre de usuario
 🌀 *Registrado:* ${registered ? '✅' : '❌'}
 👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
 
