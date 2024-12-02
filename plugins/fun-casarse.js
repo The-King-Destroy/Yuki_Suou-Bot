@@ -1,5 +1,7 @@
-//Código creado por Destroy wa.me/584120346669
-//El código está en fase Beta ando probando si funciona correctamente
+/* Código hecho por Destroy
+ - https://github.com/The-King-Destroy
+ - Dejen créditos aunque sea gracias.
+*/
 
 import fs from 'fs';
 import path from 'path';
