@@ -36,7 +36,7 @@ const handler = async (m, { conn, command }) => {
             proposals[proposer] = proposee;
             const proposerName = conn.getName(proposer);
             const proposeeName = conn.getName(proposee);
-            const confirmationMessage = `*${proposerName} Le ha propuesto matrimonio! a ${proposeeName}*\n\nPara poder casarse debes Responde con:\n"Si" para aceptar\n"No" para rechazar.`;
+            const confirmationMessage = `*${proposerName} Le ha propuesto matrimonio! a ${proposeeName}\n\nDebes Responde con:\n"Si" para aceptar\n"No" para rechazar.*`;
             await conn.reply(m.chat, confirmationMessage, m, { mentions: [proposee, proposer] });
 
             confirmation[proposee] = {
