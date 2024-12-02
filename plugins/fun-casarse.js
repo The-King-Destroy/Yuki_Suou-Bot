@@ -58,7 +58,7 @@ const handler = async (m, { conn, command }) => {
             await conn.reply(m.chat, `💔 ${conn.getName(m.sender)} y ${conn.getName(partner)} se han divorciado. 💔`, m);
         }
     } catch (error) {
-        await conn.reply(m.chat, `🌸 ${error.message}`, m);
+        await conn.reply(m.chat, `《✧》 ${error.message}`, m);
     }
 }
 
