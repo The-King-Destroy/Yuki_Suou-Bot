@@ -20,9 +20,12 @@ function saveMarriages() {
 }
 
 const handler = async (m, { conn, command }) => {
+    if (!('married' in conn.users[m.sender])) {
+        conn.users[m.sender].married = false;
+    }
+
     const isPropose = /^marry$/i.test(command);
     const isDivorce = /^divorce$/i.test(command);
-
     const userIsMarried = (user) => marriages[user] !== undefined;
 
     try {
@@ -37,6 +40,7 @@ const handler = async (m, { conn, command }) => {
                     throw new Error('Debes mencionar a alguien para aceptar o proponer matrimonio.\n> Ejemplo » *#marry @⁨Yuki Suou.⁩*');
                 }
             }
+
             if (userIsMarried(proposer)) throw new Error(`Ya estás casado con ${conn.getName(marriages[proposer])}.`);
             if (userIsMarried(proposee)) throw new Error(`${conn.getName(proposee)} ya está casado con ${conn.getName(marriages[proposee])}.`);
             if (proposer === proposee) throw new Error('¡No puedes proponerte matrimonio a ti mismo!');
