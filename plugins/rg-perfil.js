@@ -2,29 +2,14 @@ import PhoneNumber from 'awesome-phonenumber';
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-const loadMarriages = () => {
-    if (fs.existsSync('./src/database/marry.json')) {
-        const data = JSON.parse(fs.readFileSync('./src/database/marry.json', 'utf-8'));
-        global.db.data.marriages = data;
-    } else {
-        global.db.data.marriages = {};
-    }
-};
-
 var handler = async (m, { conn }) => {
-    loadMarriages();
-
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
-    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
-    let { premium, level, genre, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
-    let username = conn.getName(who);
-
-    let isMarried = who in global.db.data.marriages;
-    let partner = isMarried ? global.db.data.marriages[who] : null;
-    let partnerName = partner ? conn.getName(partner) : 'Nadie';
-    let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
-    let userNationalityData = api.data.result
-    let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1)
+let { premium, level, genre, marry, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender]
+let username = conn.getName(who)
+let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+let userNationalityData = api.data.result
+let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
@@ -33,7 +18,7 @@ var handler = async (m, { conn }) => {
 ⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado/a:* ${isMarried ? partnerName : 'Nadie'}
+👩‍❤️‍👩 *Casado/a:* ${marry ? partnerName : 'Nadie'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
