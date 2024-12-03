@@ -54,6 +54,7 @@ if (!isNumber(user.money)) user.money = 150
 if (!isNumber(user.yenes)) user.yenes = 20
 if (!('registered' in user)) user.registered = false
 if (!('genre' in user)) user.genre = false
+if (!('birth' in user)) user.birth = false
 
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
@@ -86,6 +87,7 @@ global.db.data.users[m.sender] = {
 afk: -1,
 afkReason: '',
 genre: '',
+birth: '',
 name: m.name,
 age: 0,
 bank: 0,
