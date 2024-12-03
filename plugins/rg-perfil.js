@@ -2,31 +2,38 @@ import PhoneNumber from 'awesome-phonenumber';
 import fetch from 'node-fetch';
 import fs from 'fs';
 
+const loadMarriages = () => {
+    if (fs.existsSync('./src/database/marry.json')) {
+        const data = JSON.parse(fs.readFileSync('./src/database/marry.json', 'utf-8'));
+        global.db.data.marriages = data;
+    } else {
+        global.db.data.marriages = {};
+    }
+};
+
 var handler = async (m, { conn }) => {
+    loadMarriages();
+
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
-    let userData = global.db.data.users[who];
-
-    if (!('married' in userData)) {
-        userData.married = false;
-    }
-
-    let { premium, level, genre, married, yenes, exp, lastclaim, registered, regTime, age, role } = userData;
+    let { premium, level, genre, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
     let username = conn.getName(who);
-    let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`);
-    let userNationalityData = api.data.result;
-    let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido';
 
-    let partnerName = married && marriages[who] ? conn.getName(global.db.data.users[marriages[who]]) : 'Nadie';
+    let isMarried = who in global.db.data.marriages;
+    let partner = isMarried ? global.db.data.marriages[who] : null;
+    let partnerName = partner ? conn.getName(partner) : 'Nadie';
+    let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+    let userNationalityData = api.data.result
+    let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
 💠 *Edad:* *${registered ? `${age} años` : '×'}*
-⚧️ *Genero:* *${genre === 0 ? 'No especificado' : genre}*
+⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado/a:* ${partnerName}
+👩‍❤️‍👩 *Casado/a:* ${isMarried ? partnerName : 'Nadie'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -39,11 +46,11 @@ var handler = async (m, { conn }) => {
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
 │⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
-│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre === 0 ? 'No especificado' : genre}*
+│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
 │⧼🌐⧽ *ᴘᴀɪs:* *${userNationality}*
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼🔱⧽ *ʀᴏʟ: ᴠɪᴘ* 👑
-│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${partnerName}
+│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${isMarried ? partnerName : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
