@@ -1,8 +1,3 @@
-/* Código hecho por Destroy
- - https://github.com/The-King-Destroy
- - Dejen créditos aunque sea gracias.
-*/
-
 import fs from 'fs';
 import path from 'path';
 
@@ -20,15 +15,16 @@ function saveMarriages() {
 }
 
 const handler = async (m, { conn, command }) => {
-    if (!('married' in conn.users[m.sender])) {
-        conn.users[m.sender].married = false;
-    }
-
     const isPropose = /^marry$/i.test(command);
     const isDivorce = /^divorce$/i.test(command);
+
     const userIsMarried = (user) => marriages[user] !== undefined;
 
     try {
+        if (!('married' in global.db.data.users[m.sender])) {
+            global.db.data.users[m.sender].married = false;
+        }
+
         if (isPropose) {
             const proposee = m.quoted?.sender || m.mentionedJid?.[0];
             const proposer = m.sender;
@@ -40,7 +36,6 @@ const handler = async (m, { conn, command }) => {
                     throw new Error('Debes mencionar a alguien para aceptar o proponer matrimonio.\n> Ejemplo » *#marry @⁨Yuki Suou.⁩*');
                 }
             }
-
             if (userIsMarried(proposer)) throw new Error(`Ya estás casado con ${conn.getName(marriages[proposer])}.`);
             if (userIsMarried(proposee)) throw new Error(`${conn.getName(proposee)} ya está casado con ${conn.getName(marriages[proposee])}.`);
             if (proposer === proposee) throw new Error('¡No puedes proponerte matrimonio a ti mismo!');
@@ -91,6 +86,10 @@ handler.before = async (m) => {
         delete proposals[proposer];
         marriages[proposer] = m.sender;
         marriages[m.sender] = proposer;
+
+        global.db.data.users[proposer].married = true;
+        global.db.data.users[m.sender].married = true;
+
         saveMarriages();
 
         conn.sendMessage(m.chat, { text: `✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩
