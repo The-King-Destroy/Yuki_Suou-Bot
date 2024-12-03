@@ -16,7 +16,7 @@ var handler = async (m, { conn }) => {
 
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
-    let { premium, level, genre, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
+    let { premium, level, genre, birth, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
     let username = conn.getName(who);
 
     let isMarried = who in global.db.data.marriages;
@@ -25,7 +25,6 @@ var handler = async (m, { conn }) => {
     let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
     let userNationalityData = api.data.result
     let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
-    let cumpleanos = user.birth || 'No especificado';
     
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
