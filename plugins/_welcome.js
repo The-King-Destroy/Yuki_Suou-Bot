@@ -25,7 +25,7 @@ export async function before(m, { conn, participants, groupMetadata }) {
     let chat = global.db.data.chats[m.chat];
 
     if (chat.welcome && m.messageStubType === 27) {
-        let wel = `┌─⪩ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n└┬⪩ 「 @${userId.split`@`[0]} 」\n   │🌸  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🌷  ${groupMetadata.subject}\n   └───────────────┈ ⳹\n\n> ✐ Puedes usar *.menu* para ver la lista de comandos.`;
+        let wel = `┌─⪩ 𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭 🌹 \n│「 𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎 😁 」\n└┬⪩ 「 @${userId.split`@`[0]} 」\n   │🌸  𝐁𝐈𝐄𝐍𝐕𝐄𝐍𝐈𝐃𝐎/𝐀\n   │🌷  ${groupMetadata.subject}\n   └───────────────┈ ⳹\n\n> ✐ Puedes usar *#menu* para ver la lista de comandos.`;
         try {
             await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak);
         } catch (sendError) {
