@@ -5,18 +5,19 @@ import fs from 'fs';
 var handler = async (m, { conn }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
-    let { premium, level, genre, married, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[who];
+    let userData = global.db.data.users[who];
 
-    if (!('married' in global.db.data.users[who])) {
-        global.db.data.users[who].married = false;
+    if (!('married' in userData)) {
+        userData.married = false;
     }
 
+    let { premium, level, genre, married, yenes, exp, lastclaim, registered, regTime, age, role } = userData;
     let username = conn.getName(who);
     let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`);
     let userNationalityData = api.data.result;
     let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido';
 
-    let partnerName = married ? conn.getName(global.db.data.users[marriages[who]]) : 'Nadie';
+    let partnerName = married && marriages[who] ? conn.getName(global.db.data.users[marriages[who]]) : 'Nadie';
 
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
@@ -25,7 +26,7 @@ var handler = async (m, { conn }) => {
 ⚧️ *Genero:* *${genre === 0 ? 'No especificado' : genre}*
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado/a:* ${married ? partnerName : 'Nadie'}
+👩‍❤️‍👩 *Casado/a:* ${partnerName}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -42,7 +43,7 @@ var handler = async (m, { conn }) => {
 │⧼🌐⧽ *ᴘᴀɪs:* *${userNationality}*
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼🔱⧽ *ʀᴏʟ: ᴠɪᴘ* 👑
-│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${married ? partnerName : 'Nadie'}
+│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${partnerName}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
@@ -50,7 +51,7 @@ var handler = async (m, { conn }) => {
 │⧼🔰⧽ *ɴɪᴠᴇʟ:* ${level}
 │⧼✨⧽ *ᴇxᴘᴇʀɪᴇɴᴄɪᴀ:* ${exp}
 │⧼⚜️⧽ *ʀᴀɴɢᴏ:* ${role}
-╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓸𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
+╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
 
     conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, rcanal, { mentions: [who] });
 }
