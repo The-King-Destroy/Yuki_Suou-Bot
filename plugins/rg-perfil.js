@@ -25,15 +25,17 @@ var handler = async (m, { conn }) => {
     let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
     let userNationalityData = api.data.result
     let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
-
+    let cumpleanos = user.birth || 'No especificado';
+    
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
-☁️ *Nombre:* ${username}
-💠 *Edad:* *${registered ? `${age} años` : '×'}*
-⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-🌐 *Pais:* *${userNationality}*
-🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado/a:* ${isMarried ? partnerName : 'Nadie'}
+☁️ *Nombre:* » *${username}*
+💠 *Edad:* » *${registered ? `${age} años` : '×'}*
+⚧️ *Genero:* » *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+🎂 *Cumpleaños* » ${cumpleanos}
+🌐 *Pais:* » *${userNationality}*
+🌀 *Registrado:* » ${registered ? '✅': '❌'}
+👩‍❤️‍👩 *Casado/a:* » *${isMarried ? partnerName : 'Nadie'}*
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
