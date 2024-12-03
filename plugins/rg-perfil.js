@@ -30,8 +30,8 @@ var handler = async (m, { conn }) => {
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* *${username}*
 💠 *Edad:* *${registered ? `${age} años` : '×'}*
-⚧️ *Genero:* *${birth = birth === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-🎂 *Cumpleaños:* *${birth ? : 'No especificado'}*
+⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+🎂 *Cumpleaños:* *${birth ? 'No especificado'}*
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
 👩‍❤️‍👩 *Casado/a:* *${isMarried ? partnerName : 'Nadie'}*
