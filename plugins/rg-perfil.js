@@ -30,9 +30,9 @@ var handler = async (m, { conn }) => {
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
 🌸 *Tag:* @${who.replace(/@.+/, '')}
-🌐 *Pais* :: *${userNationality}*
+🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado con:* ${isMarried ? partnerName : 'Nadie'}
+👩‍❤️‍👩 *Casado:* ${isMarried ? partnerName : 'Nadie'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -44,10 +44,10 @@ var handler = async (m, { conn }) => {
 
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
-│⧼🌐⧽ *Pais* :: *${userNationality}*
+│⧼🌐⧽ *Pais:* *${userNationality}*
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼🔱⧽ *ʀᴏʟ: ᴠɪᴘ* 👑
-│⧼💍⧽ *ᴄᴀsᴀᴅᴏ ᴄᴏɴ:* ${isMarried ? partnerName : 'Nadie'}
+│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${isMarried ? partnerName : 'Nadie'}
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
