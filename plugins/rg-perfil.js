@@ -29,12 +29,11 @@ var handler = async (m, { conn }) => {
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-🌸 *Tag:* @${who.replace(/@.+/, '')}
-🌐 *Pais:* *${userNationality}*
 💠 *Edad:* *${registered ? `${age} años` : '×'}*
 ⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado:* ${isMarried ? partnerName : 'Nadie'}
+👩‍❤️‍👩 *Casado/a:* ${isMarried ? partnerName : 'Nadie'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -46,7 +45,9 @@ var handler = async (m, { conn }) => {
 
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* ${username}
-│⧼🌐⧽ *Pais:* *${userNationality}*
+│⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
+│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+│⧼🌐⧽ *ᴘᴀɪs:* *${userNationality}*
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼🔱⧽ *ʀᴏʟ: ᴠɪᴘ* 👑
 │⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${isMarried ? partnerName : 'Nadie'}
