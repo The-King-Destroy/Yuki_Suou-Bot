@@ -28,13 +28,13 @@ var handler = async (m, { conn }) => {
     
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
-☁️ *Nombre:* » *${username}*
-💠 *Edad:* » *${registered ? `${age} años` : '×'}*
-⚧️ *Genero:* » *${birth = birth === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-🎂 *Cumpleaños* » *${birth = birth === 0 ? `${birth}` : 'No especificado'}*
-🌐 *Pais:* » *${userNationality}*
-🌀 *Registrado:* » ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado/a:* » *${isMarried ? partnerName : 'Nadie'}*
+☁️ *Nombre:* *${username}*
+💠 *Edad:* *${registered ? `${age} años` : '×'}*
+⚧️ *Genero:* *${birth = birth === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+🎂 *Cumpleaños* *${birth = birth === 0 ? `${birth}` : 'No especificado'}*
+🌐 *Pais:* *${userNationality}*
+🌀 *Registrado:* ${registered ? '✅': '❌'}
+👩‍❤️‍👩 *Casado/a:* *${isMarried ? partnerName : 'Nadie'}*
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
@@ -45,14 +45,14 @@ var handler = async (m, { conn }) => {
 `.trim();
 
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
-│⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* » *${username}*
-│⧼💠⧽ *ᴇᴅᴀᴅ:* » *${registered ? `${age} años` : '×'}*
-│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* » *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-│⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs* » *${birth = birth === 0 ? `${birth}` : 'No especificado'}*
-│⧼🌐⧽ *ᴘᴀɪs:* » *${userNationality}*
-│⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* » ${registered ? '✅': '❌'}
-│⧼🔱⧽ *ʀᴏʟ: » ᴠɪᴘ* 👑
-│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* » *${isMarried ? partnerName : 'Nadie'}*
+│⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* *${username}*
+│⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
+│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+│⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs* *${birth = birth === 0 ? `${birth}` : 'No especificado'}*
+│⧼🌐⧽ *ᴘᴀɪs:* *${userNationality}*
+│⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
+│⧼🔱⧽ *ʀᴏʟ: ᴠɪᴘ* 👑
+│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* *${isMarried ? partnerName : 'Nadie'}*
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
