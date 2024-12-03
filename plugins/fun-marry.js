@@ -1,3 +1,8 @@
+/* Código hecho por Destroy
+ - https://github.com/The-King-Destroy
+ - Dejen créditos aunque sea gracias.
+*/
+
 import fs from 'fs';
 import path from 'path';
 
@@ -21,10 +26,6 @@ const handler = async (m, { conn, command }) => {
     const userIsMarried = (user) => marriages[user] !== undefined;
 
     try {
-        if (!('married' in global.db.data.users[m.sender])) {
-            global.db.data.users[m.sender].married = false;
-        }
-
         if (isPropose) {
             const proposee = m.quoted?.sender || m.mentionedJid?.[0];
             const proposer = m.sender;
@@ -86,10 +87,6 @@ handler.before = async (m) => {
         delete proposals[proposer];
         marriages[proposer] = m.sender;
         marriages[m.sender] = proposer;
-
-        global.db.data.users[proposer].married = true;
-        global.db.data.users[m.sender].married = true;
-
         saveMarriages();
 
         conn.sendMessage(m.chat, { text: `✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩
