@@ -55,7 +55,6 @@ if (!isNumber(user.yenes)) user.yenes = 20
 if (!('registered' in user)) user.registered = false
 if (!('genre' in user)) user.genre = false
 if (!('birth' in user)) user.birth = false
-if (!('married' in user)) user.married = false
 
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
@@ -89,7 +88,6 @@ afk: -1,
 afkReason: '',
 genre: '',
 birth: '',
-married: '',
 name: m.name,
 age: 0,
 bank: 0,
