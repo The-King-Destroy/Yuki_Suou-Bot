@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
 
         let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾꯭⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭𔓕 
 
-🌸 ¡𝓗𝓸𝓵𝓪! 𝓒ó𝓶𝓸 𝓔𝓼𝓽á𝓼 𝓮𝓵 𝓓í𝓪 𝓭𝓮 𝓗𝓸𝔂 *${taguser}* 𝓢𝓸𝔂 *𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾*, ${saludo}. 
+🌸 ¡𝓗𝓸𝓵𝓪! 𝓒ó𝓶𝓸 𝓔𝓼𝓽á𝓼 𝓮𝓵 𝓓í𝓪 𝓭𝓮 𝓗𝓸𝔶 *${taguser}* 𝓢𝓸𝔂 *𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾*, ${saludo}. 
 
 ┏━━⪩「 ♡⃝𝕴𝖓𝖋𝖔 𝖉𝖊 𝖑𝖎𝖓𝖆 𝕭𝖔𝖙ᚐ҉ᚐ 」⪨
 ┃❥ ⧼👑⧽ *Creador:* ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
@@ -66,49 +66,38 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, com
 }
 
 let setBannerHandler = async (m, { conn, isRowner }) => {
-    let time = global.db.data.users[m.sender].lastmiming + 60000
-    if (new Date - global.db.data.users[m.sender].lastmiming < 60000) {
-        return conn.reply(m.chat, `✐ Debes esperar ${msToTime(time - new Date())} para poder cambiar el video del bot.`, m);
+    let args = text.split(' ')
+    
+    if (args.length < 2) {
+        return conn.reply(m.chat, '✧ Por favor proporciona una URL válida.', m);
     }
 
-    try {
-        const media = await m.quoted.download();
+    let url = args[1];
 
-        if (!isVideoValid(media)) {
-            return m.reply('✧ El archivo enviado no es un video válido.');
-        }
-
+    if (new RegExp(/^(http|https):\/\/[^ "]+$/).test(url)) {
         switch (command) {
             case 'setbanner1':
-                global.videoBanner1 = media;
-                m.reply('✐ El primer video del banner fue actualizado.');
+                global.videoBanner1 = url;
+                m.reply('✐ El primer video del banner fue actualizado a: ' + url);
                 break;
             case 'setbanner2':
-                global.videoBanner2 = media;
-                m.reply('✐ El segundo video del banner fue actualizado.');
+                global.videoBanner2 = url;
+                m.reply('✐ El segundo video del banner fue actualizado a: ' + url);
                 break;
             case 'setbanner3':
-                global.videoBanner3 = media;
-                m.reply('✐ El tercer video del banner fue actualizado.');
+                global.videoBanner3 = url;
+                m.reply('✐ El tercer video del banner fue actualizado a: ' + url);
                 break;
             default:
                 m.reply('✧ Comando no reconocido.');
                 break;
         }
-
-        global.db.data.users[m.sender].lastmiming = new Date * 1;
-    } catch (error) {
-        console.error(error);
-        m.reply('✧ Hubo un error al intentar cambiar el video del banner.');
+    } else {
+        m.reply('✧ La URL proporcionada no es válida.');
     }
 };
 
-const isVideoValid = (buffer) => {
-    const magicBytes = buffer.slice(0, 4).toString('hex');
-    return magicBytes === '66747970' || magicBytes === '69736f6d';
-};
-
-handler.help = ['menu', 'setbanner1', 'setbanner2', 'setbanner3']
+handler.help = ['menu', 'setbanner1 <URL>', 'setbanner2 <URL>', 'setbanner3 <URL>']
 handler.tags = ['main']
 handler.command = ['menu', 'help', 'menú', 'setbanner1', 'setbanner2', 'setbanner3']
 handler.register = true
