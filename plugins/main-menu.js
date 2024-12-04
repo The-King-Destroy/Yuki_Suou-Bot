@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import { xpRange } from '../lib/levelling.js';
 import { promises } from 'fs';
-import { join, dirname } from 'path'; // Asegúrate de importar dirname
+import { join, dirname } from 'path';
 
 let handler = async (m, { conn, usedPrefix, text, command }) => {
     try {
