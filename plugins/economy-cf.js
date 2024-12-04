@@ -1,38 +1,43 @@
-let cooldowns = {}
+import fs from 'fs';
 
-let handler = async (m, { conn, text, command, usedPrefix }) => {
-    let tiempoEspera = 5
+const obtenerDatos = () => fs.existsSync('data.json') ? JSON.parse(fs.readFileSync('data.json', 'utf-8')) : { usuarios: {} };
 
-    if (cooldowns[m.sender] && Date.now() - cooldowns[m.sender] < tiempoEspera * 1000) {
-        let tiempoRestante = segundosAHMS(Math.ceil((cooldowns[m.sender] + tiempoEspera * 1000 - Date.now()) / 1000))
-        m.reply(`🗣️ Ya has iniciado una apuesta recientemente, espera *⏱ ${tiempoRestante}* para apostar nuevamente.`)
-        return
+const guardarDatos = (data) => fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+    let [eleccion] = text.split(' ');
+    if (!eleccion) return m.reply(`🌸 Por favor, elige cara o cruz.\nEjemplo: *${usedPrefix + command} cara*`);
+
+    eleccion = eleccion.toLowerCase();
+    if (eleccion !== 'cara' && eleccion !== 'cruz') {
+        return m.reply(`🌷 Elección no válida. Por favor, elige cara o cruz.\nEjemplo: *${usedPrefix + command} cara*`);
     }
 
-    if (!text || !['cara', 'cruz'].includes(text.toLowerCase())) {
-        return conn.reply(m.chat, '🤖 Elige una opción ( *Cara o Cruz* ) para lanzar la moneda.\n\n`» Ejemplo :`\n' + `> *${usedPrefix + command}* cara`, m, rcanal)
-    }
+    let data = obtenerDatos();
+    let userId = m.sender;
+    if (!data.usuarios[userId]) data.usuarios[userId] = { yenes: 100 };
 
-    cooldowns[m.sender] = Date.now()
-    let resultado = Math.random() < 0.5 ? 'cara' : 'cruz'
-    let esGanador = text.toLowerCase() === resultado
+    let user = data.usuarios[userId];
+    let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
 
-    if (esGanador) {
-        global.db.data.users[m.sender].yenes += 1000
-        conn.reply(m.chat, `✨︎ La moneda cayó en *${text}*, acabas de ganar *1000 💴 Yenes*`, m, rcanal)       
+    let mensaje = `✐ Has elegido *${eleccion}*.\n`;
+    if (resultado === eleccion) {
+        user.yenes += 60;
+        mensaje += `🎉 ¡Felicidades! Ha salido *${resultado}* y ganas 60 Yenes 🎫.\nTienes ahora *${user.yenes} Yenes 🎫*.`;
     } else {
-        global.db.data.users[m.sender].yenes -= 500
-        conn.reply(m.chat, `✨︎ La moneda cayó en *${text}*, acabas de perder *500 💴 Yenes*`, m, rcanal)
+        user.yenes -= 30;
+        mensaje += `😿 Lo siento. Ha salido *${resultado}* y pierdes 30 Yenes 🎫.\nTienes ahora *${user.yenes} Yenes 🎫*.`;
     }
-}
 
-handler.help = ['cf']
-handler.tags = ['economy']
-handler.command = ['suerte', 'cf', 'flip', 'coinflip']
-handler.register = true
+    data.usuarios[userId] = user;
+    guardarDatos(data);
 
-export default handler
+    await conn.reply(m.chat, mensaje, m);
+};
 
-function segundosAHMS(segundos) {
-    return `${segundos % 60} segundos`
-}
+handler.help = ['cf'];
+handler.tags = ['economy'];
+handler.command = ['cf', 'suerte', 'caracruz'];
+handler.register = true;
+
+export default handler;
