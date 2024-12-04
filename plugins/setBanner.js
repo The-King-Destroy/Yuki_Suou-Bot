@@ -1,8 +1,8 @@
 let handler = async (m, { conn, text, command }) => {
     const args = text.split(' ');
 
-    if (!m.isGroup || !global.db.data.chats[m.chat].admins.includes(m.sender)) {
-        return conn.reply(m.chat, '✧ Este comando solo puede ser utilizado por administradores del grupo.', m);
+    if (!m.isGroup) {
+        return conn.reply(m.chat, '✧ Este comando solo puede ser utilizado en grupos.', m);
     }
 
     if (args.length < 2) {
@@ -40,6 +40,5 @@ handler.help = ['setbanner1 <URL>', 'setbanner2 <URL>', 'setbanner3 <URL>', 'set
 handler.tags = ['main'];
 handler.command = ['setbanner1', 'setbanner2', 'setbanner3', 'seticon'];
 handler.register = true;
-handler.run = handler;
 
 export default handler;
