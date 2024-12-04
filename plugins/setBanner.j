@@ -1,7 +1,7 @@
 let handler = async (m, { conn, text, command }) => {
     const args = text.split(' ');
 
-    if (!m.isGroup || !m.chat || !global.db.data.chats[m.chat].admins.includes(m.sender)) {
+    if (!m.isGroup || !global.db.data.chats[m.chat].admins.includes(m.sender)) {
         return conn.reply(m.chat, '✧ Este comando solo puede ser utilizado por administradores del grupo.', m);
     }
 
