@@ -20,13 +20,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let user = data.usuarios[userId];
     let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
 
-    let mensaje = `✐ Has elegido *${eleccion}*.\n`;
+    let mensaje = `💠 Has elegido *${eleccion}*.\n`;
     if (resultado === eleccion) {
         user.yenes += 60;
-        mensaje += `🎉 ¡Felicidades! Ha salido *${resultado}* y ganas 60 Yenes 🎫.\nTienes ahora *${user.yenes} Yenes 🎫*.`;
+        mensaje += `🎉 ¡Felicidades! Ha salido *${resultado}* y ganas 60 Yenes.\nTienes ahora *${user.yenes} Yenes 💴*.`;
     } else {
         user.yenes -= 30;
-        mensaje += `😿 Lo siento. Ha salido *${resultado}* y pierdes 30 Yenes 🎫.\nTienes ahora *${user.yenes} Yenes 🎫*.`;
+        mensaje += `😿 Lo siento. Ha salido *${resultado}* y pierdes 30 Yenes.\nTienes ahora *${user.yenes} Yenes 💴*.`;
     }
 
     data.usuarios[userId] = user;
