@@ -16,7 +16,7 @@ var handler = async (m, { conn }) => {
 
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
-    let { premium, level, genre, birth, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
+    let { premium, level, genre, birth, description, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[m.sender];
     let username = conn.getName(who);
 
     let isMarried = who in global.db.data.marriages;
@@ -31,10 +31,11 @@ var handler = async (m, { conn }) => {
 ☁️ *Nombre:* *${username}*
 💠 *Edad:* *${registered ? `${age} años` : '×'}*
 ⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-🎂 *Cumpleaños:* ${birth ? birth : 'No especificado'}
+🎂 *Cumpleaños:* ${birth ? birth : 'No Establecido'}
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
 👩‍❤️‍👩 *Casado/a:* *${isMarried ? partnerName : 'Nadie'}*
+📜 *Descripción:* *${description ? description : 'Sin Descripción'}*
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
