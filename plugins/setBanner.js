@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, command }) => {
-    const args = text.split(' ');
+    const args = text.trim().split(' ');
 
     if (!m.isGroup) {
         return conn.reply(m.chat, '✧ Este comando solo puede ser utilizado en grupos.', m);
