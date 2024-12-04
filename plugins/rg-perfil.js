@@ -31,11 +31,11 @@ var handler = async (m, { conn }) => {
 ☁️ *Nombre:* *${username}*
 💠 *Edad:* *${registered ? `${age} años` : '×'}*
 ⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-🎂 *Cumpleaños:* ${birth ? birth : 'No Establecido'}
-🌐 *Pais:* *${userNationality}*
-🌀 *Registrado:* ${registered ? '✅': '❌'}
+🎂 *Cumpleaños:* ${birth ? birth : 'No Establecido'} 
 👩‍❤️‍👩 *Casad@:* ${isMarried ? partnerName : 'Nadie'}
 📜 *Descripción:* *${description ? description : 'Sin Descripción'}*
+🌐 *Pais:* *${userNationality}*
+🌀 *Registrado:* ${registered ? '✅': '❌'}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
