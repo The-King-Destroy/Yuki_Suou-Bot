@@ -64,7 +64,7 @@ await m.react('✅')
 await m.react('✖️')
 }}}}
 handler.help = ['ytmp3 *<link yt>*']
-handler.tags = ['downloader']
+handler.tags = ['descargas']
 handler.command = ['ytmp3', 'yta', 'fgmp3']
 //handler.limit = 1
 handler.register = true 
