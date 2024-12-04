@@ -32,8 +32,7 @@ let handler = async (m, { conn, text, command }) => {
             conn.reply(m.chat, '✐ El ícono fue actualizado a: ' + url, m);
             break;
         default:
-            conn.reply(m.chat, '✧ Comando no reconocido.', m);
-            break;
+            return conn.reply(m.chat, '✧ Comando no reconocido. Uso correcto:\n- *setbanner1 <URL>*\n- *setbanner2 <URL>*\n- *setbanner3 <URL>*\n- *seticon <URL>*', m);
     }
 };
 
