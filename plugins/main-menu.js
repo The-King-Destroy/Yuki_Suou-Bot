@@ -1,13 +1,12 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 import { xpRange } from '../lib/levelling.js';
-const { levelling } = '../lib/levelling.js';
 import { promises } from 'fs';
-import { join } from 'path';
+import { join, dirname } from 'path'; // Asegúrate de importar dirname
 
 let handler = async (m, { conn, usedPrefix, text, command }) => {
     try {
-        let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {};
+        let _package = JSON.parse(await promises.readFile(join(dirname(__filename), '../package.json')).catch(_ => ({}))) || {};
         let { exp, yenes, level, role } = global.db.data.users[m.sender];
         let { min, xp, max } = xpRange(level, global.multiplier);
         let name = await conn.getName(m.sender);
