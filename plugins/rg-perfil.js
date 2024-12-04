@@ -34,7 +34,7 @@ var handler = async (m, { conn }) => {
 🎂 *Cumpleaños:* ${birth ? birth : 'No Establecido'}
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
-👩‍❤️‍👩 *Casado/a:* *${isMarried ? partnerName : 'Nadie'}*
+👩‍❤️‍👩 *Casad@:* ${isMarried ? partnerName : 'Nadie'}
 📜 *Descripción:* *${description ? description : 'Sin Descripción'}*
 
 「 💰 *RECURSOS* 」
