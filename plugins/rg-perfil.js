@@ -31,7 +31,7 @@ var handler = async (m, { conn }) => {
 ☁️ *Nombre:* *${username}*
 💠 *Edad:* *${registered ? `${age} años` : '×'}*
 ⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-🎂 *Cumpleaños:* ${birth}
+🎂 *Cumpleaños:* ${birth ? birth : 'No especificado'}
 🌐 *Pais:* *${userNationality}*
 🌀 *Registrado:* ${registered ? '✅': '❌'}
 👩‍❤️‍👩 *Casado/a:* *${isMarried ? partnerName : 'Nadie'}*
@@ -48,7 +48,7 @@ var handler = async (m, { conn }) => {
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* *${username}*
 │⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
 │⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
-│⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs:* ${birth}
+│⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs:* ${birth ? birth : 'No especificado'}
 │⧼🌐⧽ *ᴘᴀɪs:* *${userNationality}*
 │⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* *${isMarried ? partnerName : 'Nadie'}*
