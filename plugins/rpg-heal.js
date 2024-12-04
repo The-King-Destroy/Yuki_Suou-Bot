@@ -3,12 +3,12 @@ let handler = async (m, { conn }) => {
     if (!user) {
         return conn.reply(m.chat, '👤 El usuario no se encuentra en la base de Datos.', m);
     }
-    if (user.yenes < 50) {
+    if (user.yenes < 20) {
         return conn.reply(m.chat, '💔 No tienes suficientes yenes para curarte. Necesitas al menos 50 yenes.', m);
     }
     let healAmount = 40; 
     user.health += healAmount;
-    user.yenes -= 50; 
+    user.yenes -= 20; 
     if (user.health > 100) {
         user.health = 100; 
     }
