@@ -2,11 +2,12 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import { xpRange } from '../lib/levelling.js';
 import { promises } from 'fs';
-import { join, dirname } from 'path';
+import path from 'path';
 
 let handler = async (m, { conn, usedPrefix, text, command }) => {
     try {
-        let _package = JSON.parse(await promises.readFile(join(dirname(__filename), '../package.json')).catch(_ => ({}))) || {};
+        const packagePath = path.join(path.dirname(new URL(import.meta.url).pathname), '../package.json');
+        let _package = JSON.parse(await promises.readFile(packagePath).catch(_ => ({}))) || {};
         let { exp, yenes, level, role } = global.db.data.users[m.sender];
         let { min, xp, max } = xpRange(level, global.multiplier);
         let name = await conn.getName(m.sender);
@@ -23,9 +24,7 @@ let handler = async (m, { conn, usedPrefix, text, command }) => {
         let muptime = clockString(_muptime);
         let uptime = clockString(_uptime);
         let totalreg = Object.keys(global.db.data.users).length;
-        let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length;
         let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
-        let mentionedJid = [who];
         let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg');
         let taguser = '@' + m.sender.split("@s.whatsapp.net")[0];
 
