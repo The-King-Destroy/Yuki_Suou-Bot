@@ -28,18 +28,18 @@ var handler = async (m, { conn }) => {
     
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
-☁️ *Nombre:* *${username}*
-💠 *Edad:* *${registered ? `${age} años` : '×'}*
-⚧️ *Genero:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
+☁️ *Nombre:* ${username}
+💠 *Edad:* ${registered ? `${age} años` : '×'}
+⚧️ *Genero:* ${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}
 🎂 *Cumpleaños:* ${birth ? birth : 'No Establecido'} 
 👩‍❤️‍👩 *Casad@:* ${isMarried ? partnerName : 'Nadie'}
-📜 *Descripción:* *${description ? description : 'Sin Descripción'}*
-🌐 *Pais:* *${userNationality}*
+📜 *Descripción:* ${description ? description : 'Sin Descripción'}
 🌀 *Registrado:* ${registered ? '✅': '❌'}
+🌐 *Pais:* ${userNationality}
 
 「 💰 *RECURSOS* 」
 💴 *Yenes:* ${yenes}
-🔰 *Nivel:* ${level}
+🌟 *Nivel:* ${level}
 ✨ *Experiencia:* ${exp}
 ⚜️ *Rango:* ${role}
 👑 *Premium:* ${premium ? '✅': '❌'}
@@ -50,14 +50,16 @@ var handler = async (m, { conn }) => {
 │⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
 │⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre = genre === 0 ? 'No especificado' : genre == 'Mujer' ? `${genre}` : genre == 'Hombre' ? `${genre}` : 'No especificado'}*
 │⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs:* ${birth ? birth : 'No especificado'}
-│⧼🌐⧽ *ᴘᴀɪs:* *${userNationality}*
-│⧼💌⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
-│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* *${isMarried ? partnerName : 'Nadie'}*
+│⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${isMarried ? partnerName : 'Nadie'}
+📜 *ᴅᴇsᴄʀɪᴘᴄɪᴏɴ:* ${description ? description : 'Sin Descripción'}
+│⧼🌀⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
+│⧼🌐⧽ *ᴘᴀɪs:* ${userNationality}
+
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
 │⧼💴⧽ *ʏᴇɴᴇs:* ${yenes}
-│⧼🔰⧽ *ɴɪᴠᴇʟ:* ${level}
+│⧼🌟⧽ *ɴɪᴠᴇʟ:* ${level}
 │⧼✨⧽ *ᴇxᴘᴇʀɪᴇɴᴄɪᴀ:* ${exp}
 │⧼⚜️⧽ *ʀᴀɴɢᴏ:* ${role}
 ╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
