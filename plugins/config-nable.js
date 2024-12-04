@@ -21,6 +21,7 @@ ${usedPrefix + command} audios
 ${usedPrefix + command} modoadmin
 ${usedPrefix + command} antifake
 ${usedPrefix + command} antibot
+${usedPrefix + command} antiarabes
 
 🌷 *OPCIONES PARA MI PROPIETARIO*
 
@@ -447,6 +448,14 @@ global.dfail('admin', m, conn)
 throw false
 }}
 chat.antiTraba = isEnable
+break
+case 'antiarabes': case 'antiarabe': case 'antiputos':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.antiArabe = isEnable
 break
 case 'simi': case 'chatbot':
 if (m.isGroup) {
