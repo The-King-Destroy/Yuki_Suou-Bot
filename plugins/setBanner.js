@@ -10,6 +10,9 @@ let handler = async (m, { conn, text, command }) => {
     }
 
     const url = args[1];
+    console.log('args:', args); // Registro para depuración
+    console.log('url:', url); // Registro para depuración
+
     if (!/^https?:\/\/.+\.(mp4|webm)$/.test(url)) {
         return conn.reply(m.chat, '✧ La URL proporcionada no es válida o no es un video.\n\nUso correcto:\n- *setbanner1 <URL>*\n- *setbanner2 <URL>*\n- *setbanner3 <URL>*\n- *seticon <URL>*', m);
     }
