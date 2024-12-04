@@ -55,7 +55,8 @@ if (!isNumber(user.yenes)) user.yenes = 20
 if (!('registered' in user)) user.registered = false
 if (!('genre' in user)) user.genre = false
 if (!('birth' in user)) user.birth = false
-
+if (!('description' in user)) user.description = false
+    
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('age' in user)) user.age = 0
@@ -86,8 +87,6 @@ if (!user.premium) user.premiumTime = 0
 global.db.data.users[m.sender] = {
 afk: -1,
 afkReason: '',
-genre: '',
-birth: '',
 name: m.name,
 age: 0,
 bank: 0,
@@ -113,6 +112,9 @@ muto: false,
 premium: false,
 premiumTime: 0,
 registered: false,
+genre: '',
+birth: '',
+description: '',
 regTime: -1,
 rendang: 0, 
 }
