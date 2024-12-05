@@ -185,7 +185,6 @@ if (!('modoadmin' in chat)) chat.modoadmin = false
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = false
-if (!('antiArab' in chat)) chat.antiArab = false
 if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
@@ -227,7 +226,6 @@ modoadmin: false,
 antitoxic: false, 
 simi: false,
 antiTraba: false,
-antiArab: false,
 autolevelup: true,
 expired: 0,
 }
