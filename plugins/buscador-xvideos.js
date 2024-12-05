@@ -3,27 +3,25 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 const handler = async (m, { conn, args, command, usedPrefix }) => {
-    // Verificar si se recibió un argumento (término de búsqueda)
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('[❗] 𝐋𝐨𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 +𝟏𝟖 𝐞𝐬𝐭𝐚́𝐧 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨𝐬 𝐞𝐧 𝐞𝐬𝐭𝐞 𝐠𝐫𝐮𝐩𝐨.\n> 𝐬𝐢 𝐞𝐬 𝐚𝐝𝐦𝐢𝐧 𝐲 𝐝𝐞𝐬𝐞𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨𝐬 𝐮𝐬𝐞 .enable nsfw');
+    return m.reply('*[❗] 𝐋𝐨𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 +𝟏𝟖 𝐞𝐬𝐭𝐚́𝐧 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨𝐬 𝐞𝐧 𝐞𝐬𝐭𝐞 𝐠𝐫𝐮𝐩𝐨.*\n> 𝐬𝐢 𝐞𝐬 𝐚𝐝𝐦𝐢𝐧 𝐲 𝐝𝐞𝐬𝐞𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐫𝐥𝐨𝐬 𝐮𝐬𝐞 .enable nsfw');
     }
     if (!args[0]) {
         return conn.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎❗]*\n\n🌼 *Instrucciones:* \nPara buscar videos en Xvideos, por favor ingresa un término de búsqueda.\nEjemplo: \n*${usedPrefix + command} perro*`, m);
     }
 
     try {
-        const results = await xvideosSearch(args.join(' ')); // Unir los argumentos en una sola cadena para la búsqueda
+        const results = await xvideosSearch(args.join(' '));
         if (results.length === 0) {
             return conn.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎❗]*\nNo se encontraron resultados para: *${args.join(' ')}*`, m);
         }
 
-        // Formatear y enviar los resultados
         let responseMessage = `🌸 *Resultados de búsqueda para:* *${args.join(' ')}*\n\n`;
         results.forEach((video, index) => {
-            responseMessage += `🌻 *Título:* ${video.title}\n`;
-            responseMessage += `🌺 *Duración:* ${video.duration}\n`;
-            responseMessage += `🌷 *Calidad:* ${video.quality || 'No disponible'}\n`;
-            responseMessage += `🌼 *Enlace:* ${video.url}\n\n`;
+            responseMessage += `☁️ *Título:* ${video.title}\n`;
+            responseMessage += `🕒 *Duración:* ${video.duration}\n`;
+            responseMessage += `🎞️ *Calidad:* ${video.quality || 'No disponible'}\n`;
+            responseMessage += `🔗 *Enlace:* ${video.url}\n\n`;
         });
 
         conn.reply(m.chat, responseMessage, m);
@@ -39,7 +37,6 @@ handler.group = false;
 
 export default handler;
 
-// Función para buscar videos en Xvideos
 async function xvideosSearch(query) {
     return new Promise(async (resolve, reject) => {
         try {
