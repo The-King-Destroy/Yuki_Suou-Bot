@@ -1,3 +1,7 @@
+/* Código hecho por Destroy
+ - https://github.com/The-King-Destroy
+ */
+
 let handler = async (m, { conn }) => {
     let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let name = conn.getName(who);
@@ -6,7 +10,7 @@ let handler = async (m, { conn }) => {
 }
 
 handler.help = ['pfp @user'];
-handler.tags = ['fun'];
+handler.tags = ['tools'];
 handler.command = ['pfp'];
 
 export default handler;
