@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
 }
 
 handler.help = ['pfp @user'];
-handler.tags = ['tools'];
+handler.tags = ['sticker'];
 handler.command = ['pfp'];
 
 export default handler;
