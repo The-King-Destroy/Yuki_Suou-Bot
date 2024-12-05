@@ -587,7 +587,7 @@ let settingsREAD = global.db.data.settings[this.user.jid] || {}
 if (opts['autoread']) await this.readMessages([m.key])
 if (settingsREAD.autoread2) await this.readMessages([m.key])  
 //await conn.sendPresenceUpdate('composing', m.chat);
-this.sendPresenceUpdate('recording', m.chat);
+//this.sendPresenceUpdate('recording', m.chat);
 
 if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify|ai|megumin|megu|a|s)/gi)) {
 let emot = pickRandom(["🌹", "🌷", "🌸","🌼", "🌺", "💐", "🌻", "🏵️", "🥀", "💮", "🍁", "💖", "💞", "💕", "💋"])
