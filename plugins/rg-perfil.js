@@ -13,14 +13,20 @@ const loadMarriages = () => {
 
 var handler = async (m, { conn }) => {
     loadMarriages();
+    
+    let who;
+    if (m.quoted && m.quoted.sender) {
+        who = m.quoted.sender;
+    } else {
+        who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
+    }
 
-    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
     let { premium, level, genre, birth, description, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[who] || {};
     let username = conn.getName(who);
 
     genre = genre === 0 ? 'No especificado' : genre || 'No especificado';
-    age = age || 'Desconocido';
+    age = registered ? (age || 'Desconocido') : 'Sin especificar';
     birth = birth || 'No Establecido';
     description = description || 'Sin Descripción';
     role = role || 'Aldeano';
@@ -35,7 +41,7 @@ var handler = async (m, { conn }) => {
     let noprem = `
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
-💠 *Edad:* ${registered ? `${age} años` : '×'}
+💠 *Edad:* ${age}
 ⚧️ *Genero:* ${genre}
 🎂 *Cumpleaños:* ${birth} 
 👩‍❤️‍👩 *Casad@:* ${isMarried ? partnerName : 'Nadie'}
@@ -53,7 +59,7 @@ var handler = async (m, { conn }) => {
 
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* *${username}*
-│⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
+│⧼💠⧽ *ᴇᴅᴀᴅ:* *${age}*
 │⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre}*
 │⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs:* ${birth}
 │⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${isMarried ? partnerName : 'Nadie'}
