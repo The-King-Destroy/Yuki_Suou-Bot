@@ -1,6 +1,6 @@
-//Codígo creado por Destroy wa.me/584120346669
-//Créditos a EliasarYt por brindar la API
-//Por favor dején los créditos tal cual están 
+//Codígo creado por Destroy
+//Créditos a EliasarYt
+
 
 import cheerio from 'cheerio';
 import axios from 'axios';
@@ -9,13 +9,11 @@ let handler = async (m, { conn }) => {
     let chat = global.db.data.chats[m.chat];
     if (chat.isBanned) return;
 
-    // Verifica si el mensaje es el comando .gnula
-    let movieName = m.text.split('.gnula ')[1]; // Extrae el nombre de la película
+    let movieName = m.text.split('.gnula ')[1]; //
     if (!movieName) {
         return conn.sendMessage(m.chat, { text: 'Por favor, proporciona el nombre de la película.' }, { quoted: m });
     }
 
-    // Prepara la URL de búsqueda
     let searchUrl = `https://gnulahd.nu/?s=${encodeURIComponent(movieName)}`;
 
     try {
@@ -23,7 +21,6 @@ let handler = async (m, { conn }) => {
         const $ = cheerio.load(data);
         const results = [];
 
-        // Verifica si hay resultados en la búsqueda
         if ($('.post').length === 0) {
             return conn.sendMessage(m.chat, { text: 'No se encontraron resultados para esa película.' }, { quoted: m });
         }
@@ -37,7 +34,6 @@ let handler = async (m, { conn }) => {
             const sinopsis = $(element).find('p').eq(1).text().trim() || 'Sinopsis no disponible';
             const iframeSrc = $(element).find('iframe').attr('src');
 
-            // Agregamos el resultado en un objeto
             results.push({
                 titulo,
                 fechaPublicacion,
@@ -49,7 +45,6 @@ let handler = async (m, { conn }) => {
             });
         });
 
-        // Asegúrate de obtener detalles adicionales del iframe
         for (const movie of results) {
             if (movie.iframeSrc) {
                 const iframeData = await getIframeDetails(movie.iframeSrc);
@@ -63,7 +58,6 @@ let handler = async (m, { conn }) => {
             }
         }
 
-        // Formatea los resultados para enviar al chat
         const formattedResults = results.map(movie => 
             `🎬 Título: ${movie.titulo}\n` +
             `📅 Publicado: ${movie.fechaPublicacion}\n` +
@@ -76,10 +70,8 @@ let handler = async (m, { conn }) => {
             `⬇️ Descargar: ${movie.enlaceDescarga}`
         ).join('\n\n');
 
-        // Agrega la firma al final del mensaje
         const output = `${formattedResults}\n\n> ৎ୭࠭͢𝒴𝑢𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝑡𝐭ⷭ𓆪͟͞ `;
 
-        // Envía los resultados al chat
         conn.sendMessage(m.chat, { text: output }, { quoted: m });
     } catch (error) {
         console.error(error);
@@ -87,7 +79,6 @@ let handler = async (m, { conn }) => {
     }
 };
 
-// Función para obtener detalles del iframe
 const getIframeDetails = async (iframeUrl) => {
     try {
         const { data } = await axios.get(iframeUrl);
@@ -107,7 +98,6 @@ const getIframeDetails = async (iframeUrl) => {
     }
 };
 
-// Configuración del handler
 handler.help = ['gnula'];
 handler.tags = ['buscador'];
 handler.command = /^(gnula)$/i;
