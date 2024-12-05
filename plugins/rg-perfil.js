@@ -16,18 +16,18 @@ var handler = async (m, { conn }) => {
 
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => imagen1);
-    let userData = global.db.data.users[who];
-    if (!userData) {
-        return conn.sendMessage(m.chat, 'Usuario no encontrado.', m);
-    }
-
-    let { premium, level, genre, birth, description, yenes, exp, lastclaim, registered, regTime, age, role } = userData;
+    let { premium, level, genre, birth, description, yenes, exp, lastclaim, registered, regTime, age, role } = global.db.data.users[who] || {};
     let username = conn.getName(who);
+
+    genre = genre === 0 ? 'No especificado' : genre || 'No especificado';
+    age = age || 'Desconocido';
+    birth = birth || 'No Establecido';
+    description = description || 'Sin Descripción';
+    role = role || 'Aldeano';
 
     let isMarried = who in global.db.data.marriages;
     let partner = isMarried ? global.db.data.marriages[who] : null;
     let partnerName = partner ? conn.getName(partner) : 'Nadie';
-    
     let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`);
     let userNationalityData = api.data.result;
     let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido';
@@ -36,17 +36,17 @@ var handler = async (m, { conn }) => {
 「 👤 *PERFIL DE USUARIO* 」
 ☁️ *Nombre:* ${username}
 💠 *Edad:* ${registered ? `${age} años` : '×'}
-⚧️ *Genero:* ${genre === 0 ? 'No especificado' : genre}
-🎂 *Cumpleaños:* ${birth ? birth : 'No Establecido'} 
+⚧️ *Genero:* ${genre}
+🎂 *Cumpleaños:* ${birth} 
 👩‍❤️‍👩 *Casad@:* ${isMarried ? partnerName : 'Nadie'}
-📜 *Descripción:* ${description ? description : 'Sin Descripción'}
+📜 *Descripción:* ${description}
 🌀 *Registrado:* ${registered ? '✅': '❌'}
 🌐 *Pais:* ${userNationality}
 
 「 💰 *RECURSOS* 」
-💴 *Yenes:* ${yenes}
-🌟 *Nivel:* ${level}
-✨ *Experiencia:* ${exp}
+💴 *Yenes:* ${yenes || 0}
+🌟 *Nivel:* ${level || 0}
+✨ *Experiencia:* ${exp || 0}
 ⚜️ *Rango:* ${role}
 👑 *Premium:* ${premium ? '✅': '❌'}
 `.trim();
@@ -54,19 +54,19 @@ var handler = async (m, { conn }) => {
     let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
 │⧼👤⧽ *ᴜsᴜᴀʀɪᴏ:* *${username}*
 │⧼💠⧽ *ᴇᴅᴀᴅ:* *${registered ? `${age} años` : '×'}*
-│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre === 0 ? 'No especificado' : genre}*
-│⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs:* ${birth ? birth : 'No especificado'}
+│⧼⚧️⧽ *ɢᴇɴᴇʀᴏ:* *${genre}*
+│⧼🎂⧽ *ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs:* ${birth}
 │⧼👩‍❤️‍👩⧽ *ᴄᴀsᴀᴅᴏ:* ${isMarried ? partnerName : 'Nadie'}
-📜 *ᴅᴇsᴄʀɪᴘᴄɪᴏɴ:* ${description ? description : 'Sin Descripción'}
+📜 *ᴅᴇsᴄʀɪᴘᴄɪᴏɴ:* ${description}
 │⧼🌀⧽ *ʀᴇɢɪsᴛʀᴀᴅᴏ:* ${registered ? '✅': '❌'}
 │⧼🌐⧽ *ᴘᴀɪs:* ${userNationality}
 
 ╰─────────────────⪨
 
 ╭────⪩ 𝐑𝐄𝐂𝐔𝐑𝐒𝐎𝐒 ⪨
-│⧼💴⧽ *ʏᴇɴᴇs:* ${yenes}
-│⧼🌟⧽ *ɴɪᴠᴇʟ:* ${level}
-│⧼✨⧽ *ᴇxᴘᴇʀɪᴇɴᴄɪᴀ:* ${exp}
+│⧼💴⧽ *ʏᴇɴᴇs:* ${yenes || 0}
+│⧼🌟⧽ *ɴɪᴠᴇʟ:* ${level || 0}
+│⧼✨⧽ *ᴇxᴘᴇʀɪᴇɴᴄɪᴀ:* ${exp || 0}
 │⧼⚜️⧽ *ʀᴀɴɢᴏ:* ${role}
 ╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
 
