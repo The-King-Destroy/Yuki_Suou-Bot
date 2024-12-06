@@ -77,9 +77,8 @@ handler.before = async (m) => {
 
     const { proposer, timeout } = confirmation[m.sender];
 
-    // Verificar que solo la persona propuesta pueda responder
-    if (m.sender !== proposer) {
-        return conn.sendMessage(m.chat, { text: `《✧》Solo *${conn.getName(proposer)}* puede aceptar la solicitud de matrimonio.` }, { quoted: m });
+    if (m.sender !== proposee) {
+        return conn.sendMessage(m.chat, { text: `《✧》Solo *${conn.getName(proposee)}* puede aceptar la solicitud de matrimonio.` }, { quoted: m });
     }
 
     if (/^No$/i.test(m.text)) {
@@ -104,7 +103,7 @@ handler.before = async (m) => {
     }
 };
 
-handler.tags = ['rg'];
+handler.tags = ['fun'];
 handler.help = ['marry *@usuario*', 'divorce'];
 handler.command = ['marry', 'divorce'];
 handler.group = true;
