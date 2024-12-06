@@ -28,27 +28,22 @@ async function saveHarem(harem) {
 
 const claimHandler = async (m, { conn }) => {
     try {
-        let character;
-
-        // Verificar si se cita un mensaje válido
-        if (m.quoted && m.quoted.sender === conn.user.jid) {
-            const quotedMessageId = m.quoted.id;
-
-            // Verificar si el ID del mensaje citado está en global.lastCharacter
-            if (!global.lastCharacter || !global.lastCharacter[quotedMessageId]) {
-                await conn.reply(m.chat, '《✧》Debes citar un personaje válido para reclamar.', m);
-                return;
-            }
-            character = global.lastCharacter[quotedMessageId];
-        } else {
+        if (!m.quoted || !m.quoted.fromMe) {
             await conn.reply(m.chat, '《✧》Debes citar un personaje válido para reclamar.', m);
             return;
         }
 
+        const quotedMessageId = m.quoted.id;
+
+        if (!global.lastCharacter || !global.lastCharacter[quotedMessageId]) {
+            await conn.reply(m.chat, '《✧》Debes citar un personaje válido para reclamar.', m);
+            return;
+        }
+
+        const character = global.lastCharacter[quotedMessageId];
         const harem = await loadHarem();
         const userId = m.sender;
 
-        // Inicializar el harem del usuario si no existe
         if (!harem[userId]) {
             harem[userId] = [];
         }
@@ -58,7 +53,7 @@ const claimHandler = async (m, { conn }) => {
             return;
         }
 
-        character.owner = userId; // Asignar el personaje al usuario
+        character.owner = userId;
         harem[userId].push({
             name: character.name,
             genre: character.genre,
