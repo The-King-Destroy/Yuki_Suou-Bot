@@ -30,9 +30,11 @@ const claimHandler = async (m, { conn }) => {
     try {
         let character;
 
+        // Verificar si se cita un mensaje válido
         if (m.quoted && m.quoted.sender === conn.user.jid) {
             const quotedMessageId = m.quoted.id;
 
+            // Verificar si el ID del mensaje citado está en global.lastCharacter
             if (!global.lastCharacter || !global.lastCharacter[quotedMessageId]) {
                 await conn.reply(m.chat, '《✧》Debes citar un personaje válido para reclamar.', m);
                 return;
@@ -46,6 +48,7 @@ const claimHandler = async (m, { conn }) => {
         const harem = await loadHarem();
         const userId = m.sender;
 
+        // Inicializar el harem del usuario si no existe
         if (!harem[userId]) {
             harem[userId] = [];
         }
@@ -55,7 +58,7 @@ const claimHandler = async (m, { conn }) => {
             return;
         }
 
-        character.owner = userId;
+        character.owner = userId; // Asignar el personaje al usuario
         harem[userId].push({
             name: character.name,
             genre: character.genre,
@@ -76,4 +79,4 @@ claimHandler.help = ['claim'];
 claimHandler.tags = ['gacha'];
 claimHandler.command = /^(claim|c|reclamar)$/i;
 
-export default claimHandler
+export default claimHandler;
