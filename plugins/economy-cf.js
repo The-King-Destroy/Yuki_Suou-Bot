@@ -1,36 +1,37 @@
-import fs from 'fs';
-
-const obtenerDatos = () => fs.existsSync('data.json') ? JSON.parse(fs.readFileSync('data.json', 'utf-8')) : { usuarios: {} };
-
-const guardarDatos = (data) => fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+let users = {};
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    let [eleccion] = text.split(' ');
-    if (!eleccion) return m.reply(`🌸 Por favor, elige cara o cruz.\nEjemplo: *${usedPrefix + command} cara*`);
+    let [eleccion, cantidad] = text.split(' ');
+    if (!eleccion || !cantidad) {
+        return m.reply(`🌸 Por favor, elige cara o cruz y una cantidad de Yenes para apostar.\nEjemplo: *${usedPrefix + command} cara 50*`);
+    }
 
     eleccion = eleccion.toLowerCase();
+    cantidad = parseInt(cantidad);
     if (eleccion !== 'cara' && eleccion !== 'cruz') {
         return m.reply(`🌷 Elección no válida. Por favor, elige cara o cruz.\nEjemplo: *${usedPrefix + command} cara*`);
     }
 
-    let data = obtenerDatos();
-    let userId = m.sender;
-    if (!data.usuarios[userId]) data.usuarios[userId] = { yenes: 100 };
-
-    let user = data.usuarios[userId];
-    let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
-
-    let mensaje = `💠 Has elegido *${eleccion}*.\n`;
-    if (resultado === eleccion) {
-        user.yenes += 60;
-        mensaje += `🎉 ¡Felicidades! Ha salido *${resultado}* y ganas 60 Yenes.\nTienes ahora *${user.yenes} Yenes 💴*.`;
-    } else {
-        user.yenes -= 30;
-        mensaje += `😿 Lo siento. Ha salido *${resultado}* y pierdes 30 Yenes.\nTienes ahora *${user.yenes} Yenes 💴*.`;
+    if (isNaN(cantidad) || cantidad <= 0) {
+        return m.reply(`🌸 Cantidad no válida. Por favor, elige una cantidad de Yenes para apostar.\nEjemplo: *${usedPrefix + command} cara 50*`);
     }
 
-    data.usuarios[userId] = user;
-    guardarDatos(data);
+    let userId = m.sender;
+    if (!users[userId]) users[userId] = { yenes: 100 };
+    let user = global.db.data.users[m.sender];
+    if (user.yenes < cantidad) {
+        return m.reply(`🌸 No tienes suficientes Yenes para apostar. Tienes ${user.yenes} Yenes.`);
+    }
+
+    let resultado = Math.random() < 0.5 ? 'cara' : 'cruz';
+   let mensaje = `⭐️ La moneda ha caído en `
+    if (resultado === eleccion) {
+        user.yenes += cantidad; 
+    mensaje += `*${resultado}* y has ganado *${cantidad} Yenes*!`;
+    } else {
+        user.yenes -= cantidad;
+        mensaje += `*${resultado}* y has perdido *${cantidad} Yenes*!`;
+    }
 
     await conn.reply(m.chat, mensaje, m);
 };
@@ -38,6 +39,5 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 handler.help = ['cf'];
 handler.tags = ['economy'];
 handler.command = ['cf', 'suerte', 'caracruz'];
-handler.register = true;
 
 export default handler;
