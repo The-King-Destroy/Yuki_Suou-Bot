@@ -39,8 +39,8 @@ var handler = async (m, { conn }) => {
     let userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido';
     
     let noprem = `
-「✿」*PERFIL DE USUARIO* 
-ꕥ *Nombre:* ${username}
+「✿」PERFIL DE USUARIO 
+ꕥ Nombre » ${username}
 ✦ Edad » ${age}
 ⚥ Género » ${genre}
 ♛ Cumpleaños » ${birth} 
@@ -56,7 +56,7 @@ var handler = async (m, { conn }) => {
 `.trim();
 
 let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
-│ꕥ ᴜsᴜᴀʀɪᴏ: » *${username}*
+│ꕥ ᴜsᴜᴀʀɪᴏ » *${username}*
 │✦ ᴇᴅᴀᴅ » *${age}*
 │⚥ ɢᴇɴᴇʀᴏ » *${genre}*
 │♛ ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs »  ${birth}
