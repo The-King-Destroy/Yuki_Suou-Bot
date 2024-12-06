@@ -51,8 +51,8 @@ var handler = async (m, { conn }) => {
 ⛁ Yenes » ${yenes || 0}
 ❖ Nivel » ${level || 0}
 ☆ Experiencia » ${exp || 0}
-⚜ Rango » ${role}
-Premium » ${premium ? '✅': '❌'}
+✎ Rango » ${role}
+❁ Premium » ${premium ? '✅': '❌'}
 `.trim();
 
 let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 ⪨
@@ -67,7 +67,7 @@ let prem = `╭──⪩ 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔�
 │⛁ ʏᴇɴᴇs » ${yenes || 0}
 │❖ ɴɪᴠᴇʟ » ${level || 0}
 │☆ ᴇxᴘᴇʀɪᴇɴᴄɪᴀ » ${exp || 0}
-│⚜ ʀᴀɴɢᴏ » ${role}
+│✎ ʀᴀɴɢᴏ » ${role}
 ╰───⪨ *𝓤𝓼𝓾𝓪𝓻𝓲𝓸 𝓓𝓮𝓼𝓽𝓪𝓬𝓪𝓭𝓸* ⪩`.trim();
 
     conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, { mentions: [who] });
