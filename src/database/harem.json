@@ -1,17 +1,63 @@
-{
-  "groupId1": {
-    "userId1": [
-      {
-        "name": "Yuki Suou",
-        "genre": "Mujer",
-        "value": 200,
-        "source": "Roshidere",
-        "img": [
-          "https://files.catbox.moe/ayhdd8.jpg",
-          "https://files.catbox.moe/yuhztz.jpg",
-          "https://files.catbox.moe/35vpg5.jpg"
-        ]
-      }
+[
+  {
+    "name": "Yuki Suou",
+    "genre": "Mujer",
+    "value": 200,
+    "source": "Roshidere",
+    "img": [
+      "https://files.catbox.moe/ayhdd8.jpg",
+      "https://files.catbox.moe/yuhztz.jpg",
+      "https://files.catbox.moe/35vpg5.jpg"
+    ]
+  },
+  {
+    "name": "Naruto Uzumaki",
+    "genre": "Masculino",
+    "value": 200,
+    "source": "Naruto",
+    "img": [
+      "https://ejemplo.com/naruto1.jpg",
+      "https://ejemplo.com/naruto2.jpg"
+    ]
+  },
+  {
+    "name": "Sakura Haruno",
+    "genre": "Mujer",
+    "value": 150,
+    "source": "Naruto",
+    "img": [
+      "https://ejemplo.com/sakura1.jpg",
+      "https://ejemplo.com/sakura2.jpg"
+    ]
+  },
+  {
+    "name": "Mikasa Ackerman",
+    "genre": "Mujer",
+    "value": 250,
+    "source": "Attack on Titan",
+    "img": [
+      "https://ejemplo.com/mikasa1.jpg",
+      "https://ejemplo.com/mikasa2.jpg"
+    ]
+  },
+  {
+    "name": "Goku",
+    "genre": "Masculino",
+    "value": 300,
+    "source": "Dragon Ball",
+    "img": [
+      "https://ejemplo.com/goku1.jpg",
+      "https://ejemplo.com/goku2.jpg"
+    ]
+  },
+  {
+    "name": "Luffy",
+    "genre": "Masculino",
+    "value": 220,
+    "source": "One Piece",
+    "img": [
+      "https://ejemplo.com/luffy1.jpg",
+      "https://ejemplo.com/luffy2.jpg"
     ]
   }
-}
+]
