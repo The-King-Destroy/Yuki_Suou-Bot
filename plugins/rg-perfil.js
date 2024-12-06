@@ -57,18 +57,19 @@ var handler = async (m, { conn }) => {
 
 let prem = `
 「✿」𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐏𝐑𝐄𝐌𝐈𝐔𝐌 
-ꕥ ᴜsᴜᴀʀɪᴏ » ${username}
-✦ ᴇᴅᴀᴅ » ${age}
-⚥ ɢᴇɴᴇʀᴏ » ${genre}
-♛ ᴄᴜᴍᴘʟᴇᴀɴ̃ᴏs » ${birth}
-♡ ᴄᴀsᴀᴅᴏ con » ${isMarried ? partnerName : 'Nadie'}
-⚘ ᴅᴇsᴄʀɪᴘᴄɪᴏɴ » ${description}
-✧ ʀᴇɢɪsᴛʀᴀᴅᴏ » ${registered ? '✅': '❌'}
-❒ ᴘᴀɪs » ${userNationality}
-⛁ ʏᴇɴᴇs » ${yenes || 0}
-❖ ɴɪᴠᴇʟ » ${level || 0}
-☆ ᴇxᴘᴇʀɪᴇɴᴄɪᴀ » ${exp || 0}
-✎ ʀᴀɴɢᴏ » ${role}
+ꕥ Nombre » ${username}
+✦ Edad » ${age}
+⚥ Género »  ${genre}
+♛ Cumpleaños » ${birth} 
+♡ Casado con » ${isMarried ? partnerName : 'Nadie'}
+⚘ Descripción » ${description}
+✧ Registrado » ${registered ? '✅': '❌'}
+❒ Pais » ${userNationality}
+⛁ Yenes » ${yenes || 0}
+❖ Nivel » ${level || 0}
+☆ Experiencia » ${exp || 0}
+✎ Rango » ${role}
+❁ Premium » ${premium ? '✅': '❌'}
 `.trim();
 
     conn.sendFile(m.chat, pp, 'perfil.jpg', `${premium ? prem.trim() : noprem.trim()}`, m, { mentions: [who] });
