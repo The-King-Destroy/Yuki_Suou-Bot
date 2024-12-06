@@ -41,6 +41,6 @@ const wimageHandler = async (m, { conn, args }) => {
 
 wimageHandler.help = ['wimage'];
 wimageHandler.tags = ['gacha'];
-wimageHandler.command = /^(wimage)$/i;
+wimageHandler.command = /^(cimage)$/i;
 
 export default wimageHandler;
