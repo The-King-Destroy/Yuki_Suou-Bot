@@ -64,7 +64,6 @@ const claimHandler = async (m, { conn }) => {
             name: character.name,
             genre: character.genre,
             value: character.value,
-            status: character.status,
             source: character.source,
             img: character.img
         });
