@@ -44,23 +44,19 @@ const claimHandler = async (m, { conn }) => {
         }
 
         const harem = await loadHarem();
-        const groupId = m.chat;
+        const userId = m.sender;
+
+        if (!harem[userId]) {
+            harem[userId] = [];
+        }
 
         if (character.owner) {
             await conn.reply(m.chat, `El personaje *${character.name}* ya ha sido reclamado por *${character.owner}*.`, m);
             return;
         }
 
-        if (!harem[groupId]) {
-            harem[groupId] = {};
-        }
-
-        if (!harem[groupId][m.sender]) {
-            harem[groupId][m.sender] = [];
-        }
-
-        character.owner = m.sender;
-        harem[groupId][m.sender].push({
+        character.owner = userId;
+        harem[userId].push({
             name: character.name,
             genre: character.genre,
             value: character.value,
@@ -80,4 +76,4 @@ claimHandler.help = ['claim'];
 claimHandler.tags = ['gacha'];
 claimHandler.command = /^(claim|c|reclamar)$/i;
 
-export default claimHandler;
+export default claimHandler

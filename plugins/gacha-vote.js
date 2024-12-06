@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 const haremFilePath = path.resolve('src/database/harem.json');
-const voteCooldowns = {}; // Almacenará los tiempos de cooldown por usuario
+const voteCooldowns = {};
 
 async function loadHarem() {
     try {
@@ -10,7 +10,6 @@ async function loadHarem() {
         return JSON.parse(data);
     } catch (error) {
         if (error.code === 'ENOENT') {
-            console.log('El archivo harem.json no existe. Creando uno nuevo...');
             const emptyHarem = {};
             await saveHarem(emptyHarem);
             return emptyHarem;
@@ -32,7 +31,6 @@ const voteHandler = async (m, { conn, args }) => {
     const userId = m.sender;
     const currentTime = Date.now();
 
-    // Verificar si el usuario está en cooldown
     if (voteCooldowns[userId] && currentTime < voteCooldowns[userId]) {
         const timeLeft = Math.ceil((voteCooldowns[userId] - currentTime) / 1000);
         const minutes = Math.floor(timeLeft / 60);
@@ -42,14 +40,12 @@ const voteHandler = async (m, { conn, args }) => {
     }
 
     if (!args[0]) {
-        await conn.reply(m.chat, '《✧》Debes especificar un personaje para votarlo.', m); // Mensaje actualizado
+        await conn.reply(m.chat, '《✧》Debes especificar un personaje para votarlo.', m);
         return;
     }
 
     const characterName = args.join(' ').trim();
     const harem = await loadHarem();
-
-    // Verificar si el personaje existe en el harem
     const userHarem = harem[userId] || [];
     const character = userHarem.find(c => c.name.toLowerCase() === characterName.toLowerCase());
 
@@ -58,15 +54,13 @@ const voteHandler = async (m, { conn, args }) => {
         return;
     }
 
-    // Aumentar el valor del personaje de forma aleatoria entre 1 y 20
-    const increaseValue = Math.floor(Math.random() * 20) + 1; // Generar un valor entre 1 y 20
-    character.value += increaseValue; // Aumentar el valor actual del personaje
+    const increaseValue = Math.floor(Math.random() * 20) + 1; 
+    character.value += increaseValue;
     
     await saveHarem(harem);
     const successMessage = `✰ Votaste por el personaje *${character.name}*!\n> Su nuevo valor es *${character.value}* (aumento de *${increaseValue}*)`;
     await conn.reply(m.chat, successMessage, m);
 
-    // Establecer el cooldown a 2 horas
     voteCooldowns[userId] = currentTime + 2 * 60 * 60 * 1000;
 };
 

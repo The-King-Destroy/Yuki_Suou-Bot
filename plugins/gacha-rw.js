@@ -3,7 +3,6 @@ import path from 'path';
 
 const charactersFilePath = path.resolve('src/database/harem.json');
 const cooldowns = {};
-const characterExpiry = {};
 
 async function loadCharacters() {
     try {
@@ -45,10 +44,9 @@ const rollWaifuHandler = async (m, { conn }) => {
         `.trim();
 
         await conn.sendFile(m.chat, randomImage, `${randomCharacter.name}.jpg`, message, m);
-        global.lastCharacter = { ...global.lastCharacter, [m.sender]: randomCharacter };
+        global.lastCharacter = { ...global.lastCharacter, [m.id]: randomCharacter };
 
         cooldowns[groupId] = currentTime + 15 * 60 * 1000; 
-        characterExpiry[randomCharacter.name] = currentTime + 2 * 60 * 1000;
     } catch (error) {
         await conn.reply(m.chat, `Error al cargar el personaje: ${error.message}`, m);
     }

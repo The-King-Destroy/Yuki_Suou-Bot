@@ -64,4 +64,4 @@ haremHandler.help = ['harem'];
 haremHandler.tags = ['gacha'];
 haremHandler.command = /^(harem)$/i;
 
-export default haremHandler;
+export default haremHandler
