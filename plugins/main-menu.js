@@ -55,42 +55,35 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 *─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ──ׄ*
  *【𝕷 𝖎 𝖘 𝖙 𝖆 - 𝕯𝖊 - 𝕮 𝖔 𝖒 𝖆 𝖓 𝖉 𝖔 𝖘】* 
 
-┏━━⪩「 ♡⃝𝕴𝖓𝖋𝖔-𝕭𝖔𝖙ᚐ҉ᚐ 」⪨
+┏━━⪩「 ♡⃝𝕴𝖓𝖋𝖔𝖗𝖒𝖆𝖈𝖎ó𝖓ᚐ҉ᚐ 」⪨
 ┃❀ .botreglas
 ┃❀ .menu
-┃❀ .menujuegos
-┃❀ .menuanime
-┃❀ .menuhorny 
-┃❀ .menuaudios 
+┃❀ .games
 ┃❀ .runtime
 ┃❀ .script
 ┃❀ .staff
 ┃❀ .blocklist
-┗━━━━━━━━━━━━━━━━━⪩
-┏━━⪩「 ♡⃝𝕴𝖓𝖋𝖔𝖗𝖒𝖆𝖈𝖎ó𝖓ᚐ҉ᚐ 」⪨
-┃✿ .creador
-┃✿ .editautoresponder
-┃✿ .owner
-┃✿ .dash
-┃✿ .dashboard
-┃✿ .views
-┃✿ .database
-┃✿ .usuarios
-┃✿ .user
-┃✿ .ds
-┃✿ .listprem
-┃✿ .status
-┃✿ .solicitud *<mensaje>*
-┃✿ .sug *<mensaje>*
-┃✿ .horario
-┃✿ .skyplus
-┃✿ .infobot
-┃✿ .ping
-┃✿ .reportar
-┃✿ .sistema
-┃✿ .speed
-┃✿ .speedtest
-┃✿ .reportar
+┃❀ .creador
+┃❀ .editautoresponder
+┃❀ .owner
+┃❀ .dash
+┃❀ .dashboard
+┃❀ .views
+┃❀ .database
+┃❀ .usuarios
+┃❀ .ds
+┃❀ .listprem
+┃❀ .status
+┃❀ .solicitud *<mensaje>*
+┃❀ .sug *<mensaje>*
+┃❀ .skyplus
+┃❀ .infobot
+┃❀ .ping
+┃❀ .reportar
+┃❀ .sistema
+┃❀ .speed
+┃❀ .speedtest
+┃❀ .reportar
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕽𝖊𝖌𝖎𝖘𝖙𝖗𝖔ᚐ҉ᚐ 」⪨
 ┃❋ .reg
@@ -138,6 +131,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃☬ .morse *<encode|decode>*
 ┃☬ .nombreninja *<texto>*
 ┃☬ .pajeame
+┃☬ .ppcouple
 ┃☬ .personalidad
 ┃☬ .piropo
 ┃☬ .pokedex *<pokemon>*
@@ -148,6 +142,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃☬ .sorteo
 ┃☬ .itssostupid
 ┃☬ .estupido
+┃☬ .lolicon
 ┃☬ .stupid
 ┃☬ .top *<texto>*
 ┃☬ .formartrio @usuario1 @usuario2
@@ -228,13 +223,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✤ .rule34 <personaje>
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕽𝖔𝖑𝖑𝖜𝖆𝖎𝖋𝖚𝖘ᚐ҉ᚐ 」⪨
-┃✦ .character
-┃✦ .darrw
-┃✦ .obtenidos
-┃✦ .c
-┃✦ .robarpersonaje
-┃✦ .rw
-┃✦ .toprw
+┃✦ .No disponible por el momento :v
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕰𝖈𝖔𝖓𝖔𝖒í𝖆ᚐ҉ᚐ 」⪨
 ┃✱ .apostar 
@@ -312,7 +301,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┏━━⪩「 ♡⃝𝕯𝖊𝖘𝖈𝖆𝖗𝖌𝖆𝖘ᚐ҉ᚐ 」⪨
 ┃Ѽ .animedl
 ┃Ѽ .animeinfo
-┃Ѽ .apk2
+┃Ѽ .apk
 ┃Ѽ .apkmod
 ┃Ѽ .facebook
 ┃Ѽ .fb
@@ -321,7 +310,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .instagram2
 ┃Ѽ .ig2
 ┃Ѽ .imagen <query>
-┃Ѽ .mangad <nombre del manga> <número del capítulo>
+┃Ѽ .mangad <manga> <capítulo>
 ┃Ѽ .mediafire
 ┃Ѽ .mega
 ┃Ѽ .npmdl
@@ -330,12 +319,10 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .pinvid
 ┃Ѽ .play
 ┃Ѽ .play2
-┃Ѽ .play3
-┃Ѽ .play4
 ┃Ѽ .playdoc
 ┃Ѽ .playdoc2
-┃Ѽ .mp3
-┃Ѽ .mp4
+┃Ѽ .ytmp3 *<link>*
+┃Ѽ .ytpm4 *<link>*
 ┃Ѽ .tiktokrandom
 ┃Ѽ .spotify
 ┃Ѽ .tiktokimg <url>
@@ -355,7 +342,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕲𝖗𝖚𝖕𝖔𝖘ᚐ҉ᚐ 」⪨
 ┃♕ .add
-┃♕ admins <texto>
+┃♕ .admins <texto>
 ┃♕ .bienvenidos/nuevos
 ┃♕ .nights/noches
 ┃♕ .dias/days
@@ -376,7 +363,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃♕ .rentar2 *<link>*
 ┃♕ .revoke
 ┃♕ .setbye <text>
-┃♕ .Setdesc <text>
+┃♕ .Setdescs <text>
 ┃♕ .setname <text>
 ┃♕ .setppgrup
 ┃♕ .setwelcome <text>
@@ -385,6 +372,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕳𝖊𝖗𝖗𝖆𝖒𝖎𝖊𝖓𝖙𝖆𝖘 」⪨
 ┃✰ .cal *<ecuacion>*
+┃✰ .horario
 ┃✰ .clima *<lugar>*
 ┃✰ .fake
 ┃✰ .getbio *@tag*
@@ -461,7 +449,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃🜲 .bcgc
 ┃🜲 .bcgc2
 ┃🜲 .cleanfiles
-┃🜲 .cleartmp
+┃🜲 .spamwa <enlace>|<mesage>|<número>
 ┃🜲 .setcmd *<texto>*
 ┃🜲 .deletefile
 ┃🜲 .delexpired
