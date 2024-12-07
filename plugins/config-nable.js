@@ -21,6 +21,7 @@ ${usedPrefix + command} audios
 ${usedPrefix + command} modoadmin
 ${usedPrefix + command} antifake
 ${usedPrefix + command} antibot
+${usedPrefix + command} onlyLatinos
 
 🌷 *OPCIONES PARA MI PROPIETARIO*
 
@@ -143,7 +144,7 @@ global.dfail('admin', m, conn)
 throw false
 }}
 chat.antiLink = isEnable
-break
+break  
 
 case 'antilink2': case 'antienlace2':
 if (m.isGroup) {
@@ -438,6 +439,14 @@ global.dfail('admin', m, conn)
 throw false
 }}
 chat.antiTraba = isEnable
+break
+case 'onlyLatinos': case 'antiputas': case 'antizorras': case 'antiarabe':
+if (m.isGroup) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
+throw false
+}}
+chat.onlyLatinos = isEnable 
 break
 case 'simi': case 'chatbot':
 if (m.isGroup) {
