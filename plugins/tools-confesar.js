@@ -1,13 +1,11 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.menfess = conn.menfess ? conn.menfess : {}
-    const user = {};
-    const _user = {}; 
 
     if (command === 'anonimo') {
         if (!text) throw m.reply(`*🌸 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje\n\n*🌷 Nota:* El nombre del remitente puede ser seudónimo o anónimo.\n\n*🍂 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]}|Anonimo|Hola.`);
 
         let [jid, name, pesan] = text.split('|');
-        if ((!jid || !name || !pesan)) throw m.reply(`*🍁 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje\n\n*🌹 Nota:* El nombre del remitente puede ser seudónimo o anónimo.\n\n*🍀 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]}|Anonimo|Hola.`);
+        if ((!jid || !name || !pesan)) throw m.reply(`*🍁 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
 
         jid = jid.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
         let data = (await conn.onWhatsApp(jid))[0] || {};
@@ -15,7 +13,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         if (jid == m.sender) throw m.reply('🌸 No puedes mandarte un mensaje a ti mismo.');
 
         let id = Math.floor(100 + Math.random() * 900);
-
         while (conn.menfess[id]) {
             id = Math.floor(100 + Math.random() * 900);
         }
@@ -29,7 +26,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     mentionedJid: [data.jid],
                 }
             }
-        }, {}).then(() => {
+        }, {}).then(async () => {
+            await conn.sendMessage(data.jid, {
+                image: { url: 'https://files.catbox.moe/ecn0w8.jpg' },
+                caption: teks,
+                contextInfo: {
+                    mentionedJid: [data.jid],
+                }
+            });
             m.reply('*🍂 Mensaje enviado con éxito.*');
             conn.menfess[id] = {
                 id,
@@ -48,12 +52,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let args = text.split(' ');
         if (args.length < 2) return m.reply('Por favor, especifica la ID y tu mensaje después del comando.\nEjemplo: .responder <ID> <mensaje>');
 
-        let responseId = args[1]; 
-        let responseMessage = args.slice(2).join(' '); 
+        let responseId = args[1];
+        let responseMessage = args.slice(2).join(' ');
+
+        if (isNaN(responseId) || !conn.menfess[responseId]) {
+            return m.reply('No hay mensajes anónimos con esa ID.');
+        }
 
         let mfToRespond = conn.menfess[responseId];
-        if (!mfToRespond) return m.reply('No hay mensajes anónimos con esa ID.');
-
         const confirm = `¿Confirmas enviar tu respuesta a @${mfToRespond.nama}?*\n\n*—◉ 𝑬𝒔𝒄𝒓𝒊𝒃𝒂:*\n*◉ responder ${responseId} ${responseMessage}*`.trim();
 
         await conn.sendMessage(mfToRespond.dari, {
