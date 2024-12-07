@@ -314,6 +314,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .mediafire
 ┃Ѽ .mega
 ┃Ѽ .npmdl
+┃Ѽ .ytdl *<link>*
 ┃Ѽ .aptoide
 ┃Ѽ .pinterest
 ┃Ѽ .pinvid
@@ -323,6 +324,8 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .playdoc2
 ┃Ѽ .ytmp3 *<link>*
 ┃Ѽ .ytpm4 *<link>*
+┃Ѽ .ytmp3doc *<link>*
+┃Ѽ .ytmp4doc *<link>*
 ┃Ѽ .tiktokrandom
 ┃Ѽ .spotify
 ┃Ѽ .tiktokimg <url>
