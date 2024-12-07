@@ -55,7 +55,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let responseId = args[1];
         let responseMessage = args.slice(2).join(' ');
 
-        if (isNaN(responseId) || !conn.menfess[responseId]) {
+        if (!(responseId in conn.menfess)) {
             return m.reply('No hay mensajes anónimos con esa ID.');
         }
 
