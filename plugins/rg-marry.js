@@ -44,7 +44,7 @@ const handler = async (m, { conn, command }) => {
             proposals[proposer] = proposee;
             const proposerName = conn.getName(proposer);
             const proposeeName = conn.getName(proposee);
-            const confirmationMessage = `♡ ${proposerName} te ha propuesto matrimonio. ${proposeeName}  ¿aceptas? •(=^●ω●^=)•\n\n*Debes Responder con:*\n> ✐"Si" » para aceptar\n> ✐"No" » para rechazar.`;
+            const confirmationMessage = `♡ ${proposerName} te ha propuesto matrimonio. ${proposeeName} ¿aceptas? •(=^●ω●^=)•\n\n*Debes Responder con:*\n> ✐"Si" » para aceptar\n> ✐"No" » para rechazar.`;
             await conn.reply(m.chat, confirmationMessage, m, { mentions: [proposee, proposer] });
 
             confirmation[proposee] = {
@@ -77,10 +77,6 @@ handler.before = async (m) => {
 
     const { proposer, timeout } = confirmation[m.sender];
 
-    if (m.sender !== proposee) {
-        return conn.sendMessage(m.chat, { text: `《✧》Solo *${conn.getName(proposee)}* puede aceptar la solicitud de matrimonio.` }, { quoted: m });
-    }
-
     if (/^No$/i.test(m.text)) {
         clearTimeout(timeout);
         delete confirmation[m.sender];
@@ -93,17 +89,19 @@ handler.before = async (m) => {
         marriages[m.sender] = proposer;
         saveMarriages();
 
-        conn.sendMessage(m.chat, { text: `✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩
+        const marriageMessage = `✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩
 ¡Se han Casado! ฅ^•ﻌ•^ฅ*:･ﾟ✧\n\n*•.¸♡ Esposo: ${conn.getName(proposer)}\n*•.¸♡ Esposa: ${conn.getName(m.sender)}\n\n\`Disfruten de su luna de miel\`
 
-✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩`, mentions: [proposer, m.sender] }, { quoted: m });
+✩.･:｡≻───── ⋆♡⋆ ─────.•:｡✩`;
+        
+        conn.sendMessage(m.chat, { text: marriageMessage, mentions: [proposer, m.sender] }, { quoted: m });
 
         clearTimeout(timeout);
         delete confirmation[m.sender];
     }
 };
 
-handler.tags = ['fun'];
+handler.tags = ['rg'];
 handler.help = ['marry *@usuario*', 'divorce'];
 handler.command = ['marry', 'divorce'];
 handler.group = true;
