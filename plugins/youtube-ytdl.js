@@ -63,7 +63,9 @@ let handler = async (m, { conn, args, command }) => {
     txt += `	» 🎞️   *Calidad* : ${selectedResolution}\n\n`;
     txt += `> 📽️ *Su video se está enviando, espere un momento...*`;
     
+    // Enviar la miniatura con el texto
     conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, rcanal);
+    // Enviar el video
     await conn.sendFile(m.chat, dlUrl, title + '.mp4', `
 *🌸 Título* : ${title}
 *📁 Calidad* : ${selectedResolution}
@@ -76,10 +78,10 @@ let handler = async (m, { conn, args, command }) => {
 }
 
 handler.help = ['ytdl *<link yt>*'];
-handler.tags = ['downloader', 'premium'];
+handler.tags = ['descargas'];
 handler.command = /^ytdl|dlyt|youtubedl$/i;
 handler.premium = true;
-handler.register = true
-handler.group = true
+handler.register = true;
+handler.group = true;
 
 export default handler;
