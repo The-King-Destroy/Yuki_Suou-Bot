@@ -43,5 +43,6 @@ handler.command = ['facebook2', 'fb2']
 //handler.yenes = 1
 handler.group = true;
 handler.register = true
+handler.group = true
 
 export default handler
