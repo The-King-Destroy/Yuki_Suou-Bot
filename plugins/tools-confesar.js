@@ -1,11 +1,11 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    conn.menfess = conn.menfess ? conn.menfess : {}
+    conn.menfess = conn.menfess || {};
 
     if (command === 'anonimo') {
-        if (!text) throw m.reply(`*🌸 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje\n\n*🌷 Nota:* El nombre del remitente puede ser seudónimo o anónimo.\n\n*🍂 Uso:* ${usedPrefix + command} ${m.sender.split`@`[0]}|Anonimo|Hola.`);
+        if (!text) throw m.reply(`*🌸 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
 
         let [jid, name, pesan] = text.split('|');
-        if ((!jid || !name || !pesan)) throw m.reply(`*🍁 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
+        if (!jid || !name || !pesan) throw m.reply(`*🍁 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
 
         jid = jid.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
         let data = (await conn.onWhatsApp(jid))[0] || {};
@@ -17,16 +17,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             id = Math.floor(100 + Math.random() * 900);
         }
 
-        let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje anónimo.\n\nDe: *${name}*\nMensaje: \n${pesan}\nID: ${id}\n\n¿Quieres responder a este mensaje? Simplemente escribe:\n> .responder ${id} <mensaje>\n\n_*El mensaje será enviado 📤*_`;
+        let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje anónimo.\n\nDe: *${name}*\nMensaje: \n${pesan}\nID: ${id}\n\n¿Quieres responder a este mensaje? Simplemente escribe:\n> .responder ${id} <mensaje>`;
 
-        let messageSent = await conn.relayMessage(data.jid, {
-            extendedTextMessage: {
-                text: teks,
-                contextInfo: {
-                    mentionedJid: [data.jid],
-                }
-            }
-        }, {});
+        await conn.sendMessage(data.jid, {
+            text: teks,
+            mentions: [data.jid]
+        });
 
         await conn.sendMessage(data.jid, {
             image: { url: 'https://files.catbox.moe/ecn0w8.jpg' },
@@ -46,7 +42,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             status: false,
             replies: []
         };
-        return !0;
+        return true;
     }
 
     if (command === 'responder') {
@@ -56,7 +52,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         let responseId = args[1];
         let responseMessage = args.slice(2).join(' ');
 
-        if (!(responseId in conn.menfess)) {
+        if (!conn.menfess[responseId]) {
             return m.reply('No hay mensajes anónimos con esa ID.');
         }
 
@@ -66,7 +62,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendMessage(mfToRespond.dari, {
             text: confirm,
             mentions: [mfToRespond.dari]
-        }, { quoted: m });
+        });
 
         mfToRespond.replies.push({
             responder: m.sender,
