@@ -68,5 +68,6 @@ handler.tags = ['descargas']
 handler.command = ['ytmp3', 'yta', 'fgmp3']
 //handler.limit = 1
 handler.register = true 
+handler.group = true
 
 export default handler
