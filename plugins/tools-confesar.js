@@ -13,7 +13,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (jid == m.sender) throw m.reply('🌸 No puedes mandarte un mensaje a ti mismo.');
 
     let chatId = `${m.sender}_${data.jid}`;
-    let id = (conn.chatIds[chatId] = (conn.chatIds[chatId] || 0) + 1);
+    let id = Math.floor(100 + Math.random() * 900);
+
+    while (conn.menfess[id]) {
+        id = Math.floor(100 + Math.random() * 900);
+    }
 
     let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje de confesión.\n\nDe: *${name}*\nMensaje: \n${pesan}\nID: ${id}\n\n¿Quieres responder a este mensaje? ¿Cómo puedes hacerlo? Simplemente escriba .responder ${id} <tu mensaje> y envíelo, para transmitirlo a *${name}*.`;
 
@@ -22,6 +26,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             text: teks,
             contextInfo: {
                 mentionedJid: [data.jid],
+                externalAdReply: {
+                    title: 'Mensajes Anónimos',
+                    mediaType: 1,
+                    previewType: 0,
+                    renderLargerThumbnail: true,
+                    thumbnailUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIyz1dMPkZuNleUyfXPMsltHwKKdVddTf4-A&usqp=CAU',
+                    sourceUrl: ''
+                }
             }
         }
     }, {}).then(() => {
@@ -40,13 +52,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     if (command === 'responder') {
         let args = text.split(' ');
-        if (args.length < 2) return m.reply('Por favor, especifica el ID y tu respuesta después del comando.');
+        if (args.length < 2) return m.reply('Por favor, especifica la ID y tu respuesta después del comando.');
 
         let responseId = args[1];
         let responseMessage = args.slice(2).join(' ');
 
         let mfToRespond = conn.menfess[responseId];
-        if (!mfToRespond) return m.reply('No hay mensajes anónimos con ese ID.');
+        if (!mfToRespond) return m.reply('No hay mensajes anónimos con esa ID.');
 
         await conn.sendMessage(mfToRespond.dari, {
             text: `Respuesta de *${mfToRespond.nama}*: ${responseMessage}\n\nID: ${responseId}`
