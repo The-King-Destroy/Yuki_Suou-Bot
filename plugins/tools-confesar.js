@@ -19,33 +19,34 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
         let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje anónimo.\n\nDe: *${name}*\nMensaje: \n${pesan}\nID: ${id}\n\n¿Quieres responder a este mensaje? Simplemente escribe:\n> .responder ${id} <mensaje>\n\n_*El mensaje será enviado 📤*_`;
 
-        await conn.relayMessage(data.jid, {
+        let messageSent = await conn.relayMessage(data.jid, {
             extendedTextMessage: {
                 text: teks,
                 contextInfo: {
                     mentionedJid: [data.jid],
                 }
             }
-        }, {}).then(async () => {
-            await conn.sendMessage(data.jid, {
-                image: { url: 'https://files.catbox.moe/ecn0w8.jpg' },
-                caption: teks,
-                contextInfo: {
-                    mentionedJid: [data.jid],
-                }
-            });
-            m.reply('*🍂 Mensaje enviado con éxito.*');
-            conn.menfess[id] = {
-                id,
-                dari: m.sender,
-                nama: name,
-                penerima: data.jid,
-                pesan: pesan,
-                status: false,
-                replies: []
-            };
-            return !0;
+        }, {});
+
+        await conn.sendMessage(data.jid, {
+            image: { url: 'https://files.catbox.moe/ecn0w8.jpg' },
+            caption: teks,
+            contextInfo: {
+                mentionedJid: [data.jid],
+            }
         });
+
+        m.reply('*🍂 Mensaje enviado con éxito.*');
+        conn.menfess[id] = {
+            id,
+            dari: m.sender,
+            nama: name,
+            penerima: data.jid,
+            pesan: pesan,
+            status: false,
+            replies: []
+        };
+        return !0;
     }
 
     if (command === 'responder') {
