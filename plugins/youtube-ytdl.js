@@ -1,7 +1,7 @@
 import { youtubedlv2, youtubedl } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, args, command }) => {
-  if (!args[0]) return conn.reply(m.chat, `🌸 *Ingresa un enlace del vídeo de YouTube junto al comando.*`, m, rcanal)
+  if (!args[0]) return conn.reply(m.chat, `🌼 Ingresa un enlace del vídeo de YouTube junto al comando.`, m, rcanal)
   await m.react('🕓')
   let v = args[0]
 
@@ -41,14 +41,14 @@ let handler = async (m, { conn, args, command }) => {
   }
   
   if (dlUrl) {
-  let txt = `*𔓕꯭  ꯭ ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭ ꯭𔓕*\n\n`
-      txt += `	» 📚   *Titulo* : ${title}\n`
-      txt += `	» ☁️  *Tamaño* ${size}\n`
-      txt += `	» 🎞️   *Calidad* : ${selectedResolution}\n\n`
-      txt += `> 📽️ *Su video se está enviando, espere un momento...*`
+  let txt = `*乂  Y O U T U B E  -  Y T D L*\n\n`
+      txt += `	✩   *Título* : ${title}\n`
+      txt += `	✩   *Tamaño* : ${size}\n`
+      txt += `	✩   *Calidad* : ${selectedResolution}\n\n`
+      txt += `*- ↻ El video se esta enviando espera un momento, soy lenta. . .*`
 conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
 await conn.sendFile(m.chat, dlUrl, title + '.mp4', `
-*🌸 Título* : ${title}
+*🎋 Título* : ${title}
 *📁 Calidad* : ${selectedResolution}
 `.trim(), m, false, { asDocument: user.useDocument })
 
@@ -57,9 +57,7 @@ await m.react('✅')
 await m.react('✖️')
 }}
 handler.help = ['ytdl *<link yt>*']
-handler.tags = ['descargas']
+handler.tags = ['downloader', 'premium']
 handler.command = /^ytdl|dlyt|youtubedl$/i
-handler.premium = true
-handler.register = true
-handler.group = true
+handler.premium = true 
 export default handler
