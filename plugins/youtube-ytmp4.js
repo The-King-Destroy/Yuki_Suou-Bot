@@ -68,5 +68,6 @@ handler.tags = ['descargas']
 handler.command = ['ytmp4', 'ytv', 'yt']
 //handler.limit = 1
 handler.register = true 
+handler.group = true
 
 export default handler
