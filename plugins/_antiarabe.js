@@ -3,7 +3,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin, isOwner, isROwner}) 
   if (m.isGroup) return !1;
   if (!m.message) return !0;
 
-  let forbidPrefixes = ["212", "265", "234", "258", "263", "93", "967", "92", "234", "91", "254", "213"];
+  let forbidPrefixes = ["212", "265", "234", "258", "263", "93", "967", "92", "91", "254", "213"];
   
   const senderNumber = m.sender.split('@')[0];
   const hasForbiddenPrefix = forbidPrefixes.some(prefix => senderNumber.startsWith(prefix));
