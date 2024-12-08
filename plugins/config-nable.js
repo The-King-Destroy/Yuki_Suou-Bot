@@ -431,6 +431,15 @@ throw false
 }
 bot.antiPrivate = isEnable
 break
+case 'antiprivado2': case 'antiarabe':
+case 'privado':
+isAll = true
+if (!isROwner) {
+global.dfail('admin', m, conn)
+throw false
+}
+bot.antiPrivate = isEnable
+break
 case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
