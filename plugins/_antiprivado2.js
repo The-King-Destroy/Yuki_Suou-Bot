@@ -1,4 +1,3 @@
-ñ
 export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner }) {
   if (m.isBaileys && m.fromMe) return true;
   if (m.isGroup) return false;
