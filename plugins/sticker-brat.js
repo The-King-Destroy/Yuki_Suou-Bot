@@ -8,7 +8,9 @@ var handler = async (m, {
     usedPrefix, 
     command
 }) => {
-    let ps = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.quoted && m.quoted.caption ? m.quoted.caption : m.quoted && m.quoted.description ? m.quoted.description : '';
+    let ps = text || (m.quoted && (m.quoted.text || m.quoted.caption || m.quoted.description)) || '';
+    if (typeof ps !== 'string') ps = '';
+
     if (!ps) throw m.reply(`*• Ejemplo :* ${usedPrefix + command} *[texto]*`);
 
     let res = `https://mxmxk-helper.hf.space/brat?text=${ps}`;
