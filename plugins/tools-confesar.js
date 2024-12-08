@@ -1,81 +1,79 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    conn.menfess = conn.menfess || {};
+    const menfess = conn.menfess || {};
 
     if (command === 'anonimo') {
-        if (!text) throw m.reply(`*🌸 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
-
-        let [jid, name, pesan] = text.split('|');
-        if (!jid || !name || !pesan) throw m.reply(`*🍁 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
-
-        jid = jid.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
-        let data = (await conn.onWhatsApp(jid))[0] || {};
-        if (!data.exists) throw m.reply('🍂 El número no está registrado en WhatsApp.');
-        if (jid == m.sender) throw m.reply('🌸 No puedes mandarte un mensaje a ti mismo.');
-
-        let id = Math.floor(100 + Math.random() * 900);
-        while (conn.menfess[id]) {
-            id = Math.floor(100 + Math.random() * 900);
+        if (!text) {
+            return m.reply(`*🌸 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
         }
 
-        let teks = `Hola @${data.jid.split("@")[0]}, recibiste un mensaje anónimo.\n\nDe: *${name}*\nMensaje: \n${pesan}\nID: ${id}\n\n¿Quieres responder a este mensaje? Simplemente escribe:\n> .responder ${id} <mensaje>`;
+        const [number, alias, message] = text.split('|');
+        if (!number || !alias || !message) {
+            return m.reply(`*🍁 Ejemplo:*\n\n${usedPrefix + command} numero|nombre anónimo|mensaje`);
+        }
 
-        await conn.sendMessage(data.jid, {
-            text: teks,
-            mentions: [data.jid]
-        });
+        const targetJid = number.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+        const user = (await conn.onWhatsApp(targetJid))[0];
 
-        await conn.sendMessage(data.jid, {
+        if (!user || !user.exists) {
+            return m.reply('🍂 El número no está registrado en WhatsApp.');
+        }
+        if (targetJid === m.sender) {
+            return m.reply('🌸 No puedes mandarte un mensaje a ti mismo.');
+        }
+
+        const uniqueId = Math.floor(1000 + Math.random() * 9000);
+        while (menfess[uniqueId]) {
+            uniqueId = Math.floor(1000 + Math.random() * 9000);
+        }
+
+        const textMessage = `Hola @${user.jid.split("@")[0]}, recibiste un mensaje anónimo.\n\nDe: *${alias}*\nMensaje: ${message}\nID: ${uniqueId}\n\nPara responder, usa:\n> .responder ${uniqueId} <tu mensaje>`;
+
+        await conn.sendMessage(user.jid, { text: textMessage, mentions: [user.jid] });
+        await conn.sendMessage(user.jid, {
             image: { url: 'https://files.catbox.moe/ecn0w8.jpg' },
-            caption: teks,
-            contextInfo: {
-                mentionedJid: [data.jid],
-            }
+            caption: textMessage,
         });
 
         m.reply('*🍂 Mensaje enviado con éxito.*');
-        conn.menfess[id] = {
-            id,
-            dari: m.sender,
-            nama: name,
-            penerima: data.jid,
-            pesan: pesan,
+        menfess[uniqueId] = {
+            id: uniqueId,
+            sender: m.sender,
+            alias: alias,
+            recipient: user.jid,
+            message: message,
             status: false,
-            replies: []
+            replies: [],
         };
-        return true;
     }
 
     if (command === 'responder') {
-        let args = text.split(' ');
-        if (args.length < 2) return m.reply('Por favor, especifica la ID y tu mensaje después del comando.\nEjemplo: .responder <ID> <mensaje>');
+        const args = text.split(' ');
+        if (args.length < 2) {
+            return m.reply('Especifica la ID y tu mensaje después del comando.\nEjemplo: .responder <ID> <mensaje>');
+        }
 
-        let responseId = args[1];
-        let responseMessage = args.slice(2).join(' ');
+        const responseId = args[1];
+        const responseMessage = args.slice(2).join(' ');
 
-        if (!conn.menfess[responseId]) {
+        if (!menfess[responseId]) {
             return m.reply('No hay mensajes anónimos con esa ID.');
         }
 
-        let mfToRespond = conn.menfess[responseId];
-        const confirm = `¿Confirmas enviar tu respuesta a @${mfToRespond.nama}?*\n\n*—◉ 𝑬𝒔𝒄𝒓𝒊𝒃𝒂:*\n*◉ responder ${responseId} ${responseMessage}*`.trim();
-
-        await conn.sendMessage(mfToRespond.dari, {
-            text: confirm,
-            mentions: [mfToRespond.dari]
+        const messageToRespond = menfess[responseId];
+        await conn.sendMessage(messageToRespond.sender, {
+            text: `Tu respuesta a @${messageToRespond.alias}:\n${responseMessage}`,
+            mentions: [messageToRespond.sender],
         });
 
-        mfToRespond.replies.push({
-            responder: m.sender,
-            message: responseMessage
-        });
-        m.reply('*El mensaje será enviado en breve*');
+        messageToRespond.replies.push({ responder: m.sender, message: responseMessage });
+        m.reply('*Respuesta enviada con éxito.*');
     }
 }
 
-handler.tags = ['tools']
-handler.help = ['anonimo'].map(v => v + ' <número|nombre anónimo|mensaje>')
-handler.command = /^(mfs|anonimo|anonymus|mensaje|responder)$/i
-handler.register = true
-handler.private = true
+handler.tags = ['tools'];
+handler.help = ['anonimo'].map(v => v + ' <número|nombre anónimo|mensaje>');
+handler.command = /^(anonimo|responder)$/i;
+handler.register = true;
+handler.private = true;
 
 export default handler;
