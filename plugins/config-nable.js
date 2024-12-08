@@ -430,6 +430,14 @@ global.dfail('rowner', m, conn)
 throw false
 }
 bot.antiPrivate = isEnable
+case 'antiarabes': case 'antiarabe':
+case 'privado':
+isAll = true
+if (!isROwner) {
+global.dfail('rowner', m, conn)
+throw false
+}
+bot.antiarabe = isEnable
 case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
 if (!(isAdmin || isOwner)) {
