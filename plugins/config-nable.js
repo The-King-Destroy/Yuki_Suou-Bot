@@ -438,7 +438,7 @@ if (!isROwner) {
 global.dfail('admin', m, conn)
 throw false
 }
-bot.antiPrivate = isEnable
+bot.antiPrivate2 = isEnable
 break
 case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
