@@ -435,7 +435,7 @@ case 'antiprivado2': case 'antiarabe':
 case 'privado':
 isAll = true
 if (!isROwner) {
-global.dfail('admin', m, conn)
+global.dfail('rowner', m, conn)
 throw false
 }
 bot.antiPrivate2 = isEnable
