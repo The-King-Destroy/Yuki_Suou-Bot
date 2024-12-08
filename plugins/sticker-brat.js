@@ -1,5 +1,6 @@
 import fs from 'fs'
-  import WSF from "wa-sticker-formatter";
+import WSF from "wa-sticker-formatter";
+
 var handler = async (m, {
     conn, 
     args, 
@@ -7,28 +8,27 @@ var handler = async (m, {
     usedPrefix, 
     command
 }) => {
-    let ps = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.quoted && m.quoted.caption ? m.quoted.caption : m.quoted && m.quoted.description ? m.quoted.description : ''
-    if (!ps) throw m.reply(`*• Ejemplo :* ${usedPrefix + command} *[texto]*`)
+    let ps = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.quoted && m.quoted.caption ? m.quoted.caption : m.quoted && m.quoted.description ? m.quoted.description : '';
+    if (!ps) throw m.reply(`*• Ejemplo :* ${usedPrefix + command} *[texto]*`);
 
-    let res = `https://mxmxk-helper.hf.space/brat?text=${ps}`
+    let res = `https://mxmxk-helper.hf.space/brat?text=${ps}`;
 
     try {
-async function sticker(img, url, packname, author, categories = [""]) {
+        async function sticker(img, url, packname, author, categories = [""]) {
+            const stickerMetadata = {
+                type: "full",
+                pack: packname,
+                author,
+                categories,
+            };
+            return await new WSF.Sticker(img ? img : url, stickerMetadata).build();
+        }
 
-  const stickerMetadata = {
-    type: "full",
-    pack: packname,
-    author,
-    categories,
-  };
-  return await new WSF.Sticker(img ? img : url, stickerMetadata).build();
-}
-
-        var stikerp = await sticker(res, { ps })
-        await conn.sendFile(m.chat, stikerp, 'atmin.webp', '', m)
+        var stikerp = await sticker(res, { ps });
+        await conn.sendFile(m.chat, stikerp, 'atmin.webp', '', m);
     } catch (e) {
-        console.log(e)
-        await m.reply(eror)
+        console.log(e);
+        await m.reply(e);
     }
 }
 
