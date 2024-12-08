@@ -237,7 +237,7 @@ if (!('autoread' in settings)) settings.autoread = false
 if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
-if (!('antiPrivate2' in settings)) settings.antiPrivate2 = false
+if (!('antiarabe' in settings)) settings.antiarabe = false
 if (!('antiCall' in settings)) settings.antiCall = true
 if (!('frases' in chat)) chat.frases = false
 if (!('antiSpam' in settings)) settings.antiSpam = true
@@ -251,7 +251,7 @@ autoread2: false,
 restrict: false,
 frases: false,
 antiPrivate: false,
-antiPrivate2: false,
+antiarabe: false,
 antiCall: true,
 antiSpam: true,
 modoia: false, 
