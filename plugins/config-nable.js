@@ -431,14 +431,13 @@ throw false
 }
 bot.antiPrivate = isEnable
 break
-case 'antiarabe': case 'antiarabes':
-case 'privado':
-isAll = true
-if (!isROwner) {
-global.dfail('rowner', m, conn)
+case 'antiarabes': case 'antiarabe': case 'antilag':
+if (m.privado) {
+if (!(isAdmin || isOwner)) {
+global.dfail('admin', m, conn)
 throw false
-}
-bot.antiarabe = isEnable
+}}
+chat.antiarabe = isEnable
 break
 case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
