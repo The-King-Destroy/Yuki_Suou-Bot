@@ -431,14 +431,14 @@ throw false
 }
 bot.antiPrivate = isEnable
 break
-case 'antiprivado2': case 'antiarabe':
+case 'antiarabe': case 'antiarabes':
 case 'privado':
 isAll = true
 if (!isROwner) {
 global.dfail('rowner', m, conn)
 throw false
 }
-bot.antiPrivate2 = isEnable
+bot.antiarabe = isEnable
 break
 case 'antitrabas': case 'antitraba': case 'antilag':
 if (m.isGroup) {
