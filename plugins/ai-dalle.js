@@ -15,7 +15,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     } catch (e) {
         console.log(e)
-        conn.reply(eror)
+        conn.reply(m.chat, '❌ Ocurrió un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.', m)
     }
 }
 
