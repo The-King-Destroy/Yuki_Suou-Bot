@@ -110,10 +110,15 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
         enabled: !plugin.disabled,
       }
     })
+
+    // Asegurarse que yenes tiene un valor antes de usarlo
+    let totalYenes = help.reduce((acc, plugin) => acc + (plugin.yenes || 0), 0);
+
     for (let plugin of help)
       if (plugin && 'tags' in plugin)
         for (let tag of plugin.tags)
           if (!(tag in tags) && tag) tags[tag] = tag
+
     conn.menu = conn.menu ? conn.menu : {}
     let before = conn.menu.before || defaultMenu.before
     let header = conn.menu.header || defaultMenu.header
@@ -138,6 +143,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       after
     ].join('\n')
     let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
+    
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
@@ -156,9 +162,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
       totalexp: exp,
       xp4levelup: max - exp,
       github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
-      greeting, level, yenes, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
+      greeting, level, totalYenes, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
+    
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
     const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -201,16 +208,16 @@ switch (hour) {
   case 1: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 💤'; break;
   case 2: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🦉'; break;
   case 3: hour = 'Bᴜᴇɴᴏs Dɪᴀs ✨'; break;
-  case 4: hour = 'Bᴜᴇɴᴏs Dɪᴀs 💫'; break;
-  case 5: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌅'; break;
-  case 6: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌄'; break;
-  case 7: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌅'; break;
-  case 8: hour = 'Bᴜᴇɴᴏs Dɪᴀs 💫'; break;
-  case 9: hour = 'Bᴜᴇɴᴏs Dɪᴀs ✨'; break;
-  case 10: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌞'; break;
-  case 11: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌨'; break;
-  case 12: hour = 'Bᴜᴇɴᴏs Dɪᴀs ❄'; break;
-  case 13: hour = 'Bᴜᴇɴᴏs Dɪᴀs 🌤'; break;
+  case 4: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 💫'; break;
+  case 5: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌅'; break;
+  case 6: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌄'; break;
+  case 7: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌅'; break;
+  case 8: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 💫'; break;
+  case 9: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs ✨'; break;
+  case 10: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌞'; break;
+  case 11: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌨'; break;
+  case 12: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs ❄'; break;
+  case 13: hour = 'Bᴜᴇɴᴀs Nᴏᴄʜᴇs 🌤'; break;
   case 14: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🌇'; break;
   case 15: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🥀'; break;
   case 16: hour = 'Bᴜᴇɴᴀs Tᴀʀᴅᴇs 🌹'; break;
