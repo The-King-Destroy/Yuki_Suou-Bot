@@ -15,6 +15,7 @@ const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
   }    
 };
 handler.command = /^(apk|apkdl)$/i;
+handler.premium = true
 handler.group = true
 
 export default handler;
