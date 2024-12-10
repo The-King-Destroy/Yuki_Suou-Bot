@@ -23,6 +23,7 @@ return conn.reply(m.chat, '🚩 *Ocurrió un fallo*', m, fake, )
 handler.tags = ['descargas']
 handler.help = ['aptoide']
 handler.command = /^(aptoide|aptoidedl)$/i
+handler.premium = true
 handler.register = true
 handler.group = true
 
