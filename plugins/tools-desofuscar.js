@@ -20,7 +20,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             }
         };
 
-        const deobfuscatedCode = deobfuscateCode(obfuscatedCode);
+        const deobfuscatedCode = await deobfuscateCode(obfuscatedCode);
 
         const filePath = path.join('/tmp', fileName);
         fs.writeFileSync(filePath, deobfuscatedCode);
