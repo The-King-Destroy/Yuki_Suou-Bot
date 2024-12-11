@@ -1,24 +1,30 @@
-import fetch from 'node-fetch'
+import { igdl } from "ruhend-scraper";
 
-let handler = async (m, { conn, usedPrefix, command, args }) => {
-if (!args[0]) return m.reply(`🌸 *Ingresa un enlace de Instagram*`)
+let handler = async (m, { args, conn }) => { 
+    if (!args[0]) {
+        return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🤍\`*', m, fake);
+    }
     
-try {
-let api = await fetch(`https://deliriussapi-oficial.vercel.app/download/instagram?url=${args[0]}`)
-let json = await api.json()
-let { data } = json
-let JT = data
-for (let i = 0; i < JT.length; i++) {
-let HFC = JT[i];
-if (HFC.type === "image") {
-await conn.sendMessage(m.chat, { image: { url: HFC.url } }, { quoted: m })
-} else if (HFC.type === "video") {
-await conn.sendMessage(m.chat, { video: { url: HFC.url } }, { quoted: m })
-}}
-} catch (error) {
-console.error(error)
-}}
+    try {
+        await m.react('🕑');
+        
+        let res = await igdl(args[0]);
+        let data = res.data; 
+        
+        for (let media of data) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
 
-handler.command = /^(igdl|ig|instagramdl|instagram)$/i
+            await m.react('✅');
+            await conn.sendFile(m.chat, media.url, 'instagram.mp4', dev, null, m); 
+        }
+    } catch {
+        await m.react('❌');
+    }
+}
 
-export default handler
+//handler.yenes = 2
+handler.command = ['ig', 'igdl', 'instagram'];
+handler.tags = ['descargas'];
+handler.help = ['ig *<link>*'];
+
+export default handler;
