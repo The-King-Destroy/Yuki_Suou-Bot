@@ -22,6 +22,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
         const deobfuscatedCode = await deobfuscateCode(obfuscatedCode);
 
+        if (typeof deobfuscatedCode !== 'string') {
+            throw new Error('El código desofuscado no es una cadena de texto válida');
+        }
+
         const filePath = path.join('/tmp', fileName);
         fs.writeFileSync(filePath, deobfuscatedCode);
 
