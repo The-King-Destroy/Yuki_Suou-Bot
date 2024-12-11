@@ -20,7 +20,5 @@ console.error(error)
 }}
 
 handler.command = /^(igdl|ig|instagramdl|instagram)$/i
-handler.register = true
-handler.group = true
 
 export default handler
