@@ -2,7 +2,7 @@ import { igdl } from "ruhend-scraper";
 
 let handler = async (m, { args, conn }) => { 
     if (!args[0]) {
-        return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🤍\`*', m, fake);
+        return conn.reply(m.chat, '*\`Ingresa El link Del vídeo a descargar 🌸\`*', m, fake);
     }
     
     try {
