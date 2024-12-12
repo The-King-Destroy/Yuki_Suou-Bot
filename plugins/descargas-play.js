@@ -15,15 +15,18 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*_𔓕꯭  ꯭ ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭ ꯭𔓕_*
 
-» 📚 *Título:* ${yt_play[0].title}
-» 📆 *Publicado:* ${yt_play[0].ago}
-» 🕒 *Duración:* ${secondString(yt_play[0].duration.seconds)}
-» 👀 *Vistas:* ${MilesNumber(yt_play[0].views)}
-» 👤 *Autor:* ${yt_play[0].author.name}
-» 🎫 *ID:* ${yt_play[0].videoId}
-» 💠 *Tipo:* ${yt_play[0].type}
-» 🔗 *Enlace:* ${yt_play[0].url}
-» 🎞️ *Canal:* ${yt_play[0].author.url}
+> 📚 *Título:*
+» ${yt_play[0].title}
+> 📆 *Publicado:* 
+» ${yt_play[0].ago}
+> 🕒 *Duración:* 
+» ${secondString(yt_play[0].duration.seconds)}
+> 👀 *Vistas:* 
+» ${MilesNumber(yt_play[0].views)}
+> 👤 *Autor:* 
+»${yt_play[0].author.name}
+> 🔗 *Enlace:*
+» ${yt_play[0].url}
 
 > 📽️ *Su Audio se está enviando, espere un momento...*`.trim();
 
@@ -92,15 +95,18 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*_𔓕꯭  ꯭ ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭ ꯭𔓕_*
 
-» 📚 *Título:* ${yt_play[0].title}
-» 📆 *Publicado:* ${yt_play[0].ago}
-» 🕒 *Duración:* ${secondString(yt_play[0].duration.seconds)}
-» 👀 *Vistas:* ${MilesNumber(yt_play[0].views)}
-» 👤 *Autor:* ${yt_play[0].author.name}
-» 🎫 *ID:* ${yt_play[0].videoId}
-» 💠 *Tipo:* ${yt_play[0].type}
-» 🔗 *Enlace:* ${yt_play[0].url}
-» 🎞️ *Canal:* ${yt_play[0].author.url}
+> 📚 *Título:*
+» ${yt_play[0].title}
+> 📆 *Publicado:* 
+» ${yt_play[0].ago}
+> 🕒 *Duración:* 
+» ${secondString(yt_play[0].duration.seconds)}
+> 👀 *Vistas:* 
+» ${MilesNumber(yt_play[0].views)}
+> 👤 *Autor:* 
+»${yt_play[0].author.name}
+> 🔗 *Enlace:*
+» ${yt_play[0].url}
 
 > 📽️ *Su Video se está enviando, espere un momento...*`.trim();
 
@@ -184,15 +190,18 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*_𔓕꯭  ꯭ ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭ ꯭𔓕_*
 
-» 📚 *Título:* ${yt_play[0].title}
-» 📆 *Publicado:* ${yt_play[0].ago}
-» 🕒 *Duración:* ${secondString(yt_play[0].duration.seconds)}
-» 👀 *Vistas:* ${MilesNumber(yt_play[0].views)}
-» 👤 *Autor:* ${yt_play[0].author.name}
-» 🎫 *ID:* ${yt_play[0].videoId}
-» 💠 *Tipo:* ${yt_play[0].type}
-» 🔗 *Enlace:* ${yt_play[0].url}
-» 🎞️ *Canal:* ${yt_play[0].author.url}
+> 📚 *Título:*
+» ${yt_play[0].title}
+> 📆 *Publicado:* 
+» ${yt_play[0].ago}
+> 🕒 *Duración:* 
+» ${secondString(yt_play[0].duration.seconds)}
+> 👀 *Vistas:* 
+» ${MilesNumber(yt_play[0].views)}
+> 👤 *Autor:* 
+»${yt_play[0].author.name}
+> 🔗 *Enlace:*
+» ${yt_play[0].url}
 
 > 📽️ *Su Audio en documento se está enviando, espere un momento...*`.trim();
 
@@ -259,15 +268,18 @@ const yt_play = await search(args.join(' '));
 const ytplay2 = await yts(text);
 const texto1 = `*_𔓕꯭  ꯭ ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭ ꯭𔓕_*
 
-» 📚 *Título:* ${yt_play[0].title}
-» 📆 *Publicado:* ${yt_play[0].ago}
-» 🕒 *Duración:* ${secondString(yt_play[0].duration.seconds)}
-» 👀 *Vistas:* ${MilesNumber(yt_play[0].views)}
-» 👤 *Autor:* ${yt_play[0].author.name}
-» 🎫 *ID:* ${yt_play[0].videoId}
-» 💠 *Tipo:* ${yt_play[0].type}
-» 🔗 *Enlace:* ${yt_play[0].url}
-» 🎞️ *Canal:* ${yt_play[0].author.url}
+> 📚 *Título:*
+» ${yt_play[0].title}
+> 📆 *Publicado:* 
+» ${yt_play[0].ago}
+> 🕒 *Duración:* 
+» ${secondString(yt_play[0].duration.seconds)}
+> 👀 *Vistas:* 
+» ${MilesNumber(yt_play[0].views)}
+> 👤 *Autor:* 
+»${yt_play[0].author.name}
+> 🔗 *Enlace:*
+» ${yt_play[0].url}
   
 > 📽️ *Su video en documento se está enviando, espere un momento...*`.trim();
 
@@ -393,4 +405,4 @@ if (data.status === 'ok') {
   } else {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
-}
+}                      
