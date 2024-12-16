@@ -1,8 +1,8 @@
 {
 "name": "Yuki_Suou-Bot",
 "version": "2.0.0",
-"description": "El Bot Más Explosivo De WhatsApp",
-"main": "yuki/start.js",
+"description": "Simple WhatsApp Bot Multi Device",
+"main": "index.js",
 "type": "module",
 "directories": {
 "lib": "lib",
@@ -10,11 +10,11 @@
 "plugins": "plugins"
 },
 "scripts": {
-"start": "node yuki/start.js",
-"qr": "node yuki/start.js qr",
-"code": "node yuki/start.js code",
+"start": "node index.js",
+"qr": "node index.js qr",
+"code": "node index.js code",
 "test": "node test.js",
-"test2": "nodemon yuki/start.js",
+"test2": "nodemon index.js",
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
@@ -60,9 +60,11 @@
 "lodash": "^4.17.21",
 "lowdb": "^3.0.0",
 "mongoose": "^6.6.5",
+"megajs": "^1.3.3",
 "node-fetch": "^3.2.10",
 "node-gtts": "^2.0.2",
 "node-os-utils": "^1.3.6",
+"dotenv": "16.4.5",
 "node-webpmux": "^3.1.3",
 "perf_hooks": "^0.0.1",
 "pino": "^8.6.1",
