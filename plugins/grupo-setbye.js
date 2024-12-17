@@ -1,11 +1,15 @@
-const handler = async (m, { conn, text, isROwner, isOwner }) => {
-  if (text) {
-    global.db.data.chats[m.chat].bye = text;
-    m.reply('✅ [❗] MENSAJE DE DESPEDIDA CONFIGURADO CORRECTAMENTE PARA ESTE GRUPO*');
-  } else throw `[❗] INGRESE EL MENSAJE DE BIENVENIDA QUE DESEE AGREGAR, USE:*\n*- @user (mención)*\n*- @group (nombre de grupo)*\n*- @desc (description de grupo)*`;
-}
-handler.help = ['setbye <text>'];
-handler.tags = ['grupo'];
+let handler = async (m, { conn, text, isRowner }) => {
+  if (!text) return m.reply('*《✧》Por favor, proporciona un mensaje de despedida para el bot.*\n> Ejemplo: #setbye adios user');
+
+  global.welcom2 = text.trim();
+  
+  m.reply(`✐ La despedida del bot ha sido cambiado a: ${global.welcom2}`);
+};
+
+handler.help = ['setdespedida'];
+handler.tags = ['tools'];
 handler.command = ['setbye'];
+handler.owner = false;
 handler.admin = true;
+
 export default handler;
