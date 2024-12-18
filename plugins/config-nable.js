@@ -25,7 +25,6 @@ ${usedPrefix + command} antibot
 🌷 *OPCIONES PARA MI PROPIETARIO*
 
 ${usedPrefix + command} public
-${usedPrefix + command} autofrases
 ${usedPrefix + command} status
 ${usedPrefix + command} serbot
 ${usedPrefix + command} restrict
@@ -168,15 +167,6 @@ global.dfail('admin', m, conn)
 throw false
 }}
 chat.antiTiktok = isEnable 
-break
-
-case 'frases': case 'autofrases': 
-isAll = true
-if (!isROwner) {
-global.dfail('rowner', m, conn)
-throw false
-}
-bot.frases = isEnable
 break 
 
 case 'antiyoutube': case 'antiyt':
