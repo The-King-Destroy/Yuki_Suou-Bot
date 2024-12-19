@@ -185,7 +185,7 @@ if (!('modoadmin' in chat)) chat.modoadmin = false
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = false
-if (!('autolevelup' in chat))  chat.autolevelup = false
+if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
@@ -226,7 +226,7 @@ modoadmin: false,
 antitoxic: false, 
 simi: false,
 antiTraba: false,
-autolevelup: false,
+autolevelup: true,
 expired: 0,
 }
 let settings = global.db.data.settings[this.user.jid]
@@ -238,7 +238,7 @@ if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
-if (!('antiSpam' in settings)) settings.antiSpam = false
+if (!('antiSpam' in settings)) settings.antiSpam = true
 if (!('modoia' in settings)) settings.modoia = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = false  
 if (!('autobio' in settings)) settings.autobio = false
@@ -249,7 +249,7 @@ autoread2: false,
 restrict: false,
 antiPrivate: false,
 antiCall: true,
-antiSpam: false,
+antiSpam: true,
 modoia: false, 
 jadibotmd: true,
 autobio: false,
