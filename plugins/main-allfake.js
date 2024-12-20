@@ -34,11 +34,9 @@ let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country
 let userNationalityData = api.data.result
 global.userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'
 let user = global.db.data.users[who]
-let bot = global.db.data.settings[this.user.jid]
 let pushname = m.pushName || 'Sin nombre'
 
 //creador y otros
-global.botcommandcount = bot.botcommandCount //Ver cuantos comandos fueron ejecutados.
 global.creador = 'Wa.me/584120346669'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/584120346669'
@@ -46,7 +44,6 @@ global.namechannel = '♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮�
 global.namechannel2 = '✫𝚃𝙴𝙰𝙼  乂 𝚂𝚃𝙰𝚁𝙲𝙾𝚁𝙴✫'
 global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉'
 global.namecomu = '✿ 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰 𝐵𝒪𝒯 ✿'
-global.namecomu2 = '✫𝚃𝙴𝙰𝙼  乂 𝚂𝚃𝙰𝚁𝙲𝙾𝚁𝙴✫'
 global.colab1 = 'Emma-Violets-Versión'
 global.colab2 = 'Niño Piña'
 global.colab3 = 'Legendary'
@@ -62,7 +59,7 @@ global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de Ai Yaemori
+//Emojis determinado de Yuki Ai
 global.emoji = '🌸'
 global.emoji2 = '🌹'
 global.emoji3 = '🍒'
