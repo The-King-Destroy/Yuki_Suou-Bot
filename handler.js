@@ -1,5 +1,5 @@
 import {generateWAMessageFromContent} from '@whiskeysockets/baileys';
-import {smsg} from '../lib/simple.js';
+import {smsg} from './lib/simple.js';
 import {format} from 'util';
 import {fileURLToPath} from 'url';
 import path, {join} from 'path';
@@ -7,7 +7,7 @@ import {unwatchFile, watchFile} from 'fs';
 import fs from 'fs';
 import chalk from 'chalk';
 import ws from 'ws';
-//import '../plugins/main-allfake.js'
+//import './plugins/main-allfake.js'
 
 /**
  * @type {import('@adiwajshing/baileys')}  
@@ -38,7 +38,6 @@ try {
 m = smsg(this, m) || m
 if (!m)
 return
-global.mconn = m 
 m.exp = 0
 m.yenes = false
 try {
@@ -52,12 +51,12 @@ if (!('premium' in user)) user.premium = false
 if (!('muto' in user)) user.muto = false
 if (!isNumber(user.joincount)) user.joincount = 1
 if (!isNumber(user.money)) user.money = 150
-if (!isNumber(user.cookies)) user.yenes = 20
+if (!isNumber(user.yenes)) user.yenes = 20
 if (!('registered' in user)) user.registered = false
 if (!('genre' in user)) user.genre = false
 if (!('birth' in user)) user.birth = false
 if (!('description' in user)) user.description = false
-
+    
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('age' in user)) user.age = 0
@@ -186,7 +185,7 @@ if (!('modoadmin' in chat)) chat.modoadmin = false
 if (!('antitoxic' in chat)) chat.antitoxic = false
 if (!('simi' in chat)) chat.simi = false
 if (!('antiTraba' in chat)) chat.antiTraba = false
-if (!('autolevelup' in chat))  chat.autolevelup = false
+if (!('autolevelup' in chat))  chat.autolevelup = true
 if (!isNumber(chat.expired)) chat.expired = 0
 } else
 global.db.data.chats[m.chat] = {
@@ -227,7 +226,7 @@ modoadmin: false,
 antitoxic: false, 
 simi: false,
 antiTraba: false,
-autolevelup: false,
+autolevelup: true,
 expired: 0,
 }
 let settings = global.db.data.settings[this.user.jid]
@@ -239,23 +238,23 @@ if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('restrict' in settings)) settings.restrict = false
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('antiCall' in settings)) settings.antiCall = true
-if (!('antiSpam' in settings)) settings.antiSpam = false
+if (!('frases' in chat)) chat.frases = false
+if (!('antiSpam' in settings)) settings.antiSpam = true
 if (!('modoia' in settings)) settings.modoia = false
 if (!('jadibotmd' in settings)) settings.jadibotmd = false  
 if (!('autobio' in settings)) settings.autobio = false
-if (!('botcommandCount' in settings)) settings.botcommandCount = 0
 } else global.db.data.settings[this.user.jid] = {
 self: false,
 autoread: false,
 autoread2: false,
 restrict: false,
+frases: false,
 antiPrivate: false,
 antiCall: true,
-antiSpam: false,
+antiSpam: true,
 modoia: false, 
 jadibotmd: true,
 autobio: false,
-botcommandCount: 0,
 }} catch (e) {
 console.error(e)
 }
@@ -306,9 +305,9 @@ continue
 if (plugin.disabled)
 continue
 const __filename = join(___dirname, name)
-if (m.sender === this.user.jid) {
+/*if (m.sender === this.user.jid) {
 continue
-}
+}*/
 if (typeof plugin.all === 'function') {
 try {
 await plugin.all.call(this, m, {
@@ -389,9 +388,6 @@ false
 if (!isAccept) {
 continue
 }
-
-global.db.data.settings[mconn.conn.user.jid].botcommandCount += 1
-
 m.plugin = name
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
@@ -401,7 +397,7 @@ if (name != 'owner-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-ex
 if (m.text && user.banned && !isROwner) {
 if (user.antispam > 2) return
 m.reply(`🚫 Está baneado(a), no puede usar los comandos de este bot!\n\n${user.bannedReason ? `\n📝 *Motivo:* 
-${user.bannedReason}` : '📄 *Motivo:* Sin Especificar'}\n\n⚠️ *Si este bot es cuenta oficial y tiene evidencia que respalde que este mensaje es un error, puede exponer su caso en:*\n\n🌸 ${asistencia}`)
+${user.bannedReason}` : '📃 *Motivo:* Sin Especificar'}\n\n⚠️ *Si este bot es cuenta oficial y tiene evidencia que respalde que este mensaje es un error, puede exponer su caso en:*\n\n🌸 ${asistencia}`)
 user.antispam++        
 return
 }
@@ -529,10 +525,10 @@ await plugin.after.call(this, m, extra)
 console.error(e)
 }}
 if (m.yenes)
-conn.reply(m.chat, `Utilizaste *${+m.yenes}* 💴`, m)
+conn.reply(m.chat, `Utilizaste *${+m.yenes}* 💴`, m, fake)
 }
 if (m.money)
-conn.reply(m.chat, `Utilizaste *${+m.money}* 💰`, m)
+conn.reply(m.chat, `Utilizaste *${+m.money}* 💰`, m, fake)
 break
 }}} catch (e) {
 console.error(e)
@@ -584,7 +580,7 @@ stat.lastSuccess = now
 }}}
 
 try {
-if (!opts['noprint']) await (await import(`../lib/print.js`)).default(m, this)
+if (!opts['noprint']) await (await import(`./lib/print.js`)).default(m, this)
 } catch (e) {
 console.log(m, m.quoted, e)}
 let settingsREAD = global.db.data.settings[this.user.jid] || {}  
@@ -593,7 +589,7 @@ if (settingsREAD.autoread2) await this.readMessages([m.key])
 //await conn.sendPresenceUpdate('composing', m.chat);
 //this.sendPresenceUpdate('recording', m.chat);
 
-if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify|ai|yuki|suou|a|s)/gi)) {
+if (db.data.chats[m.chat].reaction && m.text.match(/(ción|dad|aje|oso|izar|mente|pero|tion|age|ous|ate|and|but|ify|ai|megumin|megu|a|s)/gi)) {
 let emot = pickRandom(["🌹", "🌷", "🌸","🌼", "🌺", "💐", "🌻", "🏵️", "🥀", "💮", "🍁", "💖", "💞", "💕", "💋"])
 if (!m.fromMe) return this.sendMessage(m.chat, { react: { text: emot, key: m.key }})
 }
@@ -628,7 +624,7 @@ pp = await this.profilePictureUrl(user, 'image')
 let apii = await this.getFile(pp)                                      
 const botTt2 = groupMetadata.participants.find(u => this.decodeJid(u.id) == this.user.jid) || {} 
 const isBotAdminNn = botTt2?.admin === "admin" || false
-text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@date', global.botdate).replace('@time', global.bottime).replace('@readMore', global.readMore).replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*Ai-Yuki*\n𝗦𝗶𝗻 𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝗰𝗶𝗼𝗻') :
+text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@date', global.botdate).replace('@time', global.bottime).replace('@readMore', global.readMore).replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*Yuki-Ai*\n𝗦𝗶𝗻 𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝗰𝗶𝗼𝗻') :
 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0]).replace('@date', global.botdate).replace('@time', global.bottime)
 
 if (chat.antifake && isBotAdminNn && action === 'add') {
@@ -761,7 +757,7 @@ const file = global.__filename(import.meta.url, true);
 // NO TOCAR
 watchFile(file, async () => {
 unwatchFile(file);
-console.log(chalk.green('Actualizando "yuki/handler.js"'));
+console.log(chalk.green('Actualizando "handler.js"'));
 // if (global.reloadHandler) console.log(await global.reloadHandler());
 
 if (global.conns && global.conns.length > 0 ) {
