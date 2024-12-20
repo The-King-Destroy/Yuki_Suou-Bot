@@ -1,9 +1,7 @@
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '1'
 import './config.js'
-import { setupMaster, fork } from 'cluster'
-import { watchFile, unwatchFile } from 'fs'
-import cfonts from 'cfonts'
 import {createRequire} from 'module'
+import path, {join} from 'path'
 import {fileURLToPath, pathToFileURL} from 'url'
 import {platform} from 'process'
 import * as ws from 'ws'
@@ -19,65 +17,18 @@ import boxen from 'boxen'
 import P from 'pino'
 import pino from 'pino'
 import Pino from 'pino'
-import path, { join, dirname } from 'path'
 import {Boom} from '@hapi/boom'
-import {makeWASocket, protoType, serialize} from '../lib/simple.js'
+import {makeWASocket, protoType, serialize} from './lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
-import {mongoDB, mongoDBV2} from '../lib/mongoDB.js'
-import store from '../lib/store.js'
+import {mongoDB, mongoDBV2} from './lib/mongoDB.js'
+import store from './lib/store.js'
 const {proto} = (await import('@whiskeysockets/baileys')).default
 const {DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC} = await import('@whiskeysockets/baileys')
-import readline, { createInterface } from 'readline'
+import readline from 'readline'
 import NodeCache from 'node-cache'
 const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
-
-//const megu = dirname(fileURLToPath(import.meta.url))
-//let require = createRequire(megu)
-let { say } = cfonts
-
-console.log(chalk.bold.redBright(`\n🌸 Iniciando Yuki Suou - Bot\n`))
-
-say('Yuki-Suou-Bot-MD', {
-font: 'block',
-align: 'center',
-colors: ['magentaBright']
-})
-
-say(`Multi Device`, {
-font: 'chrome',
-align: 'center',
-colors: ['redBright']
-})
-
-say(`Developed By • The-King-Destroy`, {
-font: 'console',
-align: 'center',
-colors: ['blueBright']
-})
-
-/*let p = fork()
-p.on('message', data => {
-switch (data) {
-case 'reset':
-p.process.kill()
-isRunning = false
-start.apply(this, arguments)
-break
-}
-})
-
-p.on('exit', (_, code) => {
-isRunning = false
-console.error('🚩 Error:\n', code)
-process.exit()
-if (code === 0) return
-watchFile(args[0], () => {
-unwatchFile(args[0])
-start(file)
-})
-})*/
 
 protoType()
 serialize()
@@ -97,10 +48,10 @@ global.timestamp = {start: new Date}
 const __dirname = global.__dirname(import.meta.url)
 
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
-global.prefix = new RegExp('^[#!./$]')
+global.prefix = new RegExp('^[/.$#!]')
 // global.opts['db'] = process.env['db']
 
-global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile('database.json'))
+global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile('src/database/database.json'))
 
 global.DATABASE = global.db 
 global.loadDatabase = async function loadDatabase() {
@@ -152,7 +103,7 @@ do {
 opcion = await question(colores('Seleccione una opción:\n') + opcionQR('1. Con código QR\n') + opcionTexto('2. Con código de texto de 8 dígitos\n--> '))
 
 if (!/^[1-2]$/.test(opcion)) {
-console.log(chalk.bold.redBright(`🍧 No se permiten numeros que no sean 1 o 2, tampoco letras o símbolos especiales.`))
+console.log(chalk.bold.redBright(`🌸 No se permiten numeros que no sean 1 o 2, tampoco letras o símbolos especiales.`))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./${sessions}/creds.json`))
 } 
 
@@ -204,17 +155,17 @@ let numeroTelefono
 if (!!phoneNumber) {
 numeroTelefono = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.greenBright(`🍧 Por favor, Ingrese el número de WhatsApp.\n${chalk.bold.yellowBright(`🌷  Ejemplo: 57321×××××××`)}\n${chalk.bold.magentaBright('---> ')}`)))
+console.log(chalk.bgBlack(chalk.bold.greenBright(`🌸 Por favor, Ingrese el número de WhatsApp.\n${chalk.bold.yellowBright(`🌷  Ejemplo: 57321×××××××`)}\n${chalk.bold.magentaBright('---> ')}`)))
 process.exit(0)
 }} else {
 while (true) {
-numeroTelefono = await question(chalk.bgBlack(chalk.bold.greenBright(`🍧 Por favor, escriba su número de WhatsApp.\n🌷  Ejemplo: 57321×××××××\n`)))
+numeroTelefono = await question(chalk.bgBlack(chalk.bold.greenBright(`🌸 Por favor, escriba su número de WhatsApp.\n🌷  Ejemplo: 57321×××××××\n`)))
 numeroTelefono = numeroTelefono.replace(/[^0-9]/g, '')
 
 if (numeroTelefono.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bgBlack(chalk.bold.greenBright(`🍧 Por favor, escriba su número de WhatsApp.\n🌷  Ejemplo: 57321×××××××\n`)))
+console.log(chalk.bgBlack(chalk.bold.greenBright(`🌸 Por favor, escriba su número de WhatsApp.\n🌷  Ejemplo: 57321×××××××\n`)))
 }}
 rl.close()  
 } 
@@ -222,7 +173,7 @@ rl.close()
 setTimeout(async () => {
 let codigo = await conn.requestPairingCode(numeroTelefono)
 codigo = codigo?.match(/.{1,4}/g)?.join("-") || codigo
-console.log(chalk.bold.white(chalk.bgMagenta(`🌸 CÓDIGO DE VINCULACIÓN 🌸`)), chalk.bold.white(chalk.white(codigo)))
+console.log(chalk.bold.white(chalk.bgMagenta(`👑 CÓDIGO DE VINCULACIÓN 👑`)), chalk.bold.white(chalk.white(codigo)))
 }, 3000)
 }}
 }
@@ -240,8 +191,6 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT);
 
-let ppBot = 'https://telegra.ph/file/24fa902ead26340f3df2c.png'
-
 async function connectionUpdate(update) {
 const {connection, lastDisconnect, isNewLogin} = update;
 global.stopped = connection;
@@ -257,9 +206,8 @@ if (opcion == '1' || methodCodeQR) {
 console.log(chalk.bold.yellow(`\n✅ ESCANEA EL CÓDIGO QR EXPIRA EN 45 SEGUNDOS`))}
 }
 if (connection == 'open') {
-console.log(chalk.bold.green('\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒\n│\n│ 🟢  Se ha conectado con WhatsApp exitosamente.\n│\n❒⸺⸺⸺⸺【• CONECTADO •】⸺⸺⸺⸺❒'))
-await joinChannels(conn)
-conn.sendMessage("120363322713003916@newsletter", { text: '👋 Hola seguidores!\n🍧 Me he conectado nuevamente!!', contextInfo: { externalAdReply: { title: "🌸 YUKI SUOU BOT 🌸", body: '🌷 Yuki Suou Bot conectada nuevamente!', thumbnailUrl: ppBot, sourceUrl: 'https://dash.skyultraplus.com', mediaType: 1, showAdAttribution: false, renderLargerThumbnail: false }}}, { quoted: null })}
+console.log(boxen(chalk.bold(' ¡CONECTADO CON WHATSAPP! '), { borderStyle: 'round', borderColor: 'green', title: chalk.green.bold('● CONEXIÓN ●'), titleAlignment: '', float: '' }))
+await joinChannels(conn)}
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
 if (connection === 'close') {
 if (reason === DisconnectReason.badSession) {
@@ -331,7 +279,7 @@ isInit = false
 return true
 };
 
-const pluginFolder = global.__dirname(join(__dirname, '../plugins/index'))
+const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
 const pluginFilter = (filename) => /\.js$/.test(filename)
 global.plugins = {}
 async function filesInit() {
@@ -486,7 +434,7 @@ if (stopped === 'close' || !conn || !conn.user) return
 await purgeOldFiles()
 console.log(chalk.bold.cyanBright(`\n╭» 🟠 ARCHIVOS 🟠\n│→ ARCHIVOS RESIDUALES ELIMINADAS\n╰― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― ― 🗑️♻️`))}, 1000 * 60 * 10)
 
-_quickTest().then(() => conn.logger.info(chalk.bold(`🌹  H E C H O\n`.trim()))).catch(console.error)
+_quickTest().then(() => conn.logger.info(chalk.bold(`⚜️  H E C H O\n`.trim()))).catch(console.error)
 
 async function joinChannels(conn) {
 for (const channelId of Object.values(global.ch)) {
