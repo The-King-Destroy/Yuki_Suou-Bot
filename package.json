@@ -2,7 +2,7 @@
 "name": "Yuki_Suou-Bot",
 "version": "2.0.0",
 "description": "Simple WhatsApp Bot Multi Device",
-"main": "yuki/start.js",
+"main": "start.js",
 "type": "module",
 "directories": {
 "lib": "lib",
@@ -10,11 +10,11 @@
 "plugins": "plugins"
 },
 "scripts": {
-"start": "node yuki/start.js",
-"qr": "node yuki/start.js qr",
-"code": "node yuki/start.js code",
+"start": "node start.js",
+"qr": "node start.js qr",
+"code": "node start.js code",
 "test": "node test.js",
-"test2": "nodemon yuki/start.js",
+"test2": "nodemon start.js",
 "eslint": "eslint .",
 "eslintfix": "eslint --fix ."
 },
