@@ -6,7 +6,7 @@ import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import axios from 'axios';
 import moment from 'moment-timezone';
-import '../plugins/main-allfake.js';
+import './plugins/main-allfake.js';
 
 //BETA: Si quiere evitar escribir el número que será bot en la consola, agregué desde aquí entonces:
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
@@ -23,7 +23,7 @@ global.owner = [
   ['5212431268546', '🍒 Iam Fz', true],
   ['50488198573', '🌐 Soporte', true],
   ['573154062343', 'vales vrg 🍆', true],
-  ['584128382768']
+  ['51991055096']
 ];
 
 //• ↳𝑺𝑶𝑳𝑶 𝑴𝑶𝑫𝑬𝑹𝑨𝑫𝑶𝑹𝑬𝑺!
@@ -54,7 +54,6 @@ global.textbot = 'ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ�
 global.gt = '͟͞ ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉̤𓆪 ͟͞';
 global.namechannel = '♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ'
 
-
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
 global.imagen1 = fs.readFileSync('./src/menus/Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/anime.jpg');
@@ -66,7 +65,6 @@ global.imagen7 = fs.readFileSync('./src/menus/Menu5.jpg');
 global.imagen8 = fs.readFileSync('./src/menus/Menu4.jpg')
 global.imagen9 = fs.readFileSync('./src/menu_en.png')
 global.imagen10 = fs.readFileSync('./src/nuevobot.jpg')
-
 global.miniurl = fs.readFileSync('./src/Grupo.jpg');
 global.logo2 = fs.readFileSync('./src/logo2.jpg')
 global.logo3 = fs.readFileSync('./src/logo3.jpg')
@@ -76,8 +74,6 @@ global.logo5 = fs.readFileSync('./src/logo5.jpg')
 global.logo7 = fs.readFileSync('./src/Logo7.png')
 global.logo8 = fs.readFileSync('./src/Logo8.jpg')
 global.rule = fs.readFileSync('./src/rule.jpg')
-global.welcome = fs.readFileSync('./src/Welcome.jpg')
-global.adios = fs.readFileSync('./src/Bye.jpg')
 global.photoSity = [imagen8, imagen1, imagen4, imagen6]
 
 //• ↳ ◜𝑭𝑨𝑲𝑬 𝑬𝑺𝑻𝑰𝑳𝑶◞ • 🪩
@@ -110,7 +106,7 @@ global.correo = 'thekingdestroy507@gmail.com'
 global.cn ='https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T';
 
 var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'Linda Mañana'; break; case 1: hour = 'Linda Mañana'; break; case 2: hour = 'Linda Mañana'; break; case 3: hour = 'Linda Mañana'; break; case 4: hour = 'linda mañana'; break; case 5: hour = 'Linda Mañana'; break; case 6: hour = 'Linda Mañana'; break; case 7: hour = 'Linda Mañana'; break; case 8: hour = 'Linda Mañana'; break; case 9: hour = 'Linda Mañana'; break; case 10: hour = 'Lindo Dia'; break; case 11: hour = 'Lindo Dia'; break; case 12: hour = 'Lindo Dia'; break; case 13: hour = 'Lindo Dia'; break; case 14: hour = 'Linda Tarde'; break; case 15: hour = 'Linda Tarde'; break; case 16: hour = 'Linda Tarde'; break; case 17: hour = 'Linda Tarde'; break; case 18: hour = 'Linda Noche'; break; case 19: hour = 'Linda Noche'; break; case 20: hour = 'Linda Noche'; break; case 21: hour = 'Linda Noche'; break; case 22: hour = 'Linda Noche'; break; case 23: hour = 'Linda Noche'; break;}
-global.saludo = '🌸' + hour;
+global.saludo = '🍭' + hour;
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: "120363343811229130@newsletter", serverMessageId: 100, newsletterName: namechannel, }, }, }
 //• ↳ ◜𝑻𝑰𝑬𝑴𝑷𝑶◞ • 🕒
@@ -403,7 +399,7 @@ global.rpgshop = { // Tienda
       kyubi: '🌀 Magia',
       gold: '👑 Oro',
       money: '🪙 Coins',
-      tiketcoin: '🎫 Tickers',
+      tiketcoin: '🎫 Yuki Tickers',
       stamina: '✨ Energía',
       potion: '🥤 Poción',
       aqua: '💧 Agua',
@@ -479,7 +475,7 @@ global.rpgshopp = { // Tienda
       berlian: '♦️',
       kyubi: '🌀',
       gold: '👑',
-      money: '💴',
+      money: '🪙',
       tiketcoin: '🎫',
       stamina: '✨',
       potion: '🥤',
@@ -548,6 +544,6 @@ global.rpgshopp = { // Tienda
 const file = fileURLToPath(import.meta.url);
 watchFile(file, () => {
   unwatchFile(file);
-  console.log(chalk.redBright('Update \'yuki/config.js\''));
+  console.log(chalk.redBright('Update \'config.js\''));
   import(`${file}?update=${Date.now()}`);
 });
