@@ -16,7 +16,7 @@ await conn.sendCarousel(m.chat, `🌷 Resultado de ${text}`, '🔎 Imagen - Desc
 };
 handler.help = ['imagen <query>'];
 handler.tags = ['buscador','descargas'];
-handler.command = ['image','imagen', 'wimage'];
+handler.command = ['image','imagen'];
 handler.group = true;
 handler.register = true
 export default handler;
