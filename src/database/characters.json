@@ -1,162 +1,222 @@
 [
     {
-        "name": "Alisa Mikhailovna Kujou",
-        "gender": "Femenino",
-        "value": "100",
-        "source": "Roshidere",
-        "img": "https://qu.ax/pMjB.jpeg",
-        "id": "A1B2C3D4E5"
+        "id": "1",
+        "name": "Aika Sano",
+        "gender": "Mujer",
+        "value": "9999",
+        "source": "Ane wa Yanmama Junyuu-chuu",
+        "img": "https://files.catbox.moe/235bpy.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "2",
         "name": "María Mikhailovna Kujou",
-        "gender": "Femenino",
-        "value": "100",
+        "gender": "Mujer",
+        "value": "9000",
         "source": "Roshidere",
-        "img": "https://qu.ax/ypXz.jpeg",
-        "id": "F6G7H8J9K0"
+        "img": "https://files.catbox.moe/x4hldw.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "3",
         "name": "Mikasa Ackerman",
-        "gender": "Femenino",
-        "value": "200",
+        "gender": "Mujer",
+        "value": "8508",
         "source": "Attack on Titan (Shingeki no Kyojin)",
-        "img": "https://telegra.ph/file/b31cd03f716d362b33716.jpg",
-        "id": "L1M2N3O4P5"
+        "img": "https://files.catbox.moe/ob4m99.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "4",
         "name": "Izuku Midoriya",
-        "gender": "Masculino",
-        "value": "150",
+        "gender": "Hombre",
+        "value": "8000",
         "source": "My Hero Academia",
-        "img": "https://telegra.ph/file/f689a972cfc1c5efff189.jpg",
-        "id": "Q6R7S8T9U0"
+        "img": "https://files.catbox.moe/nrolaj.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "5",
         "name": "Misa Amane",
-        "gender": "Femenino",
-        "value": "250",
+        "gender": "Mujer",
+        "value": "8303",
         "source": "Death Note",
-        "img": "https://telegra.ph/file/70fadfc8d38f2d307cd35.jpg",
-        "id": "A1B2C3D4E5"
+        "img": "https://files.catbox.moe/r4n149.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "6",
         "name": "Asuna Yuuki",
-        "gender": "Femenino",
-        "value": "300",
+        "gender": "Mujer",
+        "value": "8799",
         "source": "Sword Art Online",
-        "img": "https://telegra.ph/file/a803779df82b23707a0af.jpg",
-        "id": "F6G7H8J9K0"
+        "img": "https://files.catbox.moe/xgozvk.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "7",
         "name": "Erza Scarlet",
-        "gender": "Femenino",
-        "value": "200",
+        "gender": "Mujer",
+        "value": "7932",
         "source": "Fairy Tail",
-        "img": "https://telegra.ph/file/9d8777e630c32a244ce9c.jpg",
-        "id": "L1M2N3O4P5"
+        "img": "https://files.catbox.moe/x6xgkj.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "8",
         "name": "Kurumi Tokisaki",
-        "gender": "Femenino",
-        "value": "200",
+        "gender": "Mujer",
+        "value": "9999",
         "source": "Date Alive",
-        "img": "https://qu.ax/rsUb.jpg",
-        "id": "Q6R7S8T9U0"
+        "img": "https://files.catbox.moe/iek7q7.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "9",
         "name": "Momo Deviluke",
-        "gender": "Femenino",
-        "value": "250",
+        "gender": "Mujer",
+        "value": "7832",
         "source": "To Love Ru",
-        "img": "https://qu.ax/BcFaA.jpg",
-        "id": "A1B2C3D4E5"
+        "img": "https://files.catbox.moe/hnrpb4.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "10",
         "name": "Nino Nakano",
-        "gender": "Femenino",
-        "value": "150",
+        "gender": "Mujer",
+        "value": "9321",
         "source": "The Quintessential Quintuplets",
-        "img": "https://qu.ax/lwsz.jpg",
-        "id": "F6G7H8J9K0"
+        "img": "https://files.catbox.moe/47dj4n.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "11",
         "name": "Ryo Yamada",
-        "gender": "Masculino",
-        "value": "120",
+        "gender": "Hombre",
+        "value": "8321",
         "source": "Bocchi the Rock",
-        "img": "https://qu.ax/jvpuJ.jpg",
-        "id": "L1M2N3O4P5"
+        "img": "https://files.catbox.moe/rb8jh8.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "12",
         "name": "Sumi Sakurasawa",
-        "gender": "Femenino",
-        "value": "130",
+        "gender": "Mujer",
+        "value": "8933",
         "source": "Rent a Girlfriend",
-        "img": "https://qu.ax/DyCvR.jpg",
-        "id": "Q6R7S8T9U0"
+        "img": "https://files.catbox.moe/27qdmn.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
-        "name": "Umaru-chan",
-        "gender": "Femenino",
-        "value": "140",
+        "id": "13",
+        "name": "Umaru Doma",
+        "gender": "Mujer",
+        "value": "7657",
         "source": "Himouto! Umaru-chan",
-        "img": "https://qu.ax/YsozF.jpg",
-        "id": "A1B2C3D4E5"
+        "img": "https://files.catbox.moe/ddvqbg.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
-        "name": "Mizuhara",
-        "gender": "Femenino",
-        "value": "250",
+        "id": "14",
+        "name": "Chizuru Mizuhara",
+        "gender": "Mujer",
+        "value": "8678",
         "source": "Rent a Girlfriend",
-        "img": "https://qu.ax/kHlbU.jpg",
-        "id": "F6G7H8J9K0"
+        "img": "https://files.catbox.moe/lxger4.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "15",
         "name": "Makima",
-        "gender": "Femenino",
-        "value": "300",
+        "gender": "Mujer",
+        "value": "8899",
         "source": "Chainsaw Man",
-        "img": "https://qu.ax/VsgHE.jpg",
-        "id": "L1M2N3O4P5"
+        "img": "https://files.catbox.moe/aj36wd.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "16",
         "name": "Power",
-        "gender": "Femenino",
-        "value": "220",
+        "gender": "Mujer",
+        "value": "8973",
         "source": "Chainsaw Man",
-        "img": "https://qu.ax/yMseZ.jpg",
-        "id": "Q6R7S8T9U0"
+        "img": "https://files.catbox.moe/zhcwn7.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "17",
         "name": "Yuliet Persia",
-        "gender": "Femenino",
-        "value": "200",
+        "gender": "Mujer",
+        "value": "6578",
         "source": "Kishuku Gakkou no Juliet",
-        "img": "https://qu.ax/UWytO.jpg",
-        "id": "A1B2C3D4E5"
+        "img": "https://files.catbox.moe/qdlb4n.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "18",
         "name": "Kisara",
-        "gender": "Femenino",
-        "value": "150",
+        "gender": "Mujer",
+        "value": "7781",
         "source": "Engage Kiss",
-        "img": "https://files.catbox.moe/9qwi8b.jpg",
-        "id": "F6G7H8J9K0"
+        "img": "https://files.catbox.moe/yb9cd1.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "19",
         "name": "Raphtalia",
-        "gender": "Femenino",
-        "value": "100",
+        "gender": "Mujer",
+        "value": "7430",
         "source": "Tate no Yuusha no Nariagari",
-        "img": "https://files.catbox.moe/1w1pgz.webp",
-        "id": "L1M2N3O4P5"
+        "img": "https://files.catbox.moe/dieynb.jpg",
+        "user": null,
+        "status": "Libre"
     },
     {
+        "id": "20",
         "name": "Ai Hoshino",
-        "gender": "Femenino",
-        "value": "250",
+        "gender": "Mujer",
+        "value": "9999",
         "source": "Oshi no Ko",
-        "img": "https://files.catbox.moe/wv8el0.jpeg",
-        "id": "Q6R7S8T9U0"
+        "img": "https://files.catbox.moe/w680ix.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "21",
+        "name": "Alisa Mikhailovna Kujou",
+        "gender": "Mujer",
+        "value": "9999",
+        "source": "Roshidere",
+        "img": "https://files.catbox.moe/6vw81z.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "21",
+        "name": "Mukuro Hoshimiya",
+        "gender": "Mujer",
+        "value": "8867",
+        "source": "Date A Live",
+        "img": "https://files.catbox.moe/r8wufk.jpg",
+        "user": null,
+        "status": "Libre"
     }
-  ]
+]
