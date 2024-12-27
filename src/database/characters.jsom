@@ -1,0 +1,162 @@
+[
+    {
+        "name": "Alisa Mikhailovna Kujou",
+        "gender": "Femenino",
+        "value": "100",
+        "source": "Roshidere",
+        "img": "https://qu.ax/pMjB.jpeg",
+        "id": "A1B2C3D4E5"
+    },
+    {
+        "name": "María Mikhailovna Kujou",
+        "gender": "Femenino",
+        "value": "100",
+        "source": "Roshidere",
+        "img": "https://qu.ax/ypXz.jpeg",
+        "id": "F6G7H8J9K0"
+    },
+    {
+        "name": "Mikasa Ackerman",
+        "gender": "Femenino",
+        "value": "200",
+        "source": "Attack on Titan (Shingeki no Kyojin)",
+        "img": "https://telegra.ph/file/b31cd03f716d362b33716.jpg",
+        "id": "L1M2N3O4P5"
+    },
+    {
+        "name": "Izuku Midoriya",
+        "gender": "Masculino",
+        "value": "150",
+        "source": "My Hero Academia",
+        "img": "https://telegra.ph/file/f689a972cfc1c5efff189.jpg",
+        "id": "Q6R7S8T9U0"
+    },
+    {
+        "name": "Misa Amane",
+        "gender": "Femenino",
+        "value": "250",
+        "source": "Death Note",
+        "img": "https://telegra.ph/file/70fadfc8d38f2d307cd35.jpg",
+        "id": "A1B2C3D4E5"
+    },
+    {
+        "name": "Asuna Yuuki",
+        "gender": "Femenino",
+        "value": "300",
+        "source": "Sword Art Online",
+        "img": "https://telegra.ph/file/a803779df82b23707a0af.jpg",
+        "id": "F6G7H8J9K0"
+    },
+    {
+        "name": "Erza Scarlet",
+        "gender": "Femenino",
+        "value": "200",
+        "source": "Fairy Tail",
+        "img": "https://telegra.ph/file/9d8777e630c32a244ce9c.jpg",
+        "id": "L1M2N3O4P5"
+    },
+    {
+        "name": "Kurumi Tokisaki",
+        "gender": "Femenino",
+        "value": "200",
+        "source": "Date Alive",
+        "img": "https://qu.ax/rsUb.jpg",
+        "id": "Q6R7S8T9U0"
+    },
+    {
+        "name": "Momo Deviluke",
+        "gender": "Femenino",
+        "value": "250",
+        "source": "To Love Ru",
+        "img": "https://qu.ax/BcFaA.jpg",
+        "id": "A1B2C3D4E5"
+    },
+    {
+        "name": "Nino Nakano",
+        "gender": "Femenino",
+        "value": "150",
+        "source": "The Quintessential Quintuplets",
+        "img": "https://qu.ax/lwsz.jpg",
+        "id": "F6G7H8J9K0"
+    },
+    {
+        "name": "Ryo Yamada",
+        "gender": "Masculino",
+        "value": "120",
+        "source": "Bocchi the Rock",
+        "img": "https://qu.ax/jvpuJ.jpg",
+        "id": "L1M2N3O4P5"
+    },
+    {
+        "name": "Sumi Sakurasawa",
+        "gender": "Femenino",
+        "value": "130",
+        "source": "Rent a Girlfriend",
+        "img": "https://qu.ax/DyCvR.jpg",
+        "id": "Q6R7S8T9U0"
+    },
+    {
+        "name": "Umaru-chan",
+        "gender": "Femenino",
+        "value": "140",
+        "source": "Himouto! Umaru-chan",
+        "img": "https://qu.ax/YsozF.jpg",
+        "id": "A1B2C3D4E5"
+    },
+    {
+        "name": "Mizuhara",
+        "gender": "Femenino",
+        "value": "250",
+        "source": "Rent a Girlfriend",
+        "img": "https://qu.ax/kHlbU.jpg",
+        "id": "F6G7H8J9K0"
+    },
+    {
+        "name": "Makima",
+        "gender": "Femenino",
+        "value": "300",
+        "source": "Chainsaw Man",
+        "img": "https://qu.ax/VsgHE.jpg",
+        "id": "L1M2N3O4P5"
+    },
+    {
+        "name": "Power",
+        "gender": "Femenino",
+        "value": "220",
+        "source": "Chainsaw Man",
+        "img": "https://qu.ax/yMseZ.jpg",
+        "id": "Q6R7S8T9U0"
+    },
+    {
+        "name": "Yuliet Persia",
+        "gender": "Femenino",
+        "value": "200",
+        "source": "Kishuku Gakkou no Juliet",
+        "img": "https://qu.ax/UWytO.jpg",
+        "id": "A1B2C3D4E5"
+    },
+    {
+        "name": "Kisara",
+        "gender": "Femenino",
+        "value": "150",
+        "source": "Engage Kiss",
+        "img": "https://files.catbox.moe/9qwi8b.jpg",
+        "id": "F6G7H8J9K0"
+    },
+    {
+        "name": "Raphtalia",
+        "gender": "Femenino",
+        "value": "100",
+        "source": "Tate no Yuusha no Nariagari",
+        "img": "https://files.catbox.moe/1w1pgz.webp",
+        "id": "L1M2N3O4P5"
+    },
+    {
+        "name": "Ai Hoshino",
+        "gender": "Femenino",
+        "value": "250",
+        "source": "Oshi no Ko",
+        "img": "https://files.catbox.moe/wv8el0.jpeg",
+        "id": "Q6R7S8T9U0"
+    }
+  ]
