@@ -51,10 +51,10 @@ No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojam
             "externalAdReply": {
                 "showAdAttribution": true,
                 "containsAutoReply": true,
-                title: `—(••÷[ 𝐌𝐚𝐬𝐡𝐚-𝐇𝐨𝐭𝐬 𝐇𝐨𝐬𝐭𝐢𝐧𝐠  ]÷••)—`,
+                title: `✦ 𝐌𝐚𝐬𝐡𝐚-𝐇𝐨𝐭𝐬 𝐇𝐨𝐬𝐭𝐢𝐧𝐠 ✦`,
                 body: `¡El Hots que necesitas!`,
                 "previewType": "PHOTO",
-                thumbnailUrl: 'https://i.ibb.co/6BbntLf/Yuki.jpg', 
+                thumbnailUrl: 'https://qu.ax/aHudo.jpg', 
                 sourceUrl: redeshost
             }
         }
