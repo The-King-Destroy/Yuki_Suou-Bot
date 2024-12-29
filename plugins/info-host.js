@@ -3,10 +3,10 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 ¿Tu Nokia es muy lento y necesitas que tu bot esté activo 24/7? ⴵ
 
-♛ ¡Tenemos la solución perfecta para ti! 🜸 Mantén tu bot funcionando sin interrupciones con nuestros servidores, Ofrecemos servidores de calidad a precios accesibles. ⛃⛁
+♛ ¡Tenemos la solución perfecta para ti! 🜸 Mantén tu bot funcionando sin interrupciones con nuestros servidores, Ofrecemos servidores de calidad a precios accesibles. ⛁
 
 ➨ Totalmente compatible con Yuki-Suou-Bot.
-Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de Yuki-Suou-Bot y Masha-Hots se encarga de que disfrutes de todas sus funciones al máximo. ✰
+Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de Yuki-Suou-Bot y Masha-Hots se encarga de que disfrutes de todas sus funciones al máximo.
 
 ❒ \`\`\`Información del Host\`\`\`
 
@@ -28,11 +28,11 @@ https://whatsapp.com/channel/0029VaoyLfA0LKZKjEh5Yh1J
 
 ❀ *Contactos:*
 
-• wa.me/584148256527
+• wa.me/595976230899
 
 • wa.me/522431268546
 
-• wa.me/584120346669
+• wa.me/584148256527
 
 No esperes más y lleva tu bot al siguiente nivel con nuestro servicio de alojamiento. ¡Es fácil, rápido y económico! ♡`;
 
