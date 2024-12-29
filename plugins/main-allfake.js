@@ -50,8 +50,8 @@ global.colab3 = 'Legendary'
 
 //Ids channel
 global.idchannel = '120363343811229130@newsletter'
-global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
-global.canalNombreM = ["♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"]
+global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter", "120363338362822764@newsletter"]
+global.canalNombreM = ["♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧", " —(••÷[ 𝐌𝐚𝐬𝐡𝐚-𝐇𝐨𝐭𝐬 𝐇𝐨𝐬𝐭𝐢𝐧𝐠  ]÷••)—"]
 global.channelRD = await getRandomChannel()
 
 //Reacciones De Comandos.!
