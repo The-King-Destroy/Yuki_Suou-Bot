@@ -28,7 +28,7 @@ let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? c
 let mentionedJid = [who]
 let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-const vid = ['https://files.catbox.moe/1dtvv7.mp4', 'https://files.catbox.moe/yxpqgu.mp4', 'https://files.catbox.moe/0iw0dc.mp4']
+const vid = ['https://qu.ax/XRBfk.mp4', 'https://qu.ax/xrrpn.mp4', 'https://qu.ax/JZLHQ.mp4']
 
 let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹𝑒 𝒴𝓊𝓀𝒾꯭⌑꯭ 𓏲꯭֟፝੭ ꯭  ꯭ ꯭𔓕
 
@@ -201,7 +201,12 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✤ .rule34 <personaje>
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕽𝖔𝖑𝖑𝖜𝖆𝖎𝖋𝖚𝖘ᚐ҉ᚐ 」⪨
-┃✦ .No disponible por el momento :v
+┃✦ .rw
+┃✦ .c
+┃✦ .harem
+┃✦ .regalar
+┃✦ .wimage
+┃✦ .winfo
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕰𝖈𝖔𝖓𝖔𝖒í𝖆ᚐ҉ᚐ 」⪨
 ┃✱ .apostar 
@@ -293,18 +298,13 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃Ѽ .pinvid
 ┃Ѽ .play
 ┃Ѽ .play2
-┃Ѽ .playdoc
-┃Ѽ .playdoc2
 ┃Ѽ .ytmp3 *<link>*
 ┃Ѽ .ytpm4 *<link>*
-┃Ѽ .ytmp3doc *<link>*
-┃Ѽ .ytmp4doc *<link>*
 ┃Ѽ .terabox 
 ┃Ѽ .spotify
 ┃Ѽ .tiktokimg <url>
 ┃Ѽ .tiktokmp3 *<link>*
 ┃Ѽ .tiktok
-┃Ѽ .tiktok2 *<link>*
 ┃Ѽ .tw
 ┃Ѽ .ss2
 ┃Ѽ .ssvid
