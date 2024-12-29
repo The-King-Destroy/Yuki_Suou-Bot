@@ -111,12 +111,13 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 }}, { quoted: m }
 
 global.icono = [ 
-'https://files.catbox.moe/xuwxy7.jpg',
-'https://files.catbox.moe/tp697d.jpg',
-'https://files.catbox.moe/qpkq55.jpg',
-'https://files.catbox.moe/028uxb.jpg',
-'https://files.catbox.moe/jh2rwk.jpg',
-'https://files.catbox.moe/guvo2k.jpg'
+'https://i.ibb.co/FVmh9mZ/Yuki.jpg',
+'https://i.ibb.co/LJq07fM/Yuki.jpg',
+'https://i.ibb.co/gdcnnFz/Yuki.jpg',
+'https://i.ibb.co/p093PLg/Yuki.jpg',
+'https://i.ibb.co/KwyrmLv/Yuki.jpg',
+'https://i.ibb.co/LhqR968/Yuki.jpg',
+'https://i.ibb.co/t4CvK2y/Yuki.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
