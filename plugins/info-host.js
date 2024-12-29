@@ -5,8 +5,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 ♛ ¡Tenemos la solución perfecta para ti! 🜸 Mantén tu bot funcionando sin interrupciones con nuestros servidores, Ofrecemos servidores de calidad a precios accesibles. ⛁
 
-➨ Totalmente compatible con Yuki-Suou-Bot.
-Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de Yuki-Suou-Bot y Masha-Hots se encarga de que disfrutes de todas sus funciones al máximo.
+➨ Totalmente compatible con Yuki-Suou-Bot. Disfruta al máximo de su potencial en nuestros servidores de alto rendimiento, asegurando una experiencia fluida y de alta calidad. El staff de Yuki-Suou-Bot y Masha-Hots se encarga de que disfrutes de todas sus funciones al máximo.
 
 ❒ \`\`\`Información del Host\`\`\`
 
