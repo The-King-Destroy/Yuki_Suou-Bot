@@ -22,6 +22,7 @@ import {makeWASocket, protoType, serialize} from './lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
 import {mongoDB, mongoDBV2} from './lib/mongoDB.js'
 import store from './lib/store.js'
+import { yukiJadiBot } from './plugins/jadibot-serbot.js';
 const {proto} = (await import('@whiskeysockets/baileys')).default
 const {DisconnectReason, useMultiFileAuthState, MessageRetryMap, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser, PHONENUMBER_MCC} = await import('@whiskeysockets/baileys')
 import readline from 'readline'
@@ -278,6 +279,24 @@ conn.ev.on('creds.update', conn.credsUpdate)
 isInit = false
 return true
 };
+
+/** Arranque nativo para subbots by - ReyEndymion >> https://github.com/ReyEndymion
+ */
+global.rutaJadiBot = join(__dirname, `./${jadi}`)
+
+if (global.yukiJadibts) {
+const readRutaJadiBot = readdirSync(rutaJadiBot)
+if (readRutaJadiBot.length > 0) {
+const creds = 'creds.json'
+for (const gjbts of readRutaJadiBot) {
+const botPath = join(rutaJadiBot, gjbts)
+const readBotPath = readdirSync(botPath)
+if (readBotPath.includes(creds)) {
+yukiJadiBot({pathYukiJadiBot: botPath, m: null, conn, args: '', usedPrefix: '.', command: 'serbot'})
+}
+}
+}
+}
 
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
 const pluginFilter = (filename) => /\.js$/.test(filename)
