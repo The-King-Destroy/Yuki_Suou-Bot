@@ -79,9 +79,7 @@ let handler = async (m, { conn, args, command }) => {
 
 handler.help = ['ytdl *<link yt>*'];
 handler.tags = ['descargas'];
-handler.command = /^ytdl|dlyt|youtubedl$/i;
-handler.premium = true;
+handler.command = /^ytdl|dlyt|youtubedl$/i
 handler.register = true;
-handler.group = true;
 
 export default handler;
