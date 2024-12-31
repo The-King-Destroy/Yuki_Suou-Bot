@@ -34,17 +34,17 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = `↝↣☬ʜᴜᴛᴀᴏ-ᴘʀᴏʏᴇᴄᴛ֍↜↤\n\nↂ SUB BOT FUNCION֎\n\n*❤️‍🩹 𝐮𝐬𝐚 𝐨𝐭𝐫𝐨 𝐜𝐞𝐥 𝐨 𝐭𝐮 𝐩𝐜 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐯𝐢𝐧𝐜𝐮𝐥𝐚𝐫 𝐞𝐥 𝐛𝐨𝐭 𝐞𝐧 𝐭𝐮 𝐝𝐢𝐬𝐩𝐨𝐬𝐢𝐭𝐢𝐯𝐨 𝐪𝐮𝐞 𝐬𝐞𝐫𝐚 𝐞𝐥 𝐛𝐨𝐭🔥*\n\n\`1\` » 𝐡𝐚𝐠𝐚 𝐜𝐥𝐢𝐜𝐤 𝐞𝐧 𝐥𝐨𝐬 3 𝐩𝐮𝐧𝐭𝐨𝐬 𝐝𝐞 𝐥𝐚 𝐩𝐚𝐫𝐭𝐞 𝐬𝐮𝐩𝐞𝐫𝐢𝐨𝐫 𝐝𝐞𝐫𝐞𝐜𝐡𝐚\n\n\`2\` » 𝐭𝐨𝐪𝐮𝐞 𝐞𝐧 𝐝𝐢𝐬𝐩𝐨𝐜𝐢𝐭𝐢𝐯𝐨𝐬 𝐯𝐢𝐧𝐜𝐮𝐥𝐚𝐝𝐨𝐬\n\n\`3\` » 𝐞𝐬𝐜𝐚𝐧𝐞𝐞 𝐞𝐥 𝐜𝐨𝐝𝐢𝐠𝐨 𝐐𝐑 𝐩𝐚𝐫𝐚 𝐢𝐧𝐢𝐜𝐢𝐚𝐫 𝐬𝐞𝐜𝐜𝐢𝐨𝐧 𝐜𝐨𝐧 𝐞𝐥 𝐛𝐨𝐭\n\n❤️‍🔥 *¡Este código QR expira en 45 segundos!*.`;
-let rtx2 =  `☯ sᴜʙ ʙᴏᴛ-ᴍᴏᴅᴇ ᴄᴏᴅᴇ\n\n✰ Usa éste Código para convertirte en Sub-Bot Temporal.\n\n→ Tres Puntitos\n→ Dispositivos Vinculados\n→ Vincular Dispositivo\n→ Vincular con el número de teléfono.\n\n➤ *Importante:*\n» No es recomendable usar tu cuenta principal.\n» Si el Bot principal se reinicia, todos los Sub-Bots se desconectaran.`;
+let rtx = `✿ 𝚂𝚞𝚋-𝙱𝚘𝚝 𝙼𝚘𝚍𝚎 𝙲𝚘𝚍𝚎-𝚀𝚁\n\n✰ Usa otro Dispositivo o tu PC para escanear este Código QR para convertirte en un *Sub-Bot*.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Escanee este codigo QR para iniciar sesión\n\n✧ *¡Este Código QR expira en 45 segundos!*.`;
+let rtx2 =  `✿ 𝚂𝚞𝚋-𝙱𝚘𝚝 𝙼𝚘𝚍𝚎 𝙲𝚘𝚍𝚎\n\n✰ ✿ Usa este Código para convertirte en un *Sub-Bot*.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Selecciona Vincular con el número de teléfono\n\n\`4\` » Escriba el Código para vincular\n\n✧ *¡Este código solo funciona en el número que lo solicitó!*.`;
 
 const yukiJBOptions = {}
 if (global.conns instanceof Array) console.log()
 else global.conns = []
 let handler = async (m, { conn, args, usedPrefix, command, isOwner }) => {
-let time = global.db.data.users[m.sender].Subs + 1200000
-if (new Date - global.db.data.users[m.sender].Subs < 1200000) return conn.reply(m.chat, `🕝 Debes esperar ${msToTime(time - new Date())} para volver a intentar vincular un subbot.`, m)
+let time = global.db.data.users[m.sender].Subs + 300
+if (new Date - global.db.data.users[m.sender].Subs < 300) return conn.reply(m.chat, `《✧》Debes esperar ${msToTime(time - new Date())} para volver a intentar vincular un *Sub-Bot*.`, m)
 if (Object.values(global.conns).length === 40) {
-return m.reply('❤️‍🔥 no hay espacio disponible para sub- bots.')
+return m.reply('《✧》no hay espacio disponible para *Sub-Bots*.')
 }
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`  //conn.getName(who)
@@ -153,41 +153,41 @@ if (reason == 405) {
 //await fs.unlinkSync(`./${jadi}/` + id + "/creds.json")
 fs.unlinkSync(pathCreds);
 //thank you aiden_notLogic
-return await conn.sendMessage(m.chat, {text : `💫❤️‍🔥 Reenvia nuevamente el comando.` }, { quoted: null })
+return await conn.sendMessage(m.chat, {text : `《✧》Por favor, vuelve a reenviar el comando nuevamente.` }, { quoted: null })
 }
 if (reason === DisconnectReason.restartRequired) {
 await creloadHandler(true).catch(console.error)
-return console.log(`\n🦋 Tiempo de la conexión agotado, reconectando...`);  
+return console.log(`\n✧ Tiempo de la conexión agotado, reconectando...`);  
 } else if (reason === DisconnectReason.loggedOut) {
 sleep(4000)
 if (m === null) return
-return m.reply(`❤️‍🔥 Conexión cerrada, deberás conectarse nuevamente pidiendo el código QR o el código de 8 digitos, primero elimina la session actual usando: .deletebot`)
+return m.reply(`✦ Conexión cerrada, deberás conectarse nuevamente pidiendo el código QR o el código de 8 digitos, primero elimina la session actual usando: .deletebot`)
 } else if (reason == 428) {
 await endSesion(false)
 if (m === null) return
-return m.reply(`❤️‍🔥 La conexión se ha cerrado de manera inesperada, intentaremos reconectar...`)
+return m.reply(`❖ La conexión se ha cerrado de manera inesperada, intentaremos reconectar...`)
 } else if (reason === DisconnectReason.connectionLost) {
 await creloadHandler(true).catch(console.error)
-return console.log(`\n🦋 Conexión perdida con el servidor, reconectando...`); 
+return console.log(`\n✧ Conexión perdida con el servidor, reconectando...`); 
 } else if (reason === DisconnectReason.badSession) {
 if (m === null) return
-return m.reply(`🦋 La conexión se ha cerrado, deberás conectarse manualmente.`)
+return m.reply(`❖ La conexión se ha cerrado, deberás conectarse manualmente.`)
 } else if (reason === DisconnectReason.timedOut) {
 await endSesion(false)
-return console.log(`\n🦋 Tiempo de la conexión agotado, reconectando...`)
+return console.log(`\n✦ Tiempo de la conexión agotado, reconectando...`)
 } else {
-console.log( `\n💫 Razon de la desconexión desconocida: ${reason || ''} >> ${connection || ''}`);
+console.log( `\n✧ Razon de la desconexión desconocida: ${reason || ''} >> ${connection || ''}`);
 }}
 if (connection == `open`) {
 if (global.db.data == null) global.loadDatabase()
-const nameOrNumber = conn.getName(`${path.basename(pathHutaoJadiBot)}@s.whatsapp.net`)
+const nameOrNumber = conn.getName(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`)
 const baseName = path.basename(pathYukiJadiBot)
 const displayName = nameOrNumber.replace(/\D/g, '') === baseName ? `+${baseName}` : `${nameOrNumber} (${baseName})`
 console.log(chalk.bold.cyanBright(`\n${displayName} fué conectado correctamente.`))
 sock.isInit = true
 global.conns.push(sock)
 //let user = global.db.data.users[m.sender]
-m?.chat? await conn.sendMessage(m.chat, { text: `❤️‍🔥 SubBot conectado correctamente.`, mentions: [m.sender]}, { quoted: m }) : ''
+m?.chat? await conn.sendMessage(m.chat, { text: `✐ *Sub-Bot* conectado correctamente.`, mentions: [m.sender]}, { quoted: m }) : ''
 let chtxt = `👤 *𝐃𝐮𝐞𝐧̃𝐨* » ${m.pushName || 'Anónimo'}
 🗃️ *𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨* » ${user.registered ? `𝚂𝚒\n✅ *𝐕𝐞𝐫𝐢𝐟𝐢𝐜𝐚𝐜𝐢𝐨́𝐧* » *${user.name}` : '𝙽𝚘'}
 🔑 *𝐌𝐞́𝐭𝐨𝐝𝐨 𝐝𝐞 𝐜𝐨𝐧𝐞𝐱𝐢𝐨́𝐧* » ${mcode ? 'Código de 8 dígitos' : 'Código QR'}
@@ -196,8 +196,8 @@ let chtxt = `👤 *𝐃𝐮𝐞𝐧̃𝐨* » ${m.pushName || 'Anónimo'}
 💫 *𝐕𝐞𝐫𝐬𝐢𝐨́𝐧 𝐬𝐮𝐛 𝐛𝐨𝐭* » 5.0
 
 > *¡𝙲𝚘𝚗𝚟𝚒𝚎́𝚛𝚝𝚎𝚝𝚎 𝚎𝚗 𝚜𝚞𝚋-𝚋𝚘𝚝 𝚊𝚑𝚘𝚛𝚊!*
-wa.me/${path.basename(pathHutaoJadiBot)}?text=${usedPrefix + command}%20code`.trim()
-let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+wa.me/${path.basename(pathYukiJadiBot)}?text=${usedPrefix + command}%20code`.trim()
+let ppch = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 await sleep(3000)
 //if (global.conn.user.jid.split`@`[0] != sock.user.jid.split`@`[0]) {
 await conn.sendMessage(global.channelid, { text: chtxt, contextInfo: {
