@@ -12,7 +12,7 @@ let json = await api.json()
 let { quality, title, download_url, thumbnail } = json.result
 
 
-await conn.sendMessage(m.chat, { video: { url: download_url }, caption: `titulo ${title}`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: m })
+await conn.sendMessage(m.chat, { video: { url: download_url }, caption: `${title}`, mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: m })
 } catch (error) {
 console.error(error)
 }}
