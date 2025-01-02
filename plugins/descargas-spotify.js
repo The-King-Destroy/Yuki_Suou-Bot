@@ -8,25 +8,17 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     try {
         let ouh = await fetch(`https://api.nyxs.pw/dl/spotify-direct?title=${text}`);
-
-        // Verifica que la respuesta sea correcta
         if (!ouh.ok) {
             throw new Error(`Error al acceder a la API: ${ouh.status} ${ouh.statusText}`);
         }
 
         let gyh = await ouh.json();
+        if (!gyh || !gyh.result) throw m.reply(`*No se encontró la canción*`);
 
-        if (!gyh.result) throw m.reply(`*No se encontró la canción*`);
-
-        // Usar un acortador para el enlace de Spotify
         let shortURL = await getTinyURL(gyh.result.urlSpotify);
-
         const info = `☁️ *TITULO:*\n_${gyh.result.title} - Versión original_\n\n👤 *ARTISTA:*\n» ${gyh.result.artists}\n\n🔗 *LINK:*\n» ${shortURL}\n\n🥀 *Enviando Canción....*`;
-
-        // Obtener la imagen en formato buffer de la URL original
         const thumbnailBuffer = await (await fetch(gyh.result.thumbnail)).buffer();
 
-        // Enviar la información y la imagen como un enlace
         await conn.sendMessage(m.chat, {
             text: info,
             contextInfo: {
@@ -35,8 +27,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                     body: `Artista: ${gyh.result.artists}`,
                     mediaType: 1,
                     thumbnail: thumbnailBuffer,
-                    mediaUrl: shortURL, // URL de la canción
-                    sourceUrl: shortURL, // URL de la canción
+                    mediaUrl: shortURL,
+                    sourceUrl: shortURL,
                     showAdAttribution: true,
                 }
             }
@@ -58,12 +50,11 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             }
         };
 
-        // Enviar el archivo de audio
         await conn.sendMessage(m.chat, doc, { quoted: m });
         await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } });
     } catch (error) {
-        console.error(error);
-        m.reply(`Error: ${error.message}`);
+        console.error('Error en el handler:', error);
+        m.reply(`Error: ${error.message || 'Error desconocido'}`);
     }
 };
 
@@ -75,10 +66,11 @@ async function getTinyURL(text) {
         return text;
     }
 }
-handler.tags = ['downloader']
-handler.help = ['spotify']
-handler.command = ['spotify']
-handler.limit = 7
-handler.group = true
-//handler.register = true
-export default handler
+
+handler.tags = ['downloader'];
+handler.help = ['spotify'];
+handler.command = ['spotify'];
+handler.limit = 7;
+//handler.group = true;
+
+export default handler;
