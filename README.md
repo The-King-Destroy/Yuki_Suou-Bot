@@ -123,18 +123,18 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 
 ---
 
-### **`🌟 𝓒𝓸𝓵𝓪𝓫𝓸𝓻𝓪𝓭𝓸𝓻𝓮𝓼`**
+### **`🌟 Colaboradores`**
 <a href="https://github.com/The-King-Destroy/Yuki_Suou-Bot/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=The-King-Destroy/Yuki_Suou-Bot" /> 
 </a>
 
-### **`👑 𝓟𝓻𝓸𝓹𝓲𝓮𝓽𝓪𝓻𝓲𝓸`**
+### **`👑 Propietario`**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`🍂 𝓒𝓻é𝓭𝓲𝓽𝓸𝓼`**
+### **`🍂 Créditos`**
 <a
 href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
 
-*[© Powered by ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜]*
+**[© Powered by ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜]**
