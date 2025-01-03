@@ -48,9 +48,8 @@
 <details>
 <summary><b> 🌻 Contáctos</b></summary>
 
-* thekingdestroy507@gmail.com
-* https://wa.me/584120346669
-* https://wa.me/584128382768
+* WhatsApp: [`Aquí`](https:/Wa.me/584120346669)
+* Correo: [`Aquí`](thekingdestroy507@gmail.com)
 
 </details>
 
