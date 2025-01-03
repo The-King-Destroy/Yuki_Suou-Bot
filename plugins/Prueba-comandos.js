@@ -1,50 +1,21 @@
-import yts from 'yt-search';
+import fetch from 'node-fetch';
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) {
-    throw `🌸 Por favor ingresa un texto para buscar.\nEjemplo: ${usedPrefix + command} Enemy tommoee profitt`;
-  }
+let HS = async (m, { conn, text }) => {
+if (!text) return conn.reply(m.chat, `🌸 Ingresa un link de youtube`, m)
 
-  
-  const search = await yts(text);
-  const videoInfo = search.all?.[0];
+try {
+let api = await fetch(`https://restapi.apibotwa.biz.id/api/ytmp4?url=${text}`)
+let json = await api.json()
+let title = json.data.metadata.title
+let dl_url = json.data.download.url
+await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${json.data.filename}.mp4`, mimetype: "video/mp4" }, { quoted: m })
 
-  if (!videoInfo) {
-    throw '🍧 No se encontraron resultados para tu búsqueda. Intenta con otro título.';
-  }
+} catch (error) {
+console.error(error)
+}}
 
-  const body = `
-🎥 *YσuTυbє Plαy*  
-━━━━━━━━━━━━━━━━━━━━  
-📌 *🎬 Tιтlє:* ${videoInfo.title}  
-👀 *💯 Vιѕtαѕ:* ${videoInfo.views.toLocaleString()}  
-⏱️ *⏳ Dυrαcισn:* ${videoInfo.timestamp}  
-📅 *🕒 Pυblιcαdσ:* ${videoInfo.ago}  
-🔗 *🌐 URL:* ${videoInfo.url}  
-  
-Elige una de las opciones para descargar:
-🎵 *Audio* o 📽️ *Video*
-  `;
+HS.command = ['ytvv']
+//handler.group = true
+//handler.limit = 3
 
-  await conn.sendMessage(
-    m.chat,
-    {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: `© Bot | 🐉SonGoku🐉`,
-      buttons: [
-        { buttonId: `.ytmp5 ${videoInfo.url}`, buttonText: { displayText: '🎵 Audio' } },
-        { buttonId: `.ytmp6 ${videoInfo.url}`, buttonText: { displayText: '📽️ Video' } },
-      ],
-      viewOnce: true,
-      headerType: 4,
-    },
-    { quoted: m }
-  );
-  //m.react('✅'); // Reacción de éxito
-};
-
-handler.command = ['play1', 'playvid'];
-handler.tags = ['descargas']
-
-export default handler;
+export default HS
