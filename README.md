@@ -66,7 +66,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 * Dashboard  [`Dash`](https://dash.skyultraplus.com)
 * Panel [`Panel`](https://panel.skyultraplus.com)
-* Canal de WhatsApp [`Canal sky`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
+* Canal de WhatsApp [`Canal Sky`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 * Comunidad  [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
 * Contacto(s) [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) / [`Russell`](https://api.whatsapp.com/send/?phone=15167096032&text&type=phone_number&app_absent=0) / [`elrebelde21`](https://facebook.com/elrebelde21)
 * Discord [`SkyUltraPlus`](https://discord.gg/Ph4eWsZ8)
@@ -76,14 +76,15 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 ---
 
 ###  **`⚜️ TK-Host`**
-<a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="150px"></a>
+<a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="125px"></a>
 
 <details>
- <summary><b>🍧 Servidor TK-HOTS</b></summary>
+ <summary><b>🔥 Servidor TK-HOTS</b></summary>
 
 * Dashboard: [`Dash`](https://dash.tk-joanhost.com/home)
 * Panel: [`Panel`](https://panel.tk-joanhost.com/)
-* Canal de WhatsApp: [`Canal Hosting`](https://chat.whatsapp.com/EyoFXnaNujs53FBeqj2NM3)
+* Canal de WhatsApp: [`Canal TK`](https://chat.whatsapp.com/EyoFXnaNujs53FBeqj2NM3)
+* Grupo Soporte: [`Aquí`](https://chat.whatsapp.com/CxyUKH5ElNdHAWiJpx7D0E)
 * Contacto(s): [`Soporte`](https://wa.me/51910234457)
 
 </details>
@@ -100,7 +101,7 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 
 * Dashboard  [`Dash`](https://dahs.hostingpy.shop)
 * Panel [`Panel`](https://panel.hostingpy.shop)
-* Canal de WhatsApp [`Canal Hosting`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
+* Canal de WhatsApp [`Canal Py`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 * Comunidad  [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 * Contacto(s) [`Soporte`](https://wa.me/595976126756)
 
@@ -115,9 +116,9 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 
 | APP | TIPO | ENLACE |
 |------|-------------|-------|
-| WhatsApp | 𝒞𝒶𝓃𝒶𝓁 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
-| WhatsApp | 𝒢𝓇𝓊𝓅𝑜 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
-| WhatsApp | 𝒞𝑜𝓂𝓊𝓃𝒾𝒹𝒶𝒹 𝒪𝒻𝒾𝒸𝒾𝒶𝓁 | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
+| WhatsApp | Canal Oficial | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
+| WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
+| WhatsApp | Comunidad Oficial | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
 
 </details>
 
@@ -133,7 +134,7 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`❇️ 𝓒𝓻é𝓭𝓲𝓽𝓸𝓼`**
+### **`🍂 𝓒𝓻é𝓭𝓲𝓽𝓸𝓼`**
 <a
 href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
 
