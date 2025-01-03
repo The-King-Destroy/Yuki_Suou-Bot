@@ -75,6 +75,21 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
+###  **`⚜️ TK-Host`**
+<a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="125px"></a>
+
+<details>
+ <summary><b>🍧 Servidor TK-HOTS</b></summary>
+
+* Dashboard: [`Dash`](https://dash.tk-joanhost.com/home)
+* Panel: [`Panel`](https://panel.tk-joanhost.com/)
+* Canal de WhatsApp: [`Canal Hosting`](https://chat.whatsapp.com/EyoFXnaNujs53FBeqj2NM3)
+* Contacto(s): [`Soporte`](https://wa.me/51910234457)
+
+</details>
+
+---
+
 ### **`🌌 Hosting Py:`**
 
 <a
@@ -88,9 +103,6 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 * Canal de WhatsApp [`Canal Hosting`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 * Comunidad  [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 * Contacto(s) [`Soporte`](https://wa.me/595976126756)
-
-> **`Usa Mi Código de Referencia`**:
- VOed0vMx
 
 </details>
 
