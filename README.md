@@ -55,7 +55,7 @@
 
 ---
 
-### **`☁️ SKY ULTRA PLUS`**
+### **`☁️ SKY-ULTRA-PLUS`**
 
 <a
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
@@ -74,11 +74,11 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-###  **`⚜️ TK-Host`**
+###  **`⚜️ TK-HOTS`**
 <a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="150px"></a>
 
 <details>
- <summary><b>🔥 Servidor TK-HOTS</b></summary>
+ <summary><b>🔥 Servidor Tk-Hots</b></summary>
 
 * Dashboard: [`Dash`](https://dash.tk-joanhost.com/home)
 * Panel: [`Panel`](https://panel.tk-joanhost.com/)
@@ -90,7 +90,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-### **`🌌 Hosting Py:`**
+### **`🌌 HOSTING-PY`**
 
 <a
 href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z2.jpg" height="125px"></a>
