@@ -1,21 +1,28 @@
-import fetch from 'node-fetch';
+import fetch from 'node-fetch'
 
 let HS = async (m, { conn, text }) => {
-if (!text) return conn.reply(m.chat, `🌸 Ingresa un link de youtube`, m)
+  if (!text) {
+    return m.reply("🍬 Ingresa un link de YouTube")
+  }
 
-try {
-let api = await fetch(`https://restapi.apibotwa.biz.id/api/ytmp4?url=${text}`)
-let json = await api.json()
-let title = json.data.metadata.title
-let dl_url = json.data.download.url
-await conn.sendMessage(m.chat, { video: { url: dl_url }, fileName: `${json.data.filename}.mp4`, mimetype: "video/mp4" }, { quoted: m })
+  try {
+    let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp4?apikey=gifted&url=${text}`)
+    let json = await api.json()
+    let { quality, title, download_url } = json.result
 
-} catch (error) {
-console.error(error)
-}}
+    await conn.sendMessage(m.chat, { 
+      document: { url: download_url }, 
+      caption: `${title}`, 
+      mimetype: 'video/mp4', 
+      fileName: `${title}.mp4`
+    }, { quoted: m })
+  } catch (error) {
+    console.error(error)
+  }
+}
 
-HS.command = ['ytvv']
-//handler.group = true
-//handler.limit = 3
+HS.command = /^(ytmp4doc)$/i
+handler.group = true
+handler.limit = 10
 
 export default HS
