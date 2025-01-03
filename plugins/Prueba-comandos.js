@@ -21,7 +21,7 @@ let HS = async (m, { conn, text }) => {
   }
 }
 
-HS.command = /^(ytmp4doc)$/i
+handler.command = /^(ytmp4doc)$/i
 handler.group = true
 handler.limit = 10
 
