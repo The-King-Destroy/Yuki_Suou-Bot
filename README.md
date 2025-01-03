@@ -76,7 +76,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 ---
 
 ###  **`⚜️ TK-Host`**
-<a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="125px"></a>
+<a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="150px"></a>
 
 <details>
  <summary><b>🔥 Servidor TK-HOTS</b></summary>
