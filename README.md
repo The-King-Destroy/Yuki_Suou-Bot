@@ -131,11 +131,9 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 <details>
  <summary><b> 🍒 Grupos Oficiales </b></summary>
 
-| APP | TIPO | ENLACE |
-|------|-------------|-------|
-| WhatsApp | Canal Oficial | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
-| WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/Ecz881bBgqPIWjDOaKkp7E) |
-| WhatsApp | Comunidad Oficial | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
+ * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
+* Grupo Oficial [`¡Click aquí!`](https://panel.skyultraplus.com)
+* Comunidad Oficial [`¡Click aquí!`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 
 </details>
 
