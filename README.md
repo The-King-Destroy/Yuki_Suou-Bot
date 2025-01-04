@@ -47,7 +47,7 @@
 ### **`🔗 Enlaces útiles`**
 
 <details>
- <summary><b> 🍬 Grupos Oficiales </b></summary>
+ <summary><b> 🍭 Grupos Oficiales </b></summary>
 
  * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
 * Grupo Oficial [`¡Click aquí!`](https://panel.skyultraplus.com)
