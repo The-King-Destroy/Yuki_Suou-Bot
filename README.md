@@ -75,7 +75,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 ---
 
 ###  **`🍬 MASHA-HOTS`**
-<a href="https://dash.masha-host.shop/home"><img src="https://qu.ax/aHudo.jpg" height="125px"></a>
+<a href="https://dash.masha-host.shop/home"><img src="https://qu.ax/aHudo.jpg" height="140px"></a>
 
 <details>
  <summary><b>🍂 Servidor Masha-Hots</b></summary>
