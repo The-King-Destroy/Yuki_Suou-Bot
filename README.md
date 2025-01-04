@@ -15,11 +15,6 @@
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 
 </details>
-
----
-
-### **` Características `**
-<details>
  <summary><b> <img src="https://i.pinimg.com/originals/73/69/6e/73696e022df7cd5cb3d999c6875361dd.gif" alt="Características" width="42" height="42"> Funciones de la Bot</b></summary>
 
 > Bot en desarrollo si presenta alguna falla reportar al creador para darle una solución óptima.
@@ -132,7 +127,7 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 | APP | TIPO | ENLACE |
 |------|-------------|-------|
 | WhatsApp | Canal Oficial | [¡Click aquí!](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T) |
-| WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ) |
+| WhatsApp | Grupo Oficial | [¡Click aquí!](https://chat.whatsapp.com/Ecz881bBgqPIWjDOaKkp7E) |
 | WhatsApp | Comunidad Oficial | [¡Click aquí!](https://chat.whatsapp.com/BuLovToIxdiLeycG2d3xJN) |
 
 </details>
