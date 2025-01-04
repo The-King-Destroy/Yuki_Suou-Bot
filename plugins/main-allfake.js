@@ -50,8 +50,8 @@ global.colab3 = 'Legendary'
 
 //Ids channel
 global.idchannel = '120363343811229130@newsletter'
-global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter", "120363338362822764@newsletter", "120363205895430548@newsletter"]
-global.canalNombreM = ["↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧", " —(••÷[ 𝐌𝐚𝐬𝐡𝐚-𝐇𝐨𝐭𝐬 𝐇𝐨𝐬𝐭𝐢𝐧𝐠  ]÷••)—", "↤↤↤↤↤ ᴛᴋ-ʜᴏꜱᴛɪɴɢ ↦↦↦↦↦"]
+global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
+global.canalNombreM = ["↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"]
 global.channelRD = await getRandomChannel()
 
 //Reacciones De Comandos.!
@@ -60,10 +60,10 @@ global.done = '✅'
 global.error = '✖️'
 
 //Emojis determinado de Yuki Ai
-global.emoji = '🌸'
-global.emoji2 = '🌹'
-global.emoji3 = '🍒'
-global.emoji4 = '🌷'
+global.emoji = '🍧'
+global.emoji2 = '🍬'
+global.emoji3 = '🌸'
+global.emoji4 = '🍭'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
