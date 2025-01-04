@@ -4,7 +4,7 @@
 
   [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=900&color=FF0000&lines=Bienvenido+al+Repositorio+Oficial;✿Yuki-Suou-Bot✿;Gracias+por+Preferirnos;Creado+por+𝔇ĕ𝐬†𝓻⊙γ𒆜)](https://git.io/typing-svg)
 ![𝒴𝓊𝓀𝒾-𝒮𝓊𝑜𝓊-𝐵𝑜𝓉](https://files.catbox.moe/om9jai.jpg)
-> ⚜️ Versión Actual: 2.0.0
+
 ---
 
 ### **`❕️ Información importante`**
