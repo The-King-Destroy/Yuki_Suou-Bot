@@ -52,7 +52,7 @@ global.botname = '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ'
 global.dev = '© 𝒫𝑜𝓌𝑒𝓇𝑒𝒹 𝐵𝓎 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
 global.textbot = 'ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͟͞ '
 global.gt = '͟͞ ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉̤𓆪 ͟͞';
-global.namechannel = '♡⃝𝒞𝐻𝒜𝒩𝒩𝐸𝐿 𝒴𝒰𝒦𝐼 𝒮𝒰𝒪𝒰ᚐ҉ᚐ'
+global.namechannel = '↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬'
 
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
 global.imagen1 = fs.readFileSync('./src/menus/Menu2.jpg');
@@ -93,13 +93,13 @@ ch2: '120363322713003916@newsletter',
 }
 
 //• ↳ ◜𝑳𝑰𝑵𝑲𝑺◞ • 🌿
-global.gp4 = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ' //Grupo Oficial De Yuki_Suou
-global.gp1 = 'https://chat.whatsapp.com/E78uEs2qJIE0apCLB7rSQZ' //Grupo 
-global.gp2 = 'https://chat.whatsapp.com/B6uCcLp85mG5Xls6QdzT4H'//
-global.comunidad1 = 'https://chat.whatsapp.com/B6uCcLp85mG5Xls6QdzT4H' //Comunidad Yuki_Suou
+global.gp4 = 'https://chat.whatsapp.com/Ecz881bBgqPIWjDOaKkp7E' //Grupo Oficial De Yuki-Bot
+global.gp1 = 'https://chat.whatsapp.com/DouO0ZzbGyC3yqbeqpbVIp' //Grupo 
+global.gp2 = 'https://chat.whatsapp.com/Ecz881bBgqPIWjDOaKkp7E'//
+global.comunidad1 = 'https://chat.whatsapp.com/EwrwcGvpLf1BnMhP3B4axD' //Comunidad Yuki-Bot
 global.channel = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' //Canal Oficial
 global.channel2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o' //Canal test
-global.yt = 'https://youtube.com/@user-the-king-destroy?si=8kNB8k2k3ESQ_J9j' //Canal De Youtube
+global.yt = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' //Canal De Youtube
 global.md = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' //Github Oficial
 global.correo = 'thekingdestroy507@gmail.com'
 global.cn ='https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T';
