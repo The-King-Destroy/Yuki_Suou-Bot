@@ -74,14 +74,30 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
+###  **`🍬 MASHA-HOTS`**
+<a href="https://dash.masha-host.shop/home"><img src="https://qu.ax/aHudo.jpg" height="125px"></a>
+
+<details>
+ <summary><b>🍂 Servidor Masha-Hots</b></summary>
+
+* Dashboard: [`Dash`](https://dash.masha-host.shop)
+* Panel: [`Panel`](https://panel.masha-host.shop)
+* Canal de WhatsApp: [`Canal Masha`](https://whatsapp.com/channel/0029VaoyLfA0LKZKjEh5Yh1J)
+* Comunidad: [`Aquí`](https://chat.whatsapp.com/Fz9rCXegzos1Yh0qHkxGhD)
+* Contacto(s): [`Masha`](https://wa.me/595976230899) / [`Legend`](https://wa.me/584148256527) / [`Tesis`](https://wa.me/522431268546)
+
+</details>
+
+---
+
 ###  **`⚜️ TK-HOTS`**
 <a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="150px"></a>
 
 <details>
  <summary><b>🔥 Servidor Tk-Hots</b></summary>
 
-* Dashboard: [`Dash`](https://dash.tk-joanhost.com/home)
-* Panel: [`Panel`](https://panel.tk-joanhost.com/)
+* Dashboard: [`Dash`](https://dash.tk-joanhost.com)
+* Panel: [`Panel`](https://panel.tk-joanhost.com)
 * Canal de WhatsApp: [`Canal TK`](https://chat.whatsapp.com/EyoFXnaNujs53FBeqj2NM3)
 * Grupo Soporte: [`Aquí`](https://chat.whatsapp.com/CxyUKH5ElNdHAWiJpx7D0E)
 * Contacto(s): [`Soporte`](https://wa.me/51910234457)
