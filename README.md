@@ -17,7 +17,7 @@
 </details>
 
 </details>
- <summary><b> <img src="https://i.pinimg.com/originals/73/69/6e/73696e022df7cd5cb3d999c6875361dd.gif" alt="Características" width="42" height="42"> Funciones de la Bot</b></summary>
+ <summary><b> 🍧 Funciones de la Bot</b></summary>
 
 > Bot en desarrollo si presenta alguna falla reportar al creador para darle una solución óptima.
 
