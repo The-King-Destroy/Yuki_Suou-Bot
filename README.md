@@ -51,7 +51,7 @@
 
  * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
 * Grupo Oficial [`¡Click aquí!`](https://panel.skyultraplus.com)
-* Comunidad Oficial [`¡Click aquí!`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
+* Comunidad Oficial [`¡Click aquí!`](https://chat.whatsapp.com/EwrwcGvpLf1BnMhP3B4axD)
 </details>
 
 <details>
