@@ -147,4 +147,4 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 <a
 href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
 
-**[© Powered by ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜]**
+**[© Powered by ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)**
