@@ -44,11 +44,18 @@
 </details>
 
 ---
-
-### **`💭 Contáctanos`**
+### **`🔗 Enlaces útiles`**
 
 <details>
-<summary><b> 🌻 Contáctos</b></summary>
+ <summary><b> 🍬 Grupos Oficiales </b></summary>
+
+ * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
+* Grupo Oficial [`¡Click aquí!`](https://panel.skyultraplus.com)
+* Comunidad Oficial [`¡Click aquí!`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
+</details>
+
+<details>
+<summary><b> 💭 Contáctos</b></summary>
 
 * WhatsApp: [`Aquí`](https:/Wa.me/584120346669)
 * Correo: [`Aquí`](thekingdestroy507@gmail.com)
@@ -121,19 +128,6 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 * Canal de WhatsApp [`Canal Py`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 * Comunidad  [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 * Contacto(s) [`Soporte`](https://wa.me/595976126756)
-
-</details>
-
----
-
-### **`🔗 Enlaces útiles`**
-
-<details>
- <summary><b> 🍒 Grupos Oficiales </b></summary>
-
- * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
-* Grupo Oficial [`¡Click aquí!`](https://panel.skyultraplus.com)
-* Comunidad Oficial [`¡Click aquí!`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
 
 </details>
 
