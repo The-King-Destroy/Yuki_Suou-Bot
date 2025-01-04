@@ -76,7 +76,7 @@ global.waitttt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻�
 var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
 let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
 var git = 'https://github.com/The-King-Destroy' 
-var youtube = 'https://youtube.com/@user-the-king-destroy' 
+var youtube = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' 
 var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
 let correo = 'thekingdestroy507@gmail.com'
 
