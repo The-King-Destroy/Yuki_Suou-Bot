@@ -6,7 +6,7 @@ import ws from 'ws'
 
 let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner}) => {
 const isCommand1 = /^(deletesesion|deletebot|deletesession|deletesesaion)$/i.test(command)  
-const isCommand2 = /^(stop|pausarhutao|pausarbot)$/i.test(command)   
+const isCommand2 = /^(stop|pausar|pausarbot)$/i.test(command)   
 const isCommand3 = /^(bots|listjadibots|subbots)$/i.test(command)  
 
 async function reportError(e) {
@@ -77,5 +77,5 @@ await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseM
 break   
 }}
 
-handler.command = ['deletesesion', 'deletebot', 'deletesession', 'deletesession', 'stop', 'pausarhutao', 'pausarbot', 'bots', 'listjadibots', 'subbots']
+handler.command = ['deletesesion', 'deletebot', 'deletesession', 'deletesession', 'stop', 'pausar', 'pausarbot', 'bots', 'listjadibots', 'subbots']
 export default handler
