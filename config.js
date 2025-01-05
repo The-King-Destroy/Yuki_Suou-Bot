@@ -72,8 +72,8 @@ global.libreria = 'Baileys'
 global.baileys = 'V 6.7.8'
 global.languaje = 'Español'
 global.nameqr = 'Yuki-Suou-Bot'
-global.sessions = 'Sections-SubBots'
-global.jadi = 'Sections-JadiBots'
+global.sessions = 'YukiSession'
+global.jadi = 'YukiJadiBot'
 global.yukiJadibts = true
 
 global.ch = {
