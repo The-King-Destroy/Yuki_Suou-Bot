@@ -72,7 +72,7 @@ return resultado;
 const message = users.map((v, index) => `• 「 ${index + 1} 」\n🜸 Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}estado\n✎ Usuario: ${v.user.name || 'Sub-Bot'}\n✰ Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n\n__________________________\n\n');
 const replyMessage = message.length === 0 ? `✧ No hay *Sub-Bots* disponible por el momento, verifique mas tarde.` : message;
 const totalUsers = users.length;
-const responseMessage = `「✦」Lista de *Sub-Bots* activos\n\n✿ habla con el propietario del *Sub-Bot* y pidele permiso de entrar a tu grupo.\n\n\`\`\`Cada sub bot es diferente y cada usuario/propietario usa el *Bot* como quiera, El equipo de _*Yuki-Suou-Bot*_ no se hace responsable del uso que le den al mismo *Sub-Bot* \`\`\`\n\n*SUB-BOTS* CONECTADOS: ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+const responseMessage = `「✦」Lista de *Sub-Bots* activos\n\n✿ habla con el propietario del *Sub-Bot* y pidele permiso de entrar a tu grupo.\n\n\`\`\`Cada usuario maneja su Sub-Bot como quiera, El equipo de Yuki-Suou-Bot no se hace responsable del uso que le den al mismo. \`\`\`\n\n*SUB-BOTS CONECTADOS:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break   
 }}
