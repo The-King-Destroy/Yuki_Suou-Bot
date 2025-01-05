@@ -218,5 +218,95 @@
         "img": "https://files.catbox.moe/r8wufk.jpg",
         "user": null,
         "status": "Libre"
+    },
+    {
+        "id": "23",
+        "name": "hashihime",
+        "gender": "desconocido",
+        "value": "9000",
+        "sorce": "Ayashimon",
+        "img": "https://files.catbox.moe/9t2j5o.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "24",
+        "name": "Jed",
+        "gender": "Mujer",
+        "value": "2000",
+        "sorce": "Gundam Series",
+        "img": "https://files.catbox.moe/w6ogit.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "25",
+        "name": "Duke Fleed",
+        "gender": "Desconocido",
+        "value": "1500",
+        "source": "Mazinger Z",
+        "img": "https://files.catbox.moe/ww97r9.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "26",
+        "name": "Dee Ensy Stratmitos",
+        "gender": "Mujer",
+        "value": "238",
+        "source": "Kamisama no Inai Nichiyoubi",
+        "img": "https://files.catbox.moe/5ulred.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "27",
+        "name": "Lloyd Frontera",
+        "gender": "Hombre",
+        "value": "3400",
+        "source": "The Greatest Estate Developer",
+        "img": "https://files.catbox.moe/k7fn9t.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "28",
+        "name": "Disk",
+        "gender": "Mujer",
+        "value": "500",
+        "source": "Needless",
+        "img": "https://files.catbox.moe/50rze9.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "29",
+        "name": "Holt",
+        "gender": "Mujer",
+        "value": "4985",
+        "source": "Mahoutsukai Reimeiki",
+        "img": "https://files.catbox.moe/lop15v.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "30",
+        "name": "Hitomi Tsukishiro",
+        "gender": "Mujer",
+        "value": "5041",
+        "source": "Irozuku Sekai no Ashita kara",
+        "img": "https://files.catbox.moe/bllzo3.jpg",
+        "user": null,
+        "status": "Libre"
+    },
+    {
+        "id": "31",
+        "name": "Megumi Kayano",
+        "gender": "Mujer",
+        "value": "347",
+        "source": "Persona",
+        "img": "https://files.catbox.moe/ylfgdv.jpg",
+        "user": null,
+        "status": "Libre"
     }
 ]
