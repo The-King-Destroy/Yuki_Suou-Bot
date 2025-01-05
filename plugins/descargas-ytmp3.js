@@ -1,22 +1,43 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 
-let HS = async (m, { conn, text, usedPrefix, command }) => {
-if (!text) {
-return conn.reply(m.chat, `《✧》Por favor, envia un link de Youtube para descargar su audio.`, m)
-}
-    
-try {
-let calidad = '128' // Calidades disponibles : 32, 64, 128, 192, 320
-let api = await fetch(`https://api.giftedtech.my.id/api/download/dlmp3q?apikey=gifted&quality=${calidad}&url=${text}`)
-let json = await api.json()
-let { quality, title, download_url, thumbnail } = json.result
+const handler = async (m, { conn, text, command }) => {
+    if (!text) {
+        return conn.reply(m.chat, '❌ Por favor proporciona un enlace válido de YouTube.', m);
+    }
 
+    try {
+        const apiUrl = `https://exonity.tech/api/ytdlp2-faster?apikey=adminsepuh&url=${encodeURIComponent(text)}`;
+        const response = await fetch(apiUrl);
+        const result = await response.json();
 
-await conn.sendMessage(m.chat, { audio: { url: download_url }, caption: null, mimetype: "audio/mpeg" }, { quoted: m })
-} catch (error) {
-console.error(error)
-}}
+        if (result.status !== 200 || !result.result || !result.result.audio) {
+            return conn.reply(m.chat, '❌ No se pudo descargar el audio. Verifica el enlace e intenta nuevamente.', m);
+        }
 
-HS.command = ['ytmp3', 'fgmp3', 'yta']
+        const { title, thumb, duration, description, audio } = result.result;
 
-export default HS
+        const caption = `
+🎶 *Descarga completada:*
+*🔤 Título:* ${title}
+*🕒 Duración:* ${duration}
+*📝 Descripción:* ${description}
+`;
+        
+        await conn.sendMessage(
+            m.chat,
+            {
+                audio: { url: audio },
+                mimetype: 'audio/mp4',
+                ptt: false,
+            },
+            { quoted: m }
+        );
+    } catch (error) {
+        console.error(error);
+        conn.reply(m.chat, '❌ Ocurrió un error al intentar descargar el audio.', m);
+    }
+};
+
+handler.command = /^(yta|ytmp3)$/i;
+
+export default handler;
