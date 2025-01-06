@@ -207,6 +207,8 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 ┃✦ .regalar
 ┃✦ .wimage
 ┃✦ .winfo
+┃✦ .vote
+┃✦ .topwaifus 
 ┗━━━━━━━━━━━━━━━━━⪩
 ┏━━⪩「 ♡⃝𝕰𝖈𝖔𝖓𝖔𝖒í𝖆ᚐ҉ᚐ 」⪨
 ┃✱ .apostar 
