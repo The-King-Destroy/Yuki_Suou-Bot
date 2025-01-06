@@ -70,14 +70,6 @@ let handler = async (m, { conn }) => {
                 return;
             }
 
-            const harem = await loadHarem();
-            const userEntry = harem.find(entry => entry.characterId === character.id && entry.userId === userId);
-
-            if (userEntry) {
-                await conn.reply(m.chat, `《✧》Ya has reclamado a *${character.name}* anteriormente.`, m);
-                return;
-            }
-
             if (character.user && character.user !== userId) {
                 await conn.reply(m.chat, `《✧》El personaje ya ha sido reclamado por @${character.user.split('@')[0]}, inténtalo a la próxima :v.`, m, { mentions: [character.user] });
                 return;
@@ -86,10 +78,7 @@ let handler = async (m, { conn }) => {
             character.user = userId;
             character.status = "Reclamado";
 
-            harem.push({ userId: userId, characterId: character.id, claimTime: now });
-
             await saveCharacters(characters);
-            await saveHarem(harem);
 
             await conn.reply(m.chat, `✦ Has reclamado a *${character.name}* con éxito.`, m);
             cooldowns[userId] = now + 30 * 60 * 1000;
