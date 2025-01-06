@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 
 const charactersFilePath = './src/database/characters.json';
+const haremFilePath = './src/database/harem.json';
 
 const cooldowns = {};
 
@@ -21,7 +22,24 @@ async function saveCharacters(characters) {
     }
 }
 
-let claimHandler = async (m, { conn }) => {
+async function loadHarem() {
+    try {
+        const data = await fs.readFile(haremFilePath, 'utf-8');
+        return JSON.parse(data);
+    } catch (error) {
+        return [];
+    }
+}
+
+async function saveHarem(harem) {
+    try {
+        await fs.writeFile(haremFilePath, JSON.stringify(harem, null, 2), 'utf-8');
+    } catch (error) {
+        throw new Error('❀ No se pudo guardar el archivo harem.json.');
+    }
+}
+
+let handler = async (m, { conn }) => {
     const userId = m.sender;
     const now = Date.now();
 
@@ -37,7 +55,14 @@ let claimHandler = async (m, { conn }) => {
 
         try {
             const characters = await loadCharacters();
-            const characterId = m.quoted.text.match(/ID: \*(.+?)\*/)[1]; 
+            const characterIdMatch = m.quoted.text.match(/ID: \*(.+?)\*/); 
+
+            if (!characterIdMatch) {
+                await conn.reply(m.chat, '《✧》No se pudo encontrar el ID del personaje en el mensaje citado.', m);
+                return;
+            }
+
+            const characterId = characterIdMatch[1];
             const character = characters.find(c => c.id === characterId);
 
             if (!character) {
@@ -45,15 +70,26 @@ let claimHandler = async (m, { conn }) => {
                 return;
             }
 
-            if (character.user) {
-                await conn.reply(m.chat, `《✧》El personaje ya ha sido reclamado por @${character.user.split('@')[0]}, inténtalo a la próxima :v.`, m);
+            const harem = await loadHarem();
+            const userEntry = harem.find(entry => entry.characterId === character.id && entry.userId === userId);
+
+            if (userEntry) {
+                await conn.reply(m.chat, `《✧》Ya has reclamado a *${character.name}* anteriormente.`, m);
+                return;
+            }
+
+            if (character.user && character.user !== userId) {
+                await conn.reply(m.chat, `《✧》El personaje ya ha sido reclamado por @${character.user.split('@')[0]}, inténtalo a la próxima :v.`, m, { mentions: [character.user] });
                 return;
             }
 
             character.user = userId;
             character.status = "Reclamado";
 
+            harem.push({ userId: userId, characterId: character.id, claimTime: now });
+
             await saveCharacters(characters);
+            await saveHarem(harem);
 
             await conn.reply(m.chat, `✦ Has reclamado a *${character.name}* con éxito.`, m);
             cooldowns[userId] = now + 30 * 60 * 1000;
@@ -67,8 +103,8 @@ let claimHandler = async (m, { conn }) => {
     }
 };
 
-claimHandler.help = ['claim'];
-claimHandler.tags = ['gacha'];
-claimHandler.command = ['c', 'claim', 'reclamar'];
+handler.help = ['claim'];
+handler.tags = ['gacha'];
+handler.command = ['c', 'claim', 'reclamar'];
 
-export default claimHandler;
+export default handler;

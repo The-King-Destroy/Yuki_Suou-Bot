@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 
 const charactersFilePath = './src/database/characters.json';
+const haremFilePath = './src/database/harem.json';
 
 async function loadCharacters() {
     try {
@@ -11,9 +12,19 @@ async function loadCharacters() {
     }
 }
 
+async function loadHarem() {
+    try {
+        const data = await fs.readFile(haremFilePath, 'utf-8');
+        return JSON.parse(data);
+    } catch (error) {
+        return [];
+    }
+}
+
 let handler = async (m, { conn, args }) => {
     try {
         const characters = await loadCharacters();
+        const harem = await loadHarem();
         let userId;
 
         if (m.quoted && m.quoted.sender) {
@@ -62,6 +73,6 @@ let handler = async (m, { conn, args }) => {
 
 handler.help = ['harem [@usuario] [pagina]'];
 handler.tags = ['anime'];
-handler.command = ['harem', 'obtenidos', 'ob'];
+handler.command = ['harem', 'claims', 'waifus'];
 
 export default handler;

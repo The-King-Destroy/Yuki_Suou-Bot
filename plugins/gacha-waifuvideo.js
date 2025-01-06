@@ -33,21 +33,21 @@ let handler = async (m, { conn, args }) => {
             return;
         }
 
-        // Seleccionar una imagen aleatoria
-        const randomImage = character.img[Math.floor(Math.random() * character.img.length)];
+        // Seleccionar un video aleatorio
+        const randomVideo = character.vid[Math.floor(Math.random() * character.vid.length)];
 
         const message = `❀ Nombre » *${character.name}*
 ⚥ Género » *${character.gender}*
 ❖ Fuente » *${character.source}*`;
 
-        await conn.sendFile(m.chat, randomImage, `${character.name}.jpg`, message, m);
+        await conn.sendFile(m.chat, randomVideo, `${character.name}.mp4`, message, m);
     } catch (error) {
-        await conn.reply(m.chat, `✘ Error al cargar la imagen del personaje: ${error.message}`, m);
+        await conn.reply(m.chat, `✘ Error al cargar el video del personaje: ${error.message}`, m);
     }
 };
 
-handler.help = ['wimage <nombre del personaje>'];
+handler.help = ['wvideo <nombre del personaje>'];
 handler.tags = ['anime'];
-handler.command = ['charimage', 'cimage', 'wimage', 'waifuimage'];
+handler.command = ['charvideo', 'cvideo', 'wvideo', 'waifuvideo'];
 
 export default handler;

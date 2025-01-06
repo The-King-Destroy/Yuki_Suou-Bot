@@ -1,7 +1,7 @@
-
 import { promises as fs } from 'fs';
 
 const charactersFilePath = './src/database/characters.json';
+const haremFilePath = './src/database/harem.json';
 
 async function loadCharacters() {
     try {
@@ -20,7 +20,24 @@ async function saveCharacters(characters) {
     }
 }
 
-let givecharHandler = async (m, { conn, args }) => {
+async function loadHarem() {
+    try {
+        const data = await fs.readFile(haremFilePath, 'utf-8');
+        return JSON.parse(data);
+    } catch (error) {
+        return [];
+    }
+}
+
+async function saveHarem(harem) {
+    try {
+        await fs.writeFile(haremFilePath, JSON.stringify(harem, null, 2));
+    } catch (error) {
+        throw new Error('❀ No se pudo guardar el archivo harem.json.');
+    }
+}
+
+let handler = async (m, { conn, args }) => {
     const userId = m.sender;
 
     if (args.length < 2) {
@@ -48,14 +65,23 @@ let givecharHandler = async (m, { conn, args }) => {
         character.user = mentionedUser.replace('@', '');
         await saveCharacters(characters);
 
+        const harem = await loadHarem();
+        const userEntry = {
+            userId: mentionedUser.replace('@', ''),
+            characterId: character.id,
+            lastClaimTime: Date.now()
+        };
+        harem.push(userEntry);
+        await saveHarem(harem);
+
         await conn.reply(m.chat, `✰ *${character.name}* ha sido regalado a ${mentionedUser}!`, m);
     } catch (error) {
         await conn.reply(m.chat, `✘ Error al regalar el personaje: ${error.message}`, m);
     }
 };
 
-givecharHandler.help = ['givechar <nombre del personaje> @usuario', 'givewaifu <nombre del personaje> @usuario', 'regalar <nombre del personaje> @usuario'];
-givecharHandler.tags = ['anime'];
-givecharHandler.command = ['regalar', 'givewaifu', 'givechar'];
+handler.help = ['regalar <nombre del personaje> @usuario'];
+handler.tags = ['anime'];
+handler.command = ['regalar', 'givewaifu', 'givechar'];
 
-export default givecharHandler;
+export default handler;
