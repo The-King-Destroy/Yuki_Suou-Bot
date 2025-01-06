@@ -3,310 +3,352 @@
         "id": "1",
         "name": "Aika Sano",
         "gender": "Mujer",
-        "value": "9999",
+        "value": "100",
         "source": "Ane wa Yanmama Junyuu-chuu",
         "img": "https://files.catbox.moe/235bpy.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "2",
         "name": "María Mikhailovna Kujou",
         "gender": "Mujer",
-        "value": "9000",
+        "value": "100",
         "source": "Roshidere",
         "img": "https://files.catbox.moe/x4hldw.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "3",
         "name": "Mikasa Ackerman",
         "gender": "Mujer",
-        "value": "8508",
+        "value": "100",
         "source": "Attack on Titan (Shingeki no Kyojin)",
         "img": "https://files.catbox.moe/ob4m99.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "4",
         "name": "Izuku Midoriya",
         "gender": "Hombre",
-        "value": "8000",
+        "value": "100",
         "source": "My Hero Academia",
         "img": "https://files.catbox.moe/nrolaj.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "5",
         "name": "Misa Amane",
         "gender": "Mujer",
-        "value": "8303",
+        "value": "100",
         "source": "Death Note",
         "img": "https://files.catbox.moe/r4n149.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "6",
         "name": "Asuna Yuuki",
         "gender": "Mujer",
-        "value": "8799",
+        "value": "100",
         "source": "Sword Art Online",
         "img": "https://files.catbox.moe/xgozvk.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "7",
         "name": "Erza Scarlet",
         "gender": "Mujer",
-        "value": "7932",
+        "value": "100",
         "source": "Fairy Tail",
         "img": "https://files.catbox.moe/x6xgkj.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "8",
         "name": "Kurumi Tokisaki",
         "gender": "Mujer",
-        "value": "9999",
+        "value": "100",
         "source": "Date Alive",
         "img": "https://files.catbox.moe/iek7q7.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "9",
         "name": "Momo Deviluke",
         "gender": "Mujer",
-        "value": "7832",
+        "value": "100",
         "source": "To Love Ru",
         "img": "https://files.catbox.moe/hnrpb4.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "10",
         "name": "Nino Nakano",
         "gender": "Mujer",
-        "value": "9321",
+        "value": "100",
         "source": "The Quintessential Quintuplets",
         "img": "https://files.catbox.moe/47dj4n.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "11",
         "name": "Ryo Yamada",
         "gender": "Hombre",
-        "value": "8321",
+        "value": "100",
         "source": "Bocchi the Rock",
         "img": "https://files.catbox.moe/rb8jh8.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "12",
         "name": "Sumi Sakurasawa",
         "gender": "Mujer",
-        "value": "8933",
+        "value": "100",
         "source": "Rent a Girlfriend",
         "img": "https://files.catbox.moe/27qdmn.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "13",
         "name": "Umaru Doma",
         "gender": "Mujer",
-        "value": "7657",
+        "value": "100",
         "source": "Himouto! Umaru-chan",
         "img": "https://files.catbox.moe/ddvqbg.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "14",
         "name": "Chizuru Mizuhara",
         "gender": "Mujer",
-        "value": "8678",
+        "value": "100",
         "source": "Rent a Girlfriend",
         "img": "https://files.catbox.moe/lxger4.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "15",
         "name": "Makima",
         "gender": "Mujer",
-        "value": "8899",
+        "value": "100",
         "source": "Chainsaw Man",
         "img": "https://files.catbox.moe/aj36wd.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "16",
         "name": "Power",
         "gender": "Mujer",
-        "value": "8973",
+        "value": "100",
         "source": "Chainsaw Man",
         "img": "https://files.catbox.moe/zhcwn7.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "17",
         "name": "Yuliet Persia",
         "gender": "Mujer",
-        "value": "6578",
+        "value": "100",
         "source": "Kishuku Gakkou no Juliet",
         "img": "https://files.catbox.moe/qdlb4n.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "18",
         "name": "Kisara",
         "gender": "Mujer",
-        "value": "7781",
+        "value": "100",
         "source": "Engage Kiss",
         "img": "https://files.catbox.moe/yb9cd1.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "19",
         "name": "Raphtalia",
         "gender": "Mujer",
-        "value": "7430",
+        "value": "100",
         "source": "Tate no Yuusha no Nariagari",
         "img": "https://files.catbox.moe/dieynb.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "20",
         "name": "Ai Hoshino",
         "gender": "Mujer",
-        "value": "9999",
+        "value": "100",
         "source": "Oshi no Ko",
         "img": "https://files.catbox.moe/w680ix.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "21",
         "name": "Alisa Mikhailovna Kujou",
         "gender": "Mujer",
-        "value": "9999",
+        "value": "100",
         "source": "Roshidere",
         "img": "https://files.catbox.moe/6vw81z.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "22",
         "name": "Mukuro Hoshimiya",
         "gender": "Mujer",
-        "value": "8867",
+        "value": "100",
         "source": "Date A Live",
         "img": "https://files.catbox.moe/r8wufk.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "23",
         "name": "hashihime",
         "gender": "desconocido",
-        "value": "9000",
-        "sorce": "Ayashimon",
+        "value": "100",
+        "source": "Ayashimon",
         "img": "https://files.catbox.moe/9t2j5o.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "24",
         "name": "Jed",
         "gender": "Mujer",
-        "value": "2000",
-        "sorce": "Gundam Series",
+        "value": "100",
+        "source": "Gundam Series",
         "img": "https://files.catbox.moe/w6ogit.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "25",
         "name": "Duke Fleed",
         "gender": "Desconocido",
-        "value": "1500",
+        "value": "100",
         "source": "Mazinger Z",
         "img": "https://files.catbox.moe/ww97r9.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "26",
         "name": "Dee Ensy Stratmitos",
         "gender": "Mujer",
-        "value": "238",
+        "value": "100",
         "source": "Kamisama no Inai Nichiyoubi",
         "img": "https://files.catbox.moe/5ulred.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "27",
         "name": "Lloyd Frontera",
         "gender": "Hombre",
-        "value": "3400",
+        "value": "100",
         "source": "The Greatest Estate Developer",
         "img": "https://files.catbox.moe/k7fn9t.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "28",
         "name": "Disk",
         "gender": "Mujer",
-        "value": "500",
+        "value": "100",
         "source": "Needless",
         "img": "https://files.catbox.moe/50rze9.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "29",
         "name": "Holt",
         "gender": "Mujer",
-        "value": "4985",
+        "value": "100",
         "source": "Mahoutsukai Reimeiki",
         "img": "https://files.catbox.moe/lop15v.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "30",
         "name": "Hitomi Tsukishiro",
         "gender": "Mujer",
-        "value": "5041",
+        "value": "100",
         "source": "Irozuku Sekai no Ashita kara",
         "img": "https://files.catbox.moe/bllzo3.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
     },
     {
         "id": "31",
         "name": "Megumi Kayano",
         "gender": "Mujer",
-        "value": "347",
+        "value": "100",
         "source": "Persona",
         "img": "https://files.catbox.moe/ylfgdv.jpg",
         "user": null,
-        "status": "Libre"
+        "status": "Libre",
+        "votes": 0
+    },
+    {
+    "id": "32",
+        "name": "Yuki Suou",
+        "gender": "Mujer",
+        "value": "100",
+        "source": "Roshidere",
+        "img": "https://files.catbox.moe/6vw81z.jpg",
+        "user": null,
+        "status": "Libre",
+        "votes": 0
     }
 ]
