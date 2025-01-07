@@ -66,12 +66,6 @@ global.colab1 = 'Emma-Violets-Versión'
 global.colab2 = 'Niño Piña'
 global.colab3 = 'Legendary'
 
-//Ids channel
-global.idchannel = '120363343811229130@newsletter'
-global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
-global.canalNombreM = ["↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"]
-global.channelRD = await getRandomChannel()
-
 //Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
