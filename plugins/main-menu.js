@@ -442,8 +442,7 @@ let menu = `𔓕꯭  ꯭ ꯭ 𓏲꯭֟፝੭ ꯭⌑𝑀𝑒𝓃ú 𝒹�
 > © 𝒫𝑜𝓌𝑒𝓇𝑒𝒹 𝐵𝓎 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜`.trim()
 
 await conn.sendMessage(m.chat, { video: { url: vid.getRandom() }, caption: menu, contextInfo: { mentionedJid: [m.sender], isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '120363322713003916@newsletter', newsletterName: '© 𝒫𝑜𝓌𝑒𝓇𝑒𝒹 𝐵𝓎 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜', serverMessageId: -1, }, forwardingScore: 999, externalAdReply: { title: '♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', body: dev, thumbnailUrl: perfil, mediaType: 1, renderLargerThumbnail: false,
-}, }, gifPlayback: true, gifAttribution: 0 }, { quoted: null })
-await m.react(emojis)    
+}, }, gifPlayback: true, gifAttribution: 0 }, { quoted: null })  
 
 } catch (e) {
 await m.reply(`✘ Ocurrió un error al enviar el menú\n\n${e}`)
