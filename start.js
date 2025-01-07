@@ -304,7 +304,7 @@ return true
 
 /** Arranque nativo para subbots by - ReyEndymion >> https://github.com/ReyEndymion
  */
-global.rutaJadiBot = join(__dirname, '../YukiJadiBot')
+global.rutaJadiBot = join(__dirname, './YukiJadiBot')
 
 if (global.yukiJadibts) {
 if (!existsSync(global.rutaJadiBot)) {
