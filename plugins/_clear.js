@@ -1,10 +1,10 @@
-/*// Credits: OfcKing
+// Credits: OfcKing
 // >> https://github.com/OfcKing
 
 import fs from 'fs';
 
-const directoryPath = './Sections-JadiBots/';
-const sanSessionPath = './Sections-SubBots/';
+const directoryPath = './YukiJadiBot/';
+const sanSessionPath = './YukiSession/';
 
 function cleanSubbotDirectories() {
   fs.readdir(directoryPath, (err, subbotDirs) => {
@@ -60,4 +60,4 @@ setInterval(cleanSubbotDirectories, 60 * 1000);
 setInterval(cleanSessionFiles, 60 * 1000);
 
 cleanSubbotDirectories();
-cleanSessionFiles();*/
+cleanSessionFiles();
