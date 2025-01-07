@@ -71,13 +71,6 @@ global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
 
-//Emojis determinado de Yuki Ai
-global.emoji = '🍧'
-global.emoji2 = '🍬'
-global.emoji3 = '🌸'
-global.emoji4 = '🍭'
-global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
-
 //mensaje en espera
 global.wait = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
 global.waitt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
