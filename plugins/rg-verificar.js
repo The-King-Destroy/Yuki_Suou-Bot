@@ -8,7 +8,7 @@ let name2 = conn.getName(m.sender)
   let delirius = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + m.sender.replace('@s.whatsapp.net', '')).getNumber('international')}`)
   let paisdata = delirius.data.result
   let mundo = paisdata ? `${paisdata.name} ${paisdata.emoji}` : 'Desconocido'
-  let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+  let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
   let bio = 0, fechaBio
  // let who2 = m.isGroup ? _.get(m, "mentionedJid[0]", m.quoted?.sender || m.sender) : m.sender
   let sinDefinir = '😿 Es privada'
@@ -21,13 +21,13 @@ let name2 = conn.getName(m.sender)
   fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
   }
 if (user.registered === true) throw `*『✦』Ya estas registrado, para volver a registrarte, usa el comando: #unreg*`
-if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.10000*`
+if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, uselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.18*`
 let [_, name, splitter, age] = text.match(Reg)
 if (!name) throw '*『✦』No puedes registrarte sin nombre, el nombre es obligatorio. Inténtelo de nuevo.*'
 if (!age) throw '*『✦』No puedes registrarte sin la edad, la edad es opcional. Inténtelo de nuevo.*'
 if (name.length >= 30) throw '*『✦』El nombre no debe de tener mas de 30 caracteres.*' 
 age = parseInt(age)
-if (age > 10000) throw '*『😏』Viejo/a Sabroso/a*'
+if (age > 1000) throw '*『😏』Viejo/a Sabroso/a*'
 if (age < 5) throw '*『🍼』Ven aquí, te adoptare!!*'
 user.name = name.trim()
 user.age = age
@@ -36,11 +36,11 @@ user.descripcion = bio
 user.regTime = + new Date
 user.registered = true
 global.db.data.users[m.sender].money += 600
-global.db.data.users[m.sender].yenes += 10
+global.db.data.users[m.sender].yenes += 15
 global.db.data.users[m.sender].exp += 245
 global.db.data.users[m.sender].joincount += 5
 let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)        
-m.react('📩') 
+m.react('📩')
 let regbot = `👤 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗢 👤
 •┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
 「🌸」𝗡𝗼𝗺𝗯𝗿𝗲: ${name}
@@ -64,8 +64,8 @@ let chtxt = `
 🌎 *𝙿𝚊𝚒𝚜* » ${mundo}
 🗂 *𝚅𝚎𝚛𝚒𝚏𝚒𝚌𝚊𝚌𝚒𝚘́𝚗* » ${user.name}
 ⭐️ *𝙴𝚍𝚊𝚍* » ${user.age} años
-👀 *𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚌𝚒𝚘𝚗* » ${user.descripcion} 
-⏳ *𝚄𝚕𝚝𝚒𝚖𝚊 𝙼𝚘𝚍𝚒𝚏𝚒𝚌𝚊𝚝𝚒𝚘𝚗* » ${fechaBio}
+👀 *Descripción* » ${user.descripcion} 
+⏳ *Modificación de descripción* » ${fechaBio}
 📆 *𝙵𝚎𝚌𝚑𝚊* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
 ☁️ *𝙽𝚞𝚖𝚎𝚛𝚘 𝚍𝚎 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚘* »
 ⤷ ${sn}
