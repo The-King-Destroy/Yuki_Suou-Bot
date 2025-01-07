@@ -114,20 +114,7 @@ global.icono = [
 'https://qu.ax/rZZfy.jpg',
 'https://qu.ax/gbiHe.jpg',
 'https://qu.ax/xNGLl.jpg'
-].getRandom()
-
-global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
-
-function pickRandom(list) {
-return list[Math.floor(Math.random() * list.length)]
-  }
-
-async function getRandomChannel() {
-let randomIndex = Math.floor(Math.random() * canalIdM.length)
-let id = canalIdM[randomIndex]
-let name = canalNombreM[randomIndex]
-return { id, name }
-}         
+].getRandom()         
 
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
 global.imagen1 = fs.readFileSync('./src/menus/Menu2.jpg');
