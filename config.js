@@ -55,6 +55,52 @@ global.textbot = 'ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ�
 global.gt = '͟͞ ৎ୭࠭͢𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉̤𓆪 ͟͞';
 global.namechannel = '↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬'
 
+//creador y otros
+global.creador = 'Wa.me/584120346669'
+global.ofcbot = `${conn.user.jid.split('@')[0]}`
+global.asistencia = 'Wa.me/584120346669'
+global.namechannel = '↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬'
+global.namechannel2 = '✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"'
+global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉'
+global.namecomu = '✿:･✧ 𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓒𝓸𝓶𝓾𝓷𝓲𝓽𝔂 ✧･:✿'
+global.colab1 = 'Emma-Violets-Versión'
+global.colab2 = 'Niño Piña'
+global.colab3 = 'Legendary'
+
+//Ids channel
+global.idchannel = '120363343811229130@newsletter'
+global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
+global.canalNombreM = ["↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"]
+global.channelRD = await getRandomChannel()
+
+//Reacciones De Comandos.!
+global.rwait = '🕒'
+global.done = '✅'
+global.error = '✖️'
+
+//Emojis determinado de Yuki Ai
+global.emoji = '🍧'
+global.emoji2 = '🍬'
+global.emoji3 = '🌸'
+global.emoji4 = '🍭'
+global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
+
+//mensaje en espera
+global.wait = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
+global.waitt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
+global.waittt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
+global.waitttt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻𝘁𝗼, 𝗦𝗼𝘆 𝗟𝗲𝗻𝘁𝗮 ...*';
+
+//Enlaces
+var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
+let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
+var git = 'https://github.com/The-King-Destroy' 
+var youtube = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' 
+var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
+let correo = 'thekingdestroy507@gmail.com'
+
+global.redes = [canal, canal2, git, youtube, github, correo].getRandom()
+
 //• ↳ ◜𝑰𝑴𝑨́𝑮𝑬𝑵𝑬𝑺◞ • 🌇
 global.imagen1 = fs.readFileSync('./src/menus/Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/anime.jpg');
