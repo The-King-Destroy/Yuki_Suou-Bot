@@ -447,7 +447,7 @@ await m.react(emojis)
 
 } catch (e) {
 await m.reply(`✘ Ocurrió un error al enviar el menú\n\n${e}`)
-await m.react(error)
+await m.react('❌')
 }}
 
 handler.help = ['menu']
