@@ -29,7 +29,7 @@ console.log(`Error : ${e}`)
 }}
 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-global.fotoperfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+global.fotoperfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 /*let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
 let userNationalityData = api.data.result
 global.userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'*/
@@ -75,12 +75,11 @@ global.waitttt = '🕒 *𝗘𝘀𝗽𝗲𝗿𝗮 𝗨𝗻 𝗠𝗼𝗺𝗲𝗻�
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
 let canal2 = 'https://whatsapp.com/channel/0029VavzewJLikg78gILRn1o'
-var git = 'https://github.com/The-King-Destroy' 
-var youtube = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T' 
+var git = 'https://github.com/The-King-Destroy'
 var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
 let correo = 'thekingdestroy507@gmail.com'
 
-global.redes = [canal, canal2, git, youtube, github, correo].getRandom()
+global.redes = [canal, canal2, git, github, correo].getRandom()
 
 //Imagen
 let category = "imagen"
@@ -111,12 +110,12 @@ global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo
 }}, { quoted: m }
 
 global.icono = [ 
-'https://qu.ax/ehUrr.jpg',
-'https://qu.ax/szZgm.jpg',
-'https://qu.ax/lekkF.jpg',
-'https://qu.ax/rZZfy.jpg',
+'https://qu.ax/nGaLj.jpg',
+'https://qu.ax/xNGLl.jpg',
 'https://qu.ax/gbiHe.jpg',
-'https://qu.ax/xNGLl.jpg'
+'https://qu.ax/rZZfy.jpg',
+'https://qu.ax/lekkF.jpg',
+'https://qu.ax/szZgm.jpg'
 ].getRandom()
 
 global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
