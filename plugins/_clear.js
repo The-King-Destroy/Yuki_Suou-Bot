@@ -1,4 +1,4 @@
-// Credits: OfcKing
+/*// Credits: OfcKing
 // >> https://github.com/OfcKing
 
 import fs from 'fs';
@@ -60,4 +60,4 @@ setInterval(cleanSubbotDirectories, 60 * 1000);
 setInterval(cleanSessionFiles, 60 * 1000);
 
 cleanSubbotDirectories();
-cleanSessionFiles();
+cleanSessionFiles();*/
