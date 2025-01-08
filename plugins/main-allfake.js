@@ -2,6 +2,7 @@ import pkg from '@whiskeysockets/baileys'
 import fs from 'fs'
 import fetch from 'node-fetch'
 import axios from 'axios'
+import PhoneNumber from 'awesome-phonenumber'
 import moment from 'moment-timezone'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto } = pkg
 
@@ -27,6 +28,14 @@ return res.data
 console.log(`Error : ${e}`)
 }}
 
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+global.fotoperfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+/*let api = await axios.get(`https://deliriussapi-oficial.vercel.app/tools/country?text=${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}`)
+let userNationalityData = api.data.result
+global.userNationality = userNationalityData ? `${userNationalityData.name} ${userNationalityData.emoji}` : 'Desconocido'*/
+let user = global.db.data.users[who]
+let pushname = m.pushName || 'Sin nombre'
+
 //creador y otros
 global.creador = 'Wa.me/584120346669'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
@@ -35,25 +44,17 @@ global.namechannel = '↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬'
 global.namechannel2 = '✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"'
 global.namegrupo = '♡⃝𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓑𝓸𝓽 𝓞𝓯𝓲𝓬𝓲𝓪𝓵ᚐ҉'
 global.namecomu = '✿:･✧ 𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓒𝓸𝓶𝓾𝓷𝓲𝓽𝔂 ✧･:✿'
-global.listo = '🍬 *Aquí tienes ฅ^•ﻌ•^ฅ*'
-global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+global.colab1 = 'Emma-Violets-Versión'
+global.colab2 = 'Niño Piña'
+global.colab3 = 'Legendary'
 
-//ids channel
+//Ids channel
 global.idchannel = '120363343811229130@newsletter'
 global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
 global.canalNombreM = ["↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"]
 global.channelRD = await getRandomChannel()
 
-//fechas
-global.d = new Date(new Date + 3600000)
-global.locale = 'es'
-global.dia = d.toLocaleDateString(locale, {weekday: 'long'})
-global.fecha = d.toLocaleDateString('es', {day: 'numeric', month: 'numeric', year: 'numeric'})
-global.mes = d.toLocaleDateString('es', {month: 'long'})
-global.año = d.toLocaleDateString('es', {year: 'numeric'})
-global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
-
-//Reacciones y mensaje de espera.
+//Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
@@ -63,7 +64,6 @@ global.emoji = '🍧'
 global.emoji2 = '🍬'
 global.emoji3 = '🌸'
 global.emoji4 = '🍭'
-
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
@@ -97,13 +97,15 @@ var ase = new Date(); var hour = ase.getHours(); switch(hour){ case 0: hour = 'L
 global.saludo = hour;
 
 //tags
-global.nombre = m.pushName || 'Anónimo'
+global.nombre = conn.getName(m.sender)
 global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
 //Fakes
-global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `6285600793871-1614953337@g.us` } : {}) }, message: { 'contactMessage': { 'displayName': `${nombre}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${nombre},;;;\nFN:${nombre},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, 'jpegThumbnail': null, thumbnail: null,sendEphemeral: true}}}
+global.fkontak = { key: { participants:"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+
+// global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: `${packname}`, orderTitle: 'Bang', thumbnail: icons, sellerJid: '0@s.whatsapp.net'}}}
 
 global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
 }}, { quoted: m }
@@ -117,18 +119,17 @@ global.icono = [
 'https://qu.ax/xNGLl.jpg'
 ].getRandom()
 
-global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: namebot, body: dev, mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
+global.rcanal = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, serverMessageId: 100, newsletterName: channelRD.name, }, externalAdReply: { showAdAttribution: true, title: textbot, body: '🌹 ♡⃝𝒴𝓊𝓀𝒾_𝒮𝓊𝑜𝓊-𝐵𝑜𝓉ᚐ҉ᚐ', mediaUrl: null, description: null, previewType: "PHOTO", thumbnailUrl: icono, sourceUrl: redes, mediaType: 1, renderLargerThumbnail: false }, }, }}
 
 export default handler
-
 
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)]
   }
 
 async function getRandomChannel() {
-let randomIndex = Math.floor(Math.random() * canalIdYL.length)
-let id = canalIdYL[randomIndex]
-let name = canalNombreYL[randomIndex]
+let randomIndex = Math.floor(Math.random() * canalIdM.length)
+let id = canalIdM[randomIndex]
+let name = canalNombreM[randomIndex]
 return { id, name }
 }         
