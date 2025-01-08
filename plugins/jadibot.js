@@ -1,12 +1,11 @@
-import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, watch, rmSync, promises as fsPromises } from 'fs'
-const fs = { ...fsPromises, existsSync }
+import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, watch, rmSync, promises as fsPromises } from "fs";
+const fs = { ...fsPromises, existsSync };
 import path, { join } from 'path' 
-import ws from 'ws'
-// import fs from 'fs'
+import ws from 'ws';
 
 let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner}) => {
 const isCommand1 = /^(deletesesion|deletebot|deletesession|deletesesaion)$/i.test(command)  
-const isCommand2 = /^(stop|pausar|pausarbot)$/i.test(command)   
+const isCommand2 = /^(stop|pausarai|pausarbot)$/i.test(command)  
 const isCommand3 = /^(bots|listjadibots|subbots)$/i.test(command)  
 
 async function reportError(e) {
@@ -16,8 +15,8 @@ console.log(e)
 
 switch (true) {       
 case isCommand1:
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let uniqid = `${who.split`@`[0]}`
+let mentionedJid = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let uniqid = `${mentionedJid.split`@`[0]}`
 const path = `./${jadi}/${uniqid}`
 
 if (!await fs.existsSync(path)) {
@@ -36,15 +35,14 @@ reportError(e)
 break
 
 case isCommand2:
-if (global.conn.user.jid == conn.user.jid)
-conn.reply(m.chat, `《✧》El Bot principal no se puede apagar.`, m, fake)
+if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, `《✧》 Si no es *Sub-Bot* comuníquese al numero principal del *Bot* para ser *Sub-Bot*`, m)
 else {
-await conn.reply(m.chat, `✦ Adiós Yuki •(=^●ω●^=)•`, m, fake)
-conn.ws.close()}
+await conn.reply(m.chat, `✦ Adiós Yuki •(=^●ω●^=)•`, m)
+conn.ws.close()}  
 break
 
 case isCommand3:
-//if (global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`✎ Este comando está desactivado por mi creador.`)
+//if (global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`《✧》Este comando está desactivado por mi creador.`)
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 function convertirMsADiasHorasMinutosSegundos(ms) {
 var segundos = Math.floor(ms / 1000);
@@ -69,13 +67,13 @@ resultado += segundos + " segundos";
 }
 return resultado;
 }
-const message = users.map((v, index) => `• 「 ${index + 1} 」\n🜸 Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}estado\n✎ Usuario: ${v.user.name || 'Sub-Bot'}\n✰ Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n\n__________________________\n\n');
-const replyMessage = message.length === 0 ? `✧ No hay *Sub-Bots* disponible por el momento, verifique mas tarde.` : message;
+const message = users.map((v, index) => `• 「 ${index + 1} 」\n🜸 Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}estado\n✰ Usuario: ${v.user.name || 'Sub-Bot'}\n⧖ Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n\n__________________________\n\n');
+const replyMessage = message.length === 0 ? `《✧》No hay *Sub-Bots* disponible por el momento, verifique mas tarde.` : message;
 const totalUsers = users.length;
-const responseMessage = `「✦」Lista de *Sub-Bots* activos\n\n✿ habla con el propietario del *Sub-Bot* y pidele permiso de entrar a tu grupo.\n\n\`\`\`Cada usuario maneja su Sub-Bot como quiera, El equipo de Yuki-Suou-Bot no se hace responsable del uso que le den al mismo. \`\`\`\n\n*SUB-BOTS CONECTADOS:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+const responseMessage = `「✦」Lista de *Sub-Bots* activos\n\n✿ Puedes hablar con el propietario del *Sub-Bot* para pedirle permiso de entrar a tu grupo.\n\n\`\`\` Cada usuario maneja su Sub-Bot como quiera, El equipo de Yuki-Suou-Bot no se hace responsable del uso que le den al mismo. \`\`\`\n\n*SUB-BOTS CONECTADOS ACTUALMENTE:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break   
 }}
 
-handler.command = ['deletesesion', 'deletebot', 'deletesession', 'deletesession', 'stop', 'pausar', 'pausarbot', 'bots', 'listjadibots', 'subbots']
+handler.command = ['deletesesion', 'deletebot', 'deletesession', 'deletesession', 'stop', 'pausarai', 'pausarbot', 'bots', 'listjadibots', 'subbots']
 export default handler
