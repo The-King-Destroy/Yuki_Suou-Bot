@@ -7,16 +7,16 @@ import cfonts from 'cfonts';
 import { createInterface } from 'readline';
 import yargs from 'yargs';
 import chalk from 'chalk';
-console.log('\n✰ Iniciando Yuki Suou Ai ✰');
+console.log('\n✰ Iniciando YukiBot ✰');
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const require = createRequire(__dirname);
 const { name, description, author, version } = require(join(__dirname, './package.json'));
 const { say } = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
-say('Yuki Suou Ai', {
+say('YukiBot-MD', {
 font: 'block',
 align: 'center',
-colors: ['magentaBright']
+colors: ['red']
 });
 say(`Multi Device`, {
 font: 'chrome',
@@ -57,7 +57,7 @@ break;
 });
 p.on('exit', (_, code) => {
 isRunning = false;
-console.error('🥀 Error:\n', code);
+console.error('🍭 Error:\n', code);
 process.exit();
 if (code === 0) return;
 watchFile(args[0], () => {
@@ -73,7 +73,7 @@ p.emit('message', line.trim());
 }
 process.on('warning', (warning) => {
 if (warning.name === 'MaxListenersExceededWarning') {
-console.warn('🥀 Se excedió el límite de Listeners en:');
+console.warn('🍭 Se excedió el límite de Listeners en:');
 console.warn(warning.stack);
 }
 });
