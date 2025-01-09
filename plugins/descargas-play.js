@@ -1,4 +1,4 @@
-//actualizado por xi_crew
+/*//actualizado por xi_crew
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
@@ -405,4 +405,4 @@ if (data.status === 'ok') {
   } else {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
-}                      
+}*/                      
