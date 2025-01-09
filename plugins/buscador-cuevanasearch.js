@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
 if (!text) return m.reply(`🌸 *Ingresa el nombre de una pelicula*\n *Ejemplo: /cuevana Deadpool*`)
 
 try {
-let api = await fetch(`https://deliriussapi-oficial.vercel.app/search/cuevana?q=${encodeURIComponent(text)}`)
+let api = await fetch(`https://delirius-apiofc.vercel.app/search/cuevana?q=${encodeURIComponent(text)}`)
 let json = await api.json()
 
 let JT = '📽️ Cuevana  -  Search 📽️';
