@@ -70,7 +70,7 @@
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
 
 <details>
- <summary><b> 🌹 Servidor Sky Ultra Plus</b></summary>
+ <summary><b> 🌹 Servidor Sky-Ultra-Plus</b></summary>
 
 * Dashboard  [`Dash`](https://dash.skyultraplus.com)
 * Panel [`Panel`](https://panel.skyultraplus.com)
@@ -78,6 +78,22 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 * Comunidad  [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
 * Contacto(s) [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) / [`Russell`](https://api.whatsapp.com/send/?phone=15167096032&text&type=phone_number&app_absent=0) / [`elrebelde21`](https://facebook.com/elrebelde21)
 * Discord [`SkyUltraPlus`](https://discord.gg/Ph4eWsZ8)
+
+</details>
+
+---
+
+###  **`©️ BRONXYS-HOTS`**
+<a href="https://bronxyshost.com"><img src="https://tinyurl.com/23qv2kvr" height="145px"></a>
+
+<details>
+ <summary><b>♣️ Servidor Bronxy-Hots</b></summary>
+
+* Dashboard: [`Dash`](https://bronxyshost.com)
+* Panel: [`Panel`](https://bronxyshost.com)
+* Canal de WhatsApp: [`Canal Bronxy`](https://whatsapp.com/channel/0029Va9l48kHbFV6SQFKz93B)
+* Grupo Oficial: [`Aquí`](https://chat.whatsapp.com/GVQsAe6CAjoJLuotkpnAqq)
+* Grupo Soporte: [`Soporte`](https://wa.me/message/OMZQOH4YZ765K1) 
 
 </details>
 
