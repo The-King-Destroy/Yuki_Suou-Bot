@@ -156,24 +156,11 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
 ### **`🍂 Créditos`**
-<a
-href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/></a>
+<a href="https://github.com/OfcKing" style="display:inline-block; margin-right: 10px; text-decoration: none;">
+    <img src="https://github.com/OfcKing.png" width="130" height="130" alt="OfcKing"/>
+</a>
+<a href="https://github.com/David-Chian" style="display:inline-block; text-decoration: none;">
+    <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David-Chian"/>
+</a>
 
 **[© Powered by ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)**
-
-
-# prueba 
-
-<a href="https://github.com/The-King-Destroy" style="display:inline-block; margin-right: 10px;">
-    <img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/>
-</a>
-<a href="https://github.com/David-Chian" style="display:inline-block;">
-    <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/>
-</a>
-
-<a href="https://github.com/The-King-Destroy">
-    <img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜" style="display:inline-block;"/>
-</a>
-<a href="https://github.com/David-Chian">
-    <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David" style="display:inline-block;"/>
-</a>
