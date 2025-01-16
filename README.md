@@ -2,8 +2,8 @@
  <p align="center">🌹 WhatsApp Bot Node-Js.</p>
 </p>
 
-  [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=900&color=FF0000&lines=Bienvenido+al+Repositorio+Oficial;✿+Yuki+-+Suou+-+Bot+✿;Gracias+por+Preferirnos;Creado+por+𝔇ĕ𝐬†𝓻⊙γ𒆜)](https://git.io/typing-svg)
-![𝒴𝓊𝓀𝒾-𝒮𝓊𝑜𝓊-𝐵𝑜𝓉](https://files.catbox.moe/om9jai.jpg)
+  [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=900&color=FF0000&lines=Bienvenido+al+Repositorio+Oficial;✿+Yuki+-+Suou+-+Bot+✿;Gracias+por+Preferirnos;Creado+por+𝔇ĕ𝐬†𝓻⊙γ𒆜;🍬🍭)](https://git.io/typing-svg)
+![Yuki](https://files.catbox.moe/om9jai.jpg)
 
 ---
 
@@ -16,7 +16,7 @@
 </details>
 
 <details> 
-<summary><b> 🍬 Versión 2.0.0</b></summary>
+<summary><b> 🍬 Versión 2.1.5</b></summary>
 
 * **Este proyecto no ofrece soporte oficial para su uso en Termux.** Termux es una aplicación de terminal para Android y, aunque puede ser utilizada para ejecutar diversos programas, **este proyecto no está diseñado ni probado específicamente para funcionar en Termux**. Por lo tanto, **no garantizamos compatibilidad ni soporte técnico en este entorno**.
 </details>
@@ -29,7 +29,7 @@
 - [x] Interacción con voz y texto
 - [x] Configuración de grupo
 - [x] antidelete, antilink, antispam, etc
-- [ ] Bienvenida personalizada
+- [x] Bienvenida personalizada
 - [x] Juegos, tictactoe, mate, etc
 - [x] Chatbot (simsimi)
 - [x] Chatbot (autoresponder)
@@ -37,7 +37,7 @@
 - [x] SubBot (Jadibot)
 - [x]    Buscador Google
 - [x] Juego RPG
-- [ ] Personalizar imagen del menú
+- [x] Personalizar imagen del menú
 - [x] Descarga de música y video De YT
 - [ ] Otros
 
