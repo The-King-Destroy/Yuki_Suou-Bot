@@ -215,7 +215,7 @@ var settings = global.db.data.settings[this.user.jid]
 if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
 if (settings) {
 if (!('self' in settings)) settings.self = false
-if (!('restrict' in settings)) settings.restrict = false
+if (!('restrict' in settings)) settings.restrict = true
 if (!('jadibotmd' in settings)) settings.jadibotmd = true
 if (!('antiPrivate' in settings)) settings.antiPrivate = false
 if (!('autoread' in settings)) settings.autoread = false
@@ -223,7 +223,7 @@ if (!('autoread2' in settings)) settings.autoread2 = false
 if (!('antiSpam' in settings)) settings.antiSpam = false
 } else global.db.data.settings[this.user.jid] = {
 self: false,
-restrict: false,
+restrict: true,
 jadibotmd: true,
 antiPrivate: false,
 autoread: false,
