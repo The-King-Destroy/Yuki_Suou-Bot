@@ -195,6 +195,8 @@ let handler = async (m, { conn, args }) => {
 → Calcular todo tipo de ecuaciones.
 ꨄ︎ *#tiempo • #clima*
 → Ver el clima de un pais.
+ꨄ︎ *#horario*
+→ Ver el horario global de los países.
 ꨄ︎ *#fake • #fakereply*
 → Crea un mensaje falso de un usuario.
 ꨄ︎ *#enhance • #remini • #hd*
