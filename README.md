@@ -164,11 +164,9 @@ href="https://github.com/David-Chian"><img src="https://github.com/David-Chian.p
 
 # prueba 
 
-<div style="display: flex; gap: 10px;">
-    <a href="https://github.com/The-King-Destroy">
-        <img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/>
-    </a>
-    <a href="https://github.com/David-Chian">
-        <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David"/>
-    </a>
-</div>
+<a href="https://github.com/The-King-Destroy">
+    <img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜" style="display:inline-block;"/>
+</a>
+<a href="https://github.com/David-Chian">
+    <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David" style="display:inline-block;"/>
+</a>
