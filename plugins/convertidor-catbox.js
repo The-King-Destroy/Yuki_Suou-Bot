@@ -18,10 +18,11 @@ let handler = async (m, { conn }) => {
     let txt = `*乂 C A T B O X - U P L O A D E R 乂*\n\n`;
     txt += `*» Enlace* : ${link}\n`;
     txt += `*» Tamaño* : ${formatBytes(media.length)}\n`;
-    txt += `*» Expiración* : ${isTele ? 'No expira' : 'Desconocido'}\n\n
-    txt += '> *${dev}*`;
+    txt += `*» Expiración* : ${isTele ? 'No expira' : 'Desconocido'}\n\n`;
+    txt += `> *${dev}*`;
     
-    await conn.reply(m.chat, txt, m);
+    await conn.sendFile(m.chat, media, 'thumbnail.jpg', txt, m, fkontak, rcanal);
+    
     await m.react(done);
   } catch {
     await m.react(error);
@@ -42,21 +43,6 @@ function formatBytes(bytes) {
   return `${(bytes / 1024 ** i).toFixed(2)} ${sizes[i]}`;
 }
 
-/**
- * Upload image to catbox
- * Supported mimetype:
- * - `image/jpeg`
- * - `image/jpg`
- * - `image/png`
- * - `image/webp`
- * - `video/mp4`
- * - `video/gif`
- * - `audio/mpeg`
- * - `audio/opus`
- * - `audio/mpa`
- * @param {Buffer} buffer Image Buffer
- * @return {Promise<string>}
- */
 async function catbox(content) {
   const { ext, mime } = (await fileTypeFromBuffer(content)) || {};
   const blob = new Blob([content.toArrayBuffer()], { type: mime });
