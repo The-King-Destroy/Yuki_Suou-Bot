@@ -65,7 +65,7 @@ global.moneda = 'Yenes'
 global.welcom1 = 'Edita Con #setwelcome'
 global.welcom2 = 'Edita Con #setbye'
 global.banner = 'https://tinyurl.com/2y5swnfc'
-global.catalogo = 'https://qu.ax/gbiHe.jpg'
+global.catalogo = 'https://files.catbox.moe/yuhztz.jpg'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
