@@ -6,18 +6,18 @@ let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
 🍬 *Bot:* ${botname}
-✨ *Versión:* ${vs}
-📚 *Libreria:* ${libreria  +  baileys}
+⚜️ *Versión:* ${vs}
+📚 *Libreria:* ${libreria} ${baileys}
 
-👑 *Creador:*
+🪐 *Creador:*
 
-⚜️ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
+☁️ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
 🔖 *Rol:* Creador
 👾 *GitHub:* https://github.com/The-King-Destroy
 
-🔱 *Colaboradores:*
+🍃 *Colaboradores:*
 
-🍨 𝓔𝓶𝓶𝓪 𝓥𝓲𝓸𝓵𝓮𝓽𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷 
+🫧 𝓔𝓶𝓶𝓪 𝓥𝓲𝓸𝓵𝓮𝓽𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷 
 🔖 *Rol:* Developer
 👾 *GitHub:* https://github.com/Elpapiema
 
@@ -25,11 +25,11 @@ let staff = `
 🔖 *Rol:* Developer
 👾 *GitHub:* https://github.com/WillZek
 
-✨ ☆꧁༒ĹєǤ𝒆𝐧𝐃༒꧂☆
+⚡ ☆꧁༒ĹєǤ𝒆𝐧𝐃༒꧂☆
 🔖 *Rol:* Developer
 👾 *GitHub:* https://github.com/Diomar-s
 
-🍭 𝓛𝓮𝓰𝓷𝓪
+🌪️ 𝓛𝓮𝓰𝓷𝓪
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan`.trim();
 
