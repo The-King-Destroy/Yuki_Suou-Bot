@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, args }) => {
 *°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
 > 📆 Publicado: *${ytres[0].ago}*
 *°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
-🍬 Canal: *${ytres[0].author.name || 'Desconocido'}*
+> 🍬 Canal: *${ytres[0].author.name || 'Desconocido'}*
 *°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*
 > 🔗 Enlace: https://youtu.be/${ytres[0].videoId}`;
 
