@@ -1,57 +1,33 @@
 let handler = async (m, { conn, args, participants }) => {
-let users = Object.entries(global.db.data.users).map(([key, value]) => {
-return {...value, jid: key}})
-let sortedExp = users.map(toNumber('exp')).sort(sort('exp'))
-let sortedLim = users.map(toNumber('coin')).sort(sort('coin'))
-let sortedLevel = users.map(toNumber('level')).sort(sort('level'))
-let usersExp = sortedExp.map(enumGetKey)
-let usersLim = sortedLim.map(enumGetKey) 
-let usersLevel = sortedLevel.map(enumGetKey)
-let len = args[0] && args[0].length > 0 ? Math.min(5, Math.max(parseInt(args[0]), 5)) : Math.min(5, sortedExp.length)
+    let users = Object.entries(global.db.data.users).map(([key, value]) => {
+        return { ...value, jid: key };
+    });
 
-let text = `
-╭───═[ *Top ${len} ${moneda}* ]═────⋆
-│╭───────────────···
-││ Tú eres el *${usersLim.indexOf(m.sender) + 1}* de *${usersLim.length}*
-││ ${sortedLim.slice(0, len).map(({ jid, yenes }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${moneda}*`).join`\n││ `}
-│╰────────────────···
-╰───────────═┅═──────────
+    let sortedLevel = users.sort((a, b) => (b.exp || 0) - (a.exp || 0));
+    let page = parseInt(args[0]) || 1;
+    let pageSize = 10;
+    let startIndex = (page - 1) * pageSize;
+    let endIndex = startIndex + pageSize;
+    
+    let totalPages = Math.ceil(sortedLevel.length / pageSize);
+    let text = `◢✨ Top de usuarios con más experiencia ✨◤\n\n`;
 
-╭───═[ *TOP ${len} XP ✨* ]═────⋆
-│╭───────────────···
-││ Tú eres el *${usersLim.indexOf(m.sender) + 1}* de *${usersLim.length}*
-││ ${sortedExp.slice(0, len).map(({ jid, exp }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${exp} ✨*`).join`\n││ `}
-│╰────────────────···
-╰───────────═┅═──────────
+    text += sortedLevel.slice(startIndex, endIndex).map(({ jid, exp, level }, i) => {
+        return `✰ ${startIndex + i + 1} » *${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]}*` +
+               `\n\t\t ❖ XP » *${exp}*  ❖ LVL » *${level}*`;
+    }).join('\n');
 
-╭───═[ *Top ${len} Nivel 📈* ]═────⋆
-│╭───────────────···
-││ Tú eres el *${usersLim.indexOf(m.sender) + 1}* de *${usersLim.length}*
-││ ${sortedLevel.slice(0, len).map(({ jid, level }, i) => `${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *Nivel ${level} 📈*`).join`\n││ `}
-│╰────────────────···
-╰───────────═┅═──────────`.trim()
-m.reply(text, null, { mentions: conn.parseMention(text) })
-}
-handler.help = ['lb']
-handler.tags = ['rpg']
-handler.command = ['leaderboard', 'lb'] 
-handler.group = true;
-handler.register = true
-handler.fail = null
-handler.exp = 0
+    text += `\n\n> • Página *${page}* de *${totalPages}*`;
+    if (page < totalPages) text += `\n> Para ver la siguiente página » *#lb ${page + 1}*`;
 
-export default handler
+    await conn.reply(m.chat, text.trim(), m, { mentions: conn.parseMention(text) });
+}
 
-function sort(property, ascending = true) {
-if (property) return (...args) => args[ascending & 1][property] - args[!ascending & 1][property]
-else return (...args) => args[ascending & 1] - args[!ascending & 1]
-}
-function toNumber(property, _default = 0) {
-if (property) return (a, i, b) => {
-return {...b[i], [property]: a[property] === undefined ? _default : a[property]}
-}
-else return a => a === undefined ? _default : a
-}
-function enumGetKey(a) {
-return a.jid
-}
+handler.help = ['lb'];
+handler.tags = ['rpg'];
+handler.command = ['lboard', 'top', 'lb']; 
+handler.register = true; 
+handler.fail = null;
+handler.exp = 0;
+
+export default handler;
