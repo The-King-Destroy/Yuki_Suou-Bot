@@ -246,7 +246,7 @@ let handler = async (m, { conn, args }) => {
 ꨄ︎ *#deldescription • #deldesc*
 → Elimina la descripción de tu perfil del bot.
 ꨄ︎ *#lb • #lboard* + <Paginá>
-→ Top de usuarios con más (experiencia, ${moneda} y nivel).
+→ Top de usuarios con más (experiencia y nivel).
 ꨄ︎ *#level • #lvl* + <@Mencion>
 → Ver tu nivel y experiencia actual.
 ꨄ︎ *#comprarpremium • #premium*
