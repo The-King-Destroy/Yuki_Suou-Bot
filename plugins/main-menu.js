@@ -42,7 +42,7 @@ let handler = async (m, { conn, args }) => {
 ꨄ︎ *#bots • #sockets*
 → Ver la lista de Sub-Bots activos.
 ꨄ︎ *#creador*
-→ Ver en número oficial de creador de la Bot.
+→ Contacto del creador de la Bot.
 ꨄ︎ *#status • #estado*
 → Ver el estado actual de la Bot.
 ꨄ︎ *#links • #grupos*
@@ -98,7 +98,7 @@ let handler = async (m, { conn, args }) => {
 ꨄ *#hentaisearch • #searchhentai*
 → Buscador de capítulos hentai.
 ꨄ #xnxxsearch • #xnxxs*
-→ Buscandor de vídeos de Xnxx.
+→ Buscador de vídeos de Xnxx.
 ꨄ *#xvsearch • #xvideossearch*
 → Buscador de vídeos de Xvideos.
 ꨄ *#pornhubsearch • #phsearch*
@@ -119,6 +119,8 @@ let handler = async (m, { conn, args }) => {
 → Descargar un archivo de MEGA.
 ꨄ︎ *#play • #play2*
 → Descarga música/video de YouTube.
+ꨄ︎ *#ytmp3 • #ytmp4*
+→ Descarga música/video de YouTube mediante url.
 ꨄ︎ *#fb • #facebook*
 → Descarga videos de Facebook.
 ꨄ︎ *#twitter • #x* + [Link]
@@ -273,7 +275,7 @@ let handler = async (m, { conn, args }) => {
 → El bot envia el link del grupo.
 ꨄ︎ *#admins • #admin*
 → Mencionar a los admins para solicitar ayuda.
-ꨄ︎ *#restablecer • #revoke
+ꨄ︎ *#restablecer • #revoke*
 → Restablecer el enlace del grupo.
 ꨄ︎ *#grupo • #group* [open / abrir]
 → Cambia ajustes del grupo para que todos los usuarios envien mensaje.
@@ -298,7 +300,7 @@ let handler = async (m, { conn, args }) => {
 ꨄ ︎*#unwarn • #delwarn*
 → Quitar advertencias.
 ꨄ︎ *#advlist • #listadv*
-→Ver lista de usuarios advertidos.
+→ Ver lista de usuarios advertidos.
 ꨄ︎ *#banchat*
 → Banear el Bot en un chat o grupo.
 ꨄ︎ *#unbanchat*
