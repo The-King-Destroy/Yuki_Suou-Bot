@@ -185,8 +185,6 @@ let handler = async (m, { conn, args }) => {
 → Crea stickers con texto.
 ꨄ︎ *#emojimix*
 → Fuciona 2 emojis para crear un sticker.
-ꨄ︎ *#furbrat*
-→ Crea un sticker con tu nombre.
 ꨄ︎ *#wm*
 → Cambia el nombre de los stickers.
 
