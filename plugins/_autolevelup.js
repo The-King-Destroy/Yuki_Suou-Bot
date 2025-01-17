@@ -37,7 +37,7 @@ externalAdReply: {
 title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
 body: '🥳 ¡Alguien obtuvo un nuevo Rango!',
 thumbnailUrl: perfil,
-sourceUrl: redes,
+sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
@@ -76,7 +76,7 @@ externalAdReply: {
 title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
 body: '🥳 ¡Un usuario obtiene un nuevo nivel!',
 thumbnailUrl: perfil, 
-sourceUrl: redes,
+sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
