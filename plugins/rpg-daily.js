@@ -7,7 +7,7 @@ var handler = async (m, { conn }) => {
     global.db.data.users[m.sender].coin += coin;
 
     let time = global.db.data.users[m.sender].lastclaim + 86400000;
-    if (new Date - global.db.data.users[m.sender].lastclaim < 7200000) {
+    if (new Date() - global.db.data.users[m.sender].lastclaim < 7200000) {
         return conn.reply(m.chat, `🍭 *Vuelve en ${msToTime(time - new Date())}*`, m);
     }
 
@@ -19,7 +19,7 @@ Recursos:
 💎 Diamantes : *+${d}*
 💸 ${moneda} : *+${coin}*`, m);
 
-    global.db.data.users[m.sender].lastclaim = new Date * 1;
+    global.db.data.users[m.sender].lastclaim = Date.now();
 }
 
 handler.help = ['daily', 'claim'];
