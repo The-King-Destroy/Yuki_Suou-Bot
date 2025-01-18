@@ -49,7 +49,6 @@ regbot += `> 💸 *${moneda}* » 40\n`
 regbot += `> ✨ *Experiencia* » 300\n`
 regbot += `> ⚜️ *Tokens* » 20\n\n`
 regbot += `ᴠᴇʀɪғɪᴄᴀ ᴛᴜ ʀᴇɢɪᴛʀᴏ ᴀϙᴜɪ:\n`
-regbot += `${channel2}`
 await m.react('📩')
 //await m.reply(mini)
 await conn.sendMessage(m.chat, {
@@ -59,6 +58,7 @@ await conn.sendMessage(m.chat, {
                 title: '✧ Usuario Verificado ✧',
                 body: textbot,
                 thumbnailUrl: pp,
+                sourceUrl: channel,
                 mediaType: 1,
                 showAdAttribution: true,
                 renderLargerThumbnail: true
