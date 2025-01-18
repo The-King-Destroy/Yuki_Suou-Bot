@@ -37,7 +37,7 @@ externalAdReply: {
 title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
 body: '🥳 ¡Alguien obtuvo un nuevo Rango!',
 thumbnailUrl: perfil,
-sourceUrl: channel,
+sourceUrl: redes,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
@@ -52,8 +52,7 @@ let especial3 = 'joincount'
 
 let especialCant = Math.floor(Math.random() * (9 - 6 + 1)) + 6 // Intervalo: 6 a 9
 let especialCant2 = Math.floor(Math.random() * (10 - 6 + 1)) + 6 // Intervalo: 6 a 10
-let especialCant3 = Math.floor(Math.random() * (10 - 6 + 1)) + 6 // Intervalo: 6 a 10
-let especialCant4 = Math.floor(Math.random() * (3 - 2 + 1)) + 2 // Intervalo: 2 a 3
+let especialCant3 = Math.floor(Math.random() * (3 - 2 + 1)) + 2 // Intervalo: 2 a 3
 
 let normal = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom()
 let normal2 = ['petFood', 'makanancentaur', 'makanangriffin', 'makanankyubi', 'makanannaga', 'makananpet', 'makananphonix'  ].getRandom()
@@ -76,7 +75,7 @@ externalAdReply: {
 title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
 body: '🥳 ¡Un usuario obtiene un nuevo nivel!',
 thumbnailUrl: perfil, 
-sourceUrl: channel,
+sourceUrl: redes,
 mediaType: 1,
 showAdAttribution: false,
 renderLargerThumbnail: false
