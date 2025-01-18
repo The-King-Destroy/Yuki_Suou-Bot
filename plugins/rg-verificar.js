@@ -1,66 +1,63 @@
-import { createHash } from 'crypto';
-import PhoneNumber from 'awesome-phonenumber';
-import moment from 'moment-timezone';
+import db from '../lib/database.js'
+import fs from 'fs'
+import PhoneNumber from 'awesome-phonenumber'
+import { createHash } from 'crypto'  
+import fetch from 'node-fetch'
 
-let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i;
+let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
-    let user = global.db.data.users[m.sender];
-    let name2 = conn.getName(m.sender);
-    let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
-    let pp = await conn.profilePictureUrl(m.sender, 'image').catch((_) => 'https://files.catbox.moe/xr2m6u.jpg');
-    let bio = 0, fechaBio;
-    let sinDefinir = '😿 Es privada';
-    let biografia = await conn.fetchStatus(m.sender).catch(() => null);
-    
-    if (!biografia || !biografia[0] || biografia[0].status === null) {
-        bio = sinDefinir;
-        fechaBio = "Fecha no disponible";
-    } else {
-        bio = biografia[0].status || sinDefinir;
-        fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" }) : "Fecha no disponible";
-    }
-    
-    if (user.registered === true) throw `*『✦』Ya estás registrado, para volver a registrarte, usa el comando: #unreg*`;
-    if (!Reg.test(text)) throw `*『✦』El comando ingresado es incorrecto, úselo de la siguiente manera:*\n\n#reg *Nombre.edad*\n\n\`\`\`Ejemplo:\`\`\`\n#reg *${name2}.10000*`;
-    
-    let [_, name, splitter, age] = text.match(Reg);
-    if (!name) throw '*『✦』No puedes registrarte sin nombre, el nombre es obligatorio. Inténtalo de nuevo.*';
-    if (!age) throw '*『✦』No puedes registrarte sin la edad, la edad es opcional. Inténtalo de nuevo.*';
-    if (name.length >= 30) throw '*『✦』El nombre no debe tener más de 30 caracteres.*';
-    
-    age = parseInt(age);
-    if (age > 10000) throw '*『😏』Viejo/a Sabroso/a*';
-    if (age < 5) throw '*『🍼』Ven aquí, te adoptarè!!*';
-    
-    user.name = name.trim();
-    user.age = age;
-    user.descripcion = bio;
-    user.regTime = +new Date();
-    user.registered = true;
-    global.db.data.users[m.sender].coin += 10;
-    global.db.data.users[m.sender].exp += 245;
-    global.db.data.users[m.sender].joincount += 5;
-    
-    let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20);
-    m.react('📩');
-    
-let regbot = `👤 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 👤
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-「☁️」𝗡𝗼𝗺𝗯𝗿𝗲 » ${name}
-「⭐」𝗘𝗱𝗮𝗱 » ${age} años
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-「🎁」𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:
-• 💸 ${moneda} » 15
-• ✨ Experiencia » 245
-• ⚜️ Tokens » 12
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-ᴠᴇʀɪғɪᴄᴀ ᴛᴜ ʀᴇɢɪᴛʀᴏ ᴀϙᴜɪ:
-${channel2} 
-•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•
-${packname}`;
-    
-    await conn.sendMessage(m.chat, {
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let mentionedJid = [who]
+ let bio = 0, fechaBio
+  let sinDefinir = '😿 Es privada'
+  let biografia = await conn.fetchStatus(m.sender).catch(() => null)
+  if (!biografia || !biografia[0] || biografia[0].status === null) {
+   bio = sinDefinir
+   fechaBio = "Fecha no disponible"
+} else {
+bio = biografia[0].status || sinDefinir
+fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
+}
+  let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+  let pp = await conn.profilePictureUrl(who, 'image').catch((_) => 'https://qu.ax/QGAVS.jpg')
+  let user = global.db.data.users[m.sender]
+  let name2 = conn.getName(m.sender)
+  if (user.registered === true) return m.reply(`🍭 Ya estás registrado.\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg*`)
+  if (!Reg.test(text)) return m.reply(`🍭 Formato incorrecto.\n\nUso del comamdo: *${usedPrefix + command} nombre.edad*\nEjemplo : *${usedPrefix + command} ${name2}.18*`)
+  let [_, name, splitter, age] = text.match(Reg)
+  if (!name) return m.reply('🍭 El nombre no puede estar vacío.')
+  if (!age) return m.reply('🍭 La edad no puede estar vacía.')
+  if (name.length >= 100) return m.reply('🍭 El nombre es demasiado largo.' )
+  age = parseInt(age)
+  if (age > 1000) return m.reply('🍬 Wow el abuelo quiere jugar al bot.')
+  if (age < 5) return m.reply('🍬 hay un abuelo bebé jsjsj. ')
+  user.name = name + '✓'.trim()
+  user.age = age
+  user.descripcion = bio 
+  user.regTime = + new Date      
+  user.registered = true
+  global.db.data.users[m.sender].coin += 40
+  global.db.data.users[m.sender].exp += 300
+  global.db.data.users[m.sender].joincount += 20
+  let sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
+let mini = `✨ 𝗥 𝗘 𝗚 𝗜 𝗦 𝗧 𝗥 𝗔 𝗗 𝗢 ✨\n`
+mini += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+mini += `「☁️」*𝗡𝗼𝗺𝗯𝗿𝗲* » ${name}\n`
+mini += `「🪐」*Edad* » ${age} años\n`
+mini += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+mini += `「🎁」 𝗥𝗲𝗰𝗼𝗺𝗽𝗲𝗻𝘀𝗮𝘀:\n`
+mini += `>💸 *${moneda}* » 40\n`
+mini += `> ✨ *Experiencia* » 300\n`
+mini += `> ⚜️ *Tokens* » 20\n`
+mini += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+mini += `ᴠᴇʀɪғɪᴄᴀ ᴛᴜ ʀᴇɢɪᴛʀᴏ ᴀϙᴜɪ:\n`
+mini += `${channel2}\n`
+mini += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
+mini += `${packname}`
+await m.react('📩')
+//await m.reply(mini)
+await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
             externalAdReply: {
@@ -99,9 +96,8 @@ ${packname}`;
         }
     }, { quoted: null });
 };
+handler.help = ['reg']
+handler.tags = ['rg']
+handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
 
-handler.help = ['reg'];
-handler.tags = ['rg'];
-handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'];
-
-export default handler;
+export default handler
