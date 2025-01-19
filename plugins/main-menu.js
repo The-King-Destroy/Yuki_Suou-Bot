@@ -29,10 +29,10 @@ let handler = async (m, { conn, args }) => {
 »  ⊹˚• \`Info-Bot\` •˚⊹
 
 🍭 Comandos para ver estado e información de la Bot.
-ꨄ︎ *#help • #menu*
-• Ver la lista de comandos de la Bot.
+ᰔᩚ *#help • #menu*
+✦ Ver la lista de comandos de la Bot.
 ꨄ︎ *#uptime • #runtime*
-> • Ver tiempo activo o en linea de la Bot.
+> ✦ Ver tiempo activo o en linea de la Bot.
 ꨄ︎ *#sc • #script*
 → Link del repositorio oficial de la Bot
 ꨄ︎ *#staff • #colaboradores*
