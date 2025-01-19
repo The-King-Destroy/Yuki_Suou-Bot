@@ -40,5 +40,6 @@ handler.help = ['addcoins *<@user>*'];
 handler.tags = ['owner'];
 handler.command = ['añadircoin', 'addcoin', 'addcoins']; 
 handler.rowner = true;
+handler.mods = true;
 
 export default handler;
