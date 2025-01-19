@@ -14,5 +14,6 @@ await conn.reply(m.chat, `⚠️ Gemini no puede responder a esa pregunta.`, m, 
 handler.command = ['gemini']
 handler.help = ['gemini']
 handler.tags = ['ai']
+handler.group = true
 
 export default handler
