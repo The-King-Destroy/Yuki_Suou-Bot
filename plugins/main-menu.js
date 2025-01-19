@@ -158,15 +158,15 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#slut • #protituirse*
 > ✦ Trabaja como prostituta y gana ${moneda}.
 ᰔᩚ *#cf • #suerte*
-> ✦ Apuesta ${moneda} a cara o cruz.
+> ✦ Apuesta tus ${moneda} a cara o cruz.
 ᰔᩚ *#crime • #crimen
 > ✦ Trabaja como ladrón para ganar ${moneda}.
 ᰔᩚ *#ruleta • #roulette • #rt*
 > ✦ Apuesta ${moneda} al color rojo o negro.
 ᰔᩚ *#casino • #apostar*
-> ✦ Juega en el casino y gana ${moneda}.
+> ✦ Apuesta tus ${monedas} en el casino.
 ᰔᩚ *#slot*
-> ✦ Apuesta ${moneda} en ka ruleta y prueba tu suerte.
+> ✦ Apuesta tus ${moneda} en la ruleta y prueba tu suerte.
 ᰔᩚ *#cartera • #wallet*
 > ✦ Ver tus ${moneda} en la cartera.
 ᰔᩚ *#banco • #bank*
@@ -196,15 +196,15 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#eboard • #baltop*
 > ✦ Ver el ranking de usuarios con más ${moneda}.
 ᰔᩚ *#aventura • #adventure*
-> ✦ Aventúrate en un nuevo reino y consigue recursos.
+> ✦ Aventúrate en un nuevo reino y recolecta recursos.
 ᰔᩚ *#curar • #heal*
-> ✦ Cura las secuelas de tu aventura.
+> ✦ Cura tu salud para volverte aventurar.
 ᰔᩚ *#cazar • #hunt • #berburu*
 > ✦ Aventúrate en una caza de animales.
 ᰔᩚ *#inv • #inventario*
-> ✦ Ver el estado de todos tus ítems.
+> ✦ Ver tu inventario con todos tus ítems.
 ᰔᩚ *#mazmorra • #explorar*
-> ✦ Aventúrate a explorar una misteriosa mazmorra.
+> ✦ Explorar mazmorras para ganar ${moneda}.
 ᰔᩚ *#halloween*
 > ✦ Reclama tu dulce o truco (Solo en Halloween).
 ᰔᩚ *#christmas • #navidad*
