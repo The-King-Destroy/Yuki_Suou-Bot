@@ -3,7 +3,7 @@ export async function before(m) {
     return;
   }
 if (m.sender === conn.user.jid) {
-    return m.reply('mensaje del bot w (test)')
+    return 0;
 }
 
   const usedPrefix = global.prefix.exec(m.text)[0];
