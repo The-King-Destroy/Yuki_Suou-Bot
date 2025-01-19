@@ -3,9 +3,8 @@ export async function before(m) {
     return;
   }
 if (m.sender === conn.user.jid) {
-    return;
+    return m.reply('mensaje del bot w (test)')
 }
-console.log("Procesando mensaje:", m);
 
   const usedPrefix = global.prefix.exec(m.text)[0];
   const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
