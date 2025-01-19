@@ -63,8 +63,8 @@ let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://f
 
 };
 
-handler.help = ['menu'];
+handler.help = ['staff'];
 handler.tags = ['main'];
-handler.command = ['menu', 'menú', 'help', 'ayuda'];
+handler.command = ['ayudantes', 'colaboradores', 'staff'];
 
 export default handler;
