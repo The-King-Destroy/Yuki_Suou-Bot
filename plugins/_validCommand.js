@@ -3,7 +3,7 @@ export async function before(m) {
     return;
   }
 if (m.key.fromMe) {
-    return m.reply('pene');
+     conn.reply(m.chat, 'pene', m);
 }
   const usedPrefix = global.prefix.exec(m.text)[0];
   const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
