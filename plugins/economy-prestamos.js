@@ -75,14 +75,14 @@ async function handler(m, { conn, args, command }) {
       if (debtAmount > 0) {
         if (amountToPay <= debtAmount) {
           user.debts[lender] -= amountToPay;
-          user.coin += amountToPay;
+          user.coin -= amountToPay; 
           if (user.debts[lender] <= 0) {
             delete user.debts[lender];
           }
           break;
         }
         amountToPay -= debtAmount;
-        user.coin += debtAmount;
+        user.coin -= debtAmount; 
         delete user.debts[lender];
       }
     }
@@ -105,7 +105,7 @@ async function handler(m, { conn, args, command }) {
     for (const [lender, amount] of Object.entries(user.debts)) {
       if (amount > 0) {
         debtMessage += `✰ ${index} » *@${lender.split('@')[0]}:*\n`;
-        debtMessage += `\t\t Total→ *¥${amount} Yenes*\n`;
+        debtMessage += `\t\t Total→ *${amount} ${moneda}*\n`;
         mentions.push(lender);
         index++;
       }
@@ -131,8 +131,8 @@ handler.before = async (m) => {
 
   if (/^Si$/i.test(m.text)) {
     const lender = global.db.data.users[m.sender];
-    loanedUser.coin += count;
-    lender.coin -= count;
+    loanedUser.coin += count; 
+    lender.coin -= count; 
     loanedUser.debts = loanedUser.debts || {};
     loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + count;
 
