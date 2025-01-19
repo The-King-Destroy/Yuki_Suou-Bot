@@ -29,6 +29,10 @@ let staff = `
 🔖 *Rol:* Developer
 👾 *GitHub:* https://github.com/Diomar-s
 
+☘️ I'm Fz' (Tesis)
+🔖 *Rol:* Developer
+👾 *GitHub:* https://github.com/FzTeis
+
 🌪️ 𝓛𝓮𝓰𝓷𝓪
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan`.trim();
