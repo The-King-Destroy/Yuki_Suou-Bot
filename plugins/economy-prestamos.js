@@ -1,10 +1,7 @@
-//Código creado por Destroy wa.me/584120346669
-//El código está en fase Beta hay que ajustarlo pero me da flojera
-
 const items = ['coin'];
 const confirmation = {};
 const DEBT_INCREMENT = 10;
-const DEBT_INTERVAL = 5 * 60 * 60 * 1000; // 5 horas
+const DEBT_INTERVAL = 5 * 60 * 60 * 1000; 
 const MIN_AMOUNT = 10;
 
 async function handler(m, { conn, args, command }) {
@@ -78,12 +75,14 @@ async function handler(m, { conn, args, command }) {
       if (debtAmount > 0) {
         if (amountToPay <= debtAmount) {
           user.debts[lender] -= amountToPay;
+          user.coin += amountToPay;
           if (user.debts[lender] <= 0) {
             delete user.debts[lender];
           }
           break;
         }
         amountToPay -= debtAmount;
+        user.coin += debtAmount;
         delete user.debts[lender];
       }
     }
@@ -99,17 +98,19 @@ async function handler(m, { conn, args, command }) {
       return sendMessage('*🍭 No tienes deudas pendientes.*');
     }
 
-    let debtMessage = '*🍭 Deudas pendientes:*\n';
+    let debtMessage = `「🍬」Lista de deudas de @${m.sender.split('@')[0]}:\n`;
     const mentions = [];
+    let index = 1;
 
     for (const [lender, amount] of Object.entries(user.debts)) {
       if (amount > 0) {
-        debtMessage += `*— ${amount} ${moneda} 💸 de @${lender.split('@')[0]}*\n`;
+        debtMessage += `✰ ${index} » *@${lender.split('@')[0]}:*\n`;
+        debtMessage += `\t\t Total→ *${amount} ${moneda}*\n`;
         mentions.push(lender);
+        index++;
       }
     }
 
-    debtMessage += '*Total de deudas: ' + Object.values(user.debts).reduce((acc, val) => acc + val, 0) + ' Dinero 💸*';
     sendMessage(debtMessage.trim(), mentions);
   }
 }
@@ -131,13 +132,14 @@ handler.before = async (m) => {
   if (/^Si$/i.test(m.text)) {
     const lender = global.db.data.users[m.sender];
     loanedUser.coin += count;
+    lender.coin -= count;
     loanedUser.debts = loanedUser.debts || {};
     loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + count;
 
     conn.sendMessage(m.chat, { text: `*💱 Se prestaron correctamente ${count} ${moneda} 💸 a @${to.split('@')[0]}.*`, mentions: [to] }, { quoted: m });
 
     setInterval(() => {
-      loanedUser.debts[m.sender] += DEBT_INCREMENT;
+      loanedUser.debts[m.sender] = (loanedUser.debts[m.sender] || 0) + DEBT_INCREMENT;
     }, DEBT_INTERVAL);
 
     clearTimeout(timeout);
