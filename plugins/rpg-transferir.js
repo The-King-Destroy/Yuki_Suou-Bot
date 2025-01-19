@@ -63,7 +63,7 @@ handler.before = async (m) => {
 };
 handler.help = ['transfer'].map((v) => v + ' [tipo] [cantidad] [@tag]');
 handler.tags = ['economy'];
-handler.command = ['payxp', 'transfer', 'darxp', 'transferir'];
+handler.command = ['payxp', 'pay', 'darxp', 'transferir'];
 handler.disabled = false;
 handler.group = true
 handler.register = true
