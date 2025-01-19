@@ -2,6 +2,10 @@ export async function before(m) {
   if (!m.text || !global.prefix.test(m.text)) {
     return;
   }
+if (m.sender === conn.user.jid) {
+    return;
+}
+console.log("Procesando mensaje:", m);
 
   const usedPrefix = global.prefix.exec(m.text)[0];
   const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
