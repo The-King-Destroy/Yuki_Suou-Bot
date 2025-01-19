@@ -92,6 +92,8 @@ if (!isNumber(user.afk))
 user.afk = -1
 if (!('afkReason' in user))
 user.afkReason = ''
+if (!('role' in user))
+user.role = 'Novato'
 if (!('banned' in user))
 user.banned = false
 if (!('useDocument' in user))
