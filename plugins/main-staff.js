@@ -2,7 +2,9 @@ import moment from 'moment-timezone';
 
 let handler = async (m, { conn, args }) => {
 
-let staff = `
+let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
+
+  let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
 🍬 *Bot:* ${botname}
@@ -35,27 +37,34 @@ let staff = `
 
 🌪️ 𝓛𝓮𝓰𝓷𝓪
 🔖 *Rol:* Moderador 
-👾 *GitHub:* https://github.com/Legna-chan`.trim();
+👾 *GitHub:* https://github.com/Legna-chan
+  `.trim();
 
-await conn.sendMessage(m.chat, { 
-    text: staff,
-    contextInfo: {
-      externalAdReply: {
-        title: `✨ Developers`,
-        body: dev,
-        thumbnailUrl: catalogo,
-        sourceUrl: channel,
-        mediaType: 1,
-        showAdAttribution: true,
-        renderLargerThumbnail: true
-      }
-    }
-  }, { quoted: m })
+  await conn.sendMessage(m.chat, { 
+      text: staff,
+      contextInfo: {
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+              newsletterJid: channelRD.id,
+              newsletterName: channelRD.name,
+              serverMessageId: -1,
+          },
+          forwardingScore: 999,
+          externalAdReply: {
+              title: `✨ Developers`,
+              body: dev,
+              thumbnailUrl: catalogo,
+              mediaType: 1,
+              showAdAttribution: true,
+              renderLargerThumbnail: true,
+          },
+      },
+  }, { quoted: m });
+
 };
 
-handler.help = ['staff']
-handler.command = ['colaboradores', 'staff']
-handler.register = true
-handler.tags = ['main']
+handler.help = ['menu'];
+handler.tags = ['main'];
+handler.command = ['menu', 'menú', 'help', 'ayuda'];
 
-export default handler
+export default handler;
