@@ -85,7 +85,8 @@ renderLargerThumbnail: false
 if (user.level == 5){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 5!!* ✦
 ᰔᩚ *${especialCant * 1} ${especial}*
-ᰔᩚ *${especialCant2 * 1} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 1} ${especial2}*
+ᰔᩚ *${especialCant3 * 1} ${especial3}*`, m)
 user[especial] += especialCant * 1
 user[especial2] += especialCant2 * 1
 user[especial3] += especialCant3 * 1
@@ -93,7 +94,8 @@ user[especial3] += especialCant3 * 1
 }else if (user.level == 10){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 10!!* ✦
 ᰔᩚ *${especialCant * 1} ${especial}*
-ᰔᩚ *${especialCant2 * 1} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 1} ${especial2}*
+ᰔᩚ *${especialCant3 * 1} ${especial3}*`, m)
 user[especial] += especialCant * 1
 user[especial2] += especialCant2 * 1
 user[especial3] += especialCant3 * 1
@@ -101,7 +103,8 @@ user[especial3] += especialCant3 * 1
 }else if (user.level == 15){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 15!!* ✦
 ᰔᩚ *${especialCant * 2} ${especial}*
-ᰔᩚ *${especialCant2 * 2} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 2} ${especial2}*
+ᰔᩚ *${especialCant3 * 2} ${especial3}*`, m)
 user[especial] += especialCant * 2
 user[especial2] += especialCant2 * 2
 user[especial3] += especialCant3 * 2
@@ -109,7 +112,8 @@ user[especial3] += especialCant3 * 2
 }else if (user.level == 20){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 20!!* ✦
 ᰔᩚ *${especialCant * 2} ${especial}*
-ᰔᩚ *${especialCant2 * 2} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 2} ${especial2}*
+ᰔᩚ *${especialCant3 * 2} ${especial3}*`, m)
 user[especial] += especialCant * 2
 user[especial2] += especialCant2 * 2
 user[especial3] += especialCant3 * 2
@@ -117,7 +121,8 @@ user[especial3] += especialCant3 * 2
 }else if (user.level == 25){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 25!!* ✦
 ᰔᩚ *${especialCant * 3} ${especial}*
-ᰔᩚ *${especialCant2 * 3} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 3} ${especial2}*
+ᰔᩚ *${especialCant3 * 3} ${especial3}*`, m)
 user[especial] += especialCant * 3
 user[especial2] += especialCant2 * 3
 user[especial3] += especialCant3 * 3
@@ -125,7 +130,8 @@ user[especial3] += especialCant3 * 3
 }else if (user.level == 30){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 30!!* ✦
 ᰔᩚ *${especialCant * 3} ${especial}*
-ᰔᩚ *${especialCant2 * 3} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 3} ${especial2}*
+ᰔᩚ *${especialCant3 * 3} ${especial3}*`, m)
 user[especial] += especialCant * 3
 user[especial2] += especialCant2 * 3
 user[especial3] += especialCant3 * 3
@@ -133,7 +139,8 @@ user[especial3] += especialCant3 * 3
 }else if (user.level == 35){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 35!!* ✦
 ᰔᩚ *${especialCant * 4} ${especial}*
-ᰔᩚ *${especialCant2 * 4} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 4} ${especial2}*
+ᰔᩚ *${especialCant3 * 4} ${especial3}*`, m)
 user[especial] += especialCant * 4
 user[especial2] += especialCant2 * 4
 user[especial3] += especialCant3 * 4
@@ -141,7 +148,8 @@ user[especial3] += especialCant3 * 4
 }else if (user.level == 40){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 40!!* ✦
 ᰔᩚ *${especialCant * 4} ${especial}*
-ᰔᩚ *${especialCant2 * 4} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 4} ${especial2}*
+ᰔᩚ *${especialCant3 * 4} ${especial3}*`, m)
 user[especial] += especialCant * 4
 user[especial2] += especialCant2 * 4
 user[especial3] += especialCant3 * 4
@@ -149,7 +157,8 @@ user[especial3] += especialCant3 * 4
 }else if (user.level == 45){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 45!!* ✦
 ᰔᩚ *${especialCant * 5} ${especial}*
-ᰔᩚ *${especialCant2 * 5} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 5} ${especial2}*
+ᰔᩚ *${especialCant3 * 5} ${especial3}*`, m)
 user[especial] += especialCant * 5
 user[especial2] += especialCant2 * 5
 user[especial3] += especialCant3 * 5
@@ -157,7 +166,8 @@ user[especial3] += especialCant3 * 5
 }else if (user.level == 50){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 50!!* ✦
 ᰔᩚ *${especialCant * 5} ${especial}*
-ᰔᩚ *${especialCant2 * 5} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 5} ${especial2}*
+ᰔᩚ *${especialCant3 * 5} ${especial3}*`, m)
 user[especial] += especialCant * 5
 user[especial2] += especialCant2 * 5
 user[especial3] += especialCant3 * 5
@@ -165,7 +175,8 @@ user[especial3] += especialCant3 * 5
 }else if (user.level == 55){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 55!!* ✦
 ᰔᩚ *${especialCant * 6} ${especial}*
-ᰔᩚ *${especialCant2 * 6} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 6} ${especial2}*
+ᰔᩚ *${especialCant3 * 6} ${especial3}*`, m)
 user[especial] += especialCant * 6
 user[especial2] += especialCant2 * 6
 user[especial3] += especialCant3 * 6
@@ -173,7 +184,8 @@ user[especial3] += especialCant3 * 6
 }else if (user.level == 60){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 60!!* ✦
 ᰔᩚ *${especialCant * 6} ${especial}*
-ᰔᩚ *${especialCant2 * 6} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 6} ${especial2}*
+ᰔᩚ *${especialCant3 * 6} ${especial3}*`, m)
 user[especial] += especialCant * 6
 user[especial2] += especialCant2 * 6
 user[especial3] += especialCant3 * 6
@@ -181,7 +193,8 @@ user[especial3] += especialCant3 * 6
 }else if (user.level == 65){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 65!!* ✦
 ᰔᩚ *${especialCant * 7} ${especial}*
-ᰔᩚ *${especialCant2 * 7} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 7} ${especial2}*
+ᰔᩚ *${especialCant3 * 7} ${especial3}*`, m)
 user[especial] += especialCant * 7
 user[especial2] += especialCant2 * 7
 user[especial3] += especialCant3 * 7
@@ -189,7 +202,8 @@ user[especial3] += especialCant3 * 7
 }else if (user.level == 70){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 70!!* ✦
 ᰔᩚ *${especialCant * 7} ${especial}*
-ᰔᩚ *${especialCant2 * 7} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 7} ${especial2}*
+ᰔᩚ *${especialCant3 * 7} ${especial3}*`, m)
 user[especial] += especialCant * 7
 user[especial2] += especialCant2 * 7
 user[especial3] += especialCant3 * 7
@@ -197,7 +211,8 @@ user[especial3] += especialCant3 * 7
 }else if (user.level == 75){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 75!!* ✦
 ᰔᩚ *${especialCant * 8} ${especial}*
-ᰔᩚ *${especialCant2 * 8} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 8} ${especial2}*
+ᰔᩚ *${especialCant3 * 8} ${especial3}*`, m)
 user[especial] += especialCant * 8
 user[especial2] += especialCant2 * 8
 user[especial3] += especialCant3 * 8
@@ -205,7 +220,8 @@ user[especial3] += especialCant3 * 8
 }else if (user.level == 80){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 80!!* ✦
 ᰔᩚ *${especialCant * 8} ${especial}*
-ᰔᩚ *${especialCant2 * 8} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 8} ${especial2}*
+ᰔᩚ *${especialCant3 * 8} ${especial3}*`, m)
 user[especial] += especialCant * 8
 user[especial2] += especialCant2 * 8
 user[especial3] += especialCant3 * 8
@@ -213,7 +229,8 @@ user[especial3] += especialCant3 * 8
 }else if (user.level == 85){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 85!!* ✦
 ᰔᩚ *${especialCant * 9} ${especial}*
-ᰔᩚ *${especialCant2 * 9} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 9} ${especial2}*
+ᰔᩚ *${especialCant3 * 9} ${especial3}*`, m)
 user[especial] += especialCant * 9
 user[especial2] += especialCant2 * 9
 user[especial3] += especialCant3 * 9
@@ -221,7 +238,8 @@ user[especial3] += especialCant3 * 9
 }else if (user.level == 90){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 90!!* ✦
 ᰔᩚ *${especialCant * 9} ${especial}*
-ᰔᩚ *${especialCant2 * 9} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 9} ${especial2}*
+ᰔᩚ *${especialCant3 * 9} ${especial3}*`, m)
 user[especial] += especialCant * 9
 user[especial2] += especialCant2 * 9
 user[especial3] += especialCant3 * 9
@@ -229,7 +247,8 @@ user[especial3] += especialCant3 * 9
 }else if (user.level == 95){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 95!!* ✦
 ᰔᩚ *${especialCant * 10} ${especial}*
-ᰔᩚ *${especialCant2 * 10} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 10} ${especial2}*
+ᰔᩚ *${especialCant3 * 10} ${especial3}*`, m)
 user[especial] += especialCant * 10
 user[especial2] += especialCant2 * 10
 user[especial3] += especialCant3 * 10
@@ -237,7 +256,8 @@ user[especial3] += especialCant3 * 10
 }else if (user.level == 100){
 conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL 100!!* ✦
 ᰔᩚ *${especialCant * 10} ${especial}*
-ᰔᩚ *${especialCant2 * 10} ${especial2}*`, m)
+ᰔᩚ *${especialCant2 * 10} ${especial2}*
+ᰔᩚ *${especialCant3 * 10} ${especial3}*`, m)
 user[especial] += especialCant * 10
 user[especial2] += especialCant2 * 10
 user[especial3] += especialCant3 * 10
