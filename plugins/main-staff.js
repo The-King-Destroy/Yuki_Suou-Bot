@@ -2,8 +2,6 @@ import moment from 'moment-timezone';
 
 let handler = async (m, { conn, args }) => {
 
-let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
-
   let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
