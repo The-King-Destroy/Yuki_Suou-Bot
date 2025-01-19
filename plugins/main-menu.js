@@ -15,20 +15,20 @@ let handler = async (m, { conn, args }) => {
 
   let txt = `
 𝐇𝐨𝐥𝐚! 𝐒𝐨𝐲 ${botname}
-ᴀǫᴜɪ ᴛɪᴇɴᴇs ʟᴀ ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs
+ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s
 ╭┈ ↷
-│ᰔᩚ Cliente » @${userId.split('@')[0]}
-│⛁ ${moneda} » ${coins}
-│✰ Experiencia » ${exp.toLocaleString()}
-│✦ Nivel » ${nivel}
-│✤ Rango » ${role}
+│🍬 Cliente » @${userId.split('@')[0]}
+│💸 ${moneda} » ${coins}
+│✨ Experiencia » ${exp.toLocaleString()}
+│🌟 Nivel » ${nivel}
+│⚜️ Rango » ${role}
 │🜲 𝓓𝓮𝓿𝓮𝓵𝓸𝓹𝓮𝓭 𝓫𝔂  ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜⁩
 ╰─────────────────
-ᴄʀᴇᴀ ᴜɴ sᴜʙ-ʙᴏᴛ ᴄᴏɴ ᴛᴜ ɴᴜᴍᴇʀᴏ ᴜᴛɪʟɪᴢᴀɴᴅᴏ *#serbot* o *#serbot code*
+⍴ᥙᥱძᥱs ᥴrᥱᥲr ᥙᥒ sᥙᑲ-ᑲ᥆𝗍 ᥴ᥆ᥒ 𝗍ᥙ ᥒúmᥱr᥆ ᥙ𝗍іᥣіzᥲᥒძ᥆ *#serbot* o *#serbot code*
 
 »  ⊹˚• \`Info-Bot\` •˚⊹
 
-✎ Comandos para ver estado e información de la Bot.
+🍭 Comandos para ver estado e información de la Bot.
 ꨄ︎ *#help • #menu*
 → Ver la lista de comandos de la Bot.
 ꨄ︎ *#uptime • #runtime*
@@ -72,7 +72,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Buscadores\` •˚⊹
 
-✎ Comandos para realizar búsquedas en distintas plataformas.
+🍬 Comandos para realizar búsquedas en distintas plataformas.
 ꨄ *#tiktoksearch • #tiktoks*
 → Buscador de videos de tiktok.
 ꨄ *#tweetposts*
@@ -108,7 +108,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Descargas\` •˚⊹
 
-✎ Comandos de descargas para varios archivos.
+🍭 Comandos de descargas para varios archivos.
 ꨄ︎ *#tiktok • #tt*
 → Descarga videos de TikTok.
 ꨄ︎ *#mediafire • #mf*
@@ -152,7 +152,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Gacha\` •˚⊹
 
-✎ Comandos de gacha para reclamar y colecciónar personajes.
+🍬 Comandos de gacha para reclamar y colecciónar personajes.
 ꨄ︎ *#rollwaifu • #rw • #roll*
 → Waifu o husbando aleatorio.
 ꨄ︎  *#claim • #c • #reclamar*
@@ -172,7 +172,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Stickers\` •˚⊹
 
-✎ Comandos para creaciones de stickers etc.
+🍭 Comandos para creaciones de stickers etc.
 ꨄ︎ *#sticker • #s*
 → Crea stickers de (imagen/video)
 ꨄ︎ *#pfp • #getpic*
@@ -190,7 +190,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Herramientas\` •˚⊹
 
-✎ Comandos de herramientas con muchas funciones.
+🍬 Comandos de herramientas con muchas funciones.
 ꨄ︎ *#calcular • #calcular • #cal*
 → Calcular todo tipo de ecuaciones.
 ꨄ︎ *#tiempo • #clima*
@@ -222,7 +222,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Perfil\` •˚⊹
 
-✎ Comandos de perfil para ver, configurar y comprobar estados de tu perfil.
+🍭 Comandos de perfil para ver, configurar y comprobar estados de tu perfil.
 ꨄ︎ *#reg • #verificar • #register*
 → Registra tu nombre y edad en el bot.
 ꨄ︎ *#unreg*
@@ -256,7 +256,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Grupo\` •˚⊹
 
-✎ Comandos de grupos para una mejor gestión de ellos.
+🍬 Comandos de grupos para una mejor gestión de ellos.
 ꨄ︎ *#config • #on*
 → Ver opciones de configuración de grupos.
 ꨄ︎ *#hidetag*
@@ -324,7 +324,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`Anime\` •˚⊹
 
-✎ Comandos de reacciones de anime.
+🍭 Comandos de reacciones de anime.
 ꨄ︎ *#angry • #enojado* + <mencion>
 → Estar enojado
 ꨄ︎ *#bite* + <mencion>
@@ -396,7 +396,7 @@ let handler = async (m, { conn, args }) => {
 
 »  ⊹˚• \`NSFW\` •˚⊹
 
-✎ Comandos NSFW (Contenido para adultos)
+🍬 Comandos NSFW (Contenido para adultos)
 ꨄ︎ *#anal* + <mencion>
 → Hacer un anal
 ꨄ︎ *#waifu*
