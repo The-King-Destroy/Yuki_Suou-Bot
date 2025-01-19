@@ -280,7 +280,7 @@ continue
 const __filename = join(___dirname, name)
 
 if (m.sender === this.user.jid) {
-continue
+return
 }
 
 if (typeof plugin.all === 'function') {
