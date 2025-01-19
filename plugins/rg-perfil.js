@@ -19,7 +19,7 @@ let handler = async (m, { conn, args }) => {
     let description = user.description || 'Sin Descripción';
     let exp = user.exp || 0;
     let nivel = user.level || 0;
-    let role = user.role || '';
+    let role = user.role || null;
     let coins = user.coin || 0;
     let bankCoins = user.bank || 0;
 
