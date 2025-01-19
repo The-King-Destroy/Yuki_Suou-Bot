@@ -15,11 +15,11 @@ let handler = async (m, { conn, args }) => {
     let name = conn.getName(userId);
     let cumpleanos = user.birth || 'No especificado';
     let genero = user.genre || 'No especificado';
-    let pareja = user.marry || 'No especificado';
+    let pareja = user.marry || 'Soltero(a)';
     let description = user.description || 'Sin Descripción';
     let exp = user.exp || 0;
     let nivel = user.level || 0;
-    let role = user.role || null;
+    let role = user.role || 'Sin Rango';
     let coins = user.coin || 0;
     let bankCoins = user.bank || 0;
 
