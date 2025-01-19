@@ -164,7 +164,7 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#ruleta • #roulette • #rt*
 > ✦ Apuesta ${moneda} al color rojo o negro.
 ᰔᩚ *#casino • #apostar*
-> ✦ Apuesta tus ${monedas} en el casino.
+> ✦ Apuesta tus ${moneda} en el casino.
 ᰔᩚ *#slot*
 > ✦ Apuesta tus ${moneda} en la ruleta y prueba tu suerte.
 ᰔᩚ *#cartera • #wallet*
