@@ -105,7 +105,7 @@ async function handler(m, { conn, args, command }) {
     for (const [lender, amount] of Object.entries(user.debts)) {
       if (amount > 0) {
         debtMessage += `✰ ${index} » *@${lender.split('@')[0]}:*\n`;
-        debtMessage += `\t\t Total→ *${amount} ${moneda}*\n`;
+        debtMessage += `\t\t Total→ *¥${amount} Yenes*\n`;
         mentions.push(lender);
         index++;
       }
