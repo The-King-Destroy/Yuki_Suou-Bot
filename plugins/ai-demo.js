@@ -32,6 +32,7 @@ await conn.sendMessage(m.chat, {
 handler.help = ['demo *<texto>*'];
 handler.command = ['demo', 'openai'];
 handler.tags = ['ai'];
+handler.group = true;
 
 export default handler;
 
