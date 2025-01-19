@@ -2,9 +2,10 @@ export async function before(m) {
   if (!m.text || !global.prefix.test(m.text)) {
     return;
   }
-if (m.key.fromMe) {
-     conn.reply(m.chat, 'pene', m);
-}
+/*if (m.key.fromMe) {
+     return;
+}*/
+
   const usedPrefix = global.prefix.exec(m.text)[0];
   const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
 
