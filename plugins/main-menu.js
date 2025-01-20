@@ -173,7 +173,7 @@ let handler = async (m, { conn, args }) => {
 > ✦ Deposita tus ${moneda} al banco.
 ᰔᩚ *#with • #retirar • #withdraw*
 > ✦ Retira tus ${moneda} del banco.
-ᰔᩚ *#transferir • #pay*
+ᰔᩚ *#transfer • #pay*
 > ✦ Transfiere ${moneda} o XP a otros usuarios.
 ᰔᩚ *#miming • #minar • #mine*
 > ✦ Trabaja como minero y recolecta recursos.
