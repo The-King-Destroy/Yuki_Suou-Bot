@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+/*import fetch from "node-fetch";
 import yts from "yt-search";
 
 let handler = async (m, { conn, text }) => {
@@ -54,4 +54,4 @@ console.error(error)
 
 handler.command = ['play']
 
-export default handler
+export default handler*/
