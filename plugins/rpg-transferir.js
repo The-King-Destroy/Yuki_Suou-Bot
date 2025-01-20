@@ -11,7 +11,7 @@ async function handler(m, { conn, args, usedPrefix, command }) {
 *┃🍭 Ejemplo:* ${usedPrefix + command} exp 65 @${m.sender.split('@')[0]}
 ┣❣◤▬▭▬▭▬ ◆ ▬▭▬▭▬ ◤❢
 *┃◉ 💰 Articulos transferibles.*
-┃▢ *${moneda}* = ${moneda} 💸
+┃▢ *coin* = ${moneda} 💸
 ┃▢ *exp* = Experiencia ✨
 *┗━┅┉┅┄┈┄⟞⟨⟠⟩⟝┄┈┄┉┉┉━┛*
 `.trim();
