@@ -10,8 +10,8 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
 
         const tiktokData = await tiktokdl(args[0]);
 
-        if (!tiktokData) {
-            return conn.reply(m.chat, "Error api!", m);
+        if (!tiktokData || !tiktokData.data || !tiktokData.data.play) {
+            return conn.reply(m.chat, "Error: No se pudo obtener el video.", m);
         }
 
         const videoURL = tiktokData.data.play;
@@ -22,13 +22,13 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
             return conn.reply(m.chat, "No se pudo descargar.", m);
         }
     } catch (error1) {
-        return conn.reply(m.chat, `Error: ${error1}`, m);
+        return conn.reply(m.chat, `Error: ${error1.message}`, m);
     }
 };
 
 handler.help = ['tiktok'].map((v) => v + ' *<link>*');
 handler.tags = ['descargas'];
-handler.command = ['tiktok', 'tt'];
+handler.command = ['tiktok'];
 
 handler.disable = false;
 handler.register = true;
