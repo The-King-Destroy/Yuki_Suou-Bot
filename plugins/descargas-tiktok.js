@@ -1,31 +1,43 @@
 import fetch from 'node-fetch';
 
-const handler = async (m, { conn, text }) => {
-  if (!text) return conn.reply(m.chat, '🍬 Por favor, ingresa un enlace de TikTok.', m);
+var handler = async (m, { conn, args, usedPrefix, command }) => {
+    if (!args[0]) {
+        return conn.reply(m.chat, '🍬 Por favor, ingresa un enlace de TikTok.', m);
+    }
 
-  const tiktokAPI = `https://apis-starlights-team.koyeb.app/starlight/tiktok2?url=${text}`;
+    try {
+        await conn.reply(m.chat, "🍭 Espere un momento, estoy descargando su video...", m);
 
-  try {
-    await m.react(rwait);
-    const res = await fetch(tiktokAPI);
-    const json = await res.json();
+        const tiktokData = await tiktokdl(args[0]);
 
-    if (!json || !json.video) return conn.reply(m.chat, '🍭 No se pudo descargar el video. Verifica que la URL sea correcta.', m);
+        if (!tiktokData) {
+            return conn.reply(m.chat, "Error api!", m);
+        }
 
-    await conn.sendMessage(m.chat, { video: { url: json.video }, caption: '🍬 Aqui tienes ฅ^•ﻌ•^ฅ.' }, { quoted: m });
-   await m.react(done);
+        const videoURL = tiktokData.data.play;
 
-  } catch (e) {
-    conn.reply(m.chat, '⚠️ Ocurrió un error al descargar el video.', m);
-    await m.react(error);
-    console.log(e);
-  }
+        if (videoURL) {
+            await conn.sendFile(m.chat, videoURL, "tiktok.mp4", "🍬 Aquí tienes ฅ^•ﻌ•^ฅ", m);
+        } else {
+            return conn.reply(m.chat, "No se pudo descargar.", m);
+        }
+    } catch (error1) {
+        return conn.reply(m.chat, `Error: ${error1}`, m);
+    }
 };
 
-handler.help = ['tiktok', 'tt'];
+handler.help = ['tiktok'].map((v) => v + ' *<link>*');
 handler.tags = ['descargas'];
 handler.command = ['tiktok', 'tt'];
-handler.coin = 1;
+
+handler.disable = false;
 handler.register = true;
+handler.limit = true;
 
 export default handler;
+
+async function tiktokdl(url) {
+    let tikwm = `https://www.tikwm.com/api/?url=${url}?hd=1`;
+    let response = await (await fetch(tikwm)).json();
+    return response;
+}
