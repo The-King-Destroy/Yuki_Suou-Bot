@@ -6,8 +6,8 @@ conn.sendContact(m.chat, [[`${ownerN}@s.whatsapp.net`, `${name}`]], m, {
  forwardingScore: 2023,
 isForwarded: false, 
  externalAdReply: {  
- title: dev, 
- body: packname, 
+ title: packname, 
+ body: dev, 
  sourceUrl: channel,
  thumbnail: banner,
  thumbnailUrl: banner, 
