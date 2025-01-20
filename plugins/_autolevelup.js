@@ -2,31 +2,36 @@ import { canLevelUp, xpRange } from '../lib/levelling.js';
 import { levelup } from '../lib/canvas.js';
 
 let handler = m => m;
+
 handler.before = async function (m, { conn, usedPrefix }) {
     if (!db.data.chats[m.chat].autolevelup) return;
 
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
     let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
     let userName = m.pushName || 'Anónimo';
-
     let user = global.db.data.users[m.sender];
     let chat = global.db.data.chats[m.chat];
+
     if (!chat.autolevelup) return;
 
+    let level = user.level;
     let before = user.level;
+    
     while (canLevelUp(user.level, user.exp, global.multiplier)) {
         user.level++;
     }
 
     if (before !== user.level) {
-        let currentRole = getRole(user.level);
-        if (user.level >= 1) {
+        let currentRole = Object.entries(global.roles).sort((a, b) => b[1] - a[1]).find(([, minLevel]) => level + 1 >= minLevel)[0];
+        let nextRole = Object.entries(global.roles).sort((a, b) => a[1] - b[1]).find(([, minLevel]) => level + 2 < minLevel)[0];
+
+        if (level >= 1) {
             user.role = currentRole;
             let text22 = `✨ ¡Felicidades *${userName}*, por tu nuevo rango!\n\n\`Nuevo Rango:\`\n${currentRole}`;
-            let nextRole = getRole(user.level + 1);
             if (nextRole) {
-                text22 += `\n\n> Próximo rango ${nextRole}, en el *nivel ${roles[nextRole]}*. ¡Sigue así!`;
+                text22 += `\n\n> Próximo rango ${nextRole}, en el *nivel ${global.roles[nextRole]}*. ¡Sigue así!`;
             }
+
             await conn.sendMessage(global.channelid, { text: text22, contextInfo: {
                 externalAdReply: {
                     title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
@@ -42,62 +47,63 @@ handler.before = async function (m, { conn, usedPrefix }) {
 
         m.reply(`*🎉 ¡ F E L I C I D A D E S ! 🎉*\n\n🌟 Nivel Actual » *${user.level}*\n⚜️ Rango » ${user.role}\n📆 Fecha » *${moment.tz('America/Bogota').format('DD/MM/YY')}*\n\n> *\`¡Has alcanzado un Nuevo Nivel!\`*`);
 
-        let rewards = getRewards(user.level);
-        if (rewards) {
-            conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL ${user.level}!!* ✦\n${rewards}`, m);
-            user[rewards.especial] += rewards.cantEspecial;
-            user[rewards.especial2] += rewards.cantEspecial2;
-            user[rewards.especial3] += rewards.cantEspecial3;
+        let especial = 'coin';
+        let especial2 = 'exp';
+        let especial3 = 'joincount';
+
+        let especialCant = Math.floor(Math.random() * (9 - 6 + 1)) + 6;
+        let especialCant2 = Math.floor(Math.random() * (10 - 6 + 1)) + 6;
+        let especialCant3 = Math.floor(Math.random() * (3 - 2 + 1)) + 2;
+
+        let normal = ['potion', 'aqua', 'trash', 'wood', 'rock', 'batu', 'string', 'iron', 'coal', 'botol', 'kaleng', 'kardus'].getRandom();
+        let normal2 = ['petFood', 'makanancentaur', 'makanangriffin', 'makanankyubi', 'makanannaga', 'makananpet', 'makananphonix'].getRandom();
+        let normal3 = ['anggur', 'apel', 'jeruk', 'mangga', 'pisang'].getRandom();
+
+        let normalCant = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom();
+        let normalCant2 = [1, 3, 2, 2, 4, 4, 2, 2, 4, 4, 5, 5, 1].getRandom();
+        let normalCant3 = [1, 3, 3, 3, 4, 4, 2, 2, 4, 4, 4, 4, 1].getRandom();
+
+        if (level >= 1) {
+            let chtxt = `👤 *Usuario:* ${userName}\n⭐ *Nivel anterior:* ${before}\n🌟 *Nivel actual:* ${level + 1}\n⚜️ *Rango:* ${user.role}${(level + 1) % 5 === 0 ? `\n\n💰 *Recompensa por alcanzar el nivel ${level + 1}:*
+🎁 *Bono:* \`X${Math.floor(((level + 1) - 5) / 10) + 1}\`
+- *${especialCant * (Math.floor(((level + 1) - 5) / 10) + 1)} 💸 ${especial}*
+- *${especialCant2 * (Math.floor(((level + 1) - 5) / 10) + 1)} ✨️ ${especial2}*
+- *${especialCant3 * (Math.floor(((level + 1) - 5) / 10) + 1)} 👾 ${especial3}*
+
+> 👀 Siguiente recompensa en el *nivel ${level + 6}*` : ''}`.trim();
+            
+            await conn.sendMessage(global.channelid, { text: chtxt, contextInfo: {
+                externalAdReply: {
+                    title: "【 🔔 𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗖𝗜𝗢́𝗡 🔔 】",
+                    body: '🥳 ¡Un usuario obtiene un nuevo nivel!',
+                    thumbnailUrl: perfil,
+                    sourceUrl: redes,
+                    mediaType: 1,
+                    showAdAttribution: false,
+                    renderLargerThumbnail: false
+                }
+            }}, { quoted: null });
+        }
+
+        let levelRewards = {
+            5: 1, 10: 1, 15: 2, 20: 2, 25: 3,
+            30: 3, 35: 4, 40: 4, 45: 5, 50: 5,
+            55: 6, 60: 6, 65: 7, 70: 7, 75: 8,
+            80: 8, 85: 9, 90: 9, 95: 10, 100: 10
+        };
+
+        if (levelRewards[user.level]) {
+            let multiplier = levelRewards[user.level];
+            conn.reply(m.chat, `*✎ RECOMPENSA POR SU NUEVO NIVEL ${user.level}!!* ✦
+ᰔᩚ *${especialCant * multiplier} ${especial}*
+ᰔᩚ *${especialCant2 * multiplier} ${especial2}*
+ᰔᩚ *${especialCant3 * multiplier} ${especial3}*`, m);
+            user[especial] += especialCant * multiplier;
+            user[especial2] += especialCant2 * multiplier;
+            user[especial3] += especialCant3 * multiplier;
         }
     }
 };
-
-function getRole(level) {
-    return Object.entries(global.roles).find(([, minLevel]) => level >= minLevel)?.[0] || 'Sin rol';
-}
-
-function getRewards(level) {
-    const baseRewards = {
-        'coin': Math.floor(Math.random() * (9 - 6 + 1)) + 6,
-        'exp': Math.floor(Math.random() * (10 - 6 + 1)) + 6,
-        'joincount': Math.floor(Math.random() * (3 - 2 + 1)) + 2
-    };
-
-    const levelRewards = {
-        5: { cant: 1 },
-        10: { cant: 1 },
-        15: { cant: 2 },
-        20: { cant: 2 },
-        25: { cant: 3 },
-        30: { cant: 3 },
-        35: { cant: 4 },
-        40: { cant: 4 },
-        45: { cant: 5 },
-        50: { cant: 5 },
-        55: { cant: 6 },
-        60: { cant: 6 },
-        65: { cant: 7 },
-        70: { cant: 7 },
-        75: { cant: 8 },
-        80: { cant: 8 },
-        85: { cant: 9 },
-        90: { cant: 9 },
-        95: { cant: 10 },
-        100: { cant: 10 },
-    };
-
-    if (levelRewards[level]) {
-        return {
-            especial: 'coin',
-            especial2: 'exp',
-            especial3: 'joincount',
-            cantEspecial: baseRewards.coin * levelRewards[level].cant,
-            cantEspecial2: baseRewards.exp * levelRewards[level].cant,
-            cantEspecial3: baseRewards.joincount * levelRewards[level].cant,
-        };
-    }
-    return null;
-}
 
 export default handler;
 
