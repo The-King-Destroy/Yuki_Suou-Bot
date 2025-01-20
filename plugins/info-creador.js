@@ -7,10 +7,10 @@ conn.sendContact(m.chat, [[`${ownerN}@s.whatsapp.net`, `${name}`]], m, {
 isForwarded: false, 
  externalAdReply: {  
  title: dev, 
- body: botname, 
+ body: packname, 
  sourceUrl: channel,
- thumbnail: catalogo,
- thumbnailUrl: catalogo, 
+ thumbnail: banner,
+ thumbnailUrl: banner, 
  mediaType: 1,
  showAdAttribution: true, 
  renderLargerThumbnail: true 
