@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+/*import fetch from 'node-fetch';
 import yts from 'yt-search';
 
 let handler = async (m, { conn, text, args }) => {
@@ -51,4 +51,4 @@ export default handler;
 async function search(query, options = {}) {
   let searchResults = await yts.search({ query, hl: "es", gl: "ES", ...options });
   return searchResults.videos;
-}
+}*/
