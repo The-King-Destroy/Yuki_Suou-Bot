@@ -1,6 +1,3 @@
-Aquí tienes el código completo sin comentarios:
-
-```javascript
 import fetch from "node-fetch";
 import yts from 'yt-search';
 import axios from "axios";
