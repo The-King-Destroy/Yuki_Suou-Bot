@@ -23,16 +23,10 @@ const ddownr = {
       const response = await axios.request(config);
 
       if (response.data && response.data.success) {
-        const { id, title, info } = response.data;
-        const { image } = info;
+        const { id } = response.data;
         const downloadUrl = await ddownr.cekProgress(id);
 
-        return {
-          id: id,
-          image: image,
-          title: title,
-          downloadUrl: downloadUrl
-        };
+        return downloadUrl;
       } else {
         throw new Error('Fallo al obtener los detalles del video.');
       }
@@ -101,9 +95,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'playdoc' || command === 'ytmp3doc') {
-        const api = await ddownr.download(url, 'mp3');
-        const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { document: { url: result }, fileName: `${title}.mp3`, mimetype: "audio/mpeg" }, { quoted: m });
+        const downloadUrl = await ddownr.download(url, 'mp3');
+        await conn.sendMessage(m.chat, {
+          document: { url: downloadUrl },
+          fileName: `${title}.mp3`,
+          mimetype: "audio/mpeg"
+        }, { quoted: m });
 
     } else if (command === 'Playdoc2' || command === 'ytmp4doc') {
       let sources = [
@@ -117,8 +114,8 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       for (let source of sources) {
         try {
           const res = await fetch(source);
-          const { data, result, downloads } = await res.json();
-          let downloadUrl = data?.dl || result?.download?.url || downloads?.url || data?.download?.url;
+          const { data } = await res.json();
+          let downloadUrl = data?.dl || data?.download?.url;
 
           if (downloadUrl) {
             success = true;
