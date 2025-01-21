@@ -21,11 +21,9 @@ const ddownr = {
 
     try {
       const response = await axios.request(config);
-
       if (response.data && response.data.success) {
         const { id } = response.data;
         const downloadUrl = await ddownr.cekProgress(id);
-
         return downloadUrl;
       } else {
         throw new Error('Fallo al obtener los detalles del video.');
@@ -47,11 +45,9 @@ const ddownr = {
     try {
       while (true) {
         const response = await axios.request(config);
-
         if (response.data && response.data.success && response.data.progress === 1000) {
           return response.data.download_url;
         }
-        // Esperar 3 segundos para verificar el progreso
         await new Promise(resolve => setTimeout(resolve, 3000));
       }
     } catch (error) {
@@ -96,18 +92,17 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'playdoc' || command === 'ytmp3doc') {
-        const downloadUrl = await ddownr.download(url, 'mp3');
-        await conn.sendMessage(m.chat, {
-          document: { url: downloadUrl },
-          fileName: `${title}.mp3`,
-          mimetype: "audio/mpeg"
-        }, { quoted: m });
+      const downloadUrl = await ddownr.download(url, 'mp3');
+      await conn.sendMessage(m.chat, {
+        document: { url: downloadUrl },
+        fileName: `${title}.mp3`,
+        mimetype: "audio/mpeg"
+      }, { quoted: m });
 
     } else if (command === 'playdoc2' || command === 'ytmp4doc') {
       const sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
         `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${url}`,
-        `https://axeel.my.id/api/download/video?url=${encodeURIComponent(url)}`,
         `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
       ];
 
