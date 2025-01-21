@@ -21,12 +21,10 @@ const ddownr = {
 
     try {
       const response = await axios.request(config);
-
       if (response.data && response.data.success) {
         const { id, title, info } = response.data;
         const { image } = info;
         const downloadUrl = await ddownr.cekProgress(id);
-
         return {
           id: id,
           image: image,
@@ -53,11 +51,10 @@ const ddownr = {
     try {
       while (true) {
         const response = await axios.request(config);
-
         if (response.data && response.data.success && response.data.progress === 1000) {
           return response.data.download_url;
         }
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
     } catch (error) {
       console.error('Error:', error);
@@ -80,7 +77,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const videoInfo = search.all[0];
     const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
     const vistas = formatViews(views);
-    const infoMessage = `🎬 Título: *${title}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🕒 Duración: *${timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 👀 Vistas: *${vistas}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🍬 Canal: *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 📆 Publicado: *${ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🔗 Enlace: ${url}`;
+    const infoMessage = `🎬 Título: *${title}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🕒 Duración: *${timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 👀 Vistas: *${vistas}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🍬 Canal: *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 📆 Publicado: *${ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🔗 Enlace: ${url}`;
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
@@ -101,15 +98,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-        const api = await ddownr.download(url, 'mp3');
-        const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
+      const api = await ddownr.download(url, 'mp3');
+      const result = api.downloadUrl;
+      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
       let sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
-        `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${url}`,
-        `https://axeel.my.id/api/download/video?url=${encodeURIComponent(url)}`,
         `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
       ];
 
@@ -117,8 +112,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       for (let source of sources) {
         try {
           const res = await fetch(source);
-          const { data, result, downloads } = await res.json();
-          let downloadUrl = data?.dl || result?.download?.url || downloads?.url || data?.download?.url;
+          if (!res.ok) throw new Error('Error en la respuesta de la API');
+          const { data } = await res.json();
+          let downloadUrl = data?.dl || data?.download?.url;
 
           if (downloadUrl) {
             success = true;
