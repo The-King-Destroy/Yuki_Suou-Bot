@@ -51,7 +51,8 @@ const ddownr = {
         if (response.data && response.data.success && response.data.progress === 1000) {
           return response.data.download_url;
         }
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        // Esperar 3 segundos para verificar el progreso
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
     } catch (error) {
       console.error('Error:', error);
@@ -103,38 +104,37 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         }, { quoted: m });
 
     } else if (command === 'playdoc2' || command === 'ytmp4doc') {
-      let sources = [
+      const sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
         `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${url}`,
         `https://axeel.my.id/api/download/video?url=${encodeURIComponent(url)}`,
         `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
       ];
 
-      let success = false;
-      for (let source of sources) {
-        try {
-          const res = await fetch(source);
-          const { data } = await res.json();
-          let downloadUrl = data?.dl || data?.download?.url;
+      let downloadPromises = sources.map(source =>
+        fetch(source)
+          .then(res => res.json())
+          .then(({ data }) => data?.dl || data?.download?.url)
+      );
 
-          if (downloadUrl) {
-            success = true;
-            await conn.sendMessage(m.chat, {
-              document: { url: downloadUrl },
-              fileName: `${title}.mp4`,
-              mimetype: 'video/mp4',
-              caption: `🐉 Aqui tienes ฅ^•ﻌ•^ฅ.`,
-              thumbnail: thumb
-            }, { quoted: m });
-            break;
-          }
-        } catch (e) {
-          console.error(`Error con la fuente ${source}:`, e.message);
+      try {
+        const downloadUrls = await Promise.all(downloadPromises);
+        const validUrl = downloadUrls.find(url => url);
+
+        if (validUrl) {
+          await conn.sendMessage(m.chat, {
+            document: { url: validUrl },
+            fileName: `${title}.mp4`,
+            mimetype: 'video/mp4',
+            caption: `🐉 Aqui tienes ฅ^•ﻌ•^ฅ.`,
+            thumbnail: thumb
+          }, { quoted: m });
+        } else {
+          return m.reply(`☁️ *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
         }
-      }
-
-      if (!success) {
-        return m.reply(`☁️ *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
+      } catch (error) {
+        console.error('Error al obtener las URL de descarga:', error);
+        return m.reply(`☁️ *Error al intentar descargar el video:* ${error.message}`);
       }
     } else {
       throw "Comando no reconocido.";
