@@ -93,7 +93,7 @@ user.afk = -1
 if (!('afkReason' in user))
 user.afkReason = ''
 if (!('role' in user))
-user.role = ''
+user.role = 'Sin Rango'
 if (!('banned' in user))
 user.banned = false
 if (!('useDocument' in user))
