@@ -60,7 +60,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `🐉 ingresa el nombre de la música a descargar.`, m);
+      return conn.reply(m.chat, `🍬 ingresa el nombre de la música a descargar.`, m);
     }
 
     const search = await yts(text);
@@ -127,15 +127,15 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
             document: { url: validUrl },
             fileName: `${title}.mp4`,
             mimetype: 'video/mp4',
-            caption: `🐉 Aqui tienes ฅ^•ﻌ•^ฅ.`,
+            caption: `🍬 Aqui tienes ฅ^•ﻌ•^ฅ.`,
             thumbnail: thumb
           }, { quoted: m });
         } else {
-          return m.reply(`☁️ *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
+          return m.reply(`🍭 *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
         }
       } catch (error) {
         console.error('Error al obtener las URL de descarga:', error);
-        return m.reply(`☁️ *Error al intentar descargar el video:* ${error.message}`);
+        return m.reply(`⚠️ *Error al intentar descargar el video:* ${error.message}`);
       }
     } else {
       throw "Comando no reconocido.";
