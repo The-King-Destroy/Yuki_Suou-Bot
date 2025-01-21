@@ -6,7 +6,7 @@
 ### **`❕️ Información importante`**
 
 <details>
- <summary><b> 🌷 Info Bot</b></summary>
+ <summary><b> 🧁 Info Bot</b></summary>
 
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 </details>
@@ -18,7 +18,7 @@
 </details>
 
 <details>
- <summary><b> 🍧 Funciones de la Bot</b></summary>
+ <summary><b> 🍰 Funciones de la Bot</b></summary>
 
 > Bot en desarrollo si presenta alguna falla reportar al creador para darle una solución óptima.
 
@@ -95,7 +95,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-###  **`🍬 MASHA-HOTS`**
+###  **` MASHA-HOTS`**
 <a href="https://dash.masha-host.shop/home"><img src="https://qu.ax/aHudo.jpg" height="145px"></a>
 
 <details>
@@ -155,7 +155,7 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`🍂 Créditos`**
+### **`🪐 Créditos`**
 <a href="https://github.com/OfcKing" style="display:inline-block; margin-right: 10px; text-decoration: none;">
     <img src="https://github.com/OfcKing.png" width="130" height="130" alt="OfcKing" style="border-radius: 50%;"/>
 </a>
