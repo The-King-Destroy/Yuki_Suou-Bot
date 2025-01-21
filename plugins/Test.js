@@ -102,7 +102,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           mimetype: "audio/mpeg"
         }, { quoted: m });
 
-    } else if (command === 'Playdoc2' || command === 'ytmp4doc') {
+    } else if (command === 'playdoc2' || command === 'ytmp4doc') {
       let sources = [
         `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
         `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${url}`,
@@ -144,7 +144,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
-handler.command = handler.help = ['playdoc', 'Playdoc2', 'ytmp4doc', 'ytmp3doc'];
+handler.command = handler.help = ['playdoc', 'playdoc2', 'ytmp4doc', 'ytmp3doc'];
 handler.tags = ['downloader'];
 
 export default handler;
