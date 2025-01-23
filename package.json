@@ -56,7 +56,6 @@
 "formdata-node": "^5.0.0",
 "human-readable": "^0.2.1",
 "jsdom": "^20.0.1",
-"jimp": "^0.16.1",
 "link-preview-js": "^3.0.0",
 "lodash": "^4.17.21",
 "lowdb": "^3.0.0",
@@ -81,11 +80,7 @@
 "syntax-error": "^1.4.0",
 "terminal-image": "^2.0.0",
 "url-regex-safe": "^3.0.0",
-"uuid": "^10.0.0",
-"dotenv": "^16.4.5",
-"canvafy": "^7.2.0",
-"moment-timezone": "^0.5.37",
-"groq-sdk": "latest",
+"uuid":"^10.0.0",
 "translate-google-api": "^1.0.4",
 "google-it": "^1.6.4",
 "yt-search": "^2.10.3",
@@ -99,5 +94,6 @@
 "yargs": "^17.3.1" 
 },
 "optionalDependencies": {
-"wa-sticker-formatter": "^4.3.2"
+"wa-sticker-formatter": "^4.3.2",
+"moment-timezone": "^0.5.37"
 }}
