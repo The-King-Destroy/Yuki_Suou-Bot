@@ -71,7 +71,7 @@ const isUrl = (text) => {
 
 handler.help = ['stiker <img>', 'sticker <url>'];
 handler.tags = ['sticker'];
-handler.group = true;
+//handler.group = true;
 handler.register = true;
 handler.command = ['s', 'sticker', 'stiker'];
 
