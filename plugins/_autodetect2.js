@@ -7,16 +7,15 @@ let chat = global.db.data.chats[m.chat]
 let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'  
 
-let agregado, bienvenida
-agregado = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n\n*◦ 🍭 Añadido por:* @${m.sender.split('@')[0]} que añadió a @${m.messageStubParameters[0].split('@')[0]} al grupo`
+let bienvenida
+//agregado = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n\n*◦ 🍭 Añadido por:* @${m.sender.split('@')[0]} que añadió a @${m.messageStubParameters[0].split('@')[0]} al grupo`
 bienvenida = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n\n*◦ 🍭 Aceptado por:* @${m.sender.split('@')[0]} que aceptó la solicitud de @${m.messageStubParameters[0].split('@')[0]} a ingresar al grupo`    
 
-if (chat.detect2 && m.messageStubType == 27) {
-await conn.sendMessage(m.chat, { text: agregado, mentions: [`${m.messageStubParameters[0]}`, `${m.sender}`] }, { quoted: fkontak })
+//if (chat.detect2 && m.messageStubType == 27) {
+//await conn.sendMessage(m.chat, { text: agregado, mentions: [`${m.messageStubParameters[0]}`, `${m.sender}`] }, { quoted: fkontak })
 
-return;
-} else if (chat.detect2 && m.messageStubType == 28) {
-await conn.sendMessage(m.chat, { text: bienvenida, mentions: [`${m.messageStubParameters[0]}`, `${m.sender}`] }, { quoted: fkontak })  
+if (chat.detect2 && m.messageStubType == 27) {
+await conn.sendMessage(m.chat, { text: bienvenida, mentions: [`${m.sender}`, `${m.messageStubParameters[0]}`] }, { quoted: fkontak })  
 
 } else {
 //console.log({ messageStubType: m.messageStubType,
