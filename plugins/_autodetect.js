@@ -36,7 +36,7 @@ await conn.sendMessage(m.chat, { text: status, mentions: [m.sender] }, { quoted:
 } else if (chat.detect && m.messageStubType == 27) {
 await conn.sendMessage(m.chat, { text: agregado, mentions: [`${m.messageStubParameters[0]}`, `${m.sender}`] }, { quoted: fkontak })
 
-} else if (chat.detect && m.messageStubType == 28) {
+if (chat.detect && m.messageStubType == 28) {
 await conn.sendMessage(m.chat, { text: bienvenida, mentions: [`${m.messageStubParameters[0]}`, `${m.sender}`] }, { quoted: fkontak })
 
 } else if (chat.detect && m.messageStubType == 29) {
