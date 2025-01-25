@@ -39,7 +39,7 @@ thumbnailUrl: catalogo
 }, { mentions: mentionsContentM })
   }
 
-  if (chat.eventos && m.messageStubType == 30) {
+  if (chat.detect2 && m.messageStubType == 30) {
     let txt2 = `*𝘍𝘶𝘦́ 𝘏𝘦𝘤𝘩𝘢𝘥𝘰 𝘋𝘦 𝘈𝘥𝘮𝘪𝘯𝘪𝘴𝘵𝘳𝘢𝘥𝘰𝘳.*\n\n`;
     txt2 += `*◦ 🌹 𝙂𝙧𝙪𝙥𝙤:* ${groupName}\n`;
     txt2 += `*◦ 🌹 𝙎𝙚 𝙌𝙪𝙞𝙩𝙤 𝘼:* @${m.messageStubParameters[0].split`@`[0]}\n`;
