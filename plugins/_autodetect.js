@@ -15,8 +15,13 @@ newlink = `🍬 El enlace del grupo ha sido restablecido por:\n*» ${usuario}*..
 status = `🍬 El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n🍭 Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje...`
 admingp = `*@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*...`
 noadmingp =  `*@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*...`
-participante = `*◦ 🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍰 Grupo:* ${groupName}\n🍭 Bienvenido/a:\n*@${m.messageStubParameters[0].split`@`[0]}*\n*◦ 🍫 Aceptado por: ${usuario}\n*◦ 🍫 Se Añadió:* @${m.messageStubParameters[0].split`@`[0]}`
-
+participante = `*◦ 🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍰 Grupo:* ${groupName}\n🍭 Bienvenido/a:\n*@${m.messageStubParameters[0].split`@`[0]}*\n`;
+if (!m.sender.endsWith('@g.us')) {
+    participante += `*◦ 🍫 Aceptado por: ${usuario}`;
+} else {
+    participante += `*◦ 🍫 Se Añadió: *@${m.messageStubParameters[0].split`@`[0]}*`;
+}
+  
 if (chat.detect && m.messageStubType == 21) {
 await conn.sendMessage(m.chat, { text: nombre, mentions: [m.sender] }, { quoted: fkontak })   
 
