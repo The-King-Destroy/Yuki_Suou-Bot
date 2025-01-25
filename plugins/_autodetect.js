@@ -4,8 +4,6 @@ export async function before(m, { conn, participants, groupMetadata }) {
 if (!m.messageStubType || !m.isGroup) return
 const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net"}  
 let chat = global.db.data.chats[m.chat]
-let who = m.messageStubParameters[0]
-let taguser = `@${who.split('@')[0]}`
 let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'  
 
@@ -17,7 +15,7 @@ newlink = `🍬 El enlace del grupo ha sido restablecido por:\n*» ${usuario}*`
 status = `🍬 El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n🍭 Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje.`
 admingp = `*@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*`
 noadmingp =  `*@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*`
-participante = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍭 Bienvenido/a:* ${taguser}\n\n*◦ 🍭 Aceptado por:* ${usuario}`
+participante = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split`@`[0]}n\n*◦ 🍭 Aceptado por:* ${usuario}`
 
 if (chat.detect && m.messageStubType == 21) {
 await conn.sendMessage(m.chat, { text: nombre, mentions: [m.sender] }, { quoted: fkontak })   
