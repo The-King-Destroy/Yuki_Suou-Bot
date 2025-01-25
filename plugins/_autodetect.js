@@ -15,7 +15,7 @@ newlink = `🍬 El enlace del grupo ha sido restablecido por:\n*» ${usuario}*`
 status = `🍬 El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n🍭 Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje.`
 admingp = `*@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*`
 noadmingp =  `*@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*`
-participante = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split`@`[0]}\n\n*◦ 🍭 Aceptado por:* ${usuario}`
+participante = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍭 Bienvenido/a:* ${usuario}\n\n*◦ 🍭 Aceptado por:* ${usuario}`
 
 if (chat.detect && m.messageStubType == 21) {
 await conn.sendMessage(m.chat, { text: nombre, mentions: [m.sender] }, { quoted: fkontak })   
