@@ -161,6 +161,8 @@ if (!('autoresponder' in chat))
 chat.autoresponder = false
 if (!('detect' in chat))
 chat.detect = true
+if (!('detect2' in chat))
+chat.detect2 = true
 if (!('antiBot' in chat))
 chat.antiBot = false
 if (!('antiBot2' in chat))
@@ -198,6 +200,7 @@ delete: false,
 autoAceptar: false,
 autoRechazar: false,
 detect: true,
+detect2: false,
 antiBot: false,
 antiBot2: false,
 modoadmin: false,
