@@ -13,8 +13,8 @@ foto = `*${usuario}*\n🍬 Ha cambiado la imagen del grupo...`
 edit = `*${usuario}*\n🍬 Ha permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} puedan configurar el grupo...`
 newlink = `🍬 El enlace del grupo ha sido restablecido por:\n*» ${usuario}*...`
 status = `🍬 El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n🍭 Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje...`
-agregado = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n*◦ 🍭 Añadido por:* @${m.sender.split('@')[0]} que añadió a @${m.messageStubParameters[0].split('@')[0]} al grupo`
-bienvenida = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n*◦ 🍭 Aceptado por:* @${m.sender.split('@')[0]} que aceptó la solicitud de @${m.messageStubParameters[0].split('@')[0]} a ingresar al grupo`
+agregado = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n\n*◦ 🍭 Añadido por:* @${m.sender.split('@')[0]} que añadió a @${m.messageStubParameters[0].split('@')[0]} al grupo`
+bienvenida = `*🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍫 Grupo:* ${groupMetadata.subject}\n\n*◦ 🍭 Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n\n*◦ 🍭 Aceptado por:* @${m.sender.split('@')[0]} que aceptó la solicitud de @${m.messageStubParameters[0].split('@')[0]} a ingresar al grupo`
 admingp = `*@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*...`
 noadmingp =  `*@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*...`
 
