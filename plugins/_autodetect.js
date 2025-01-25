@@ -7,7 +7,7 @@ let chat = global.db.data.chats[m.chat]
 let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'  
 
-let nombre, foto, edit, newlink, status, admingp, noadmingp
+let nombre, foto, edit, newlink, status, admingp, noadmingp, participante
 nombre = `*${usuario}*\n🍬 Ha cambiado el nombre del grupo.\n\n🍭 Ahora el grupo se llama:\n*<${m.messageStubParameters[0]}>*...`
 foto = `*${usuario}*\n🍬 Ha cambiado la imagen del grupo...`
 edit = `*${usuario}*\n🍬 Ha permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} puedan configurar el grupo...`
@@ -15,12 +15,7 @@ newlink = `🍬 El enlace del grupo ha sido restablecido por:\n*» ${usuario}*..
 status = `🍬 El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n🍭 Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje...`
 admingp = `*@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*...`
 noadmingp =  `*@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo 🍭\n\n🍬 Acción hecha por:\n*» ${usuario}*...`
-let participante = `*${usuario}*\n🍬 Ha llegado un nuevo participante al grupo.\n\n🍭 Bienvenido/a:\n*<${m.messageStubParameters[0]}>*...\n`;
-if (!m.sender.endsWith('@g.us')) {
-    participante += `*◦ 🍭 Aceptado por:* @${m.sender.split`@`[0]}`;
-} else {
-    participante += `*◦ 🍭 Se Añadió:* @${m.messageStubParameters[0].split`@`[0]}\n`;
-}
+participante = `*◦ 🍬 Ha llegado un nuevo participante al grupo.*\n\n*◦ 🍰 Grupo:* ${groupName}\n🍭 Bienvenido/a:\n*@${m.messageStubParameters[0].split`@`[0]}*\n*◦ 🍫 Aceptado por: ${usuario}\n*◦ 🍫 Se Añadió:* @${m.messageStubParameters[0].split`@`[0]}`
 
 if (chat.detect && m.messageStubType == 21) {
 await conn.sendMessage(m.chat, { text: nombre, mentions: [m.sender] }, { quoted: fkontak })   
