@@ -35,10 +35,11 @@ const handler = async (m, { text, conn }) => {
         const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.png`);
         
         const image = await Jimp.read(buffer);
-        await image
-            .resize(512, 512)
-            .quality(80)
-            .writeAsync(outputFilePath);
+        const background = new Jimp(512, 512, 0xFFFFFFFF);
+        image.resize(512, 512);
+        background.composite(image, 0, 0);
+
+        await background.writeAsync(outputFilePath);
 
         await conn.sendMessage(m.chat, {
             sticker: { url: outputFilePath },
