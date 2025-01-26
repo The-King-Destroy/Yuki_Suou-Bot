@@ -1,47 +1,50 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import { createCanvas, loadImage } from 'canvas';
+import Jimp from 'jimp';
 import { tmpdir } from 'os';
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-const fetchSticker = async (text) => {
-    const response = await axios.get('https://kepolu-brat.hf.space/brat', {
-        params: { q: text },
-        responseType: 'arraybuffer',
-    });
-    return response.data;
+const fetchSticker = async (text, attempt = 1) => {
+    try {
+        const response = await axios.get(`https://kepolu-brat.hf.space/brat`, {
+            params: { q: text },
+            responseType: 'arraybuffer',
+        });
+        return response.data;
+    } catch (error) {
+        if (error.response?.status === 429 && attempt <= 3) {
+            const retryAfter = error.response.headers['retry-after'] || 5;
+            await delay(retryAfter * 1000);
+            return fetchSticker(text, attempt + 1);
+        }
+        throw error;
+    }
 };
 
 const handler = async (m, { text, conn }) => {
     if (!text) {
         return conn.sendMessage(m.chat, {
-            text: '🍬 Por favor ingresa el texto para hacer un sticker.',
+            text: '☁️ Te Faltó El Texto!',
         }, { quoted: m });
     }
 
     try {
         const buffer = await fetchSticker(text);
-        const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.png`);
+        const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.webp`);
 
-        const image = await loadImage(buffer);
-        const canvas = createCanvas(512, 512);
-        const ctx = canvas.getContext('2d');
-
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(0, 0, 512, 512);
-        ctx.drawImage(image, 0, 0, 512, 512);
-
-        const bufferOutput = canvas.toBuffer('image/png');
-        fs.writeFileSync(outputFilePath, bufferOutput);
+        const image = await Jimp.read(buffer);
+        image.resize(512, 512)
+             .quality(80)
+             .write(outputFilePath);
 
         await conn.sendMessage(m.chat, {
             sticker: { url: outputFilePath },
         }, { quoted: m });
-
         fs.unlinkSync(outputFilePath);
     } catch (error) {
         return conn.sendMessage(m.chat, {
-            text: `⚠️ Ocurrió un error: ${error.message}`,
+            text: `Hubo un error 😪`,
         }, { quoted: m });
     }
 };
