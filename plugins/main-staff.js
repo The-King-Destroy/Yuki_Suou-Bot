@@ -39,28 +39,21 @@ let handler = async (m, { conn, args }) => {
   `.trim();
 
   await conn.sendMessage(m.chat, { 
-      text: staff,
-      contextInfo: {
-          isForwarded: true,
-          forwardedNewsletterMessageInfo: {
-              newsletterJid: channelRD.id,
-              newsletterName: channelRD.name,
-              serverMessageId: -1,
-          },
-          forwardingScore: 999,
-          externalAdReply: {
-              title: `✨ Developers`,
-              body: dev,
-              thumbnailUrl: catalogo,
-              mediaType: 1,
-              showAdAttribution: true,
-              renderLargerThumbnail: true,
-          },
-      },
-  }, { quoted: m });
-
-};
-
+    text: staff,
+    contextInfo: {
+        isForwarded: true,
+        forwardingScore: 999,
+        externalAdReply: {
+            title: `✨ Developers`,
+            body: dev,
+            thumbnailUrl: catalogo,
+            mediaType: 1,
+            showAdAttribution: true,
+            renderLargerThumbnail: true,
+        },
+    },
+}, { quoted: m });
+  
 handler.help = ['staff'];
 handler.tags = ['main'];
 handler.command = ['ayudantes', 'colaboradores', 'staff'];
