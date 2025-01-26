@@ -1,7 +1,7 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import Jimp from 'jimp';
+import { createCanvas, loadImage } from 'canvas';
 import { tmpdir } from 'os';
 
 const fetchSticker = async (text) => {
@@ -23,11 +23,16 @@ const handler = async (m, { text, conn }) => {
         const buffer = await fetchSticker(text);
         const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.png`);
 
-        const image = await Jimp.read(buffer);
-        const background = new Jimp(512, 512, 0xFFFFFFFF); // Fondo blanco
-        image.resize(512, 512);
-        background.composite(image, 0, 0);
-        await background.writeAsync(outputFilePath);
+        const image = await loadImage(buffer);
+        const canvas = createCanvas(512, 512);
+        const ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, 512, 512);
+        ctx.drawImage(image, 0, 0, 512, 512);
+
+        const bufferOutput = canvas.toBuffer('image/png');
+        fs.writeFileSync(outputFilePath, bufferOutput);
 
         await conn.sendMessage(m.chat, {
             sticker: { url: outputFilePath },
