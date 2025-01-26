@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import Jimp from 'jimp';
 import { tmpdir } from 'os';
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const fetchSticker = async (text, attempt = 1) => {
@@ -24,28 +25,19 @@ const fetchSticker = async (text, attempt = 1) => {
 
 const handler = async (m, { text, conn }) => {
     if (!text) {
-        return conn.sendMessage(m.chat, {
-            text: '☁️ Te Faltó El Texto!',
-        }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: '☁️ Te Faltó El Texto!' }, { quoted: m });
     }
 
     try {
         const buffer = await fetchSticker(text);
-        const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.webp`);
-
+        const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.png`);
         const image = await Jimp.read(buffer);
-        image.resize(512, 512)
-             .quality(80)
-             .write(outputFilePath);
-
-        await conn.sendMessage(m.chat, {
-            sticker: { url: outputFilePath },
-        }, { quoted: m });
+        image.resize(512, 512).background(0xFFFFFFFF).quality(80).write(outputFilePath);
+        
+        await conn.sendMessage(m.chat, { sticker: { url: outputFilePath } }, { quoted: m });
         fs.unlinkSync(outputFilePath);
     } catch (error) {
-        return conn.sendMessage(m.chat, {
-            text: `Hubo un error 😪`,
-        }, { quoted: m });
+        return conn.sendMessage(m.chat, { text: `Hubo un error 😪` }, { quoted: m });
     }
 };
 
