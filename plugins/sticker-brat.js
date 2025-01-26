@@ -33,17 +33,13 @@ const handler = async (m, { text, conn }) => {
     try {
         const buffer = await fetchSticker(text);
         const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.webp`);
-
+        
         const image = await Jimp.read(buffer);
+        image.resize(512, 512, Jimp.RESIZE_BEZIER);
         const background = new Jimp(512, 512, 0xFFFFFFFF);
-        image.resize(512, 512);
         background.composite(image, 0, 0);
-
-        await background
-            .quality(80)
-            .writeAsync(outputFilePath);
-
-        const stickerBuffer = fs.readFileSync(outputFilePath); // Leer el archivo generado
+        
+        await background.writeAsync(outputFilePath);
 
         await conn.sendMessage(m.chat, {
             sticker: { url: outputFilePath },
