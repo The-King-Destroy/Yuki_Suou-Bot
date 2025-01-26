@@ -1,7 +1,7 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import Jimp from 'jimp';
+import { createCanvas, loadImage } from 'canvas';
 import { tmpdir } from 'os';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -31,11 +31,20 @@ const handler = async (m, { text, conn }) => {
     try {
         const buffer = await fetchSticker(text);
         const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.png`);
-        const image = await Jimp.read(buffer);
-        image.resize(512, 512).background(0xFFFFFFFF).quality(80).write(outputFilePath);
-        
-        await conn.sendMessage(m.chat, { sticker: { url: outputFilePath } }, { quoted: m });
-        fs.unlinkSync(outputFilePath);
+
+        const image = await loadImage(buffer);
+        const canvas = createCanvas(512, 512);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, 512, 512);
+        ctx.drawImage(image, 0, 0, 512, 512);
+        const out = fs.createWriteStream(outputFilePath);
+        const stream = canvas.createPNGStream();
+        stream.pipe(out);
+        out.on('finish', async () => {
+            await conn.sendMessage(m.chat, { sticker: { url: outputFilePath } }, { quoted: m });
+            fs.unlinkSync(outputFilePath);
+        });
     } catch (error) {
         return conn.sendMessage(m.chat, { text: `Hubo un error 😪` }, { quoted: m });
     }
