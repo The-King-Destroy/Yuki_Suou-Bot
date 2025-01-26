@@ -1,7 +1,7 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import jimp from 'jimp';
+import sharp from 'sharp';
 import {
     tmpdir
 } from 'os';
