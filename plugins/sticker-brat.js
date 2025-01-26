@@ -1,7 +1,7 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import jimp from 'jimp';
+import Jimp from 'jimp';
 import { tmpdir } from 'os';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -33,15 +33,17 @@ const handler = async (m, { text, conn }) => {
     try {
         const buffer = await fetchSticker(text);
         const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.webp`);
-        
+
         const image = await Jimp.read(buffer);
         const background = new Jimp(512, 512, 0xFFFFFFFF);
         image.resize(512, 512);
         background.composite(image, 0, 0);
-        
+
         await background
             .quality(80)
             .writeAsync(outputFilePath);
+
+        const stickerBuffer = fs.readFileSync(outputFilePath); // Leer el archivo generado
 
         await conn.sendMessage(m.chat, {
             sticker: { url: outputFilePath },
@@ -50,7 +52,7 @@ const handler = async (m, { text, conn }) => {
         fs.unlinkSync(outputFilePath);
     } catch (error) {
         return conn.sendMessage(m.chat, {
-            text: `⚠️ Ocurrió un error.`,
+            text: `⚠️ Ocurrió un error: ${error.message}`,
         }, { quoted: m });
     }
 };
