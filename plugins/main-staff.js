@@ -42,10 +42,9 @@ let handler = async (m, { conn, args }) => {
         text: staff,
         contextInfo: {
             externalAdReply: {
-                title: '✧ Usuario Verificado ✧',
+                title: '✨ Developers',
                 body: dev,
                 thumbnailUrl: catalogo,
-                sourceUrl: channel,
                 mediaType: 1,
                 showAdAttribution: true,
                 renderLargerThumbnail: true
