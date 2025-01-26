@@ -173,24 +173,6 @@ if (!('antiLink' in chat))
 chat.antiLink = true
 if (!('antiLink2' in chat))
 chat.antiLink2 = false
-if (!('antiTiktok' in chat))
-chat.antiTiktok = false
-if (!('antiYoutube' in chat))
-chat.antiYoutube = false
-if (!('antiTelegram' in chat))
-chat.antiTelegram = false
-if (!('antiFacebook' in chat))
-chat.antiFacebook = false
-if (!('antiInstagram' in chat))
-chat.antiInstagram = false
-if (!('antiTwitter' in chat))
-chat.antiTwitter = false
-if (!('antiDiscord' in chat))
-chat.antiDiscord = false
-if (!('antiThreads' in chat))
-chat.antiThreads = false
-if (!('antiTwitch' in chat))
-chat.antiTwitch = false
 if (!('reaction' in chat))
 chat.reaction = false
 if (!('nsfw' in chat))
@@ -226,15 +208,6 @@ antiBot2: false,
 modoadmin: false,
 antiLink: true,
 antiLink2: false,
-antiTiktok: false,
-antiYoutube: false,
-antiTelegram: false,
-antiFacebook: false,
-antiInstagram: false,
-antiTwitter: false,
-antiDiscord: false,
-antiThreads: false,
-antiTwitch: false,
 simi: false,
 antiver: false,
 antifake: false,
