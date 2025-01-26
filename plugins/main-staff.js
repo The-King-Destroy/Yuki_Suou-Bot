@@ -38,22 +38,31 @@ let handler = async (m, { conn, args }) => {
 👾 *GitHub:* https://github.com/Legna-chan
   `.trim();
 
-  await conn.sendMessage(m.chat, {
-        text: staff,
-        contextInfo: {
-            externalAdReply: {
-                title: '✨ Developers',
-                body: dev,
-                thumbnailUrl: catalogo,
-                mediaType: 1,
-                showAdAttribution: true,
-                renderLargerThumbnail: true
-            }
-        }
-    }, { quoted: m });
-  
+  await conn.sendMessage(m.chat, { 
+      text: staff,
+      contextInfo: {
+          isForwarded: true,
+          forwardedNewsletterMessageInfo: {
+              newsletterJid: channelRD.id,
+              newsletterName: channelRD.name,
+              serverMessageId: -1,
+          },
+          forwardingScore: 999,
+          externalAdReply: {
+              title: `✨ Developers`,
+              body: dev,
+              thumbnailUrl: banner,
+              mediaType: 1,
+              showAdAttribution: true,
+              renderLargerThumbnail: true,
+          },
+      },
+  }, { quoted: m });
+
+};
+
 handler.help = ['staff'];
 handler.tags = ['main'];
 handler.command = ['ayudantes', 'colaboradores', 'staff'];
 
-export default handler
+export default handler;
