@@ -52,7 +52,7 @@ let handler = async (m, { conn, args }) => {
             renderLargerThumbnail: true,
         },
     },
-}, { quoted: m });
+}, { quoted: m })
   
 handler.help = ['staff'];
 handler.tags = ['main'];
