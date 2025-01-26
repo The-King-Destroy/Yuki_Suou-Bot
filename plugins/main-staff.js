@@ -5,7 +5,7 @@ let handler = async (m, { conn, args }) => {
   let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
-🍬 *Bot:* ${botname}
+🍰 *Bot:* ${botname}
 ⚜️ *Versión:* ${vs}
 📚 *Libreria:* ${libreria} ${baileys}
 
