@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         const data = await res.json();
         if (!data || !data.music) throw "No se pudo obtener el enlace de descarga.";
 
-        const info = `🎶 *Titulo:*\n${data.title}\n> 🪩 *Artista:* ${data.artist}\n> 📚 *Álbum:* ${song.album}\n> 🕒 *Duración:* ${song.duracion}\n> 🔗 *Enlace:* ${data.spotify}`;
+        const info = `🎶 *Titulo:* ${data.title}\n> 🪩 *Artista:* ${data.artist}\n> 📚 *Álbum:* ${song.album}\n> 🕒 *Duración:* ${song.duracion}\n> 🔗 *Enlace:* ${data.spotify}`;
 
         await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
         externalAdReply: {
