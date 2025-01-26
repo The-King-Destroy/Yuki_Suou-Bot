@@ -51,7 +51,7 @@ let handler = async (m, { conn, args }) => {
           externalAdReply: {
               title: `✨ Developers`,
               body: dev,
-              thumbnailUrl: catalogo,
+              thumbnailUrl: icono,
               mediaType: 1,
               showAdAttribution: true,
               renderLargerThumbnail: true,
