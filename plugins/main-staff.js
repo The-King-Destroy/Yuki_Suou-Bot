@@ -56,4 +56,4 @@ handler.help = ['staff'];
 handler.tags = ['main'];
 handler.command = ['ayudantes', 'colaboradores', 'staff'];
 
-export default handler;
+export default handler
