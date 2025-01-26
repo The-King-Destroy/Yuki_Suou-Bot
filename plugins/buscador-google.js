@@ -1,45 +1,24 @@
-import fetch from 'node-fetch';
-
-let handler = async (m, { text }) => {
-  if (!text) {
-    m.reply('*Proporciona una consulta de búsqueda*');
-    return;
-  }
-
-  const apiKey = 'xenzpedo';
-  const apiUrl = `https://api.botcahx.eu.org/api/search/google?text1=${encodeURIComponent(text)}&apikey=${apiKey}`;
-
-  try {
-    const response = await fetch(apiUrl);
-    const result = await response.json();
-
-    if (!result.status && result.message === 'Result Not Found') {
-      m.reply('*No se encontraron resultados para tu búsqueda.*');
-      return;
-    }
-
-    if (!result.status) {
-      m.reply(`*Error al realizar la búsqueda:* ${result.message}`);
-      return;
-    }
-
-    let replyMessage = '*Resultados de búsqueda:*\n\n';
-    result.data.slice(0, 1).forEach((item, index) => {
-      replyMessage += `${index + 1}. ${item.title}\n`;
-      replyMessage += `> *${item.description}*\n\n`;
-      replyMessage += `   URL: ${item.url}\n\n`;
-    });
-
-    m.react('✅');
-    m.reply(replyMessage);
-  } catch (error) {
-    console.error('Error al realizar la solicitud a la API:', error);
-    m.reply('Ocurrió un error al obtener los resultados.');
-  }
-};
-
-handler.help = ['google *<texto>*'];
-handler.tags = ['internet'];
-handler.command = ['google'];
-
+import {googleIt} from '@bochilteam/scraper';
+import google from 'google-it';
+import axios from 'axios';
+let handler = async (m, { conn, command, args, usedPrefix }) => {
+  const fetch = (await import('node-fetch')).default;
+  const text = args.join` `;
+  if (!text) return conn.reply(m.chat, '🍬 Por favor, ingresa lo que deseas buscar junto al comando.', m)
+  await m.react('🕓')
+  let img = 'https://i.ibb.co/P5kZNFF/file.jpg'
+const url = 'https://google.com/search?q=' + encodeURIComponent(text);
+google({'query': text}).then(res => {
+let teks = `\t\t\t*乂  S E A R C H  -  G O O G L E*\n\n`
+for (let g of res) {
+teks += `*${g.title}*\n${g.link}\n${g.snippet}\n\n`
+} 
+conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m).then(_ => m.react('✅'))
+})
+}
+handler.help = ['google *<texto>*']
+handler.tags = ['tools', 'search']
+handler.command = ['google']
+//handler.limit = 1
+handler.register = true 
 export default handler;
