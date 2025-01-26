@@ -162,7 +162,7 @@ chat.autoresponder = false
 if (!('detect' in chat))
 chat.detect = true
 if (!('detect2' in chat))
-chat.detect2 = true
+chat.detect2 = false
 if (!('antiBot' in chat))
 chat.antiBot = false
 if (!('antiBot2' in chat))
