@@ -1,6 +1,7 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
+import jimp from 'jimp';
 import {
     tmpdir
 } from 'os';
@@ -76,5 +77,3 @@ handler.tags = ['sticker'];
 handler.help = ['brat *<texto>*'];
 
 export default handler;
-
-//import sharp from 'sharp';
