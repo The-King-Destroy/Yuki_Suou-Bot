@@ -1,7 +1,7 @@
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import Jimp from 'jimp';
+import jimp from 'jimp';
 import { tmpdir } from 'os';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
