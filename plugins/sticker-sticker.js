@@ -26,10 +26,10 @@ if (/webp/g.test(mime)) out = await webp2png(img)
 else if (/image/g.test(mime)) out = await uploadImage(img)
 else if (/video/g.test(mime)) out = await uploadFile(img)
 if (typeof out !== 'string') out = await uploadImage(img)
-stiker = await sticker(false, out, global.packsticker, global.author)
+stiker = await sticker(false, out, global.packsticker, global.packsticker2)
 }}
 } else if (args[0]) {
-if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packsticker, global.author)
+if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packsticker, global.packsticker2)
 
 else return m.reply(`🍭 El url es incorrecto...`)
 
