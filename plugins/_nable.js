@@ -46,15 +46,25 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       isEnable = bot.restrict = !bot.restrict;
       break;
 
-    case 'autolevelup':
-    case 'autonivel':
+    case 'autosticker':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn);
           throw false;
         }
       }
-      isEnable = chat.autolevelup = !chat.autolevelup;
+      isEnable = chat.autosticker = !chat.autosticker;
+      break;
+
+    case 'autorechazar':
+    case 'rechazarauto':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          global.dfail('admin', m, conn);
+          throw false;
+        }
+      }
+      isEnable = chat.autoRechazar = !chat.autoRechazar;
       break;
 
     case 'antibot':
