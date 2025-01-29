@@ -155,6 +155,8 @@ if (!('autolevelup' in chat))
 chat.autolevelup = true
 if (!('autoAceptar' in chat))
 chat.autoAceptar = false
+if (!('autosticker' in chat))
+chat.autosticker = false
 if (!('autoRechazar' in chat))
 chat.autoRechazar = false
 if (!('autoresponder' in chat))
@@ -167,6 +169,10 @@ if (!('antiBot' in chat))
 chat.antiBot = false
 if (!('antiBot2' in chat))
 chat.antiBot2 = false
+if (!('antiver' in chat))
+chat.antiver = false 
+if (!('antiPorn' in chat))
+chat.antiPorn = false
 if (!('modoadmin' in chat))                     
 chat.modoadmin = false   
 if (!('antiLink' in chat))
@@ -175,6 +181,8 @@ if (!('antiLink2' in chat))
 chat.antiLink2 = false
 if (!('reaction' in chat))
 chat.reaction = false
+if (!('viewonce' in chat))
+chat.viewonce = false
 if (!('nsfw' in chat))
 chat.reaction = false
 if (!('simi' in chat))
@@ -215,6 +223,10 @@ antitoxic: false,
 antiTraba: false,
 reaction: false,
 nsfw: false,
+antiver: false,
+autosticker: false,
+antiPorn: false,
+viewonce: false,
 expired: 0, 
 }
 var settings = global.db.data.settings[this.user.jid]
