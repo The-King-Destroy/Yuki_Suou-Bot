@@ -171,8 +171,6 @@ if (!('antiBot2' in chat))
 chat.antiBot2 = false
 if (!('antiver' in chat))
 chat.antiver = false 
-if (!('antiPorn' in chat))
-chat.antiPorn = false
 if (!('modoadmin' in chat))                     
 chat.modoadmin = false   
 if (!('antiLink' in chat))
@@ -225,7 +223,6 @@ reaction: false,
 nsfw: false,
 antiver: false,
 autosticker: false,
-antiPorn: false,
 viewonce: false,
 expired: 0, 
 }
