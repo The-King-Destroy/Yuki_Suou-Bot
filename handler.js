@@ -152,7 +152,7 @@ chat.sAutoresponder = ''
 if (!('welcome' in chat))
 chat.welcome = true
 if (!('autolevelup' in chat))
-chat.autolevelup = false
+chat.autolevelup = true
 if (!('autoAceptar' in chat))
 chat.autoAceptar = false
 if (!('autosticker' in chat))
@@ -202,7 +202,7 @@ global.db.data.chats[m.chat] = {
 isBanned: false,
 sAutoresponder: '',
 welcome: true,
-autolevelup: false,
+autolevelup: true,
 autoresponder: false,
 delete: false,
 autoAceptar: false,
@@ -249,11 +249,19 @@ status: 0
 } catch (e) {
 console.error(e)
 }
+if (opts['nyimak'])  return
+if (!m.fromMe && opts['self'])  return
+if (opts['swonly'] && m.chat !== 'status@broadcast')  return
+if (typeof m.text !== 'string')
+m.text = ''
+
+let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
 const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isOwner = isROwner || m.fromMe
 const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || _user.prem == true
+
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
 const previousID = queque[queque.length - 1]
@@ -263,9 +271,13 @@ if (queque.indexOf(previousID) === -1) clearInterval(this)
 await delay(time)
 }, time)
 }
+
+if (m.isBaileys) {
+return
+}
 m.exp += Math.ceil(Math.random() * 10)
+
 let usedPrefix
-let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
 const groupMetadata = (m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}) || {}
 const participants = (m.isGroup ? groupMetadata.participants : []) || []
@@ -283,9 +295,9 @@ continue
 if (plugin.disabled)
 continue
 const __filename = join(___dirname, name)
-//if (m.sender === this.user.jid) {
-//continue
-//}
+/*if (m.sender === this.user.jid) {
+continue
+}*/
 if (typeof plugin.all === 'function') {
 try {
 await plugin.all.call(this, m, {
@@ -367,20 +379,19 @@ let user = global.db.data.users[m.sender]
 if (!['grupo-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return // Except this
 if (name != 'grupo-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'grupo-delete.js' && chat?.isBanned && !isROwner) return 
 if (m.text && user.banned && !isROwner) {
+if (user.antispam > 2) return
 m.reply(`🍭 Estas baneado/a, no puedes usar comandos en este bot!\n\n${user.bannedReason ? `\n📝 *Motivo:* 
-${user.bannedReason}` : '📄 *Motivo:* Sin Especificar'}\n\n🍧 Si quieres que seas desbaneado en este bot escribe a: Wa.me/584120346669`)     
+${user.bannedReason}` : '📄 *Motivo:* Sin Especificar'}\n\n🍧 Si quieres que seas desbaneado en este bot escribe a: Wa.me/584120346669`)
+user.antispam++        
 return
 }
-if (opts['nyimak'])  return
-if (!m.fromMe && opts['self'])  return
-if (opts['swonly'] && m.chat !== 'status@broadcast')  return
-if (typeof m.text !== 'string')
-m.text = ''
 
-        if (m.isBaileys) {
-          return 
-        }}
-
+//Antispam 2                
+if (user.antispam2 && isROwner) return
+let time = global.db.data.users[m.sender].spam + 3000
+if (new Date - global.db.data.users[m.sender].spam < 3000) return console.log(`⪩ S P A M ⪨`) 
+global.db.data.users[m.sender].spam = new Date * 1
+}
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
