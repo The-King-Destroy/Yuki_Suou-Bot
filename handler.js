@@ -379,7 +379,7 @@ m.text = ''
 
         if (m.isBaileys) {
           return 
-        }
+        }}
 
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
