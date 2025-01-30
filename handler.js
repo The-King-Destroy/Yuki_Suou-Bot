@@ -274,7 +274,7 @@ await delay(time)
 
 if (m.isBaileys) {
 return
-}
+}}
 m.exp += Math.ceil(Math.random() * 10)
 
 let usedPrefix
