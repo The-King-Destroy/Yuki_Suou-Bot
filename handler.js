@@ -152,7 +152,7 @@ chat.sAutoresponder = ''
 if (!('welcome' in chat))
 chat.welcome = true
 if (!('autolevelup' in chat))
-chat.autolevelup = true
+chat.autolevelup = false
 if (!('autoAceptar' in chat))
 chat.autoAceptar = false
 if (!('autosticker' in chat))
@@ -202,7 +202,7 @@ global.db.data.chats[m.chat] = {
 isBanned: false,
 sAutoresponder: '',
 welcome: true,
-autolevelup: true,
+autolevelup: false,
 autoresponder: false,
 delete: false,
 autoAceptar: false,
@@ -283,9 +283,9 @@ continue
 if (plugin.disabled)
 continue
 const __filename = join(___dirname, name)
-/*if (m.sender === this.user.jid) {
-continue
-}*/
+//if (m.sender === this.user.jid) {
+//continue
+//}
 if (typeof plugin.all === 'function') {
 try {
 await plugin.all.call(this, m, {
