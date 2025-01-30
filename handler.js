@@ -371,19 +371,15 @@ m.reply(`🍭 Estas baneado/a, no puedes usar comandos en este bot!\n\n${user.ba
 ${user.bannedReason}` : '📄 *Motivo:* Sin Especificar'}\n\n🍧 Si quieres que seas desbaneado en este bot escribe a: Wa.me/584120346669`)     
 return
 }
-if (opts['nyimak']) return;
-if (!isROwner && opts['self']) return;
-if (opts['pconly'] && m.chat.endsWith('g.us')) return;
-if (opts['gconly'] && !m.chat.endsWith('g.us')) {
-const allowedInPrivate = ['serbot', 'serbot --code', 'menu', 'info'];
-if (!allowedInPrivate.includes(command)) return;
-}
-if (opts['swonly'] && m.chat !== 'status@broadcast') return;
-if (typeof m.text !== 'string') m.text = '';
+if (opts['nyimak'])  return
+if (!m.fromMe && opts['self'])  return
+if (opts['swonly'] && m.chat !== 'status@broadcast')  return
+if (typeof m.text !== 'string')
+m.text = ''
 
         if (m.isBaileys) {
           return 
-        }}
+        }
 
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
