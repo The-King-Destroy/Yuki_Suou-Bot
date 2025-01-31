@@ -20,7 +20,7 @@ let result = json.results[0];
 
 let txt = `*Nombre:* ${result.name}\n*Owner:* ${result.creator}\n*Estrellas:* ${result.stars}\n*Bifurcaciones:* ${result.forks}\n*Descripcion:* ${result.description}\n*Creado:* ${result.createdAt}\n*Link:* ${result.cloneUrl}`;
 
-let img = 'https://cloud.dorratz.com/files/669d45d70d27913f08db78953c11903b';
+let img = 'https://qu.ax/trzJV.jpg';
 
 conn.sendMessage(m.chat, { image: { url: img }, caption: txt }, { quoted: fkontak });
 
