@@ -1,71 +1,36 @@
-import axios from 'axios';
+/* Github Search By WillZek 
+- Free Codes Titan  
+- https://whatsapp.com/channel/0029ValMlRS6buMFL9d0iQ0S
+*/
 
-function formatDate(dateString) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-}
+// 𝗚𝗶𝘁𝗵𝘂𝗯 𝗦𝗲𝗮𝗿𝗰𝗵
 
-async function getUserInfo(username) {
-    try {
-        const response = await axios.get(`https://api.github.com/users/${username}`);
-        const user = response.data;
+import fetch from 'node-fetch';
 
-        return `
- *☁️ Usuario:* ${user.login}
- *🍬 Nombre:* ${user.name ? user.name : 'No disponible'}
- *🍭 Bio:* ${user.bio ? user.bio : 'No disponible'}
- *📍 Ubicación:* ${user.location ? user.location : 'No disponible'}
- *📌 Blog:* ${user.blog ? user.blog : 'No disponible'}
- *👥 Seguidores:* ${user.followers}
- *👤 Siguiendo:* ${user.following}
- *📊 Repositorios:* ${user.public_repos}
- *👾 Cuenta creada:* ${formatDate(user.created_at)}`;
-    } catch (error) {
-        console.error('Error fetching user info:', error);
-        return 'Error fetching user info';
-    }
-}
+let handler = async(m, { conn, text, usedPrefix, command }) => {
 
-async function getUserRepos(username) {
-    try {
-        const response = await axios.get(`https://api.github.com/users/${username}/repos`);
-        const repos = response.data;
+if (!text) return m.reply(m.chat, '🍬 Por favor ingresa un nombre de un repositorio o usuario de GitHub.', m);
 
-        return repos.map((repo, index) => `
- *☁️ Resultado:* ${1 + index}
- *🍬 Nombre:* ${repo.name}
- *🚩 Creado:* ${formatDate(repo.created_at)}
- *📈 Actualizado:* ${formatDate(repo.updated_at)}
- *🌟 Estrellas:* ${repo.stargazers_count}
- *📰 Descripción:* ${repo.description ? `${repo.description}` : 'Sin Descripción'}
- *🔗 Enlace:* ${repo.html_url}`).join('\n');
-    } catch (error) {
-        console.error('Error fetching repositories:', error);
-        return 'Error fetching repositories';
-    }
-}
+try {
+let api = `https://dark-core-api.vercel.app/api/search/github?key=api&text=${text}`;
 
-const handler = async (message, { conn }) => {
-    const username = message.text.split(' ')[1];
-    if (!username) {
-        return conn.reply(message.chat, '🍬 Por favor, ingresa un usuario de GitHub para realizar la búsqueda.', message);
-    }
+let response = await fetch(api);
+let json = await response.json();
+let result = json.results[0];
 
-    const userInfo = await getUserInfo(username);
-    const userRepos = await getUserRepos(username);
+let txt = `*Nombre:* ${result.name}\n*Owner:* ${result.creator}\n*Estrellas:* ${result.stars}\n*Bifurcaciones:* ${result.forks}\n*Descripcion:* ${result.description}\n*Creado:* ${result.createdAt}\n*Link:* ${result.cloneUrl}`;
 
-    const result = `
-*👤 Información del Usuario:*
-${userInfo}
+let img = 'https://cloud.dorratz.com/files/669d45d70d27913f08db78953c11903b';
 
-*📊 Repositorios:*
-${userRepos}`;
-    
-    conn.reply(message.chat, result, message);
+conn.sendMessage(m.chat, { image: { url: img }, caption: txt }, { quoted: fkontak });
+
+} catch (error) {
+console.error(error)
+m.reply(`Error: ${error.message}`);
+m.react('✖️');
+ }
 };
 
-handler.help = ['githubsearch'];
-handler.tags = ['buscador'];
-handler.command = ['githubsearch'];
+handler.command = ['githubsearch', 'gbsearch'];
 
 export default handler;
