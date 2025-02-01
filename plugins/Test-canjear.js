@@ -20,12 +20,12 @@ let handler = async (m, { conn, text }) => {
         return conn.reply(m.chat, 'Este código fue agotado completamente... Espero que el creador ponga otro código.', m);
     }
 
-    user.limit += codesDB[code].credits;
+    user.limit += codesDB[code].coin;
     codesDB[code].claimedBy.push(m.sender);
 
     let remaining = 5 - codesDB[code].claimedBy.length;
 
-    conn.reply(m.chat, `Has canjeado el código con éxito. Has recibido ${codesDB[code].credits} créditos.\nQuedan ${remaining} vacantes para canjear el código.`, m);
+    conn.reply(m.chat, `Has canjeado el código con éxito. Has recibido ${codesDB[code].coin} ${moneda}.\nQuedan ${remaining} vacantes para canjear el código.`, m);
 }
 
 handler.help = ['canjear <código>'];
