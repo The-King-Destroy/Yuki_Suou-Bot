@@ -1,27 +1,31 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import fetch from 'node-fetch';
 
+let handler = async (m, { conn, text }) => {
+  if (!text) throw 'Por favor proporcione una palabra para buscar.';
 
-let handler = async (m, { text }) => {
-	if (!text) throw `✳️ Ingresa lo que quieres buscar en Wikipedia` 
-	
-    try {
-	const link =  await axios.get(`https://es.wikipedia.org/wiki/${text}`)
-	const $ = cheerio.load(link.data)
-	let wik = $('#firstHeading').text().trim()
-	let resulw = $('#mw-content-text > div.mw-parser-output').find('p').text().trim()
-	m.reply(`▢ *Wikipedia*
+  const url = `https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(text)}`;
 
-‣ Buscado : ${wik}
+  const response = await fetch(url);
+  const json = await response.json();
 
-${resulw}`)
-} catch (e) {
-  m.reply('⚠️ NINGUN RESULTADO ')
-}
-}
-handler.help = ['wikipedia']
-handler.tags = ['tools']
-handler.command = ['wiki','wikipedia'] 
+  if (!response.ok) {
+    throw `Ocurrió un error: ${json.message}`;
+  }
 
+  if (!json.list.length) {
+    throw 'Palabra no encontrada en el diccionario.';
+  }
 
-export default handler
+  const firstEntry = json.list[0];
+  const definition = firstEntry.definition;
+  const example = firstEntry.example ? `*Ejemplo:* ${firstEntry.example}` : '';
+
+  const message = `*Word:* ${text}\n*Definicion:* ${definition}\n${example}`;
+  conn.sendMessage(m.chat, { text: message }, 'mensaje de texto extendido', { quoted: m });
+};
+
+handler.help = ['define <word>'];
+handler.tags = ['tools'];
+handler.command = /^define/i;
+
+export default handler;
