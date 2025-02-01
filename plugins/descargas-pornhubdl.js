@@ -1,35 +1,46 @@
-/* ❀ Código By JTxs
+import fetch from 'node-fetch';
 
-[ Canal Principal ] :
-https://whatsapp.com/channel/0029VaeQcFXEFeXtNMHk0D0n
+const handler = async (m, { conn, args, command, usedPrefix, text }) => {
+    if (!db.data.chats[m.chat].nsfw && m.isGroup) {
+        return m.reply('🍬 El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*');
+    }
 
-[ Canal Rikka Takanashi Bot ] :
-https://whatsapp.com/channel/0029VaksDf4I1rcsIO6Rip2X
+    if (!args[0]) {
+        return conn.reply(m.chat, `🍬 Por favor, envía un enlace de Pornhub para descargar el video.`, m);
+    }
 
-[ Canal StarlightsTeam] :
-https://whatsapp.com/channel/0029VaBfsIwGk1FyaqFcK91S
+    try {
+        conn.reply(m.chat, `🍭 El vídeo está siendo procesado, espere un momento...\n\n- El tiempo de envío depende del peso y duración del video.`, m);
+        
+        const res = await phubdl(args[0]);
+        conn.sendMessage(m.chat, { document: { url: res.result.url_de_descarga }, mimetype: 'video/mp4', fileName: res.result.video_title }, { quoted: m });
+    } catch (e) {
+        throw `⚠️ Ocurrió un error.\n\n- El enlace debe ser similar a:\n◉ https://www.pornhub.com/view_video.php?viewkey=6699e4c8b79d7`;
+    }
+};
 
-[ HasumiBot FreeCodes ] :
-https://whatsapp.com/channel/0029Vanjyqb2f3ERifCpGT0W
-*/
+handler.command = ['phubdl'];
+handler.register = true;
+handler.group = false;
 
-import fetch from 'node-fetch'
+export default handler;
 
-let HS = async (m, { conn, command, text, usedPrefix }) => {
-if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('🍬 El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*');
+async function phubdl(url) {
+    return new Promise((resolve, reject) => {
+        fetch(`https://www.dark-yasiya-api.site/download/phub?url=${encodeURIComponent(url)}`, { method: 'get' })
+            .then(res => res.json())
+            .then(data => {
+                if (data.estado) {
+                    const videoFormat = data.resultado.formato.find(format => format.resolución === "480");
+                    if (videoFormat) {
+                        resolve({ status: 200, result: { video_title: data.resultado.video_title, url_de_descarga: videoFormat.url_de_descarga } });
+                    } else {
+                        reject('No se encontró el formato de video solicitado.');
+                    }
+                } else {
+                    reject('No se pudo obtener el video.');
+                }
+            })
+            .catch(err => reject(err));
+    });
 }
-if (!text) return conn.reply(m.chat, '❀ ingresa un link de pornhub', m)
-try {
-let api = await fetch(`https://www.dark-yasiya-api.site/download/phub?url=${text}`)
-let json = await api.json()
-let { video_title, video_uploader } = json.result
-let { download_url, resolution, } = json.result.format[1]
-await conn.sendMessage(m.chat, { video: { url: download_url }, caption: video_title }, { quoted: m })
-} catch (error) {
-console.error(error)
-}}
-
-HS.command = ['pornhubdl', 'phdl']
-
-export default HS
