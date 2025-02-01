@@ -20,7 +20,7 @@ let handler = async (m, { conn, text }) => {
         return conn.reply(m.chat, 'Este código fue agotado completamente... Espero que el creador ponga otro código.', m);
     }
 
-    user.coins += codesDB[code].coin;
+    user.coin += codesDB[code].coin;
     codesDB[code].claimedBy.push(m.sender);
 
     let remaining = 5 - codesDB[code].claimedBy.length;
