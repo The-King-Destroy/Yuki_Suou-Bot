@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
     if (!global.db.data.codes) global.db.data.codes = {};
     global.db.data.codes[code] = { coin: amount, claimedBy: [] };
 
-    conn.reply(m.chat, `🍬 Código generado: ${code}\nEste código puede ser canjeado por ${amount} ${moneda} y puede ser utilizado por 5 personas.`, m);
+    conn.reply(m.chat, `🍬 Código generado: *${code}*\nEste código puede ser canjeado por ${amount} ${moneda} y puede ser utilizado por 5 personas.`, m);
 }
 
 handler.help = ['codigo <cantidad de coins>'];
