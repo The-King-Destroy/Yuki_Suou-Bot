@@ -1,24 +1,29 @@
-import {googleIt} from '@bochilteam/scraper';
-import google from 'google-it';
-import axios from 'axios';
-let handler = async (m, { conn, command, args, usedPrefix }) => {
-  const fetch = (await import('node-fetch')).default;
-  const text = args.join` `;
-  if (!text) return conn.reply(m.chat, '🍬 Por favor, ingresa lo que deseas buscar junto al comando.', m)
-  await m.react('🕓')
-  let img = 'https://i.ibb.co/P5kZNFF/file.jpg'
-const url = 'https://google.com/search?q=' + encodeURIComponent(text);
-google({'query': text}).then(res => {
-let teks = `\t\t\t*乂  S E A R C H  -  G O O G L E*\n\n`
-for (let g of res) {
-teks += `*${g.title}*\n${g.link}\n${g.snippet}\n\n`
-} 
-conn.sendFile(m.chat, img, 'thumbnail.jpg', teks, m).then(_ => m.react('✅'))
-})
+import { googleIt } from '@bochilteam/scraper'
+let handler = async (m, { conn, command, args }) => {
+    const fetch = (await import('node-fetch')).default
+    let full = /f$/i.test(command)
+    let text = args.join` `
+    if (!text) return conn.reply(m.chat, '✳️ Que deseas Buscar en Google?', m)
+    let url = 'https://google.com/search?q=' + encodeURIComponent(text)
+    let search = await googleIt(text)
+    let msg = search.articles.map(({
+        // header,
+        title,
+        url,
+        description
+    }) => {
+        return `*${title}*\n_${url}_\n_${description}_`
+    }).join('\n\n')
+    try {
+        let ss = await (await fetch(global.API('nrtm', '/api/ssweb', { delay: 1000, url, full }))).arrayBuffer()
+        if (/<!DOCTYPE html>/i.test(ss.toBuffer().toString())) throw ''
+        await conn.sendFile(m.chat, ss, 'screenshot.png', url + '\n\n' + msg, m)
+    } catch (e) {
+        m.reply(msg)
+    }
 }
-handler.help = ['google *<texto>*']
-handler.tags = ['tools', 'search']
-handler.command = ['google']
-//handler.limit = 1
-handler.register = true 
-export default handler;
+handler.help = ['google']
+handler.tags = ['tools']
+handler.command = ['google'] 
+
+export default handler
