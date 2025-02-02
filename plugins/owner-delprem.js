@@ -20,4 +20,6 @@ handler.tags = ['owner'];
 handler.command = ['remove', 'delpremium']
 handler.group = true;
 handler.rowner = true;
+handler.mods = true;
+
 export default handler;
