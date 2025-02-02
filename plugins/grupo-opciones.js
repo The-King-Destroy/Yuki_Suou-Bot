@@ -1,5 +1,5 @@
 const handler = async (m, { conn, participants, groupMetadata }) => {
-  const { welcome, autolevelup, antiBot, antiBot2, autoAceptar, autoRechazar, autoresponder, modoadmin, reaction, nsfw, detect, antiLink, antitoxic, antiTraba, antifake } = global.db.data.chats[m.chat];
+  const { welcome, autolevelup, antiBot, antiBot2, autoAceptar, autoRechazar, autoresponder, modoadmin, reaction, nsfw, detect, antiLink, antiLink2, antitoxic, antiTraba, antifake } = global.db.data.chats[m.chat];
   
   const text = `✨ *CONFIGURACIÓN DEL GRUPO* 
   
@@ -28,7 +28,7 @@ const handler = async (m, { conn, participants, groupMetadata }) => {
 > ➨ *Descripción:* El bot solo responderá a los administradores del grupo.
 
 ◈ Reaction: \`${reaction ? 'Activado' : 'Desactivado'}\`
-> ➨ *Descripción:* Activa o descativa las reacciones en el Bot.
+> ➨ *Descripción:* Activa o desactiva las reacciones en el Bot.
 
 ◈ Nsfw: \`${nsfw ? 'Activado' : 'Desactivado'}\` 
 > ➨ *Descripción:* Activa o desactiva los comandos +18 en el grupo y no los envia.
@@ -39,15 +39,19 @@ const handler = async (m, { conn, participants, groupMetadata }) => {
 ◈ Antilink: \`${antiLink ? 'Activado' : 'Desactivado'}\`
 > ➨ *Descripción:* Activa o desactiva el bloqueo de enlaces de WhatsApp. 
 
+◈ Antilink2: \`${antiLink2 ? 'Activado' : 'Desactivado'}\`
+> ➨ *Descripción:* Activa o desactiva el bloqueo de enlaces de https. 
+
 ◈ Antitoxic: \`${antitoxic ? 'Activado' : 'Desactivado'}\`
-> ➨ 
+> ➨ *Descripción:* Activa o desactiva el modo anti tóxicos, eliminará mensajes ofensivos.
+
 ◈ Antitraba: \`${antiTraba ? 'Activado' : 'Desactivado'}\`
-> ➨ 
+> ➨ *Descripción:* Activa o desactiva el antitraba eliminara cualquier mensaje con demasiados caracteres y evitará trabas.
 
 ◈ antifake: \`${antifake ? 'Activado' : 'Desactivado'}\`
 > ➨ *Descripción:* Activa o desactiva el bloqueo de enlaces de WhatsApp.  
 
-✦ Nota: Puedes activar una de estas opciones de esta manera Ejemplo: #antilink`.trim();
+> \`✦ Nota: Puedes activar una de estas opciones de esta manera Ejemplo: #antilink\``.trim();
 
   await conn.sendFile(m.chat, icons, 'yuki.jpg', text, m, true, {
     contextInfo: {
