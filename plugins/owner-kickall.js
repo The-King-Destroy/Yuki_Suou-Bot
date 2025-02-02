@@ -27,6 +27,6 @@ handler.tags = ['group'];
 handler.command = ['kickall'];
 handler.group = true;
 handler.botAdmin = true;
-handler.suittag;
+handler.suittag = true;
 
 export default handler;
