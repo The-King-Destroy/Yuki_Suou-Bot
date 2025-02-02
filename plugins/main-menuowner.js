@@ -2,10 +2,13 @@ import moment from 'moment-timezone';
 
 let handler = async (m, { conn, args }) => {
 let owner = `
-һ᥆ᥣᥲ! ძᥱsᥲrr᥆ᥣᥣᥲძ᥆r s᥆ᥡ  *${botname}*
+һ᥆ᥣᥲ! s᥆ᥡ  *${botname}*  ٩(˘◡˘)۶
 ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s ძᥱ m᥆ძs ᥡ ᥆ᥕᥒᥱrs
 
+»  ⊹˚• \`pene\` •˚⊹
 
+ᰔᩚ *#addcoins • #añadircoin*
+> ✦ Añade coins a un usuario.
 `.trim();
 
 await conn.sendMessage(m.chat, {
