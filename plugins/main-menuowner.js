@@ -44,6 +44,8 @@ let owner = `
 🍬 Comandos de moderación y control avanzado para owners.
 ᰔᩚ *#addowner • #delowner*
 > ✦ Agrega o elimina un número de la lista de owners.
+ᰔᩚ *#codigo*
+> ✦ Crea un token o código de canjeó de códigos.
 ᰔᩚ *#backup • #copia*
 > ✦ Crear un respaldo de seguridad de la *db* del Bot.
 ᰔᩚ *#bcgc*
