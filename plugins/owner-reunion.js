@@ -8,7 +8,7 @@ let handler = async(m, { conn, command, text }) => {
   for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
     let data = (await conn.onWhatsApp(jid))[0] || {}
     if (data.exists) {
-      conn.sendMessage(data.jid, texto, m)
+      await conn.sendMessage(data.jid, { text: texto })
     }
   }
 }
