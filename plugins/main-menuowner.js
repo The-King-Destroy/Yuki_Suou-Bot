@@ -26,8 +26,12 @@ let owner = `
 > ✦ Desbanear a un usuario.
 ᰔᩚ *#dsowner • #delai*
 > ✦ Elimina archivos innecesarios de sesión.
-ᰔᩚ *#cleartmp • #borrartmp • #vaciartmp*
+ᰔᩚ *#cleartmp • #vaciartmp*
 > ✦ Elimina archivo innecesarios de la carpeta tmp.
+ᰔᩚ *#block • #unblock*
+> ✦ Bloquear o desbloquear a un usuario del número del Bot.
+ᰔᩚ *#listblock • #blocklist*
+> ✦ Ver listado de usuarios bloqueados.
 ᰔᩚ *#removecoin • #quitarcoin*
 > ✦ Quitar coins a un usuario.
 ᰔᩚ *#deletedatauser • #resetuser*
@@ -44,10 +48,6 @@ let owner = `
 > ✦ Crear un respaldo de seguridad de la *db* del Bot.
 ᰔᩚ *#bcgc*
 > ✦ Envia un mensaje a todos los grupos donde este el Bot.
-ᰔᩚ *#block • #unblock*
-> ✦ Bloquear o desbloquear a un usuario del número del Bot.
-ᰔᩚ *#listblock • #blocklist*
-> ✦ Ver listado de usuarios bloqueados.
 ᰔᩚ *#cleanfiles*
 > ✦ Elimina archivos temporales.
 ᰔᩚ *#newgc #creargc*
