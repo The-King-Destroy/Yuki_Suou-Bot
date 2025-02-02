@@ -62,7 +62,6 @@ handler.help = ['addprem [@user] <days>'];
 handler.tags = ['owner'];
 handler.command = ['addprem', 'userpremium', 'addprem2', 'userpremium2', 'addprem3', 'userpremium3', 'addprem4', 'userpremium4'];
 handler.group = true;
-handler.rowner = true;
 handler.mods = true;
 
 export default handler;
