@@ -183,8 +183,6 @@ if (!('nsfw' in chat))
 chat.reaction = false
 if (!('simi' in chat))
 chat.simi = false
-if (!('antiver' in chat))
-chat.antiver = false
 if (!('antifake' in chat))
 chat.antifake = false
 if (!('antiTraba' in chat))
@@ -219,7 +217,6 @@ antitoxic: false,
 antiTraba: false,
 reaction: false,
 nsfw: false,
-antiver: false,
 autosticker: false,
 expired: 0, 
 }
