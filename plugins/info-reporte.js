@@ -12,7 +12,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 💬 Mensaje:
 • ${text}`
-    await conn.reply('584120346669@s.whatsapp.net', m.quoted ? teks + m.quoted.text : teks, m, { mentions: conn.parseMention(teks) })
+    await conn.reply(`${suittag}@s.whatsapp.net`, m.quoted ? teks + m.quoted.text : teks, m, { mentions: conn.parseMention(teks) })
 
     m.reply('⚠️ *El reporte se envío a mi creador, cualquier informe falso puede ocasionar baneo.*')
 }
