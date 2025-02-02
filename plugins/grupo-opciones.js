@@ -51,7 +51,7 @@ const handler = async (m, { conn, participants, groupMetadata }) => {
 ◈ antifake: \`${antifake ? 'Activado' : 'Desactivado'}\`
 > ➨ *Descripción:* Activa o desactiva el bloqueo de enlaces de WhatsApp.  
 
-> \`✦ Nota: Puedes activar una de estas opciones de esta manera Ejemplo: #antilink\``.trim();
+_*✦ Nota: Puedes activar una de estas opciones de esta manera Ejemplo: #antilink*_`.trim();
 
   await conn.sendFile(m.chat, icons, 'yuki.jpg', text, m, true, {
     contextInfo: {
