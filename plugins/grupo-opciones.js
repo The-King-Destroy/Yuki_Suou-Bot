@@ -3,48 +3,48 @@ const handler = async (m, { conn, participants, groupMetadata }) => {
   
   const text = `✨ *CONFIGURACIÓN DEL GRUPO* 
   
-◈ Welcome: `\${welcome ? 'Activado' : 'Desactivado'}\`
+◈ Welcome: `${welcome ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o desactiva el mensaje de bienvenida en el grupo.
 
-◈ Autolevelup: `\${autolevelup ? 'Activado' : 'Desactivado'}\`
+◈ Autolevelup: `${autolevelup ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o descativa la subida automática de nivel en el Bot.
 
-◈ Antibot: `\${antiBot ? 'Activado' : 'Desactivado'}\`
+◈ Antibot: `${antiBot ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o descativa la expulsión de un grupo. otros bots no autorizados.
 
-◈ Antisubbots: `\${antiBot2 ? 'Activado' : 'Desactivado'}\`
+◈ Antisubbots: `${antiBot2 ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o descativa la expulsión de un grupo a subbots no autorizados.
 
-◈ Autoaceptar: `\${autoAceptar ? 'Activado' : 'Desactivado'}\`
+◈ Autoaceptar: `${autoAceptar ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o desactiva el autoaceptar que acepta automáticamente la solicitud a los números en el grupo.
 
-◈ Autorechazar: `\${autoRechazar ? 'Activado' : 'Desactivado'}\`
+◈ Autorechazar: `${autoRechazar ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o desactiva el autorechazar que rechaza automáticamente la solicitud a los números en el grupo.
 
-◈ Autoresponder: `\${autoresponder ? 'Activado' : 'Desactivado'}\`
+◈ Autoresponder: `${autoresponder ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa las respuestas automáticas del bot usando la IA de Gemini.
 
-◈ Modoadmin: `\${modoadmin ? 'Activado' : 'Desactivado'}\`
+◈ Modoadmin: `${modoadmin ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* El bot solo responderá a los administradores del grupo.
 
-◈ Reaction: `\${reaction ? 'Activado' : 'Desactivado'}\`
+◈ Reaction: `${reaction ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o descativa las reacciones en el Bot.
 
-◈ Nsfw: `\${nsfw ? 'Activado' : 'Desactivado'}\` 
+◈ Nsfw: `${nsfw ? 'Activado' : 'Desactivado'}` 
 > ➨ *Descripción:* Activa o desactiva los comandos +18 en el grupo y no los envia.
 
-◈ Detect: `\${detect ? 'Activado' : 'Desactivado'}\` 
+◈ Detect: `${detect ? 'Activado' : 'Desactivado'}` 
 > ➨ *Descripción:* Activa o desactiva las notificaciones de cambios en el grupo.
 
-◈ Antilink: `\${antiLink ? 'Activado' : 'Desactivado'}\`
+◈ Antilink: `${antiLink ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o desactiva el bloqueo de enlaces de WhatsApp. 
 
-◈ Antitoxic: `\${antitoxic ? 'Activado' : 'Desactivado'}\`
+◈ Antitoxic: `${antitoxic ? 'Activado' : 'Desactivado'}`
 > ➨ 
-◈ Antitraba: `\${antiTraba ? 'Activado' : 'Desactivado'}\`
+◈ Antitraba: `${antiTraba ? 'Activado' : 'Desactivado'}`
 > ➨ 
 
-◈ antifake: `\${antifake ? 'Activado' : 'Desactivado'}\`
+◈ antifake: `${antifake ? 'Activado' : 'Desactivado'}`
 > ➨ *Descripción:* Activa o desactiva el bloqueo de enlaces de WhatsApp.  
 
 ✦ Nota: Puedes activar una de estas opciones de esta manera Ejemplo: #antilink`.trim();
