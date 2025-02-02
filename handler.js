@@ -594,7 +594,6 @@ private: `🍬 El comando *${comando}* solo puede ser usado al chat privado del 
 admin: `🍬 El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
 botAdmin: `🍬 Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
 unreg: `🍬 El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
-suittag: `👑 Este comando *${comando}* solo puede ser ejecutado por mi creador.`,
 restrict: `🍬 Esta caracteristica está desactivada.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
