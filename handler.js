@@ -179,8 +179,6 @@ if (!('antiLink2' in chat))
 chat.antiLink2 = false
 if (!('reaction' in chat))
 chat.reaction = false
-if (!('viewonce' in chat))
-chat.viewonce = false
 if (!('nsfw' in chat))
 chat.reaction = false
 if (!('simi' in chat))
@@ -223,7 +221,6 @@ reaction: false,
 nsfw: false,
 antiver: false,
 autosticker: false,
-viewonce: false,
 expired: 0, 
 }
 var settings = global.db.data.settings[this.user.jid]
