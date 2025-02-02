@@ -27,33 +27,11 @@ let owner = `
 ᰔᩚ *#dsowner • #delai*
 > ✦ Elimina archivos innecesarios de sesión.
 ᰔᩚ *#removecoin • #quitarcoin
-> ✦ Quitar coins de un usuario.
+> ✦ Quitar coins a un usuario.
 ᰔᩚ *#deletedatauser • #resetuser*
 > ✦ Restablecer los datos de un usuario.
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
+ᰔᩚ *#removexp • #quitarxp*
+> ✦ Quitar XP a un usuario.
 
 »  ⊹˚• \`OWNERS\` •˚⊹
 
@@ -94,30 +72,32 @@ let owner = `
 > ✦ Restablecer el prefijo del Bot.
 ᰔᩚ *#reiniciar • #restart*
 > ✦ Reiniciar el servidor del Bot.
-ᰔᩚ *#reunionstaff
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
-ᰔᩚ
-> ✦ 
+ᰔᩚ *#reunion • #meeting*
+> ✦ Envia un aviso de reunión a los owners.
+ᰔᩚ *#savejs • #savefile*
+> ✦ Guarda un archivo en una de las rutas del Bot.
+ᰔᩚ *#saveplugin*
+> ✦ Guarda un plugin en la carpeta de comandos del Bot.
+ᰔᩚ *#setbanner*
+> ✦ Cambia la imagen del menu principal del Bot.
+ᰔᩚ *#setcatalogo*
+> ✦ Cambia la imagen del catálogo.
+ᰔᩚ *#addcmd • #setcmd*
+> ✦ Guarda un sticker/imagen como texto o comando.
+ᰔᩚ *#delcmd*
+> ✦ Elimina el texto/comando del Bot.
+ᰔᩚ *#cmdlist • #listcmd*
+> ✦ Ver listado de textos/comandos.
+ᰔᩚ *#setimage • #setpfp*
+> ✦ Cambia la foto del perfil del Bot.
+ᰔᩚ *#setmoneda*
+> ✦ Cambia la moneda del Bot.
+ᰔᩚ *#setname*
+> ✦ Cambia el nombre del Bot
+ᰔᩚ *#setbio • #setstatus*
+> ✦ Cambia la biografía del Bot.
+ᰔᩚ *#update*
+> ✦ Actualiza el Bot a la versión más reciente de GitHub.
 `.trim();
 
 await conn.sendMessage(m.chat, {
