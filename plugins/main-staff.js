@@ -43,7 +43,7 @@ contextInfo: {
 externalAdReply: {
 title: '✨ Developers',
 body: dev,
-thumbnailUrl: catalogo,
+thumbnailUrl: icono,
 sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: true,
