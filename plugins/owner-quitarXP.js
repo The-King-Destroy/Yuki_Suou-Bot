@@ -40,9 +40,9 @@ let handler = async (m, { conn, text }) => {
 » ${dmt} \n@${who.split('@')[0]}, te han quitado ${dmt} XP`, null, { mentions: [who] });
 };
 
-handler.help = ['quitarxp *<@user>*', 'quitarxp all'];
+handler.help = ['quitarxp *<@user>*'];
 handler.tags = ['owner'];
-handler.command = ['quitarxp', 'removexp', 'removexp']; 
+handler.command = ['quitarxp', 'removexp']; 
 handler.rowner = true;
 
 export default handler;
