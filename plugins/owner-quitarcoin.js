@@ -46,5 +46,6 @@ handler.help = ['quitarcoin *<@user>*', 'quitarcoin all'];
 handler.tags = ['owner'];
 handler.command = ['quitarcoin', 'removecoin', 'removecoins']; 
 handler.rowner = true;
+handler.mods = true;
 
 export default handler;
