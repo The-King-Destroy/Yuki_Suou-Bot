@@ -16,4 +16,6 @@ const handler = async (m, {conn, isOwner}) => {
 };
 handler.command = ['banlist','listban'];
 handler.rowner = true;
+handler.mods = true;
+
 export default handler;
