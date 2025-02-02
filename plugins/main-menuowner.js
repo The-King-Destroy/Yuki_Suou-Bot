@@ -26,7 +26,9 @@ let owner = `
 > ✦ Desbanear a un usuario.
 ᰔᩚ *#dsowner • #delai*
 > ✦ Elimina archivos innecesarios de sesión.
-ᰔᩚ *#removecoin • #quitarcoin
+ᰔᩚ *#cleartmp • #borrartmp • #vaciartmp*
+> ✦ Elimina archivo innecesarios de la carpeta tmp.
+ᰔᩚ *#removecoin • #quitarcoin*
 > ✦ Quitar coins a un usuario.
 ᰔᩚ *#deletedatauser • #resetuser*
 > ✦ Restablecer los datos de un usuario.
@@ -52,8 +54,6 @@ let owner = `
 > ✦ Crea un nuevo grupo desde el número del Bot.
 ᰔᩚ *#deletefile*
 > ✦ Elimina archivos del Bot
-ᰔᩚ *#cleartmp • #borrartmp • #vaciartmp*
-> ✦ Elimina archivo innecesarios de la carpeta tmp.
 ᰔᩚ *#get • #fetch*
 > ✦ Ver el estado de una página web.
 ᰔᩚ *#plugin • #getplugin*
