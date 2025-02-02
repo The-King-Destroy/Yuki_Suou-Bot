@@ -76,8 +76,6 @@ let owner = `
 > ✦ Elimina archivos del Bot
 ᰔᩚ *#cleartmp • #borrartmp • #vaciartmp*
 > ✦ Elimina archivo innecesarios de la carpeta tmp.
-ᰔᩚ *['= • > • => • $']*
-> ✦ Opciones avanzadas
 ᰔᩚ *#get • #fetch*
 > ✦ Ver el estado de una página web.
 ᰔᩚ *#plugin • #getplugin*
