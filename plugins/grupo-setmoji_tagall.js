@@ -6,7 +6,7 @@
 let handler = async (m, { conn, text, isRowner }) => {
 
   if (!text) {
-    return m.reply('🍬 Debes proporcionar un emoji válido después del comando. Ejemplo: `.setemoji 🍭`');
+    return m.reply('🍬 Debes proporcionar un emoji válido después del comando. Ejemplo: .setemoji 🍭');
   }
 
   const emoji = text.trim();
