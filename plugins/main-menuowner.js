@@ -8,7 +8,9 @@ let owner = `
 »  ⊹˚• \`pene\` •˚⊹
 
 ᰔᩚ *#addcoins • #añadircoin*
-> ✦ Añade coins a un usuario.
+> ✦ Añade coins a un usuario. *OWNERS*
+ᰔᩚ *#addowner • #delowner*
+> ✦ Agrega o elimina un número de la lista de owners. *OWNERS*
 `.trim();
 
 await conn.sendMessage(m.chat, {
