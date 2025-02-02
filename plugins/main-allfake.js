@@ -100,8 +100,7 @@ global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.packsticker = `°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.\n\n✦ Usuario: ${nombre}\n
-✦ Creador: ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜\n✦ Fecha y Hora: ${fecha}|${tiempo}`;
+global.packsticker = `°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.\n\n✦ Usuario: ${nombre}\n✦ Creador: ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜\n✦ Fecha:${fecha}\n✦ Hora: ${tiempo}\n`;
 global.packsticker2 = `✦ Bot: ${botname}\n\n°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.`
   
 //Fakes
@@ -110,7 +109,7 @@ global.fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJ
 global.fake = { contextInfo: { isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: channelRD.id, newsletterName: channelRD.name, serverMessageId: -1 }
 }}, { quoted: m }
 
-global.icono = [ 
+global.icono = [
 'https://tinyurl.com/285a5ejf',
 ].getRandom()
 
