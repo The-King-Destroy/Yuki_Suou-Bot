@@ -6,22 +6,22 @@
 let handler = async (m, { conn, text, isRowner }) => {
 
   if (!text) {
-    return m.reply('? Debes proporcionar un emoji v®¢lido despu®¶s del comando. Ejemplo: `.setemoji ?`');
+    return m.reply('üç¨ Debes proporcionar un emoji v√°lido despu√©s del comando. Ejemplo: `.setemoji üç≠`');
   }
 
   const emoji = text.trim();
 
   if (!isEmoji(emoji)) {
-    return m.reply('? El texto proporcionado no es un emoji v®¢lido. Aseg®≤rate de que sea un emoji real.');
+    return m.reply('üç≠ El texto proporcionado no es un emoji v√°lido. Aseg√∫rate de que sea un emoji real.');
   }
 
   try {
     global.db.data.chats[m.chat].customEmoji = emoji;
 
-    m.reply(`? El emoji del grupo ha sido actualizado correctamente a: ${emoji}`);
+    m.reply(`üç¨ El emoji del grupo ha sido actualizado correctamente a: ${emoji}`);
   } catch (error) {
     console.error(error);
-    m.reply('?? Hubo un error al intentar cambiar el emoji.');
+    m.reply('‚ö†Ô∏è Hubo un error al intentar cambiar el emoji.');
   }
 };
 
