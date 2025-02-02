@@ -44,5 +44,6 @@ handler.help = ['quitarxp *<@user>*'];
 handler.tags = ['owner'];
 handler.command = ['quitarxp', 'removexp']; 
 handler.rowner = true;
+handler.mods = true;
 
 export default handler;
