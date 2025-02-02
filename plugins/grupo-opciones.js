@@ -53,23 +53,19 @@ const handler = async (m, { conn, participants, groupMetadata }) => {
 
 _*✦ Nota: Puedes activar una de estas opciones de esta manera Ejemplo: #antilink*_`.trim();
 
-  await conn.sendFile(m.chat, icons, 'yuki.jpg', text, m, true, {
-    contextInfo: {
-      forwardingScore: 200,
-      isForwarded: false,
-      externalAdReply: {
-        showAdAttribution: true,
-        renderLargerThumbnail: false,
-        title: packname,
-        body: dev,
-        mediaType: 1,
-        sourceUrl: redes,
-        thumbnailUrl: icono
-      }
-    }
-  }, { mentions: [m.sender] });
-
-  m.react(emoji);
+await conn.sendMessage(m.chat, {
+text: text,
+contextInfo: {
+externalAdReply: {
+title: packname,
+body: dev,
+thumbnailUrl: catalogo,
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}
+}
+}, { quoted: m });
 };
 
 handler.help = ['configuraciongrupo'];
