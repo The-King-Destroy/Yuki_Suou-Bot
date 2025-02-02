@@ -55,5 +55,6 @@ handler.help = ['banuser <@tag> <razón>'];
 handler.command = ['banuser'];
 handler.tags = ['mods'];
 handler.rowner = true;
+handler.mods = true;
 
 export default handler;
