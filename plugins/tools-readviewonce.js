@@ -11,13 +11,11 @@ for await (const chunk of media) {
 buffer = Buffer.concat([buffer, chunk])
 }
 if (/video/.test(type)) {
-return conn.sendFile(m.chat, buffer, 'media.mp4', msg[type].caption || '', m)
+return conn.sendFile(m.chat, buffer, 'media.mp4', msg[type].caption || '', m, null, rcanal)
 } else if (/image/.test(type)) {
-return conn.sendFile(m.chat, buffer, 'media.jpg', msg[type].caption || '', m)
+return conn.sendFile(m.chat, buffer, 'media.jpg', msg[type].caption || '', m, null, rcanal)
 }}
-handler.help = ['ver']
-handler.tags = ['tools']
-handler.command = ['readviewonce', 'read', 'readvo'] 
-handler.register = true 
+handler.command = ['readviewonce', 'read', 'ver', 'readvo','ewonce','rvo', 'view']
+handler.group = true;
 
 export default handler
