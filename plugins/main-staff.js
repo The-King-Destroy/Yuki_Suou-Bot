@@ -1,6 +1,4 @@
-import moment from 'moment-timezone';
-
-let handler = async (m, { conn, args }) => {
+let handler = async (m, { conn }) => {
 let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
