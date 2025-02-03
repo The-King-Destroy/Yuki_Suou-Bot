@@ -1,5 +1,5 @@
-let handler = async (m, { conn, command, usedPrefix }) => {
-let staff = `
+const handler = async (m, { conn, command, usedPrefix }) => {
+let text = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
 🍬 *Bot:* ${botname}
@@ -33,22 +33,22 @@ let staff = `
 🌪️ 𝓛𝓮𝓰𝓷𝓪
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
-`
-await conn.sendFile(m.chat, 'yaemori.jpg', staff.trim(), fkontak, true, {
+`trim();
+
+await conn.sendMessage(m.chat, {
+text: text,
 contextInfo: {
-'forwardingScore': 200,
-'isForwarded': false,
 externalAdReply: {
-showAdAttribution: true,
-renderLargerThumbnail: false,
 title: packname,
 body: dev,
+thumbnailUrl: icono,
 mediaType: 1,
-sourceUrl: channel,
-thumbnailUrl: icono
-}}
-}, { mentions: m.sender })
+showAdAttribution: true,
+renderLargerThumbnail: true
 }
+}
+}, { quoted: m });
+};
   
 handler.help = ['staff'];
 handler.tags = ['main'];
