@@ -68,7 +68,7 @@ function cleanYukiSession() {
 
   fs.readdir(sessionPath, (err, files) => {
     if (err) {
-      return console.log('No se puede escanear el directorio YukiSession: ' + err);
+      return console.log('No se puede escanear el directorio Sessions: ' + err);
     }
 
     let filesDeleted = 0;
@@ -89,9 +89,9 @@ function cleanYukiSession() {
 
     Promise.all(deletePromises).then(() => {
       if (filesDeleted > 0) {
-        console.log(`Se eliminaron ${filesDeleted} archivos de la sesión YukiSession`);
+        console.log(`Se eliminaron ${filesDeleted} archivos de la sesión.`);
       } else {
-        console.log('0 Archivos eliminados en YukiSession');
+        console.log('0 Archivos eliminados en Sessions');
       }
     }).catch((err) => {
       console.log('Error al eliminar archivos: ' + err);
