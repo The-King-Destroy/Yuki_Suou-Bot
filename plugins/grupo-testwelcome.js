@@ -2,6 +2,9 @@ import { WAMessageStubType } from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
+    if (!db.data.chats[m.chat].welcome && m.isGroup) {
+    return m.reply('🍭 Para usar este comando debe activar las Bienvenidas con *#welcome*');
+    }
     let chat = global.db.data.chats[m.chat];
     
     let mentions = text.trim();
