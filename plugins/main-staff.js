@@ -1,8 +1,3 @@
-import fs from 'fs'
-import fetch from 'node-fetch'
-import axios from 'axios'
-import moment from 'moment-timezone'
-
 let handler = async (m, { conn, command, usedPrefix }) => {
 let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
@@ -38,26 +33,23 @@ let staff = `
 🌪️ 𝓛𝓮𝓰𝓷𝓪
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
-`.trim();
-  
-const img = './Menu.jpg';
-
-await conn.sendFile(m.chat, {
-text: staff,
+`
+await conn.sendFile(m.chat, staff.trim(),  true, {
 contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
 externalAdReply: {
+showAdAttribution: true,
+renderLargerThumbnail: false,
 title: packname,
 body: dev,
-thumbnail: img,
-sourceUrl: channel,
 mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
+sourceUrl: channel,
+thumbnailUrl: icono
+}}
+}, { mentions: m.sender })
 }
-}
-}, { quoted: m });
-};
-
+  
 handler.help = ['staff'];
 handler.tags = ['main'];
 handler.command = ['ayudantes', 'colaboradores', 'staff'];
