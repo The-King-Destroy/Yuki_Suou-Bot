@@ -39,7 +39,7 @@ await conn.sendMessage(m.chat, {
 text: staff,
 contextInfo: {
 externalAdReply: {
-title: '✨ Developers',
+title: packname,
 body: dev,
 thumbnailUrl: icono,
 sourceUrl: channel,
