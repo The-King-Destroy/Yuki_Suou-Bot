@@ -46,7 +46,7 @@ contextInfo: {
 externalAdReply: {
 title: packname,
 body: dev,
-thumbnail: banner,
+thumbnailUrl: banner,
 sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: true,
