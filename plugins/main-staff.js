@@ -42,7 +42,7 @@ let staff = `
   
 const img = './Menu.jpg';
 
-await conn.sendMessage(m.chat, {
+await conn.sendFile(m.chat, {
 text: staff,
 contextInfo: {
 externalAdReply: {
