@@ -33,7 +33,7 @@ let staff = `✨ *EQUIPO DE AYUDANTES* ✨
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
 `
-await conn.sendFile(m.chat, icons, 'yuki.jpg', staff.trim(), fkontak, true, {
+await conn.sendFile(m.chat, icono, 'yuki.jpg', staff.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
