@@ -1,5 +1,5 @@
-const handler = async (m, { conn, participants, groupMetadata }) => {
-const text = `
+let handler = async (m, { conn, command, usedPrefix }) => {
+let text = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
 🍬 *Bot:* ${botname}
