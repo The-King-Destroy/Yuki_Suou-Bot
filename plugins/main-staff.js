@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import moment from 'moment-timezone'
 
-let handler = async (m, { conn }) => {
+let handler = async (m, { conn, command, usedPrefix }) => {
 let staff = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
@@ -39,6 +39,7 @@ let staff = `
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
 `.trim();
+const pp = Menu;
 
 await conn.sendMessage(m.chat, {
 text: staff,
@@ -46,7 +47,7 @@ contextInfo: {
 externalAdReply: {
 title: packname,
 body: dev,
-thumbnailUrl: banner,
+thumbnail: pp,
 sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: true,
