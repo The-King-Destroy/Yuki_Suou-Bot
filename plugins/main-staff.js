@@ -1,4 +1,4 @@
-const handler = async (m, { conn, command, usedPrefix }) => {
+const handler = async (m, { conn, participants, groupMetadata }) => {
 const text = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
