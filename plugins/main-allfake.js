@@ -56,7 +56,7 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 //Reacciones De Comandos.!
 global.rwait = '🕒'
 global.done = '✅'
-global.error = '✖️'
+global.error = '⚠️'
 
 //Emojis determinado de Yuki Bot
 global.emoji = '🍬'
