@@ -15,7 +15,10 @@ return conn.sendFile(m.chat, buffer, 'media.mp4', msg[type].caption || '', m)
 } else if (/image/.test(type)) {
 return conn.sendFile(m.chat, buffer, 'media.jpg', msg[type].caption || '', m)
 }}
-handler.command = ['readviewonce', 'read', 'readvo','ewonce','rvo', 'view']
-handler.register = true;
+handler.help = ['ver']
+handler.tags = ['tools']
+handler.command = ['readviewonce', 'read', 'ver', 'readvo'] 
+//handler.limit = 1
+handler.register = true 
 
 export default handler
