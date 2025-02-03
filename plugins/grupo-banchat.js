@@ -9,7 +9,7 @@ handler.tags = ['grupo']
 handler.command = ['banchat']
 
 handler.botAdmin = true
-handler.admin = true 
+//handler.admin = true 
 handler.group = true
 
 export default handler
