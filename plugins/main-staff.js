@@ -37,7 +37,7 @@ await conn.sendFile(m.chat, icons, 'yuki.jpg', staff.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
-externalAdReply: {
+/*externalAdReply: {
 showAdAttribution: true,
 renderLargerThumbnail: false,
 title: packname,
@@ -45,7 +45,8 @@ body: dev,
 mediaType: 1,
 sourceUrl: channel,
 thumbnailUrl: icono
-}}
+}}*/
+}
 }, { mentions: m.sender })
 m.react(emoji)
 
