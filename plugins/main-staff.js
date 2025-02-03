@@ -34,7 +34,7 @@ let staff = `
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
 `
-await conn.sendFile(m.chat, staff.trim(),  true, {
+await conn.sendFile(m.chat, 'yaemori.jpg', staff.trim(), fkontak, true, {
 contextInfo: {
 'forwardingScore': 200,
 'isForwarded': false,
