@@ -1,5 +1,5 @@
 const handler = async (m, { conn, command, usedPrefix }) => {
-let text = `
+const text = `
 ✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
 🍬 *Bot:* ${botname}
