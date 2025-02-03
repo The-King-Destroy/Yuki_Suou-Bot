@@ -3,11 +3,11 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     let chat = global.db.data.chats[m.chat];
-    if (!chat.welcome) throw `⚠️ Para usar este comando debe activar las Bienvenidas con *${usedPrefix}on* welcome`;
+    if (!text) return conn.reply(m.chat, `🍭 Para usar este comando debe activar las Bienvenidas con *${usedPrefix}welcome*`, m);
 
     let mentions = text.trim();
     let who = mentions ? conn.parseMention(mentions) : [];
-    if (!who.length) throw `📌 Menciona al usuario con @ para simular la bienvenida.`;
+    if (!text) return conn.reply(m.chat, `🍬 Menciona al usuario con @ para simular la bienvenida.`, m);
 
     let taguser = `@${who[0].split('@')[0]}`;
     let groupMetadata = await conn.groupMetadata(m.chat);
