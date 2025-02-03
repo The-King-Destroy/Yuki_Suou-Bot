@@ -39,7 +39,7 @@ let staff = `
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
 `.trim();
-const pp = imagen;
+  
 const img = './Menu.jpg';
 
 await conn.sendMessage(m.chat, {
