@@ -3,8 +3,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     let chat = global.db.data.chats[m.chat];
-    if (!text) return conn.reply(m.chat, `🍭 Para usar este comando debe activar las Bienvenidas con *${usedPrefix}welcome*`, m);
-
+    
     let mentions = text.trim();
     let who = mentions ? conn.parseMention(mentions) : [];
     if (!text) return conn.reply(m.chat, `🍬 Menciona al usuario con @ para simular la bienvenida.`, m);
