@@ -35,6 +35,8 @@ let staff = `
 👾 *GitHub:* https://github.com/Legna-chan
 `.trim();
 
+let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+
 await conn.sendMessage(m.chat, {
 text: staff,
 contextInfo: {
