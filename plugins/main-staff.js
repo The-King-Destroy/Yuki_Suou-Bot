@@ -35,7 +35,7 @@ let staff = `
 👾 *GitHub:* https://github.com/Legna-chan
 `.trim();
 
-let perfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://qu.ax/QGAVS.jpg')
+let img = [`${icono}`]
 
 await conn.sendMessage(m.chat, {
 text: staff,
@@ -43,7 +43,7 @@ contextInfo: {
 externalAdReply: {
 title: packname,
 body: dev,
-thumbnailUrl: icono,
+thumbnail: img,
 sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: true,
