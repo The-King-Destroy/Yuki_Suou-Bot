@@ -8,7 +8,7 @@ handler.help = ['banchat']
 handler.tags = ['grupo']
 handler.command = ['banchat']
 
-handler.botAdmin = true
+//handler.botAdmin = true
 //handler.admin = true 
 handler.group = true
 
