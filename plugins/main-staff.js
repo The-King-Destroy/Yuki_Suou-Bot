@@ -1,6 +1,5 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
-let text = `
-✨ *EQUIPO DE AYUDANTES* ✨
+let staff = `✨ *EQUIPO DE AYUDANTES* ✨
 👑 *Dueño* ${creador}
 🍬 *Bot:* ${botname}
 ⚜️ *Versión:* ${vs}
@@ -33,25 +32,27 @@ let text = `
 🌪️ 𝓛𝓮𝓰𝓷𝓪
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
-`trim();
-
-await conn.sendMessage(m.chat, {
-text: text,
+`
+await conn.sendFile(m.chat, icons, 'yuki.jpg', staff.trim(), fkontak, true, {
 contextInfo: {
+'forwardingScore': 200,
+'isForwarded': false,
 externalAdReply: {
+showAdAttribution: true,
+renderLargerThumbnail: false,
 title: packname,
 body: dev,
-thumbnailUrl: icono,
 mediaType: 1,
-showAdAttribution: true,
-renderLargerThumbnail: true
-}
-}
-}, { quoted: m });
-};
-  
-handler.help = ['staff'];
-handler.tags = ['main'];
-handler.command = ['ayudantes', 'colaboradores', 'staff'];
+sourceUrl: channel,
+thumbnailUrl: icono
+}}
+}, { mentions: m.sender })
+m.react(emoji)
 
-export default handler;
+}
+handler.help = ['staff']
+handler.command = ['colaboradores', 'staff']
+handler.register = true
+handler.tags = ['main']
+
+export default handler
