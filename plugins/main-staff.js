@@ -35,15 +35,13 @@ let staff = `
 👾 *GitHub:* https://github.com/Legna-chan
 `.trim();
 
-let img = [`${icono}`]
-
 await conn.sendMessage(m.chat, {
 text: staff,
 contextInfo: {
 externalAdReply: {
 title: packname,
 body: dev,
-thumbnail: img,
+thumbnail: `${icono}`,
 sourceUrl: channel,
 mediaType: 1,
 showAdAttribution: true,
