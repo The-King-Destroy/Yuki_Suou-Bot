@@ -1,17 +1,17 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn }) => {
-    let img = 'https://qu.ax/sxCbF.jpg'
     let user = global.db.data.users[m.sender];
+    let img = 'https://qu.ax/sxCbF.jpg'
     if (!user) {
-        return conn.reply(m.chat, `${emoji4} El usuario no se encuentra en la base de Datos.`, m);
+        return conn.reply(m.chat, '🍬 El usuario no se encuentra en la base de Datos.', m);
     }
     if (user.health < 80) {
         return conn.reply(m.chat, '💔 No tienes suficiente salud para aventurarte. Usa el comando .heal para curarte.', m);
     }
     if (user.lastAdventure && new Date() - user.lastAdventure <= 1500000) {
         let timeLeft = 1500000 - (new Date() - user.lastAdventure);
-        return conn.reply(m.chat, `${emoji3} Debés esperar. ${msToTime(timeLeft)} antes de aventurarte de nuevo.`, m);
+        return conn.reply(m.chat, `⏳ Debés esperar. ${msToTime(timeLeft)} antes de aventurarte de nuevo.`, m);
     }
     let kingdoms = [
         'Reino de Eldoria',
@@ -58,8 +58,19 @@ let handler = async (m, { conn }) => {
                `💎 *Diamantes Ganados:* ${diamonds}\n` +
                `✨ *Experiencia Ganada:* ${exp}\n` +
                `❤️ *Salud Actual:* ${user.health}`;
-    await conn.sendFile(m.chat, img, 'thumbnail.jpg', { text: info }, { quoted: m });
-};
+   await conn.sendFile(m.chat, img, 'yuki.jpg', info, fkontak, true, {
+
+contextInfo: {
+
+'forwardingScore': 200,
+
+'isForwarded': false,
+
+}
+
+}, { mentions: m.sender })
+
+}
 
 handler.help = ['aventura', 'adventure'];
 handler.tags = ['rpg'];
