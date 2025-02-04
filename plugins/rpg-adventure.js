@@ -1,16 +1,17 @@
 import fetch from 'node-fetch';
 
 let handler = async (m, { conn }) => {
+    let img = 'https://qu.ax/sxCbF.jpg'
     let user = global.db.data.users[m.sender];
     if (!user) {
-        return conn.reply(m.chat, '🍬 El usuario no se encuentra en la base de Datos.', m);
+        return conn.reply(m.chat, `${emoji4} El usuario no se encuentra en la base de Datos.`, m);
     }
     if (user.health < 80) {
         return conn.reply(m.chat, '💔 No tienes suficiente salud para aventurarte. Usa el comando .heal para curarte.', m);
     }
     if (user.lastAdventure && new Date() - user.lastAdventure <= 1500000) {
         let timeLeft = 1500000 - (new Date() - user.lastAdventure);
-        return conn.reply(m.chat, `⏳ Debés esperar. ${msToTime(timeLeft)} antes de aventurarte de nuevo.`, m);
+        return conn.reply(m.chat, `${emoji3} Debés esperar. ${msToTime(timeLeft)} antes de aventurarte de nuevo.`, m);
     }
     let kingdoms = [
         'Reino de Eldoria',
@@ -46,7 +47,7 @@ let handler = async (m, { conn }) => {
     if (user.health < 0) {
         user.health = 0;
     }
-    let info = `🛫 *Te has aventurado en el ${randomKingdom}*\n` +
+    let info = `🛫 Te has aventurado en el *${randomKingdom}*\n` +
                `🏞️ *Aventura Finalizada* 🏞️\n` +
                `💸 *${moneda} Ganados:* ${coin}\n` +
                `♦️ *Esmeralda:* ${emerald}\n` +
@@ -57,7 +58,7 @@ let handler = async (m, { conn }) => {
                `💎 *Diamantes Ganados:* ${diamonds}\n` +
                `✨ *Experiencia Ganada:* ${exp}\n` +
                `❤️ *Salud Actual:* ${user.health}`;
-    await conn.sendMessage(m.chat, { text: info }, { quoted: m });
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', { text: info }, { quoted: m });
 };
 
 handler.help = ['aventura', 'adventure'];
