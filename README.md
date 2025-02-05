@@ -12,7 +12,7 @@
 </details>
 
 <details> 
-<summary><b> 🍬 Versión ^2.1.5</b></summary>
+<summary><b> 🍬 Versión ^2.2.0</b></summary>
 
 * **Este proyecto no ofrece soporte oficial para su uso en Termux.** Termux es una aplicación de terminal para Android y, aunque puede ser utilizada para ejecutar diversos programas, **este proyecto no está diseñado ni probado específicamente para funcionar en Termux**. Por lo tanto, **no garantizamos compatibilidad ni soporte técnico en este entorno**.
 </details>
