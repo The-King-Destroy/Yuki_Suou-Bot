@@ -95,16 +95,16 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-###  **` MASHA-HOTS`**
-<a href="https://home.akirax.net"><img src="https://qu.ax/aHudo.jpg" height="145px"></a>
+###  **`☄️ AKIRAX-HOTS`**
+<a href="https://home.akirax.net"><img src="https://qu.ax/AVgaL.jpg" height="145px"></a>
 
 <details>
- <summary><b>🍂 Servidor Masha-Hots</b></summary>
+ <summary><b>💠 Servidor Akirax-Hots</b></summary>
 
 * Dashboard: [`Dash`](https://home.akirax.net)
 * Panel: [`Panel`](https://console.akirax.net)
 * Canal de WhatsApp: [`Canal Masha`](https://whatsapp.com/channel/0029Vb3Ocrs7IUYNQktqeE11)
-* Comunidad: [`Aquí`](https://chat.whatsapp.com/Fz9rCXegzos1Yh0qHkxGhD)
+* Comunidad: [`Aquí`](https://chat.whatsapp.com/HekxzfoLBxN1TCwTmrlGcy)
 * Contacto(s): [`Matias`](https://Wa.me/+5491164123932) / [`Legend`](https://wa.me/584148256527) / [`Tesis`](https://wa.me/522431268546)
 
 </details>
