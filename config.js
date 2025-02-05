@@ -66,26 +66,8 @@ global.catalogo = 'https://tinyurl.com/25ru293g'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.imagen1 = fs.readFileSync('./src/menus/Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/anime.jpg');
-global.imagen3 = fs.readFileSync('./src/menus/Menu3.jpg');
-global.imagen4 = fs.readFileSync('./src/menus/Menu.jpg');
-global.imagen5 = fs.readFileSync('./src/+18.jpg');
-global.imagen6 = fs.readFileSync('./src/menus/Menu3.jpg');
-global.imagen7 = fs.readFileSync('./src/menus/Menu5.jpg');
-global.imagen8 = fs.readFileSync('./src/menus/Menu4.jpg')
-global.imagen9 = fs.readFileSync('./src/menu_en.png')
-global.imagen10 = fs.readFileSync('./src/nuevobot.jpg')
-global.miniurl = fs.readFileSync('./src/Grupo.jpg');
-global.logo2 = fs.readFileSync('./src/logo2.jpg')
-global.logo3 = fs.readFileSync('./src/logo3.jpg')
-global.catalogo = fs.readFileSync('./src/logo6.png')
-global.logo4 = fs.readFileSync('./src/logo4.jpg')
-global.logo5 = fs.readFileSync('./src/logo5.jpg')
-global.logo7 = fs.readFileSync('./src/Logo7.png')
-global.logo8 = fs.readFileSync('./src/Logo8.jpg')
-global.rule = fs.readFileSync('./src/rule.jpg')
-global.photoSity = [imagen8, imagen1, imagen4, imagen6]
+global.photoSity = [imagen2]
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
