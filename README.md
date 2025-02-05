@@ -79,22 +79,6 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-###  **`©️ BRONXYS-HOTS`**
-<a href="https://bronxyshost.com"><img src="https://tinyurl.com/23qv2kvr" height="145px"></a>
-
-<details>
- <summary><b>♣️ Servidor Bronxy-Hots</b></summary>
-
-* Dashboard: [`Dash`](https://bronxyshost.com)
-* Panel: [`Panel`](https://bronxyshost.com)
-* Canal de WhatsApp: [`Canal Bronxy`](https://whatsapp.com/channel/0029Va9l48kHbFV6SQFKz93B)
-* Grupo Oficial: [`Aquí`](https://chat.whatsapp.com/GVQsAe6CAjoJLuotkpnAqq)
-* Grupo Soporte: [`Soporte`](https://wa.me/message/OMZQOH4YZ765K1) 
-
-</details>
-
----
-
 ###  **`☄️ AKIRAX-HOTS`**
 <a href="https://home.akirax.net"><img src="https://qu.ax/AVgaL.jpg" height="145px"></a>
 
@@ -140,6 +124,22 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 * Canal de WhatsApp [`Canal Py`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
 * Comunidad  [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
 * Contacto(s) [`Soporte`](https://wa.me/595976126756)
+
+</details>
+
+---
+
+###  **`©️ BRONXYS-HOTS`**
+<a href="https://bronxyshost.com"><img src="https://tinyurl.com/23qv2kvr" height="145px"></a>
+
+<details>
+ <summary><b>♣️ Servidor Bronxy-Hots</b></summary>
+
+* Dashboard: [`Dash`](https://bronxyshost.com)
+* Panel: [`Panel`](https://bronxyshost.com)
+* Canal de WhatsApp: [`Canal Bronxy`](https://whatsapp.com/channel/0029Va9l48kHbFV6SQFKz93B)
+* Grupo Oficial: [`Aquí`](https://chat.whatsapp.com/GVQsAe6CAjoJLuotkpnAqq)
+* Grupo Soporte: [`Soporte`](https://wa.me/message/OMZQOH4YZ765K1) 
 
 </details>
 
