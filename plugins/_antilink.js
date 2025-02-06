@@ -14,14 +14,14 @@ const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]
 let bot = global.db.data.settings[this.user.jid] || {};
 const isGroupLink = linkRegex.exec(m.text) || linkRegex1.exec(m.text);
 const grupo = `https://chat.whatsapp.com`;
-if (isAdmin && chat.antiLink && m.text.includes(grupo)) return m.reply(`${emoji} El antilink está activo pero te salvaste por ser admin.`);
+if (isAdmin && chat.antiLink && m.text.includes(grupo)) return m.reply(`✦ El antilink está activo pero te salvaste por ser admin.`);
 if (chat.antiLink && isGroupLink && !isAdmin) {
 if (isBotAdmin) {
 const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`;
 if (m.text.includes(linkThisGroup)) return !0;
 }
-await conn.sendMessage(m.chat, { text: `*「 ENLACE DETECTADO 」*\n\n${emoji} ${user} Rompiste las reglas del Grupo serás eliminado...`, mentions: [m.sender] }, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
-if (!isBotAdmin) return conn.sendMessage(m.chat, { text: `${emoji2} El antilink está activo pero no puedo eliminarte porque no soy admin.`, mentions: [...groupAdmins.map(v => v.id)] }, { quoted: m });
+await conn.sendMessage(m.chat, { text: `*「 ENLACE DETECTADO 」*\n\n《✧》${user} Rompiste las reglas del Grupo serás eliminado...`, mentions: [m.sender] }, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
+if (!isBotAdmin) return conn.sendMessage(m.chat, { text: `✦ El antilink está activo pero no puedo eliminarte porque no soy admin.`, mentions: [...groupAdmins.map(v => v.id)] }, { quoted: m });
 if (isBotAdmin) {
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet } });
 let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
