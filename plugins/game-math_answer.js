@@ -4,7 +4,7 @@ const handler = async (m, {conn}) => {
   if (!m.quoted) return;
   if (m.quoted.sender != conn.user.jid) return;
   if (!/^Cuanto es el resultado de:/i.test(m.quoted.text)) return;
-  if (!(m.chat in global.math)) return conn.reply(m.chat, `🍭 Ya se ha respondido a esa pregunta.`, m);
+  if (!(m.chat in global.math)) return conn.reply(m.chat, `${emoji2} Ya se ha respondido a esa pregunta.`, m);
 
   if (m.quoted.id == global.math[id][0].id) {
     const math = global.math[id][1];

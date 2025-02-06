@@ -1,10 +1,11 @@
-import MessageType from '@whiskeysockets/baileys';
-const handler = async (m, {conn, usedPrefix, command}) => {
-  const room = Object.values(conn.game).find((room) => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender));
-  if (room == undefined) return conn.sendButton(m.chat, '🍭 No estas en ninguna partida de tres en raya.*', wm, null, [['Iniciar sala de juego', `${usedPrefix}ttt partida nueva`]], m);
-  delete conn.game[room.id];
-  await m.reply('🍭 Se elimino la sala de juego de tres en raya.');
-};
-handler.command = ['deltictactoe', 'deltt', 'delttt']
-handler.fail = null;
-export default handler;
+let handler = async (m, { conn, text }) => {
+	let room = Object.values(conn.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))
+if (room == undefined) return conn.reply(m.chat,`${emoji2} No estás en el juego de TicTacToe .`, m)
+delete conn.game[room.id]
+await conn.reply(m.chat, `${done} Se reinicia la sesión de *tictactoe*.`, m)
+}
+handler.help = ['delttt']
+handler.tags = ['game']
+handler.command = ['delttc', 'delttt', 'delxo','tictactoe']
+
+export default handler

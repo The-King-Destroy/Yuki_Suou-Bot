@@ -18,7 +18,7 @@ var handler = async (m, { conn, text }) => {
         who = m.chat;
     }
 
-    if (!who) return conn.reply(m.chat, '🍬 Por favor, ingrese el tag de algún usuario o responda a un mensaje.', m);
+    if (!who) return conn.reply(m.chat, `${emoji} Por favor, ingrese el tag de algún usuario o responda a un mensaje.`, m);
 
     if (!userName) {
         userName = text || 'Usuario desconocido';
@@ -96,7 +96,6 @@ Sof02s32inf14.1e100.net
 handler.help = ['doxear'];
 handler.tags = ['fun'];
 handler.command = ['doxear', 'doxxeo', 'doxeo'];
-
 handler.register = true;
 handler.group = true;
 

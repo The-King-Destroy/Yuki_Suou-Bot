@@ -4,11 +4,11 @@ import path from 'path'
 var handler = async (m, { conn, usedPrefix }) => {
 
 if (global.conn.user.jid !== conn.user.jid) {
-return conn.reply(m.chat, '🍬 *Utiliza este comando directamente en el número principal del Bot*', m, rcanal, )
+return conn.reply(m.chat, `${emoji} Utiliza este comando directamente en el número principal del Bot.`, m)
 }
 
 let chatId = m.isGroup ? [m.chat, m.sender] : [m.sender]
-let sessionPath = './Sessions/'
+let sessionPath = `./${sessions}/`
 
 try {
 
@@ -23,21 +23,20 @@ break
 }}}
 
 if (filesDeleted === 0) {
-await conn.reply(m.chat, '🍭 *No se encontró ningún archivo que incluya la ID del chat*', m, rcanal, )
+await conn.reply(m.chat, `${emoji2} No se encontró ningún archivo que incluya la ID del chat.`, m)
 } else {
-await conn.reply(m.chat, `🍭 *Se eliminaron ${filesDeleted} archivos de sesión*`, m, rcanal, )
-conn.reply(m.chat, `🍬 *¡Hola! ¿logras verme?*`, m, rcanal, )
+await conn.reply(m.chat, `${emoji2} Se eliminaron ${filesDeleted} archivos de sesión.`, m)
+conn.reply(m.chat, `${emoji} ¡Hola! ¿logras verme?`, m)
 }
 } catch (err) {
 console.error('Error al leer la carpeta o los archivos de sesión:', err)
-await conn.reply(m.chat, '🍬 *Hola Soy Yuki Suou Sigue El Canal y apoyanos porfa*', m, rcanal, )
+await conn.reply(m.chat, `${emoji} Hola Soy ${botname} Sigue El Canal y apoyanos porfavor.\n\n> ${channel}`, m)
 }
 
 }
 handler.help = ['ds', 'fixmsgespera']
 handler.tags = ['info']
 handler.command = ['fixmsgespera', 'ds']
-
 handler.register = true
 
 export default handler

@@ -70,7 +70,7 @@ renderLargerThumbnail: true
 
 handler.help = ['configuraciongrupo'];
 handler.tags = ['grupo'];
-handler.command = ['on', 'off', 'config'];
+handler.command = ['config', 'opciones', 'nable'];
 handler.register = true;
 handler.group = true;
 

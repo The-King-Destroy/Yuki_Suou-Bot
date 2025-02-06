@@ -1,6 +1,6 @@
 var handler = async (m, { conn, command, text }) => {
 
-if (!text) return conn.reply(m.chat, '🍬 Por favor, ingrese el nombre de alguna persona.', m, rcanal, )
+if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingrese el nombre de alguna persona.`, m)
 
 let personalidad = `\`Nombre\` : ${text}
 \`Buena Moral\` : ${pickRandom(['6%','12%','20%','27%','35%','41%','49%','54%','60%','66%','73%','78%','84%','92%','93%','94%','96%','98,3%','99,7%','99,9%','1%','2,9%','0%','0,4%'])}
@@ -15,7 +15,7 @@ let personalidad = `\`Nombre\` : ${text}
 \`Fama\` : ${pickRandom(['6%','12%','20%','27%','35%','41%','49%','54%','60%','66%','73%','78%','84%','92%','93%','94%','96%','98,3%','99,7%','99,9%','1%','2,9%','0%','0,4%'])}
 \`Género\` : ${pickRandom(['Hombre', 'Mujer', 'Homosexual', 'Bisexual', 'Pansexual', 'Feminista', 'Heterosexual', 'Macho alfa', 'Mujerzona', 'Marimacha', 'Palosexual', 'PlayStationSexual', 'Sr. Manuela', 'Pollosexual'])}`
 
-conn.reply(m.chat, personalidad, m, rcanal, )
+conn.reply(m.chat, personalidad, m)
 
 }
 handler.help = ['personalidad']

@@ -1,5 +1,5 @@
 let handler = (m, { usedPrefix, command, text }) => {
-if (!text) return conn.reply(m.chat, `🍬 Por favor, ingresa tu fecha de nacimiento de esta manera.\nEjemplo: ${usedPrefix + command} 2007 06 01`, m, rcanal, )
+if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingresa tu fecha de nacimiento de esta manera.\n> Ejemplo: ${usedPrefix + command} 2007 06 01`, m)
 
     const date = new Date(text)
     if (date == 'Fecha invalida, prueba con el siguiente formato AAAA MM DD Ejemplo: 2003 02 07 ') throw date

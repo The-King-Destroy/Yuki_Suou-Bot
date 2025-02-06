@@ -1,6 +1,6 @@
 global.math = global.math ? global.math : {};
 const handler = async (m, {conn, args, usedPrefix, command}) => {
-  const mat =`🍬 Por favor, ingresa la dificulta con la que desea jugar.
+  const mat =`${emoji} Por favor, ingresa la dificulta con la que desea jugar.
 
 *Dificultades Disponibles: ${Object.keys(modes).join(' | ')}*
 *Ejemplo de uso: ${usedPrefix}mates medium*
@@ -11,14 +11,14 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
   if (!(mode in modes)) return await conn.reply(m.chat, mat, m);
 
   const id = m.chat;
-  if (id in global.math) return conn.reply(m.chat, '🍭 Todavía hay un juego en proceso en este chat.', global.math[id][0]);
+  if (id in global.math) return conn.reply(m.chat, `${emoji2} Todavía hay un juego en proceso en este chat.`, global.math[id][0]);
   const math = genMath(mode);
   global.math[id] = [
-    await conn.reply(m.chat, `🍭 Cuanto es el resultado de ${math.str}?\n\n🕒 Tiempo: ${(math.time / 1000).toFixed(2)} segundos\n*🍬 Premio: ${math.bonus} XP*`, m),
+    await conn.reply(m.chat, `${emoji} Cuanto es el resultado de ${math.str}?\n\n🕒 Tiempo: ${(math.time / 1000).toFixed(2)} segundos\n*${emoji2} Premio: ${math.bonus} XP*`, m),
     math, 4,
     setTimeout(() => {
       if (global.math[id]) {
-        conn.reply(m.chat, `🍭 Se a finalizado el tiempo para responder.\n\n🍬 La respuesta es ${math.result}`, m),
+        conn.reply(m.chat, `${emoji} Se a finalizado el tiempo para responder.\n\n> ${emoji2} La respuesta es ${math.result}`, m),
 
         delete global.math[id];
       }
@@ -28,6 +28,7 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 handler.help = ['math <mode>'];
 handler.tags = ['game'];
 handler.command = ['matemáticas', 'mates', 'math']
+
 export default handler;
 
 const modes = {

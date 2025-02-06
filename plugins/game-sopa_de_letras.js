@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command}) => {
 
 if (!userSP) { 
 userSP = m.sender.split("@")[0]
-await conn.reply(m.chat, `*@${m.sender.split("@")[0]} Registrado en el juego* ✅`, m, { mentions: [m.sender] })
+await conn.reply(m.chat, `@${m.sender.split("@")[0]} Registrado en el juego.`, m, { mentions: [m.sender] })
 }
   
 async function generarSopaDeLetras() {
@@ -100,7 +100,7 @@ await m.reply(`☁️ *SOPA DE LETRAS* ☁️
 *Escriba el número de la fila de la primera letra _"${PALABRA.charAt(0)}"_ de la palabra _"${PALABRA}"_ Tiene _${intentos}_ intentos!!*
 
 *Ejemplo:*
-🍬 \`\`\`${usedPrefix + command} 28\`\`\`
+${emoji} \`\`\`${usedPrefix + command} 28\`\`\`
 ➡️ \`\`\`Fila 2\`\`\`    ⬇️ \`\`\`Columna 8\`\`\``.trim())
 await m.reply(`☁️ *${PALABRA.split("").join(" ")}* ☁️\n\n` + sopaDeLetrasConBordes.trimEnd())
 fila = filaInicial 
@@ -146,7 +146,7 @@ diamante = 32
 }
 global.db.data.users[m.sender].coin += coin
 
-await m.reply(`\`\`\`🍬 Has ganado ${moneda} ${rpgshop.emoticon('limit')}!!\`\`\`\n\n*Correcto!! la palabra _"${sopaPalabra}"_ Se encontraba en la dirección _${cambioLetra}_ De la fila _${fila}_ Y Columna _${columna}_*`)
+await m.reply(`\`\`\`${emoji} Has ganado ${moneda} ${rpgshop.emoticon('limit')}!!\`\`\`\n\n*Correcto!! la palabra _"${sopaPalabra}"_ Se encontraba en la dirección _${cambioLetra}_ De la fila _${fila}_ Y Columna _${columna}_*`)
 fila = null, columna = null, sopaNube = null, sopaPalabra = null, sopaDir = null, userSP = null, cambioLetra = null
 intentos = 0
 return
@@ -154,11 +154,11 @@ return
 if (intentos === 1) {
 fila = null, columna = null, sopaNube = null, sopaPalabra = null, sopaDir = null, userSP = null, cambioLetra = null
 intentos = 0
-await m.reply(`🍭 *Agotaste los intentos!! la palabra _"${sopaPalabra}"_ Se encontraba en la dirección _${cambioLetra}_ De la fila _${fila}_ Y Columna _${columna}_*`)
+await m.reply(`${emoji2} *Agotaste los intentos!! la palabra _"${sopaPalabra}"_ Se encontraba en la dirección _${cambioLetra}_ De la fila _${fila}_ Y Columna _${columna}_*`)
 return  
 } else {
 intentos -= 1
-await m.reply(`🍭 *Incorrecto. te quedan _${intentos}_ Intentos!!*${intentos === 1 ? '' : `\n*Palabra a encontrar:* \`\`\`${sopaPalabra}\`\`\``}\n\n${intentos === 1 ? `\`\`\`👾 Pista!!\`\`\`\n*La palabra _${sopaPalabra}_ Se encuentra en la dirrección _"${cambioLetra}"_*\n\n` : ''}${sopaNube}`)
+await m.reply(`${emoji2} *Incorrecto. te quedan _${intentos}_ Intentos!!*${intentos === 1 ? '' : `\n*Palabra a encontrar:* \`\`\`${sopaPalabra}\`\`\``}\n\n${intentos === 1 ? `\`\`\`👾 Pista!!\`\`\`\n*La palabra _${sopaPalabra}_ Se encuentra en la dirrección _"${cambioLetra}"_*\n\n` : ''}${sopaNube}`)
 return
 }}
 }}
@@ -166,4 +166,5 @@ handler.help = ['sopa', 'buscarpalabras'];
  handler.tags = ['game']; 
 handler.command = ['wordfind', 'wordsearch', 'soup', 'sopa', 'buscarpalabra']
 handler.register = true
+
 export default handler

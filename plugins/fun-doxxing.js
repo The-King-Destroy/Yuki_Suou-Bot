@@ -37,6 +37,7 @@ loading()
 handler.help = ['doxxing <nombre> | <@tag>'];
 handler.tags = ['fun'];
 handler.command = ['doxxing']
+
 export default handler;
 
 function getRandomValue(arr) {

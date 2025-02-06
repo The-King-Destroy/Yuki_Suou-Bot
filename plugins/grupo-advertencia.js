@@ -1,6 +1,6 @@
 const handler = async (m, { conn, text, command, usedPrefix }) => {
 // if (m.mentionedJid.includes(conn.user.jid)) return; // Evitar advertir al bot mismo
-const pp = './src/logo6.png'
+const pp = './src/Imagen.jpg'
 let number, ownerNumber, aa, who;
 if (m.isGroup) { 
 who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text; 
@@ -11,7 +11,7 @@ who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text;
   const dReason = 'Sin motivo';
   const msgtext = text || dReason 
   const sdms = msgtext.replace(/@\d+-?\d* /g, '');
-  const warntext = `*🍬 Etiquete a una persona o responda a un mensaje del grupo para advertir al usuario.`;
+  const warntext = `${emoji} Etiquete a una persona o responda a un mensaje del grupo para advertir al usuario.`;
   if (!who) {
 return m.reply(warntext, m.chat, { mentions: conn.parseMention(warntext) });
   }
@@ -29,7 +29,7 @@ return
   );
   if (user.warn >= 3) {
     user.warn = 0;
-    await m.reply(`Te lo adverti varias veces!!!.\n*@${who.split`@`[0]}* Superaste las *3* advertencias, ahora seras eliminado/a.`, null, { mentions: [who] },
+    await m.reply(`${emoji} Te lo adverti varias veces!!!.\n*@${who.split`@`[0]}* Superaste las *3* advertencias, ahora seras eliminado/a.`, null, { mentions: [who] },
     );
     await conn.groupParticipantsUpdate(m.chat, [who], 'remove');
   }
@@ -40,4 +40,5 @@ handler.command = ['advertir', 'advertencia', 'warn', 'warning'];
 handler.group = true;
 handler.admin = true;
 handler.botAdmin = true;
+
 export default handler;

@@ -1,11 +1,9 @@
 import { File } from "megajs";
 import path from "path";
 
-const botName = 'Descargas de MEGA';
-
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
     try {
-        if (!text) return conn.reply(m.chat, `🍬 Por favor, envia un link de MEGA para descargar el archivo.`, null, { quoted: fkontak });
+        if (!text) return conn.reply(m.chat, `${emoji} Por favor, envia un link de MEGA para descargar el archivo.`, null, { quoted: fkontak });
 
         const file = File.fromURL(text);
         await file.loadAttributes();
@@ -14,7 +12,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
 
         m.react(rwait);
 
-        const caption = `   *✿--- ${botName} ---✿*\n✐ File: ${file.name}\n✧ Size: ${formatBytes(file.size)}`;
+        const caption = `   *✿--- Descargas de MEGA ---✿*\n✐ File: ${file.name}\n✧ Size: ${formatBytes(file.size)}`;
 
         const data = await file.downloadBuffer();
 
@@ -35,7 +33,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
         await conn.sendFile(m.chat, data, file.name, caption, m, null, { mimetype, asDocument: true });
 
     } catch (error) {
-        return m.reply(`⚠️ Error: ${error.message}`);
+        return m.reply(`${msm} Ocurrió un error: ${error.message}`);
     }
 }
 

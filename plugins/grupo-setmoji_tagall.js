@@ -6,22 +6,22 @@
 let handler = async (m, { conn, text, isRowner }) => {
 
   if (!text) {
-    return m.reply('🍬 Debes proporcionar un emoji válido después del comando. Ejemplo: .setemoji 🍭');
+    return m.reply(`${emoji} Debes proporcionar un emoji válido después del comando. Ejemplo: .setemoji ${emoji2}`);
   }
 
   const emoji = text.trim();
 
   if (!isEmoji(emoji)) {
-    return m.reply('🍭 El texto proporcionado no es un emoji válido. Asegúrate de que sea un emoji real.');
+    return m.reply(`${emoji} El texto proporcionado no es un emoji válido. Asegúrate de que sea un emoji real.`);
   }
 
   try {
     global.db.data.chats[m.chat].customEmoji = emoji;
 
-    m.reply(`🍬 El emoji del grupo ha sido actualizado correctamente a: ${emoji}`);
+    m.reply(`${emoji2} El emoji del grupo ha sido actualizado correctamente a: ${emoji}`);
   } catch (error) {
     console.error(error);
-    m.reply('⚠️ Hubo un error al intentar cambiar el emoji.');
+    m.reply(`${msm} Hubo un error al intentar cambiar el emoji.`);
   }
 };
 

@@ -6,17 +6,17 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
   if (/image/.test(mime)) {
     let img = await q.download();
-    if (!img) return m.reply('🍬 Te faltó la imagen para el perfil del grupo.');
+    if (!img) return m.reply(`${emoji} Te faltó la imagen para el perfil del grupo.`);
 
     try {
       await conn.updateProfilePicture(m.chat, img);
-      m.reply('🍬 Perfecto.');
+      m.reply(`${emoji} Perfecto.`);
       m.react(done)
     } catch (e) {
-      m.reply(`︎⚠️ *Error:* ${e.message}`);
+      m.reply(`︎${msm} Ocurrió un error: ${e.message}`);
     }
   } else {
-    return m.reply('🍭 Te faltó la imagen para cambiar el perfil del grupo.');
+    return m.reply(`${emoji} Te faltó la imagen para cambiar el perfil del grupo.`);
   }
 };
 

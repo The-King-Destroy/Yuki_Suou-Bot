@@ -9,14 +9,14 @@ const handler = async (m, { conn, usedPrefix, command, text }) => {
     who = text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.chat;
   }
 
-  if (!who) return m.reply(`🍬 Por favor, menciona aun usuario.`);
+  if (!who) return m.reply(`${emoji} Por favor, menciona aun usuario.`);
 
-  let pp = './src/avatar_contact.png';
+  let pp = './src/Imagen.jpg';
   try {
     pp = await conn.getProfilePicture(who);
   } catch (e) {
   } finally {
-    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/avatar_contact.png');
+    let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/Imagen.jpg');
     let username = conn.getName(who);
     let str = `@${m.sender.split('@')[0]} le está agarrando el huevo a @${who.split('@')[0]}.`;
     let mentionedJid = [who, m.sender];

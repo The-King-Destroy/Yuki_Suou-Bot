@@ -21,20 +21,14 @@ let handler = async (m, { conn, args }) => {
     await m.react("✅");
   } catch (error) {
     console.error(error);
-    await m.reply("⚠️ Hubo un error al enviar la lista de usuarios.");
+    await m.reply(`${msm} Hubo un error al enviar la lista de usuarios.`);
   }
 };
 
 handler.help = ["listonline"];
 handler.tags = ["grupo"];
 handler.command = ["listonline", "online", "linea", "enlinea"];
-handler.owner = false;
-handler.mods = false;
-handler.premium = false;
 handler.group = true;
-handler.private = false;
-handler.admin = false;
-handler.botAdmin = false;
 handler.fail = null;
 handler.register = true;
 

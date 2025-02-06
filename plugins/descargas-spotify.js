@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-    if (!text) throw `🍬 Por favor, ingrese la música que quieres descargar en Spotify.`
+    if (!text) throw `${emoji} Por favor, ingrese la música que quieres descargar en Spotify.`
 
     try {
 
@@ -35,7 +35,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
     } catch (e1) {
         m.react('❌')
-        m.reply(`⚠️ Ocurrio un error inesperado: ${e1.message || e1}`);
+        m.reply(`${msm} Ocurrio un error inesperado: ${e1.message || e1}`);
     }
 };
 

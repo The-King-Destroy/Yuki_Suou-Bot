@@ -4,17 +4,17 @@ const handler = async (m, {conn, usedPrefix, command, text}) => {
   conn.game = conn.game || {};
 
   if (Object.values(conn.game).find((room) => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) {
-    throw '🍭 Todavía estás en un juego con un usuario.';
+    throw `${emoji2} Todavía estás en un juego con un usuario.`;
   }
 
   if (!text) {
-    return m.reply(`🍭 Se requiere poner el nombre de la sala de juego\n\n*—◉ Ejemplo*\n*◉ ${usedPrefix + command} nueva sala*`, m.chat);
+    return m.reply(`${emoji} Se requiere poner el nombre de la sala de juego\n\n*—◉ Ejemplo*\n*◉ ${usedPrefix + command} nueva sala*`, m.chat);
   }
 
   let room = Object.values(conn.game).find((room) => room.state === 'WAITING' && (text ? room.name === text : true));
 
   if (room) {
-    await m.reply('🍬 Iniciando el juego, un jugador se unió a la partida.');
+    await m.reply(`${emoji} Iniciando el juego, un jugador se unió a la partida.`);
     room.o = m.chat;
     room.game.playerO = m.sender;
     room.state = 'PLAYING';

@@ -23,7 +23,7 @@ let handler = async (m, { conn, command }) => {
         conn.reply(m.chat, `
 🗂️ *Tengo ${rtotalreg} Usuarios Registrados*
 
-📂 *${totalreg} No Están Registrados*`, m, rcanal)
+📂 *${totalreg} No Están Registrados*`, m)
     }
 
 }
@@ -31,7 +31,6 @@ let handler = async (m, { conn, command }) => {
 handler.help = ['dash', 'dashboard', 'views', 'database', 'usuarios', 'user']
 handler.tags = ['info']
 handler.command = ['dashboard', 'dash', 'views', 'database', 'usuarios', 'user']
-
 handler.register = true
 
 export default handler

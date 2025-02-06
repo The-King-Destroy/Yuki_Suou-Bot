@@ -8,8 +8,8 @@ var number = text.split`@`[1]
 var number = text
 }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `🍬 Debes mencionar a un usuario para poder degradarlo de administrador.`, m, rcanal)
-if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🍬 Debes mencionar a un usuario para poder degradarlo de administrador.`, m, fake)
+if (!text && !m.quoted) return conn.reply(m.chat, `${emoji} Debes mencionar a un usuario para poder degradarlo de administrador.`, m)
+if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `${emoji} Debes mencionar a un usuario para poder degradarlo de administrador.`, m)
 
 try {
 if (text) {
@@ -22,14 +22,13 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'demote')
-conn.reply(m.chat, `🍭 Fue descartado como admin.`, m, fake)
+conn.reply(m.chat, `${emoji2} Fue descartado como admin.`, m)
 }
 
 }
 handler.help = ['demote']
 handler.tags = ['grupo']
 handler.command = ['demote','quitarpija', 'degradar']
-
 handler.group = true
 handler.admin = true
 handler.botAdmin = true
