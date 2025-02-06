@@ -62,7 +62,7 @@ async function getAnimeEpisodes(url) {
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!args[0]) {
-        return conn.reply(m.chat, `🍬 Por favor, ingresa el link del anime para obtener información.`, m);
+        return conn.reply(m.chat, `${emoji} Por favor, ingresa el link del anime para obtener información.`, m);
     }
 
     let data = await getAnimeEpisodes(args[0]);
@@ -70,7 +70,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
         return conn.reply(m.chat, data.error, m);
     }
 
-    let messageText = `• 𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐞𝐩𝐢𝐬𝐨𝐝𝐢𝐨𝐬 𝐝𝐞𝐥 𝐚𝐧𝐢𝐦𝐞:\n\n`;
+    let messageText = `• Lista de episodios del anime:\n\n`;
 
     for (const episode of data.episodios) {
         const [key, url] = Object.entries(episode)[0];
@@ -78,7 +78,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
         messageText += `${key}:\n❥ Url: ${shortUrl}\n▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞▭͞▬͞\n`;
     }
 
-    messageText += `\n𝐏𝐫ó𝐱𝐢𝐦𝐨 𝐞𝐩𝐢𝐬𝐨𝐝𝐢𝐨: ${data.proximo_episodio}`;
+    messageText += `\nPróximo episodio: ${data.proximo_episodio}`;
 
     await conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
 }

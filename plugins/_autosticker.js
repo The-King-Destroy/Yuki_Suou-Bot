@@ -16,17 +16,17 @@ let img = await q.download?.()
 if (!img) return
 stiker = await sticker(img, false, packname, author)
 } else if (/video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 15) return await m.reply('᥀·࣭࣪̇˖🍬◗ *El video no debe de durar mas de 15 segundos, intentalo de nuevo.*')
+if (/video/g.test(mime)) if ((q.msg || q).seconds > 15) return await m.reply(`᥀·࣭࣪̇˖${emoji}◗ El video no debe de durar mas de 15 segundos, intentalo de nuevo.`)
 
 let img = await q.download()
 if (!img) return
-stiker = await sticker(img, false, packname, author)
+stiker = await sticker(img, false, packsticker, packsticker2)
 } else if (m.text.split(/\n| /i)[0]) {
-if (isUrl(m.text)) stiker = await sticker(false, m.text.split(/\n| /i)[0], packname, author)
+if (isUrl(m.text)) stiker = await sticker(false, m.text.split(/\n| /i)[0], packsticker, packsticker2)
 else return
 }
 if (stiker) {
-await conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, { contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: packname, body: dev,  mediaType: 2, thumbnail: icons, sourceUrl: redes }}}, { quoted: m })
+await conn.sendFile(m.chat, stiker, 'sticker.webp', '',m, true, )
 //this.sendFile(m.chat, stiker, null, { asSticker: true })
 }}
 return !0

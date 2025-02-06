@@ -9,12 +9,12 @@ return !1
   let user = global.db.data.users[m.sender]
   let chat = global.db.data.chats[m.chat]
   let bot = global.db.data.settings[this.user.jid] || {}
-  let img = 'https://files.catbox.moe/3fhpcs.jpg'
+  let img = 'https://qu.ax/trzJV.jpg'
  const isToxic = toxicRegex.exec(m.text)
 
 if (isToxic && chat.antiToxic && !isOwner && !isAdmin) {
 user.warn += 1
-if (!(user.warn >= 3)) await m.reply(`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`}, 𝙏𝙞𝙚𝙣𝙚𝙨: (${isToxic}) 𝙖𝙙𝙫𝙚𝙧𝙩𝙚𝙣𝙘𝙞𝙖𝙨... 𝙏𝙞𝙚𝙣𝙚𝙨: *${user.warn}/3*\n\n𝙙𝙚 𝙖𝙙𝙫𝙚𝙧𝙩𝙚𝙣𝙘𝙞𝙖𝙨.`, false, { mentions: [m.sender] })}
+if (!(user.warn >= 3)) await m.reply(`${user.warn == 1 ? `*@${m.sender.split`@`[0]}*` : `*@${m.sender.split`@`[0]}*`}, Tienes: (${isToxic}) advertencias... tienes: *${user.warn}/3*\n\nde advertencias.`, false, { mentions: [m.sender] })}
 
 if (user.warn >= 3) {
 user.warn = 0

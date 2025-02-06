@@ -1,14 +1,9 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
-if (!m.quoted) return conn.reply(m.chat, `🍬 Por favor, responde a un *Video.*`, m, rcanal)
-conn.reply(m.chat, global.wait, m, {
-contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-title: packname,
-body: wm,
-previewType: 0, thumbnail: icons,
-sourceUrl: channel }}})
+if (!m.quoted) return conn.reply(m.chat, `${emoji} Por favor, responde a un *Video.*`, m)
+conn.reply(m.chat, global.wait, m)
 const q = m.quoted || m
 let mime = (q.msg || q).mimetype || ''
-if (!/(mp4)/.test(mime)) return conn.reply(m.chat, `🍬 Por favor, responde a un *Video.*`, m, rcanal)
+if (!/(mp4)/.test(mime)) return conn.reply(m.chat, `${emoji} Por favor, responde a un *Video.*`, m)
 await m.react(rwait)
 let media = await q.download()
 let listo = '🍬 Aqui tienes ฅ^•ﻌ•^ฅ.'
@@ -20,4 +15,5 @@ handler.tags = ['transformador']
 handler.group = true;
 handler.register = true
 handler.command = ['togifaud']
+
 export default handler

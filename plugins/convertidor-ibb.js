@@ -9,7 +9,7 @@ let handler = async (m, { conn }) => {
   let mime = (q.msg || q).mimetype || ''
   
   if (!mime.startsWith('image/')) {
-    return m.reply('🍬 Por favor, responda a una *Imagen.*')
+    return m.reply(`${emoji} Por favor, responda a una *Imagen.*`)
   }
   await m.react('🕓')
 
@@ -34,7 +34,7 @@ let handler = async (m, { conn }) => {
         txt += `  *» Extension* : ${api.data.data.image.extension}\n`
         txt += `  *» Delete* : ${api.data.data.delete_url}\n\n`
         txt += `> *${dev}*`
-    await conn.sendFile(m.chat, api.data.data.url, 'ibb.jpg', txt, m, null, rcanal)
+    await conn.sendFile(m.chat, api.data.data.url, 'ibb.jpg', txt, m, fkontak)
     await m.react('✅')
   } else {
     await m.react('✖️')

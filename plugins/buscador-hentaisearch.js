@@ -2,9 +2,9 @@ import cheerio from 'cheerio';
 import axios from 'axios';
 const handler = async (m, {conn, text, __dirname, usedPrefix, command}) => {
 if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('🍬 El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*');
+    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*`);
     }
-  if (!text) throw '🍬 Por favo, ingresa el nombre de algun hentai para buscar.';
+  if (!text) throw `${emoji} Por favo, ingresa el nombre de algun hentai para buscar.`;
   const searchResults = await searchHentai(text);
   let teks = searchResults.result.map((v, i) => `
 ${i+1}. *_${v.title}_*
@@ -16,7 +16,7 @@ ${i+1}. *_${v.title}_*
     randomThumbnail = searchResults.result[randomIndex].thumbnail;
   } else {
     randomThumbnail = 'https://pictures.hentai-foundry.com/e/Error-Dot/577798/Error-Dot-577798-Zero_Two.png';
-    teks = '🍭 No se encontraron resultados.,.';
+    teks = `${emoji2} No se encontraron resultados.,.`;
   }
   conn.sendFile(m.chat, randomThumbnail, 'error.jpg', teks, m);
 };

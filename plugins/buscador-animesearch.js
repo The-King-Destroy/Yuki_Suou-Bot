@@ -37,12 +37,12 @@ const searchAnime = async (query) => {
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!args[0]) {
-        return conn.reply(m.chat, `🍬 Por favor, ingresa el nombre de un anime para buscar.`, m);
+        return conn.reply(m.chat, `${emoji} Por favor, ingresa el nombre de un anime para buscar.`, m);
     }
 
     const results = await searchAnime(args[0]);
     if (results.length === 0) {
-        return conn.reply(m.chat, `🍭 No se encontraron resultados.`, m);
+        return conn.reply(m.chat, `${emoji2} No se encontraron resultados.`, m);
     }
 
     const messages = [];

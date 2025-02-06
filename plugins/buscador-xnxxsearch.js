@@ -3,11 +3,11 @@ import cheerio from 'cheerio';
 
 const handler = async (m, {text, usedPrefix, command}) => {
   if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return conn.reply(m.chat, '🍬 El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*', m);
+    return conn.reply(m.chat, `${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*`, m);
   }
   
   if (!text) {
-    return conn.reply(m.chat, `🍬 Por favor, ingrese la búsqueda.\n> Ejemplo de uso: ${usedPrefix + command} Con mi prima`, m);
+    return conn.reply(m.chat, `${emoji} Por favor, ingrese la búsqueda.\n> Ejemplo de uso: ${usedPrefix + command} Con mi prima`, m);
   }
 
   try {
@@ -26,7 +26,7 @@ const handler = async (m, {text, usedPrefix, command}) => {
 
     const res = await xnxxsearch(text);
     const json = res.result;
-    let cap = `*🍭 Resultados de la búsqueda:* ${text.toUpperCase()}\n\n`;
+    let cap = `*${emoji} Resultados de la búsqueda:* ${text.toUpperCase()}\n\n`;
     let count = 1;
 
     for (const v of json) {
@@ -40,7 +40,7 @@ const handler = async (m, {text, usedPrefix, command}) => {
     conn.reply(m.chat, cap, m);
     global.videoListXXX.push(vids_);
   } catch (e) {
-    return conn.reply(m.chat, `⚠️ Ocurrió un error: ${e.message}`, m);
+    return conn.reply(m.chat, `${msm} Ocurrió un error: ${e.message}`, m);
   }
 };
 
@@ -49,6 +49,7 @@ handler.tags = ['buscador'];
 handler.command = ['xnxxsearch', 'xnxxs'];
 handler.register = true;
 handler.group = false;
+
 export default handler;
 
 async function xnxxsearch(query) {

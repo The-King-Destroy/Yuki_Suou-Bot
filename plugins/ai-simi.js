@@ -4,20 +4,21 @@ import fetch from 'node-fetch';
 
 const handler = async (m, {conn, text, command, args, usedPrefix}) => {
 
-if (!text) conn.reply(m.chat, '🍬 Te faltó el texto para hablar con la *Bot*', m);
+if (!text) conn.reply(m.chat, `${emoji} Te faltó el texto para hablar con la *Bot*`, m);
 try {
 // await m.react(emojis)
 const resSimi = await simitalk(text);
 conn.sendMessage(m.chat, { text: resSimi.resultado.simsimi }, { quoted: m });
 } catch {
-throw '⚠️ *Ocurrió un error*';
+throw `${msm} Ocurrió un error.`;
 }};
 
 handler.help = ['simi', 'bot'];
 handler.tags = ['fun'];
 handler.group = true;
 handler.register = true
-handler.command = ['bot','alexa','yuki','Yuki']
+handler.command = ['bot', 'yuki', 'Yuki']
+
 export default handler;
 
 async function simitalk(ask, apikeyyy = "iJ6FxuA9vxlvz5cKQCt3", language = "es") {

@@ -37,15 +37,15 @@ const getDownloadLinks = async (url) => {
 
 let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!args[0]) {
-        return conn.reply(m.chat, `🍬 Por favor, ingresa el link del anime para obtener información.\n\n> Nota: En el comando #animes no da los links completos porque son muy largos y por éso usé un acortador, pero igualmente sirven.`, m);
+        return conn.reply(m.chat, `${emoji} Por favor, ingresa el link del anime para obtener información.\n\n> Nota: En el comando #animes no da los links completos porque son muy largos y por éso usé un acortador, pero igualmente sirven.`, m);
     }
     const links = await getDownloadLinks(args[0]);
     if (links.error) {
         return conn.reply(m.chat, links.error, m);
     }
-    let messageText = `• 𝐋𝐢𝐬𝐭𝐚 𝐝𝐞 𝐨𝐩𝐜𝐢𝐨𝐧𝐞𝐬 𝐩𝐚𝐫𝐚 𝐝𝐞𝐬𝐜𝐚𝐫𝐠𝐚𝐫:\n\n`;
+    let messageText = `• Lista de opciones para descargar:\n\n`;
     for (const [server, link] of Object.entries(links)) {
-        messageText += `💻 *𝐒𝐞𝐫𝐯𝐢𝐝𝐨𝐫:* ${server}\n  🔗 *\`𝐋𝐢𝐧𝐤:\`* ${link}\n─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ─\n`;
+        messageText += `💻 *Servidor:* ${server}\n  🔗 *\`Enlace:\`* ${link}\n─ׄ─ׄ─⭒─ׄ─ׅ─ׄ⭒─ׄ─ׄ─⭒─ׄ─ׄ─⭒─ׄ─ׅ─\n`;
     }
     messageText += `\n> Para descargar, usa el comando respectivo al servidor.\n\n> Nota: Los links no siempre pueden funcionar si son muy viejos.`;
     await conn.sendMessage(m.chat, { text: messageText }, { quoted: m });
