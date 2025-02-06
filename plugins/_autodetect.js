@@ -8,14 +8,15 @@ let usuario = `@${m.sender.split`@`[0]}`
 let pp = await conn.profilePictureUrl(m.chat, 'image').catch(_ => null) || 'https://files.catbox.moe/xr2m6u.jpg'  
 
 let nombre, foto, edit, newlink, status, admingp, noadmingp, aceptar
-nombre = `${emoji} *${usuario}* Ha cambiado el nombre del grupo.\n\n${emoji2} Ahora el grupo se llama:\n*<${m.messageStubParameters[0]}>*...`
-foto = `${emoji} *${usuario}* Ha cambiado la imagen del grupo...`
-edit = `${emoji} *${usuario}* Ha permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} puedan configurar el grupo...`
-newlink = `${emoji} El enlace del grupo ha sido restablecido por:\n*» ${usuario}*...`
-status = `${emoji} El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n${emoji2} Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje...`
-admingp = `${emoji} *@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo.\n\n${emoji2} Acción hecha por:\n*» ${usuario}*...`
-noadmingp =  `${emoji} *@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo.\n\n${emoji2} Acción hecha por:\n*» ${usuario}*...`
-aceptar = `*${emoji} Ha llegado un nuevo participante al grupo.*\n\n*◦ ${emoji4} Grupo:* ${groupMetadata.subject}\n\n*◦ ${emoji2} Bienvenido/a:* @${m.messageStubParameters[0].split('@')[0]} ingresado al grupo\n\n*◦ ${emoji3} Aceptado por:* @${m.sender.split('@')[0]} que aceptó la solicitud de @${m.messageStubParameters[0].split('@')[0]} a ingresar al grupo` 
+nombre = `《✧》*${usuario}* Ha cambiado el nombre del grupo.\n\n✦ Ahora el grupo se llama:\n*<${m.messageStubParameters[0]}>*...`
+foto = `《✧》*${usuario}* Ha cambiado la imagen del grupo...`
+edit = `《✧》*${usuario}* Ha permitido que ${m.messageStubParameters[0] == 'on' ? 'solo admins' : 'todos'} puedan configurar el grupo...`
+newlink = `《✧》El enlace del grupo ha sido restablecido por:\n*» ${usuario}*...`
+status = `《✧》El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por *${usuario}*\n\n✦ Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje...`
+admingp = `《✧》*@${m.messageStubParameters[0].split`@`[0]}* Ahora es admin del grupo.\n\n✦ Acción hecha por:\n*» ${usuario}*...`
+noadmingp =  `《✧》*@${m.messageStubParameters[0].split`@`[0]}* Deja de ser admin del grupo.\n\n✦ Acción hecha por:\n*» ${usuario}*...`
+aceptar = `《✧》Ha llegado un nuevo participante al grupo.\n\n◦ ✐ Grupo: *${groupMetadata.subject}*\n\n◦ ⚘ Bienvenido/a: *@${m.messageStubParameters[0].split('@')[0]}* ingresado al grupo\n\n◦ ✦ Aceptado por:
+ *@${m.sender.split('@')[0]}* que aceptó la solicitud de @${m.messageStubParameters[0].split('@')[0]} a ingresar al grupo` 
 
 if (chat.detect && m.messageStubType == 21) {
 await conn.sendMessage(m.chat, { text: nombre, mentions: [m.sender] }, { quoted: fkontak })   
