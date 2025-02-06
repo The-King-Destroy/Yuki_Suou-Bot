@@ -17,7 +17,7 @@ var handler = async (m, { conn }) => {
     }
 
     if (timeRemaining > 0) {
-        return m.reply(`⏱️ ¡Ya reclamaste tu regalo navideño este año! Vuelve en:\n *${msToTime(timeRemaining)}*`);
+        return m.reply(`${emoji3} ¡Ya reclamaste tu regalo navideño este año! Vuelve en:\n *${msToTime(timeRemaining)}*`);
     }
 
     let coinReward = pickRandom([5, 10, 15, 20]);

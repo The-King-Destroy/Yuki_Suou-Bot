@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args }) => {
-    if (!args.length) return conn.sendMessage(m.chat, { text: '🍬 Por favor, escribe el texto que deseas repetir.' });
+    if (!args.length) return conn.sendMessage(m.chat, { text: `${emoji} Por favor, escribe el texto que deseas repetir.` });
     let message = args.join(' ');
 
     let invisibleChar = '\u200B';

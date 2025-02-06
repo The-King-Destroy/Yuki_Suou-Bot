@@ -1,6 +1,6 @@
 const handler = async (m, { isPrems, conn }) => {
   if (!global.db.data.users[m.sender]) {
-    throw `🍬 Usuario no encontrado.`;
+    throw `${emoji4} Usuario no encontrado.`;
   }
 
   const lastCofreTime = global.db.data.users[m.sender].lastcofre;
@@ -8,12 +8,12 @@ const handler = async (m, { isPrems, conn }) => {
 
   if (Date.now() < timeToNextCofre) {
     const tiempoRestante = timeToNextCofre - Date.now();
-    const mensajeEspera = `🍬 Ya reclamaste tu cofre\n⏰️ Regresa en: *${msToTime(tiempoRestante)}* para volver a reclamar.`;
+    const mensajeEspera = `${emoji3} Ya reclamaste tu cofre\n⏰️ Regresa en: *${msToTime(tiempoRestante)}* para volver a reclamar.`;
     await conn.sendMessage(m.chat, { text: mensajeEspera }, { quoted: m });
     return;
   }
 
-  const img = 'https://qu.ax/rZZfy.jpg';
+  const img = 'https://qu.ax/UhXkr.jpg';
   const dia = Math.floor(Math.random() * 100);
   const tok = Math.floor(Math.random() * 10);
   const ai = Math.floor(Math.random() * 40);
@@ -41,7 +41,7 @@ const handler = async (m, { isPrems, conn }) => {
   try {
     await conn.sendFile(m.chat, img, 'yuki.jpg', texto);
   } catch (error) {
-    throw `⚠️ Ocurrió un error al enviar el cofre.`;
+    throw `${msm} Ocurrió un error al enviar el cofre.`;
   }
 };
 

@@ -5,9 +5,10 @@ let handler = async (m, { conn, usedPrefix }) => {
     let who = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
 
     if (!(who in global.db.data.users)) {
-        return conn.reply(m.chat, '🍬 El usuario no se encuentra en mi base de Datos.', m);
+        return conn.reply(m.chat, `${emoji} El usuario no se encuentra en mi base de Datos.`, m);
     }
-
+    
+    let img = 'https://qu.ax/fRMNm.jpg';
     let user = global.db.data.users[who];
     let name = conn.getName(who);
 
@@ -32,7 +33,7 @@ let handler = async (m, { conn, usedPrefix }) => {
                `┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n` +
                `╰━━━━━━━━━━━━⬣`;
 
-    await conn.reply(m.chat, text, m);
+    await conn.sendFile(m.chat, img, 'yuki.jpg', text);
 }
 
 handler.help = ['inventario', 'inv'];

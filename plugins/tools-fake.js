@@ -1,6 +1,6 @@
 var handler = async (m, { conn, text, usedPrefix, command }) => {
 
-if (!text) return m.reply(`🍬 *Ejemplo de uso*\n\n!${command} Hola @${m.sender.split`@`[0]} Buenas`, null, { mentions: [m.sender] })
+if (!text) return m.reply(`${emoji} *Ejemplo de uso*\n\n!${command} Hola @${m.sender.split`@`[0]} Buenas`, null, { mentions: [m.sender] })
 let cm = copy(m)
 let who
 
@@ -8,7 +8,7 @@ if (text.includes('@0')) who = '0@s.whatsapp.net'
 else if (m.isGroup) who = cm.participant = m.mentionedJid[0]
 else who = m.chat
 
-if (!who) return m.reply(`🍬 *Ejemplo de uso*\n\n!${command}* Hola @${m.sender.split`@`[0]} Buenas`, null, { mentions: [m.sender] })
+if (!who) return m.reply(`${emoji} *Ejemplo de uso*\n\n!${command}* Hola @${m.sender.split`@`[0]} Buenas`, null, { mentions: [m.sender] })
 cm.key.fromMe = false
 
 cm.message[m.mtype] = copy(m.msg)
@@ -21,7 +21,6 @@ conn.fakeReply(m.chat, real.join(sp).trimStart(), who, fake.trimEnd(), m.isGroup
 handler.help = ['fake']
 handler.tags = ['tools']
 handler.command = ['fitnah', 'fakereply', 'fake']
-
 handler.register = true
 handler.group = true
 

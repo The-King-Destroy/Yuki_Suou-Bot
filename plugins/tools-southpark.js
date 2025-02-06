@@ -7,7 +7,7 @@ import fetch from 'node-fetch';
 
 let handler = async(m, { conn, text, usedPrefix, command }) => {
 
-if (!text) return m.reply('🍬 Ingresa Un Nombre De Un Pais');
+if (!text) return m.reply(m.chat, `${emoji} Por favor, ingresa el nombre de algún pais.`, m);
 
 try {
 let api = `https://delirius-apiofc.vercel.app/tools/flaginfo?query=${text}`;
@@ -23,7 +23,7 @@ let img = datas.image;
 conn.sendMessage(m.chat, { image: { url: img }, caption: park }, { quoted: fkontak });
 
 } catch (e) {
-m.reply(`*Error:* ${e.message}`);
+m.reply(`${msm} Ocurrió un error: ${e.message}`);
 m.react('✖️');
   }
 };

@@ -8,7 +8,7 @@ let img = 'https://tinyurl.com/27b29pou'
 let handler = async (m, {conn, usedPrefix}) => {
    let who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.sender
    if (who == conn.user.jid) return m.react('✖️')
-   if (!(who in global.db.data.users)) return m.reply(`🍭 El usuario no se encuentra en mi base de datos.`)
+   if (!(who in global.db.data.users)) return m.reply(`${emoji4} El usuario no se encuentra en mi base de datos.`)
    let user = global.db.data.users[who]
    let name = conn.getName(who);
    let txt = (`${who == m.sender ? `╭━〔  ${packname}  〕⬣\n┋ 👤 *Usuario:* ${name}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ ✨ *Experiencia:* ${user.exp}\n┋ 🆙 *Nivel:* ${user.level}\n┋ ⚜️ *Rol:* ${user.role}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣` : `╭━〔  ${packname}  〕⬣\n┋ 👤 *Usuario:* @${who.split('@')[0]}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ *✨ Experiencia:* ${user.exp}\n┋ 🆙 *Nivel:* ${user.level}\n┋ ⚜️ *Rol:* ${user.role}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣`}`)

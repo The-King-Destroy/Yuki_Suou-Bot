@@ -1,7 +1,7 @@
 import translate from '@vitalets/google-translate-api';
 import fetch from 'node-fetch';
 const handler = async (m, {args, usedPrefix, command}) => {
-  const msg = `👑 *Uso correcto del comando ${usedPrefix + command} (idioma) (texto)*\n*Ejemplo:*\n*${usedPrefix + command} es Hello.*`;
+  const msg = `${emoji} Por favor, ingresé el (idioma) (texto) para traducirlo.`;
   if (!args || !args[0]) return m.reply(msg);
   let lang = args[0];
   let text = args.slice(1).join(' ');
@@ -12,32 +12,21 @@ const handler = async (m, {args, usedPrefix, command}) => {
   }
   if (!text && m.quoted && m.quoted.text) text = m.quoted.text;
   try {
-    conn.reply(m.chat, wait, m, {
-    contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-    title: packname,
-    body: wm,
-    previewType: 0, thumbnail: icons,
-    sourceUrl: redes }}})
-    const result = await translate(`${text}`, {to: lang, autoCorrect: true});
-    await m.reply('*Traducción:* ' + result.text);
+   const result = await translate(`${text}`, {to: lang, autoCorrect: true});
+    await conn.reply(m.chat, result.text, m);
   } catch {
     try {
     conn.reply(m.chat, wait, m, {
-    contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
-    title: packname,
-    body: wm,
-    previewType: 0, thumbnail: icons,
-    sourceUrl: redes }}})
+    contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true }}})
       const lol = await fetch(`https://api.lolhuman.xyz/api/translate/auto/${lang}?apikey=${lolkeysapi}&text=${text}`);
       const loll = await lol.json();
       const result2 = loll.result.translated;
-      await m.reply('*Traducción:* ' + result2);
+      await conn.reply(m.chat, result2, m);
     } catch {
-      await m.reply('⚠️ *Ocurrió Un Error*');
+      await m.reply(`${msm} Ocurrió un error.`);
     }
   }
 };
 handler.command = ['translate','traducir','trad'];
-handler.group = true;
 handler.register = true
 export default handler;

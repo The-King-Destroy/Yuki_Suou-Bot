@@ -32,7 +32,7 @@ const handler = async (m, {
 }) => {
     if (!text) {
         return conn.sendMessage(m.chat, {
-            text: '🍬 Por favor ingresa el texto para hacer un sticker.',
+            text: `${emoji} Por favor ingresa el texto para hacer un sticker.`,
         }, {
             quoted: m
         });
@@ -66,7 +66,7 @@ const handler = async (m, {
         fs.unlinkSync(outputFilePath);
     } catch (error) {
         return conn.sendMessage(m.chat, {
-            text: `⚠️ Ocurrio un erro.`,
+            text: `${msm} Ocurrio un error.`,
         }, {
             quoted: m
         });

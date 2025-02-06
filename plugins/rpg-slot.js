@@ -3,19 +3,19 @@
 import { delay } from "@whiskeysockets/baileys";
 
 const handler = async (m, { args, usedPrefix, command, conn }) => {
-  const fa = `🍬 Por favor, ingresa la cantidad que desea apostar.`.trim();
+  const fa = `${emoji} Por favor, ingresa la cantidad que desea apostar.`.trim();
   if (!args[0] || isNaN(args[0]) || parseInt(args[0]) <= 0) throw fa;
   
   const apuesta = parseInt(args[0]);
   const users = global.db.data.users[m.sender];
   const time = users.lastslot + 10000;
-  if (new Date() - users.lastslot < 10000) throw `🍬 Debes esperar ${msToTime(time - new Date())} para usar #slot nuevamente.`;
-  if (apuesta < 100) throw '🍭 El minimo para apostar es de 100 XP.';
+  if (new Date() - users.lastslot < 10000) throw `${emoji2} Debes esperar ${msToTime(time - new Date())} para usar #slot nuevamente.`;
+  if (apuesta < 100) throw `${emoji2} El minimo para apostar es de 100 XP.`;
   if (users.exp < apuesta) {
-    throw `🍭 Tu XP no es suficiente para aportar esa cantidad.`;
+    throw `${emoji2} Tu XP no es suficiente para aportar esa cantidad.`;
   }
 
-  const emojis = ['🪙', '🍒', '🍏'];
+  const emojis = ['💴', '💵', '💶'];
   const getRandomEmojis = () => {
     const x = Array.from({ length: 3 }, () => emojis[Math.floor(Math.random() * emojis.length)]);
     const y = Array.from({ length: 3 }, () => emojis[Math.floor(Math.random() * emojis.length)]);
@@ -46,13 +46,13 @@ ${x[2]} : ${y[2]} : ${z[2]}
   const { x, y, z } = getRandomEmojis();
   let end;
   if (x[0] === y[0] && y[0] === z[0]) {
-    end = `🍬 Ganaste! 🎁 +${apuesta + apuesta} XP.`;
+    end = `${emoji} Ganaste! 🎁 +${apuesta + apuesta} XP.`;
     users.exp += apuesta;
   } else if (x[0] === y[0] || x[0] === z[0] || y[0] === z[0]) {
-    end = `🍭 Casi lo logras!, sigue intentandolo = *Toma +10 XP*`;
+    end = `${emoji2} Casi lo logras!, sigue intentandolo = *Toma +10 XP*`;
     users.exp += 10;
   } else {
-    end = `🍭 Perdiste -${apuesta} XP`;
+    end = `${emoji4} Perdiste -${apuesta} XP`;
     users.exp -= apuesta;
   }
 

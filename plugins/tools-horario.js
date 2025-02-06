@@ -29,7 +29,7 @@ const handler = async (m, {conn}) => {
 ⏱️Argentina  : ${fechaarg}
 ⏱️Colombia   : ${fechacol}
 ⏱️Ecuador    : ${fechaecu}
-⏱️Costa Rica : ${fechacosr}
+⏱️Costa_Rica : ${fechacosr}
 ⏱️Cuba       : ${fechacub}
 ⏱️Guatemala  : ${fechagua}
 ⏱️Honduras   : ${fechahon}

@@ -26,8 +26,8 @@ let handler = async (m, { conn, text }) => {
     if (!result) throw result
     m.reply(`*${format}* = _${result}_`)
   } catch (e) {
-    if (e == undefined) return m.reply('🍬 Ingresa la ecuación.\nsímbolos compatibles -, +, *, /, ×, ÷, π, e, (, )')
-    return m.reply('Formato incorrecto, solo 0-9 y símbolo -, +, *, /, ×, ÷, π, e, (, ) que puedes usar')
+    if (e == undefined) return m.reply(`${emoji} Ingresa la ecuación.\nsímbolos compatibles -, +, *, /, ×, ÷, π, e, (, )`)
+    return m.reply(`${emoji2} Formato incorrecto, solo 0-9 y símbolo -, +, *, /, ×, ÷, π, e, (, ) que puedes usar`)
   }
 }
 handler.help = ['cal *<ecuacion>*']
@@ -35,4 +35,5 @@ handler.tags = ['tools']
 handler.command = ['cal', 'calc', 'calcular', 'calculadora'] 
 handler.exp = 5
 handler.register = true 
+
 export default handler

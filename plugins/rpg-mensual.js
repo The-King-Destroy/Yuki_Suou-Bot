@@ -10,7 +10,7 @@ var handler = async (m, { conn }) => {
     let timeRemaining = user.monthly + cooldown - new Date();
 
     if (timeRemaining > 0) {
-        return m.reply(`⏱️ ¡Ya reclamaste tu regalo mensual! Vuelve en:\n *${msToTime(timeRemaining)}*`);
+        return m.reply(`${emoji3} ¡Ya reclamaste tu regalo mensual! Vuelve en:\n *${msToTime(timeRemaining)}*`);
     }
 
     let coinReward = pickRandom([1, 2, 3, 4, 5]);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 let handler = async (m, { conn, args }) => {
   if (!args[0]) {
-    let resp = `🍬 Ingrese el nombre de su País o Ciudad.`;
+    let resp = `${emoji} Ingrese el nombre de su País o Ciudad.`;
     let txt = '';
     let count = 0;
     for (const c of resp) {
@@ -42,7 +42,7 @@ let handler = async (m, { conn, args }) => {
     }
     await conn.sendMessage(m.chat, { text: txt.trim(), mentions: conn.parseMention(txt) }, { quoted: m, ephemeralExpiration: 24*60*60, disappearingMessagesInChat: 24*60*60 });
   } catch (e) {
-    let resp = "⚠️ Error!\n No se encontraron resultados, trate de escribir un país o ciudad existente.";
+    let resp = `${msm} Error!\n No se encontraron resultados, trate de escribir un país o ciudad existente.`;
     let txt = '';
     let count = 0;
     for (const c of resp) {
@@ -58,6 +58,6 @@ let handler = async (m, { conn, args }) => {
 };
 
 handler.help = ['clima *<ciudad/país>*'];
-handler.tags = ['tools'];
+handler.tags = ['herramientas'];
 handler.command = ['clima', 'tiempo']
 export default handler;
