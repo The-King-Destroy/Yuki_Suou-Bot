@@ -12,7 +12,7 @@ let handler = async (m, {conn, usedPrefix}) => {
    let user = global.db.data.users[who]
    let name = conn.getName(who);
    let txt = (`${who == m.sender ? `╭━〔  ${packname}  〕⬣\n┋ 👤 *Usuario:* ${name}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ ✨ *Experiencia:* ${user.exp}\n┋ 🆙 *Nivel:* ${user.level}\n┋ ⚜️ *Rol:* ${user.role}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣` : `╭━〔  ${packname}  〕⬣\n┋ 👤 *Usuario:* @${who.split('@')[0]}\n┋ 💸 *${moneda} En Cartera*: ${user.coin}\n┋ 🏦 *${moneda} En Banco*: ${user.bank}\n┋ *✨ Experiencia:* ${user.exp}\n┋ 🆙 *Nivel:* ${user.level}\n┋ ⚜️ *Rol:* ${user.role}\n┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n╰━━━━━━━━━━━━⬣`}`)
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, {mentions: [who] }, fkontak)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, fkontak, null, {mentions: [who] })
 }
 
 handler.help = ['bank']
