@@ -29,7 +29,7 @@ let info = `⛏️ *Te has adentrando en lo profundo de las cuevas*\n\n` +
 `🕋 *Carbón*: ${coal}\n` +
 `🪨 *Piedra*: ${stone}`;
 
-await conn.sendFile(m.chat, img, 'yuki.jpg', info, m);
+await conn.sendFile(m.chat, img, 'yuki.jpg', info, fkontak);
 await m.react('⛏️');
 
 user.health -= 50;
