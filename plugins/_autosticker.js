@@ -16,7 +16,7 @@ let img = await q.download?.()
 if (!img) return
 stiker = await sticker(img, false, packname, author)
 } else if (/video/g.test(mime)) {
-if (/video/g.test(mime)) if ((q.msg || q).seconds > 15) return await m.reply(`᥀·࣭࣪̇˖${emoji}◗ El video no debe de durar mas de 15 segundos, intentalo de nuevo.`)
+if (/video/g.test(mime)) if ((q.msg || q).seconds > 15) return await m.reply(`《✧》El video no debe de durar mas de 15 segundos, intentalo de nuevo.`)
 
 let img = await q.download()
 if (!img) return
