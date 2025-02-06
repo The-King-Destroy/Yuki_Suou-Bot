@@ -13,7 +13,7 @@ const _0xcleanTempFiles = async () => {
     const _0xallTempFiles = [..._0xtempImages, ..._0xtempPDFs];
 
     if (_0xallTempFiles.length === 0) {
-        return '🍭 No se encontraron archivos temporales para eliminar.';
+        return `${emoji2} No se encontraron archivos temporales para eliminar.`;
     }
 
     await Promise.all(_0xallTempFiles.map(async _0xfile => {
@@ -21,17 +21,17 @@ const _0xcleanTempFiles = async () => {
         await _0xfs.unlink(_0xfilePath);
     }));
 
-    return `✅ Se eliminaron ${_0xallTempFiles.length} archivos temporales correctamente.`;
+    return `${emoji} Se eliminaron ${_0xallTempFiles.length} archivos temporales correctamente.`;
 };
 
 let _0xhandler = async (m, { conn, isOwner }) => {
-    if (!isOwner) return conn.reply(m.chat, '🍬 Solo el propietario puede usar este comando.', m);
+    if (!isOwner) return conn.reply(m.chat, `${emoji} Solo el propietario puede usar este comando.`, m);
 
     try {
         const _0xresult = await _0xcleanTempFiles();
         await conn.reply(m.chat, _0xresult, m);
     } catch (_0xerror) {
-        await conn.reply(m.chat, `⚠️ Error: ${_0xerror.message}`, m);
+        await conn.reply(m.chat, `${msm} Error: ${_0xerror.message}`, m);
     }
 };
 

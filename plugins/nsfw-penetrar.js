@@ -2,7 +2,7 @@
 
 let handler = async (m, { conn, command, text }) => {
 if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply('🍬 El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*');
+    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*`);
     }
     
     let user = m.mentionedJid[0] || (m.quoted ? m.quoted.sender : m.sender);

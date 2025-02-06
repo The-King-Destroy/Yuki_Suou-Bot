@@ -11,20 +11,20 @@ const handler = async (m, { conn, text }) => {
             const number = quotedNumberMatches.join('');
             user = number + '@s.whatsapp.net';
         } else {
-        return conn.sendMessage(m.chat, {text: `*🍬 Formato de usuario no reconocido. Responda a un mensaje, etiquete a un usuario o escriba su número de usuario.*`}, {quoted: fkontak});
+        return conn.sendMessage(m.chat, {text: `${emoji} Formato de usuario no reconocido. Responda a un mensaje, etiquete a un usuario o escriba su número de usuario.`}, {quoted: fkontak});
     }
     } else {
-        return conn.sendMessage(m.chat, {text: `🍬 *Formato de usuario no reconocido. Responda a un mensaje, etiquete a un usuario o escriba su número de usuario.*`}, {quoted: fkontak});
+        return conn.sendMessage(m.chat, {text: `${emoji} Formato de usuario no reconocido. Responda a un mensaje, etiquete a un usuario o escriba su número de usuario.`}, {quoted: fkontak});
     }        
         const groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : {};
         const participants = m.isGroup ? groupMetadata.participants : [];
         const users = m.isGroup ? participants.find(u => u.jid == user) : {};
         const userNumber = user.split('@')[0];
         if (!global.global.db.data.users[user] || global.global.db.data.users[user] == '') {
-            return conn.sendMessage(m.chat, {text: `🍭 *El usuario @${userNumber} no se encuentra en mi base de datos.*`, mentions: [user]}, {quoted: fkontak});
+            return conn.sendMessage(m.chat, {text: `${emoji4} El usuario @${userNumber} no se encuentra en mi base de datos.*`, mentions: [user]}, {quoted: fkontak});
          }
         delete global.global.db.data.users[user];
-        conn.sendMessage(m.chat, {text: `✅ *Éxito Todos Los Datos Del User: @${userNumber} Ya Fuerón Eliminados De Mi Base De Datos.*`, mentions: [user]}, {quoted: fkontak});
+        conn.sendMessage(m.chat, {text: `${done} Éxito Todos Los Datos Del User: @${userNumber} Ya Fuerón Eliminados De Mi Base De Datos.`, mentions: [user]}, {quoted: fkontak});
 };
 handler.tags = ['owner'];
 handler.command = ['restablecerdatos','deletedatauser','resetuser','borrardatos'];

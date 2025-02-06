@@ -7,7 +7,7 @@ import { fileTypeFromBuffer } from "file-type";
 
 let handler = async (m, { conn, isRowner }) => {
 
-  if (!m.quoted || !/image/.test(m.quoted.mimetype)) return m.reply(`${emoji} Por favor, responde a una imagen con el comando *setbanner* para actualizar la foto del menu.`);
+  if (!m.quoted || !/image/.test(m.quoted.mimetype)) return m.reply(`${emoji} Por favor, responde a una imagen con el comando *seticono* para actualizar la foto del catalogo.`);
 
   try {
 
@@ -18,13 +18,13 @@ let handler = async (m, { conn, isRowner }) => {
       return m.reply(`${emoji2} El archivo enviado no es una imagen válida.`);
     }
 
-    global.banner = `${link}`;  
+    global.icono = `${link}`;  
 
-    await conn.sendFile(m.chat, media, 'banner.jpg', `${emoji} Banner actualizado.`, m);
+    await conn.sendFile(m.chat, media, 'icono.jpg', `${emoji} Icono actualizado.`, m);
 
   } catch (error) {
     console.error(error);
-    m.reply(`${msm} Hubo un error al intentar cambiar el banner.`);
+    m.reply(`${msm} Hubo un error al intentar cambiar el icono.`);
   }
 };
 
@@ -50,10 +50,10 @@ const isImageValid = (buffer) => {
   return false; 
 };
 
-handler.help = ['setbanner'];
+handler.help = ['setcatalogo'];
 handler.tags = ['tools'];
-handler.command = ['setbanner'];
-handler.rowner = true;
+handler.command = ['seticono'];
+handler.owner = true;
 
 export default handler;
 

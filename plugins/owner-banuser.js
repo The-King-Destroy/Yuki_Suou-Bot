@@ -13,7 +13,7 @@ var handler = async (m, { conn, text, usedPrefix, command }) => {
         }
         user = conn.user.jid.split`@`[0] + '@s.whatsapp.net';
         bot = conn.user.jid.split`@`[0];
-        bant = `🍬 Por favor, etiqueta o escrive el número del usuario al que quieres banear del Bot.`;
+        bant = `${emoji} Por favor, etiqueta o escrive el número del usuario al que quieres banear del Bot.`;
         const nn = conn.getName(m.sender);
         if (!text && !m.quoted) return conn.reply(m.chat, bant, m, { mentions: [user] });
         
@@ -28,25 +28,25 @@ var handler = async (m, { conn, text, usedPrefix, command }) => {
         } catch (e) {
         } finally {
             number = user.split('@')[0];
-            if (user === conn.user.jid) return conn.reply(m.chat, `🍭 @${bot} No puede ser baneado con este comando.`, m, { mentions: [user] });
+            if (user === conn.user.jid) return conn.reply(m.chat, `${emoji2} @${bot} No puede ser baneado con este comando.`, m, { mentions: [user] });
             for (let i = 0; i < global.owner.length; i++) {
                 ownerNumber = global.owner[i][0];
                 if (user.replace(/@s\.whatsapp\.net$/, '') === ownerNumber) {
                     aa = ownerNumber + '@s.whatsapp.net';
-                    await conn.reply(m.chat, `🍭 No puedo banear al propietario @${ownerNumber} de *${wm}*.`, m, { mentions: [aa] });
+                    await conn.reply(m.chat, `${emoji2} No puedo banear al propietario @${ownerNumber} de *${botname}*.`, m, { mentions: [aa] });
                     return;
                 }
             }
             users = global.db.data.users;
-            if (users[user].banned === true) conn.reply(m.chat, `🍭 No es necesario volver a banear a @${number}.`, m, { mentions: [user] });
+            if (users[user].banned === true) conn.reply(m.chat, `${emoji2} No es necesario volver a banear a @${number}.`, m, { mentions: [user] });
             users[user].banned = true;
             usr = m.sender.split('@')[0];
-            await conn.reply(m.chat, '✅ *Usuario baneado con éxito*', m, { mentions: [user] });
+            await conn.reply(m.chat, `${done} Usuario baneado con éxito.`, m, { mentions: [user] });
             let nametag = conn.getName(user);
-            await conn.reply(`${suittag}@s.whatsapp.net`, `🍬 El usuario *${nametag}* ha sido Baneado por *${nn}*.`, m, rcanal);
+            await conn.reply(`${suittag}@s.whatsapp.net`, `${emoji} El usuario *${nametag}* ha sido Baneado por *${nn}*.`, m);
         }
     } catch (e) {
-        await conn.reply(m.chat, '⚠️ *Ocurrió un fallo...*', m, rcanal);
+        await conn.reply(m.chat, `${emoji} Ocurrió un error.`, m);
         console.log(e);
     }
 }

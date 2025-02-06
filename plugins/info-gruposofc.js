@@ -22,7 +22,7 @@ let grupos = `*Hola!, te invito a unirte a los grupos oficiales del Bot para con
 
 > ${dev}`
 
-await conn.sendFile(m.chat, miniurl, "yuki.jpg", grupos, m, null, rcanal)
+await conn.sendFile(m.chat, miniurl, "yuki.jpg", grupos, m)
 
 await m.react(emojis)
 
@@ -30,4 +30,5 @@ await m.react(emojis)
 handler.help = ['grupos']
 handler.tags = ['info']
 handler.command = ['grupos', 'links', 'groups']
+
 export default handler

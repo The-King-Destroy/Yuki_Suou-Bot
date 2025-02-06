@@ -14,7 +14,7 @@ let handler = async (m, { conn, text }) => {
         who = m.chat;
     }
     
-    if (!who) return m.reply('*🍬 Por favor, menciona al usuario o cita un mensaje.*');
+    if (!who) return m.reply(`${emoji} Por favor, menciona al usuario o cita un mensaje.`);
     
     let txt = text.replace('@' + who.split`@`[0], '').trim();
     let dmt;
@@ -22,8 +22,8 @@ let handler = async (m, { conn, text }) => {
     if (txt.toLowerCase() === 'all') {
         dmt = global.db.data.users[who].exp;
     } else {
-        if (!txt) return m.reply('*🍬 Por favor, ingresa la cantidad de experiencia (XP) que deseas quitar.*');
-        if (isNaN(txt)) return m.reply('🍭 *Solo números son permitidos.*');
+        if (!txt) return m.reply(`${emoji2} Por favor, ingresa la cantidad de experiencia (XP) que deseas quitar.`);
+        if (isNaN(txt)) return m.reply(`${emoji} Solo números son permitidos.`);
         
         dmt = parseInt(txt);
     }
@@ -31,7 +31,7 @@ let handler = async (m, { conn, text }) => {
     let users = global.db.data.users;
     
     if (users[who].exp < dmt) {
-        return m.reply(`🍭 El usuario no tiene suficiente XP para quitar. Tiene ${users[who].exp} XP.`);
+        return m.reply(`${emoji2} El usuario no tiene suficiente XP para quitar. Tiene ${users[who].exp} XP.`);
     }
 
     users[who].exp -= dmt;

@@ -10,7 +10,7 @@ watch
 } from 'fs'
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => { 
 
-conn.reply(m.chat, `🍬 Realizado, ya se ha eliminado los archivos de la carpeta tmp`, m, rcanal, )
+conn.reply(m.chat, `${emoji} Realizado, ya se ha eliminado los archivos de la carpeta tmp`, m)
 
 const tmp = [tmpdir(), join(__dirname, '../tmp')]
 const filename = []
@@ -18,7 +18,8 @@ tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(d
 return filename.map(file => {
 const stats = statSync(file)
 unlinkSync(file)
-})} //NO USAR ESTE COMANDO EN HEROKU | DO NOT USE THIS COMMAND ON HEROKU
+})}
+
 handler.help = ['cleartmp']
 handler.tags = ['owner']
 handler.command = ['cleartmp', 'borrartmp', 'borrarcarpetatmp', 'vaciartmp']

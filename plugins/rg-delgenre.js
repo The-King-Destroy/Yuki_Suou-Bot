@@ -3,12 +3,12 @@ const handler = async (m, { conn, command, usedPrefix }) => {
 const user = global.db.data.users[m.sender];
 
 if (!user.genre) {
-return conn.reply(m.chat, '🍭 No tienes un género asignado.', m)
+return conn.reply(m.chat, `${emoji2} No tienes un género asignado.`, m)
 }
 
 user.genre = '';
 
-return conn.reply(m.chat, '🍬 Se ha eliminado tu genero', m)
+return conn.reply(m.chat, `${emoji} Se ha eliminado tu genero.`, m)
 };
 
 handler.help = ['delgenre']

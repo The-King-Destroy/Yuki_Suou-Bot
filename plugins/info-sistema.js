@@ -33,7 +33,7 @@ const handler = async (m, { conn }) => {
     const nodeUsage = process.memoryUsage();
     const diskSpace = getDiskSpace();
 
-    const message = `✅️ *ESTADO DEL SISTEMA*
+    const message = `${done} *ESTADO DEL SISTEMA*
 
 ⚜️ *Host ⪼* ${hostname}
 🏆 *Plataforma ⪼* ${platform}
@@ -58,7 +58,7 @@ ${diskSpace ? `
 → Porcentaje de Uso: ${diskSpace.usePercent}` : 'Error.'}
 `;
 
-    await conn.reply(m.chat, message.trim(), m, rcanal, );
+    await conn.reply(m.chat, message.trim(), m, );
 };
 
 handler.help = ['sistema'];

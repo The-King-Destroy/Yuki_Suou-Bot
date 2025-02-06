@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-await m.reply(`❮🍬❯ » *Enviando base de datos de ${wm}...*`)
+await m.reply(`${emoji} Enviando base de datos de ${packname}...`)
 try {
 await m.react(rwait)
 let d = new Date
@@ -15,7 +15,7 @@ await conn.sendMessage(m.sender, {document: creds, mimetype: 'application/json',
 await m.react(done)
 } catch {
 await m.react(error)
-conn.reply(m.chat, `⚠️ *Ocurrió un error.*`, m, fake)}}
+conn.reply(m.chat, `${msm} Ocurrió un error.`, m)}}
 
 handler.help = ['copia']
 handler.tags = ['owner']

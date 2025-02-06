@@ -57,23 +57,23 @@ let timestamp = speed()
 let latensi = speed() - timestamp
 let yuki = `╭─⬣「 *Info De ${botname}* 」⬣\n`
 yuki += `│ 👑 *Creador* : @${owner[0][0].split('@s.whatsapp.net')[0]}\n`
-yuki += `│ 🍭 *Prefijo* : [  ${usedPrefix}  ]\n`
+yuki += `│ ${emoji} *Prefijo* : [  ${usedPrefix}  ]\n`
 yuki += `│ 📦 *Total Plugins* : ${totalf}\n`
-yuki += `│ 💫 *Plataforma* : ${platform()}\n`
-yuki += `│ 🧿 *Servidor* : ${hostname()}\n`
-yuki += `│ 🚀 *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}\n`
-yuki += `│ 🌟 *FreeRAM* : ${format(freemem())}\n`
-yuki += `│ ✨️ *Speed* : ${latensi.toFixed(4)} ms\n`
+yuki += `│ 🖥️ *Plataforma* : ${platform()}\n`
+yuki += `│ 📡 *Servidor* : ${hostname()}\n`
+yuki += `│ 📈 *RAM* : ${format(totalmem() - freemem())} / ${format(totalmem())}\n`
+yuki += `│ 💾 *FreeRAM* : ${format(freemem())}\n`
+yuki += `│ 🚀 *Speed* : ${latensi.toFixed(4)} ms\n`
 yuki += `│ 🕗 *Uptime* : ${uptime}\n`
-yuki += `│ 🍨 *Modo* : ${bot.public ? 'Privado' : 'Publico'}\n`
-yuki += `│ ☁️ *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}* )\n`
-yuki += `│ 🍬 *Grupos Registrados* : ${toNum(totalchats)} ( *${totalchats}* )\n`
-yuki += `│ 🍧 *Registrados* : ${toNum(totalreg)} ( *${totalreg}* ) Usuarios\n`
+yuki += `│ 🔮 *Modo* : ${bot.public ? 'Privado' : 'Publico'}\n`
+yuki += `│ 📜 *Comandos Ejecutados* : ${toNum(totalStats)} ( *${totalStats}* )\n`
+yuki += `│ 📍 *Grupos Registrados* : ${toNum(totalchats)} ( *${totalchats}* )\n`
+yuki += `│ 📌 *Registrados* : ${toNum(totalreg)} ( *${totalreg}* ) Usuarios\n`
 yuki += `╰─⬣\n\n`
 yuki += `╭─⬣「 *Chats De ${botname}* 」⬣\n`
-yuki += `│ 🧃 *${groupsIn.length}* Chats en Grupos\n`
-yuki += `│ 🌸 *${groupsIn.length}* Grupos Unidos\n`
-yuki += `│ 🍁 *${groupsIn.length - groupsIn.length}* Grupos Salidos\n`
+yuki += `│ 🪧 *${groupsIn.length}* Chats en Grupos\n`
+yuki += `│ 📰 *${groupsIn.length}* Grupos Unidos\n`
+yuki += `│ 📄 *${groupsIn.length - groupsIn.length}* Grupos Salidos\n`
 yuki += `│ 💬 *${chats.length - groupsIn.length}* Chats Privados\n`
 yuki += `│ 💭 *${chats.length}* Chats Totales\n`
 yuki += `╰─⬣\n\n`
@@ -81,7 +81,7 @@ yuki += `╭─⬣「 *NodeJS Uso de memoria* 」⬣\n`
 yuki += `${'```' + Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v => v.length)), ' ')}: ${format(used[key])}`).join('\n') + '```'}\n`
 yuki += `╰─⬣`
 
-await conn.reply(m.chat, yuki, fkontak, { contextInfo: { mentionedJid: [owner[0][0] + '@s.whatsapp.net'], externalAdReply: { mediaUrl: false, mediaType: 1, description: false, title: packname, body: dev, previewType: 0, thumbnail: icons, sourceUrl: redes}}})
+await conn.reply(m.chat, yuki, fkontak, { contextInfo: { mentionedJid: [owner[0][0] + '@s.whatsapp.net'] }})
 }
 handler.help = ['infobot']
 handler.tags = ['info']
