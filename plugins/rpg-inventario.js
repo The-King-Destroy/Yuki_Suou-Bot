@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix }) => {
                `┋ 📅 *Fecha:* ${new Date().toLocaleString('id-ID')}\n` +
                `╰━━━━━━━━━━━━⬣`;
 
-    await conn.sendFile(m.chat, img, 'yuki.jpg', text);
+    await conn.sendFile(m.chat, img, 'yuki.jpg', text, fkontak);
 }
 
 handler.help = ['inventario', 'inv'];
