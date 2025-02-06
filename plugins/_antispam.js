@@ -35,19 +35,19 @@ const timeDifference = currentTime - userData.lastMessageTime
 if (userData.antiBan === 1) {
 if (userData.message < 1) {
 userData.message++  
-motive = `${emoji} No hagas spam.`
+motive = `✦ No hagas spam.`
 await conn.reply(m.chat, motive, m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 2) {
 if (userData.message2 < 1) {
 userData.message2++  
-motive =  `${emoji} No hagas spam...`
+motive =  `✦ No hagas spam...`
 await conn.reply(m.chat, motive, m, { mentions: [m.sender] })  
 user.messageSpam = motive
 }} else if (userData.antiBan === 3) {
 if (userData.message3 < 1) {
 userData.message3++  
-motive = `${emoji} Seras eliminado(a) por hacer spam.`
+motive = `✦ Seras eliminado(a) por hacer spam.`
 await conn.reply(m.chat, motive, m, { mentions: [m.sender] }) 
 user.messageSpam = motive
 await conn.groupParticipantsUpdate(m.chat, [sender], 'remove')
@@ -58,7 +58,7 @@ userData.messageCount += 1
 
 if (userData.messageCount >= messageLimit) {
 const mention = `@${sender.split("@")[0]}`
-const warningMessage = `${emoji} *Mucho Spam*\n\n${emoji2} 𝙐𝙨𝙪𝙖𝙧𝙞𝙤: ${mention}`
+const warningMessage = `✦ *Mucho Spam*\n\n✐ 𝙐𝙨𝙪𝙖𝙧𝙞𝙤: ${mention}`
 if (userData.antiBan > 2) return
 await conn.reply(m.chat, warningMessage, m, { mentions: [m.sender] })  
 user.banned = true
