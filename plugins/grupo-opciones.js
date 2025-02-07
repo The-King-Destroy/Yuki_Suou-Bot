@@ -59,7 +59,7 @@ contextInfo: {
 externalAdReply: {
 title: packname,
 body: dev,
-thumbnailUrl: icono,
+thumbnailUrl: avatar,
 mediaType: 1,
 showAdAttribution: true,
 renderLargerThumbnail: true
