@@ -18,13 +18,13 @@ let handler = async (m, { conn, isRowner }) => {
       return m.reply(`${emoji2} El archivo enviado no es una imagen válida.`);
     }
 
-    global.catalogo = `${link}`;  
+    global.avatar = `${link}`;  
 
-    await conn.sendFile(m.chat, media, 'banner.jpg', `${emoji} Catalogo actualizado.`, m);
+    await conn.sendFile(m.chat, media, 'avatar.jpg', `${emoji} Imagen actualizada.`, m);
 
   } catch (error) {
     console.error(error);
-    m.reply(`${msm} Hubo un error al intentar cambiar el banner.`);
+    m.reply(`${msm} Hubo un error al intentar cambiar la Imagen.`);
   }
 };
 
@@ -52,8 +52,8 @@ const isImageValid = (buffer) => {
 
 handler.help = ['setcatalogo'];
 handler.tags = ['tools'];
-handler.command = ['setcatalogo'];
-handler.owner = true;
+handler.command = ['setavatar'];
+handler.rowner = true;
 
 export default handler;
 
