@@ -49,8 +49,6 @@ let handler = async (m, { conn, args }) => {
 > ✦ Ver la información completa de la Bot.
 ᰔᩚ *#sug • #newcommand*
 > ✦ Sugiere un nuevo comando.
-ᰔᩚ *#solicitud • #sugerencia*
-> ✦ Envia una sugerencia al canal de la Bot.
 ᰔᩚ *#p • #ping*
 > ✦ Ver la velocidad de respuesta del Bot.
 ᰔᩚ *#reporte • #reportar*
