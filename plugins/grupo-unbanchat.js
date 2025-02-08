@@ -8,5 +8,6 @@ await conn.reply(m.chat, `${emoji} Has *activado* a *${botname}*!`, m)
 handler.help = ['unbanchat'];
 handler.tags = ['grupo'];
 handler.command = ['unbanchat', 'on']
+handler.admin = true
 
 export default handler
