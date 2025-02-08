@@ -1,3 +1,4 @@
+//import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
@@ -17,7 +18,7 @@ await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', `${yt_play[0].tit
 *⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
 
 *⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻Aguarde un momento en lo que envío su audio*`, m);
+*👉🏻Aguarde un momento en lo que envío su audio*`, m, null, fake);
 try {
 const audiodlp = await ytmp3(yt_play[0].url);
 conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
@@ -92,7 +93,7 @@ await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', `${yt_play[0].tit
 *⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
 
 *⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻Aguarde un momento en lo que envío su video*`, m);
+*👉🏻Aguarde un momento en lo que envío su video*`, m, null, fake);
 try {
 const video = await ytmp4(text);
 if (fileSize > LimitVid) {
@@ -198,7 +199,7 @@ const texto1 = `${yt_play[0].title}
 
 > _*Si este comando falla usar de la seguirte manera:*_ #ytmp3doc ${yt_play[0].url}`.trim();
 
-await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m);
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake);
 try {
 const audiodlp = await ytmp3(yt_play[0].url);
 conn.sendMessage(m.chat, { document: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
@@ -262,7 +263,7 @@ const texto1 = `${yt_play[0].title}
 
 > _*Si este comando falla usar de la seguirte manera:*_ #ytmp4doc ${yt_play[0].url}`.trim();
 
-await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m);
+await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', texto1, m, null, fake);
 try {
 const video = await ytmp4(text);
 await conn.sendMessage(m.chat, { document: { url: video }, fileName: `${yt_play[0].title}.mp4`, caption: `🔰 Aquí está tu video \n🔥 Título: ${yt_play[0].title}` }, { quoted: m });
@@ -291,6 +292,13 @@ await m.react('❌');
 console.log(e2);
 }}}}}
 
+/*if (command == 'play4') {
+if (!text) return conn.reply(m.chat, `*🤔Que esta buscado? 🤔*\n*Ingrese el nombre del la canción*\n\n*Ejemplo:*\n#play emilia 420`, m, {contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '', previewType: 0, thumbnail: img.getRandom(), sourceUrl: redes.getRandom()}}})
+const yt_play = await search(args.join(' '))
+const texto1 = `📌 *Título* : ${yt_play[0].title}\n📆 *Publicado:* ${yt_play[0].ago}\n⌚ *Duración:* ${secondString(yt_play[0].duration.seconds)}\n👀 *Vistas:* ${MilesNumber(yt_play[0].views)}`.trim()
+
+await conn.sendButton(m.chat, texto1, botname, yt_play[0].thumbnail, [['Audio', `${usedPrefix}ytmp3 ${yt_play[0].url}`], ['video', `${usedPrefix}ytmp4 ${yt_play[0].url}`], ['Mas resultados', `${usedPrefix}yts ${text}`]], null, null, m)
+}*/
 }
 handler.help = ['play', 'play2', 'play3', 'play4', 'playdoc'];
 handler.tags = ['downloader'];
@@ -389,4 +397,4 @@ if (data.status === 'ok') {
   } else {
     throw new Error("No se pudo obtener la descarga desde 9Convert");
   }
-}
+}                    
