@@ -3,7 +3,7 @@ import axios from 'axios'
 let handler = async (m, { conn, text }) => {
 //await m.reply('🧑🏻‍💻 Buscando...')
 let bot = '🍭 Buscando espere un momento....'
-conn.reply(m.chat, bot, m, rcanal, )
+conn.reply(m.chat, bot, m)
   if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingresa una *IP*.`, m)
 
   axios.get(`http://ip-api.com/json/${text}?fields=status,message,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,mobile,hosting,query`).then ((res) => {
@@ -31,7 +31,7 @@ Mobile : ${data.mobile ? "Si" : "No"}
 Hosting : ${data.hosting ? "Si" : "No"}
 `.trim()
 
-conn.reply(m.chat, ipsearch, m, rcanal, )
+conn.reply(m.chat, ipsearch, m)
 })
 }
 
