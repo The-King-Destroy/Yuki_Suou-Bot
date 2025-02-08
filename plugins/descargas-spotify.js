@@ -30,7 +30,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
         const info = `「✦」Descargando: ${data.result.data.title}\n\n> 👤 *Artista:* ${data.result.data.artis}\n> 💽 *Álbum:* ${song.album}\n> 🕒 *Duración:* ${timestamp(data.result.data.durasi)}\n> 🔗 *Enlace:* ${song.url}`
 
-        await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: true, 
+        await conn.sendMessage(m.chat, { text: info, contextInfo: { forwardingScore: 9999999, isForwarded: false, 
         externalAdReply: {
             showAdAttribution: true,
             containsAutoReply: true,
