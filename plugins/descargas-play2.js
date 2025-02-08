@@ -1,69 +1,159 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 import yts from 'yt-search';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const { ytmp3, ytmp4 } = require("@hiudyy/ytdl");
+import axios from "axios";
 
-const LimitAud = 725 * 1024 * 1024; 
-const LimitVid = 425 * 1024 * 1024; 
+const formatAudio = ['mp3', 'm4a', 'webm', 'acc', 'flac', 'opus', 'ogg', 'wav'];
+const formatVideo = ['360', '480', '720', '1080', '1440', '4k'];
 
-const handler = async (m, { conn, command, args, text }) => {
-    if (!text) return m.reply(`*🤔Que está buscando? 🤔*\n*Ingrese el nombre de la canción*\n\n*Ejemplo:*\n#play emilia 420`);
-
-    const yt_play = await search(args.join(' '));
-    await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', `${yt_play[0].title}
-*⇄ㅤ     ◁   ㅤ  ❚❚ㅤ     ▷ㅤ     ↻*
-*⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻Aguarde un momento en lo que envío su audio*`, m);
-
-    if (command === 'play' || command === 'musica') {
-        try {
-            const audiodlp = await ytmp3(yt_play[0].url);
-            conn.sendMessage(m.chat, { audio: audiodlp, mimetype: "audio/mpeg" }, { quoted: m });
-        } catch {
-            await handleAudioFallback(yt_play[0].url, m);
-        }
+const ddownr = {
+  download: async (url, format) => {
+    if (!formatAudio.includes(format) && !formatVideo.includes(format)) {
+      throw new Error('Formato no soportado, verifica la lista de formatos disponibles.');
     }
 
-    if (command === 'play2' || command === 'video') {
-        await conn.sendFile(m.chat, yt_play[0].thumbnail, 'error.jpg', `${yt_play[0].title}
-*⏰ Duración:* ${secondString(yt_play[0].duration.seconds)}
-*👉🏻Aguarde un momento en lo que envío su video*`, m);
-        try {
-            const video = await ytmp4(yt_play[0].url);
-            await conn.sendMessage(m.chat, { video: { url: video }, caption: `🔰 Aquí está tu video \n🔥 Título: ${yt_play[0].title}` }, { quoted: m });
-        } catch {
-            await m.react('❌');
-        }
-    }
-}
+    const config = {
+      method: 'GET',
+      url: `https://p.oceansaver.in/ajax/download.php?format=${format}&url=${encodeURIComponent(url)}&api=dfcb6d76f2f6a9894gjkege8a4ab232222`,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
+    };
 
-async function search(query) {
-    const search = await yts.search({ query, hl: 'es', gl: 'ES' });
-    return search.videos;
-}
-
-function secondString(seconds) {
-    const d = Math.floor(seconds / (3600 * 24));
-    const h = Math.floor((seconds % (3600 * 24)) / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = Math.floor(seconds % 60);
-    return `${d ? d + ' días, ' : ''}${h ? h + ' horas, ' : ''}${m ? m + ' minutos, ' : ''}${s ? s + ' segundos' : ''}`;
-}
-
-async function handleAudioFallback(url, m) {
-    // Implementar lógica alternativa para obtener el audio
     try {
-        const res = await fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${url}`);
-        const { data } = await res.json();
-        await conn.sendMessage(m.chat, { audio: { url: data.dl }, mimetype: 'audio/mpeg' }, { quoted: m });
-    } catch {
-        await m.react('❌');
+      const response = await axios.request(config);
+      if (response.data && response.data.success) {
+        const { id } = response.data;
+        const downloadUrl = await ddownr.cekProgress(id);
+        return downloadUrl;
+      } else {
+        throw new Error('Fallo al obtener los detalles del video.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
     }
-}
+  },
+  cekProgress: async (id) => {
+    const config = {
+      method: 'GET',
+      url: `https://p.oceansaver.in/ajax/progress.php?id=${id}`,
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/91.0.4472.124 Safari/537.36'
+      }
+    };
 
-handler.help = ['play', 'play2'];
+    try {
+      while (true) {
+        const response = await axios.request(config);
+        if (response.data && response.data.success && response.data.progress === 1000) {
+          return response.data.download_url;
+        }
+        await new Promise(resolve => setTimeout(resolve, 3000));
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  }
+};
+
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  try {
+    if (!text.trim()) {
+      return conn.reply(m.chat, `${emoji} ingresa el nombre de la música a descargar.`, m);
+    }
+
+    const search = await yts(text);
+    if (!search.all || search.all.length === 0) {
+      return m.reply('No se encontraron resultados para tu búsqueda.');
+    }
+
+    const videoInfo = search.all[0];
+    const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
+    const vistas = formatViews(views);
+    const infoMessage = `🎬 Título: *${title}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🕒 Duración: *${timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 👀 Vistas: *${vistas}*\n*°.⎯⃘̶⎯̸⎯ܴ⎶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🔖 Canal: *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 📆 Publicado: *${ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🔗 Enlace: ${url}`;
+    const thumb = (await conn.getFile(thumbnail))?.data;
+
+    const JT = {
+      contextInfo: {
+        externalAdReply: {
+          title: packname,
+          body: dev,
+          mediaType: 1,
+          previewType: 0,
+          mediaUrl: url,
+          sourceUrl: url,
+          thumbnail: thumb,
+          renderLargerThumbnail: true,
+        },
+      },
+    };
+
+    await conn.reply(m.chat, infoMessage, m, JT);
+
+    if (command === 'playdoc' || command === 'ytmp3doc') {
+      const downloadUrl = await ddownr.download(url, 'mp3');
+      await conn.sendMessage(m.chat, {
+        document: { url: downloadUrl },
+        fileName: `${title}.mp3`,
+        mimetype: "audio/mpeg"
+      }, { quoted: m });
+
+    } else if (command === 'playdoc2' || command === 'ytmp4doc') {
+      const sources = [
+        `https://api.siputzx.my.id/api/d/ytmp4?url=${url}`,
+        `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
+      ];
+
+      let downloadPromises = sources.map(source =>
+        fetch(source)
+          .then(res => {
+            if (!res.ok) throw new Error('Error en la respuesta de la API');
+            return res.json();
+          })
+          .then(({ data }) => data?.dl || data?.download?.url)
+          .catch(err => {
+            console.error('Error al obtener la URL de descarga:', err);
+            return null;
+          })
+      );
+
+      try {
+        const downloadUrls = await Promise.all(downloadPromises);
+        const validUrl = downloadUrls.find(url => url);
+
+        if (validUrl) {
+          await conn.sendMessage(m.chat, {
+            document: { url: validUrl },
+            fileName: `${title}.mp4`,
+            mimetype: 'video/mp4',
+            caption: `${emoji} Aqui tienes ฅ^•ﻌ•^ฅ.`,
+            thumbnail: thumb
+          }, { quoted: m });
+        } else {
+          return m.reply(`${emoji2} *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
+        }
+      } catch (error) {
+        console.error('Error al obtener las URL de descarga:', error);
+        return m.reply(`${msm} Error al intentar descargar el video: ${error.message}`);
+      }
+    } else {
+      throw "Comando no reconocido.";
+    }
+  } catch (error) {
+    return m.reply(`${msm} Ocurrió un error: ${error.message}`);
+  }
+};
+
+handler.command = handler.help = ['playdoc', 'playdoc2', 'ytmp4doc', 'ytmp3doc'];
 handler.tags = ['downloader'];
-handler.command = ['play', 'musica', 'video', 'play4'];
 
 export default handler;
+
+function formatViews(views) {
+  if (views >= 1000) {
+    return (views / 1000).toFixed(1) + 'k (' + views.toLocaleString() + ')';
+  } else {
+    return views.toString();
+  }
+}
