@@ -1,7 +1,7 @@
 import axios from 'axios';
 let enviando = false;
 const handler = async (m, {conn, text, usedPrefix, command}) => {
-if (!text) return conn.reply(m.chat, `${emoji} Por favor, ingresa un enlace de Twitter/X valido.`, m);
+if (!text) return conn.reply(m.chat, `${emoji} Te faltó el link de una imagen/video de twitter.`, m);
 if (enviando) return;
     enviando = true;
 try {
@@ -28,7 +28,7 @@ try {
 } catch {
     m.react(error)
     enviando = false;
-    return conn.reply(m.chat, `${msm} Ocurrió un error.`, m);
+    return conn.reply(m.chat, `${emoji} Ocurrió un error.`, m);
     return;
   }
 };    
