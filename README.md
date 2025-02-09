@@ -66,7 +66,7 @@
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
 
 <details>
- <summary><b> 🌹 Servidor Sky-Ultra-Plus</b></summary>
+ <summary><b> 🌩️ Servidor Sky-Ultra-Plus</b></summary>
 
 * Dashboard  [`Dash`](https://dash.skyultraplus.com)
 * Panel [`Panel`](https://panel.skyultraplus.com)
