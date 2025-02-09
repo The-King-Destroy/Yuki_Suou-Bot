@@ -95,22 +95,6 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-###  **`⚜️ TK-HOTS`**
-<a href="https://dash.tk-joanhost.com/home"><img src="https://files.catbox.moe/lmgc5p.jpg" height="150px"></a>
-
-<details>
- <summary><b>🔥 Servidor Tk-Hots</b></summary>
-
-* Dashboard: [`Dash`](https://dash.tk-joanhost.com)
-* Panel: [`Panel`](https://panel.tk-joanhost.com)
-* Canal de WhatsApp: [`Canal TK`](https://chat.whatsapp.com/EyoFXnaNujs53FBeqj2NM3)
-* Grupo Soporte: [`Aquí`](https://chat.whatsapp.com/CxyUKH5ElNdHAWiJpx7D0E)
-* Contacto(s): [`Soporte`](https://wa.me/51910234457)
-
-</details>
-
----
-
 ### **`🌌 HOSTING-PY`**
 
 <a
