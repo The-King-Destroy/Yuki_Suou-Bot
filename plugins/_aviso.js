@@ -13,7 +13,7 @@ export async function before(m) {
   let chat = global.db.data.chats[m.chat];
 
   if (chat.isBanned) {
-    const avisoDesactivado = `《✧》El bot *${botname}* está desactivado en este grupo.\n\n> ✦ Un *administrador* puede activarlo con el comando:\n> » *#on* o *unbanchat*`;
+    const avisoDesactivado = `《✧》El bot *${botname}* está desactivado en este grupo.\n\n> ✦ Un *administrador* puede activarlo con el comando:\n> » *#on* o *#unbanchat*`;
     await m.reply(avisoDesactivado);
     return;
   }
