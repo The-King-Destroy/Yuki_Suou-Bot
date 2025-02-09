@@ -38,7 +38,7 @@ else return m.reply(`${emoji2} El url es incorrecto...`)
 console.error(e)
 if (!stiker) stiker = e
 } finally {
-if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', m)
+if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
 
 else return conn.reply(m.chat, `${emoji} Por favor, envia una imagen o video para hacer un sticker.`, m)
 
