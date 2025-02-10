@@ -14,14 +14,14 @@ let handler = async (m, { conn, args }) => {
   let txt = `
 һ᥆ᥣᥲ! s᥆ᥡ  *${botname}*  ٩(˘◡˘)۶
 ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s
-> ╭┈ ↷
-> │☁️ Cliente » @${userId.split('@')[0]}
-> │💸 ${moneda} » ${coins}
-> │✨ Experiencia » ${exp.toLocaleString()}
-> │🌟 Nivel » ${nivel}
-> │⚜️ Rango » ${role}
-> │${dev}
-> ╰─────────────────
+
+> ☁️ Cliente » @${userId.split('@')[0]}
+> 💸 ${moneda} » ${coins}
+> ✨ Experiencia » ${exp.toLocaleString()}
+> 🌟 Nivel » ${nivel}
+> ⚜️ Rango » ${role}
+> ${dev}
+
 ᥴrᥱᥲ ᥙᥒ sᥙᑲ-ᑲ᥆𝗍 ᥴ᥆ᥒ 𝗍ᥙ ᥒúmᥱr᥆ ᥙ𝗍іᥣіzᥲᥒძ᥆ *#serbot* o *#serbot code*
 
 »  ⊹˚• \`Info-Bot\` •˚⊹
