@@ -53,7 +53,7 @@ regbot += `> • ⚜️ *Tokens* » 20\n`
 regbot += `•┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄•\n`
 regbot += `> ${dev}`
 await m.react('📩')
-//await m.reply(mini)
+
 await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
@@ -67,32 +67,8 @@ await conn.sendMessage(m.chat, {
                 renderLargerThumbnail: true
             }
         }
-    }, { quoted: m });
-    
-    let chtxt = `👤 *𝚄𝚜𝚎𝚛* » ${m.pushName || 'Anónimo'}
-🗂 *𝚅𝚎𝚛𝚒𝚏𝚒𝚌𝚊𝚌𝚒𝚘́𝚗* » ${user.name}
-⭐️ *𝙴𝚍𝚊𝚍* » ${user.age} años
-👀 *𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚌𝚒𝚘𝚗* » ${user.descripcion} 
-⏳ *𝚄𝚕𝚝𝚒𝚖𝚊 𝙼𝚘𝚍𝚒𝚏𝚒𝚌𝚊𝚝𝚒𝚘𝚗* » ${fechaBio}
-📆 *𝙵𝚎𝚌𝚑𝚊* » ${moment.tz('America/Bogota').format('DD/MM/YY')}
-☁️ *𝙽𝚞𝚖𝚎𝚛𝚘 𝚍𝚎 𝚛𝚎𝚐𝚒𝚜𝚝𝚛𝚘* »
-⤷ ${sn}`;
-
-    await conn.sendMessage(global.idchannel, {
-        text: chtxt,
-        contextInfo: {
-            externalAdReply: {
-                title: "【 🔔 𝐍𝐎𝐓𝐈𝐅𝐈𝐂𝐀𝐂𝐈𝐎́𝐍 🔔 】",
-                body: '🥳 ¡𝚄𝚗 𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝚗𝚞𝚎𝚟𝚘 𝚎𝚗 𝚖𝚒 𝚋𝚊𝚜𝚎 𝚍𝚎 𝚍𝚊𝚝𝚘𝚜!',
-                thumbnailUrl: perfil,
-                sourceUrl: redes,
-                mediaType: 1,
-                showAdAttribution: false,
-                renderLargerThumbnail: false
-            }
-        }
-    }, { quoted: null });
-};
+    }, { quoted: m });    
+}; 
 handler.help = ['reg']
 handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar'] 
