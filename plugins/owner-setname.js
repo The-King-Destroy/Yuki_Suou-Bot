@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, isRowner }) => {
   if (names.length !== 2) return m.reply(`${emoji} Por favor, proporciona ambos nombres separados por una barra (/) en el formato: nombre1/nombre2.`);
 
   global.botname = names[0].trim();
-  const texto1bot = ' • Powered By ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜';
+  const texto1bot = ` • Powered By ${etiqueta}`;
   global.textbot = `${names[1].trim()}${texto1bot}`;
   
   m.reply(`${emoji} El nombre del bot ha sido cambiado a: ${global.botname}\n\n> ${emoji2} El texto del bot ha sido cambiado a: ${global.textbot}`);
