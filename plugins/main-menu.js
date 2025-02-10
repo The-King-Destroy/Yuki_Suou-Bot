@@ -35,7 +35,7 @@ let handler = async (m, { conn, args }) => {
 > ✦ Link del repositorio oficial de la Bot
 ᰔᩚ *#staff • #colaboradores*
 > ✦ Ver la lista de desarrolladores de la Bot.
-ᰔᩚ *#serbot • #serbot code
+ᰔᩚ *#serbot • #serbot code*
 > ✦ Crea una sesión de Sub-Bot.
 ᰔᩚ *#bots • #sockets*
 > ✦ Ver la lista de Sub-Bots activos.
