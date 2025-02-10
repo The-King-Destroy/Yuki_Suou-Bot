@@ -15,8 +15,7 @@ newlink = `《✧》El enlace del grupo ha sido restablecido.\n\n> ✦ Acción h
 status = `《✧》El grupo ha sido ${m.messageStubParameters[0] == 'on' ? '*cerrado 🔒*' : '*abierto 🔓*'} Por ${usuario}\n\n> ✦ Ahora ${m.messageStubParameters[0] == 'on' ? '*solo admins*' : '*todos*'} pueden enviar mensaje.`
 admingp = `《✧》@${m.messageStubParameters[0].split`@`[0]} Ahora es admin del grupo.\n\n> ✦ Acción hecha por:\n> » ${usuario}`
 noadmingp =  `《✧》@${m.messageStubParameters[0].split`@`[0]} Deja de ser admin del grupo.\n\n> ✦ Acción hecha por:\n> » ${usuario}`
-aceptar = `《✧》Ha llegado un nuevo participante al grupo.\n\n> ◦ ✐ Grupo: *${groupMetadata.subject}*\n\n> ◦ ⚘ Bienvenido/a: @${m.messageStubParameters[0].split('@')[0]}\n\n> ◦ ✦ Aceptado por:
- @${m.sender.split('@')[0]}` 
+aceptar = `《✧》Ha llegado un nuevo participante al grupo.\n\n> ◦ ✐ Grupo: *${groupMetadata.subject}*\n\n> ◦ ⚘ Bienvenido/a: @${m.messageStubParameters[0].split('@')[0]}\n\n> ◦ ✦ Aceptado por: @${m.sender.split('@')[0]}` 
 
 if (chat.detect && m.messageStubType == 21) {
 await conn.sendMessage(m.chat, { text: nombre, mentions: [m.sender] }, { quoted: fkontak })   
