@@ -31,8 +31,8 @@ console.log(`Error : ${e}`)
 global.creador = 'Wa.me/584120346669'
 global.ofcbot = `${conn.user.jid.split('@')[0]}`
 global.asistencia = 'Wa.me/584120346669'
-global.namechannel = '↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬'
-global.namechannel2 = '✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"'
+global.namechannel = 'ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥙ⍴ძᥲ𝗍ᥱs ❀'
+global.namechannel2 = 'ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥲ᥎іs᥆s ❀"'
 global.namegrupo = '.•♫•♬• ʏᴜᴋɪ-ꜱᴜᴏᴜ-ʙᴏᴛ  •♬•♫•.'
 global.namecomu = '✿:･✧ 𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓒𝓸𝓶𝓾𝓷𝓲𝓽𝔂 ✧･:✿'
 global.listo = '🍬 *Aquí tienes ฅ^•ﻌ•^ฅ*'
@@ -41,7 +41,7 @@ global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => '
 //Ids channel
 global.idchannel = '120363343811229130@newsletter'
 global.canalIdM = ["120363322713003916@newsletter", "120363343811229130@newsletter"]
-global.canalNombreM = ["↫ Yυƙι-Sυσυ-Bσƚ Cԋαɳɳҽʅ ↬", "✧┊┋◟✿𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭✿◞┊┋✧"]
+global.canalNombreM = ["ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥙ⍴ძᥲ𝗍ᥱs ❀", "ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥲ᥎іs᥆s ❀"]
 global.channelRD = await getRandomChannel()
 
 //fechas
