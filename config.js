@@ -55,6 +55,7 @@ global.wm = 'ৎ୭࠭͢𝐘𝐮𝐤𝐢_𝐒𝐮𝐨𝐮-𝐁𝐨𝐭ⷭ𓆪͞�
 global.author = 'Made By ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
 global.dev = '© ⍴᥆ᥕᥱrᥱძ ᑲᥡ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
 global.textbot = 'Yυƙι-Sυσυ-Bσƚ • Powered By ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
+global.etiqueta = 'ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
