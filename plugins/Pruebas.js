@@ -24,7 +24,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
       caption: body,
-      footer: `© ` + botName + ` | Powered by I'm Fz ~`,
+      footer: `© ` + botname + ` | Powered by I'm Fz ~`,
       buttons: [
         {
           buttonId: `.ytmp3 ${videoInfo.url}`,
