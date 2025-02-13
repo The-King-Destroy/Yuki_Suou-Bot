@@ -1,114 +1,76 @@
-import fetch from 'node-fetch';
-import { prepareWAMessageMedia, generateWAMessageFromContent } from '@whiskeysockets/baileys';
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `\`\`\`[ 🌴 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
 
-const API_URL = 'https://dark-core-api.vercel.app/api/search/youtube?key=Darkito&text=';
+  const isVideo = /vid|2|mp4|v$/.test(command);
+  const search = await yts(text);
 
-const handler = async (m, { conn, args, usedPrefix }) => {
-    if (!args[0]) return conn.reply(m.chat, '*`Por favor ingresa un término de búsqueda`*', m);
+  if (!search.all || search.all.length === 0) {
+    throw "No se encontraron resultados para tu búsqueda.";
+  }
 
-    await m.react('🕓');
-    try {
-        let searchResults = await searchVideos(args.join(" "));
-        if (!searchResults.length) throw new Error('No se encontraron resultados.');
+  const videoInfo = search.all[0];
+  const body = `\`\`\`⊜─⌈ 📻 ◜YouTube Play◞ 📻 ⌋─⊜
 
-        let video = searchResults[0];
-        let thumbnail = await (await fetch(video.miniatura)).buffer();
+    ≡ Título : » ${videoInfo.title}
+    ≡ Views : » ${videoInfo.views}
+    ≡ Duration : » ${videoInfo.timestamp}
+    ≡ Uploaded : » ${videoInfo.ago}
+    ≡ URL : » ${videoInfo.url}
 
-        let messageText = `> *YouTube Play 🍧.*\n\n`;
-        messageText += `• *Título:* ${video.titulo}\n`;
-        messageText += `• *Duración:* ${formatDuration(video.duracion)}\n`;
-        messageText += `• *Autor:* ${video.canal || 'Desconocido'}\n`;
-        messageText += `• *Publicado:* ${convertTimeToSpanish(video.publicado)}\n`;
-        messageText += `• *Enlace:* ${video.url}\n`;
+# 🌴 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
 
-        let sections = searchResults.slice(1, 11).map((v, index) => ({
-            title: `${index + 1}┃ ${v.titulo}`,
-            rows: [
-                {
-                    title: `🎶 Descargar MP3`,
-                    description: `Duración: ${formatDuration(v.duracion)}`, 
-                    id: `${usedPrefix}ytmp3 ${v.url}`
-                },
-                {
-                    title: `🎥 Descargar MP4`,
-                    description: `Duración: ${formatDuration(v.duracion)}`, 
-                    id: `${usedPrefix}ytmp4 ${v.url}`
-                }
-            ]
-        }));
-
-        await conn.sendMessage(m.chat, {
-            image: thumbnail,
-            caption: messageText,
-            footer: 'Presiona el botón para el tipo de descarga.',
-            contextInfo: {
-                mentionedJid: [m.sender],
-                forwardingScore: 999,
-                isForwarded: true
-            },
-            buttons: [
-                {
-                    buttonId: `${usedPrefix}ytmp3 ${video.url}`,
-                    buttonText: { displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆' },
-                    type: 1,
-                },
-                {
-                    buttonId: `${usedPrefix}ytmp4 ${video.url}`,
-                    buttonText: { displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆' },
-                    type: 1,
-                },
-                {
-                    type: 4,
-                    nativeFlowInfo: {
-                        name: 'single_select',
-                        paramsJson: JSON.stringify({
-                            title: 'Más resultados',
-                            sections: sections,
-                        }),
-                    },
-                },
-            ],
-            headerType: 1,
-            viewOnce: true
-        }, { quoted: m });
-
-        await m.react('✅');
-    } catch (e) {
-        console.error(e);
-        await m.react('✖️');
-        conn.reply(m.chat, '*`Error al buscar el video.`*', m);
+    if (command === 'play1' || command === 'play6' || command === 'playvid') {
+  await conn.sendMessage(m.chat, {
+      image: { url: videoInfo.thumbnail },
+      caption: body,
+      footer: `© ` + botName + ` | Powered by I'm Fz ~`,
+      buttons: [
+        {
+          buttonId: `.ytmp3 ${videoInfo.url}`,
+          buttonText: {
+            displayText: '🎵 Audio',
+          },
+        },
+        {
+          buttonId: `.ytmp4 ${videoInfo.url}`,
+          buttonText: {
+            displayText: '📽️ Video',
+          },
+        },
+      ],
+      viewOnce: true,
+      headerType: 4,
+    }, { quoted: fkontak });
+    m.react('🌱');
+    
+    } else if (command === 'yta' || command === 'ytmp3') {
+    m.react(rwait)
+      let audio = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=audio&xky=zM%7DUrP%7DO`)).buffer()
+      conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
+    m.react(done)
+    } else if (command === 'ytv' || command === 'ytmp4') {
+    m.react(rwait)
+      let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=zM%7DUrP%7DO`)).buffer()
+    await conn.sendMessage(m.chat, {
+      video: video,
+      mimetype: "video/mp4",
+      caption: `Título: ${videoInfo.title}\nURL: ${videoInfo.url}`,
+    }, { quoted: m });
+    m.react(done)
+    } else {
+      throw "Comando no reconocido.";
     }
 };
 
-handler.help = ['play *<texto>*'];
+handler.command = handler.help = ['play1', 'playvid', 'ytv', 'ytmp4', 'yta', 'play6', 'ytmp3'];
 handler.tags = ['dl'];
-handler.command = ['play1'];
 export default handler;
 
-async function searchVideos(query) {
-    try {
-        let response = await fetch(`${API_URL}${encodeURIComponent(query)}`);
-        let json = await response.json();
-        return json.success ? json.results : [];
-    } catch (e) {
-        console.error('Error al obtener videos:', e);
-        return [];
-    }
-}
-
-function formatDuration(duration) {
-    let match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-    let hours = match[1] ? match[1].replace('H', 'h ') : '';
-    let minutes = match[2] ? match[2].replace('M', 'm ') : '';
-    let seconds = match[3] ? match[3].replace('S', 's') : '';
-    return `${hours}${minutes}${seconds}`.trim();
-}
-
-function convertTimeToSpanish(timeText) {
-    return timeText
-        .replace(/year/, 'año').replace(/years/, 'años')
-        .replace(/month/, 'mes').replace(/months/, 'meses')
-        .replace(/day/, 'día').replace(/days/, 'días')
-        .replace(/hour/, 'hora').replace(/hours/, 'horas')
-        .replace(/minute/, 'minuto').replace(/minutes/, 'minutos');
-}
+const getVideoId = (url) => {
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const match = url.match(regex);
+  if (match) {
+    return match[1];
+  }
+  throw new Error("Invalid YouTube URL");
+};
