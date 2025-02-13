@@ -1,6 +1,6 @@
 import yts from 'yt-search';
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `\`\`\`[ 🌴 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
+  if (!text) throw `${emoji} Por favor ingresa la música que deseás descargar.`;
 
   const isVideo = /vid|2|mp4|v$/.test(command);
   const search = await yts(text);
@@ -10,39 +10,31 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const videoInfo = search.all[0];
-  const body = `\`\`\`⊜─⌈ 📻 ◜YouTube Play◞ 📻 ⌋─⊜
+  const body = `\`\`\`⊜─⌈  ◜YOUTUBE - PLAY◞  ⌋─⊜\n\n> ≡ Titulo » ${videoInfo.title}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Vistas » ${videoInfo.views}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Duracion » ${videoInfo.timestamp}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Subido » ${videoInfo.ago}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Enlace » ${videoInfo.url}`;
 
-    ≡ Título : » ${videoInfo.title}
-    ≡ Views : » ${videoInfo.views}
-    ≡ Duration : » ${videoInfo.timestamp}
-    ≡ Uploaded : » ${videoInfo.ago}
-    ≡ URL : » ${videoInfo.url}
-
-# 🌴 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
-
-    if (command === 'play1' || command === 'play6' || command === 'playvid') {
+    if (command === 'play' || command === 'play2' || command === 'playvid') {
   await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
       caption: body,
-      footer: `© ` + botname + ` | Powered by I'm Fz ~`,
+      footer: dev,
       buttons: [
         {
           buttonId: `.ytmp3 ${videoInfo.url}`,
           buttonText: {
-            displayText: '🎵 Audio',
+            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
           },
         },
         {
           buttonId: `.ytmp4 ${videoInfo.url}`,
           buttonText: {
-            displayText: '📽️ Video',
+            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
           },
         },
       ],
       viewOnce: true,
       headerType: 4,
     }, { quoted: fkontak });
-    m.react('🌱');
+    m.react('🕒');
     
     } else if (command === 'yta' || command === 'ytmp3') {
     m.react(rwait)
@@ -55,7 +47,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.sendMessage(m.chat, {
       video: video,
       mimetype: "video/mp4",
-      caption: `Título: ${videoInfo.title}\nURL: ${videoInfo.url}`,
+      caption: `${emoji} Aquí tienes ฅ^•ﻌ•^ฅ`,
     }, { quoted: m });
     m.react(done)
     } else {
@@ -63,7 +55,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 };
 
-handler.command = handler.help = ['play1', 'playvid', 'ytv', 'ytmp4', 'yta', 'play6', 'ytmp3'];
+handler.command = handler.help = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
 handler.tags = ['dl'];
 export default handler;
 
