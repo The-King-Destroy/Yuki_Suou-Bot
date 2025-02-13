@@ -1,3 +1,4 @@
+import yts from 'yt-search';
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) throw `\`\`\`[ 🌴 ] Por favor ingresa un texto. Ejemplo:\n${usedPrefix + command} Did i tell u that i miss you\`\`\``;
 
