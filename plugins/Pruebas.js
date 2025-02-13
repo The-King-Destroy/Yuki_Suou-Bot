@@ -10,7 +10,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const videoInfo = search.all[0];
-  const body = `⊜─⌈  ◜YOUTUBE  -  PLAY◞  ⌋─⊜\n\n> ≡ Titulo » ${videoInfo.title}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Vistas » ${videoInfo.views}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Duracion » ${videoInfo.timestamp}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Subido » ${videoInfo.ago}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ≡ Enlace » ${videoInfo.url}`;
+  const body = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✰ Vistas » ${videoInfo.views}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ⴵ Duracion » ${videoInfo.timestamp}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✐ Publicado » ${videoInfo.ago}\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🜸 Link » ${videoInfo.url}`;
 
     if (command === 'play' || command === 'play2' || command === 'playvid') {
   await conn.sendMessage(m.chat, {
@@ -47,7 +47,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.sendMessage(m.chat, {
       video: video,
       mimetype: "video/mp4",
-      caption: `${emoji} Aquí tienes ฅ^•ﻌ•^ฅ`,
+      caption: ``,
     }, { quoted: m });
     m.react(done)
     } else {
