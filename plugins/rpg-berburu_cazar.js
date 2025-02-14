@@ -94,6 +94,8 @@ handler.help = ['berburu'];
 handler.tags = ['rpg'];
 handler.command = ['cazar', 'hunt', 'berburu']
 handler.group = true;
+handler.register = true;
+
 export default handler;
 
 function clockString(ms) {
