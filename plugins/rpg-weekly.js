@@ -28,6 +28,7 @@ let handler = async (m, { conn }) => {
 handler.help = ['weekly'];
 handler.tags = ['rpg'];
 handler.command = ['semanal', 'weekly'];
+handler.group = true
 
 export default handler;
 
