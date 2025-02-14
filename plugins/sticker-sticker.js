@@ -21,10 +21,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             try {
                 if (/image/.test(mime)) {
                     let crop = /\-x|\-crop/i.test(m.text);
-                    stiker = await imageToWebp(media, crop, { author: global.packsticker, packname: global.packsticker2 });
+                    stiker = await imageToWebp(media, crop, { author: global.packsticker2, packname: global.packsticker });
                 } else if (/video/.test(mime)) {
                     let crop = /\-x|\-crop/i.test(m.text);
-                    stiker = await imageToWebp(media, crop, { author: global.packsticker, packname: global.packsticker2 });
+                    stiker = await imageToWebp(media, crop, { author: global.packsticker2, packname: global.packsticker });
                 };
             } catch (e) {
                 console.error(e)
