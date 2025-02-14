@@ -20,4 +20,5 @@ handler.tags = ['economy']
 handler.command = ['bank', 'banco'] 
 handler.register = true 
 handler.group = true
+
 export default handler 
