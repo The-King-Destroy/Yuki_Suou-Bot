@@ -19,9 +19,8 @@ const handler = async (m, {conn, command, args}) => {
 };
 handler.help = ['Buy', 'Buyall'];
 handler.tags = ['economy'];
-handler.register = true
 handler.command = ['buy', 'buyall'];
-
-handler.disabled = false;
+handler.group = true;
+handler.register = true;
 
 export default handler;
