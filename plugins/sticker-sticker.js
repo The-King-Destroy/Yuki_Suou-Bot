@@ -13,12 +13,12 @@ let handler = async (m, { conn }) => {
             let media = await v?.download?.();
 
             let crop = /\-x|\-crop/i.test(m.text);
-            buffer = await imageToWebp(media, crop, { author: global.packsticker, packName: global.packsticker2 });
+            buffer = await imageToWebp(media, crop, { author: global.packsticker2, packName: global.packsticker });
         } else if(/video/.test(mime)) {
             let media = await v?.download?.();
 
             let crop = /\-x|\-crop/i.test(m.text);
-            buffer = await videoToWebp(media, crop, { author: global.packsticker, packName: global.packsticker2 });
+            buffer = await videoToWebp(media, crop, { author: global.packsticker2, packName: global.packsticker });
         } else {
             return conn.reply(m.chat, `${emoji} Por favor, envia una imagen o video para hacer un sticker.`, m);
         };
