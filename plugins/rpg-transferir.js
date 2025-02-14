@@ -27,8 +27,8 @@ async function handler(m, { conn, args, usedPrefix, command }) {
 handler.help = ['pay'];
 handler.tags = ['rpg'];
 handler.command = ['pay', 'transfer'];
+handler.group = true;
 handler.register = true;
-handler.group = true
 
 export default handler;
 
