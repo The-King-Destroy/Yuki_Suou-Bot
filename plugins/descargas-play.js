@@ -44,7 +44,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     m.react(done)
     } else if (command === 'ytv' || command === 'ytmp4') {
     m.react(rwait)
-      let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
+      let video = await (await fetch(`https://api.botcahx.eu.org/api/dowloader/yt?url=https://youtube.com/watch?v=VSL5F43qgng&apikey=sxadCfpz`)).buffer()
     await conn.sendMessage(m.chat, {
       video: video,
       mimetype: "video/mp4",
