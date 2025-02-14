@@ -30,6 +30,8 @@ let handler = async (m, { conn, text }) => {
 
 handler.help = ['canjear <código>'];
 handler.tags = ['economia'];
-handler.command = ['canjear']
+handler.command = ['canjear'];
+handler.group = true;
+handler.register = true;
 
 export default handler;
