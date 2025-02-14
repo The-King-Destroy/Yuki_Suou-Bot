@@ -64,7 +64,8 @@ await conn.sendFile(m.chat, img, 'yuki.jpg', info, fkontak);
 handler.help = ['aventura', 'adventure'];
 handler.tags = ['rpg'];
 handler.command = ['adventure', 'aventura'];
-handler.group = true
+handler.group = true;
+handler.register = true;
 handler.cooldown = 1500000;
 
 export default handler;
