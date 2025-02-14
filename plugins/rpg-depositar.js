@@ -22,5 +22,7 @@ await m.reply(`${emoji} Depositaste *${count} ${moneda}* en el banco, ya no podr
 handler.help = ['depositar']
 handler.tags = ['rpg']
 handler.command = ['deposit', 'depositar', 'd', 'aguardar']
-handler.register = true 
+handler.group = true
+handler.register = true
+
 export default handler 
