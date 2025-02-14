@@ -49,5 +49,7 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['wvideo <nombre del personaje>'];
 handler.tags = ['anime'];
 handler.command = ['charvideo', 'cvideo', 'wvideo', 'waifuvideo'];
+handler.group = true;
+handler.register = true;
 
 export default handler;

@@ -41,7 +41,8 @@ await m.react(error)
 handler.help = ['gitclone *<url git>*']
 handler.tags = ['descargas']
 handler.command = ['gitclone']
-handler.register = true 
-handler.coin = 1
+handler.group = true
+handler.register = true
+handler.coin = 3
 
 export default handler

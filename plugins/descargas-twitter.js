@@ -31,5 +31,8 @@ const handler = async (m, { conn, text, usedPrefix, command, args }) => {
 handler.help = ['twitter <url>'];
 handler.tags = ['dl'];
 handler.command = ['x', 'xdl', 'dlx', 'twdl', 'tw', 'twt', 'twitter'];
+handler.group = true;
+handler.register = true;
+handler.coin = 2;
 
 export default handler;

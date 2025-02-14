@@ -26,7 +26,8 @@ let handler = async (m, { conn, args, participants }) => {
 handler.help = ['lb'];
 handler.tags = ['rpg'];
 handler.command = ['lboard', 'top', 'lb']; 
-handler.register = true; 
+handler.group = true;
+handler.register = true;
 handler.fail = null;
 handler.exp = 0;
 

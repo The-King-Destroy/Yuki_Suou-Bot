@@ -55,7 +55,8 @@ handler.help = ['animedl', 'animelinks'];
 handler.command = ['animedl', 'animelinks'];
 handler.tags = ['descargas'];
 handler.premium = true;
-handler.register = true;
 handler.group = true;
+handler.register = true;
+handler.coin = 5;
 
 export default handler;

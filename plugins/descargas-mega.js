@@ -40,8 +40,9 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
 handler.help = ["mega"];
 handler.tags = ["descargas"];
 handler.command = ['mega', 'mg']
-handler.register = true
-handler.group = true
+handler.group = true;
+handler.register = true;
+handler.coin = 5;
 
 export default handler;
 

@@ -27,6 +27,9 @@ return;
 handler.help = ['rob'];
 handler.tags = ['rpg'];
 handler.command = ['robar', 'steal', 'rob'];
+handler.group = true;
+handler.register = true;
+
 export default handler;
 function msToTime(duration) {
   const milliseconds = parseInt((duration % 1000) / 100);

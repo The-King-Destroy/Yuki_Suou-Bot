@@ -20,5 +20,7 @@ let handler = async (m, { conn }) => {
 handler.help = ['heal'];
 handler.tags = ['rpg'];
 handler.command = ['heal', 'curar']
+handler.group = true;
+handler.register = true;
 
 export default handler;

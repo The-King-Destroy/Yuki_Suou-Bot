@@ -41,6 +41,8 @@ var handler = async (m, { conn }) => {
 handler.help = ['navidad', 'christmas'];
 handler.tags = ['rpg'];
 handler.command = ['navidad', 'christmas'];
+handler.group = true;
+handler.register = true;
 
 export default handler;
 

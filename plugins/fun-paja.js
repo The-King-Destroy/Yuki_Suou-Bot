@@ -14,5 +14,7 @@
 handler.help = ['pajeame'];
 handler.tags = ['fun'];
 handler.command = ['paja', 'pajeame']
+handler.group = true
+handler.register = true
 
 export default handler;

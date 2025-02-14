@@ -37,6 +37,8 @@ loading()
 handler.help = ['doxxing <nombre> | <@tag>'];
 handler.tags = ['fun'];
 handler.command = ['doxxing']
+handler.group = true
+handler.register = true
 
 export default handler;
 

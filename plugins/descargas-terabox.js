@@ -37,6 +37,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 handler.help = ["terabox *<url>*"];
 handler.tags = ["dl"];
 handler.command = ['terabox', 'tb'];
+handler.group = true;
 handler.register = true;
 handler.coin = 5;
 

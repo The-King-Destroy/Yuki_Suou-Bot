@@ -42,7 +42,8 @@ const handler = async (m, { text, conn, args }) => {
 handler.help = ['facebook', 'fb']
 handler.tags = ['descargas']
 handler.command = ['facebook', 'fb']
-handler.coin = 1
-handler.register = true
+handler.group = true;
+handler.register = true;
+handler.coin = 2;
 
 export default handler

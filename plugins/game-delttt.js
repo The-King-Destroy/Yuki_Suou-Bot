@@ -7,5 +7,7 @@ await conn.reply(m.chat, `${done} Se reinicia la sesión de *tictactoe*.`, m)
 handler.help = ['delttt']
 handler.tags = ['game']
 handler.command = ['delttc', 'delttt', 'delxo','tictactoe']
+handler.group = true
+handler.register = true
 
 export default handler

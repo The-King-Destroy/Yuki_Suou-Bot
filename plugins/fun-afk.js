@@ -8,5 +8,7 @@ conn.reply(m.chat, `${emoji} *El Usuario ${conn.getName(m.sender)} Estará Inact
 handler.help = ['afk [alasan]'];
 handler.tags = ['main'];
 handler.command = ['afk'];
+handler.group = true;
+handler.register = true;
 
 export default handler;

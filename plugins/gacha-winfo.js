@@ -55,5 +55,7 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['charinfo <nombre del personaje>', 'winfo <nombre del personaje>', 'waifuinfo <nombre del personaje>'];
 handler.tags = ['anime'];
 handler.command = ['charinfo', 'winfo', 'waifuinfo'];
+handler.group = true;
+handler.register = true;
 
 export default handler;

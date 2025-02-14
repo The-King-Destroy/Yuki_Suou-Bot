@@ -49,5 +49,7 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['wimage <nombre del personaje>'];
 handler.tags = ['anime'];
 handler.command = ['charimage', 'cimage', 'wimage', 'waifuimage'];
+handler.group = true;
+handler.register = true;
 
 export default handler;

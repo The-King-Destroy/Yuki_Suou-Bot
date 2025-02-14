@@ -115,5 +115,7 @@ let handler = async (m, { conn, args }) => {
 handler.help = ['vote <nombre>'];
 handler.tags = ['anime'];
 handler.command = ['vote', 'votar'];
+handler.group = true;
+handler.register = true;
 
 export default handler;

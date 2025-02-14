@@ -31,5 +31,6 @@ handler.help = ['huevo @user'];
 handler.tags = ['fun'];
 handler.command = ['huevo'];
 handler.group = true;
+handler.register = true;
 
 export default handler;

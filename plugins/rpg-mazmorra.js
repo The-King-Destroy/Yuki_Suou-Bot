@@ -29,6 +29,8 @@ await conn.reply(m.chat, result, m)
 handler.help = ['mazmorra']
 handler.tags = ['rpg']
 handler.command = ['explorar', 'mazmorra']
+handler.group = true;
+handler.register = true;
 
 export default handler
 function randomNumber(min, max) {

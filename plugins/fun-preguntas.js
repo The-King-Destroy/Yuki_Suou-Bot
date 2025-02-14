@@ -15,6 +15,7 @@ await conn.reply(m.chat, + dev + `\n\n•*Pregunta:* ` + text + `\n• *Respuest
 handler.help = ['pregunta']
 handler.tags = ['fun']
 handler.command = ['pregunta','preguntas']
+handler.group = true
 handler.register = true
 
 export default handler

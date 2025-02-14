@@ -21,7 +21,6 @@ conn.reply(m.chat, personalidad, m)
 handler.help = ['personalidad']
 handler.tags = ['fun']
 handler.command = ['personalidad']
-
 handler.group = true;
 handler.register = true
 
