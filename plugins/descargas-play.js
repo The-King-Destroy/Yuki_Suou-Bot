@@ -39,7 +39,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     
     } else if (command === 'yta' || command === 'ytmp3') {
     m.react(rwait)
-      let audio = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=audio&xky=sxadCfpz`)).buffer()
+      let audio = await (await fetch(`https://api.botcahx.eu.org/api/dowloader/yt?url=https://youtube.com/watch?v=VSL5F43qgng&apikey=sxadCfpz`)).buffer()
       conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
     m.react(done)
     } else if (command === 'ytv' || command === 'ytmp4') {
