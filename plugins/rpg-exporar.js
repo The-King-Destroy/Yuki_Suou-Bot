@@ -3,7 +3,6 @@ let cooldowns = {};
 let handler = async (m, { conn, text, command }) => {
   let users = global.db.data.users;
   let senderId = m.sender;
-  let senderName = conn.getName(senderId);
 
   let tiempoEspera = 5 * 60;
 
@@ -18,10 +17,6 @@ let handler = async (m, { conn, text, command }) => {
   if (!users[senderId]) {
     users[senderId] = { health: 100, coin: 0, exp: 0 };
   }
-
-  let senderCoin = users[senderId].coin || 0;
-  let senderExp = users[senderId].exp || 0;
-  let senderHealth = users[senderId].health || 100;
 
   const eventos = [
     { nombre: '💰 Tesoro Escondido', coin: 100, exp: 50, health: 0, mensaje: `¡Encontraste un cofre lleno de ${moneda}!` },
@@ -39,26 +34,15 @@ let handler = async (m, { conn, text, command }) => {
   users[senderId].exp += evento.exp;
   users[senderId].health += evento.health;
 
-  if (evento.coin > 0) {
-    m.reply(`╭━〔 Exploración en el Bosque〕
-┃Misión: *${evento.nombre}*
-┃Evento: ${evento.mensaje}
-┃Ganaste +${evento.coin} *${moneda}* y +${evento.exp} *XP*.
-╰━━━━━━━━━━━━⬣`);
-  } else if (evento.coin < 0) {
-    m.reply(`╭━〔 Exploración en el Bosque〕
-┃Misión: *${evento.nombre}*
-┃Evento: ${evento.mensaje}
-┃Perdiste -${Math.abs(evento.coin)} *${moneda}* pero ganaste +${evento.exp} *XP*.
-┃Tu salud bajo en: -${Math.abs(evento.health)}
-╰━━━━━━━━━━━━⬣`);
-  } else {
-    m.reply(`╭━〔 Exploración en el Bosque〕
-┃Misión: *${evento.nombre}*
-┃Evento: ${evento.mensaje}
-┃No ganaste ni perdiste *${moneda}*, pero ganaste +${evento.exp} *XP*.
-╰━━━━━━━━━━━━⬣`);
-  }
+  let img = 'https://qu.ax/ljzxA.jpg';
+  let info = `╭━〔 Exploración en el Bosque〕\n` +
+             `┃Misión: *${evento.nombre}*\n` +
+             `┃Evento: ${evento.mensaje}\n` +
+             `┃Ganaste ${evento.coin > 0 ? '+' : '-'}${Math.abs(evento.coin)} *${moneda}* y +${evento.exp} *XP*.\n` +
+             `┃Tu salud ${evento.health < 0 ? 'bajó en: ' + Math.abs(evento.health) : 'se mantuvo igual.'}\n` +
+             `╰━━━━━━━━━━━━⬣`;
+
+  await conn.sendFile(m.chat, img, 'exploracion.jpg', info, fkontak);
 
   global.db.write();
 };
