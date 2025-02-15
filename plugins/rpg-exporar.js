@@ -49,8 +49,8 @@ let handler = async (m, { conn, text, command }) => {
     m.reply(`╭━〔 Exploración en el Bosque〕
 ┃Misión: *${evento.nombre}*
 ┃Evento: ${evento.mensaje}
-┃Perdiste ${Math.abs(evento.coin)} *${moneda}* y ganaste +${evento.exp} *XP*.
-┃Tu salud bajo: ${Math.abs(evento.health)}
+┃Perdiste -${Math.abs(evento.coin)} *${moneda}* pero ganaste +${evento.exp} *XP*.
+┃Tu salud bajo en: -${Math.abs(evento.health)}
 ╰━━━━━━━━━━━━⬣`);
   } else {
     m.reply(`╭━〔 Exploración en el Bosque〕
