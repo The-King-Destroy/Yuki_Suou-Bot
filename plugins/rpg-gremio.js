@@ -32,10 +32,8 @@ let handler = async (m, { conn, args }) => {
     let info = `🔍 **Lista de Misiones**:\n${missionList}\n\nPara seleccionar una misión, usa el comando .mision [ID]`;
 
     await conn.sendFile(m.chat, img2, 'gremio.jpg', info, m);
-    return;
-  }
-
-  if (args[0] === 'mision') {
+    
+  } else if (args[0] === 'mision') {
     let missionId = parseInt(args[1]);
 
     if (isNaN(missionId) || !missions.some(mission => mission.id === missionId)) {
@@ -75,6 +73,8 @@ let handler = async (m, { conn, args }) => {
     await conn.sendFile(m.chat, img, 'gremio.jpg', info, m);
 
     await global.db.write();
+  } else {
+    m.reply("⚠️ Comando no reconocido. Usa .gremio para ver las misiones o .mision [ID] para seleccionar una misión.");
   }
 };
 
