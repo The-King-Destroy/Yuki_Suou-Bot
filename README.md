@@ -89,7 +89,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 * Panel: [`Panel`](https://console.akirax.net)
 * Canal de WhatsApp: [`Canal Akirax`](https://whatsapp.com/channel/0029Vb3Ocrs7IUYNQktqeE11)
 * Comunidad: [`Aquí`](https://chat.whatsapp.com/HekxzfoLBxN1TCwTmrlGcy)
-* Contacto(s): [`Matias`](https://Wa.me/+5491164123932) / [`Legend`](https://wa.me/584148256527) / [`Tesis`](https://wa.me/522431268546)
+* Contacto(s): [`Matias`](https://Wa.me/+5491164123932) / [`Tesis`](https://wa.me/522431268546)
 
 </details>
 
