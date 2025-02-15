@@ -39,12 +39,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     
     } else if (command === 'yta' || command === 'ytmp3') {
     m.react(rwait)
-      let audio = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=SUuKPL_UzKMEN`)).buffer()
+      let audio = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
       conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
     m.react(done)
     } else if (command === 'ytv' || command === 'ytmp4') {
     m.react(rwait)
-      let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=SUuKPL_UzKMEN`)).buffer()
+      let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
     await conn.sendMessage(m.chat, {
       video: video,
       mimetype: "video/mp4",
