@@ -45,22 +45,17 @@ let handler = async (m, { conn, text }) => {
   ]
 
   const imagenes = [
-    'https://i.ibb.co/C575Z2ph/file.jpg',
-    'https://i.ibb.co/wFmxF4L1/file.jpg',
-    'https://i.ibb.co/LDMRv0VP/file.jpg',
-    'https://i.ibb.co/9jzZsMt/file.jpg',
-    'https://i.ibb.co/sJcvHqY2/file.jpg',
-    'https://i.ibb.co/04cyVCF/file.jpg',
+    'https://qu.ax/QHgWZ.jpg',
   ]
 
   const respuesta = respuestas[Math.floor(Math.random() * respuestas.length)]
   const imagen = imagenes[Math.floor(Math.random() * imagenes.length)]
 
-  conn.sendMessage(m.chat, { image: { url: imagen }, caption: `${emoji2} *${respuesta}*` }, { quoted: m })
+  conn.sendMessage(m.chat, { image: { url: imagen }, caption: `🔮 *${respuesta}*` }, { quoted: m })
 }
 
 handler.tags = ['fun']
 handler.help = ['8ball *<pregunta>*']
-handler.command = ['8ball', 'bola8']
+handler.command = ['akinator', 'genio']
 
 export default handler
