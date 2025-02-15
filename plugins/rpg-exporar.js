@@ -49,7 +49,7 @@ let handler = async (m, { conn, text, command }) => {
 
 handler.tags = ['rpg'];
 handler.help = ['explorar'];
-handler.command = ['explorar', 'bosque', 'gremio'];
+handler.command = ['explorar', 'bosque'];
 handler.register = true;
 handler.group = true;
 
