@@ -59,7 +59,7 @@ global.etiqueta = 'ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.moneda = '¥Yenes'
+global.moneda = 'Yenes'
 global.welcom1 = '❍ Edita Con #setwelcome'
 global.welcom2 = '❍ Edita Con #setbye'
 global.banner = 'https://tinyurl.com/27d7rnhu'
