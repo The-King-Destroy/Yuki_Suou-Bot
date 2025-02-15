@@ -28,10 +28,10 @@ let handler = async (m, { conn, args }) => {
       `${index + 1}. **${mission.nombre}**\n   Nivel requerido: ${mission.level}\n   Recompensa: ${mission.coin} monedas, ${mission.exp} EXP`
     ).join('\n\n');
 
-    let png = 'https://qu.ax/ljzxA.jpg';
-    let info = `*Lista de Misiones**:\n${missionList}\n\nPara seleccionar una misión, usa el comando .mision [número]`;
+    let jpg = 'https://qu.ax/ljzxA.jpg';
+    let info = `*Lista de Misiones*:\n${missionList}\n\nPara seleccionar una misión, usa el comando .mision [número]`;
 
-    await conn.sendFile(m.chat, png, 'gremio.jpg', info, m);
+    await conn.sendFile(m.chat, jpg, 'gremio.jpg', info, m);
     return;
   }
 
@@ -72,7 +72,7 @@ let handler = async (m, { conn, args }) => {
                `┃Tu salud ${selectedMission.health < 0 ? 'bajó en: ' + Math.abs(selectedMission.health) : 'se mantuvo igual.'}\n` +
                `╰━━━━━━━━━━━━⬣`;
 
-    await conn.sendFile(m.chat, img, 'mision.jpg', info, m);
+    await conn.sendFile(m.chat, img, 'gremio.jpg', info, m);
 
     await global.db.write();
   }
