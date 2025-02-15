@@ -79,11 +79,11 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-###  **`☄️ AKIRAX-HOTS`**
+###  **`☄️ AKIRAX-HOSTING`**
 <a href="https://home.akirax.net"><img src="https://qu.ax/AVgaL.jpg" height="145px"></a>
 
 <details>
- <summary><b>💠 Servidor Akirax-Hots</b></summary>
+ <summary><b>💠 Servidor Akirax-Hosting</b></summary>
 
 * Dashboard: [`Dash`](https://home.akirax.net)
 * Panel: [`Panel`](https://console.akirax.net)
@@ -113,11 +113,11 @@ href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z
 
 ---
 
-###  **`©️ BRONXYS-HOTS`**
+###  **`©️ BRONXYS-HOSTING`**
 <a href="https://bronxyshost.com"><img src="https://tinyurl.com/23qv2kvr" height="145px"></a>
 
 <details>
- <summary><b>♣️ Servidor Bronxy-Hots</b></summary>
+ <summary><b>♣️ Servidor Bronxy-Hosting</b></summary>
 
 * Dashboard: [`Dash`](https://bronxyshost.com)
 * Panel: [`Panel`](https://bronxyshost.com)
