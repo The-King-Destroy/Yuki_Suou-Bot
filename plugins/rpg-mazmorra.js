@@ -45,14 +45,14 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   }
 
   let img = 'https://qu.ax/jbnNz.jpg';
-  let info = `╭━〔 Exploración en la Mazmora 〕\n` +
+  let info = `╭━〔 Mazmoras Antiguas 〕\n` +
              `┃Misión: *${evento.nombre}*\n` +
              `┃Evento: ${evento.mensaje}\n` +
-             `┃Ganaste ${evento.coin > 0 ? '+' : '-'}${Math.abs(evento.coin)} *${moneda}* y +${evento.exp} *XP*.\n` +
+             `┃Recompensa: ${evento.coin > 0 ? '+' : '-'}${Math.abs(evento.coin)} *${moneda}* y +${evento.exp} *XP*.\n` +
              `┃Tu salud ${evento.health < 0 ? 'bajó en: ' + Math.abs(evento.health) : 'se mantuvo igual.'}\n` +
              `╰━━━━━━━━━━━━⬣`;
 
-  await conn.sendFile(m.chat, img, 'mazmorras.jpg', info, m);
+  await conn.sendFile(m.chat, img, 'mazmorras.jpg', info, fkontak);
 
   global.db.write();
 };
