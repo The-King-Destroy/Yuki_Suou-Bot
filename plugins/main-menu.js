@@ -495,6 +495,62 @@ let handler = async (m, { conn, args }) => {
 > ✦ Desnudar a alguien
 ᰔᩚ *#yuri • #tijeras* + <mencion>
 > ✦ Hacer tijeras.
+
+»  ⊹˚• \`Juegos\` •˚⊹
+
+❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ ȷᥙᥱg᥆s ⍴ᥲrᥲ ȷᥙgᥲr ᥡ ძі᥎ᥱr𝗍іr𝗍ᥱ ᥴ᥆ᥒ 𝗍ᥙs ᥲmіg᥆s. 
+ᰔᩚ *#amistad • #amigorandom* 
+> ✦ hacer amigos con un juego. 
+ᰔᩚ *#chaqueta • #jalamela*
+> ✦ Hacerte una chaqueta.
+ᰔᩚ *#chiste*
+> ✦ La bot te cuenta un chiste.
+ᰔᩚ *#consejo* 
+> ✦ La bot te da un consejo. 
+ᰔᩚ *#doxeo • #doxear* + <mencion>
+> ✦ Simular un doxeo falso.
+ᰔᩚ *#facto*
+> ✦ La bot te lanza un facto. 
+ᰔᩚ *#formarpareja*
+> ✦ Forma una pareja. 
+ᰔᩚ *#formarpareja5*
+> ✦ Forma 5 parejas diferentes.
+ᰔᩚ *#frase*
+> ✦ La bot te da una frase.
+ᰔᩚ *#huevo*
+> ✦ Agarrale el huevo a alguien.
+ᰔᩚ *#chupalo* + <mencion>
+> ✦ falta aqui.
+ᰔᩚ *#aplauso* + <mencion>
+> ✦ Aplaudirle a alguien.
+ᰔᩚ *#marron* + <mencion>
+> ✦ Falta aquí. 
+ᰔᩚ *#suicidar*
+> ✦ Suicidate. 
+ᰔᩚ *#iq • #iqtest* + <mencion>
+> ✦ Calcular el iq de alguna persona. 
+ᰔᩚ *#meme*
+> ✦ La bot te envía un meme aleatorio. 
+ᰔᩚ *#morse*
+> ✦ falta aquí. 
+ᰔᩚ *#nombreninja*
+> ✦ Busca un nombre ninja aleatorio. 
+ᰔᩚ *#paja • #pajeame* 
+> ✦ La bot te hace una paja.
+ᰔᩚ *#personalidad* + <mencion>
+> ✦ La bot busca tu personalidad. 
+ᰔᩚ *#piropo*
+> ✦ Lanza un piropo.
+ᰔᩚ *#pregunta*
+> ✦ Hazle una pregunta a la bot.
+ᰔᩚ *#ship • #pareja*
+> ✦ La bot te da la probabilidad de enamorarte de una persona. 
+ᰔᩚ *#sorteo*
+> ✦ Empieza un sorteo. 
+ᰔᩚ *#top*
+> ✦ Empieza un top de personas.
+ᰔᩚ *#formartrio* + <mencion>
+> ✦ Forma un trio. 
   `.trim();
 
   await conn.sendMessage(m.chat, { 
