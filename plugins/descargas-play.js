@@ -20,13 +20,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       footer: dev,
       buttons: [
         {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
+          buttonId: `.ytmp3dl ${videoInfo.url}`,
           buttonText: {
             displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
           },
         },
         {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
+          buttonId: `.ytmp4dl ${videoInfo.url}`,
           buttonText: {
             displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
           },
@@ -37,12 +37,12 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: fkontak });
     m.react('🕒');
     
-    } else if (command === 'yta' || command === 'ytmp3') {
+    } else if (command === 'yta' || command === 'ytmp3dl') {
     m.react(rwait)
       let audio = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
       conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
     m.react(done)
-    } else if (command === 'ytv' || command === 'ytmp4') {
+    } else if (command === 'ytv' || command === 'ytmp4dl') {
     m.react(rwait)
       let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
     await conn.sendMessage(m.chat, {
@@ -56,7 +56,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 };
 
-handler.command = ['play1']
+handler.command = ['play1', 'ytmp3dl', 'ytmp4dl']
 //handler.command = handler.help = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
 handler.tags = ['dl'];
 handler.group = true;
