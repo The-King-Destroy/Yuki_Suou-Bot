@@ -48,6 +48,8 @@ if (!isNumber(user.lastadventure))
 user.lastadventure = 0
 if (!isNumber(user.lastclaim))
 user.lastclaim = 0
+if (!isNumber(user.health))
+user.health = 100
 if (!isNumber(user.crime))
 user.crime = 0
 if (!isNumber(user.lastcofre))
@@ -115,6 +117,7 @@ coin: 10,
 joincount: 1,
 diamond: 3,
 lastadventure: 0,
+health: 100,
 lastclaim: 0,
 lastcofre: 0,
 lastdiamantes: 0,
