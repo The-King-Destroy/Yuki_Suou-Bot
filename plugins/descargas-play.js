@@ -39,7 +39,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     
     } else if (command === 'yta' || command === 'ytmp3dl') {
     m.react(rwait)
-      let audio = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=audio&xky=sxadCfpz`)).buffer()
+      let audio = await (await fetch(`https://dark-core-api.vercel.app/api/download/ytmp3?url=${videoInfo.url}&type=audio`)).buffer()
       conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
     m.react(done)
     } else if (command === 'ytv' || command === 'ytmp4dl') {
