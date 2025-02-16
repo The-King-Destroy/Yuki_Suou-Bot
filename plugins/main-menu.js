@@ -1,25 +1,26 @@
 import moment from 'moment-timezone';
 
 let handler = async (m, { conn, args }) => {
-  let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
-  let user = global.db.data.users[userId];
-  let name = conn.getName(userId);
-  let exp = user.exp || 0;
-  let nivel = user.level || 0;
-  let coins = user.coin || 0;
-  let role = user.role || 'Sin Rango';
+    let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
+    let user = global.db.data.users[userId];
+    let name = conn.getName(userId);
 
-  let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
+    let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
 
-  let txt = `
+    let _uptime = process.uptime() * 1000;
+    let uptime = clockString(_uptime);
+    let totalreg = Object.keys(global.db.data.users).length;
+
+    let txt = `
 һ᥆ᥣᥲ! s᥆ᥡ  *${botname}*  ٩(˘◡˘)۶
 ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s
 ╭┈ ↷
 │ᰔᩚ Cliente » @${userId.split('@')[0]}
-│⛁ ${moneda} » ${coins}
-│✰ Experiencia » ${exp.toLocaleString()}
-│✦ Nivel » ${nivel}
-│❖ Rango » ${role}
+│❀ Modo » Publico
+│✦ Bot » ${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}
+│ⴵ Activada » ${uptime}
+│✰ Usuarios » ${totalreg}
+│🜸 Baileys » Multi Device
 │${dev}
 ╰─────────────────
 ᥴrᥱᥲ ᥙᥒ sᥙᑲ-ᑲ᥆𝗍 ᥴ᥆ᥒ 𝗍ᥙ ᥒúmᥱr᥆ ᥙ𝗍іᥣіzᥲᥒძ᥆ *#serbot* o *#serbot code*
@@ -582,3 +583,10 @@ handler.tags = ['main'];
 handler.command = ['menu', 'menú', 'help', 'ayuda'];
 
 export default handler;
+
+function clockString(ms) {
+    let seconds = Math.floor((ms / 1000) % 60);
+    let minutes = Math.floor((ms / (1000 * 60)) % 60);
+    let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+    return `${hours}h ${minutes}m ${seconds}s`;
+}
