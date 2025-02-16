@@ -20,13 +20,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       footer: dev,
       buttons: [
         {
-          buttonId: `.ytmp3dl ${videoInfo.url}`,
+          buttonId: `.ytmp3 ${videoInfo.url}`,
           buttonText: {
             displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
           },
         },
         {
-          buttonId: `.ytmp4dl ${videoInfo.url}`,
+          buttonId: `.ytmp4 ${videoInfo.url}`,
           buttonText: {
             displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
           },
