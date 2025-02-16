@@ -39,17 +39,18 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     
     } else if (command === 'yta' || command === 'ytmp3dl') {
     m.react(rwait)
-      let audio = await (await fetch(`https://dark-core-api.vercel.app/api/download/ytmp3?url=${videoInfo.url}&type=audio`)).buffer()
-      conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
+      //let audio = await (await fetch(`https://dark-core-api.vercel.app/api/download/ytmp3?url=${videoInfo.url}&type=audio`)).buffer()
+      //conn.sendFile(m.chat, audio, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
+      const response = await fetch(`https://api.alyachan.dev/api/yta?url=${videoInfo.url}&apikey=Gata-Dios`)
+      const json = await response.json()
+      await conn.sendMessage(m.chat, { audio: { url: json.data.url }, mimetype: 'audio/mpeg', fileName: json.data.filename }, { quoted: m })
     m.react(done)
     } else if (command === 'ytv' || command === 'ytmp4dl') {
     m.react(rwait)
-      let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
-    await conn.sendMessage(m.chat, {
-      video: video,
-      mimetype: "video/mp4",
-      caption: ``,
-    }, { quoted: m });
+      //let video = await (await fetch(`https://api.botcahx.eu.org/api/download/get-YoutubeResult?url=${videoInfo.url}&type=video&xky=sxadCfpz`)).buffer()
+    const response = await fetch(`https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`)
+    const json = await response.json()
+    await conn.sendMessage(m.chat, { video: { url: json.data.url }, mimetype: 'video/mp4', fileName: json.data.filename }, { quoted: m })
     m.react(done)
     } else {
       throw "Comando no reconocido.";
