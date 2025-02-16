@@ -551,7 +551,21 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#top*
 > ✦ Empieza un top de personas.
 ᰔᩚ *#formartrio* + <mencion>
-> ✦ Forma un trio. 
+> ✦ Forma un trio.
+ᰔᩚ *#ahorcado*
+> ✦ Diviertete con la bot jugando el juego ahorcado.
+ᰔᩚ *#genio*
+> ✦ Comienza una pregunta con el genio.
+ᰔᩚ *#mates • #matematicas*
+> ✦ Responde las preguntas de matemáticas para ganar recompensas.
+ᰔᩚ *#ppt*
+> ✦ Juega piedra papel o tijeras con la bot.
+ᰔᩚ *#sopa • #buscarpalabra*
+> ✦ Juega el famoso juego de sopa de letras.
+ᰔᩚ *#pvp • #suit* + <mencion>
+> ✦ Juega un pvp contra otro usuario.
+ᰔᩚ *#ttt*
+> ✦ Crea una sala de juego. 
   `.trim();
 
   await conn.sendMessage(m.chat, { 
