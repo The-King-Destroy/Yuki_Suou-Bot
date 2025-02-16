@@ -20,16 +20,16 @@ let neww = performance.now()
 let speed = neww - old
 const used = process.memoryUsage()
 let info = `ᥫ᭡ Información - ${botname} ❀\n`
-info += `「👑」 *◜Creador◞* ⇢ ${etiqueta}\n`
-info += `「⚜️」 *◜Prefijo◞* ⇢ [ ${usedPrefix} ]\n`
-info += `「📚」 *◜Versión◞* ⇢ ${vs}\n`
-info += `「🔐」 *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
-info += `「💬」 *◜Total De Chats◞* ⇢ ${chats.length}\n`
-info += `「👥」 *◜Usuarios◞* ⇢ ${totalreg}\n`
-info += `「📌」 *◜Grupos◞* ⇢ ${groupsIn.length}\n`
-info += `「⏱️」 *◜Actividad◞* ⇢ ${muptime}\n`
-info += `「🚀」 *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
-info += `「🔖」 *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
+info += `ᰔᩚ *◜Creador◞* ⇢ ${etiqueta}\n`
+info += `🜸 *◜Prefijo◞* ⇢ [ ${usedPrefix} ]\n`
+info += `⚑ *◜Versión◞* ⇢ ${vs}\n`
+info += `⌨ *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
+info += `✎ *◜Total De Chats◞* ⇢ ${chats.length}\n`
+info += `❍ *◜Usuarios◞* ⇢ ${totalreg}\n`
+info += `❑ *◜Grupos◞* ⇢ ${groupsIn.length}\n`
+info += `✰ *◜Actividad◞* ⇢ ${muptime}\n`
+info += `ⴵ *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
+info += `✦ *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
 await conn.sendFile(m.chat, avatar, 'yuki.jpg', info, fkontak)
 }
 handler.help = ['estado']
