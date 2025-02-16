@@ -23,7 +23,11 @@ let handler = async (m, { conn, args }) => {
     { id: 12, nombre: '⚡ Derrota a un Dragón', level: 5, coin: 1000, exp: 200, health: -50, mensaje: `¡Increíble! ¡Has derrotado a un dragón y ganado 1000 monedas!` },
   ];
 
-  if (args[0] === 'gremio') {
+  if (!args.length) return; // Salir si no hay argumentos
+
+  const command = args[0];
+
+  if (command === 'gremio') {
     let missionList = missions.map((mission) =>
       `ID: ${mission.id} - **${mission.nombre}**\n   Nivel requerido: ${mission.level}\n   Recompensa: ${mission.coin} monedas, ${mission.exp} EXP`
     ).join('\n\n');
@@ -35,7 +39,7 @@ let handler = async (m, { conn, args }) => {
     return;
   }
 
-  if (args[0] === 'mision') {
+  if (command === 'mision') {
     let missionId = parseInt(args[1]);
 
     if (isNaN(missionId) || !missions.some(mission => mission.id === missionId)) {
