@@ -521,11 +521,11 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#huevo*
 > ✦ Agarrale el huevo a alguien.
 ᰔᩚ *#chupalo* + <mencion>
-> ✦ falta aqui.
+> ✦ Hacer que un usuario te la chupe.
 ᰔᩚ *#aplauso* + <mencion>
 > ✦ Aplaudirle a alguien.
 ᰔᩚ *#marron* + <mencion>
-> ✦ Falta aquí. 
+> ✦ Burlarte del color de piel de un usuario. 
 ᰔᩚ *#suicidar*
 > ✦ Suicidate. 
 ᰔᩚ *#iq • #iqtest* + <mencion>
@@ -533,7 +533,7 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#meme*
 > ✦ La bot te envía un meme aleatorio. 
 ᰔᩚ *#morse*
-> ✦ falta aquí. 
+> ✦ Convierte un texto a codigo morse. 
 ᰔᩚ *#nombreninja*
 > ✦ Busca un nombre ninja aleatorio. 
 ᰔᩚ *#paja • #pajeame* 
