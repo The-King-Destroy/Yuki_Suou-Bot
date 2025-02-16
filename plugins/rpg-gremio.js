@@ -76,8 +76,6 @@ let handler = async (m, { conn, args }) => {
     await global.db.write();
     return;
   }
-
-  m.reply("⚠️ Comando no reconocido. Usa .gremio para ver las misiones o .mision [ID] para seleccionar una misión.");
 };
 
 handler.tags = ['rpg'];
