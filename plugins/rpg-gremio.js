@@ -1,8 +1,8 @@
 let cooldowns = {};
 
 let handler = async (m, { conn, args }) => {
-  let users = global.db.data.users;
-  let senderId = m.sender;
+  const users = global.db.data.users;
+  const senderId = m.sender;
 
   if (!users[senderId]) {
     users[senderId] = { health: 100, coin: 0, exp: 0, level: 1 };
@@ -23,12 +23,10 @@ let handler = async (m, { conn, args }) => {
     { id: 12, nombre: '⚡ Derrota a un Dragón', level: 5, coin: 1000, exp: 200, health: -50, mensaje: `¡Increíble! ¡Has derrotado a un dragón y ganado 1000 monedas!` },
   ];
 
-  if (!args.length) return; // Salir si no hay argumentos
-
   const command = args[0];
 
   if (command === 'gremio') {
-    let missionList = missions.map((mission) =>
+    let missionList = missions.map(mission =>
       `ID: ${mission.id} - **${mission.nombre}**\n   Nivel requerido: ${mission.level}\n   Recompensa: ${mission.coin} monedas, ${mission.exp} EXP`
     ).join('\n\n');
 
@@ -40,24 +38,24 @@ let handler = async (m, { conn, args }) => {
   }
 
   if (command === 'mision') {
-    let missionId = parseInt(args[1]);
+    const missionId = parseInt(args[1]);
 
-    if (isNaN(missionId) || !missions.some(mission => mission.id === missionId)) {
+    if (isNaN(missionId) || !missions.some(m => m.id === missionId)) {
       m.reply("⚠️ Misión no válida. Por favor elige un ID de misión de la lista.");
       return;
     }
 
-    let selectedMission = missions.find(mission => mission.id === missionId);
+    const selectedMission = missions.find(m => m.id === missionId);
 
     if (users[senderId].level < selectedMission.level) {
       m.reply(`⚠️ No tienes el nivel suficiente para realizar esta misión. Te falta(n) ${selectedMission.level - users[senderId].level} nivel(es).`);
       return;
     }
 
-    let tiempoEspera = 30 * 60 * 1000;
+    const tiempoEspera = 30 * 60 * 1000;
 
     if (cooldowns[senderId] && Date.now() - cooldowns[senderId] < tiempoEspera) {
-      let tiempoRestante = Math.ceil((cooldowns[senderId] + tiempoEspera - Date.now()) / 1000);
+      const tiempoRestante = Math.ceil((cooldowns[senderId] + tiempoEspera - Date.now()) / 1000);
       m.reply(`⏳ Ya estás en una misión. Espera ${tiempoRestante} segundos antes de intentar otra.`);
       return;
     }
