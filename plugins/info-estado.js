@@ -40,8 +40,8 @@ handler.register = true
 export default handler
 
 function clockString(ms) {
-    let seconds = Math.floor((ms / 1000) % 60);
-    let minutes = Math.floor((ms / (1000 * 60)) % 60);
-    let hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-    return `${hours}h ${minutes}m ${seconds}s`;
-}
+let h = Math.floor(ms / 3600000)
+let m = Math.floor(ms / 60000) % 60
+let s = Math.floor(ms / 1000) % 60
+console.log({ms,h,m,s})
+return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')}
