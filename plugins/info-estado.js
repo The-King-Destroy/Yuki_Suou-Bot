@@ -3,7 +3,6 @@ let handler = async (m, { conn, usedPrefix, isRowner}) => {
 let _muptime
 let totalreg = Object.keys(global.db.data.users).length
 let totalchats = Object.keys(global.db.data.chats).length
-let pp = "https://qu.ax/iNraU.jpg"
 if (process.send) {
 process.send('uptime')
 _muptime = await new Promise(resolve => {
@@ -31,7 +30,7 @@ yuki += `📌꙰᠁❥ *◜Grupos◞* ⇢ ${groupsIn.length}\n`
 yuki += `⏱️꙰᠁❥ *◜Actividad◞* ⇢ ${muptime}\n`
 yuki += `🚀꙰᠁❥ *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
 yuki += `🍬꙰᠁❥ *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
-await conn.sendFile(m.chat, pp, 'yuki.jpg', yuki, fkontak)
+await conn.sendFile(m.chat, avatar, 'yuki.jpg', yuki, fkontak)
 }
 handler.help = ['estado']
 handler.tags = ['info']
