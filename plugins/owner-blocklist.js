@@ -16,6 +16,6 @@ const handler = async (m, {conn}) => {
 handler.help = ['blocklist'];
 handler.tags = ['main'];
 handler.command = ['blocklist', 'listblock'];
-handler.mods = true;
+handler.rowner = true;
 
 export default handler;
