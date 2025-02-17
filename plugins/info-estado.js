@@ -1,6 +1,6 @@
 import ws from 'ws'
 let handler = async (m, { conn, usedPrefix, isRowner}) => {
-let _muptime
+let _uptime
 let totalreg = Object.keys(global.db.data.users).length
 let totalchats = Object.keys(global.db.data.chats).length
 if (process.send) {
