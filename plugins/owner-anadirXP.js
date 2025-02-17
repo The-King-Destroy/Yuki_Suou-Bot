@@ -36,6 +36,6 @@ const handler = async (m, { conn, text }) => {
 };
 
 handler.command = ['añadirxp', 'addexp'];
-handler.mods = true;
+handler.rowner = true;
 
 export default handler;
