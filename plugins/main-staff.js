@@ -35,7 +35,8 @@ let staff = `ᥫ᭡ *EQUIPO DE AYUDANTES* ❀
 > ✧ GitHub » https://github.com/Legna-chan
 `
 await conn.sendFile(m.chat, img, 'yuki.jpg', staff.trim(), fkontak)
-
+}
+  
 handler.help = ['staff']
 handler.command = ['colaboradores', 'staff']
 handler.register = true
