@@ -7,7 +7,8 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   let bot = global.db.data.settings[conn.user.jid] || {};
   let type = command.toLowerCase();
   let isAll = false, isUser = false;
-  let isEnable = false;
+ // let isEnable = false;
+  let isEnable = chat[type] || false;
 
   if (args[0] === 'on' || args[0] === 'enable') {
     isEnable = true;
@@ -333,7 +334,8 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       chat.antifake = isEnable;
       break;
   }
-
+  chat[type] = isEnable;
+  
   conn.reply(m.chat, `《✦》La función *${type}* se *${isEnable ? 'activó' : 'desactivó'}* ${isAll ? 'para este Bot' : isUser ? '' : 'para este chat'}`, m);
 };
 
