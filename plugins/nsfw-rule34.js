@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 const handler = async (m, { conn, args, usedPrefix }) => {
     if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*`);
+    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw on*`);
     }
     if (!args[0]) {
       await conn.reply(m.chat, `${emoji} Por favor, ingresa un tag para realizar la búsqueda.`, m);
