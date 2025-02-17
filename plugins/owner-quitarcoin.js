@@ -45,6 +45,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['quitarcoin *<@user>*', 'quitarcoin all'];
 handler.tags = ['owner'];
 handler.command = ['quitarcoin', 'removecoin', 'removecoins']; 
-handler.mods = true;
+handler.rowner = true;
 
 export default handler;
