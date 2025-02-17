@@ -5,9 +5,19 @@ let owner = `
 һ᥆ᥣᥲ! s᥆ᥡ  *${botname}*  ٩(˘◡˘)۶
 ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s ძᥱ m᥆ძs ᥡ ᥆ᥕᥒᥱrs
 
-»  ⊹˚• \`MODS\` •˚⊹
+»  ⊹˚• \`OWNERS\` •˚⊹
 
-🍬 Comandos de moderación para mods y owners.
+❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ m᥆ძᥱrᥲᥴіóᥒ ᥡ ᥴ᥆ᥒ𝗍r᥆ᥣ ᥲ᥎ᥲᥒzᥲძ᥆ ⍴ᥲrᥲ ᥆ᥕᥒᥱrs.
+ᰔᩚ *#addowner • #delowner*
+> ✦ Agrega o elimina un número de la lista de owners.
+ᰔᩚ *#codigo*
+> ✦ Crea un token o código de canjeó de códigos.
+ᰔᩚ *#backup • #copia*
+> ✦ Crear un respaldo de seguridad de la *db* del Bot.
+ᰔᩚ *#bcgc*
+> ✦ Envia un mensaje a todos los grupos donde este el Bot.
+ᰔᩚ *#cleanfiles*
+> ✦ Elimina archivos temporales.
 ᰔᩚ *#addcoins • #añadircoin*
 > ✦ Añade coins a un usuario.
 ᰔᩚ *#userpremium • #addprem*
@@ -38,20 +48,6 @@ let owner = `
 > ✦ Restablecer los datos de un usuario.
 ᰔᩚ *#removexp • #quitarxp*
 > ✦ Quitar XP a un usuario.
-
-»  ⊹˚• \`OWNERS\` •˚⊹
-
-🍬 Comandos de moderación y control avanzado para owners.
-ᰔᩚ *#addowner • #delowner*
-> ✦ Agrega o elimina un número de la lista de owners.
-ᰔᩚ *#codigo*
-> ✦ Crea un token o código de canjeó de códigos.
-ᰔᩚ *#backup • #copia*
-> ✦ Crear un respaldo de seguridad de la *db* del Bot.
-ᰔᩚ *#bcgc*
-> ✦ Envia un mensaje a todos los grupos donde este el Bot.
-ᰔᩚ *#cleanfiles*
-> ✦ Elimina archivos temporales.
 ᰔᩚ *#newgc #creargc*
 > ✦ Crea un nuevo grupo desde el número del Bot.
 ᰔᩚ *#deletefile*
@@ -82,7 +78,7 @@ let owner = `
 > ✦ Guarda un plugin en la carpeta de comandos del Bot.
 ᰔᩚ *#setbanner*
 > ✦ Cambia la imagen del menu principal del Bot.
-ᰔᩚ *#setcatalogo*
+ᰔᩚ *#setavatar*
 > ✦ Cambia la imagen del catálogo.
 ᰔᩚ *#addcmd • #setcmd*
 > ✦ Guarda un sticker/imagen como texto o comando.
@@ -119,7 +115,7 @@ renderLargerThumbnail: true
 
 handler.help = ['mods'];
 handler.tags = ['main'];
-handler.command = ['mods', 'dev', 'owners'];
-handler.mods = true
+handler.command = ['dev', 'owners'];
+handler.rowner = true;
 
 export default handler;
