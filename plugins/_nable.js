@@ -9,6 +9,14 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   let isAll = false, isUser = false;
   let isEnable = false;
 
+  if (args[0] === 'on') {
+    isEnable = true;
+  } else if (args[0] === 'off') {
+    isEnable = false;
+  } else {
+    return conn.reply(m.chat, `「✦」Uso incorrecto usa:\n>  *${usedPrefix}${command} on* para activar.\n> *${usedPrefix}${command} off* para desactivar.`, m);
+  }
+
   switch (type) {
     case 'welcome':
     case 'bv':
@@ -22,7 +30,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.welcome = !chat.welcome;
+      chat.welcome = isEnable;
       break;
 
     case 'antiprivado':
@@ -33,7 +41,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('rowner', m, conn);
         throw false;
       }
-      isEnable = bot.antiPrivate = !bot.antiPrivate;
+      bot.antiPrivate = isEnable;
       break;
 
     case 'restrict':
@@ -43,7 +51,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('rowner', m, conn);
         throw false;
       }
-      isEnable = bot.restrict = !bot.restrict;
+      bot.restrict = isEnable;
       break;
 
     case 'autolevelup':
@@ -54,7 +62,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.autolevelup = !chat.autolevelup;
+      chat.autolevelup = isEnable;
       break;
 
     case 'autosticker':
@@ -64,7 +72,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.autosticker = !chat.autosticker;
+      chat.autosticker = isEnable;
       break;
 
     case 'antibot':
@@ -75,7 +83,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antiBot = !chat.antiBot;
+      chat.antiBot = isEnable;
       break;
 
     case 'autoaceptar':
@@ -86,7 +94,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.autoAceptar = !chat.autoAceptar;
+      chat.autoAceptar = isEnable;
       break;
 
     case 'autorechazar':
@@ -97,7 +105,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.autoRechazar = !chat.autoRechazar;
+      chat.autoRechazar = isEnable;
       break;
 
     case 'autoresponder':
@@ -111,7 +119,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.autoresponder = !chat.autoresponder;
+      chat.autoresponder = isEnable;
       break;
 
     case 'antisubbots':
@@ -124,7 +132,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antiBot2 = !chat.antiBot2;
+      chat.antiBot2 = isEnable;
       break;
 
     case 'modoadmin':
@@ -135,7 +143,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.modoadmin = !chat.modoadmin;
+      chat.modoadmin = isEnable;
       break;
 
     case 'autoread':
@@ -146,7 +154,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('rowner', m, conn);
         throw false;
       }
-      isEnable = global.opts['autoread'] = !global.opts['autoread'];
+      global.opts['autoread'] = isEnable;
       break;
 
     case 'antiver':
@@ -161,7 +169,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.antiver = !chat.antiver;
+      chat.antiver = isEnable;
       break;
 
     case 'reaction':
@@ -176,7 +184,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.reaction = !chat.reaction;
+      chat.reaction = isEnable;
       break;
       
     case 'nsfw':
@@ -191,7 +199,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.nsfw = !chat.nsfw;
+      chat.nsfw = isEnable;
       break;
 
     case 'antispam':
@@ -202,7 +210,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('rowner', m, conn);
         throw false;
       }
-      isEnable = bot.antiSpam = !bot.antiSpam;
+      bot.antiSpam = isEnable;
       break;
 
     case 'antidelete': 
@@ -214,7 +222,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.delete = !chat.delete;
+      chat.delete = isEnable;
       break;
 
     case 'jadibotmd':
@@ -224,7 +232,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('rowner', m, conn);
         throw false;
       }
-      isEnable = bot.jadibotmd = !bot.jadibotmd;
+      bot.jadibotmd = isEnable;
       break;
 
     case 'detect':
@@ -239,7 +247,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.detect = !chat.detect;
+      chat.detect = isEnable;
       break;
 
       case 'detect2':
@@ -254,10 +262,9 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.detect2 = !chat.detect2;
+      chat.detect2 = isEnable;
       break;
 
-    case 'simi':
     case 'autosimi':
     case 'simsimi':
       if (!m.isGroup) {
@@ -269,7 +276,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
         global.dfail('admin', m, conn);
         throw false;
       }
-      isEnable = chat.simi = !chat.simi;
+      chat.simi = isEnable;
       break;
 
     case 'antilink':
@@ -279,7 +286,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antiLink = !chat.antiLink;
+      chat.antiLink = isEnable;
       break;
 
     case 'antilink2':
@@ -289,7 +296,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antiLink2 = !chat.antiLink2;
+      chat.antiLink2 = isEnable;
       break;
         
     case 'antitoxic': 
@@ -300,7 +307,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antitoxic = !chat.antitoxic;
+      chat.antitoxic = isEnable;
       break;
       
       case 'antitrabas': 
@@ -311,7 +318,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antiTraba = !chat.antiTraba;
+       chat.antiTraba = isEnable;
       break;
       
       case 'antifake': 
@@ -322,7 +329,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
           throw false;
         }
       }
-      isEnable = chat.antifake = !chat.antifake;
+      chat.antifake = isEnable;
       break;
   }
 
@@ -332,4 +339,5 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
 handler.help = ['welcome', 'bv', 'bienvenida', 'antiprivado', 'antipriv', 'antiprivate', 'restrict', 'restringir', 'autolevelup', 'autonivel', 'autosticker', 'antibot', 'antibots', 'autoaceptar', 'aceptarauto', 'autorechazar', 'rechazarauto', 'autoresponder', 'autorespond', 'antisubbots', 'antisub', 'antisubot', 'antibot2', 'modoadmin', 'soloadmin', 'autoread', 'autoleer', 'autover', 'antiver', 'antiocultar', 'antiviewonce', 'reaction', 'reaccion', 'emojis', 'nsfw', 'nsfwhot', 'nsfwhorny', 'antispam', 'antiSpam', 'antispamosos', 'antidelete', 'antieliminar', 'delete', 'jadibotmd', 'modejadibot', 'subbots', 'detect', 'configuraciones', 'avisodegp', 'detect2', 'avisos', 'eventos', 'simi', 'autosimi', 'simsimi', 'antilink', 'antilink2', 'antitoxic', 'antitoxicos', 'antitraba', 'antitrabas', 'antifake', 'antivirtuales']
 handler.tags = ['nable'];
 handler.command = ['welcome', 'bv', 'bienvenida', 'antiprivado', 'antipriv', 'antiprivate', 'restrict', 'restringir', 'autolevelup', 'autonivel', 'autosticker', 'antibot', 'antibots', 'autoaceptar', 'aceptarauto', 'autorechazar', 'rechazarauto', 'autoresponder', 'autorespond', 'antisubbots', 'antisubbots', 'antisub', 'antisubot', 'antibot2', 'modoadmin', 'soloadmin', 'autoread', 'autoleer', 'autover', 'antiver', 'antiocultar', 'antiviewonce', 'reaction', 'reaccion', 'emojis', 'nsfw', 'nsfwhot', 'nsfwhorny', 'antispam', 'antiSpam', 'antispamosos', 'antidelete', 'antieliminar', 'delete', 'jadibotmd', 'modejadibot', 'subbots', 'detect', 'configuraciones', 'avisodegp', 'detect2', 'avisos', 'eventos', 'simi', 'autosimi', 'simsimi', 'antilink', 'antilink2', 'antitoxic', 'antitoxicos', 'antitraba', 'antitrabas', 'antifake', 'antivirtuales']
+
 export default handler
