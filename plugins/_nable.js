@@ -14,7 +14,7 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   } else if (args[0] === 'off') {
     isEnable = false;
   } else {
-    return conn.reply(m.chat, `「✦」Uso incorrecto usa:\n>  *${usedPrefix}${command} on* para activar.\n> *${usedPrefix}${command} off* para desactivar.`, m);
+    return conn.reply(m.chat, `「✦」Uso incorrecto usa:\n\n> *${usedPrefix}${command} on* para activar.\n> *${usedPrefix}${command} off* para desactivar.`, m);
   }
 
   switch (type) {
