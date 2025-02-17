@@ -1,16 +1,10 @@
 import ws from 'ws'
 let handler = async (m, { conn, usedPrefix, isRowner}) => {
-let _uptime
+let _uptime = process.uptime() * 1000;
 let totalreg = Object.keys(global.db.data.users).length
 let totalchats = Object.keys(global.db.data.chats).length
-if (process.send) {
-process.send('uptime')
-_uptime = await new Promise(resolve => {
-process.once('message', resolve)
-setTimeout(resolve, 1000)
-}) * 1000
-}
-let uptime = clockString(_uptime)
+
+let uptime = clockString(_uptime);
 let users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
 const groupsIn = chats.filter(([id]) => id.endsWith('@g.us')) 
@@ -30,7 +24,7 @@ info += `❑  *◜Grupos◞* ⇢ ${groupsIn.length}\n`
 info += `✰  *◜Actividad◞* ⇢ ${uptime}\n`
 info += `ⴵ  *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
 info += `✦  *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
-await conn.sendFile(m.chat, avatar, 'yuki.jpg', info, fkontak)
+await conn.sendFile(m.chat, avatar, 'estado.jpg', info, fkontak)
 }
 handler.help = ['estado']
 handler.tags = ['info']
