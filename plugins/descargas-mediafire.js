@@ -50,6 +50,5 @@ handler.command = ['mediafire'];
 handler.group = true;
 handler.register = true;
 handler.coin = 5;
-handler.premium = true;
 
 export default handler;
