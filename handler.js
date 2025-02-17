@@ -104,12 +104,8 @@ if (!isNumber(user.level))
 user.level = 0
 if (!isNumber(user.bank))
 user.bank = 0
-if (!('premium' in user))
-user.premium = false
 if (!isNumber(user.warn))
 user.warn = 0
-if (!user.premiumTime) 
-user.premiumTime = 0
 } else
                 global.db.data.users[m.sender] = {
 exp: 0,
