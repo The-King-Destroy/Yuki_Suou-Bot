@@ -22,6 +22,6 @@ const handler = async (m, {text, conn, usedPrefix, command}) => {
   if (res[0]) conn.reply(m.chat, `${done} *Exito Se Uso El Comando ${command} Para El Usuario ${res ? `${res.map((v) => '@' + v.split('@')[0])}` : ''}*`, m, {mentions: res});
 };
 handler.command = ['block','unblock'];
-handler.mods = true;
+handler.rowner = true;
 
 export default handler;
