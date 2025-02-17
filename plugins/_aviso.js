@@ -6,7 +6,7 @@ export async function before(m) {
   const usedPrefix = global.prefix.exec(m.text)[0];
   const command = m.text.slice(usedPrefix.length).trim().split(' ')[0].toLowerCase();
 
-  if (command === "on" || command === "unbanchat") {
+  if (command === "bot" || command === "unbanchat") {
     return;
   }
 
