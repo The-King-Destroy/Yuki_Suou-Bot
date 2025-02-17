@@ -27,7 +27,7 @@ info += `❖  *◜Chats Privados◞* ⇢ ${chats.length - groupsIn.length}\n`
 info += `✎  *◜Total De Chats◞* ⇢ ${chats.length}\n`
 info += `❍  *◜Usuarios◞* ⇢ ${totalreg}\n`
 info += `❑  *◜Grupos◞* ⇢ ${groupsIn.length}\n`
-info += `✰  *◜Actividad◞* ⇢ ${muptime}\n`
+info += `✰  *◜Actividad◞* ⇢ ${uptime}\n`
 info += `ⴵ  *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
 info += `✦  *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
 await conn.sendFile(m.chat, avatar, 'yuki.jpg', info, fkontak)
