@@ -9,12 +9,12 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
   let isAll = false, isUser = false;
   let isEnable = false;
 
-  if (args[0] === 'on') {
+  if (args[0] === 'on' || args[0] === 'enable') {
     isEnable = true;
-  } else if (args[0] === 'off') {
+} else if (args[0] === 'off' || args[0] === 'disable') {
     isEnable = false;
-  } else {
-    return conn.reply(m.chat, `「✦」Uso incorrecto usa:\n\n> *${usedPrefix}${command} on* para activar.\n> *${usedPrefix}${command} off* para desactivar.`, m);
+} else {
+    return conn.reply(m.chat, `「✦」Un administrador puede activar o desactivar el *${command}* utilizando:\n\n> *${usedPrefix}${command} on* para activar.\n> *${usedPrefix}${command} off* para desactivar.`, m);
   }
 
   switch (type) {
