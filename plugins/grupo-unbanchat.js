@@ -5,21 +5,22 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
   let chat = global.db.data.chats[m.chat];
 
-  if (command === 'off') {
-    if (chat.isBanned) {
-      return conn.reply(m.chat, `《✧》*${botname}* ya estaba desactivado.`, m);
-    }
-    chat.isBanned = true;
-    await conn.reply(m.chat, `✐ Has *desactivado* a *${botname}*!`, m);
-  } else if (command === 'on') {
-    if (!chat.isBanned) {
-      return conn.reply(m.chat, `《✧》*${botname}* ya estaba activado.`, m);
-    }
-    chat.isBanned = false;
-    await conn.reply(m.chat, `✐ Has *activado* a *${botname}*!`, m);
-  } else {
-    const estado = chat.isBanned ? '✗ Desactivado' : '✓ Activado';
-    const instrucciones = `
+  if (command === 'bot') {
+    if (m.args[0] === 'off') {
+      if (chat.isBanned) {
+        return conn.reply(m.chat, `《✧》*${botname}* ya estaba desactivado.`, m);
+      }
+      chat.isBanned = true;
+      await conn.reply(m.chat, `✐ Has *desactivado* a *${botname}*!`, m);
+    } else if (m.args[0] === 'on') {
+      if (!chat.isBanned) {
+        return conn.reply(m.chat, `《✧》*${botname}* ya estaba activado.`, m);
+      }
+      chat.isBanned = false;
+      await conn.reply(m.chat, `✐ Has *activado* a *${botname}*!`, m);
+    } else {
+      const estado = chat.isBanned ? '✗ Desactivado' : '✓ Activado';
+      const info = `
 「✦」Un administrador puede activar o desactivar a *${botname}* utilizando:
 
 > ✐ *${usedPrefix}bot on* para activar
@@ -27,7 +28,8 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 
 ✧ Estado actual » *${estado}*
 `;
-    return conn.reply(m.chat, instrucciones, m);
+      return conn.reply(m.chat, info, m);
+    }
   }
 };
 
