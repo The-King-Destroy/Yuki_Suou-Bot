@@ -39,6 +39,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['addcoins *<@user>*'];
 handler.tags = ['owner'];
 handler.command = ['añadircoin', 'addcoin', 'addcoins']; 
-handler.mods = true;
+handler.ronwer = true;
 
 export default handler;
