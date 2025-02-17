@@ -15,6 +15,9 @@ export async function before(m) {
     return false;
   };
 
+    if (command === "bot") {
+    return;
+    }
   if (validCommand(command, global.plugins)) {
     let chat = global.db.data.chats[m.chat];
     let user = global.db.data.users[m.sender];
