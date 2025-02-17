@@ -5,7 +5,7 @@ let totalreg = Object.keys(global.db.data.users).length
 let totalchats = Object.keys(global.db.data.chats).length
 if (process.send) {
 process.send('uptime')
-_muptime = await new Promise(resolve => {
+_uptime = await new Promise(resolve => {
 process.once('message', resolve)
 setTimeout(resolve, 1000)
 }) * 1000
