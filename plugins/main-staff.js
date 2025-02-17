@@ -30,7 +30,7 @@ let staff = `✨ *EQUIPO DE AYUDANTES* ✨
 🔖 *Rol:* Developer
 👾 *GitHub:* https://github.com/FzTeis
 
-🌪️ 𝓛𝓮𝓰𝓷𝓪
+🌪️ Legna
 🔖 *Rol:* Moderador 
 👾 *GitHub:* https://github.com/Legna-chan
 `
