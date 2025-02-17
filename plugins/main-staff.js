@@ -1,57 +1,41 @@
 let handler = async (m, { conn, command, usedPrefix }) => {
 let img = './src/catalogo.jpg'
-let staff = `✨ *EQUIPO DE AYUDANTES* ✨
-👑 *Dueño* ${creador}
-🍬 *Bot:* ${botname}
-⚜️ *Versión:* ${vs}
-📚 *Libreria:* ${libreria} ${baileys}
+let staff = `ᥫ᭡ *EQUIPO DE AYUDANTES* ❀
+✰ *Dueño* ${creador}
+✦ *Bot:* ${botname}
+🜸 *Versión:* ${vs}
+❖ *Libreria:* ${libreria} ${baileys}
 
-🪐 *Creador:*
+❍ *Creador:*
 
-☁️ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
-🔖 *Rol:* Creador
-👾 *GitHub:* https://github.com/The-King-Destroy
+ᰔᩚ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜
+> ✏ Rol » *Creador*
+> ✧ GitHub » https://github.com/The-King-Destroy
 
-🍃 *Colaboradores:*
+❒ *Colaboradores:*
 
-🫧 𝓔𝓶𝓶𝓪 𝓥𝓲𝓸𝓵𝓮𝓽𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷 
-🔖 *Rol:* Developer
-👾 *GitHub:* https://github.com/Elpapiema
+ᰔᩚ 𝓔𝓶𝓶𝓪 𝓥𝓲𝓸𝓵𝓮𝓽𝓼 𝓥𝓮𝓻𝓼𝓲ó𝓷 
+> ✏ Rol » *Developer*
+> ✧ GitHub » https://github.com/Elpapiema
 
-🍍 Niño Piña
-🔖 *Rol:* Developer
-👾 *GitHub:* https://github.com/WillZek
+ᰔᩚ Niño Piña
+> ✏ Rol » *Developer*
+> ✧ GitHub » https://github.com/WillZek
 
-⚡ ☆꧁༒ĹєǤ𝒆𝐧𝐃༒꧂☆
-🔖 *Rol:* Developer
-👾 *GitHub:* https://github.com/Diomar-s
+✧ ☆꧁༒ĹєǤ𝒆𝐧𝐃༒꧂☆
+> ✏ Rol » *Developer*
+> ✧ GitHub » https://github.com/Diomar-s
 
-☘️ I'm Fz' (Tesis)
-🔖 *Rol:* Developer
-👾 *GitHub:* https://github.com/FzTeis
+ᰔᩚ I'm Fz' (Tesis)
+> ✏ Rol » *Developer*
+> ✧ GitHub » https://github.com/FzTeis
 
-🌪️ Legna
-🔖 *Rol:* Moderador 
-👾 *GitHub:* https://github.com/Legna-chan
+ᰔᩚ Legna
+> ✏ Rol » *Mini-Dev* 
+> ✧ GitHub » https://github.com/Legna-chan
 `
-await conn.sendFile(m.chat, img, 'yuki.jpg', staff.trim(), fkontak, true, {
-contextInfo: {
-'forwardingScore': 200,
-'isForwarded': false,
-/*externalAdReply: {
-showAdAttribution: true,
-renderLargerThumbnail: false,
-title: packname,
-body: dev,
-mediaType: 1,
-sourceUrl: channel,
-thumbnailUrl: icono
-}}*/
-}
-}, { mentions: m.sender })
-m.react(emoji)
+await conn.sendFile(m.chat, img, 'yuki.jpg', staff.trim(), fkontak)
 
-}
 handler.help = ['staff']
 handler.command = ['colaboradores', 'staff']
 handler.register = true
