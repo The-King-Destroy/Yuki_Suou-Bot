@@ -15,7 +15,7 @@ export async function before(m) {
     return false;
   };
 
-    if (command === "bot") {
+  if (command === "bot") {
     return;
     }
   if (validCommand(command, global.plugins)) {
