@@ -43,6 +43,6 @@ let handler = async (m, { conn, text }) => {
 handler.help = ['quitarxp *<@user>*'];
 handler.tags = ['owner'];
 handler.command = ['quitarxp', 'removexp']; 
-handler.mods = true;
+handler.rowner = true;
 
 export default handler;
