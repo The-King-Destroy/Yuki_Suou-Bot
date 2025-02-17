@@ -4,7 +4,7 @@ import cheerio from 'cheerio';
 
 const handler = async (m, { conn, args, command, usedPrefix, text }) => {
 if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw*`);
+    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw on*`);
     }
 
     if (!args[0]) {
