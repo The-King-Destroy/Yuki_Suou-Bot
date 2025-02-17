@@ -49,6 +49,6 @@ handler.tags = ['dl'];
 handler.command = ['mediafire'];
 handler.group = true;
 handler.register = true;
-handler.coin = 5;
+handler.coin = 10;
 
 export default handler;
