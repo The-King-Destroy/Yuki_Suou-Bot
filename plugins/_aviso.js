@@ -14,13 +14,13 @@ export async function before(m) {
 
   if (chat.isBanned) {
     const avisoDesactivado = `《✧》El bot *${botname}* está desactivado en este grupo.\n\n> ✦ Un *administrador* puede activarlo con el comando:\n> » *${usedPrefix}bot on*`;
-
-    if (!global.validCommands.includes(command)) {
-      await m.reply(`《✧》El comando *${m.text}* no existe.\nPara ver la lista de comandos usa:\n» *${usedPrefix}help*`);
-      return;
-    }
-
+    
     await m.reply(avisoDesactivado);
+    return;
+  }
+
+  if (!global.validCommands.includes(command)) {
+    await m.reply(`《✧》El comando *${command}* no existe.\nPara ver la lista de comandos usa:\n» *${usedPrefix}help*`);
     return;
   }
 
