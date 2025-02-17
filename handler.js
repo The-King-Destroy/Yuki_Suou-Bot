@@ -68,9 +68,9 @@ if (!isNumber(user.lastmining))
 user.lastmining = 0
 if (!('muto' in user))
 user.muto = false
-if (!('premium' in user)) 
+if (!('premium' in user))
 user.premium = false
-if (!user.premium) 
+if (!user.premiumTime) 
 user.premiumTime = 0
 if (!('registered' in user))
 user.registered = false
