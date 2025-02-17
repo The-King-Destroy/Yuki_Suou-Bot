@@ -21,16 +21,16 @@ let handler = async (m, { conn, usedPrefix, command, args }) => {
 
     if (args[0] === 'off') {
       if (chat.isBanned) {
-        return conn.reply(m.chat, `《✧》*${botname}* ya estaba desactivado.`, m);
+        return conn.reply(m.chat, `《✧》${botname} ya estaba desactivado.`, m);
       }
       chat.isBanned = true;
-      return conn.reply(m.chat, `✐ Has *desactivado* a *${botname}*!`, m);
+      return conn.reply(m.chat, `✐ Has *desactivado* a ${botname}!`, m);
     } else if (args[0] === 'on') {
       if (!chat.isBanned) {
         return conn.reply(m.chat, `《✧》*${botname}* ya estaba activado.`, m);
       }
       chat.isBanned = false;
-      return conn.reply(m.chat, `✐ Has *activado* a *${botname}*!`, m);
+      return conn.reply(m.chat, `✐ Has *activado* a ${botname}!`, m);
     }
   }
 };
