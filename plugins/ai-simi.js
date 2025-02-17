@@ -17,7 +17,7 @@ handler.help = ['simi', 'bot'];
 handler.tags = ['fun'];
 handler.group = true;
 handler.register = true
-handler.command = ['bot', 'yuki', 'Yuki']
+handler.command = ['yuki', 'Yuki']
 
 export default handler;
 
