@@ -269,6 +269,9 @@ await delay(time)
 }, time)
 }
 
+if (m.isBaileys) {
+return
+}
 m.exp += Math.ceil(Math.random() * 10)
 
 let usedPrefix
@@ -377,10 +380,7 @@ m.reply(`《✦》Estas baneado/a, no puedes usar comandos en este bot!\n\n${use
 ${user.bannedReason}` : '⎙⎗ *Motivo:* Sin Especificar'}\n\n❍ Si quieres que seas desbaneado en este bot escribe a: ${creador}`)        
 return
 }
-
-if (m.isBaileys) {
-return
-}}
+}
 
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
@@ -438,17 +438,9 @@ let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17
 if (xp > 200)
 m.reply('chirrido -_-')
 else
-if (!isPrems && plugin.coin && global.db.data.users[m.sender].coin < plugin.coin * 1) {
-conn.reply(m.chat, `❮✦❯ Se agotaron tus ${moneda}`, m)
-continue
-}
 m.exp += xp
 if (!isPrems && plugin.coin && global.db.data.users[m.sender].coin < plugin.coin * 1) {
-conn.reply(m.chat, `❮✦❯ No tienes suficientes ${moneda} para usar este comando. para comprar mas ${moneda} usa este comando.\n\n• *${usedPrefix}buyall* o *${usedPrefix}buy*`, m) 
-continue
-}
-if (plugin.level > _user.level) {
-conn.reply(m.chat, `❮✦❯ Se requiere el nivel: *${plugin.level}*\n\n• Tu nivel actual es: *${_user.level}*\n\n• Usa este comando para subir de nivel:\n*${usedPrefix}levelup*`, m)       
+conn.reply(m.chat, `《✦》Se agotaron tus ${moneda}`, m)
 continue
 }
 let extra = {
@@ -466,6 +458,7 @@ user,
 bot,
 isROwner,
 isOwner,
+isMods,
 isRAdmin,
 isAdmin,
 isBotAdmin,
@@ -495,7 +488,7 @@ await plugin.after.call(this, m, extra)
 console.error(e)
 }}
 if (m.coin)
-conn.reply(m.chat, `❮✦❯ Utilizaste ${+m.coin} ${moneda}`, m)
+conn.reply(m.chat, `✦ Utilizaste ${+m.coin} ${moneda}`, m)
 }
 break
 }}
@@ -593,16 +586,16 @@ let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 const msg = {
-rowner: `❮✦❯ El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
-owner: `❮✦❯ El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `❮✦❯ El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
-premium: `❮✦❯ El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
-group: `❮✦❯ El comando *${comando}* solo puede ser usado en grupos.`,
-private: `❮✦❯ El comando *${comando}* solo puede ser usado al chat privado del bot.`,
-admin: `❮✦❯ El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `❮✦❯ Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
-unreg: `❮✦❯ El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
-restrict: `❮✦❯ Esta caracteristica está desactivada.`
+rowner: `《✦》El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
+owner: `《✦》El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
+mods: `《✦》El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
+premium: `《✦》El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
+group: `《✦》El comando *${comando}* solo puede ser usado en grupos.`,
+private: `《✦》El comando *${comando}* solo puede ser usado al chat privado del bot.`,
+admin: `《✦》El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
+botAdmin: `《✦》Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
+unreg: `《✦》El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
+restrict: `《✦》Esta caracteristica está desactivada.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
 
