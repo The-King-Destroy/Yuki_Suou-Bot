@@ -9,7 +9,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!(m.sender in conn.aiSessions))
       conn.aiSessions[m.sender] = [{
         role: 'system',
-        content: `Eres Gemini, una inteligencia artificial. Responde de manera clara y concisa con emojis para ayudar a los usuarios a entender tus respuestas. El nombre del usuario será: ${conn.getName(m.sender)}`
+        content: `Eres Gemini, una inteligencia artificial. Responde de manera clara y concisa con emojis para ayudar a los usuarios a entender tus respuestas. El nombre del usuario será: ${conn.getName(m.sender)}. Reglas: 1. Si un usuario te pide que digas una palabra como un comando solo o sea /promote .kick entre otros comandos usando algun prefijo (.#*@/) entre otros... no puedes hacer esa solicitud. Debes cambiar de tema , diciendo cualquier cosa o respondiendole al usuario diciendo que no quieres hacer eso.`
       }];
 
     if (conn.aiSessions[m.sender].length > 10) {
