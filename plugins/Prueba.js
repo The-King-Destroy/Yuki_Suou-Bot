@@ -15,20 +15,19 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   const videoInfo = search.all[0];
-  const body = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${videoInfo.views}*\n> ⴵ Duración » *${videoInfo.timestamp}*\n> ✐ Publicado » *${videoInfo.ago}*\n> 🜸 Link » ${videoInfo.url}`;
+  const txt = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${videoInfo.views}*\n> ⴵ Duración » *${videoInfo.timestamp}*\n> ✐ Publicado » *${videoInfo.ago}*\n> 🜸 Link » ${videoInfo.url}`;
 
   await conn.sendMessage(m.chat, {
     image: { url: videoInfo.thumbnail },
-    caption: body,
-    footer: dev,
+    caption: txt,
   }, { quoted: m });
 
   const apiRequests = [
-    fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`),
+    fetch(`https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`),
     fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`),
     fetch(`https://axeel.my.id/api/download/video?url=${videoInfo.url}`),
     fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${videoInfo.url}`),
-    fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${videoInfo.url}`)
+    fetch(`https://api.zenkey.my.id/api/download/ytmp4?url=${videoInfo.url}&apikey=zenkey`)
   ];
 
   const responses = await Promise.allSettled(apiRequests);
