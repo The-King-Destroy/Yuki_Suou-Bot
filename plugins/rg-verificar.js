@@ -68,7 +68,6 @@ await conn.sendMessage(m.chat, {
                 title: '✧ Usuario Verificado ✧',
                 body: textbot,
                 thumbnailUrl: pp,
-                sourceUrl: channel,
                 mediaType: 1,
                 showAdAttribution: true,
                 renderLargerThumbnail: true
