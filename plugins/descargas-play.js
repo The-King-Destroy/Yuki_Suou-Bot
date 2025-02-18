@@ -19,28 +19,15 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (command === 'play' || command === 'play2' || command === 'playvid') {
       let msg = await conn.sendMessage(m.chat, {
         image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
-      buttons: [
-        {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
-          },
-        },
-        {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
-          },
-        },
-      ],
-      viewOnce: true,
-      headerType: 4,
-    }, { quoted: fkontak });
-    m.react('🕒');
-    global.play[msg.key.id] = { url: videoInfo.url };
-    
+        caption: body,
+        mentions: [m.sender]
+      }, {
+        quoted: fkontak
+      });
+      
+      //await conn.sendMessage(m.chat, { image: { url: videoInfo.thumbnail }, caption: body, footer: dev, buttons: [{ buttonId: `.ytmp3 ${videoInfo.url}`, buttonText: { displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆', }, }, { buttonId: `.ytmp4 ${videoInfo.url}`, buttonText: { displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆', }, }, ], viewOnce: true, headerType: 4, }, { quoted: fkontak });
+      m.react('🕒');
+      global.play[msg.key.id] = { url: videoInfo.url };
     } else if (command === 'yta' || command === 'ytmp3') {
     m.react(rwait)
       //let audio = await (await fetch(`https://dark-core-api.vercel.app/api/download/ytmp3?url=${videoInfo.url}&type=audio`)).buffer()
