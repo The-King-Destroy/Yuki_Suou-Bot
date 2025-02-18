@@ -57,14 +57,7 @@ await m.react('📩')
 await conn.sendMessage(m.chat, {
         text: regbot,
         contextInfo: {
-          isForwarded: true,
             externalAdReply: {
-              newsletterJid: channelRD.id,
-              newsletterName: channelRD.name,
-              serverMessageId: -1,
-          },
-          forwardingScore: 999,
-          externalAdReply: {
                 title: '✧ Usuario Verificado ✧',
                 body: textbot,
                 thumbnailUrl: pp,
