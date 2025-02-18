@@ -13,7 +13,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   const videoInfo = search.all[0];
   const body = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${videoInfo.views}*\n> ⴵ Duración » *${videoInfo.timestamp}*\n> ✐ Publicado » *${videoInfo.ago}*\n> 🜸 Link » ${videoInfo.url}`;
 
-  if (command === 'play' || command === 'play2' || command === 'playvid') {
+  if (command === 'play1' || command === 'play2' || command === 'playvid') {
     await conn.sendMessage(m.chat, {
       image: { url: videoInfo.thumbnail },
       caption: body,
