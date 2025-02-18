@@ -6,15 +6,18 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   const sticker = await m.quoted.download();
   if (!sticker) return m.reply(`${emoji2} No se pudo descargar el sticker.`);
 
-  const texto = text.trim() || 'Mi Paquete';
-  const exif = await addExif(sticker, texto);
+  const textoParts = text.split(/[\u2022|]/).map(part => part.trim());
+  const texto1 = textoParts[0] || 'Título';
+  const texto2 = textoParts[1] || 'Mi Paquete';
+
+  const exif = await addExif(sticker, texto1, texto2);
 
   await conn.sendMessage(m.chat, { sticker: exif }, { quoted: m });
 };
 
 handler.help = ['wm'];
 handler.tags = ['tools'];
-handler.command = ['wm'];
+handler.command = ['take', 'robar', 'wm'];
 handler.register = true;
 
 export default handler;
