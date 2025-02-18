@@ -7,9 +7,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: m });
   }
 
-  const isVideo = /vid|2|mp4|v$/.test(command);
   const search = await yts(text);
-
   if (!search.all || search.all.length === 0) {
     return conn.sendMessage(m.chat, {
       text: "No se encontraron resultados para tu búsqueda.",
@@ -28,17 +26,41 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     }, { quoted: m });
 
     const apiType = command === 'play' || command === 'yta' || command === 'ytmp3' ? 'mp3' : 'mp4';
-    const audioOrVideo = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=${apiType}&apikey=Gata-Dios`)).json();
+    
+    const apis = [
+      `https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=${apiType}&apikey=Gata-Dios`,
+      `https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`,
+      `https://axeel.my.id/api/download/video?url=${videoInfo.url}`,
+      `https://api.siputzx.my.id/api/d/ytmp4?url=${videoInfo.url}`,
+      `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${videoInfo.url}`
+    ];
 
-    if (apiType === 'mp3') {
-      conn.sendFile(m.chat, audioOrVideo.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false });
-    } else {
-      await conn.sendMessage(m.chat, {
-        video: { url: audioOrVideo.data.url },
-        mimetype: "video/mp4",
-        caption: '',
+    let mediaData;
+
+    for (const apiUrl of apis) {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        if (data?.data?.url) {
+          mediaData = data.data.url;
+          break;
+        }
+      } catch (error) {
+        continue;
+      }
+    }
+
+    if (!mediaData) {
+      return conn.sendMessage(m.chat, {
+        text: "No se pudo obtener el video de ninguna API.",
       }, { quoted: m });
     }
+
+    await conn.sendMessage(m.chat, {
+      video: { url: mediaData },
+      mimetype: "video/mp4",
+      caption: '',
+    }, { quoted: m });
 
     m.react(done);
   } catch (error) {
@@ -48,19 +70,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 };
 
-handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4'];
-handler.command = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4'];
-handler.tags = ['dl'];
-handler.register = true;
-handler.group = true;
+handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4']
+handler.command = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4']
+handler.tags = ['dl']
+handler.register = true
+handler.group = true
 
 export default handler;
-
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
-  }
-  throw new Error("Invalid YouTube URL");
-};
