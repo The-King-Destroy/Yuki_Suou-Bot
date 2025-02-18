@@ -17,63 +17,53 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   const videoInfo = search.all[0];
   const body = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${videoInfo.views}*\n> ⴵ Duración » *${videoInfo.timestamp}*\n> ✐ Publicado » *${videoInfo.ago}*\n> 🜸 Link » ${videoInfo.url}`;
 
-  try {
-    m.react(rwait);
-    await conn.sendMessage(m.chat, {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
-    }, { quoted: m });
+  m.react(rwait);
+  await conn.sendMessage(m.chat, {
+    image: { url: videoInfo.thumbnail },
+    caption: body,
+    footer: dev,
+  }, { quoted: m });
 
-    const apiType = command === 'play' || command === 'yta' || command === 'ytmp3' ? 'mp3' : 'mp4';
-    
-    const apis = [
-      `https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=${apiType}&apikey=Gata-Dios`,
-      `https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`,
-      `https://axeel.my.id/api/download/video?url=${videoInfo.url}`,
-      `https://api.siputzx.my.id/api/d/ytmp4?url=${videoInfo.url}`,
-      `https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${videoInfo.url}`
-    ];
+  const apiRequests = [
+    fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`),
+    fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`),
+    fetch(`https://axeel.my.id/api/download/video?url=${videoInfo.url}`),
+    fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${videoInfo.url}`),
+    fetch(`https://api.zenkey.my.id/api/download/ytmp4?apikey=zenkey&url=${videoInfo.url}`)
+  ];
 
-    let mediaData;
+  const responses = await Promise.allSettled(apiRequests);
+  let mediaData;
 
-    for (const apiUrl of apis) {
-      try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        if (data?.data?.url) {
-          mediaData = data.data.url;
-          break;
-        }
-      } catch (error) {
-        continue;
+  for (const response of responses) {
+    if (response.status === 'fulfilled') {
+      const data = await response.value.json();
+      if (data?.data?.url) {
+        mediaData = data.data.url;
+        break;
       }
     }
+  }
 
-    if (!mediaData) {
-      return conn.sendMessage(m.chat, {
-        text: "No se pudo obtener el video de ninguna API.",
-      }, { quoted: m });
-    }
-
-    await conn.sendMessage(m.chat, {
-      video: { url: mediaData },
-      mimetype: "video/mp4",
-      caption: '',
-    }, { quoted: m });
-
-    m.react(done);
-  } catch (error) {
+  if (!mediaData) {
     return conn.sendMessage(m.chat, {
-      text: "Ocurrió un error al procesar tu solicitud.",
+      text: "No se pudo obtener el video de ninguna API.",
     }, { quoted: m });
   }
+
+  await conn.sendMessage(m.chat, {
+    video: { url: mediaData },
+    mimetype: "video/mp4",
+    caption: body,
+  }, { quoted: m });
+
+  m.react(done);
 };
 
-handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4']
-handler.command = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4']
-handler.tags = ['dl']
-handler.register = true
-handler.group = true
+handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4'];
+handler.command = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4'];
+handler.tags = ['dl'];
+handler.register = true;
+handler.group = true;
 
 export default handler;
