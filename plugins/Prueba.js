@@ -50,9 +50,9 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   await conn.sendMessage(m.chat, {
-    video: { url: mediaData },
+    video: { url: videoInfo.thumbnail },
     mimetype: "video/mp4",
-    caption: '',
+    caption: txt,
   }, { quoted: m });
 
   m.react(done);
