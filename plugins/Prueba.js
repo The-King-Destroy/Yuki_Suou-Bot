@@ -1,45 +1,85 @@
-import fetch from 'node-fetch';
 import yts from 'yt-search';
 
-const handler = async (m, { conn, text, command }) => {
-  if (!text) {
-    return conn.sendMessage(m.chat, { text: `Por favor ingresa la música que deseas descargar.` }, { quoted: m });
-  }
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `Por favor ingresa la música que deseas descargar.`;
 
+  const isVideo = /vid|2|mp4|v$/.test(command);
   const search = await yts(text);
+
   if (!search.all || search.all.length === 0) {
-    return conn.sendMessage(m.chat, { text: "No se encontraron resultados para tu búsqueda." }, { quoted: m });
+    throw "No se encontraron resultados para tu búsqueda.";
   }
 
   const videoInfo = search.all[0];
-  const txt = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${videoInfo.views}*\n> ⴵ Duración » *${videoInfo.timestamp}*\n> ✐ Publicado » *${videoInfo.ago}*\n> 🜸 Link » ${videoInfo.url}`;
+  const body = `「✦」Descargando *<${videoInfo.title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${videoInfo.views}*\n> ⴵ Duración » *${videoInfo.timestamp}*\n> ✐ Publicado » *${videoInfo.ago}*\n> 🜸 Link » ${videoInfo.url}`;
 
-  await conn.sendMessage(m.chat, { image: { url: videoInfo.thumbnail }, caption: txt }, { quoted: m });
+  if (command === 'play1' || command === 'play2' || command === 'playvid') {
+    await conn.sendMessage(m.chat, {
+      image: { url: videoInfo.thumbnail },
+      caption: body,
+      footer: dev,
+      buttons: [
+        {
+          buttonId: `.ytmp33 ${videoInfo.url}`,
+          buttonText: {
+            displayText: 'Descargar Audio',
+          },
+        },
+        {
+          buttonId: `.ytmp44 ${videoInfo.url}`,
+          buttonText: {
+            displayText: 'Descargar Video',
+          },
+        },
+      ],
+      viewOnce: true,
+      headerType: 4,
+    }, { quoted: m });
+    m.react('🕒');
 
-  const apiUrl = `https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`;
-  
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    
-    if (data?.data?.url) {
-      if (command === 'play') {
-        await conn.sendMessage(m.chat, { audio: { url: data.data.url }, mimetype: "audio/mpeg" }, { quoted: m });
-      } else if (command === 'ytmp4') {
-        await conn.sendMessage(m.chat, { video: { url: data.data.url }, mimetype: "video/mp4", caption: `Descargando video: ${videoInfo.title}` }, { quoted: m });
-      }
-    } else {
-      return conn.sendMessage(m.chat, { text: "No se pudo obtener el video." }, { quoted: m });
+  } else if (command === 'yta' || command === 'ytmp3') {
+    m.react(rwait);
+    let audioData;
+    try {
+      audioData = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp3&apikey=Gata-Dios`)).json();
+    } catch (error) {
+      audioData = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp3?url=${videoInfo.url}`)).json();
     }
-  } catch (error) {
-    return conn.sendMessage(m.chat, { text: "Hubo un error al procesar la solicitud." }, { quoted: m });
+    conn.sendFile(m.chat, audioData.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false });
+    m.react(done);
+  
+  } else if (command === 'ytv' || command === 'ytmp4') {
+    m.react(rwait);
+    let videoData;
+    try {
+      videoData = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`)).json();
+    } catch (error) {
+      videoData = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`)).json();
+    }
+    await conn.sendMessage(m.chat, {
+      video: { url: videoData.data.url },
+      mimetype: "video/mp4",
+      caption: `Descargando video: ${videoInfo.title}`,
+    }, { quoted: m });
+    m.react(done);
+  
+  } else {
+    throw "Comando no reconocido.";
   }
 };
 
-handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4'];
-handler.command = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4'];
+handler.help = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
+handler.command = ['play1', 'playvid', 'ytv', 'ytmp44', 'yta', 'play2', 'ytmp33'];
 handler.tags = ['dl'];
 handler.register = true;
-handler.group = true;
 
 export default handler;
+
+const getVideoId = (url) => {
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const match = url.match(regex);
+  if (match) {
+    return match[1];
+  }
+  throw new Error("Invalid YouTube URL");
+};
