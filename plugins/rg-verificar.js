@@ -8,33 +8,21 @@ let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let mentionedJid = [who]
- let bio = 0, fechaBio
-  let sinDefinir = '😿 Es privada'
-  let biografia = await conn.fetchStatus(m.sender).catch(() => null)
-  if (!biografia || !biografia[0] || biografia[0].status === null) {
-   bio = sinDefinir
-   fechaBio = "Fecha no disponible"
-} else {
-bio = biografia[0].status || sinDefinir
-fechaBio = biografia[0].setAt ? new Date(biografia[0].setAt).toLocaleDateString("es-ES", { day: "2-digit", month: "2-digit", year: "numeric", }) : "Fecha no disponible"
-}
-  let perfil = await conn.profilePictureUrl(who, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+  let mentionedJid = [who]
   let pp = await conn.profilePictureUrl(who, 'image').catch((_) => 'https://files.catbox.moe/xr2m6u.jpg')
   let user = global.db.data.users[m.sender]
   let name2 = conn.getName(m.sender)
-  if (user.registered === true) return m.reply(`${emoji2} Ya estás registrado.\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg*`)
-  if (!Reg.test(text)) return m.reply(`${emoji2} Formato incorrecto.\n\nUso del comamdo: *${usedPrefix + command} nombre.edad*\nEjemplo : *${usedPrefix + command} ${name2}.18*`)
+  if (user.registered === true) return m.reply(`『✦』Ya estás registrado.\n\n*¿Quiere volver a registrarse?*\n\nUse este comando para eliminar su registro.\n*${usedPrefix}unreg*`)
+  if (!Reg.test(text)) return m.reply(`『✦』Formato incorrecto.\n\nUso del comamdo: *${usedPrefix + command} nombre.edad*\nEjemplo : *${usedPrefix + command} ${name2}.18*`)
   let [_, name, splitter, age] = text.match(Reg)
-  if (!name) return m.reply(`${emoji2} El nombre no puede estar vacío.`)
-  if (!age) return m.reply(`${emoji2} La edad no puede estar vacía.`)
-  if (name.length >= 100) return m.reply(`${emoji2} El nombre es demasiado largo.`)
+  if (!name) return m.reply(`『✦』El nombre no puede estar vacío.`)
+  if (!age) return m.reply(`『✦』La edad no puede estar vacía.`)
+  if (name.length >= 100) return m.reply(`『✦』El nombre es demasiado largo.`)
   age = parseInt(age)
-  if (age > 1000) return m.reply(`${emoji} Wow el abuelo quiere jugar al bot.`)
-  if (age < 5) return m.reply(`${emoji} hay un abuelo bebé jsjsj.`)
+  if (age > 1000) return m.reply(`『✦』Wow el abuelo quiere jugar al bot.`)
+  if (age < 5) return m.reply(`『✦』hay un abuelo bebé jsjsj.`)
   user.name = name + '✓'.trim()
   user.age = age
-  user.descripcion = bio 
   user.regTime = + new Date      
   user.registered = true
   global.db.data.users[m.sender].coin += 40
@@ -61,6 +49,7 @@ await conn.sendMessage(m.chat, {
                 title: '✧ Usuario Verificado ✧',
                 body: textbot,
                 thumbnailUrl: pp,
+                sourceUrl: channel,
                 mediaType: 1,
                 showAdAttribution: true,
                 renderLargerThumbnail: true
