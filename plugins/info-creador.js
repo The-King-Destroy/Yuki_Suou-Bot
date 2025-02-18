@@ -11,15 +11,14 @@ let handler = async (m, { conn }) => {
   let name = await conn.getName(who);
 
   await sendContactArray(conn, m.chat, [
-    [`${conn.user.jid.split('@')[0]}`, `Es Un Bot`, packname, `No Hacer Spam`, redes, `Sabra Dios 🫏`, channel, biobot],
-    [`${suittag}`, `Propietario`, botname, dev, correo, `Venezuela`, md, bio]
-    
+    [`${suittag}`, `Propietario`, botname, dev, correo, `Venezuela`, md, bio],
+    [`${conn.user.jid.split('@')[0]}`, `Es Un Bot`, packname, `No Hacer Spam`, redes, `Sabra Dios 🫏`, channel, biobot]
   ], m);
 }
 
 handler.help = ["creador", "owner"];
 handler.tags = ["info"];
-handler.command = ['owner', 'creator', 'creador', 'dueño'] 
+handler.command = ['owner', 'creator', 'creador', 'dueño'];
 
 export default handler;
 
