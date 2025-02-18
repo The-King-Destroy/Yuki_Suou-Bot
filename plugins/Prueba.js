@@ -1,10 +1,9 @@
 import fetch from 'node-fetch';
 import yts from 'yt-search';
-import axios from 'axios';
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
+const handler = async (m, { conn, text, command }) => {
   if (!text) {
-    return conn.sendMessage(m.chat, { text: `《✧》Por favor ingresa la música que deseas descargar.` }, { quoted: m });
+    return conn.sendMessage(m.chat, { text: `Por favor ingresa la música que deseas descargar.` }, { quoted: m });
   }
 
   const search = await yts(text);
@@ -17,37 +16,23 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
   await conn.sendMessage(m.chat, { image: { url: videoInfo.thumbnail }, caption: txt }, { quoted: m });
 
-  const apiRequests = [
-    fetch(`https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`),
-    fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`),
-    fetch(`https://axeel.my.id/api/download/video?url=${videoInfo.url}`),
-    fetch(`https://api.siputzx.my.id/api/d/ytmp4?url=${videoInfo.url}`),
-    fetch(`https://api.zenkey.my.id/api/download/ytmp4?url=${videoInfo.url}&apikey=zenkey`)
-  ];
-
-  const responses = await Promise.allSettled(apiRequests);
-  let mediaData;
-
-  for (const response of responses) {
-    if (response.status === 'fulfilled') {
-      const data = await response.value.json();
-      if (data?.data?.url) {
-        mediaData = data.data.url;
-        break;
+  const apiUrl = `https://api.alyachan.dev/api/ytv?url=${videoInfo.url}&apikey=Gata-Dios`;
+  
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    
+    if (data?.data?.url) {
+      if (command === 'play') {
+        await conn.sendMessage(m.chat, { audio: { url: data.data.url }, mimetype: "audio/mpeg" }, { quoted: m });
+      } else if (command === 'ytmp4') {
+        await conn.sendMessage(m.chat, { video: { url: data.data.url }, mimetype: "video/mp4", caption: `Descargando video: ${videoInfo.title}` }, { quoted: m });
       }
+    } else {
+      return conn.sendMessage(m.chat, { text: "No se pudo obtener el video." }, { quoted: m });
     }
-  }
-
-  if (!mediaData) {
-    return conn.sendMessage(m.chat, { text: "No se pudo obtener el video de ninguna API." }, { quoted: m });
-  }
-
-  if (command === 'yta') {
-    await conn.sendMessage(m.chat, { audio: { url: mediaData }, mimetype: "audio/mpeg" }, { quoted: m });
-  } else if (command === 'ytv') {
-    await conn.sendMessage(m.chat, { video: { url: mediaData }, mimetype: "video/mp4", caption: `Descargando video: ${videoInfo.title}` }, { quoted: m });
-  } else {
-    return conn.sendMessage(m.chat, { text: "Comando no reconocido." }, { quoted: m });
+  } catch (error) {
+    return conn.sendMessage(m.chat, { text: "Hubo un error al procesar la solicitud." }, { quoted: m });
   }
 };
 
