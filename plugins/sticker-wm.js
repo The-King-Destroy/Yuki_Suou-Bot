@@ -7,8 +7,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!sticker) return m.reply(`${emoji2} No se pudo descargar el sticker.`);
 
   const textoParts = text.split(/[\u2022|]/).map(part => part.trim());
-  const texto1 = textoParts[0] || `${botname}`;
-  const texto2 = textoParts[1] || `${dev}`
+  const texto1 = textoParts[0] || `✦ ${botname}`;
+  const texto2 = textoParts[1] || `${nombre}`
 
   const exif = await addExif(sticker, texto1, texto2);
 
