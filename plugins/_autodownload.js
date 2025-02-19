@@ -1,4 +1,4 @@
-const {
+/*const {
     proto,
     generateWAMessage
 } = (await import('@whiskeysockets/baileys')).default
@@ -29,4 +29,4 @@ export async function before(m, { conn  }) {
             };
         };
     };
-};
+};*/
