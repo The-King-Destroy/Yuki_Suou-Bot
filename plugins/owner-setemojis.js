@@ -11,9 +11,9 @@ let handler = async (m, { conn, text, isRowner }) => {
   m.reply(`✎ Los emojis del bot han sido cambiadas a:\n1. ${emoji}\n2. ${emoji2}\n3. ${emoji3}\n4. ${emoji4}\n5. ${emoji5}`);
 };
 
-handler.help = ['setwelcome'];
+handler.help = ['setemojis'];
 handler.tags = ['tools'];
-handler.command = ['setwelcome'];
+handler.command = ['setemojis'];
 handler.rowner = true;
 
 export default handler;
