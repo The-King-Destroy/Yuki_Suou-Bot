@@ -106,10 +106,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
       let sources = [
-        `https://api.vreden.my.id/api/ytmp4?url=${url}`,
-        `https://api.davidcyriltech.my.id/download/ytmp4?url=${url}`,
-        `https://api.alyachan.dev/api/youtube?url=${url}&apikey=Gata-Dios`,
-        `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
+        `https://api.vreden.my.id/api/ytmp4?url=${videoInfo.url}`,
+        `https://api.davidcyriltech.my.id/download/ytmp4?url=${videoInfo.url}`,
+        `https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&apikey=Gata-Dios`,
+        `https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`
       ];
 
       let success = false;
