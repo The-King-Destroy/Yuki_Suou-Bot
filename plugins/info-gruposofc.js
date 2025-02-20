@@ -17,12 +17,12 @@ let grupos = `*Hola!, te invito a unirte a los grupos oficiales del Bot para con
 - ${namechannel}
 *❀* ${channel}
 
-- ✧┊┋◟𝐘𝐮𝐤𝐢 𝐒𝐮𝐨𝐮 𝐓𝐞𝐬𝐭◞┊┋✧
+- ${namechannel2}
 *❀* ${channel2}
 
 > ${dev}`
 
-await conn.sendFile(m.chat, miniurl, "yuki.jpg", grupos, m)
+await conn.sendFile(m.chat, catalogo, "grupos.jpg", grupos, m)
 
 await m.react(emojis)
 
