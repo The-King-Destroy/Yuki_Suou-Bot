@@ -3,7 +3,7 @@
  <img src= "https://files.catbox.moe/om9jai.jpg">
     </p>
 
-🍬 Versión ^2.2.0
+> ### 🍬 Versión ^2.2.0
 
 ### **`❕️ Información importante`**
 
@@ -95,6 +95,8 @@ npm start
    ```bash
     cd Yuki_Suou-Bot && cd nano config.js
    ```
+
+</details>
 
 ---
 ### **`🔗 Enlaces útiles`**
