@@ -4,8 +4,8 @@
 import fs from 'fs';
 
 const paths = {
-  YukiJadiBot: `./${jadi}/`,
-  YukiSession: `./${sessions}/`
+  YukiJadiBot: `./JadiBots/`,
+  YukiSession: `./Sessions/`
 };
 
 function cleanSubbotDirectories() {
