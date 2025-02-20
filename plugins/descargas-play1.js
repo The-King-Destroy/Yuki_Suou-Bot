@@ -90,10 +90,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           body: '',
           mediaType: 1,
           previewType: 0,
-          mediaUrl: '',
+          mediaUrl: url,
           sourceUrl: '',
           thumbnail: thumb,
-          renderLargerThumbnail: false,
+          renderLargerThumbnail: true,
         },
       },
     };
