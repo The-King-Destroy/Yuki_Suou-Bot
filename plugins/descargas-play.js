@@ -1,4 +1,4 @@
-import yts from 'yt-search';
+/*import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) throw `${emoji} Por favor ingresa la música que deseas descargar.`;
@@ -88,7 +88,7 @@ handler.register = true;
 export default handler;
 
 const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
+  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*;
   const match = url.match(regex);
   if (match) {
     return match[1];
