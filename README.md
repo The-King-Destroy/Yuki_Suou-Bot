@@ -11,12 +11,6 @@
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 </details>
 
-<details> 
-<summary><b> 🍬 Versión ^2.2.0</b></summary>
-
- * **Este proyecto ha sido reimplementado y ahora ofrece soporte diario para su uso en Termux.** Termux es una aplicación de terminal para Android, y aunque inicialmente no estaba diseñado específicamente para este entorno, ahora hemos trabajado para asegurar su compatibilidad. **Garantizamos soporte técnico y actualizaciones regulares para mejorar la experiencia en el Proyecto.**
-</details>
-
 <details>
  <summary><b> 🍰 Funciones de la Bot</b></summary>
 
