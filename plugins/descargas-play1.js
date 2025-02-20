@@ -86,12 +86,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: 'ძᥱsᥴᥲrgᥲᥒძ᥆ ᥱs⍴ᥱrᥱ ᥙᥒ m᥆mᥱᥒ𝗍᥆...',
           body: dev,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
-          sourceUrl: url,
           thumbnail: thumb,
           renderLargerThumbnail: true,
         },
