@@ -1,18 +1,12 @@
+import { sticker } from '../lib/sticker.js';
 import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
-import sharp from 'sharp';
-import {
-    tmpdir
-} from 'os';
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const fetchSticker = async (text, attempt = 1) => {
     try {
         const response = await axios.get(`https://kepolu-brat.hf.space/brat`, {
-            params: {
-                q: text
-            },
+            params: { q: text },
             responseType: 'arraybuffer',
         });
         return response.data;
@@ -26,16 +20,11 @@ const fetchSticker = async (text, attempt = 1) => {
     }
 };
 
-const handler = async (m, {
-    text,
-    conn
-}) => {
+let handler = async (m, { conn, text }) => {
     if (!text) {
         return conn.sendMessage(m.chat, {
             text: `${emoji} Por favor ingresa el texto para hacer un sticker.`,
-        }, {
-            quoted: m
-        });
+        }, { quoted: m });
     }
 
     try {
@@ -43,14 +32,15 @@ const handler = async (m, {
         let stiker = await sticker(buffer, false, global.botname, global.nombre);
         
         if (stiker) {
-            return conn.sendFile(m.chat, stiker, 'error.webp', '', m);
+            return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m);
+        } else {
+            throw new Error("No se pudo generar el sticker.");
         }
     } catch (error) {
+        console.error(error);
         return conn.sendMessage(m.chat, {
-            text: `${msm} Ocurrio un error.`,
-        }, {
-            quoted: m
-        });
+            text: `${msm} Ocurrió un error: ${error.message}`,
+        }, { quoted: m });
     }
 };
 
