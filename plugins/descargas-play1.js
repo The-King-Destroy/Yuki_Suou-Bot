@@ -93,7 +93,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
           mediaUrl: '',
           sourceUrl: '',
           thumbnail: thumb,
-          renderLargerThumbnail: true,
+          renderLargerThumbnail: false,
         },
       },
     };
