@@ -2,6 +2,7 @@
 
 import { sticker } from '../lib/sticker.js';
 import axios from 'axios';
+
 const handler = async (m, {conn, args, usedPrefix, command}) => {
 let text
 if (args.length >= 1) {
@@ -19,7 +20,7 @@ const nombre = await conn.getName(who)
 const obj = {"type": "quote", "format": "png", "backgroundColor": "#000000", "width": 512, "height": 768, "scale": 2, "messages": [{"entities": [], "avatar": true, "from": {"id": 1, "name": `${who?.name || nombre}`, "photo": {url: `${pp}`}}, "text": mishi, "replyMessage": {}}]};
 const json = await axios.post('https://bot.lyo.su/quote/generate', obj, {headers: {'Content-Type': 'application/json'}});
 const buffer = Buffer.from(json.data.result.image, 'base64');
-let stiker = await sticker(buffer, false, global.packsticker, global.packsticker2);
+let stiker = await sticker(buffer, false, global.botname, global.nombre);
 if (stiker) return conn.sendFile(m.chat, stiker, 'error.webp', '', m);
 }
 handler.help = ['qc'];
@@ -27,4 +28,5 @@ handler.tags = ['sticker'];
 handler.group = true;
 handler.register = true
 handler.command = ['qc'];
+
 export default handler;
