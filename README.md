@@ -11,11 +11,7 @@
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 </details>
 
-<details> 
-<summary><b> 🍬 Versión ^2.2.0</b></summary>
-
-* **Este proyecto no ofrece soporte oficial para su uso en Termux.** Termux es una aplicación de terminal para Android y, aunque puede ser utilizada para ejecutar diversos programas, **este proyecto no está diseñado ni probado específicamente para funcionar en Termux**. Por lo tanto, **no garantizamos compatibilidad ni soporte técnico en este entorno**.
-</details>
+<summary><b> 🍬 Versión ^2.2.0</b><
 
 <details>
  <summary><b> 🍰 Funciones de la Bot</b></summary>
@@ -38,6 +34,71 @@
 - [ ] Otros
 
 </details>
+
+### **`✧ Click en la imagen para descargar termux ✧`**
+<a
+href="https://www.mediafire.com/file/llugt4zgj7g3n3u/com.termux_1020.apk/file"><img src="https://qu.ax/finc.jpg" height="125px"></a> 
+
+### **`ᰔᩚ Instalación por termux`**
+
+<details>
+ <summary><b>  Click para los ver Comandos</b></summary>
+
+### **❀ Instalación manual por termux**
+> copie y peguen en termux uno por uno 
+```bash
+termux-setup-storage
+```
+
+```bash
+apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
+```
+
+```bash
+git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot
+```
+
+```bash
+yarn
+```
+
+```bash
+npm install
+```
+
+```bash
+npm update
+```
+
+```bash
+npm start
+```
+
+---
+
+### **🜸 Activar en caso de detenerse en termux**
+
+Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
+
+1. Abre Termux y navega al directorio del bot:
+    ```bash
+    cd Yuki_Suou-Bot
+    ```
+
+2. Inicia el bot nuevamente:
+    ```bash
+    npm start
+    ```
+
+---
+
+### **✰ Volverte owner del Bot**
+
+Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
+
+    ```bash
+    cd Yuki_Suou-Bot && cd nano config.js
+    ```
 
 ---
 ### **`🔗 Enlaces útiles`**
