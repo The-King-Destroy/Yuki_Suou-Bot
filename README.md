@@ -77,8 +77,7 @@ npm start
 
 ---
 
-<details>
- <summary><b> 🜸 Activar en caso de detenerse en termux </b></summary>
+## 🜸 Activar en caso de detenerse en termux
 
 > Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
 
@@ -94,15 +93,13 @@ npm start
 
 ---
 
-<details>
- <summary><b> ✰ Volverte owner del Bot </b></summary>
+## ✰ Volverte owner del Bot
 
 > Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
 
    ```bash
     cd Yuki_Suou-Bot && cd nano config.js
    ```
-</details>
 
 ---
 ### **`🔗 Enlaces útiles`**
