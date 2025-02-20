@@ -87,7 +87,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       thumbnail: thumb,
     };
     
-    await conn.reply(m.chat, infoMessage, m, JT);
+    await conn.reply(m.chat, infoMessage, m, { thumbnail: thumb }); 
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
         const api = await ddownr.download(url, 'mp3');
