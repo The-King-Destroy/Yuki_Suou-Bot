@@ -59,7 +59,7 @@ git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot
 ```
 
 ```bash
-yarn
+yarn install
 ```
 
 ```bash
