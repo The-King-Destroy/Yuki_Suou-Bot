@@ -1,4 +1,4 @@
-// Credits: OfcKing
+/*// Credits: OfcKing
 // >> https://github.com/OfcKing
 
 import fs from 'fs';
@@ -121,4 +121,4 @@ setInterval(displayNoFilesDeleted, 60 * 1000);
 
 cleanSubbotDirectories();
 cleanYukiSession();
-displayNoFilesDeleted();
+displayNoFilesDeleted();*/
