@@ -49,54 +49,11 @@ align: 'center',
 colors: ['magentaBright']
 })
 
-say(`Multi Device`, {
-font: 'chrome',
-align: 'center',
-colors: ['redBright']
-})
-
 say(`Developed By • The-King-Destroy`, {
 font: 'console',
 align: 'center',
 colors: ['blueBright']
 })
-
-/*const rl = createInterface(process.stdin, process.stdout);
-let p = fork();
-p.on('message', data => {
-switch (data) {
-case 'reset':
-p.process.kill();
-isRunning = false;
-start.apply(this, arguments);
-break;
-case 'uptime':
-p.send(process.uptime());
-break;
-}
-});
-p.on('exit', (_, code) => {
-isRunning = false;
-console.error('✘ Error:\n', code);
-process.exit();
-if (code === 0) return;
-watchFile(args[0], () => {
-unwatchFile(args[0]);
-start(file);
-});
-});
-let opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse());
-if (!opts['test'])
-if (!rl.listenerCount()) rl.on('line', line => {
-p.emit('message', line.trim());
-});
-}
-process.on('warning', (warning) => {
-if (warning.name === 'MaxListenersExceededWarning') {
-console.warn('✘ Se excedió el límite de Listeners en:');
-console.warn(warning.stack);
-}
-});*/
 
 protoType()
 serialize()
@@ -182,7 +139,7 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? [`${nameqr}`, 'Edge', '20.0.04'] : methodCodeQR ? [`${nameqr}`, 'Edge', '20.0.04'] : ['Ubuntu', 'Edge', '110.0.1587.56'],
+browser: ['Ubuntu', 'Edge', '110.0.1587.56'],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -255,7 +212,7 @@ if (opcion == '1' || methodCodeQR) {
 console.log(chalk.bold.yellow(`\n❐ ESCANEA EL CÓDIGO QR EXPIRA EN 45 SEGUNDOS`))}
 }
 if (connection == 'open') {
-console.log(chalk.bold.green('\n❀ YukiBot-MD Conectada ❀'))
+console.log(chalk.bold.green('\n❀ YukiBot-MD Conectada con éxito ❀'))
 }
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode
 if (connection === 'close') {
