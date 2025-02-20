@@ -1910,21 +1910,21 @@ def shell():
                         raise
         sys.exit(0)
 
-    printer('*`INFO - SPEEDTEST`*\n', quiet)
+    printer('*`✦ INFO - SPEEDTEST ✦`*\n', quiet)
 
 
     if not args.mini:
-        printer('🚩 *Iniciando prueba...*', quiet)
-        printer('🌸 *Buscando servidor...*', quiet)
+        printer('ᰔᩚ *Iniciando prueba...*', quiet)
+        printer('ⴵ *Buscando servidor...*', quiet)
         try:
             speedtest.get_servers(servers=args.server, exclude=args.exclude)
         except NoMatchedServers:
             raise SpeedtestCLIError(
-                '☁️ *No hay servidores coincidentes:* %s' %
+                '❒ *No hay servidores coincidentes:* %s' %
                 ', '.join('%s' % s for s in args.server)
             )
         except (ServersRetrievalError,) + HTTP_ERRORS:
-            printer('☁️ *No se pudo obtener la lista de servidores.*', error=True)
+            printer('❒ *No se pudo obtener la lista de servidores.*', error=True)
             raise SpeedtestCLIError(get_exception())
         except InvalidServerIDType:
             raise SpeedtestCLIError(
@@ -1933,19 +1933,19 @@ def shell():
             )
 
         if args.server and len(args.server) == 1:
-            printer('🌟 *Obteniendo info. del servidor...*', quiet)
+            printer('❍ *Obteniendo info. del servidor...*', quiet)
         else:
-            printer('🌺 *Se selecionó el mejor servidor...*', quiet)
+            printer('❀ *Se selecionó el mejor servidor...*', quiet)
         speedtest.get_best_server()
     elif args.mini:
         speedtest.get_best_server(speedtest.set_mini_server(args.mini))
 
     results = speedtest.results
 
-    printer('\n📚 *ISP:* %(isp)s' % speedtest.config['client'],
+    printer('\n❖ *ISP:* %(isp)s' % speedtest.config['client'],
             quiet)
-    printer('🍭 *Servidor:* %(sponsor)s\n🔮 *Ubicación:* %(name)s [%(d)0.2f km] '
-            '\n✨️ *Latencia:* %(latency)s ms' % results.server, quiet)
+    printer('✎ *Servidor:* %(sponsor)s\n⚘ *Ubicación:* %(name)s [%(d)0.2f km] '
+            '\n✰ *Latencia:* %(latency)s ms' % results.server, quiet)
 
     if args.download:
         printer('', quiet,
@@ -1954,30 +1954,30 @@ def shell():
             callback=callback,
             threads=(None, 1)[args.single]
         )
-        printer('🚀 *Descarga:* %0.2f M%s/s' %
+        printer('🜸 *Descarga:* %0.2f M%s/s' %
                 ((results.download / 1000.0 / 1000.0) / args.units[1],
                  args.units[0]),
                 quiet)
     else:
-        printer('🌱 *Omitiendo la prueba de descarga.*', quiet)
+        printer('❒ *Omitiendo la prueba de descarga.*', quiet)
 
     if args.upload:
         speedtest.upload()
-        printer('🌻 *Subida:* %0.2f M%s/s' %
+        printer('✧ *Subida:* %0.2f M%s/s' %
                 ((results.upload / 1000.0 / 1000.0) / args.units[1],
                  args.units[0]),
                 quiet)
 
     else:
-        printer('🪴 *Omitiendo la prueba de subida.*', quiet)
+        printer('❒ *Omitiendo la prueba de subida.*', quiet)
 
-    printer('🔎 *Resultados:*\n%r' % results.dict(), debug=True)
+    printer('❒ *Resultados:*\n%r' % results.dict(), debug=True)
 
     if not args.simple and args.share:
         results.share()
 
     if args.simple:
-        printer('✨️ Latencia: %s ms\n🚀 Descarga: %0.2f M%s/s\n\n🌻 Subida: %0.2f M%s/s' %
+        printer('✰ Latencia: %s ms\n🜸 Descarga: %0.2f M%s/s\n\n✧ Subida: %0.2f M%s/s' %
                 (results.ping,
                  (results.download / 1000.0 / 1000.0) / args.units[1],
                  args.units[0],
@@ -1989,14 +1989,14 @@ def shell():
         printer(results.json())
 
     if args.share and not machine_format:
-        printer('\n🔎 *Compartir resultado:* %s' % results.share())
+        printer('\n❒ *Compartir resultado:* %s' % results.share())
 
 
 def main():
     try:
         shell()
     except KeyboardInterrupt:
-        printer('\n🪐 *Cancelando...*', error=True)
+        printer('\n❒ *Cancelando...*', error=True)
     except (SpeedtestException, SystemExit):
         e = get_exception()
         # Ignore a successful exit, or argparse exit
