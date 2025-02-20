@@ -75,8 +75,6 @@ npm start
 ```
 </details>
 
----
-
 ## 🜸 Activar en caso de detenerse en termux
 
 > Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
@@ -90,8 +88,6 @@ npm start
     ```bash
     npm start
     ```
-
----
 
 ## ✰ Volverte owner del Bot
 
