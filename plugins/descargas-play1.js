@@ -84,10 +84,10 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
-      thumbnail: thumb,
+      image: { url: videoInfo.thumbnail },
     };
     
-    await conn.reply(m.chat, infoMessage, m, { thumbnail: { url: thumbnail }}); 
+    await conn.reply(m.chat, infoMessage, m, JT); 
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
         const api = await ddownr.download(url, 'mp3');
@@ -116,7 +116,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
               caption: ``,
-              thumbnail: thumb
+              image: { url: videoInfo.thumbnail }
             }, { quoted: m });
             break;
           }
