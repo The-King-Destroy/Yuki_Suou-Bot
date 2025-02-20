@@ -2,6 +2,7 @@
 
  <img src= "https://files.catbox.moe/om9jai.jpg">
     </p>
+> 🍬 Versión ^2.2.0
 
 ### **`❕️ Información importante`**
 
@@ -10,8 +11,6 @@
 
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 </details>
-
-<summary><b> 🍬 Versión ^2.2.0</b><
 
 <details>
  <summary><b> 🍰 Funciones de la Bot</b></summary>
@@ -73,6 +72,7 @@ npm update
 ```bash
 npm start
 ```
+</details>
 
 ---
 
