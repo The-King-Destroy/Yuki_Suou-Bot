@@ -35,7 +35,7 @@ global.namechannel = 'ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥙ⍴ძᥲ𝗍ᥱs ❀
 global.namechannel2 = 'ᥫ᭡ ᥡᥙkіᑲ᥆𝗍-mძ - ᥲ᥎іs᥆s ❀'
 global.namegrupo = '.•♫•♬• ʏᴜᴋɪ-ꜱᴜᴏᴜ-ʙᴏᴛ  •♬•♫•.'
 global.namecomu = '✿:･✧ 𝓨𝓾𝓴𝓲 𝓢𝓾𝓸𝓾 𝓒𝓸𝓶𝓾𝓷𝓲𝓽𝔂 ✧･:✿'
-global.listo = '🍬 *Aquí tienes ฅ^•ﻌ•^ฅ*'
+global.listo = '❮✦❯ *Aquí tienes ฅ^•ﻌ•^ฅ*'
 global.fotoperfil = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
 
 //Ids channel
@@ -57,21 +57,21 @@ global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', s
 global.rwait = '🕒'
 global.done = '✅'
 global.error = '✖️'
-global.msm = '⚠️'
+global.msm = '⚠︎'
 
 //Emojis determinado de Yuki Bot
-global.emoji = '🍬'
-global.emoji2 = '🍭'
-global.emoji3 = '🍥'
-global.emoji4 = '🍫'
+global.emoji = '❮✦❯'
+global.emoji2 = '❮✧❯'
+global.emoji3 = '✰'
+global.emoji4 = '❍'
 global.emoji5 = '🎀'
 global.emojis = [emoji, emoji2, emoji3, emoji4].getRandom()
 
 //mensaje en espera
-global.wait = '🍭 Espera un momento, soy lenta...';
-global.waitt = '🍭 Espera un momento, soy lenta...';
-global.waittt = '🍭 Espera un momento, soy lenta...';
-global.waitttt = '🍭 Espera un momento, soy lenta...';
+global.wait = '❀ Espera un momento, soy lenta...';
+global.waitt = '❀ Espera un momento, soy lenta...';
+global.waittt = '❀ Espera un momento, soy lenta...';
+global.waitttt = '❀ Espera un momento, soy lenta...';
 
 //Enlaces
 var canal = 'https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T'  
@@ -102,7 +102,7 @@ global.taguser = '@' + m.sender.split("@s.whatsapp.net")
 var more = String.fromCharCode(8206)
 global.readMore = more.repeat(850)
 
-global.packsticker = `°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°\n\n✦ Usuario: ${nombre}\n✦ Bot: ${botname}\n✦ Fecha: ${fecha}\n✦ Hora: ${tiempo}\n`;
+global.packsticker = `°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°\n✦ Usuario: ${nombre}\n✦ Bot: ${botname}\n✦ Fecha: ${fecha}\n✦ Hora: ${tiempo}`;
 global.packsticker2 = `\n°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°\n\n${dev}`
   
 //Fakes
