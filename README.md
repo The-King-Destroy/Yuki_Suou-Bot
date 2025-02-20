@@ -2,7 +2,8 @@
 
  <img src= "https://files.catbox.moe/om9jai.jpg">
     </p>
-> 🍬 Versión ^2.2.0
+
+🍬 Versión ^2.2.0
 
 ### **`❕️ Información importante`**
 
@@ -41,7 +42,7 @@ href="https://www.mediafire.com/file/llugt4zgj7g3n3u/com.termux_1020.apk/file"><
 ### **`ᰔᩚ Instalación por termux`**
 
 <details>
- <summary><b>  Click para los ver Comandos</b></summary>
+ <summary><b> 🔥 Click para los ver Comando </b></summary>
 
 ### **❀ Instalación manual por termux**
 > copie y peguen en termux uno por uno 
@@ -76,9 +77,10 @@ npm start
 
 ---
 
-### **🜸 Activar en caso de detenerse en termux**
+<details>
+ <summary><b> 🜸 Activar en caso de detenerse en termux </b></summary>
 
-Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
+> Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
 
 1. Abre Termux y navega al directorio del bot:
     ```bash
@@ -92,13 +94,15 @@ Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdid
 
 ---
 
-### **✰ Volverte owner del Bot**
+<details>
+ <summary><b> ✰ Volverte owner del Bot </b></summary>
 
-Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
+> Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
 
-    ```bash
+   ```bash
     cd Yuki_Suou-Bot && cd nano config.js
-    ```
+   ```
+</details>
 
 ---
 ### **`🔗 Enlaces útiles`**
