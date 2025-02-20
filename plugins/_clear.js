@@ -10,7 +10,7 @@ const paths = {
 
 function cleanSubbotDirectories() {
   for (const [name, path] of Object.entries(paths)) {
-    if (name === 'Sessions') continue; // Skip YukiSession for this function
+    if (name === 'YukiSessions') continue; // Skip YukiSession for this function
 
     fs.readdir(path, (err, subbotDirs) => {
       if (err) {
