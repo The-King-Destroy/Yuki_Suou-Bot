@@ -84,12 +84,12 @@ npm start
 
 > Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
 
-1. Abre Termux y navega al directorio del bot:
+❒ Abre Termux y navega al directorio del bot:
     ```bash
     cd Yuki_Suou-Bot
     ```
 
-2. Inicia el bot nuevamente:
+❒ Inicia el bot nuevamente:
     ```bash
     npm start
     ```
