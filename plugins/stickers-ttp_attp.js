@@ -20,7 +20,7 @@ let handler = async(m, { conn, text, args, usedPrefix, command }) => {
         };
         const response = await axios.post('https://salism3api.pythonanywhere.com/text2img', data);
         const x=response.data.image;
-        let stiker = await sticker(null,x,global.packname, global.nombre)
+        let stiker = await sticker(null,x,global.botname, global.nombre)
         conn.sendFile(m.chat, stiker, null, { asSticker: true })
     }
 }
