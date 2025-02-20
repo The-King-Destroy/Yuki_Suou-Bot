@@ -84,10 +84,20 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
-      image: { url: videoInfo.thumbnail },
+      contextInfo: {
+        externalAdReply: {
+          title: 'ძᥱsᥴᥲrgᥲᥒძ᥆ ᥱs⍴ᥱrᥱ ᥙᥒ m᥆mᥱᥒ𝗍᥆...',
+          body: dev,
+          mediaType: 1,
+          previewType: 0,
+          mediaUrl: url,
+          thumbnail: thumb,
+          renderLargerThumbnail: true,
+        },
+      },
     };
     
-    await conn.reply(m.chat, infoMessage, m, JT); 
+    await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
         const api = await ddownr.download(url, 'mp3');
@@ -116,7 +126,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
               caption: ``,
-              image: { url: videoInfo.thumbnail }
+              thumbnail: thumb
             }, { quoted: m });
             break;
           }
@@ -138,7 +148,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.command = handler.help = ['play', 'play2', 'ytmp3', 'yta', 'ytmp4', 'ytv'];
 handler.tags = ['downloader'];
-//handler.group = true;
+handler.group = true;
 handler.register = true;
 
 export default handler;
