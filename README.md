@@ -73,9 +73,8 @@ npm update
 ```bash
 npm start
 ```
-</details>
 
-## 🜸 Activar en caso de detenerse en termux
+### **🜸 Activar en caso de detenerse en termux**
 
 > Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
 
@@ -89,7 +88,7 @@ npm start
     npm start
     ```
 
-## ✰ Volverte owner del Bot
+### **✰ Volverte owner del Bot**
 
 > Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
 
