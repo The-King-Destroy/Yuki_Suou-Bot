@@ -51,7 +51,7 @@ href="https://www.mediafire.com/file/llugt4zgj7g3n3u/com.termux_1020.apk/file"><
  <summary><b> ❍ Click para ver los Comandos </b></summary>
 
 ### **❀ Instalación manual por termux**
-> copie y peguen en termux uno por uno 
+> Nota: Copie y pegue los comandos en termux uno por uno.
 ```bash
 termux-setup-storage
 ```
@@ -79,6 +79,8 @@ npm update
 ```bash
 npm start
 ```
+
+> Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación
 
 ### **🜸 Activar en caso de detenerse en termux**
 
