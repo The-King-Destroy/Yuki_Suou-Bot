@@ -86,14 +86,18 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
+          title: "",
+          body: '',
           mediaType: 1,
           previewType: 0,
+          mediaUrl: url,
+          sourceUrl: url,
           thumbnail: thumb,
           renderLargerThumbnail: true,
         },
       },
     };
-
+    
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
