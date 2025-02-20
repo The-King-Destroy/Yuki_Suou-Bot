@@ -40,30 +40,11 @@ const handler = async (m, {
 
     try {
         const buffer = await fetchSticker(text);
-        const outputFilePath = path.join(tmpdir(), `sticker-${Date.now()}.webp`);
-        await sharp(buffer)
-            .resize(512, 512, {
-                fit: 'contain',
-                background: {
-                    r: 255,
-                    g: 255,
-                    b: 255,
-                    alpha: 0
-                }
-            })
-            .webp({
-                quality: 80
-            })
-            .toFile(outputFilePath);
-
-        await conn.sendMessage(m.chat, {
-            sticker: {
-                url: outputFilePath
-            },
-        }, {
-            quoted: fkontak
-        });
-        fs.unlinkSync(outputFilePath);
+        let stiker = await sticker(buffer, false, global.botname, global.nombre);
+        
+        if (stiker) {
+            return conn.sendFile(m.chat, stiker, 'error.webp', '', m);
+        }
     } catch (error) {
         return conn.sendMessage(m.chat, {
             text: `${msm} Ocurrio un error.`,
@@ -72,6 +53,7 @@ const handler = async (m, {
         });
     }
 };
+
 handler.command = ['brat'];
 handler.tags = ['sticker'];
 handler.help = ['brat *<texto>*'];
