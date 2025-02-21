@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let user = global.db.data.users[who]
     let total = (user.coin || 0) + (user.bank || 0);
 
-    const texto = `✿ 》》Informacion - Economia《《 ✿
+    const texto = `ᥫ᭡ Info  -  Economia ❀
  
 ᰔᩚ Usuario » *${conn.getName(who)}*   
 ⛀ Dinero » *${user.coin} ${moneda}*
