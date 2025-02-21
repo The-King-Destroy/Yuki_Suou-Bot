@@ -108,7 +108,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       let sources = [
         `https://api.vreden.my.id/api/ytmp4?url=${url}`,
         `https://api.davidcyriltech.my.id/download/ytmp4?url=${url}`,
-        `https://api.alyachan.dev/api/youtube?url=${url}&apikey=Gata-Dios`
+        `https://api.alyachan.dev/api/youtube?url=${url}&type=mp4&apikey=Gata-Dios`
       ];
 
       let success = false;
