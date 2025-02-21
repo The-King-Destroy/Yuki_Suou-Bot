@@ -33,13 +33,13 @@ global.owner = [
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.mods = ['50488198573', '584120515006', '573004828388', '573154062343', '5219541690054']
-global.suittag = ['584120346669'] //Cambiar a tu número si vas a usar la base.
+global.suittag = ['584120346669'] 
 global.prems = []
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.libreria = 'Baileys'
-global.baileys = 'V 6.7.9' 
+global.baileys = 'V 6.7.13' 
 global.languaje = 'Español'
 global.vs = '2.2.0'
 global.vsJB = '5.0'
@@ -61,9 +61,9 @@ global.etiqueta = 'ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.moneda = 'Yenes'
-global.welcom1 = '❍ Edita Con #setwelcome'
-global.welcom2 = '❍ Edita Con #setbye'
+global.moneda = '¥enes'
+global.welcom1 = '❍ Edita Con El Comando setwelcome'
+global.welcom2 = '❍ Edita Con El Comando setbye'
 global.banner = 'https://tinyurl.com/27d7rnhu'
 global.avatar = 'https://tinyurl.com/25ru293g'
 
@@ -85,10 +85,6 @@ global.cn ='https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T';
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: packname, orderTitle: 'Bang', thumbnail: catalogo, sellerJid: '0@s.whatsapp.net'}}}
-global.ch = {
-ch1: '120363343811229130@newsletter',
-ch2: '120363322713003916@newsletter',
-}
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
@@ -200,11 +196,6 @@ global.rpgg = {
     if (!results.length) return '';
     else return emott[results[0][0]];
   }};  
-
-//*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
-
-global.multiplier = 69
-global.maxwarn = '3'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
