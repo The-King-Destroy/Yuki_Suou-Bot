@@ -28,6 +28,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Info-Bot 』\` •˚⊹
 
+❍ Comandos para ver estado e información de la Bot.
 ᰔᩚ *#help • #menu*
 > ✦ Ver la lista de comandos de la Bot.
 ᰔᩚ *#uptime • #runtime*
@@ -69,6 +70,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Buscadores 』\` •˚⊹
 
+❍ Comandos para realizar búsquedas en distintas plataformas.
 ᰔᩚ *#tiktoksearch • #tiktoks*
 > ✦ Buscador de videos de tiktok.
 ᰔᩚ *#tweetposts*
@@ -104,6 +106,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Descargas 』\` •˚⊹
 
+❍ Comandos de descargas para varios archivos.
 ᰔᩚ *#tiktok • #tt*
 > ✦ Descarga videos de TikTok.
 ᰔᩚ *#mediafire • #mf*
@@ -147,6 +150,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Economia-rpg 』\` •˚⊹
 
+❍ Comandos de economía y rpg para ganar dinero y otros recursos.
 ᰔᩚ *#w • #work • #trabajar*
 > ✦ Trabaja para ganar ${moneda}.
 ᰔᩚ *#slut • #protituirse*
@@ -206,6 +210,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Gacha-rpg 』\` •˚⊹
 
+❍ Comandos de gacha para reclamar y colecciónar personajes.
 ᰔᩚ *#rollwaifu • #rw • #roll*
 > ✦ Waifu o husbando aleatorio.
 ᰔᩚ  *#claim • #c • #reclamar*
@@ -225,6 +230,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Stickers 』\` •˚⊹
 
+❍ Comandos para creaciones de stickers etc.
 ᰔᩚ *#sticker • #s*
 > ✦ Crea stickers de (imagen/video)
 ᰔᩚ *#pfp • #getpic*
@@ -242,6 +248,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Herramientas 』\` •˚⊹
 
+❍ Comandos de herramientas con muchas funciones.
 ᰔᩚ *#calcular • #calcular • #cal*
 > ✦ Calcular todo tipo de ecuaciones.
 ᰔᩚ *#tiempo • #clima*
@@ -273,6 +280,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Perfil 』\` •˚⊹
 
+❍ Comandos de perfil para ver, configurar y comprobar estados de tu perfil.
 ᰔᩚ *#reg • #verificar • #register*
 > ✦ Registra tu nombre y edad en el bot.
 ᰔᩚ *#unreg*
@@ -306,6 +314,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Grupos 』\` •˚⊹
 
+❍ Comandos de grupos para una mejor gestión de ellos.
 ᰔᩚ *#config • #on*
 > ✦ Ver opciones de configuración de grupos.
 ᰔᩚ *#hidetag*
@@ -373,6 +382,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Anime 』\` •˚⊹
 
+❍ Comandos de reacciones de anime.
 ᰔᩚ *#angry • #enojado* + <mencion>
 > ✦ Estar enojado
 ᰔᩚ *#bite* + <mencion>
@@ -444,6 +454,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 NSFW 』\` •˚⊹
 
+❍ Comandos NSFW (Contenido para adultos)
 ᰔᩚ *#anal* + <mencion>
 > ✦ Hacer un anal
 ᰔᩚ *#waifu*
@@ -488,7 +499,8 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Hacer tijeras.
 
 »  ⊹˚• \`『 Juegos 』\` •˚⊹
- 
+
+❍ Comandos de juegos para jugar con rus amigos.
 ᰔᩚ *#amistad • #amigorandom* 
 > ✦ hacer amigos con un juego. 
 ᰔᩚ *#chaqueta • #jalamela*
