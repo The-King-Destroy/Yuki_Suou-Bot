@@ -26,7 +26,7 @@ Aquí tienes la lista de comandos
 ╰─────────────────
 Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
-»  ⊹˚• \`『 Info-Bot 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Info-Bot 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos para ver estado e información de la Bot.
 ᰔᩚ *#help • #menu*
@@ -68,7 +68,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#editautoresponder*
 > ✦ Configurar un Prompt personalizado de la Bot.
 
-»  ⊹˚• \`『 Buscadores 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Buscadores 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos para realizar búsquedas en distintas plataformas.
 ᰔᩚ *#tiktoksearch • #tiktoks*
@@ -104,7 +104,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#npmjs*
 > ✦ Buscandor de npmjs.
 
-»  ⊹˚• \`『 Descargas 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Descargas 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de descargas para varios archivos.
 ᰔᩚ *#tiktok • #tt*
@@ -148,7 +148,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#animelinks • #animedl*
 > ✦ Descarga Links disponibles de descargas.
 
-»  ⊹˚• \`『 Economia-rpg 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Economia-rpg 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de economía y rpg para ganar dinero y otros recursos.
 ᰔᩚ *#w • #work • #trabajar*
@@ -208,7 +208,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#christmas • #navidad*
 > ✦ Reclama tu regalo navideño (Solo en Navidad).
 
-»  ⊹˚• \`『 Gacha-rpg 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Gacha-rpg 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de gacha para reclamar y colecciónar personajes.
 ᰔᩚ *#rollwaifu • #rw • #roll*
@@ -228,7 +228,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#waifusboard • #waifustop • #topwaifus*
 > ✦ Ver el top de personajes con mayor valor.
 
-»  ⊹˚• \`『 Stickers 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Stickers 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos para creaciones de stickers etc.
 ᰔᩚ *#sticker • #s*
@@ -246,7 +246,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#wm*
 > ✦ Cambia el nombre de los stickers.
 
-»  ⊹˚• \`『 Herramientas 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Herramientas 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de herramientas con muchas funciones.
 ᰔᩚ *#calcular • #calcular • #cal*
@@ -278,7 +278,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#translate • #traducir • #trad*
 > ✦ Traduce palabras en otros idiomas.
 
-»  ⊹˚• \`『 Perfil 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Perfil 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de perfil para ver, configurar y comprobar estados de tu perfil.
 ᰔᩚ *#reg • #verificar • #register*
@@ -312,7 +312,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ #confesiones • #confesar*
 > ✦ Confiesa tus sentimientos a alguien de manera anonima.
 
-»  ⊹˚• \`『 Grupos 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Grupos 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de grupos para una mejor gestión de ellos.
 ᰔᩚ *#config • #on*
@@ -380,7 +380,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#listnum • #kicknum*
 > ✦ Elimine a usuario por el prefijo de país.
 
-»  ⊹˚• \`『 Anime 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Anime 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de reacciones de anime.
 ᰔᩚ *#angry • #enojado* + <mencion>
@@ -452,7 +452,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#think* + <mencion>
 > ✦ Pensar en algo
 
-»  ⊹˚• \`『 NSFW 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 NSFW 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos NSFW (Contenido para adultos)
 ᰔᩚ *#anal* + <mencion>
@@ -498,7 +498,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#yuri • #tijeras* + <mencion>
 > ✦ Hacer tijeras.
 
-»  ⊹˚• \`『 Juegos 』\` •˚⊹
+»  •:･ﾟ⊹˚• \`『 Juegos 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de juegos para jugar con rus amigos.
 ᰔᩚ *#amistad • #amigorandom* 
@@ -567,6 +567,8 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Juega un pvp contra otro usuario.
 ᰔᩚ *#ttt*
 > ✦ Crea una sala de juego. 
+
+> ${dev}
   `.trim();
 
   await conn.sendMessage(m.chat, { 
