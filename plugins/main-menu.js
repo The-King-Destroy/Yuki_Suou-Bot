@@ -10,24 +10,24 @@ let handler = async (m, { conn, args }) => {
     let _uptime = process.uptime() * 1000;
     let uptime = clockString(_uptime);
     let totalreg = Object.keys(global.db.data.users).length;
-
+    let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length;
+    
     let txt = `
-һ᥆ᥣᥲ! s᥆ᥡ  *${botname}*  ٩(˘◡˘)۶
-ᥲ𝗊ᥙí 𝗍іᥱᥒᥱs ᥣᥲ ᥣіs𝗍ᥲ ძᥱ ᥴ᥆mᥲᥒძ᥆s
+Hola! Soy  *${botname}*  ٩(˘◡˘)۶
+Aquí tienes la lista de comandos
 ╭┈ ↷
 │ᰔᩚ Cliente » @${userId.split('@')[0]}
 │❀ Modo » Publico
 │✦ Bot » ${(conn.user.jid == global.conn.user.jid ? 'Oficial' : 'Sub-Bot')}
 │ⴵ Activada » ${uptime}
 │✰ Usuarios » ${totalreg}
+│✧ Comandos » ${totalCommands}
 │🜸 Baileys » Multi Device
-│${dev}
 ╰─────────────────
-ᥴrᥱᥲ ᥙᥒ sᥙᑲ-ᑲ᥆𝗍 ᥴ᥆ᥒ 𝗍ᥙ ᥒúmᥱr᥆ ᥙ𝗍іᥣіzᥲᥒძ᥆ *#qr* o *#code*
+Hazte *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
-»  ⊹˚• \`Info-Bot\` •˚⊹
+»  ⊹˚• \`『 Info-Bot 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ⍴ᥲrᥲ ᥎ᥱr ᥱs𝗍ᥲძ᥆ ᥱ іᥒ𝖿᥆rmᥲᥴіóᥒ ძᥱ ᥣᥲ ᑲ᥆𝗍.
 ᰔᩚ *#help • #menu*
 > ✦ Ver la lista de comandos de la Bot.
 ᰔᩚ *#uptime • #runtime*
@@ -67,9 +67,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#editautoresponder*
 > ✦ Configurar un Prompt personalizado de la Bot.
 
-»  ⊹˚• \`Buscadores\` •˚⊹
+»  ⊹˚• \`『 Buscadores 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ⍴ᥲrᥲ rᥱᥲᥣіzᥲr ᑲús𝗊ᥙᥱძᥲs ᥱᥒ ძіs𝗍іᥒ𝗍ᥲs ⍴ᥣᥲ𝗍ᥲ𝖿᥆rmᥲs.
 ᰔᩚ *#tiktoksearch • #tiktoks*
 > ✦ Buscador de videos de tiktok.
 ᰔᩚ *#tweetposts*
@@ -103,9 +102,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#npmjs*
 > ✦ Buscandor de npmjs.
 
-»  ⊹˚• \`Descargas\` •˚⊹
+»  ⊹˚• \`『 Descargas 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ ძᥱsᥴᥲrgᥲs ⍴ᥲrᥲ ᥎ᥲrі᥆s ᥲrᥴһі᥎᥆s.
 ᰔᩚ *#tiktok • #tt*
 > ✦ Descarga videos de TikTok.
 ᰔᩚ *#mediafire • #mf*
@@ -147,9 +145,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#animelinks • #animedl*
 > ✦ Descarga Links disponibles de descargas.
 
-»  ⊹˚• \`Economia-rpg\` •˚⊹
+»  ⊹˚• \`『 Economia-rpg 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ ᥱᥴ᥆ᥒ᥆míᥲ ᥡ 𝖿ᥲᥒ𝗍ᥲsíᥲ ⍴ᥲrᥲ gᥲᥒᥲr ძіᥒᥱr᥆ ᥡ ᥆𝗍r᥆s rᥱᥴᥙrs᥆s. 
 ᰔᩚ *#w • #work • #trabajar*
 > ✦ Trabaja para ganar ${moneda}.
 ᰔᩚ *#slut • #protituirse*
@@ -207,9 +204,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#christmas • #navidad*
 > ✦ Reclama tu regalo navideño (Solo en Navidad).
 
-»  ⊹˚• \`Gacha-rpg\` •˚⊹
+»  ⊹˚• \`『 Gacha-rpg 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ gᥲᥴһᥲ ⍴ᥲrᥲ rᥱᥴᥣᥲmᥲr ᥡ ᥴ᥆ᥣᥱᥴᥴіóᥒᥲr ⍴ᥱrs᥆ᥒᥲȷᥱs. 
 ᰔᩚ *#rollwaifu • #rw • #roll*
 > ✦ Waifu o husbando aleatorio.
 ᰔᩚ  *#claim • #c • #reclamar*
@@ -227,9 +223,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#waifusboard • #waifustop • #topwaifus*
 > ✦ Ver el top de personajes con mayor valor.
 
-»  ⊹˚• \`Stickers\` •˚⊹
+»  ⊹˚• \`『 Stickers 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ⍴ᥲrᥲ ᥴrᥱᥲᥴі᥆ᥒᥱs ძᥱ s𝗍іᥴkᥱrs ᥱ𝗍ᥴ.
 ᰔᩚ *#sticker • #s*
 > ✦ Crea stickers de (imagen/video)
 ᰔᩚ *#pfp • #getpic*
@@ -245,9 +240,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#wm*
 > ✦ Cambia el nombre de los stickers.
 
-»  ⊹˚• \`Herramientas\` •˚⊹
+»  ⊹˚• \`『 Herramientas 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ һᥱrrᥲmіᥱᥒ𝗍ᥲs ᥴ᥆ᥒ mᥙᥴһᥲs 𝖿ᥙᥒᥴі᥆ᥒᥱs.
 ᰔᩚ *#calcular • #calcular • #cal*
 > ✦ Calcular todo tipo de ecuaciones.
 ᰔᩚ *#tiempo • #clima*
@@ -277,9 +271,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#translate • #traducir • #trad*
 > ✦ Traduce palabras en otros idiomas.
 
-»  ⊹˚• \`Perfil\` •˚⊹
+»  ⊹˚• \`『 Perfil 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ ⍴ᥱr𝖿іᥣ ⍴ᥲrᥲ ᥎ᥱr, ᥴ᥆ᥒ𝖿іgᥙrᥲr ᥡ ᥴ᥆m⍴r᥆ᑲᥲr ᥱs𝗍ᥲძ᥆s ძᥱ 𝗍ᥙ ⍴ᥱr𝖿іᥣ.
 ᰔᩚ *#reg • #verificar • #register*
 > ✦ Registra tu nombre y edad en el bot.
 ᰔᩚ *#unreg*
@@ -311,9 +304,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ #confesiones • #confesar*
 > ✦ Confiesa tus sentimientos a alguien de manera anonima.
 
-»  ⊹˚• \`Grupos\` •˚⊹
+»  ⊹˚• \`『 Grupos 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ grᥙ⍴᥆s ⍴ᥲrᥲ ᥙᥒᥲ mᥱȷ᥆r gᥱs𝗍іóᥒ ძᥱ ᥱᥣᥣ᥆s.
 ᰔᩚ *#config • #on*
 > ✦ Ver opciones de configuración de grupos.
 ᰔᩚ *#hidetag*
@@ -379,9 +371,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#listnum • #kicknum*
 > ✦ Elimine a usuario por el prefijo de país.
 
-»  ⊹˚• \`Anime\` •˚⊹
+»  ⊹˚• \`『 Anime 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ rᥱᥲᥴᥴі᥆ᥒᥱs ძᥱ ᥲᥒіmᥱ.
 ᰔᩚ *#angry • #enojado* + <mencion>
 > ✦ Estar enojado
 ᰔᩚ *#bite* + <mencion>
@@ -451,9 +442,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#think* + <mencion>
 > ✦ Pensar en algo
 
-»  ⊹˚• \`NSFW\` •˚⊹
+»  ⊹˚• \`『 NSFW 』\` •˚⊹
 
-❀ ᥴ᥆mᥲᥒძ᥆s ᥒs𝖿ᥕ (ᥴ᥆ᥒ𝗍ᥱᥒіძ᥆ ⍴ᥲrᥲ ᥲძᥙᥣ𝗍᥆s)
 ᰔᩚ *#anal* + <mencion>
 > ✦ Hacer un anal
 ᰔᩚ *#waifu*
@@ -497,9 +487,8 @@ let handler = async (m, { conn, args }) => {
 ᰔᩚ *#yuri • #tijeras* + <mencion>
 > ✦ Hacer tijeras.
 
-»  ⊹˚• \`Juegos\` •˚⊹
-
-❀ ᥴ᥆mᥲᥒძ᥆s ძᥱ ȷᥙᥱg᥆s ⍴ᥲrᥲ ȷᥙgᥲr ᥡ ძі᥎ᥱr𝗍іr𝗍ᥱ ᥴ᥆ᥒ 𝗍ᥙs ᥲmіg᥆s. 
+»  ⊹˚• \`『 Juegos 』\` •˚⊹
+ 
 ᰔᩚ *#amistad • #amigorandom* 
 > ✦ hacer amigos con un juego. 
 ᰔᩚ *#chaqueta • #jalamela*
