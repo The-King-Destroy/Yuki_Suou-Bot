@@ -86,7 +86,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: 'ძᥱsᥴᥲrgᥲᥒძ᥆ ᥱs⍴ᥱrᥱ ᥙᥒ m᥆mᥱᥒ𝗍᥆...',
+          title: packname,
           body: dev,
           mediaType: 1,
           previewType: 0,
@@ -108,8 +108,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       let sources = [
         `https://api.vreden.my.id/api/ytmp4?url=${url}`,
         `https://api.davidcyriltech.my.id/download/ytmp4?url=${url}`,
-        `https://api.alyachan.dev/api/youtube?url=${url}&apikey=Gata-Dios`,
-        `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
+        `https://api.alyachan.dev/api/youtube?url=${url}&apikey=Gata-Dios`
       ];
 
       let success = false;
