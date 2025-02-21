@@ -8,21 +8,21 @@ let handler = async (m, { conn, usedPrefix }) => {
     let user = global.db.data.users[who]
     let total = (user.coin || 0) + (user.bank || 0);
 
-    const texto = `ᥫ᭡ Info  -  Economia ❀
+    const texto = `ᥫ᭡ Informacion -  Economia ❀
  
 ᰔᩚ Usuario » *${conn.getName(who)}*   
 ⛀ Dinero » *${user.coin} ${moneda}*
 ⚿ Banco » *${user.bank} ${moneda}*
 ⛁ Total » *${total} ${moneda}*
 
-> _Para proteger tu dinero, ¡depósitalo en el banco usando #deposit!_`;
+> *Para proteger tu dinero, ¡depósitalo en el banco usando #deposit!*`;
 
     await conn.reply(m.chat, texto, m)
 }
 
 handler.help = ['bal']
 handler.tags = ['rpg']
-handler.command = ['bal', 'balance'] 
+handler.command = ['bal', 'balance', 'bank'] 
 handler.register = true 
 handler.group = true 
 
