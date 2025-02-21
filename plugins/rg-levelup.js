@@ -1,32 +1,52 @@
-import { canLevelUp, xpRange } from '../lib/levelling.js'
-import fetch from 'node-fetch'
+import { canLevelUp, xpRange } from '../lib/levelling.js';
+import db from '../lib/database.js';
 
 let handler = async (m, { conn }) => {
-let img = await (await fetch(`https://telegra.ph/file/b97148e2154508f63d909.jpg`)).buffer()
-let name = conn.getName(m.sender)
-let user = global.db.data.users[m.sender]
-if (!canLevelUp(user.level, user.exp, global.multiplier)) {
-let { min, xp, max } = xpRange(user.level, global.multiplier)
-let txt = `👤 *Nombre* : ${name}\n\n`
-txt += `⭐ *Nivel* : ${user.level}\n`
-txt += `✨ *Experiencia* : ${user.exp - min} / ${xp}\n\n`
-txt += `💫 No es suficiente XP *${max - user.exp}* ¡De nuevo! ✨`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)}
-let before = user.level * 1
-while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++
-if (before !== user.level) {
-let txt = `🎊 F E L I C I T A C I O N E S 🎊\n\n` 
-txt += `*${before}* ➔ *${user.level}* [ ${user.role} ]\n\n`
-txt += `• ⭐ *Nivel anterior* : ${before}\n`
-txt += `• 🌟 *Nuevos niveles* : ${user.level}\n`
-txt += `• 📅 *Fecha* : ${new Date().toLocaleString('id-ID')}\n\n`
-txt += `${emoji} *Nota:* Cuanto más a interactúes con el Bot, mayor será tu nivel.`
-await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)}}
+    let mentionedUser = m.mentionedJid[0];
+    let citedMessage = m.quoted ? m.quoted.sender : null;
+    let who = mentionedUser || citedMessage || m.sender; 
+    let name = conn.getName(who) || 'Usuario';
+    let user = global.db.data.users[who];
 
-handler.help = ['levelup']
+    if (!user) {
+        await conn.sendMessage(m.chat, "No se encontraron datos del usuario.", { quoted: m });
+        return;
+    }
+
+    let { min, xp } = xpRange(user.level, global.multiplier);
+    let users = Object.entries(global.db.data.users).map(([key, value]) => {
+        return { ...value, jid: key };
+    });
+
+    let sortedLevel = users.sort((a, b) => (b.level || 0) - (a.level || 0));
+    let rank = sortedLevel.findIndex(u => u.jid === who) + 1;
+
+    let txt = `*「✿」Usuario* ◢ ${name} ◤\n\n`;
+    txt += `★ Experiencia » *${user.exp}*\n`;
+    txt += `❖ Nivel » *${user.level}*\n`;
+    txt += `➨ Progreso » *${user.exp - min} => ${xp}* _(${Math.floor(((user.exp - min) / xp) * 100)}%)_\n`;
+    txt += `# Puesto » *${rank}* de *${sortedLevel.length}*\n`;
+    txt += `❒ Comandos totales » *${user.commands || 0}*`;
+
+    await conn.sendMessage(m.chat, { text: txt }, { quoted: m });
+
+    let before = user.level * 1;
+    while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++;
+    if (before !== user.level) {
+        let txt = `✿ Has subido de nivel ✿\n\n`; 
+        txt += `*${before}* ➔ *${user.level}* [ ${user.role} ]\n\n`;
+        txt += `• ★ *Nivel anterior* : ${before}\n`;
+        txt += `• ✰ *Nuevos niveles* : ${user.level}\n`;
+        txt += `• ❖ *Fecha* : ${new Date().toLocaleString('id-ID')}\n\n`;
+        txt += `> ➨ Nota: *Cuanto más interactúes con el Bot, mayor será tu nivel.*`;
+        await conn.sendMessage(m.chat, { text: txt }, { quoted: m });
+    }
+}
+
+handler.help = ['levelup', 'lvl @user']
 handler.tags = ['rpg']
-handler.command = ['nivel', 'lvl', 'levelup', 'level'] 
-handler.group = true;
+handler.command = ['nivel', 'lvl', 'level']
 handler.register = true
+handler.group = true
 
 export default handler
