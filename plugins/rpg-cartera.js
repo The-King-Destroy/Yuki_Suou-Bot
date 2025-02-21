@@ -7,7 +7,7 @@ await m.reply(`${who == m.sender ? `Tienes *${user.coin} ${moneda} 💸* en tu C
 
 handler.help = ['wallet']
 handler.tags = ['economy']
-handler.command = ['wallet', 'cartera', 'yenes', 'bal', 'coins']
+handler.command = ['wallet', 'cartera']
 handler.group = true
 handler.register = true
 
