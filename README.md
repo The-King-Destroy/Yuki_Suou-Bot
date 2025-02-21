@@ -97,7 +97,7 @@ npm start
 > Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
 
    ```bash
-    cd Yuki_Suou-Bot && cd nano config.js
+    cd Yuki_Suou-Bot && nano settings.js
    ```
 
 </details>
