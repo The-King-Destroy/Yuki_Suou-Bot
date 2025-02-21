@@ -4,9 +4,6 @@ let handler = async (m, { conn, args }) => {
     let userId = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.sender;
     let user = global.db.data.users[userId];
     let name = conn.getName(userId);
-
-    let perfil = await conn.profilePictureUrl(userId, 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg');
-
     let _uptime = process.uptime() * 1000;
     let uptime = clockString(_uptime);
     let totalreg = Object.keys(global.db.data.users).length;
@@ -246,7 +243,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#wm*
 > ✦ Cambia el nombre de los stickers.
 
-• :･ﾟ⊹˚• \`『 Herramientas 』\` •˚⊹:･ﾟ•
+•:･ﾟ⊹˚• \`『 Herramientas 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de herramientas con muchas funciones.
 ᰔᩚ *#calcular • #calcular • #cal*
@@ -309,7 +306,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Ver tu nivel y experiencia actual.
 ᰔᩚ *#comprarpremium • #premium*
 > ✦ Compra un pase premium para usar el bot sin límites.
-ᰔᩚ #confesiones • #confesar*
+ᰔᩚ *#confesiones • #confesar*
 > ✦ Confiesa tus sentimientos a alguien de manera anonima.
 
 • :･ﾟ⊹˚• \`『 Grupos 』\` •˚⊹:･ﾟ•
@@ -595,7 +592,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 handler.help = ['menu'];
 handler.tags = ['main'];
-handler.command = ['menu', 'menú', 'help', 'ayuda'];
+handler.command = ['menu', 'menú', 'help'];
 
 export default handler;
 
