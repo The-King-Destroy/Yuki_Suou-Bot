@@ -19,7 +19,7 @@ let handler = async (m, { conn }) => {
     while (canLevelUp(user.level, user.exp, global.multiplier)) user.level++;
 
     if (before !== user.level) {
-        let txt = `✿ Has subido de nivel ✿\n\n`; 
+        let txt = `ᥫ᭡ Felicidades Has subido de nivel ❀\n\n`; 
         txt += `*${before}* ➔ *${user.level}* [ ${user.role} ]\n\n`;
         txt += `• ★ *Nivel anterior* : ${before}\n`;
         txt += `• ✰ *Nuevos niveles* : ${user.level}\n`;
