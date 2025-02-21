@@ -24,7 +24,7 @@ Aquí tienes la lista de comandos
 │✧ Comandos » ${totalCommands}
 │🜸 Baileys » Multi Device
 ╰─────────────────
-Hazte *Sub-Bot* con tu número utilizando *#qr* o *#code*
+Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 »  ⊹˚• \`『 Info-Bot 』\` •˚⊹
 
