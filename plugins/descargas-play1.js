@@ -80,14 +80,14 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const videoInfo = search.all[0];
     const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
     const vistas = formatViews(views);
-    const infoMessage = `「✦」Descarga *<${title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⎯⎯.*\n> ✰ Vistas » *${views}*\n*°.⎯⎯⎯.*\n> ⴵ Duración » *${timestamp}*\n*°.⎯⎯⎯.*\n> ✐ Publicación » *${ago}*\n*°.⎯⎯⎯.*\n> 🜸 Link » ${url}\n`;
+    const infoMessage = `「✦」Descarga *<${title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n> ✰ Vistas » *${views}*\n> ⴵ Duración » *${timestamp}*\n> ✐ Publicación » *${ago}*\n> 🜸 Link » ${url}\n`;
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: 'Descargar Música',
-          body: 'Música',
+          title: packname,
+          body: dev,
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
@@ -106,7 +106,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=TuPrekey`
+      const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=ex-290e8d524d`
       const response = await fetch(apiUrl);
       const json = await response.json();
       const downloadUrl = json.result.dl;
