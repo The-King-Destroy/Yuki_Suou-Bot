@@ -110,7 +110,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const response = await fetch(apiUrl);
     const json = await response.json();
     const downloadUrl = json.result.dl;
-            success = true;
             await conn.sendMessage(m.chat, {
               video: { url: downloadUrl },
               fileName: `${title}.mp4`,
