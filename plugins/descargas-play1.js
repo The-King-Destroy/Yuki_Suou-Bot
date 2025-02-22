@@ -69,7 +69,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `${emoji} ingresa el nombre de la música a descargar.`, m);
+      return conn.reply(m.chat, `⚠️ ingresa el nombre de la música a descargar.`, m);
     }
 
     const search = await yts(text);
@@ -80,14 +80,14 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const videoInfo = search.all[0];
     const { title, thumbnail, timestamp, views, ago, url } = videoInfo;
     const vistas = formatViews(views);
-    const infoMessage = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✰ ᥎іs𝗍ᥲs » *${views}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🜸 ᥣіᥒk » ${url}\n`;
+    const infoMessage = `「✦」Descarga *<${title}>*\n\n> ✦ Canal » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⎯⎯.*\n> ✰ Vistas » *${views}*\n*°.⎯⎯⎯.*\n> ⴵ Duración » *${timestamp}*\n*°.⎯⎯⎯.*\n> ✐ Publicación » *${ago}*\n*°.⎯⎯⎯.*\n> 🜸 Link » ${url}\n`;
     const thumb = (await conn.getFile(thumbnail))?.data;
 
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: packname,
-          body: dev,
+          title: 'Descargar Música',
+          body: 'Música',
           mediaType: 1,
           previewType: 0,
           mediaUrl: url,
@@ -97,39 +97,40 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         },
       },
     };
-    
+
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-        const api = await ddownr.download(url, 'mp3');
-        const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
+      const api = await ddownr.download(url, 'mp3');
+      const result = api.downloadUrl;
+      await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-    const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=Stellar`
-    const response = await fetch(apiUrl);
-    const json = await response.json();
-    const downloadUrl = json.result.dl;
-            try {
-            await conn.sendMessage(m.chat, {
-              video: { url: downloadUrl },
-              fileName: `${title}.mp4`,
-              mimetype: 'video/mp4',
-              caption: ``,
-              thumbnail: thumb
-            }, { quoted: m });
-        } catch (e) {
-          console.error(`Error con la fuente ${source}:`, e.message);
-        }
+      const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=Stellar`
+      const response = await fetch(apiUrl);
+      const json = await response.json();
+      const downloadUrl = json.result.dl;
 
-      if (!success) {
-        return m.reply(`${emoji2} *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
+      try {
+        await conn.sendMessage(m.chat, {
+          video: { url: downloadUrl },
+          fileName: `${title}.mp4`,
+          mimetype: 'video/mp4',
+          caption: ``,
+          thumbnail: thumb
+        }, { quoted: m });
+      } catch (e) {
+        console.error(`Error con la fuente de descarga:`, e.message);
+      }
+
+      if (!downloadUrl) {
+        return m.reply(`⚠️ *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
       }
     } else {
       throw "Comando no reconocido.";
     }
   } catch (error) {
-    return m.reply(`${msm}︎ Ocurrió un error: ${error.message}`);
+    return m.reply(`⚠️ Ocurrió un error: ${error.message}`);
   }
 };
 
