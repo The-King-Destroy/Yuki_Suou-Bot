@@ -82,8 +82,8 @@ if (!('marry' in user))
 user.marry = ''
 if (!('description' in user))
 user.description = ''
-if (!('userMeta' in user))
-user.userMeta = ''
+if (!('packstickers' in user))
+user.packstickers = ''
 if (!user.registered) {
 if (!('name' in user))
 user.name = m.name
@@ -130,7 +130,7 @@ genre: '',
 birth: '',
 marry: '',
 description: '',
-userMeta: '',
+packstickers: '',
 name: m.name,
 age: -1,
 regTime: -1,
