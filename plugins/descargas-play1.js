@@ -106,26 +106,18 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      let sources = [`https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=GataDios`];
-
-      let success = false;
-      for (let source of sources) {
-        try {
-          const res = await fetch(source);
-          const resultados = res.json();
-          const mp = resultados.result
-
-          if (mp.dl) {
+    const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=Stellar`
+    const response = await fetch(apiUrl);
+    const json = await response.json();
+    const downloadUrl = json.result.dl;
             success = true;
             await conn.sendMessage(m.chat, {
-              video: { url: mp.dl },
+              video: { url: downloadUrl },
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
               caption: ``,
               thumbnail: thumb
             }, { quoted: m });
-            break;
-          }
         } catch (e) {
           console.error(`Error con la fuente ${source}:`, e.message);
         }
