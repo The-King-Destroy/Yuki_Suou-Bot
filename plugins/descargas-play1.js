@@ -107,6 +107,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
       let sources = [
+        `https://evolving-vital-yak.ngrok-free.app/download/mp4?url=${url}`,
         `https://api.alyachan.dev/api/ytv?url=${url}&apikey=Gata-Dios`,
         `https://api.vreden.my.id/api/ytmp4?url=${url}`,
         `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
