@@ -110,6 +110,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const response = await fetch(apiUrl);
     const json = await response.json();
     const downloadUrl = json.result.dl;
+            try {
             await conn.sendMessage(m.chat, {
               video: { url: downloadUrl },
               fileName: `${title}.mp4`,
@@ -117,7 +118,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               caption: ``,
               thumbnail: thumb
             }, { quoted: m });
-        }} catch (e) {
+        } catch (e) {
           console.error(`Error con la fuente ${source}:`, e.message);
         }
       }
