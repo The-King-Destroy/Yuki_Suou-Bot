@@ -101,7 +101,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-        const api = await ddownr.download(url, 'mp3');
+        const api = await ddownr.download(url, 'mp4');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
