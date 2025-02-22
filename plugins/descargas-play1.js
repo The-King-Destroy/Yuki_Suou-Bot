@@ -103,13 +103,35 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
+        await conn.sendMessage(m.chat, { video: { url: result }, mimetype: "video/mp4" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-        const api = await ddownr.download(url, 'mp3');
-        const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { video: { url: result }, mimetype: "video/mp4" }, { quoted: m });
-       } } catch (e) {
+      let sources = [
+        `https://evolving-vital-yak.ngrok-free.app/download/mp4?url=${url}`,
+        `https://api.alyachan.dev/api/ytv?url=${url}&apikey=Gata-Dios`,
+        `https://api.vreden.my.id/api/ytmp4?url=${url}`,
+        `https://delirius-apiofc.vercel.app/download/ytmp4?url=${url}`
+      ];
+
+      let success = false;
+      for (let source of sources) {
+        try {
+          const res = await fetch(source);
+          const { data, result, downloads } = await res.json();
+          let downloadUrl = data?.dl || result?.download?.url || downloads?.url || data?.download?.url;
+
+          if (downloadUrl) {
+            success = true;
+            await conn.sendMessage(m.chat, {
+              video: { url: downloadUrl },
+              fileName: `${title}.mp4`,
+              mimetype: 'video/mp4',
+              caption: ``,
+              thumbnail: thumb
+            }, { quoted: m });
+            break;
+          }
+        } catch (e) {
           console.error(`Error con la fuente ${source}:`, e.message);
         }
       }
