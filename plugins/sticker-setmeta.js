@@ -9,9 +9,9 @@ const authorName = metaParts[1]
 if (!global.db.data.users[m.sender]) {
 global.db.data.users[m.sender] = {}
 }
-const { packstickers } = global.db.data.users[m.sender]
+const { packstickers, packstickers2 } = global.db.data.users[m.sender]
 packstickers = packName
-packstickers = authorName
+packstickers2 = authorName
 await global.db.write()
 return m.reply(`✨ ¡Tus metadatos de stickers han sido actualizados con éxito! Pack: ${packName} | Autor: ${authorName}`)
 } catch (e) {
