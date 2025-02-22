@@ -106,7 +106,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-        const api = await ddownr.download(url, 'mp4');
+        const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { video: { url: result }, mimetype: "video/mp4" }, { quoted: m });
         } catch (e) {
