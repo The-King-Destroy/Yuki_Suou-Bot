@@ -103,7 +103,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
-        await conn.sendMessage(m.chat, { video: { url: result }, mimetype: "video/mp4" }, { quoted: m });
+        await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
       let sources = [
