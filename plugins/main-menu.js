@@ -230,13 +230,17 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ❍ Comandos para creaciones de stickers etc.
 ᰔᩚ *#sticker • #s*
 > ✦ Crea stickers de (imagen/video)
+ᰔᩚ *#setmeta*
+> ✦ Estable un pack y autor para los stickers.
+ᰔᩚ *#delmeta*
+> ✦ Elimina tu pack de stickers.
 ᰔᩚ *#pfp • #getpic*
 > ✦ Obtén la foto de perfil de un usuario.
 ᰔᩚ *#qc*
 > ✦ Crea stickers con texto o de un usuario.
 ᰔᩚ *#toimg • #img*
 > ✦ Convierte stickers en imagen.
-ᰔᩚ *#brat*︎ 
+ᰔᩚ *#brat • #ttp • #attp*︎ 
 > ✦ Crea stickers con texto.
 ᰔᩚ *#emojimix*
 > ✦ Fuciona 2 emojis para crear un sticker.
