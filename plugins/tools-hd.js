@@ -5,7 +5,7 @@ const handler = async (m, {conn, usedPrefix, command}) => {
   let q = m.quoted ? m.quoted : m;
   let mime = (q.msg || q).mimetype || q.mediaType || "";
   if (!mime) return m.reply(`${emoji} Por favor, responda a una imagen para aunmetar el *HD*.`);
-  if (!/image\/(jpe?g|png)/.test(mime)) return m.reply(`${emoji3} El formato del archivo (${mime}) no es compatible, envía o responda a una imagen`);
+  if (!/image\/(jpe?g|png)/.test(mime)) return m.reply(`${emoji3} El formato del archivo (${mime}) no es compatible, envía o responda a una imagen.`);
   conn.reply(m.chat, `${emoji2} Mejorando la calidad de la imagen....`, m)
   let img = await q.download?.();
   let pr = await remini(img, "enhance");
