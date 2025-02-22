@@ -106,7 +106,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=Stellar`
+      const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=TuPrekey`
       const response = await fetch(apiUrl);
       const json = await response.json();
       const downloadUrl = json.result.dl;
