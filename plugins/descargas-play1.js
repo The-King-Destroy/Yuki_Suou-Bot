@@ -109,7 +109,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         const api = await ddownr.download(url, 'mp3');
         const result = api.downloadUrl;
         await conn.sendMessage(m.chat, { video: { url: result }, mimetype: "video/mp4" }, { quoted: m });
-        } catch (e) {
+       } } catch (e) {
           console.error(`Error con la fuente ${source}:`, e.message);
         }
       }
