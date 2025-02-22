@@ -117,7 +117,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
               caption: ``,
               thumbnail: thumb
             }, { quoted: m });
-        } catch (e) {
+        }} catch (e) {
           console.error(`Error con la fuente ${source}:`, e.message);
         }
       }
