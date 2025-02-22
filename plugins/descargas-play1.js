@@ -112,12 +112,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       for (let source of sources) {
         try {
           const res = await fetch(source);
-          const { result, dl } = await res.json();
+          const resultados = res.json();
+          const mp = resultados.result
 
-          if (result.dl) {
+          if (mp.dl) {
             success = true;
             await conn.sendMessage(m.chat, {
-              video: { url: result.dl },
+              video: { url: mp.dl },
               fileName: `${title}.mp4`,
               mimetype: 'video/mp4',
               caption: ``,
