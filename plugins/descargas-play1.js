@@ -121,7 +121,6 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
         } catch (e) {
           console.error(`Error con la fuente ${source}:`, e.message);
         }
-      }
 
       if (!success) {
         return m.reply(`${emoji2} *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
