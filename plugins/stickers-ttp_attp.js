@@ -6,9 +6,9 @@ let handler = async(m, { conn, text, args, usedPrefix, command }) => {
     if (!text) return m.reply(`${emoji} Por favor, ingresa un texto para crear un sticker.`);
     let teks = encodeURI(text);
     let userId = m.sender;
-    let userMeta = global.db.data.users[userId] || {};
-    let texto1 = userMeta.text1 || global.packsticker;
-    let texto2 = userMeta.text2 || global.packsticker2;
+    let packstickers = global.db.data.users[userId] || {};
+    let texto1 = packstickers.text1 || global.packsticker;
+    let texto2 = packstickers.text2 || global.packsticker2;
 
     if (command == 'attp') {
         const data = {
