@@ -44,7 +44,7 @@ let handler = async (m, { conn, args }) => {
             ? `Reclamado por @${userEntry.userId.split('@')[0]}` 
             : 'Libre';
         
-        const message = `❀ Nombre » *${character.name}*\n⚥ Género » *${character.gender}*\n✰ Valor » *${character.value}*\n♡ Estado » ${statusMessage}\n❖ Fuente » *${character.source}*\nID: *${character.id}*`;
+        const message = `❀ Nombre » *${character.name}*\n⚥ Género » *${character.gender}*\n✰ Valor » *${character.value}*\n♡ Estado » ${statusMessage}\n❖ Fuente » *${character.source}*`;
 
         await conn.reply(m.chat, message, m, { mentions: [userEntry ? userEntry.userId : null] });
     } catch (error) {
