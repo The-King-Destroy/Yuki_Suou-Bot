@@ -106,7 +106,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      const json = await (await fetch(`https://api.lyrax.net/api/dl/ytdl?url=${url}&apikey=Tetas`)).json()
+      const json = await (await fetch(`https://api.lyrax.net/api/dl/ytdl?url=${url}&apikey=Tesina`)).json()
       const downloadUrl = json.data.file_url;
 
       try {
