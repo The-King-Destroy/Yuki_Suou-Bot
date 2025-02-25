@@ -69,7 +69,7 @@ const ddownr = {
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
     if (!text.trim()) {
-      return conn.reply(m.chat, `⚠️ ingresa el nombre de la música a descargar.`, m);
+      return conn.reply(m.chat, `❀ Por favor, ingresa el nombre de la música a descargar.`, m);
     }
 
     const search = await yts(text);
@@ -86,7 +86,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: packname,
+          title: botname,
           body: dev,
           mediaType: 1,
           previewType: 0,
@@ -101,15 +101,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT);
 
     if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      const api = await ddownr.download(url, 'mp3');
-      const result = api.downloadUrl;
+      const api = await (await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=audio&quality=128kbps&apikey=GataDios`)).json()
+      const result = api.data.url;
       await conn.sendMessage(m.chat, { audio: { url: result }, mimetype: "audio/mpeg" }, { quoted: m });
 
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      const apiUrl = `https://exonity.tech/api/dl/ytmp4?url=${url}&apikey=ex-290e8d524d`
-      const response = await fetch(apiUrl);
-      const json = await response.json();
-      const downloadUrl = json.result.dl;
+      const json = await (await fetch(`https://api.lyrax.net/api/dl/ytdl?url=${url}&apikey=Tetas`)).json()
+      const downloadUrl = json.data.file_url;
 
       try {
         await conn.sendMessage(m.chat, {
@@ -124,20 +122,19 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       }
 
       if (!downloadUrl) {
-        return m.reply(`⚠️ *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
+        return m.reply(`⚠︎ *No se pudo descargar el video:* No se encontró un enlace de descarga válido.`);
       }
     } else {
       throw "Comando no reconocido.";
     }
   } catch (error) {
-    return m.reply(`⚠️ Ocurrió un error: ${error.message}`);
+    return m.reply(`⚠︎ Ocurrió un error: ${error.message}`);
   }
 };
 
 handler.command = handler.help = ['play', 'play2', 'ytmp3', 'yta', 'ytmp4', 'ytv'];
 handler.tags = ['downloader'];
 handler.group = true;
-handler.register = true;
 
 export default handler;
 
