@@ -381,7 +381,6 @@ ${user.bannedReason}` : '⎙⎗ *Motivo:* Sin Especificar'}\n\n❍ Si quieres qu
 user.antispam++
 return
 }
-}
 
 if (user.antispam2 && isROwner) return
 let time = global.db.data.users[m.sender].spam + 3000
