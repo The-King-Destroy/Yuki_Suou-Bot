@@ -39,6 +39,9 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
     if (!args[0]) {
         return conn.reply(m.chat, `${emoji} Por favor, ingresa el link del anime para obtener información.\n\n> Nota: En el comando #animes no da los links completos porque son muy largos y por éso usé un acortador, pero igualmente sirven.`, m);
     }
+
+let user = global.db.data.users[m.sender];
+if (!user.premium) return m.reply(`⧼✦⧽ El Comando ${usedPrefix + command} solo está disponible para usuarios Premiums`);
     const links = await getDownloadLinks(args[0]);
     if (links.error) {
         return conn.reply(m.chat, links.error, m);
@@ -54,7 +57,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
 handler.help = ['animedl', 'animelinks'];
 handler.command = ['animedl', 'animelinks'];
 handler.tags = ['descargas'];
-handler.premium = true;
+// handler.premium = true;
 handler.group = true;
 handler.register = true;
 handler.coin = 5;
