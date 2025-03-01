@@ -1,6 +1,8 @@
 let WAMessageStubType = (await import('@whiskeysockets/baileys')).default
 
-export async function before(m, { conn, participants, groupMetadata }) {
+let handler = m => m
+handler.before = async function (m, { conn, participants, groupMetadata }) {
+
 if (!m.messageStubType || !m.isGroup) return
 const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net"}  
 let chat = global.db.data.chats[m.chat]
@@ -43,8 +45,10 @@ return;
 await conn.sendMessage(m.chat, { text: noadmingp, mentions: [`${m.sender}`,`${m.messageStubParameters[0]}`] }, { quoted: fkontak })  
 
 } else {
-//console.log({ messageStubType: m.messageStubType,
-//messageStubParameters: m.messageStubParameters,
-//type: WAMessageStubType[m.messageStubType], 
-//})
+if (m.messageStubType == 2) return
+console.log({messageStubType: m.messageStubType,
+messageStubParameters: m.messageStubParameters,
+type: WAMessageStubType[m.messageStubType], 
+})
 }}
+export default handler
