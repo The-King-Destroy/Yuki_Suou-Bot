@@ -1,5 +1,5 @@
 {
-"name": "Yuki_Suou-Bot",
+"name": "yuki_suou-bot",
 "version": "2.2.0",
 "description": "Super WhatsApp Bot Multi Device",
 "main": "index.js",
@@ -31,7 +31,7 @@
 },
 "license": "GPL-3.0-or-later",
 "dependencies": {
-"@whiskeysockets/baileys": "^6.7.13",
+"@whiskeysockets/baileys": "npm:@fizzxydev/baileys-pro@^8.6.8",
 "@adiwajshing/keyed-db": "^0.2.4",
 "@bochilteam/scraper": "^4.2.4",
 "@bochilteam/scraper-sosmed": "^1.0.5",
