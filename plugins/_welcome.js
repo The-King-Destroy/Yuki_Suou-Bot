@@ -1,34 +1,26 @@
-import { WAMessageStubType } from '@whiskeysockets/baileys'
+import {WAMessageStubType} from '@whiskeysockets/baileys'
 import fetch from 'node-fetch'
 
-export async function before(m, { conn, participants, groupMetadata }) {
-  if (!m.messageStubType || !m.isGroup) return true
+export async function before(m, {conn, participants, groupMetadata}) {
+  if (!m.messageStubType || !m.isGroup) return !0;
+    let pp = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+    let pp2 = await conn.profilePictureUrl(m.messageStubParameters[0], 'image').catch(_ => 'https://files.catbox.moe/xr2m6u.jpg')
+  let img = await (await fetch(`${pp}`)).buffer()
+  let img2 = await (await fetch(`${pp2}`)).buffer()
 
-  let who = m.messageStubParameters[0]
-  let taguser = `@${who.split('@')[0]}`
   let chat = global.db.data.chats[m.chat]
-  let defaultImage = 'https://files.catbox.moe/xr2m6u.jpg';
 
-  if (chat.welcome) {
-    let img;
-    try {
-      let pp = await conn.profilePictureUrl(who, 'image');
-      img = await (await fetch(pp)).buffer();
-    } catch {
-      img = await (await fetch(defaultImage)).buffer();
-    }
-
-    if (m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
-      let bienvenida = `❀ *Bienvenido* a ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
-      await conn.sendMessage(m.chat, { image: img, caption: bienvenida, mentions: [who] })
-    } else if (
-      m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE ||
-      m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE
-    ) {
-      let bye = `❀ *Adiós* de ${groupMetadata.subject}\n ✰ ${taguser}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
-      await conn.sendMessage(m.chat, { image: img, caption: bye, mentions: [who] })
-    }
+  if (chat.welcome && m.messageStubType == 27) {
+    let wel = `❀ *Bienvenido* a ${groupMetadata.subject}\n ✰ @${m.messageStubParameters[0].split`@`[0]}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
+await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak)
   }
 
-  return true
-}
+  if (chat.welcome && m.messageStubType == 28) {
+   let bye = `❀ *Adiós* de ${groupMetadata.subject}\n ✰ @${m.messageStubParameters[0].split`@`[0]}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
+await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak)
+  }
+
+  if (chat.welcome && m.messageStubType == 29) {
+   let bye = `❀ *Adiós* de ${groupMetadata.subject}\n ✰ @${m.messageStubParameters[0].split`@`[0]}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
+await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak)
+  }}
