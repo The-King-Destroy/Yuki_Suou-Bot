@@ -10,17 +10,17 @@ export async function before(m, {conn, participants, groupMetadata}) {
 
   let chat = global.db.data.chats[m.chat]
 
-  if (chat.welcome && m.messageStubType == 27) {
+  if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_ADD) {
     let wel = `❀ *Bienvenido* a ${groupMetadata.subject}\n ✰ @${m.messageStubParameters[0].split`@`[0]}\n${global.welcom1}\n •(=^●ω●^=)• Disfruta tu estadía en el grupo!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
 await conn.sendMini(m.chat, packname, dev, wel, img, img, channel, fkontak)
   }
 
-  if (chat.welcome && m.messageStubType == 28) {
+  if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_LEAVE) {
    let bye = `❀ *Adiós* de ${groupMetadata.subject}\n ✰ @${m.messageStubParameters[0].split`@`[0]}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
 await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak)
   }
 
-  if (chat.welcome && m.messageStubType == 29) {
+  if (chat.welcome && m.messageStubType === WAMessageStubType.GROUP_PARTICIPANT_REMOVE) {
    let bye = `❀ *Adiós* de ${groupMetadata.subject}\n ✰ @${m.messageStubParameters[0].split`@`[0]}\n${global.welcom2}\n •(=^●ω●^=)• Te esperamos pronto!\n> ✐ Puedes usar *#help* para ver la lista de comandos.`
 await conn.sendMini(m.chat, packname, dev, bye, img2, img2, channel, fkontak)
   }}
