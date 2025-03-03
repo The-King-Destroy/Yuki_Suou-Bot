@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 import axios from 'axios';
 
 let handler = async(m, { conn, text, args, usedPrefix, command }) => {
-    if (!text) return m.reply(`🍭 Ingresa Un Texto Para Realizar Tu Sticker\n> *Ejemplo:* ${usedPrefix + command} CrowBot`)
+    if (!text) return m.reply(`${emoji} Por Favor, Ingresa Un Texto Para Realizar Tu Sticker\n> *Ejemplo:* ${usedPrefix + command} CrowBot`)
     let teks = encodeURI(text)
     if (command == 'attp') {
 let stiker = await sticker(null,`https://api.fgmods.xyz/api/maker/attp?text=${text}&apikey=elrebelde21`,global.packname, global.author)
