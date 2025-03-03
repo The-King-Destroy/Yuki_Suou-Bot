@@ -5,7 +5,6 @@ import axios from 'axios'
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     if (!text) return m.reply(`❀ Por Favor, Ingresa Un Texto Para Realizar Tu Sticker.`)
 
-    let teks = encodeURI(text)
     let userId = m.sender
     let packstickers = global.db.data.users[userId] || {}
     let texto1 = packstickers.text1 || global.packsticker
