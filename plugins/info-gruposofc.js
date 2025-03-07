@@ -17,9 +17,6 @@ ${namecomu}
 - ${namechannel}
 > *❀* ${channel}
 
-- ${namechannel2}
-> *❀* ${channel2}
-
 > ${dev}`
 
 await conn.sendFile(m.chat, catalogo, "grupos.jpg", grupos, m)
