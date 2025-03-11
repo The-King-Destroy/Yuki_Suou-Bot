@@ -2519,7 +2519,7 @@
         "status": "libre",
         "votes": 0
     },
-    {   "id": "135",
+    {   "id": "134",
         "name": "Yotsuba Nakano",
         "gender": "Mujer",
         "value": "100",
@@ -2532,6 +2532,24 @@
         "vid": [
             "https://qu.ax/fmaKZ.mp4",
             "https://qu.ax/ZzbxS.mp4"
+        ],
+        "user": null,
+        "status": "libre",
+        "votes": 0
+    },
+    {   "id": "135",
+        "name": "Artur Leywin",
+        "gender": "Hombre",
+        "value": "100",
+        "source": "The Beginning After the End",
+        "img": [
+            "https://qu.ax/ncARi.jpg",
+            "https://qu.ax/WAXfy.jpg",
+            "https://qu.ax/JKHkH.jpg"
+        ],
+        "vid": [
+            "https://files.catbox.moe/r8l5fu.mp4",
+            "https://files.catbox.moe/zxq6ci.mp4"
         ],
         "user": null,
         "status": "libre",
@@ -3143,7 +3161,7 @@
             "https://files.catbox.moe/am307w.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/pls79d.mp4"
+            "https://files.catbox.moe/pls79d.mp4",
             "https://files.catbox.moe/pls79d.mp4"
         ],
         "user": null,
