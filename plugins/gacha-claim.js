@@ -36,7 +36,7 @@ let handler = async (m, { conn }) => {
     if (m.quoted && m.quoted.sender === conn.user.jid) {
         try {
             const characters = await loadCharacters();
-            const characterIdMatch = m.quoted.text.match(/ID: \*(.+?)\*/);
+        const characterIdMatch = m.quoted.text.match(/✦ ID: \*(.+?)\*/);
 
             if (!characterIdMatch) {
                 await conn.reply(m.chat, '《✧》No se pudo encontrar el ID del personaje en el mensaje citado.', m);
@@ -56,7 +56,6 @@ let handler = async (m, { conn }) => {
                 return;
             }
 
-            // Cambiar el estado del personaje a "Reclamado"
             character.user = userId;
             character.status = "Reclamado";
 
@@ -78,6 +77,5 @@ handler.help = ['claim'];
 handler.tags = ['gacha'];
 handler.command = ['c', 'claim', 'reclamar'];
 handler.group = true;
-handler.register = true;
 
 export default handler;
