@@ -384,9 +384,9 @@
         "name": "Alisa Mikhailovna Kujou",
         "gender": "Mujer",
         "value": "100",
-        "source": "Roshidere",
+        "source": "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",
         "img": [
-            "https://files.catbox.moe/f5g64q.jpg",
+            "https://files.catbox.moe/596w64.jpg",
             "https://files.catbox.moe/f5g64q.jpg",
             "https://files.catbox.moe/tv8ltb.jpg"
         ],
@@ -460,7 +460,7 @@
         "name": "Fern",
         "gender": "mujer",
         "value": "100",
-        "source": "Sousou no Friere",
+        "source": "Sousou no Frieren",
         "img": [
             "https://files.catbox.moe/1itvxu.jpg",
             "https://files.catbox.moe/fm3ndt.jpg",
@@ -593,14 +593,14 @@
         "name": "Yuki Suou",
         "gender": "Mujer",
         "value": "100",
-        "source": "Roshidere",
+        "source": "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",
         "img": [
             "https://files.catbox.moe/4oj8si.jpg",
             "https://files.catbox.moe/mwr4vz.jpg",
             "https://qu.ax/hKeAY.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/q9fj6w.mp4",
+            "https://files.catbox.moe/0q8ei9.mp4",
             "https://files.catbox.moe/2v8xk7.mp4"
         ],
         "user": null,
@@ -612,7 +612,7 @@
         "name": "Akaza Akari",
         "gender": "Mujer",
         "value": "100",
-        "source": "YuruYuri",
+        "source": "Yuru Yuri",
         "img": [
             "https://files.catbox.moe/vw57ak.jpg",
             "https://files.catbox.moe/ndr01w.png",
@@ -760,7 +760,7 @@
         "votes": 0
     },
     {
-        "id": "39",
+        "id": "41",
         "name": "Benimaru Shinmon",
         "gender": "Hombre",
         "value": "100",
@@ -834,21 +834,21 @@
         "user": null,
         "status": "Libre",
         "votes": 0
-    },
-    {
+    },   
+    {   
         "id": "45",
         "name": "Thor",
         "gender": "Hombre",
         "value": "100",
         "source": "Record of Ragnarok",
         "img": [
-            "https://qu.ax/HjyuD.jpg",
-            "https://qu.ax/vVXKq.jpg",
-            "https://qu.ax/mgJNq.jpg"
+            "https://files.catbox.moe/gmnp5h.jpeg",
+            "https://files.catbox.moe/bdgjxw.jpeg",
+            "https://files.catbox.moe/tyzwcg.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/bl4ksd.gif",
+            "https://files.catbox.moe/14fdpz.gif"
         ],
         "user": null,
         "status": "Libre",
@@ -857,17 +857,17 @@
     {
         "id": "46",
         "name": "Brunhilde",
-        "gender": "mujer",
+        "gender": "Mujer",
         "value": "100",
         "source": "Record of Ragnarok",
         "img": [
-            "https://qu.ax/iQrlL.jpg",
-            "https://qu.ax/snsgd.jpg",
-            " https://qu.ax/GNzHF.jpg "
+            "https://files.catbox.moe/vf9bh4.jpg",
+            "https://files.catbox.moe/bnpb38.jpg",
+            "https://files.catbox.moe/nx406i.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/hm53g2.mp4",
+            "https://files.catbox.moe/xva9ay.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -875,18 +875,18 @@
     },
     {
         "id": "47",
-        "name": "Ryusei Shidou",
-        "gender": "Hombre",
+        "name": "Yuugiri ",
+        "gender": "Mujer",
         "value": "100",
-        "source": "Blue lock",
+        "source": "Engage Kiss",
         "img": [
-            "https://qu.ax/mubkD.jpg",
-            "https://qu.ax/TSHYr.jpg",
-            " https://qu.ax/iOmSO.jpg"
+            "https://files.catbox.moe/usdebr.jpeg",
+            "https://files.catbox.moe/drg723.jpeg",
+            "https://files.catbox.moe/dpk260.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/ko60m4.gif",
+            "https://files.catbox.moe/6pbfg7.gif"
         ],
         "user": null,
         "status": "Libre",
@@ -894,18 +894,18 @@
     },
     {
         "id": "48",
-        "name": "Michael Kaiser Female",
+        "name": "Ayase Aragaki",
         "gender": "Mujer",
-        "value": "2000",
-        "source": "Blue lock",
+        "value": "100",
+        "source": "Oreimo",
         "img": [
-            "https://qu.ax/VmQpL.jpg",
-            "https://qu.ax/SDchK.jpg",
-            "https://qu.ax/Pzoie.jpg"
+            "https://files.catbox.moe/pkz5vq.jpeg",
+            "https://files.catbox.moe/kq7c45.jpg",
+            "https://files.catbox.moe/0uf4sj.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/3xepj0.gif",
+            "https://files.catbox.moe/v7f0u8.gif"
         ],
         "user": null,
         "status": "Libre",
@@ -913,38 +913,32 @@
     },
     {
         "id": "49",
-        "name": "Shidou fem",
+        "name": "Santo Grial, Sharon",
         "gender": "Mujer",
         "value": "100",
-        "source": "Blue lock",
+        "source": "Engage Kiss",
         "img": [
-            "https://qu.ax/XduTu.jpg",
-            "https://qu.ax/QguJn.jpg",
-            "https://qu.ax/iUElR.jpg"
+            "https://files.catbox.moe/65olp4.jpeg",
+            "https://files.catbox.moe/pesw6y.jpeg",
+            "https://files.catbox.moe/6yowcy.jpeg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
     {
         "id": "50",
-        "name": "Michael Kaiser",
-        "gender": "Masculino",
+        "name": "Ogata, Kanna",
+        "gender": "Mujer",
         "value": "100",
-        "source": "Blue Lock",
+        "source": "Engage Kiss",
         "img": [
-            "https://qu.ax/JuQkt.jpg",
-            "https://qu.ax/rsqkm.jpg",
-            "https://qu.ax/DfrHo.jpg"
+            "https://files.catbox.moe/d9hp42.jpeg",
+            "https://files.catbox.moe/wszgi8.jpeg",
+            "https://files.catbox.moe/owdue9.jpeg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -956,33 +950,27 @@
         "value": "100",
         "source": "Blue lock",
         "img": [
-            "https://qu.ax/FKgGa.jpg",
-            "https://qu.ax/LgQjt.jpg",
-            "https://qu.ax/LfufH.jpg"
+            "https://files.catbox.moe/z3pbn7.jpeg",
+            "https://files.catbox.moe/8h74yi.jpg",
+            "https://files.catbox.moe/qf9ih8.jpeg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
     {
         "id": "52",
-        "name": "Hilda De Polaris",
-        "gender": "Mujer",
+        "name": "Ogata, Shuu",
+        "gender": "Hombre",
         "value": "100",
-        "source": "Los Caballeros Del Zodiaco",
+        "source": "Engage Kiss",
         "img": [
-            "https://qu.ax/ZOtdp.jpg",
-            "https://qu.ax/ySNrp.jpg",
-            " https://qu.ax/osvBt.jpg"
+            "https://files.catbox.moe/y8dsdf.jpeg",
+            "https://files.catbox.moe/3x1ziz.jpeg",
+            "https://files.catbox.moe/xd0wew.jpeg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [], 
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -994,13 +982,13 @@
         "value": "100",
         "source": "Record Of Ragnarok",
         "img": [
-            "https://qu.ax/ZHUPK.jpg",
-            "https://qu.ax/rAXNH.jpg",
-            "https://qu.ax/xaPab.jpg"
+            "https://files.catbox.moe/exs7w4.jpeg",
+            "https://files.catbox.moe/qnfnnw.jpeg",
+            "https://files.catbox.moe/zyl4wv.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/k9xeqk.webp",
+            "https://files.catbox.moe/5dtesn.webp"
         ],
         "user": null,
         "status": "Libre",
@@ -1013,13 +1001,13 @@
         "value": "100",
         "source": "Nanatsu no Taizai",
         "img": [
-             "https://qu.ax/Lfqrl.jpg",
-             "https://qu.ax/zyElr.jpg",
-             "https://qu.ax/NoovX.jpg"
+             "https://files.catbox.moe/z6x32g.jpeg",
+             "https://files.catbox.moe/7zx2v2.jpg",
+             "https://files.catbox.moe/fda0vz.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/8tpm5g.webp",
+            "https://files.catbox.moe/ecixr2.webp"
         ],
         "user": null,
         "status": "Libre",
@@ -1032,13 +1020,13 @@
         "value": "100",
         "source": "Kimetsu No Yaiba",
         "img": [
-             "https://qu.ax/Jerqt.jpg",
-             "https://qu.ax/gmWPy.jpg",
-             "https://qu.ax/vgYUy.jpg"
+             "https://files.catbox.moe/6zzfgx.jpeg",
+             "https://files.catbox.moe/uo0ivp.jpg",
+             "https://files.catbox.moe/33tz7f.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/12kmnd.gif",
+            "https://files.catbox.moe/yv4aoe.gif"
         ],
         "user": null,
         "status": "Libre",
@@ -1051,13 +1039,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/DgOWT.jpg",
-            "https://qu.ax/PcGwH.jpg",
-            "https://qu.ax/eitUZ.jpg"
+            "https://files.catbox.moe/8i4gmn.jpeg",
+            "https://files.catbox.moe/dphf7i.jpeg",
+            "https://files.catbox.moe/4fn3af.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/71zp61.webp",
+            "https://files.catbox.moe/lv7dzr.webp"
         ],
         "user": null,
         "status": "Libre",
@@ -1070,13 +1058,13 @@
         "value": "100",
         "source": "Jujutsu kaisen",
         "img": [
-            "https://qu.ax/kuWvK.jpg",
-            "https://qu.ax/zfsnp.jpg",
-            "https://qu.ax/oBnCU.jpg"
+            "https://files.catbox.moe/57ggyq.jpeg",
+            "https://files.catbox.moe/1tz4tw.jpeg",
+            "https://files.catbox.moe/6taggf.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/dmb5ev.webp",
+            "https://files.catbox.moe/9vd7uo.webp"
         ],
         "user": null,
         "status": "Libre",
@@ -1089,13 +1077,13 @@
         "value": "100",
         "source": "Jujutsu Kaisen",
         "img": [
-            "https://qu.ax/hZadm.jpg",
-            "https://qu.ax/kvmwR.jpg",
-            "https://qu.ax/pYORV.jpg"
+            "https://files.catbox.moe/jozvlm.jpeg",
+            "https://files.catbox.moe/0uwsws.jpeg",
+            "https://files.catbox.moe/vyadyv.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/wk6z4w.gif",
+            "https://files.catbox.moe/qf4itq.gif"
         ],
         "user": null,
         "status": "Libre",
@@ -1108,13 +1096,13 @@
         "value": "100",
         "source": "Naruto",
         "img": [
-            "https://qu.ax/fgUhy.jpg",
-            "https://qu.ax/cryDV.jpg",
-            "https://qu.ax/LBCtL.jpg"
+            "https://files.catbox.moe/b1fq0j.jpeg",
+            "https://files.catbox.moe/ai0ov9.jpeg",
+            "https://files.catbox.moe/q918px.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/a1g3v1.webp",
+            "https://files.catbox.moe/bv4m93.webp"
         ],
         "user": null,
         "status": "Libre",
@@ -1127,32 +1115,32 @@
         "value": "100",
         "source": "Violet Evergarden",
         "img": [
-            "https://qu.ax/nLhbZ.jpg",
-            "https://qu.ax/CWoJh.jpg",
-            "https://qu.ax/EoeGH.jpg"
+            "https://files.catbox.moe/s56t63.jpeg",
+            "https://files.catbox.moe/sjj4js.jpeg",
+            "https://files.catbox.moe/hxsv7w.jpeg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/9yhxar.gif",
+            "https://files.catbox.moe/qmx5ue.gif"
         ],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
-    {
-        "id": "61",
+    {   
+           "id": "61",
         "name": "Momo Ayase",
         "gender": "Mujer",
         "value": "100",
         "source": "Dan Dan, Dan",
         "img": [
-            "https://qu.ax/VGpmR.jpg",
-            "https://qu.ax/XrZLb.jpg",
-            "https://qu.ax/BSmdo.jpg"
+            "https://files.catbox.moe/zufuyw.jpg",
+            "https://files.catbox.moe/helipx.jpg",
+            "https://files.catbox.moe/23evoj.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/nld3ko.mp4",
+            "https://files.catbox.moe/1k61x1.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1165,13 +1153,13 @@
         "value": "100",
         "source": "One Piece",
         "img": [
-            "https://qu.ax/qrpDp.jpg",
-            "https://qu.ax/wnaQW.jpg",
-            "https://qu.ax/OMrmK.jpg"
+            "https://files.catbox.moe/9sa99o.jpg",
+            "https://files.catbox.moe/3o5g5n.jpg",
+            "https://files.catbox.moe/1yncok.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/uwnezk.mp4",
+            "https://files.catbox.moe/bswf4x.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1184,13 +1172,13 @@
         "value": "100",
         "source": "One Punch Man",
         "img": [
-            "https://qu.ax/HWwqs.jpg",
-            "https://qu.ax/iDyWa.jpg",
-            " https://qu.ax/upPNx.jpg"
+            "https://files.catbox.moe/72ekfi.jpg",
+            "https://files.catbox.moe/acds7v.jpg",
+            "https://files.catbox.moe/6dh6e6.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/20pe96.mp4",
+            "https://files.catbox.moe/7vx7b2.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1198,21 +1186,21 @@
     },
     {
         "id": "64",
-        "name": "Sanemi Shinazugawa",
+        "name": "Ban",
         "gender": "Hombre",
         "value": "100",
-        "source": "Kimetsu No Yaiba",
+        "source": "Nanatsu no Taizai",
         "img": [
-            "https://qu.ax/PXeLt.jpg",
-            "https://qu.ax/zMfwj.jpg",
-            "https://qu.ax/temrj.jpg"
+            "https://files.catbox.moe/78lvkj.jpg",
+            "https://files.catbox.moe/s8ac8e.jpg",
+            "https://files.catbox.moe/fpmz7l.jpg" 
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/uozupm.mp4",
+            "https://files.catbox.moe/6houco.mp4"
         ],
         "user": null,
-        "status": "Libre",
+        "status": "libre",
         "votes": 0
     },
     {
@@ -1222,13 +1210,13 @@
         "value": "100",
         "source": "One Punch Man",
         "img": [
-            "https://qu.ax/PoWib.jpg",
-            "https://qu.ax/Fuwsg.jpg",
-            "https://qu.ax/qNtGb.jpg"
+            "https://files.catbox.moe/uytvlt.jpg",
+            "https://files.catbox.moe/wruyih.jpg",
+            "https://files.catbox.moe/to361f.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/ucbdq4.mp4",
+            "https://files.catbox.moe/4g0aee.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1241,13 +1229,13 @@
         "value": "100",
         "source": "Chainsaw Man",
         "img": [
-            "https://qu.ax/ohiic.jpg",
-            "https://qu.ax/iTwbW.jpg",
-            "https://qu.ax/JnmEJ.jpg"
+            "https://files.catbox.moe/uicn91.jpg",
+            "https://files.catbox.moe/iyw0r8.jpg",
+            "https://files.catbox.moe/ljgnao.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/br0c2j.mp4",
+            "https://files.catbox.moe/82ttpp.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1260,52 +1248,46 @@
         "value": "100",
         "source": "Chainsaw Man",
         "img": [
-            "https://qu.ax/wmGgS.jpg",
-            "https://qu.ax/uZJzN.jpg",
-            "https://qu.ax/oaiVL.jpg"
+            "https://files.catbox.moe/djbfkc.jpg",
+            "https://files.catbox.moe/lfxeto.jpg",
+            "https://files.catbox.moe/dhjs6w.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/izgv1m.mp4",
+            "https://files.catbox.moe/pklel0.mp4"
         ],
         "user": null,
         "status": "Libre",
         "votes": 0
-    },
+    },  
     {
         "id": "68",
-        "name": "Nari",
+        "name": "Nari Seo",
         "gender": "Mujer",
         "value": "100",
-        "source": "My Landlady Noona",
+        "source": "The Owner of a Building",
         "img": [
-            "https://qu.ax/nlrjX.jpg",
-            "https://qu.ax/odTGU.jpg",
-            "https://qu.ax/Lzrpg.jpg"
+            "https://files.catbox.moe/3zfq9b.jpg",
+            "https://files.catbox.moe/37pjss.jpg",
+            "https://files.catbox.moe/c2w98h.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
     {
         "id": "69",
-        "name": "Hari",
+        "name": "Hari Seo",
         "gender": "Mujer",
         "value": "100",
-        "source": "My Landlady Noona",
+        "source": "The Owner of a Building",
         "img": [
-            "https://qu.ax/VmpoD.jpg",
-            "https://qu.ax/ZOblo.jpg",
-            "https://qu.ax/cxOUf.jpg"
+            "https://files.catbox.moe/1799xm.jpg",
+            "https://files.catbox.moe/44has5.jpg",
+            "https://files.catbox.moe/7cr9dk.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -1317,13 +1299,13 @@
         "value": "100",
         "source": "Record Of Ragnarok",
         "img": [
-            "https://qu.ax/azCDp.jpg",
-            "https://qu.ax/nRTha.jpg",
-            "https://qu.ax/ssBnH.jpg"
+            "https://files.catbox.moe/3uhrle.jpg",
+            "https://files.catbox.moe/dz5z8l.jpg",
+            "https://files.catbox.moe/nfgqdt.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/cyuo9z.mp4",
+            "https://files.catbox.moe/e3zhoh.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1336,13 +1318,13 @@
         "value": "100",
         "source": "Record Of Ragnarok",
         "img": [
-            "https://qu.ax/NmDJm.jpg",
-            "https://qu.ax/evvez.jpg",
-            "https://qu.ax/NgdKB.jpg"
+            "https://files.catbox.moe/2x1mvi.jpg",
+            "https://files.catbox.moe/dgphsx.jpg",
+            "https://files.catbox.moe/h5paka.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/jzk8h9.mp4",
+            "https://files.catbox.moe/6n0kka.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1355,14 +1337,11 @@
         "value": "100",
         "source": "Silent War",
         "img": [
-            "https://qu.ax/vgusu.jpg",
-            "https://qu.ax/ejPnL.jpg",
-            "https://qu.ax/XsFFM.jpg"
+            "https://files.catbox.moe/hj4ltb.jpg",
+            "https://files.catbox.moe/lcnduf.jpg",
+            "https://files.catbox.moe/y9qb30.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -1374,14 +1353,11 @@
         "value": "100",
         "source": "Silent War",
         "img": [
-            "https://qu.ax/tXokd.jpg",
-            "https://qu.ax/cUqHJ.jpg",
-            "https://qu.ax/MsQOQ.jpg"
+            "https://files.catbox.moe/sas1og.jpg",
+            "https://files.catbox.moe/fcpmn5.jpg",
+            "https://files.catbox.moe/axja52.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -1393,14 +1369,11 @@
         "value": "100",
         "source": "Silent War",
         "img": [
-            "https://qu.ax/akjzd.jpg",
-            "https://qu.ax/NDTyE.jpg",
-            "https://qu.ax/Cpuoa.jpg"
+            "https://files.catbox.moe/pw68r6.png",
+            "https://files.catbox.moe/9fxvuk.png",
+            "https://files.catbox.moe/mvcxb9.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -1412,14 +1385,11 @@
         "value": "100",
         "source": "Silent War",
         "img": [
-            "https://qu.ax/vdLbu.jpg",
-            "https://qu.ax/QdvNz.jpg",
-            "https://qu.ax/UzVTx.jpg"
+            "https://files.catbox.moe/ys5mth.jpg",
+            "https://files.catbox.moe/onvj42.jpg",
+            "https://files.catbox.moe/3mpb74.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -1431,13 +1401,13 @@
         "value": "100",
         "source": "Kimetsu No Yaiba",
         "img": [
-            "https://qu.ax/MAWsU.jpg",
-            "https://qu.ax/RyYsq.jpg",
-            "https://qu.ax/MlBiq.jpg"
+            "https://files.catbox.moe/yeoxn0.jpg",
+            "https://files.catbox.moe/gkh9f8.jpg",
+            "https://files.catbox.moe/81saxb.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/7b4n64.mp4",
+            "https://files.catbox.moe/ahv62h.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1450,13 +1420,13 @@
         "value": "100",
         "source": "Kimetsu No Yaiba",
         "img": [
-            "https://qu.ax/EMwLJ.jpg",
-            "https://qu.ax/WXgmD.jpg",
-            "https://qu.ax/SvgVg.jpg"
+            "https://files.catbox.moe/qso5kn.jpg",
+            "https://files.catbox.moe/o0e1s7.jpg",
+            "https://files.catbox.moe/v386sk.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/rp1xc7.mp4",
+            "https://files.catbox.moe/mjngvs.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1469,13 +1439,13 @@
         "value": "100",
         "source": "Kimetsu no yaiba",
         "img": [
-            "https://qu.ax/JJSeJ.jpg",
-            "https://qu.ax/OeASO.jpg",
-            "https://qu.ax/Slkdc.jpg"
+            "https://files.catbox.moe/7mny8p.jpg",
+            "https://files.catbox.moe/xcb001.jpg",
+            "https://files.catbox.moe/r6gqc7.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/27ct3p.mp4",
+            "https://files.catbox.moe/4ilbh9.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1488,13 +1458,13 @@
         "value": "100",
         "source": "Kimetsu No Yaiba",
         "img": [
-            "https://qu.ax/kXgGy.jpg",
-            "https://qu.ax/UmXJO.jpg",
-            "https://qu.ax/bUBCu.jpg"
+            "https://files.catbox.moe/vn804s.jpg",
+            "https://files.catbox.moe/sd4ajt.jpg",
+            "https://files.catbox.moe/ckcxbf.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/hhbvmc.mp4",
+            "https://files.catbox.moe/cwyuu7.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1507,13 +1477,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/gLFUi.jpg",
-            "https://qu.ax/abhcn.jpg",
-            "https://qu.ax/zobxJ.jpg"
+            "https://files.catbox.moe/g4slf2.jpg",
+            "https://files.catbox.moe/peuhrp.jpg",
+            "https://files.catbox.moe/hb9toq.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/ggq6ei.mp4",
+            "https://files.catbox.moe/2rq066.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1526,13 +1496,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/FHmgU.jpg",
-            "https://qu.ax/cjQBL.jpg",
-            "https://qu.ax/zzBcr.jpg"
+            "https://files.catbox.moe/mt346i.jpg",
+            "https://files.catbox.moe/w4xenb.jpg",
+            "https://files.catbox.moe/86chbq.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/046i5e.mp4",
+            "https://files.catbox.moe/htuf0w.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1545,13 +1515,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/ycitV.jpg",
-            "https://qu.ax/crUkk.jpg",
-            "https://qu.ax/TSEmA.jpg"
+            "https://files.catbox.moe/g69yzf.jpg",
+            "https://files.catbox.moe/aysqxi.jpg",
+            "https://files.catbox.moe/vf247a.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/fwloem.mp4",
+            "https://files.catbox.moe/0fi570.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1564,13 +1534,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/sQKZs.jpg",
-            "https://qu.ax/UndSy.jpg",
-            "https://qu.ax/iTedh.jpg"
+            "https://files.catbox.moe/bmk7lq.jpg",
+            "https://files.catbox.moe/l0aro5.jpg",
+            "https://files.catbox.moe/u693p5.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/4jmnxn.mp4",
+            "https://files.catbox.moe/cf6j5e.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1583,13 +1553,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/lEFVm.jpg",
-            "https://qu.ax/bpMLa.jpg",
-            "https://qu.ax/gKKal.jpg"
+            "https://files.catbox.moe/p742xf.jpg",
+            "https://files.catbox.moe/7fxkc2.jpg",
+            "https://files.catbox.moe/gjpw4o.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/uhl3wp.mp4",
+            "https://files.catbox.moe/l5zgaj.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1602,13 +1572,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/hhrQx.jpg",
-            "https://qu.ax/sTQdX.jpg",
-            "https://qu.ax/gpHFD.jpg"
+            "https://files.catbox.moe/oj8var.jpg",
+            "https://files.catbox.moe/dqpbyf.jpg",
+            "https://files.catbox.moe/od6fc6.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/rtaetj.mp4",
+            "https://files.catbox.moe/gtzawo.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1621,13 +1591,13 @@
         "value": "100",
         "source": "Boku no hero",
         "img": [
-            "https://qu.ax/ONwAA.jpg",
-            "https://qu.ax/csAYg.jpg",
-            "https://qu.ax/bHzmz.jpg"
+            "https://files.catbox.moe/b1k3lg.jpg",
+            "https://files.catbox.moe/2e0zai.jpg",
+            "https://files.catbox.moe/y3j39i.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/jhorsp.mp4",
+            "https://files.catbox.moe/s68x28.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1640,37 +1610,37 @@
         "value": "100",
         "source":  "Jujutsu Kaisen",
         "img": [
-            "https://qu.ax/WrfJy.jpg",
-            "https://qu.ax/HSKQB.jpg",
-            "https://qu.ax/hAzAw.jpg"
+            "https://files.catbox.moe/t563z0.jpg",
+            "https://files.catbox.moe/gw5p4g.jpg",
+            "https://files.catbox.moe/1abgvv.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/k1xmh8.mp4",
+            "https://files.catbox.moe/rnv2mk.mp4"
         ],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
-    {
+    {  
         "id": "88",
         "name": "Megumi Fushiguro",
         "gender": "Hombre",
         "value": "100",
         "source": "Jujutsu Kaisen",
         "img": [
-            "https://qu.ax/bUFaC.jpg",
-            "https://qu.ax/vqXrW.jpg",
-            "https://qu.ax/NyLYf.jpg"
+            "https://files.catbox.moe/wvlxi4.jpg",
+            "https://files.catbox.moe/0ka861.jpg",
+            "https://files.catbox.moe/9noev9.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/cb5uco.mp4",
+            "https://files.catbox.moe/wbrp0q.mp4"
         ],
         "user": null,
         "status": "Libre",
-        "votes": 0
-    },
+        "votes": 0  
+    },   
     {
         "id": "89",
         "name": "Komi-San",
@@ -1678,13 +1648,13 @@
         "value": "100",
         "source": "Komi-san wa, Komyushō desu",
         "img": [
-            "https://qu.ax/rDtCo.jpg",
-            "https://qu.ax/cAWhv.jpg",
-            "https://qu.ax/sSlNZ.jpg"
+            "https://files.catbox.moe/5txidh.jpg",
+            "https://files.catbox.moe/ktr51j.jpg",
+            "https://files.catbox.moe/wygubi.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/sxl0zr.mp4",
+            "https://files.catbox.moe/6ep9bv.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1697,13 +1667,13 @@
         "value": "100",
         "source": "Jujutsu Kaisen",
         "img": [
-            "https://qu.ax/VNYDF.jpg",
-            "https://qu.ax/kEvtN.jpg",
-            "https://qu.ax/hratV.jpg"
+            "https://files.catbox.moe/8156zw.jpg",
+            "https://files.catbox.moe/d0849t.jpg",
+            "https://files.catbox.moe/5lma23.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/kkex3d.mp4",
+            "https://files.catbox.moe/sg2lnz.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1716,13 +1686,13 @@
         "value": "100",
         "source": "Horimiya",
         "img": [
-            "https://qu.ax/EBByp.jpg",
-            "https://qu.ax/jXMmL.jpg",
-            "https://qu.ax/nvvmV.jpg"
+            "https://files.catbox.moe/ehak2n.jpg",
+            "https://files.catbox.moe/00e3jn.jpg",
+            "https://files.catbox.moe/a6pvgr.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/2nfcug.mp4",
+            "https://files.catbox.moe/i45wsv.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1735,13 +1705,13 @@
         "value": "1000",
         "source": "Horimiya",
         "img": [
-            "https://qu.ax/ladhX.jpg",
-            "https://qu.ax/taQzY.jpg",
-            "https://qu.ax/NTOyE.jpg"
+            "https://files.catbox.moe/nl75o3.jpg",
+            "https://files.catbox.moe/pp32e3.jpg",
+            "https://files.catbox.moe/zlr27c.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/dfk65h.mp4",
+            "https://files.catbox.moe/hxr2yc.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1754,13 +1724,13 @@
         "value": "100",
         "source": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
         "img": [
-            "https://qu.ax/PaZXQ.jpg",
-            "https://qu.ax/xRJqY.jpg",
-            "https://qu.ax/iMraT.jpg"
+            "https://files.catbox.moe/pmnslg.jpg",
+            "https://files.catbox.moe/5nhdw3.jpg",
+            "https://files.catbox.moe/uayzlc.png"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/x092bd.mp4",
+            "https://files.catbox.moe/yv8t48.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1768,18 +1738,18 @@
     },
     {
         "id": "94",
-        "name": "Iguro Obanai",
-        "gender": "Hombre",
+        "name": "Akane Hououji",
+        "gender": "Mujer",
         "value": "100",
-        "source": "Kimetsu No Yaiba",
+        "source": "Megami No Cafe Terrace",
         "img": [
-            "https://qu.ax/zdMom.jpg",
-            "https://qu.ax/OZFcL.jpg",
-            "https://qu.ax/diLtZ.jpg"
+            "https://files.catbox.moe/uvesel.jpg",
+            "https://files.catbox.moe/lg0cjm.jpg",
+            "https://files.catbox.moe/0tfx0b.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/r12sx3.mp4",
+            "https://files.catbox.moe/qmlf9t.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1792,13 +1762,13 @@
         "value": "100",
         "source": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
         "img": [
-            "https://qu.ax/FarLY.jpg",
-            "https://qu.ax/avSie.jpg",
-            "https://qu.ax/lqjnl.jpg"
+            "https://files.catbox.moe/92ypqu.jpg",
+            "https://files.catbox.moe/7albja.jpg",
+            "https://files.catbox.moe/2gx96m.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/ehp7f6.mp4",
+            "https://files.catbox.moe/yklp4p.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1811,13 +1781,13 @@
         "value": "100",
         "source": "Kakegurui",
         "img": [
-            "https://qu.ax/yzLNl.jpg",
-            "https://qu.ax/zcssO.jpg",
-            "https://qu.ax/chNHR.jpg"
+            "https://files.catbox.moe/ovyiqx.jpg",
+            "https://files.catbox.moe/fh8qig.jpg",
+            "https://files.catbox.moe/hhrmwy.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/eo4n59.mp4",
+            "https://files.catbox.moe/4q928r.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1830,13 +1800,13 @@
         "value": "100",
         "source": "Nanatsu no Taizai",
         "img": [
-            "https://qu.ax/oavuc.jpg",
-            "https://qu.ax/xrojt.jpg",
-            "https://qu.ax/mKPUo.jpg"
+            "https://files.catbox.moe/yeyaka.jpg",
+            "https://files.catbox.moe/6t7he8.jpg",
+            "https://files.catbox.moe/d8qjcv.png"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/o71xfg.mp4",
+            "https://files.catbox.moe/sb5rpb.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1849,13 +1819,13 @@
         "value": "100",
         "source": "Hunter x Hunter",
         "img": [
-            "https://qu.ax/ECRdk.jpg",
-            "https://qu.ax/webmM.jpg",
-            "https://qu.ax/VRwbH.jpg"
+            "https://files.catbox.moe/o47ubx.jpg",
+            "https://files.catbox.moe/nm6yjb.jpg",
+            "https://files.catbox.moe/87n4w3.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/jxhqar.mp4",
+            "https://files.catbox.moe/ckwrg3.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1868,13 +1838,13 @@
         "value": "100",
         "source": "Naruto",
         "img": [
-            "https://qu.ax/xwiQf.jpg",
-            "https://qu.ax/JPTQo.jpg",
-            "https://qu.ax/BStRH.jpg"
+            "https://files.catbox.moe/dsy0za.png",
+            "https://files.catbox.moe/zfv6a2.jpg",
+            "https://files.catbox.moe/5j4hmh.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/kc8o06.mp4",
+            "https://files.catbox.moe/tsxf3s.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1887,13 +1857,13 @@
         "value": "100",
         "source": "Naruto",
         "img": [
-            "https://qu.ax/YkpZq.jpg",
-            "https://qu.ax/HNdSg.jpg",
-            "https://qu.ax/cAMEx.jpg"
+            "https://files.catbox.moe/u04t39.jpg",
+            "https://files.catbox.moe/1q68ip.jpg",
+            "https://files.catbox.moe/zd3pxi.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/7twuiv.mp4",
+            "https://files.catbox.moe/dy1hue.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1901,18 +1871,18 @@
     },
     {
         "id": "101",
-        "name": "Levi Ackerman",
-        "gender": "Hombre",
+        "name": "Frieren",
+        "gender": "Mujer",
         "value": "100",
-        "source": "Attack on titan",
+        "source": "Sousou no Frieren",
         "img": [
-            "https://qu.ax/sLnYt.jpg",
-            "https://qu.ax/eFTlK.jpg",
-            "https://qu.ax/nAWna.jpg"
+            "https://files.catbox.moe/3z2pna.jpg",
+            "https://files.catbox.moe/5a6b8i.jpg",
+            "https://files.catbox.moe/c2mm6t.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/q6aus9.mp4",
+            "https://files.catbox.moe/8u6qqv.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -1925,35 +1895,35 @@
         "value": "100",
         "source": "Overlord",
         "img": [
-            "https://qu.ax/mUOLA.jpg",
-            "https://qu.ax/FMcXp.jpg",
-            "https://qu.ax/lwika.jpg"
+            "https://files.catbox.moe/3gx7bo.png",
+            "https://files.catbox.moe/bz2829.png",
+            "https://files.catbox.moe/nzfa27.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/6vlgyr.mp4",
+            "https://files.catbox.moe/l73m9a.mp4"
         ],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
     {
-        "id": "103",
-        "name": "Lawliet",
-        "gender": "Hombre",
+        "id": "112",
+        "name": "Ado",
+        "gender": "Mujer",
         "value": "100",
-        "source": "Death Note",
+        "source": "Vocaloid",
         "img": [
-            "https://qu.ax/YHcoN.jpg",
-            "https://qu.ax/qtikM.jpg",
-            "https://qu.ax/xhrlG.jpg"
+            "https://files.catbox.moe/58ajtk.jpg",
+            "https://files.catbox.moe/3end08.jpg",
+            "https://files.catbox.moe/dq9696.jpg" 
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/1x0qa0.mp4",
+            "https://files.catbox.moe/bgehqc.mp4"
         ],
         "user": null,
-        "status": "Libre",
+        "status": "libre",
         "votes": 0
     },
     {
@@ -1961,37 +1931,37 @@
         "name": "Hatsune Miku",
         "gender": "Mujer",
         "value": "100",
-        "source": "Project DIVA",
+        "source": "Vocaloid",
         "img": [
-            "https://qu.ax/WTtgt.jpg",
-            "https://qu.ax/bLhoc.jpg",
-            "https://qu.ax/oNhLg.jpg"
+            "https://files.catbox.moe/i0vaku.jpg",
+            "https://files.catbox.moe/fyr1xu.jpg",
+            "https://files.catbox.moe/qasix6.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/de6ztq.mp4",
+            "https://files.catbox.moe/0kig2x.mp4"
         ],
         "user": null,
         "status": "Libre",
         "votes": 0
     },
     {
-        "id": "105",
-        "name": "Tomoe",
+        "id": "106",
+        "name": "Nibelcole",
         "gender": "Mujer",
         "value": "100",
-        "source": "Kamisama Hajimemashita",
+        "source": "Date a Live",
         "img": [
-            "https://qu.ax/ZauAS.jpg",
-            "https://qu.ax/tomJN.jpg",
-            "https://qu.ax/OkSYw.jpg"
+            "https://files.catbox.moe/wllfmi.jpg",
+            "https://files.catbox.moe/9j6bcs.jpg",
+            "https://files.catbox.moe/1l7la9.jpg" 
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/en6hex.mp4",
+            "https://files.catbox.moe/en6hex.mp4"
         ],
         "user": null,
-        "status": "Libre",
+        "status": "libre",
         "votes": 0
     },
     {
@@ -2001,13 +1971,13 @@
         "value": "100",
         "source": "Oshi no ko",
         "img": [
-            "https://qu.ax/AlKQi.jpg",
-            "https://qu.ax/RRQem.jpg",
-            "https://qu.ax/aWOry.jpg"
+            "https://files.catbox.moe/96vl9t.jpg",
+            "https://files.catbox.moe/ng3z2k.jpg",
+            "https://files.catbox.moe/xj5t08.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/90cb3w.mp4",
+            "https://files.catbox.moe/a8u70w.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2020,13 +1990,13 @@
         "value": "100",
         "source": "Yamada Kun to lvl999",
         "img": [
-            "https://qu.ax/vlptl.jpg",
-            "https://qu.ax/SJqLd.jpg",
-            "https://qu.ax/RxJoH.jpg"
+            "https://files.catbox.moe/w84gtr.jpg",
+            "https://files.catbox.moe/p3dy92.png",
+            "https://files.catbox.moe/9y26yf.png"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/zte6ph.mp4",
+            "https://files.catbox.moe/njwvbf.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2039,14 +2009,11 @@
         "value": "100",
         "source": "Tokyo Revengers",
         "img": [
-            "https://qu.ax/uQfkz.jpg",
-            "https://qu.ax/osgpy.jpg",
-            "https://qu.ax/osgpy.jpg"
+            "https://qu.ax/ONepD.jpg",
+            "https://qu.ax/uSjVK.jpg",
+            "https://qu.ax/RCTqp.jpg"
         ],
-        "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
-        ],
+        "vid": [],
         "user": null,
         "status": "Libre",
         "votes": 0
@@ -2058,13 +2025,13 @@
         "value": "100",
         "source": "My dress-up darling",
         "img": [
-            "https://qu.ax/DDQxE.jpg",
-            "https://qu.ax/ZRFNk.jpg",
-            "https://qu.ax/pXjGy.jpg"
+            "https://files.catbox.moe/3y8jpa.jpg",
+            "https://files.catbox.moe/zs1eb7.jpg",
+            "https://files.catbox.moe/xaqp4d.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/hozy21.mp4",
+            "https://files.catbox.moe/xu5qqv.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2077,13 +2044,13 @@
         "value": "100",
         "source": "Jujutsu Kaisen",
         "img": [
-            "https://qu.ax/AgYTS.jpg",
-            "https://qu.ax/mPKgO.jpg",
-            "https://qu.ax/wTnlX.jpg"
+            "https://files.catbox.moe/h7ajb1.jpg",
+            "https://files.catbox.moe/hl0vnr.jpg",
+            "https://files.catbox.moe/vxmfti.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/ln0hse.mp4",
+            "https://files.catbox.moe/vvfomx.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2096,13 +2063,13 @@
         "value": "100",
         "source": "Jujutsu Kaisen",
         "img": [
-            "https://qu.ax/YYfzY.jpg",
-            "https://qu.ax/mbGKV.jpg",
-            "https://qu.ax/uCNJC.jpg"
+            "https://files.catbox.moe/860yos.jpg",
+            "https://files.catbox.moe/aa1258.jpg",
+            "https://files.catbox.moe/qubm1l.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/l7ew10.mp4",
+            "https://files.catbox.moe/opg66k.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2115,13 +2082,13 @@
         "value": "100",
         "source": "Kimetsu No Yaiba",
         "img": [
-            "https://qu.ax/QfiPE.jpg",
-            "https://qu.ax/jmPCD.jpg",
-            "https://qu.ax/zVwyb.jpg"
+            "https://files.catbox.moe/n37zyl.jpg",
+            "https://files.catbox.moe/mwfx5n.jpg",
+            "https://files.catbox.moe/gbo8df.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/3504xp.mp4",
+            "https://files.catbox.moe/z1qtlo.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2134,13 +2101,13 @@
         "value": "100",
         "source": "Kusuriya no Hitorigoto",
         "img": [
-            "https://qu.ax/DSWxX.jpg",
-            "https://qu.ax/DBHBV.jpg",
-            "https://qu.ax/EGOYf.jpg"
+            "https://files.catbox.moe/itnsxc.jpg",
+            "https://files.catbox.moe/qdp13k.jpg",
+            "https://files.catbox.moe/v29jjj.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/qr2856.mp4",
+            "https://files.catbox.moe/m0rxmb.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2153,13 +2120,13 @@
         "value": "100",
         "source": "Kimetsu No Yaiba",
         "img": [
-            "https://qu.ax/OHAMH.jpg",
-            "https://qu.ax/Amtjh.jpg",
-            "https://qu.ax/KEnJv.jpg"
+            "https://files.catbox.moe/pply1f.jpg",
+            "https://files.catbox.moe/r52hq9.jpg",
+            "https://files.catbox.moe/cinwuy.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/yq6ee2.mp4",
+            "https://files.catbox.moe/pa14js.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2172,13 +2139,13 @@
         "value": "100",
         "source": "SPY X FAMILY",
         "img": [
-            "https://qu.ax/BGUnc.jpg",
-            "https://qu.ax/hEcMG.jpg",
-            "https://qu.ax/TPNLQ.jpg"
+            "https://files.catbox.moe/u9bnm6.jpg",
+            "https://files.catbox.moe/jv9tvx.jpg",
+            "https://files.catbox.moe/5z4jle.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/pfmvy8.mp4",
+            "https://files.catbox.moe/vu6mgj.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2191,13 +2158,13 @@
         "value": "100",
         "source": "Naruto",
         "img": [
-            "https://qu.ax/ZjHDm.jpg",
-            "https://qu.ax/lSznB.jpg",
-            "https://qu.ax/lBcJx.jpg"
+            "https://files.catbox.moe/wmmv2h.jpg",
+            "https://files.catbox.moe/xgyyh3.jpg",
+            "https://files.catbox.moe/c9xha9.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/oz8nn2.mp4",
+            "https://files.catbox.moe/zo9mbg.mp4"
         ],
         "user": null,
         "status": "Libre",
@@ -2210,13 +2177,13 @@
         "value": "100",
         "source": "Naruto",
         "img": [
-            "https://qu.ax/oeaSn.jpg",
-            "https://qu.ax/Tcsgm.jpg",
-            "https://qu.ax/yjWaA.jpg"
+            "https://files.catbox.moe/qlsbx4.jpg",
+            "https://files.catbox.moe/xc1vis.jpg",
+            "https://files.catbox.moe/5dsf02.jpg"
         ],
         "vid": [
-            "https://files.catbox.moe/video1_light.mp4",
-            "https://files.catbox.moe/video2_light.mp4"
+            "https://files.catbox.moe/7u583c.mp4",
+            "https://files.catbox.moe/l9ngdz.mp4"
         ],
         "user": null,
         "status": "Libre",
