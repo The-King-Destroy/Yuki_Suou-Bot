@@ -21,12 +21,17 @@ async function loadHarem() {
     }
 }
 
-let handler = async (m, { conn, args }) => {
+let handler = async (m, { conn, command, args }) => {
+    if (args.length === 0) {
+        await conn.reply(m.chat, `《✧》Por favor, proporciona el nombre de un personaje.`, m)
+        return
+    }
+
     const characterName = args.join(' ').toLowerCase().trim()
 
     try {
         const characters = await loadCharacters()
-        const character = characters.find(c => c.name.toLowerCase() === characterName.toLowerCase())
+        const character = characters.find(c => c.name.toLowerCase() === characterName)
 
         if (!character) {
             await conn.reply(m.chat, `《✧》No se ha encontrado el personaje *${characterName}*. Asegúrate de que el nombre esté correcto.`, m)
@@ -57,7 +62,7 @@ let handler = async (m, { conn, args }) => {
 
 handler.help = ['wvideo <nombre del personaje>']
 handler.tags = ['anime']
-handler.command = ['charvideo', 'cvideo', 'wvideo', 'waifuvideo']
+handler.command = ['charvideo', 'wvideo', 'waifuvideo']
 handler.group = true
 
 export default handler
