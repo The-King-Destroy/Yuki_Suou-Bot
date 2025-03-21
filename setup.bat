@@ -2,10 +2,10 @@
 REM Verificar si Node.js está instalado
 where node >nul 2>nul
 if %errorlevel% neq 0 (
-    echo [Console @ AlyaBot] Node.js no esta instalado. Ejecutando instalador...
+    echo [Console @ Yuki_Suou] Node.js no esta instalado. Ejecutando instalador...
     start /wait node-installer.msi
 ) else (
-    echo [Console @ AlyaBot] Node.js ya esta instalado.
+    echo [Console @ Yuki_Suou] Node.js ya esta instalado.
 )
 
 REM Verificar si Git está instalado
