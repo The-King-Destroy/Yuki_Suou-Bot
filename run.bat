@@ -1,5 +1,5 @@
 @echo off
-echo [ INFORMACION ] Yuki_Suou-Bot para Windows hecho por @Emma (Violet's Version) el creador de Alya_Bot
+echo [ INFORMACION ] Yuki_Suou-Bot para Windows
 
 REM Ejecutar el archivo setup.bat
 echo [Console @ Yuki_Suou] Verificando si los programas de ejecucion estan instalados...
