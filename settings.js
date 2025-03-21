@@ -39,7 +39,7 @@ global.prems = []
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
 global.libreria = 'Baileys'
-global.baileys = 'V 6.7.13' 
+global.baileys = 'V 6.7.16' 
 global.languaje = 'Español'
 global.vs = '2.2.0'
 global.nameqr = 'YukiBot-MD'
