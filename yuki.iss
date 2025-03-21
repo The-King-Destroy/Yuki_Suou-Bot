@@ -3,7 +3,7 @@
 
 #define MyAppName "Yuki_Suou-Bot"
 #define MyAppVersion "2.2.0"
-#define MyAppPublisher "The-King-Destroy, Emma (Violet´s Version)"
+#define MyAppPublisher "The-King-Destroy"
 #define MyAppExeName "yuki.exe"
 
 [Setup]
