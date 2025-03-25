@@ -358,10 +358,10 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Quitar advertencias.
 ᰔᩚ *#advlist • #listadv*
 > ✦ Ver lista de usuarios advertidos.
-ᰔᩚ *#banchat*
-> ✦ Banear el Bot en un chat o grupo.
-ᰔᩚ *#unbanchat*
-> ✦ Desbanear el Bot del chat o grupo.
+ᰔᩚ *#bot on*
+> ✦ Enciende el bot en un grupo.
+ᰔᩚ *#bot off*
+> ✦ Apaga el bot en un grupo.
 ᰔᩚ *#mute* [mension / etiquetar]
 > ✦ El bot elimina los mensajes del usuario.
 ᰔᩚ *#unmute* [mension / etiquetar]
