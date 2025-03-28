@@ -1,53 +1,44 @@
-//Codígo creado por Destroy wa.me/584120346669
+/* 
+❀ Codígo creado por Destroy
+✧ https://github.com/The-King-Destroy/Yuki_Suou-Bot.git 
+*/
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
 
 let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+    let who = m.mentionedJid.length > 0 ? m.mentionedJid[0] : (m.quoted ? m.quoted.sender : m.sender)
+    let name = conn.getName(who)
+    let name2 = conn.getName(m.sender)
 
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0];
-    } else if (m.quoted) {
-        who = m.quoted.sender;
-    } else {
-        who = m.sender;
-    }
-
-    let name = conn.getName(who);
-    let name2 = conn.getName(m.sender);
-    m.react('🍺');
-
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` *esta bebiendo con* \`${name || who}\`.`;
-    } else if (m.quoted) {
-        str = `\`${name2}\` *se emborrachó junto com* \`${name || who}\`.`;
-    } else {
-        str = `\`${name2}\` *esta muy ebrio.*`.trim();
-    }
+    let str = m.mentionedJid.length > 0 || m.quoted 
+        ? `\`${name2}\` está borracho con \`${name || who}\` (⸝⸝๑﹏๑⸝⸝)` 
+        : `\`${name2}\` está borracho (⸝⸝๑﹏๑⸝⸝)`
     
     if (m.isGroup) {
-        let pp = 'https://qu.ax/VPXAF.mp4'; 
-        let pp2 = 'https://qu.ax/JJwdG.mp4'; 
-        let pp3 = 'https://qu.ax/BHgcX.mp4';
-        let pp4 = 'https://qu.ax/SmJNk.mp4';
-        let pp5 = 'https://qu.ax/bLUOB.mp4';
-        let pp6 = 'https://qu.ax/mDURZ.mp4';
-        let pp7 = 'https://qu.ax/KTFrC.mp4';
-        let pp8 = 'https://qu.ax/blVqp.mp4';
+        let pp = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862165090.mp4'
+        let pp2 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862160763.mp4'
+        let pp3 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862196644.mp4'
+        let pp4 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862190640.mp4'
+        let pp5 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862185489.mp4'
+        let pp6 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862177509.mp4'
+        let pp7 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862169492.mp4'
+        let pp8 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862247437.mp4'
+        let pp9 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862224615.mp4'
+        let pp10 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862217527.mp4'
+        let pp11 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862212496.mp4'
+        let pp12 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742862202906.mp4'
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
-        const video = videos[Math.floor(Math.random() * videos.length)];
-
-        let mentions = [who];
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12]
+        const video = videos[Math.floor(Math.random() * videos.length)]
+        
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, ptt: true, mentions: [who] }, { quoted: m })
     }
 }
 
-handler.help = ['drunk/borracho @tag'];
-handler.tags = ['anime'];
-handler.command = ['drunk', 'borracho'];
-handler.group = true;
+handler.help = ['drunk']
+handler.tags = ['anime']
+handler.command = ['drunk', 'borracho']
+handler.group = true
 
-export default handler;
+export default handler

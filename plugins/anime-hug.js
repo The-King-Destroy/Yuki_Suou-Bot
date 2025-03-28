@@ -1,53 +1,44 @@
-//Codígo creado por Destroy wa.me/584120346669
+/* 
+❀ Codígo creado por Destroy
+✧ https://github.com/The-King-Destroy/Yuki_Suou-Bot.git 
+*/
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
 
 let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+    let who = m.mentionedJid.length > 0 ? m.mentionedJid[0] : (m.quoted ? m.quoted.sender : m.sender)
+    let name = conn.getName(who)
+    let name2 = conn.getName(m.sender)
 
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0];
-    } else if (m.quoted) {
-        who = m.quoted.sender;
-    } else {
-        who = m.sender;
-    }
-
-    let name = conn.getName(who);
-    let name2 = conn.getName(m.sender);
-    m.react('🫂');
-
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` *le dió un fuerte abrazo a* \`${name || who}\`.`;
-    } else if (m.quoted) {
-        str = `\`${name2}\` *abrazo a* \`${name || who}\`.`;
-    } else {
-        str = `\`${name2}\` *se abrazó a sí mismo.*`.trim();
-    }
+    let str = m.mentionedJid.length > 0 || m.quoted 
+        ? `\`${name2}\` abrazo a \`${name || who}\` (づ˶•༝•˶)づ♡` 
+        : `\`${name2}\` se abrazó a sí mismo/a (づ˶•༝•˶)づ♡`
     
     if (m.isGroup) {
-        let pp = 'https://telegra.ph/file/6a3aa01fabb95e3558eec.mp4'; 
-        let pp2 = 'https://telegra.ph/file/0e5b24907be34da0cbe84.mp4'; 
-        let pp3 = 'https://telegra.ph/file/6bc3cd10684f036e541ed.mp4';
-        let pp4 = 'https://telegra.ph/file/3e443a3363a90906220d8.mp4';
-        let pp5 = 'https://telegra.ph/file/56d886660696365f9696b.mp4';
-        let pp6 = 'https://telegra.ph/file/3eeadd9d69653803b33c6.mp4';
-        let pp7 = 'https://telegra.ph/file/436624e53c5f041bfd597.mp4';
-        let pp8 = 'https://telegra.ph/file/5866f0929bf0c8fe6a909.mp4';
+        let pp = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866775883.mp4'
+        let pp2 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866762669.mp4'
+        let pp3 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866810774.mp4'
+        let pp4 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866805671.mp4'
+        let pp5 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866790418.mp4'
+        let pp6 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866782428.mp4'
+        let pp7 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866769477.mp4'
+        let pp8 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866846247.mp4'
+        let pp9 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866839926.mp4'
+        let pp10 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866831885.mp4'
+        let pp11 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866829226.mp4'
+        let pp12 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742866817182.mp4'
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
-        const video = videos[Math.floor(Math.random() * videos.length)];
-
-        let mentions = [who];
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12]
+        const video = videos[Math.floor(Math.random() * videos.length)]
+        
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, ptt: true, mentions: [who] }, { quoted: m })
     }
 }
 
-handler.help = ['hug/abrazar @tag'];
-handler.tags = ['anime'];
-handler.command = ['hug','abrazar'];
-handler.group = true;
+handler.help = ['hug']
+handler.tags = ['anime']
+handler.command = ['hug', 'abrazar']
+handler.group = true
 
-export default handler;
+export default handler

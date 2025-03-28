@@ -1,52 +1,44 @@
-//Codígo creado por Destroy wa.me/584120346669
+/* 
+❀ Codígo creado por Destroy
+✧ https://github.com/The-King-Destroy/Yuki_Suou-Bot.git 
+*/
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
 
 let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+    let who = m.mentionedJid.length > 0 ? m.mentionedJid[0] : (m.quoted ? m.quoted.sender : m.sender)
+    let name = conn.getName(who)
+    let name2 = conn.getName(m.sender)
 
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0]; 
-    } else if (m.quoted) {
-        who = m.quoted.sender; 
-    } else {
-        who = m.sender; 
-    }
-
-    let name = conn.getName(who); 
-    let name2 = conn.getName(m.sender); 
-    m.react('😝');
-
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` *le sacó la lengua a* \`${name || who}\`.`; 
-    } else if (m.quoted) {
-        str = `\`${name2}\` *le sacó la lengua a* \`${name || who}\`.`; 
-    } else {
-        str = `\`${name2}\` *saca la lengua*`.trim();
-    }
+    let str = m.mentionedJid.length > 0 || m.quoted 
+        ? `\`${name2}\` le sacó la lengua a \`${name || who}\` (｡╹ω╹｡)` 
+        : `\`${name2}\` saca la lengua (｡╹ω╹｡)`
     
     if (m.isGroup) {
-        let pp = 'https://files.catbox.moe/qhcqag'; 
-        let pp2 = 'https://files.catbox.moe/tnsdlr.mp4'; 
-        let pp3 = 'https://files.catbox.moe/fox9sl.mp4';
-        let pp4 = 'https://files.catbox.moe/lh4c2n.mp4';
-        let pp5 = 'https://files.catbox.moe/y2zg7b.mp4';
-        let pp6 = 'https://qu.ax/rlvKj.mp4';
-        let pp7 = 'https://qu.ax/sYXfh.mp4';
+        let pp = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790736580.mp4'
+        let pp2 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790732658.mp4'
+        let pp3 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790771185.mp4'
+        let pp4 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790767541.mp4'
+        let pp5 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790764155.mp4'
+        let pp6 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790752990.mp4'
+        let pp7 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790742850.mp4'
+        let pp8 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790794852.mp4'
+        let pp9 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790790619.mp4'
+        let pp10 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790785503.mp4'
+        let pp11 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790781953.mp4'
+        let pp12 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742790775403.mp4'
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6];
-        const video = videos[Math.floor(Math.random() * videos.length)];
-
-        let mentions = [who]; 
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12]
+        const video = videos[Math.floor(Math.random() * videos.length)]
+        
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, ptt: true, mentions: [who] }, { quoted: m })
     }
 }
 
-handler.help = ['bleh/lengua @tag'];
-handler.tags = ['anime'];
-handler.command = ['bleh','lengua'];
-handler.group = true;
+handler.help = ['bleh']
+handler.tags = ['anime']
+handler.command = ['bleh', 'lengua']
+handler.group = true
 
-export default handler;
+export default handler
