@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-export async function before(m, {conn, isAdmin, isBotAdmin, usedPrefix}) {
+export async function before(m, {conn, isAdmin, isBotAdmin, isOwner}) {
   if (m.isBaileys && m.fromMe) {
     return !0;
   }
@@ -13,7 +13,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin, usedPrefix}) {
   const fakemek = {'key': {'participant': '0@s.whatsapp.net', 'remoteJid': '0@s.whatsapp.net'}, 'message': {'groupInviteMessage': {'groupJid': '51995386439-1616969743@g.us', 'inviteCode': 'm', 'groupName': 'P', 'caption': 'Yuki-Suou-Bot', 'jpegThumbnail': null}}};
 
   if (chat.antiTraba && m.text.length > 5000) {
-    if (isAdmin || m.sender === this.user.jid) return !0;
+    if (isAdmin || !isOwner || this.user.jid != global.conn.user.jid) return !0;
     conn.sendMessage(m.chat, `*[ ! ] Se detectó un mensaje que contiene muchos caracteres [ ! ]*\n${isBotAdmin ? '' : 'No soy administrador, no puedo hacer nada :/'}`, m);
     if (isBotAdmin && bot.restrict) {
       conn.sendMessage(m.chat, {delete: {remoteJid: m.chat, fromMe: false, id: bang, participant: delet}});
