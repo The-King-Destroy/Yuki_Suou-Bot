@@ -11,7 +11,7 @@ export async function before(m, {isAdmin, isBotAdmin, text}) {
   const user = `@${m.sender.split`@`[0]}`;
   const isGroupLink = linkRegex.exec(m.text);
 
-  if (isAdmin || m.sender === this.user.jid) return !0;
+  if (isAdmin || !isOwner || this.user.jid != global.conn.user.jid) return !0;
 
   if (chat.antiLink2 && isGroupLink) {
     if (isBotAdmin) {
