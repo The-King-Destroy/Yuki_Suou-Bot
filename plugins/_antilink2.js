@@ -1,5 +1,5 @@
 let linkRegex = /\b((https?:\/\/|www\.)?[\w-]+\.[\w-]+(?:\.[\w-]+)*(\/[\w\.\-\/]*)?)\b/i
-export async function before(m, {isAdmin, isBotAdmin, text}) {
+export async function before(m, {isAdmin, isBotAdmin, text, isOwner}) {
   if (m.isBaileys && m.fromMe) {
     return !0;
   }
