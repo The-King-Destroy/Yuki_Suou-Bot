@@ -14,7 +14,7 @@ await conn.sendFile(m.chat, json.url, 'thumbnail.jpg', `${emoji} Aqui tienes tu 
 handler.help = ['waifu']
 handler.tags = ['anime']
 handler.command = ['waifu']
-handler.group = true;
+//handler.group = true;
 handler.mods = true
 
 export default handler
