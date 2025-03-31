@@ -72,7 +72,7 @@ var canal3 = 'https://whatsapp.com/channel/0029VbAbv8w8fewoOMuXyn2F'
 var git = 'https://github.com/The-King-Destroy'
 var github = 'https://github.com/The-King-Destroy/Yuki_Suou-Bot' 
 let correo = 'thekingdestroy507@gmail.com'
-global.redes = [canal, canal2, canal3 git, github, correo].getRandom()
+global.redes = [canal, canal2, canal3, git, github, correo].getRandom()
 
 let category = "imagen"
 const db = './src/database/db.json'
