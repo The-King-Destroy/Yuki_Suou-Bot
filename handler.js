@@ -140,6 +140,7 @@ banned: false,
 useDocument: false,
 bank: 0,
 level: 0,
+role: 'Nuv',
 premium: false,
 premiumTime: 0,                 
 }
