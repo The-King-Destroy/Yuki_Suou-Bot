@@ -178,6 +178,8 @@ if (!('reaction' in chat))
 chat.reaction = false
 if (!('nsfw' in chat))
 chat.nsfw = false
+if (!('antifake' in chat))
+chat.antifake = false
 if (!('delete' in chat))
 chat.delete = false
 if (!isNumber(chat.expired))
@@ -197,6 +199,7 @@ antiBot: false,
 antiBot2: false,
 modoadmin: false,
 antiLink: true,
+antifake: false,
 reaction: false,
 nsfw: false,
 expired: 0, 
