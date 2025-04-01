@@ -15,6 +15,5 @@ handler.command = ['gemini']
 handler.help = ['gemini']
 handler.tags = ['ai']
 handler.group = true
-handler.rowner = true
 
 export default handler
