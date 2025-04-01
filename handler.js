@@ -83,7 +83,7 @@ user.marry = ''
 if (!('description' in user))
 user.description = ''
 if (!('packstickers' in user))
-user.packstickers = ''
+user.packstickers = null
 if (!user.registered) {
 if (!('name' in user))
 user.name = m.name
@@ -97,7 +97,7 @@ user.afk = -1
 if (!('afkReason' in user))
 user.afkReason = ''
 if (!('role' in user))
-user.role = 'Sin Rango'
+user.role = 'Nuv'
 if (!('banned' in user))
 user.banned = false
 if (!('useDocument' in user))
@@ -130,7 +130,7 @@ genre: '',
 birth: '',
 marry: '',
 description: '',
-packstickers: '',
+packstickers: null,
 name: m.name,
 age: -1,
 regTime: -1,
@@ -175,7 +175,6 @@ if (!('antiLink' in chat))
 chat.antiLink = true
 if (!('reaction' in chat))
 chat.reaction = false
-if (!('primaryBot' in chat)) chat.primaryBot = null
 if (!('nsfw' in chat))
 chat.nsfw = false
 if (!('delete' in chat))
@@ -199,7 +198,6 @@ modoadmin: false,
 antiLink: true,
 reaction: false,
 nsfw: false,
-primaryBot: null,
 expired: 0, 
 }
 var settings = global.db.data.settings[this.user.jid]
