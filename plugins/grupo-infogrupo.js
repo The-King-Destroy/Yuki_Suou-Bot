@@ -10,8 +10,6 @@ const handler = async (m, {conn, participants, groupMetadata}) => {
 → ${groupMetadata.id}
 ⚘ *Nombre:*
 → ${groupMetadata.subject}
-✦ *Descripción:*
-→ ${groupMetadata.desc?.toString() || 'Sin Descripción'}
 ❖ *Miembros:*
 → ${participants.length} Participantes
 ✰ *Creador del Grupo:*
@@ -31,7 +29,10 @@ ${listAdmin}
 ◈ *Autorechazar:* ${autoRechazar ? 'Activado' : 'Desactivado'}
 ◈ *NSFW:* ${nsfw ? 'Activado' : 'Desactivado'}
 ◈ *Modoadmin:* ${modoadmin ? 'Activado' : 'Desactivado'}
-◈ *Reacción:* ${reaction ? 'Activado' : 'Desactivado'}`.trim();
+◈ *Reacción:* ${reaction ? 'Activado' : 'Desactivado'}
+
+✦ *Descripción:*
+→ ${groupMetadata.desc?.toString() || 'Sin Descripción'}`.trim();
   conn.sendFile(m.chat, pp, 'img.jpg', text, m, false, {mentions: [...groupAdmins.map((v) => v.id), owner, primary]});
 };
 handler.help = ['infogrupo'];
