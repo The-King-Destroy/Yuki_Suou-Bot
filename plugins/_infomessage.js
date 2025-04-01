@@ -19,7 +19,7 @@ if (jid.split('@')[0].startsWith('5')) {
 await conn.groupRequestParticipantsUpdate(m.chat, [jid], "approve")}}
 
 } if (isBotAdmin && chat.antifake) {
-const antiFakePrefixes = ['57', '90', '212', '92', '93', '94', '7', '49', '2', '91', '48']
+const antiFakePrefixes = ['6', '90', '212', '92', '93', '94', '7', '49', '2', '91', '48']
 if (antiFakePrefixes.some(prefix => m.sender.startsWith(prefix))) {
 global.db.data.users[m.sender].block = true
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
