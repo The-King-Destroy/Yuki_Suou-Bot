@@ -53,17 +53,6 @@ const handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, i
       bot.restrict = isEnable
       break
 
-    case 'autolevelup':
-    case 'autonivel':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.autolevelup = isEnable
-      break
-
     case 'antibot':
     case 'antibots':
       if (m.isGroup) {
