@@ -4,7 +4,7 @@ const handler = async (m, {conn, participants, groupMetadata}) => {
   const groupAdmins = participants.filter((p) => p.admin)
   const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n')
   const owner = groupMetadata.owner || groupAdmins.find((p) => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net'
-  const primary = primaryBot ? `@${primaryBot.split('@')[0]}` : 'Aleatorio',
+  const primary = primaryBot ? `@${primaryBot.split('@')[0]}` : 'Aleatorio'
   const text = `*✧･ﾟ INFO GRUPO ﾟ･✧*
 ❀ *ID:*
 → ${groupMetadata.id}
