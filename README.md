@@ -142,17 +142,17 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-### **`ᥫ᭡ Colaboradores`**
+### **`❀ Colaboradores`**
 <a href="https://github.com/The-King-Destroy/Yuki_Suou-Bot/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=The-King-Destroy/Yuki_Suou-Bot" /> 
 </a>
 
-### **`ᰔᩚ Propietario`**
+### **`ᥫ᭡ Propietario`**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`❀ Créditos`**
+### **`🜸 Créditos`**
 <a href="https://github.com/OfcKing" style="display:inline-block; text-decoration: none;">
     <img src="https://github.com/OfcKing.png" width="130" height="130" alt="OfcKing" style="border-radius: 50%;"/>
 </a>
