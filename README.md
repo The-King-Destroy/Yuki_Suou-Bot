@@ -6,13 +6,13 @@
 ### **`❕️ Información importante`**
 
 <details>
- <summary><b> 🧁 Info Bot</b></summary>
+ <summary><b> ➮ Info • Bot</b></summary>
 
 * Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
 </details>
 
 <details>
- <summary><b> 🍰 Funciones de la Bot</b></summary>
+ <summary><b> ➮ Funciones</b></summary>
 
 > Bot en desarrollo si presenta alguna falla reportar al creador para darle una solución óptima.
 
@@ -25,7 +25,7 @@
 - [x] Chatbot (autoresponder)
 - [x] Crear sticker de image/video/gif/url
 - [x] SubBot (Jadibot)
-- [x]    Buscador Google
+- [x] Buscador Google
 - [x] Juego RPG
 - [x] Personalizar imagen del menú
 - [x] Descarga de música y video De YT
@@ -103,10 +103,10 @@ npm start
 </details>
 
 ---
-### **`🔗 Enlaces útiles`**
+### **`➮ Enlaces útiles`**
 
 <details>
- <summary><b> 🍭 Grupos Oficiales </b></summary>
+ <summary><b> 🜸 Enlaces Oficiales </b></summary>
 
  * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
 * Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/Ecz881bBgqPIWjDOaKkp7E)
@@ -114,7 +114,7 @@ npm start
 </details>
 
 <details>
-<summary><b> 💭 Contáctos</b></summary>
+<summary><b> ✰ Contáctos</b></summary>
 
 * WhatsApp: [`Aquí`](https:/Wa.me/584120346669)
 * Correo: [`Aquí`](thekingdestroy507@gmail.com)
@@ -123,13 +123,13 @@ npm start
 
 ---
 
-### **`☁️ SKY-ULTRA-PLUS`**
+### **`✧ SKY-ULTRA-PLUS ✧`**
 
 <a
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
 
 <details>
- <summary><b> 🌩️ Servidor Sky-Ultra-Plus</b></summary>
+ <summary><b> ❒ Servidor Sky-Ultra-Plus</b></summary>
 
 * Dashboard  [`Dash`](https://dash.skyultraplus.com)
 * Panel [`Panel`](https://panel.skyultraplus.com)
@@ -142,51 +142,17 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-### **`🌌 HOSTING-PY`**
-
-<a
-href="https://dahs.hostingpy.shop/home"><img src="https://files.catbox.moe/lr92z2.jpg" height="125px"></a>
-
-<details>
- <summary><b> 🌠 Servidor HostingPy</b></summary>
-
-* Dashboard  [`Dash`](https://dahs.hostingpy.shop)
-* Panel [`Panel`](https://panel.hostingpy.shop)
-* Canal de WhatsApp [`Canal Py`](https://whatsapp.com/channel/0029Vak4e1R4NVifmh8Tvi3q)
-* Comunidad  [`Aquí`](https://chat.whatsapp.com/HT9YFbWTuqO0DQrq6Xxhvx)
-* Contacto(s) [`Soporte`](https://wa.me/595976126756)
-
-</details>
-
----
-
-###  **`©️ BRONXYS-HOSTING`**
-<a href="https://bronxyshost.com"><img src="https://tinyurl.com/23qv2kvr" height="145px"></a>
-
-<details>
- <summary><b>♣️ Servidor Bronxy-Hosting</b></summary>
-
-* Dashboard: [`Dash`](https://bronxyshost.com)
-* Panel: [`Panel`](https://bronxyshost.com)
-* Canal de WhatsApp: [`Canal Bronxy`](https://whatsapp.com/channel/0029Va9l48kHbFV6SQFKz93B)
-* Grupo Oficial: [`Aquí`](https://chat.whatsapp.com/GVQsAe6CAjoJLuotkpnAqq)
-* Grupo Soporte: [`Soporte`](https://wa.me/message/OMZQOH4YZ765K1) 
-
-</details>
-
----
-
-### **`🌟 Colaboradores`**
+### **`ᥫ᭡ Colaboradores`**
 <a href="https://github.com/The-King-Destroy/Yuki_Suou-Bot/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=The-King-Destroy/Yuki_Suou-Bot" /> 
 </a>
 
-### **`👑 Propietario`**
+### **`ᰔᩚ Propietario`**
 <a
 href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
-### **`🪐 Créditos`**
+### **`❀ Créditos`**
 <a href="https://github.com/OfcKing" style="display:inline-block; text-decoration: none;">
     <img src="https://github.com/OfcKing.png" width="130" height="130" alt="OfcKing" style="border-radius: 50%;"/>
 </a>
