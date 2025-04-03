@@ -25,7 +25,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: packname,
+          title: botname,
           body: dev,
           mediaType: 1,
           previewType: 0,
