@@ -25,7 +25,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: '✧ Youtube • Music ✧',
+          title: packname,
           body: dev,
           mediaType: 1,
           previewType: 0,
@@ -40,7 +40,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, infoMessage, m, JT)
 
     let api, result, fileSizeMB
-    if (command === 'audio' || command === 'playaudio') {
+    if (command === 'mp3' || command === 'playaudio') {
       api = await fetchAPI(url, 'audio')
       result = api.download || api.data.url
       fileSizeMB = await getFileSize(result)
@@ -50,7 +50,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       } else {
         await conn.sendMessage(m.chat, { audio: { url: result }, fileName: `${api.title || api.data.filename}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
       }
-    } else if (command === 'video' || command === 'playvideo') {
+    } else if (command === 'mp4' || command === 'playvideo') {
       api = await fetchAPI(url, 'video')
       result = api.download || api.data.url
       fileSizeMB = await getFileSize(result)
@@ -87,7 +87,7 @@ const getFileSize = async (url) => {
     return 0
   }
 }
-handler.command = handler.help = ['playaudio', 'audio', 'playvideo', 'video']
+handler.command = handler.help = ['playaudio', 'mp3', 'playvideo', 'mp4']
 handler.tags = ['descargas']
 handler.group = true
 
