@@ -1,180 +1,103 @@
-/*import yts from 'yt-search';
+import fetch from "node-fetch"
+import yts from 'yt-search'
+import axios from "axios"
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `${emoji} Por favor ingresa la música que deseas descargar.`;
-
-  const isVideo = /vid|2|mp4|v$/.test(command);
-  const search = await yts(text);
-
-  if (!search.all || search.all.length === 0) {
-    throw "No se encontraron resultados para tu búsqueda.";
-  }
-
-  const videoInfo = search.all[0];
-  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
-
-  if (command === 'play' || command === 'play2' || command === 'playvid') {
-    await conn.sendMessage(m.chat, {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
-      buttons: [
-        {
-          buttonId: `.yta ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
-          },
-        },
-        {
-          buttonId: `.ytv ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
-          },
-        },
-      ],
-      viewOnce: true,
-      headerType: 4,
-    }, { quoted: fkontak });
-    m.react('🕒');
-
-  } else if (command === 'yta' || command === 'ytmp3') {
-    m.react(rwait);
-    let audio;
-    try {
-      audio = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp3&apikey=Gata-Dios`)).json();
-    } catch (error) {
-      try {
-        audio = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp3?url=${videoInfo.url}`)).json();
-      } catch (error) {
-        audio = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${videoInfo.url}`)).json();
-      }
+  try {
+    if (!text.trim()) {
+      return conn.reply(m.chat, `❀ Por favor, ingresa el nombre de la música a descargar.`, m)
     }
-    
-    if (!audio.data || !audio.data.url) throw "No se pudo obtener el audio.";
-    conn.sendFile(m.chat, audio.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false });
-    m.react(done);
-  
-  } else if (command === 'ytv' || command === 'ytmp4') {
-    m.react(rwait);
-    let video;
-    try {
-      video = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`)).json();
-    } catch (error) {
-      try {
-        video = await (await fetch(`https://delirius-apiofc.vercel.app/download/ytmp4?url=${videoInfo.url}`)).json();
-      } catch (error) {
-        video = await (await fetch(`https://api.vreden.my.id/api/ytmp4?url=${videoInfo.url}`)).json();
-      }
+
+    const search = await yts(text)
+    if (!search.all || search.all.length === 0) {
+      return m.reply('✧ No se encontraron resultados para tu búsqueda.')
     }
-    
-    if (!video.data || !video.data.url) throw "No se pudo obtener el video.";
-    await conn.sendMessage(m.chat, {
-      video: { url: video.data.url },
-      mimetype: "video/mp4",
-      caption: ``,
-    }, { quoted: m });
-    m.react(done);
-  
-  } else {
-    throw "Comando no reconocido.";
-  }
-};
 
-handler.help = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
-handler.command = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
-handler.tags = ['dl'];
-handler.register = true;
+    const videoInfo = search.all[0]
+    if (!videoInfo) {
+      return m.reply('✧ No se pudo obtener información del video.')
+    }
 
-export default handler;
+    const { title, thumbnail, timestamp, views, ago, url, author } = videoInfo
 
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
-  }
-  throw new Error("Invalid YouTube URL");
-};
+    if (!title || !thumbnail || !timestamp || !views || !ago || !url || !author) {
+      return m.reply('✧ Información incompleta del video.')
+    }
 
+    const vistas = formatViews(views)
+    const canal = author.name ? author.name : 'Desconocido'
+    const infoMessage = `「✦」Descargando *<${title || 'Desconocido'}>*\n\n> ✦ Canal » *${canal}*\n> ✰ Vistas » *${vistas || 'Desconocido'}*\n> ⴵ Duración » *${timestamp || 'Desconocido'}*\n> ✐ Publicación » *${ago || 'Desconocido'}*\n> 🜸 Link » ${url}`
 
+    const thumb = (await conn.getFile(thumbnail))?.data
 
-/*global.play = {};
-import yts from 'yt-search';
-
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `${emoji} Por favor ingresa la música que deseás descargar.`;
-
-  const isVideo = /vid|2|mp4|v$/.test(command);
-  const search = await yts(text);
-
-  if (!search.all || search.all.length === 0) {
-    throw "No se encontraron resultados para tu búsqueda.";
-  }
-
-  const videoInfo = search.all[0];
-  const body = `「✦」ძᥱsᥴᥲrgᥲᥒძ᥆ *<${videoInfo.title}>*\n\n> ✦ ᥴᥲᥒᥲᥣ » *${videoInfo.author.name || 'Desconocido'}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✰ ᥎іs𝗍ᥲs » *${videoInfo.views}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ⴵ ძᥙrᥲᥴі᥆ᥒ » *${videoInfo.timestamp}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> ✐ ⍴ᥙᑲᥣіᥴᥲძ᥆ » *${videoInfo.ago}*\n*°.⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸⎯ܴ⎯̶᳞͇ࠝ⎯⃘̶⎯̸.°*\n> 🜸 ᥣіᥒk » ${videoInfo.url}\n`;
-  
-  if (Object.keys(global.play).length >= 100) global.play = {};
-  
-    if (command === 'play' || command === 'play2' || command === 'playvid') {
-      let msg = await conn.sendMessage(m.chat, {
-      image: { url: videoInfo.thumbnail },
-      caption: body,
-      footer: dev,
-      buttons: [
-        {
-          buttonId: `.ytmp3 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥲᥙძі᥆',
-          },
+    const JT = {
+      contextInfo: {
+        externalAdReply: {
+          title: '✧ Youtube • Music ✧',
+          body: dev,
+          mediaType: 1,
+          previewType: 0,
+          mediaUrl: url,
+          sourceUrl: url,
+          thumbnail: thumb,
+          renderLargerThumbnail: true,
         },
-        {
-          buttonId: `.ytmp4 ${videoInfo.url}`,
-          buttonText: {
-            displayText: 'ᯓᡣ𐭩 ᥎іძᥱ᥆',
-          },
-        },
-      ],
-      viewOnce: true,
-      headerType: 4,
-    }, { quoted: fkontak });
-    m.react('🕒');
-    
-    global.play[msg.key.id] = { url: videoInfo.url };
+      },
+    }
 
-    } else if (command === 'yta' || command === 'ytmp3') {
-    m.react(rwait)
-      let audio = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp3&apikey=Gata-Dios`)).json()
-      
-      conn.sendFile(m.chat, audio.data.url, videoInfo.title, '', m, null, { mimetype: "audio/mpeg", asDocument: false })
-    m.react(done)
-    } else if (command === 'ytv' || command === 'ytmp4') {
-    m.react(rwait)
-      let video = await (await fetch(`https://api.alyachan.dev/api/youtube?url=${videoInfo.url}&type=mp4&apikey=Gata-Dios`)).json()
-    await conn.sendMessage(m.chat, {
-      video: { url: video.data.url },
-      mimetype: "video/mp4",
-      caption: ``,
-    }, { quoted: m });
-    m.react(done)
+    await conn.reply(m.chat, infoMessage, m, JT)
+
+    if (command === 'play' || command === 'mp3' || command === 'ytmp3') {
+      try {
+        const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
+        const resulta = api.result
+        const result = resulta.download.url
+
+        if (!result) throw new Error('⚠ El enlace de audio no se generó correctamente.')
+
+        await conn.sendMessage(m.chat, { audio: { url: result }, fileName: `${api.result.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
+      } catch (e) {
+        return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
+      }
+    } else if (command === 'play2' || command === 'mp4' || command === 'ytmp4') {
+      try {
+        const response = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`)
+        const json = await response.json()
+        const resultad = json.result
+        const resultado = resultad.download.url
+
+        if (!resultad || !resultado) throw new Error('⚠ El enlace de video no se generó correctamente.')
+
+        await conn.sendMessage(m.chat, { video: { url: resultado }, fileName: resultad.title, mimetype: 'video/mp4', caption: title }, { quoted: m })
+      } catch (e) {
+        return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
+      }
     } else {
-      throw "Comando no reconocido.";
+      return conn.reply(m.chat, '✧︎ Comando no reconocido.', m)
     }
-};
 
-handler.help = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
-handler.command = ['play', 'playvid', 'ytv', 'ytmp4', 'yta', 'play2', 'ytmp3'];
-handler.tags = ['dl'];
-handler.group = true;
-handler.register = true;
-
-export default handler;
-
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
+  } catch (error) {
+    return m.reply(`⚠︎ Ocurrió un error: ${error}`)
   }
-  throw new Error("Invalid YouTube URL");
-};*/
+}
+
+handler.command = handler.help = ['play', 'mp3', 'ytmp3', 'play2', 'mp4', 'ytmp4']
+handler.tags = ['descargas']
+handler.group = true
+
+export default handler
+
+function formatViews(views) {
+  if (views === undefined) {
+    return "No disponible"
+  }
+
+  if (views >= 1_000_000_000) {
+    return `${(views / 1_000_000_000).toFixed(1)}B (${views.toLocaleString()})`
+  } else if (views >= 1_000_000) {
+    return `${(views / 1_000_000).toFixed(1)}M (${views.toLocaleString()})`
+  } else if (views >= 1_000) {
+    return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`
+  }
+  return views.toString()
+}
