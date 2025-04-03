@@ -33,7 +33,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     const JT = {
       contextInfo: {
         externalAdReply: {
-          title: '✧ Youtube • Music ✧',
+          title: packname,
           body: dev,
           mediaType: 1,
           previewType: 0,
@@ -47,7 +47,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
 
     await conn.reply(m.chat, infoMessage, m, JT)
 
-    if (command === 'play' || command === 'mp3' || command === 'ytmp3') {
+    if (command === 'play' || command === 'yta' || command === 'ytmp3') {
       try {
         const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
         const resulta = api.result
@@ -59,7 +59,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
       }
-    } else if (command === 'play2' || command === 'mp4' || command === 'ytmp4') {
+    } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
       try {
         const response = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`)
         const json = await response.json()
@@ -81,7 +81,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 }
 
-handler.command = handler.help = ['play', 'mp3', 'ytmp3', 'play2', 'mp4', 'ytmp4']
+handler.command = handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4']
 handler.tags = ['descargas']
 handler.group = true
 
