@@ -109,14 +109,14 @@ npm start
  <summary><b> 🜸 Enlaces Oficiales </b></summary>
 
  * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VapSIvR5EjxsD1B7hU3T)
-* Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/Ecz881bBgqPIWjDOaKkp7E)
-* Comunidad Oficial [`¡Click aquí!`](https://chat.whatsapp.com/EwrwcGvpLf1BnMhP3B4axD)
+* Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/CDw7hpI30WjCyKFAVLHNhZ)
+* Comunidad Oficial [`¡Click aquí!`](https://chat.whatsapp.com/I0dMp2fEle7L6RaWBmwlAa)
 </details>
 
 <details>
 <summary><b> ✰ Contáctos</b></summary>
 
-* WhatsApp: [`Aquí`](https:/Wa.me/584120346669)
+* WhatsApp: [`Aquí`](https:/Wa.me/528211111111)
 * Correo: [`Aquí`](thekingdestroy507@gmail.com)
 
 </details>
