@@ -351,10 +351,17 @@ let chat = global.db.data.chats[m.chat]
 let user = global.db.data.users[m.sender]
 if (!['grupo-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return
 if (name != 'grupo-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'grupo-delete.js' && chat?.isBanned && !isROwner) return 
+if (user.antispam > 2) return
 if (m.text && user.banned && !isROwner) {
 m.reply(`《✦》Estas baneado/a, no puedes usar comandos en este bot!\n\n${user.bannedReason ? `✰ *Motivo:* ${user.bannedReason}` : '✰ *Motivo:* Sin Especificar'}\n\n> ✧ Si este Bot es cuenta oficial y tiene evidencia que respalde que este mensaje es un error, puedes exponer tu caso con un moderador.`)
+user.antispam++
 return
 }
+
+if (user.antispam2 && isROwner) return
+let time = global.db.data.users[m.sender].spam + 3000
+if (new Date - global.db.data.users[m.sender].spam < 3000) return console.log(`[ SPAM ]`) 
+global.db.data.users[m.sender].spam = new Date * 1
 
 if (m.chat in global.db.data.chats || m.sender in global.db.data.users) {
 let chat = global.db.data.chats[m.chat]
