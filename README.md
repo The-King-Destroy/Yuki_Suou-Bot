@@ -153,8 +153,8 @@ href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King
 ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
 
 ### **`🜸 Créditos`**
-<a href="https://github.com/OfcKing" style="display:inline-block; text-decoration: none;">
-    <img src="https://github.com/OfcKing.png" width="130" height="130" alt="OfcKing" style="border-radius: 50%;"/>
+<a href="https://github.com/DevAlexJs" style="display:inline-block; text-decoration: none;">
+    <img src="https://github.com/DevAlexJs.png" width="130" height="130" alt="Alex-X" style="border-radius: 50%;"/>
 </a>
 <a href="https://github.com/David-Chian" style="display:inline-block; margin-right: 10px; text-decoration: none;">
     <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David-Chian" style="border-radius: 50%;"/>
