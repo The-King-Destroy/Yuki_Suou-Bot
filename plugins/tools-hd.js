@@ -1,34 +1,69 @@
-let handler = async (m, { conn }) => {
-  if (!m.quoted) return m.reply(`❀ Por favor, envie una imagen o responda a la imagen utilizando el comando.`)
-  const imageBuffer = await m.quoted.download()
-  m.react("🕒")
+import FormData from "form-data"
+import Jimp from "jimp"
+import uploadImage from '../lib/uploadImage.js'
+import fetch from "node-fetch"
+
+const handler = async (m, { conn, usedPrefix, command }) => {
   try {
-    const r = await Upscale(imageBuffer)
-    if (!r) throw "Error al mejorar la imagen."
-    await conn.sendFile(m.chat, r, 'image.jpg', '', m)
-    m.react("✅")
-  } catch (e) {
-    m.reply("Ocurrió un error al procesar la imagen: " + e)
+    let q = m.quoted ? m.quoted : m
+    let mime = (q.msg || q).mimetype || q.mediaType || ""
+
+    if (!mime) {
+      return m.reply(`❀ Por favor, envie una imagen o responda a la imagen utilizando el comando.`)
+    }
+
+    if (!/image\/(jpe?g|png)/.test(mime)) {
+      return m.reply(`✧ El formato del archivo (${mime}) no es compatible, envía o responde a una imagen.`)
+    }
+
+    conn.reply(m.chat, '✧ Mejorando la calidad de la imagen....', m)
+    let imgBuffer = await q.download()
+    let image = await Jimp.read(imgBuffer)
+    image.resize(800, Jimp.AUTO)
+    let processedImageBuffer = await image.getBufferAsync(Jimp.MIME_JPEG)
+    
+    let enhancedImageUrl = await enhanceImage(processedImageBuffer)
+    let uploadedImageUrl = await uploadImage(enhancedImageUrl)
+
+    await conn.sendFile(m.chat, uploadedImageUrl, "out.png", "", fkontak)
+  } catch (error) {
+    return conn.reply(m.chat, `⚠︎ Ocurrió un error: ${error.message}`, m)
   }
 }
-handler.command = ["hd", "hdr", "remini"]
-handler.help = ["remini"]
+
+handler.help = ["hd"]
 handler.tags = ["tools"]
+handler.command = ["remini", "hd", "enhance"]
+handler.group = true
+
 export default handler
 
-async function Upscale(imageBuffer) {
+async function enhanceImage(imageData) {
   try {
-    const response = await fetch("https://lexica.qewertyy.dev/upscale", {
-      body: JSON.stringify({
-        image_data: imageBuffer.toString("base64"),
-        format: "binary",
-      }),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    })
-    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`)
-    return Buffer.from(await response.arrayBuffer())
-  } catch (e) {
-    return null
+    const formData = new FormData()
+    formData.append("image", imageData)
+
+    const response = await fetch(
+      `https://api.siputzx.my.id/api/iloveimg/upscale?image=${encodeURIComponent(imageData.toString('base64'))}`,
+      {
+        method: "GET",
+        headers: {
+          ...formData.getHeaders()
+        }
+      }
+    )
+
+    if (!response.ok) {
+      throw new Error(
+        `Error al procesar la imagen: ${response.status} - ${response.statusText}`
+      )
+    }
+
+    const result = await response.buffer()
+    return result
+  } catch (error) {
+    throw new Error(
+      `Error al mejorar la calidad de la imagen: ${error.message}`
+    )
   }
 }
