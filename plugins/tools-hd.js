@@ -34,22 +34,20 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ["hd"]
 handler.tags = ["tools"]
 handler.command = ["remini", "hd", "enhance"]
-//handler.group = true
+handler.group = true
 
 export default handler
 
 async function enhanceImage(imageData) {
   try {
     const formData = new FormData()
-    formData.append("image", imageData)
+    formData.append("image", imageData, { filename: 'image.jpg', contentType: 'image/jpeg' })
 
     const response = await fetch(
-      `https://api.siputzx.my.id/api/iloveimg/upscale?image=${encodeURIComponent(imageData.toString('base64'))}`,
+      `https://api.siputzx.my.id/api/iloveimg/upscale`,
       {
-        method: "GET",
-        headers: {
-          ...formData.getHeaders()
-        }
+        method: "POST",
+        body: formData
       }
     )
 
