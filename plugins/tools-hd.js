@@ -1,4 +1,6 @@
 import FormData from "form-data"
+import Jimp from "jimp"
+import uploadImage from '../lib/uploadImage.js'
 import fetch from "node-fetch"
 
 const handler = async (m, { conn, usedPrefix, command }) => {
@@ -15,9 +17,15 @@ const handler = async (m, { conn, usedPrefix, command }) => {
     }
 
     conn.reply(m.chat, '✧ Mejorando la calidad de la imagen....', m)
-    let img = await q.download()
-    let url = await enhanceImage(img)
-    await conn.sendFile(m.chat, url, "out.png", "", fkontak)
+    let imgBuffer = await q.download()
+    let image = await Jimp.read(imgBuffer)
+    image.resize(800, Jimp.AUTO)
+    let processedImageBuffer = await image.getBufferAsync(Jimp.MIME_JPEG)
+
+    let imageUrl = await uploadImage(processedImageBuffer)
+    let enhancedImageUrl = await enhanceImage(imageUrl)
+
+    await conn.sendFile(m.chat, enhancedImageUrl, "out.png", "", fkontak)
   } catch (error) {
     return conn.reply(m.chat, `⚠︎ Ocurrió un error: ${error.message}`, m)
   }
@@ -26,21 +34,16 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ["hd"]
 handler.tags = ["tools"]
 handler.command = ["remini", "hd", "enhance"]
+handler.group = true
 
 export default handler
 
-async function enhanceImage(imageData) {
+async function enhanceImage(imageUrl) {
   try {
-    const formData = new FormData()
-    formData.append("image", Buffer.from(imageData).toString('base64'))
-
     const response = await fetch(
-      `https://api.siputzx.my.id/api/iloveimg/upscale?image=${encodeURIComponent(Buffer.from(imageData).toString('base64'))}`,
+      `https://api.siputzx.my.id/api/iloveimg/upscale?image=${encodeURIComponent(imageUrl)}`,
       {
-        method: "GET",
-        headers: {
-          ...formData.getHeaders()
-        }
+        method: "GET"
       }
     )
 
