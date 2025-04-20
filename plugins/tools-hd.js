@@ -34,7 +34,7 @@ const handler = async (m, { conn, usedPrefix, command }) => {
 handler.help = ["hd"]
 handler.tags = ["tools"]
 handler.command = ["remini", "hd", "enhance"]
-handler.group = true
+//handler.group = true
 
 export default handler
 
