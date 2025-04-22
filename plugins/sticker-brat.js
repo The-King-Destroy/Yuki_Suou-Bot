@@ -5,8 +5,8 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 const fetchSticker = async (text, attempt = 1) => {
     try {
-        const response = await axios.get(`https://kepolu-brat.hf.space/brat`, {
-            params: { q: text },
+        const response = await axios.get(`https://api.ownblox.biz.id/api/brat`, {
+            params: { text },
             responseType: 'arraybuffer',
         })
         return response.data
@@ -35,9 +35,9 @@ let handler = async (m, { conn, text }) => {
         let packstickers = global.db.data.users[userId] || {}
         let texto1 = packstickers.text1 || global.packsticker
         let texto2 = packstickers.text2 || global.packsticker2
-        
+
         let stiker = await sticker(buffer, false, texto1, texto2)
-        
+
         if (stiker) {
             return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
         } else {
