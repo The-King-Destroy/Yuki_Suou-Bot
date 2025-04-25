@@ -20,7 +20,7 @@ let result = json.results[0];
 
 let txt = `🍬 *Nombre:* ${result.name}\n👑 *Owner:* ${result.creator}\n🌟 *Estrellas:* ${result.stars}\n🔖 *Bifurcaciones:* ${result.forks}\n📜 *Descripcion:* ${result.description}\n📆 *Creado:* ${result.createdAt}\n🔗 *Link:* ${result.cloneUrl}`;
 
-let img = 'https://files.catbox.moe/oc4myc.png';
+let img = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745610598914.jpeg';
 
 conn.sendMessage(m.chat, { image: { url: img }, caption: txt }, { quoted: fkontak });
 
