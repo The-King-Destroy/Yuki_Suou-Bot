@@ -103,6 +103,6 @@ handler.help = ["tiktoksearch <txt>"];
 handler.register = true
 handler.group = true
 handler.tags = ["buscador"];
-handler.command = ["tiktoksearch", "tts", "tiktoks"];
+handler.command = ["tiktoksearch", "ttss", "tiktoks"];
 
 export default handler;
