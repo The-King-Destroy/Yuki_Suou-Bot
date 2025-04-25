@@ -1,9 +1,5 @@
 const handler = async (m, { conn, command, text, usedPrefix }) => {
-  if (!db.data.chats[m.chat].rpg && m.isGroup) {
-    return m.reply(`《✦》Los comandos de *RPG* están desactivados en este grupo.\n> Un *administrador* puede activarlos con el comando » *#rpg on*`)
-    }
-    const usser = m.quoted ? m.quoted.sender : conn.parseMention(text);
-  if (!usser) return conn.reply(m.chat, `❀ Por favor, mensiona a un Usuario para comprobar su test.`, m);
+  if (!text) return conn.reply(m.chat, `❀ Por favor, mensiona a un Usuario para comprobar su test.`, m);
   const percentages = (500).getRandom();
   let emoji = '';
   let description = '';
