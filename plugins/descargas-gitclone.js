@@ -22,7 +22,7 @@ let handler = async (m, { args, usedPrefix, command }) => {
     let repoData = await repoResponse.json()
     let filename = zipResponse.headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
     let type = zipResponse.headers.get('content-type')
-    let img = 'https://i.ibb.co/tLKyhgM/file.png'
+    let img = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745610598914.jpeg'
     let txt = `*乂  G I T H U B  -  D O W N L O A D*\n\n`
        txt += `✩  *Nombre* : ${sanitizedRepo}\n`
        txt += `✩  *Repositorio* : ${user}/${sanitizedRepo}\n`
