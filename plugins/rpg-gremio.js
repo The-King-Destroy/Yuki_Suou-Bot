@@ -50,7 +50,7 @@ let handler = async (m, { conn }) => {
     users[senderId].health -= evento.health;
   }
 
-  let img = 'https://qu.ax/bbfSN.jpg';
+  let img = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745557967796.jpeg';
   let info = `╭━〔 Gremio de Aventureros 〕\n` +
              `┃Misión: *${evento.nombre}*\n` +
              `┃Evento: ${evento.mensaje}\n` +
