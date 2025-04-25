@@ -5,7 +5,7 @@ import path from 'path';
 
 let handler = async (m, { conn, usedPrefix }) => {
 if (!db.data.chats[m.chat].nsfw && m.isGroup) {
-    return m.reply(`${emoji} El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw on*`);
+    return m.reply(`《✦》El contenido *NSFW* está desactivado en este grupo.\n> Un administrador puede activarlo con el comando » *#nsfw on*`);
     }
     
     let who;
@@ -19,7 +19,6 @@ if (!db.data.chats[m.chat].nsfw && m.isGroup) {
 
     let name = conn.getName(who);
     let name2 = conn.getName(m.sender);
-    m.react('🔥');
 
     let str;
     if (m.mentionedJid.length > 0) {
