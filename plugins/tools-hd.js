@@ -33,9 +33,7 @@ const handler = async (m, { conn }) => {
     if (!url) throw new Error('Lo sentimos no se pudo procesar la imagen.')
 
     let enhanced = await upscaleImage(url)
-    await conn.sendFile(m.chat, enhanced, "hd.jpg", "", m)
-    await conn.sendMessage(m.chat, { text: "❀ Imagen mejorada." }, { quoted: fkontak })
-
+    await conn.sendFile(m.chat, enhanced, "hd.jpg", "", fkontak)
   } catch (err) {
     conn.reply(m.chat, `⚠︎ Ocurrio un error: ${err.message}`, m)
   }
