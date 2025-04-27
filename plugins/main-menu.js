@@ -82,10 +82,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Buscador de imagenes de Pinterest.
 ᰔᩚ *#imagen • #image*
 > ✦ buscador de imagenes de Google.
-ᰔᩚ *#animesearch • #animess*
-> ✦ Buscador de animes de tioanime.
-ᰔᩚ *#animei • #animeinfo*
-> ✦ Buscador de capítulos de #animesearch.
 ᰔᩚ *#infoanime*
 > ✦ Buscador de información de anime/manga.
 ᰔᩚ *#hentaisearch • #searchhentai*
@@ -124,8 +120,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Buscar videos de tiktok 
 ᰔᩚ *#terabox • #tb* + [enlace]
 > ✦ Descargar archivos por Terabox.
-ᰔᩚ *#gdrive • #drive* + [enlace]
-> ✦ Descargar archivos por Google Drive.
 ᰔᩚ *#ttimg • #ttmp3* + <url>
 > ✦ Descarga fotos/audios de tiktok. 
 ᰔᩚ *#gitclone* + <url> 
@@ -140,8 +134,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Descarga un video aleatorio de tiktok.
 ᰔᩚ *#npmdl • #npmdownloader*
 > ✦ Descarga paquetes de NPMJs.
-ᰔᩚ *#animelinks • #animedl*
-> ✦ Descarga Links disponibles de descargas.
 
 • :･ﾟ⊹˚• \`『 Economia 』\` •˚⊹:･ﾟ•
 
@@ -264,8 +256,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Ver imágenes de una sola vista.
 ᰔᩚ *#whatmusic • #shazam*
 > ✦ Descubre el nombre de canciones o vídeos.
-ᰔᩚ *#spamwa • #spam*
-> ✦ Envia spam aun usuario.
 ᰔᩚ *#ss • #ssweb*
 > ✦ Ver el estado de una página web.
 ᰔᩚ *#length • #tamaño*
@@ -314,8 +304,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 • :･ﾟ⊹˚• \`『 Grupos 』\` •˚⊹:･ﾟ•
 
 ❍ Comandos de grupos para una mejor gestión de ellos.
-ᰔᩚ *#config • #on*
-> ✦ Ver opciones de configuración de grupos.
 ᰔᩚ *#hidetag*
 > ✦ Envia un mensaje mencionando a todos los usuarios
 ᰔᩚ *#gp • #infogrupo*
@@ -328,7 +316,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Establecer un mensaje de despedida personalizado.
 ᰔᩚ *#link*
 > ✦ El bot envia el link del grupo.
-ᰔᩚ *#admins • #admin*
+ᰔᩚ *admins • admin*
 > ✦ Mencionar a los admins para solicitar ayuda.
 ᰔᩚ *#restablecer • #revoke*
 > ✦ Restablecer el enlace del grupo.
@@ -554,8 +542,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Forma un trio.
 ᰔᩚ *#ahorcado*
 > ✦ Diviertete con la bot jugando el juego ahorcado.
-ᰔᩚ *#genio*
-> ✦ Comienza una pregunta con el genio.
 ᰔᩚ *#mates • #matematicas*
 > ✦ Responde las preguntas de matemáticas para ganar recompensas.
 ᰔᩚ *#ppt*
