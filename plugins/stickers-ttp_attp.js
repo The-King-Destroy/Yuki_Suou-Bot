@@ -18,12 +18,12 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
     let texto2 = packstickers.text2 || global.packsticker2
 
     if (command == 'attp') {
-        let stiker = await sticker(null, `https://api.fgmods.xyz/api/maker/attp?text=${teks}&apikey=elrebelde21`, texto1, texto2)
+        let stiker = await sticker(null, `https://api.fgmods.xyz/api/maker/attp?text=${teks}&apikey=dylux`, texto1, texto2)
         conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, true)
     }
 
     if (command == 'ttp') {
-        let stiker = await sticker(null, `https://api.fgmods.xyz/api/maker/ttp?text=${teks}&apikey=elrebelde21`, texto1, texto2)
+        let stiker = await sticker(null, `https://api.fgmods.xyz/api/maker/ttp?text=${teks}&apikey=dylux`, texto1, texto2)
         conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, true)
     }
 }
