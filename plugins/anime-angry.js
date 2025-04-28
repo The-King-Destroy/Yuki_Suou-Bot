@@ -12,7 +12,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let name2 = conn.getName(m.sender)
 
     let str = m.mentionedJid.length > 0 || m.quoted 
-        ? `\`${name2}\` está enojado/a \`${name || who}\` 凸ಠ益ಠ)凸` 
+        ? `\`${name2}\` está enojado/a con \`${name || who}\` 凸ಠ益ಠ)凸` 
         : `\`${name2}\` está enojado/a 凸ಠ益ಠ)凸`
     
     if (m.isGroup) {

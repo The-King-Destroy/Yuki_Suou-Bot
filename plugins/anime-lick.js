@@ -1,53 +1,47 @@
-//Codígo creado por Destroy wa.me/584120346669
+/* 
+❀ Codígo creado por Destroy
+✧ https://github.com/The-King-Destroy/Yuki_Suou-Bot.git 
+*/
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
 
 let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+    let who = m.mentionedJid.length > 0 ? m.mentionedJid[0] : (m.quoted ? m.quoted.sender : m.sender)
+    let name = conn.getName(who)
+    let name2 = conn.getName(m.sender)
 
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0];
-    } else if (m.quoted) {
-        who = m.quoted.sender;
-    } else {
-        who = m.sender;
-    }
-
-    let name = conn.getName(who);
-    let name2 = conn.getName(m.sender);
-
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` *lambetio a* \`${name || who}\`.`;
-    } else if (m.quoted) {
-        str = `\`${name2}\` *lamió a* \`${name || who}\`.`;
-    } else {
-        str = `\`${name2}\` *se lamió a sí mismo.*`.trim();
-    }
+    let str = m.mentionedJid.length > 0 || m.quoted 
+        ? `\`${name2}\` lamió a \`${name || who}\`（＾ω＾）` 
+        : `\`${name2}\` se lamió a sí mismo/a（＾ω＾）`
     
     if (m.isGroup) {
-        let pp = 'https://telegra.ph/file/0ce171b163a669ae9819d.mp4'; 
-        let pp2 = 'https://telegra.ph/file/b80fdfb8551b66f77b67e.mp4'; 
-        let pp3 = 'https://telegra.ph/file/f87d442b78389d4ed5be0.mp4';
-        let pp4 = 'https://telegra.ph/file/74828e36617c16421598f.mp4';
-        let pp5 = 'https://telegra.ph/file/093cbdd990220446d8920.mp4';
-        let pp6 = 'https://telegra.ph/file/570944813cab1c9dddd03.mp4';
-        let pp7 = 'https://telegra.ph/file/a0a86516033a906b55220.mp4';
-        let pp8 = 'https://telegra.ph/file/02ec493403335917d1ece.mp4';
-        let pp9 = 'https://telegra.ph/file/5042d5f627a3500e2fe8e.mp4';
+        let pp = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789757512.mp4'
+        let pp2 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789545893.mp4'
+        let pp3 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789539381.mp4'
+        let pp4 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789534388.mp4'
+        let pp5 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789531378.mp4'
+        let pp6 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789570613.mp4'
+        let pp7 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789564772.mp4'
+        let pp8 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789560479.mp4'
+        let pp9 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789555284.mp4'
+        let pp10 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789549518.mp4'
+        let pp11 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789609855.mp4'
+        let pp12 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789604660.mp4'
+        let pp13 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789596825.mp4'
+        let pp14 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789591278.mp4'
+        let pp15 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745789580000.mp4'
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9];
-        const video = videos[Math.floor(Math.random() * videos.length)];
-
-        let mentions = [who];
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15]
+        const video = videos[Math.floor(Math.random() * videos.length)]
+        
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, ptt: true, mentions: [who] }, { quoted: m })
     }
 }
 
-handler.help = ['lick/lamer @tag'];
-handler.tags = ['anime'];
-handler.command = ['lick','lamer','lamber'];
-handler.group = true;
+handler.help = ['lick']
+handler.tags = ['anime']
+handler.command = ['lick', 'lamer']
+handler.group = true
 
-export default handler;
+export default handler

@@ -1,52 +1,47 @@
-//Codígo creado por Destroy wa.me/584120346669
+/* 
+❀ Codígo creado por Destroy
+✧ https://github.com/The-King-Destroy/Yuki_Suou-Bot.git 
+*/
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'fs'
+import path from 'path'
 
 let handler = async (m, { conn, usedPrefix }) => {
-    let who;
+    let who = m.mentionedJid.length > 0 ? m.mentionedJid[0] : (m.quoted ? m.quoted.sender : m.sender)
+    let name = conn.getName(who)
+    let name2 = conn.getName(m.sender)
 
-    if (m.mentionedJid.length > 0) {
-        who = m.mentionedJid[0];
-    } else if (m.quoted) {
-        who = m.quoted.sender;
-    } else {
-        who = m.sender;
-    }
-
-    let name = conn.getName(who);
-    let name2 = conn.getName(m.sender);
-
-    let str;
-    if (m.mentionedJid.length > 0) {
-        str = `\`${name2}\` *se esta riendo de* \`${name || who}\`.`;
-    } else if (m.quoted) {
-        str = `\`${name2}\` *se esta riendo de* \`${name || who}\` *(≧▽≦).*`;
-    } else {
-        str = `\`${name2}\` *se ríe (≧▽≦).*`.trim();
-    }
+    let str = m.mentionedJid.length > 0 || m.quoted 
+        ? `\`${name2}\` se esta riendo de \`${name || who}\` (≧▽≦)` 
+        : `\`${name2}\` se ríe (≧▽≦)`
     
     if (m.isGroup) {
-        let pp = 'https://telegra.ph/file/5fa4fd7f4306aa7b2e17a.mp4'; 
-        let pp2 = 'https://telegra.ph/file/b299115a77fadb7594ca0.mp4'; 
-        let pp3 = 'https://telegra.ph/file/9938a8c2e54317d6b8250.mp4';
-        let pp4 = 'https://telegra.ph/file/e6c7b3f7d482ae42db9a7.mp4';
-        let pp5 = 'https://telegra.ph/file/a61b52737df7459580129.mp4';
-        let pp6 = 'https://telegra.ph/file/f34e1d5c8f17bd2739a51.mp4';
-        let pp7 = 'https://telegra.ph/file/c345ed1ca18a53655f857.mp4';
-        let pp8 = 'https://telegra.ph/file/4eec929f54bc4d83293a3.mp4';
+        let pp = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786374608.mp4'
+        let pp2 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786369083.mp4'
+        let pp3 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786361805.mp4'
+        let pp4 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786354536.mp4'
+        let pp5 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786351095.mp4'
+        let pp6 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786397653.mp4'
+        let pp7 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786392661.mp4'
+        let pp8 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786387772.mp4'
+        let pp9 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786382983.mp4'
+        let pp10 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786379391.mp4'
+        let pp11 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786447115.mp4'
+        let pp12 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786417093.mp4'
+        let pp13 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786411517.mp4'
+        let pp14 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786407051.mp4'
+        let pp15 = 'https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1745786402130.mp4'
         
-        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8];
-        const video = videos[Math.floor(Math.random() * videos.length)];
-
-        let mentions = [who];
-        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, mentions }, { quoted: m });
+        const videos = [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15]
+        const video = videos[Math.floor(Math.random() * videos.length)]
+        
+        conn.sendMessage(m.chat, { video: { url: video }, gifPlayback: true, caption: str, ptt: true, mentions: [who] }, { quoted: m })
     }
 }
 
-handler.help = ['laugh/reirse @tag'];
-handler.tags = ['anime'];
-handler.command = ['laugh', 'reirse'];
-handler.group = true;
+handler.help = ['laugh']
+handler.tags = ['anime']
+handler.command = ['laugh', 'reirse']
+handler.group = true
 
-export default handler;
+export default handler
