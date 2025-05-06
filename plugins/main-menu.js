@@ -487,7 +487,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 
 • :･ﾟ⊹˚• \`『 Juegos 』\` •˚⊹:･ﾟ•
 
-❍ Comandos de juegos para jugar con rus amigos.
+❍ Comandos de juegos para jugar con tus amigos.
 ᰔᩚ *#amistad • #amigorandom* 
 > ✦ hacer amigos con un juego. 
 ᰔᩚ *#chaqueta • #jalamela*
