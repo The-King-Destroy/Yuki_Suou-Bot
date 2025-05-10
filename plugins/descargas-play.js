@@ -17,12 +17,10 @@ const videoId = videoIdToFind[1]
 ytplay2 = ytplay2.all.find(item => item.videoId === videoId) || ytplay2.videos.find(item => item.videoId === videoId)
 } 
 ytplay2 = ytplay2.all?.[0] || ytplay2.videos?.[0] || ytplay2  
-
 if (!ytplay2 || ytplay2.length == 0) {
 return m.reply('✧ No se encontraron resultados para tu búsqueda.')
 }
 let { title, thumbnail, timestamp, views, ago, url, author } = ytplay2
-
 title = title || 'no encontrado'
 thumbnail = thumbnail || 'no encontrado'
 timestamp = timestamp || 'no encontrado'
@@ -30,13 +28,10 @@ views = views || 'no encontrado'
 ago = ago || 'no encontrado'
 url = url || 'no encontrado'
 author = author || 'no encontrado'
-
     const vistas = formatViews(views)
     const canal = author.name ? author.name : 'Desconocido'
-    const infoMessage = `「✦」Descargando *<${title || 'Desconocido'}>*\n\n> ✦ Canal » *${canal}*\n> ✰ Vistas » *${vistas || 'Desconocido'}*\n> ⴵ Duración » *${timestamp || 'Desconocido'}*\n> ✐ Publicado » *${ago || 'Desconocido'}*\n> 🜸 Link » ${url}`
-
+    const infoMessage = `「✦」Descargando *<${title || 'Desconocido'}>*\n\n> ✧ Canal » *${canal}*\n> ✰ Vistas » *${vistas || 'Desconocido'}*\n> ⴵ Duración » *${timestamp || 'Desconocido'}*\n> ✐ Publicado » *${ago || 'Desconocido'}*\n> 🜸 Link » ${url}`
     const thumb = (await conn.getFile(thumbnail))?.data
-
     const JT = {
       contextInfo: {
         externalAdReply: {
@@ -51,45 +46,33 @@ author = author || 'no encontrado'
         },
       },
     }
-
-    await conn.reply(m.chat, infoMessage, m, JT)
-
+    await conn.reply(m.chat, infoMessage, m, JT)    
     if (command === 'play' || command === 'yta' || command === 'ytmp3' || command === 'playaudio') {
       try {
         const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
         const resulta = api.result
-        const result = resulta.download.url
-
+        const result = resulta.download.url    
         if (!result) throw new Error('⚠ El enlace de audio no se generó correctamente.')
-
         await conn.sendMessage(m.chat, { audio: { url: result }, fileName: `${api.result.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
       }
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command === 'mp4') {
       try {
-        const response = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`)
+        const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
         const json = await response.json()
-        const resultad = json.result
-        const resultado = resultad.download.url
-
-        if (!resultad || !resultado) throw new Error('⚠ El enlace de video no se generó correctamente.')
-
-        await conn.sendFile(m.chat, resultado, resultad.title + '.mp4', title, m)
-
+        await conn.sendFile(m.chat, json.data.url, json.title + '.mp4', title, m)
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
       }
     } else {
       return conn.reply(m.chat, '✧︎ Comando no reconocido.', m)
     }
-
   } catch (error) {
     return m.reply(`⚠︎ Ocurrió un error: ${error}`)
   }
 }
-
-handler.command = handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4', 'mp4', 'playaudio']
+handler.command = handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4', 'playaudio', 'mp4']
 handler.tags = ['descargas']
 handler.group = true
 
