@@ -9,7 +9,7 @@ const {
 
 let handler = async (message, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return conn.reply(message.chat, "❀ Por favor, ingrese un texto para realizar una búsqueda en tiktok.", message, rcanal);
+    return conn.reply(message.chat, "❀ Por favor, ingrese un texto para realizar una búsqueda en tiktok.", message, m);
   }
 
   async function createVideoMessage(url) {
