@@ -29,7 +29,7 @@
 "bugs": {
 "url": "https://github.com/The-King-Destroy/Yuki_Suou-Bot/issues"
 },
-"license": "GPL-3.0-or-later",
+"license": "MIT-License",
 "dependencies": {
 "@whiskeysockets/baileys": "^6.7.17",
 "@adiwajshing/keyed-db": "^0.2.4",
