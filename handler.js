@@ -237,12 +237,6 @@ if (!allowedBots.includes(mainBot)) allowedBots.push(mainBot)
 const isAllowed = allowedBots.includes(this.user.jid)
 if (isSubbs && !isAllowed) 
 return
-    
-if (opts['nyimak'])  return
-if (!m.fromMe && opts['self'])  return
-if (opts['swonly'] && m.chat !== 'status@broadcast')  return
-if (typeof m.text !== 'string')
-m.text = ''
 
 let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
@@ -250,6 +244,13 @@ const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([num
 const isOwner = isROwner || m.fromMe
 const isMods = global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || _user.premium == true
+
+if (m.isBaileys) return
+if (opts['nyimak'])  return
+if (!isROwner && opts['self']) return
+if (opts['swonly'] && m.chat !== 'status@broadcast')  return
+if (typeof m.text !== 'string')
+m.text = ''
 
 if (opts['queque'] && m.text && !(isMods || isPrems)) {
 let queque = this.msgqueque, time = 1000 * 5
@@ -261,9 +262,6 @@ await delay(time)
 }, time)
 }
 
-if (m.isBaileys) {
-return
-}
 m.exp += Math.ceil(Math.random() * 10)
 
 let usedPrefix
