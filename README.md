@@ -151,7 +151,7 @@ href="https://home.akirax.net"><img src="https://raw.githubusercontent.com/The-K
 
 * Dashboard : [`Dash`](https://home.akirax.net)
 * Panel : [`Panel`](https://console.akirax.net)
-* Canal de WhatsApp : [`Canal`](https://whatsapp.com/channel/0029VbBCchVDJ6H6prNYfz2z)
+* Canal de WhatsApp : [`Aqui`](https://whatsapp.com/channel/0029VbBCchVDJ6H6prNYfz2z)
 * Grupo Oficial : [`Aquí`](https://chat.whatsapp.com/JxSZTFJN9J20TnsH7KsKTA)
 
 </details>
