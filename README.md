@@ -1,4 +1,4 @@
-<h1 align="center">✦ Yυƙι-Sυσυ-Bσƚ ✦</h1>
+<h1 align="center">✦ Yυƙι Sυσυ ✦</h1>
 
  <img src= "https://files.catbox.moe/om9jai.jpg">
     </p>
@@ -109,14 +109,14 @@ npm start
  <summary><b> 🜸 Enlaces Oficiales </b></summary>
 
  * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VbAfPu9BqbrEMFWXKE0d)
-* Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/CDw7hpI30WjCyKFAVLHNhZ)
+* Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/GeMUm4iACPPKRPrKBRKM8c)
 * Comunidad Oficial [`¡Click aquí!`](https://chat.whatsapp.com/I0dMp2fEle7L6RaWBmwlAa)
 </details>
 
 <details>
 <summary><b> ✰ Contáctos</b></summary>
 
-* WhatsApp: [`Aquí`](https:/Wa.me/5212202410659)
+* WhatsApp: [`Aquí`](https:/Wa.me/522202410659)
 * Correo: [`Aquí`](thekingdestroy507@gmail.com)
 
 </details>
