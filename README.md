@@ -116,7 +116,7 @@ npm start
 <details>
 <summary><b> ✰ Contáctos</b></summary>
 
-* WhatsApp: [`Aquí`](https:/Wa.me/522202410659)
+* WhatsApp: [`Aquí`](https:/Wa.me/5212202410659)
 * Correo: [`Aquí`](thekingdestroy507@gmail.com)
 
 </details>
