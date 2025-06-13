@@ -34,7 +34,7 @@ const handler = async (m, { conn, command, text }) => {
 
         user.premium = true
         const timeLeft = await formatTime(user.premiumTime - now)
-        m.reply(`*✰ Nuevo Usuario Premium!!!*\n\n*ᰔᩚ Usuario » @${who.split`@`[0]}*\n*ⴵ Tiempo Premium » ${args[0]}${args[1]}*\n*✧ Tiempo Restante » ${timeLeft}*`, null, { mentions: [who] })
+        m.reply(`*✰ Nuevo Usuario Premium!!!*\n\n*ᰔᩚ Usuario »* @${who.split`@`[0]}\n*ⴵ Tiempo Premium » ${args[0]}${args[1]}*\n*✧ Tiempo Restante » ${timeLeft}*`, null, { mentions: [who] })
         break
 
       case 'delprem':
@@ -81,6 +81,6 @@ async function formatTime(ms) {
   }
   if (seconds) {
     timeString += `${seconds} segundo${seconds > 1 ? 's' : ''} `
-  }
+  } 
   return timeString.trim()
 }
