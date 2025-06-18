@@ -148,13 +148,13 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 </a>
 
 <details>
- <summary><b> ❒ Servidor Boxmine</b></summary>
+ <summary><b> ❒ Servidor BoxMineWorld</b></summary>
 
 * Pagina Oficial: [`Boxmineworld`](https://boxmineworld.com)
 * Tutorial - Crear cuenta en la Dashboard: [`Dashboard`](https://www.youtube.com/watch?v=ZAwBLuNmIlI)
 * Dashboard: [`Dash`](https://dash.boxmineworld.com)
 * Panel: [`Aquí`](https://panel.boxmineworld.com)
-* Dudas sobre el Host:* [`Discord`](https://discord.gg/84qsr4v) _(Preguntar por Vicemi)_
+* Dudas sobre el Host: [`Discord`](https://discord.gg/84qsr4v) _(Preguntar por Vicemi)_
 * Canal de WhatsApp: [`Aquí`](https://whatsapp.com/channel/0029Va71C1q2UPBOICnxu83r)
 
 </details>
