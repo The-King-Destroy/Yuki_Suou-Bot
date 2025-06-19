@@ -49,19 +49,20 @@ author = author || 'no encontrado'
     await conn.reply(m.chat, infoMessage, m, JT)    
     if (command === 'play' || command === 'yta' || command === 'ytmp3' || command === 'playaudio') {
       try {
-        const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
-        const resulta = api.result
-        const result = resulta.download.url    
+        const api = await (await fetch(`https://api.stellarwa.xyz/dow/ytmp3?url=${url}`)).json()
+        const resulta = api.data
+        const result = resulta.dl   
         if (!result) throw new Error('⚠ El enlace de audio no se generó correctamente.')
-        await conn.sendMessage(m.chat, { audio: { url: result }, fileName: `${api.result.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
+        await conn.sendMessage(m.chat, { audio: { url: result }, fileName: `${resulta.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
       }
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command === 'mp4') {
       try {
-        const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
+        const response = await fetch(`https://api.stellarwa
+xy/dow/ytmp4?url=${url}`)
         const json = await response.json()
-        await conn.sendFile(m.chat, json.data.url, json.title + '.mp4', title, m)
+        await conn.sendFile(m.chat, json.data.dl, json.data.title + '.mp4', title, m)
       } catch (e) {
         return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
       }
