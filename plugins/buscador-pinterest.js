@@ -1,88 +1,48 @@
-/*
-• @David-Chian
-- https://github.com/David-Chian
-*/
+import axios from 'axios'
+import baileys from '@whiskeysockets/baileys'
 
-import fetch from 'node-fetch';
-import baileys from '@whiskeysockets/baileys';
+let handler = async (m, { conn, text }) => {
+  if (!text) return m.reply(`❀ Por favor, ingresa lo que deseas buscar por Pinterest.`)
 
-async function sendAlbumMessage(jid, medias, options = {}) {
-    if (typeof jid !== "string") throw new TypeError(`jid must be string, received: ${jid}`);
-    if (medias.length < 2) throw new RangeError("Se necesitan al menos 2 imágenes para un álbum");
+  try {
+    m.react('🕒')
+    let results = await pins(text)
 
-    const caption = options.text || options.caption || "";
-    const delay = !isNaN(options.delay) ? options.delay : 500;
-    delete options.text;
-    delete options.caption;
-    delete options.delay;
+    if (!results.length) return conn.reply(m.chat, `✧ No se encontraron resultados para "${text}".`, m)
 
-    const album = baileys.generateWAMessageFromContent(
-        jid,
-        { messageContextInfo: {}, albumMessage: { expectedImageCount: medias.length } },
-        {}
-    );
+    const medias = results.slice(0, 10).map(img => ({ type: 'image', data: { url: img.hd } }))
 
-    await conn.relayMessage(album.key.remoteJid, album.message, { messageId: album.key.id });
+    await conn.sendSylphy(m.chat, medias, {
+      caption: `❀  Pinterest  -  Search  ❀\n\n✧ Búsqueda » "${text}"\n✐ Resultados » ${medias.length}\n\n${dev}`,
+      quoted: m
+    })
 
-    for (let i = 0; i < medias.length; i++) {
-        const { type, data } = medias[i];
-        const img = await baileys.generateWAMessage(
-            album.key.remoteJid,
-            { [type]: data, ...(i === 0 ? { caption } : {}) },
-            { upload: conn.waUploadToServer }
-        );
-        img.message.messageContextInfo = {
-            messageAssociation: { associationType: 1, parentMessageKey: album.key },
-        };
-        await conn.relayMessage(img.key.remoteJid, img.message, { messageId: img.key.id });
-        await baileys.delay(delay);
-    }
-    return album;
+    await conn.sendMessage(m.chat, { react: { text: '✅', key: m.key } })
+  } catch (error) {
+    conn.reply(m.chat, `⚠︎ Error:\n\n${error.message}`, m)
+  }
 }
 
-const pinterest = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) return conn.reply(m.chat, `❀ Por favor, ingresa lo que deseas buscar por Pinterest.`, m);
+handler.help = ['pinterest']
+handler.command = ['pinterest', 'pin']
+handler.tags = ['dl']
 
-    await m.react('🕒');
-    conn.reply(m.chat, '✧ *Descargando imágenes de Pinterest...*', m, {
-        contextInfo: {
-            externalAdReply: {
-                mediaUrl: null,
-                mediaType: 1,
-                showAdAttribution: true,
-                title: packname,
-                body: dev,
-                previewType: 0,
-                thumbnail: icono,
-                sourceUrl: redes
-            }
-        }
-    });
+export default handler
 
-    try {
-        const res = await fetch(`https://api.dorratz.com/v2/pinterest?q=${encodeURIComponent(text)}`);
-        const data = await res.json();
+const pins = async (query) => {
+  try {
+    const { data } = await axios.get(`https://api.stellarwa.xyz/search/pinterest?query=${query}`)
 
-        if (!Array.isArray(data) || data.length < 2) {
-            return conn.reply(m.chat, '✧ No se encontraron suficientes imágenes para un álbum.', m);
-        }
-
-        const images = data.slice(0, 10).map(img => ({ type: "image", data: { url: img.image_large_url } }));
-
-        const caption = `❀ *Resultados de búsqueda para:* ${text}`;
-        await sendAlbumMessage(m.chat, images, { caption, quoted: m });
-
-        await m.react('✅');
-    } catch (error) {
-        await m.react('❌');
-        conn.reply(m.chat, '⚠︎ Hubo un error al obtener las imágenes de Pinterest.', m);
+    if (data?.status && data?.data?.length) {
+      return data.data.map(item => ({
+        hd: item.hd,
+        mini: item.mini
+      }))
     }
-};
 
-pinterest.help = ['pinterest <query>'];
-pinterest.tags = ['buscador', 'descargas'];
-pinterest.command = ['pinterest', 'pin']
-pinterest.register = true;
-pinterest.group = true;
-
-export default pinterest;
+    return []
+  } catch (error) {
+    console.error("Error al obtener imágenes de Pinterest:", error)
+    return []
+  }
+}
