@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+mimport fetch from "node-fetch"
 import yts from 'yt-search'
 import axios from "axios"
 const youtubeRegexID = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/
@@ -59,8 +59,7 @@ author = author || 'no encontrado'
       }
     } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4' || command === 'mp4') {
       try {
-        const response = await fetch(`https://api.stellarwa
-xy/dow/ytmp4?url=${url}`)
+        const response = await fetch(`https://api.stellarwa.xyz/dow/ytmp4?url=${url}`)
         const json = await response.json()
         await conn.sendFile(m.chat, json.data.dl, json.data.title + '.mp4', title, m)
       } catch (e) {
