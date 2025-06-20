@@ -24,7 +24,7 @@ info += `❑  *◜Grupos◞* ⇢ ${groupsIn.length}\n`
 info += `✰  *◜Actividad◞* ⇢ ${uptime}\n`
 info += `ⴵ  *◜Velocidad◞* ⇢ ${(speed * 1000).toFixed(0) / 1000}\n`
 info += `✦  *◜Sub-Bots Activos◞* ⇢ ${totalUsers || '0'}`
-await conn.sendFile(m.chat, avatar, 'estado.jpg', info, fkontak)
+await conn.sendFile(m.chat, banner, 'estado.jpg', info, m)
 }
 handler.help = ['estado']
 handler.tags = ['info']
