@@ -1,9 +1,12 @@
-const handler = async (m, { conn, text, usedPrefix, command }) => {
+let handler = async function (m, { conn, text, usedPrefix, command }) {
   if (!text) throw `❌ No se encontró ningún prefijo. Por favor escribe un prefijo.\n> *Ejemplo: ${usedPrefix + command} !*`;
 
   global.prefix = new RegExp('^[' + (text || global.opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']');
 
-  await conn.sendMessage(m.chat, { text: `✅ Prefijo actualizado a: *${text}*`, mentions: [m.sender] }, { quoted: m });
+  await conn.sendMessage(m.chat, {
+    text: `✅ Prefijo actualizado a: *${text}*`,
+    mentions: [m.sender]
+  }, { quoted: m });
 };
 
 handler.help = ['prefix [nuevo prefijo]'];
