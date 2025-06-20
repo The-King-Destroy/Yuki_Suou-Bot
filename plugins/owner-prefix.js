@@ -1,10 +1,12 @@
-const handler = async (m, {conn, text, usedPrefix, command}) => {
-  if (!text) throw `${emoji} No Se Encontró Ningun Prefijo, Por Favor Escriba Un Prefijo.\n> *Ejemplo: ${usedPrefix + command} !*`;
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `❌ No se encontró ningún prefijo. Por favor escribe un prefijo.\n> *Ejemplo: ${usedPrefix + command} !*`;
+
   global.prefix = new RegExp('^[' + (text || global.opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']');
- // await m.reply(`*✅️ Prefijo Actualizado Con Éxito, Prefijo Actual: ${text}*`);
-  conn.fakeReply(m.chat, `${done} *Prefijo Actualizado Con Éxito, Prefijo Actual: ${text}*`, '0@s.whatsapp.net', '✨ PREFIJO NUEVO ✨')
+
+  await conn.sendMessage(m.chat, { text: `✅ Prefijo actualizado a: *${text}*`, mentions: [m.sender] }, { quoted: m });
 };
-handler.help = ['prefix'].map((v) => v + ' [prefix]');
+
+handler.help = ['prefix [nuevo prefijo]'];
 handler.tags = ['owner'];
 handler.command = ['prefix'];
 handler.rowner = true;
