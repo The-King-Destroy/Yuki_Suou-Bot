@@ -1,6 +1,6 @@
 let handler = async (m, { usedPrefix, command }) => {
 let uptime = await process.uptime()
-let runtime = `${packname}
+let runtime = `${global.botname}
 
 ✰ Tiempo activo: ${rTime(uptime)}`
 conn.reply(m.chat, runtime, m)
