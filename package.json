@@ -32,7 +32,6 @@
 "license": "MIT-License",
 "dependencies": {
 "@bochilteam/scraper": "^4.2.4",
-"@hiudyy/ytdl": "^0.2.3",
 "@vitalets/google-translate-api": "^8.0.0",
 "@whiskeysockets/baileys": "github:nstar-y/bail",
 "acrcloud": "^1.4.0",
