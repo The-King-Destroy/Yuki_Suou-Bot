@@ -123,13 +123,13 @@ npm start
 
 ---
 
-### **`✧ SKY-ULTRA-PLUS ✧`**
+### **`✧ SKY ULTRA PLUS ✧`**
 
 <a
 href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
 
 <details>
- <summary><b> ❒ Servidor Sky-Ultra-Plus</b></summary>
+ <summary><b> ❒ Servidor Sky Ultra Plus</b></summary>
 
 * Dashboard : [`Dash`](https://dash.skyultraplus.com)
 * Panel : [`Panel`](https://panel.skyultraplus.com)
@@ -141,7 +141,7 @@ href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" hei
 
 ---
 
-### **` °¤ BoxMineWorld ¤°`**
+### **` °¤ BOXMINEWORLD ¤°`**
 
 <a href="https://boxmineworld.com">
   <img width="125px" src="https://i.imgur.com/allAyd4.png"/>
