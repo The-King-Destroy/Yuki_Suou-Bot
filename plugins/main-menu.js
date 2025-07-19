@@ -36,8 +36,6 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Crea una sesión de Sub-Bot.
 ᰔᩚ *#bots • #sockets*
 > ✦ Ver la lista de Sub-Bots activos.
-ᰔᩚ *#creador*
-> ✦ Contacto del creador de la Bot.
 ᰔᩚ *#status • #estado*
 > ✦ Ver el estado actual de la Bot.
 ᰔᩚ *#links • #grupos*
