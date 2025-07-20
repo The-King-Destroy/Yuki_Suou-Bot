@@ -548,20 +548,12 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 ᰔᩚ *#pvp • #suit* + <mencion>
 > ✦ Juega un pvp contra otro usuario.
 ᰔᩚ *#ttt*
-> ✦ Crea una sala de juego. 
-  `.trim()
+> ✦ Crea una sala de juego.`.trim()
 
 await conn.sendMessage(m.chat, { 
 text: txt,
 contextInfo: {
 mentionedJid: [userId],
-isForwarded: true,
-forwardedNewsletterMessageInfo: {
-newsletterJid: channelRD.id,
-newsletterName: channelRD.name,
-serverMessageId: -1,
-},
-forwardingScore: 999,
 externalAdReply: {                
 title: botname,
 body: textbot,
