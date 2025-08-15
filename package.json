@@ -33,7 +33,7 @@
 "dependencies": {
 "@bochilteam/scraper": "^4.2.4",
 "@vitalets/google-translate-api": "^8.0.0",
-"@whiskeysockets/baileys": "git+ssh://git@github.com/The-King-Destroy/bails.git",
+"@whiskeysockets/baileys": "github:nstar-y/bail",
 "acrcloud": "^1.4.0",
 "api-dylux": "^1.7.2",
 "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
@@ -50,7 +50,7 @@
 "google-libphonenumber": "3.2.38",
 "hispamemes": "^1.0.7",
 "human-readable": "^0.2.1",
-"jimp": "^0.22.12",
+"jimp": "^0.16.1",
 "jsdom": "^20.0.1",
 "lodash": "^4.17.21",
 "lowdb": "^3.0.0",
