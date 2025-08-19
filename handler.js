@@ -265,7 +265,7 @@ const senderJid = m.sender
 const botJid = conn.user.jid
 const groupMetadata = m.isGroup ? ((conn.chats[m.chat] || {}).metadata || await this.groupMetadata(m.chat).catch(_ => null)) : {}
 const participants = m.isGroup ? (groupMetadata.participants || []) : []
-const user = participants.find(p => p.id === senderLid || p.id === senderJid) || {}
+const user = participants.find(p => p.id === senderLid || p.jid === senderJid) || {}
 const bot = participants.find(p => p.id === botLid || p.id === botJid) || {}
 const isRAdmin = user?.admin === "superadmin"
 const isAdmin = isRAdmin || user?.admin === "admin"
