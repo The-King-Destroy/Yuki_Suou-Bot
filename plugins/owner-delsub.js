@@ -43,7 +43,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 handler.help = ['delsub <número>']
 handler.tags = ['serbot']
-handler.command = /^delsub$/i
+handler.command = ['delsub']
 handler.rowner = true
 
 export default handler
