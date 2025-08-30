@@ -4,7 +4,7 @@ import ws from "ws"
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {
   if (!args[0] || isNaN(args[0])) {
-    return m.reply(`❀ Uso correcto:\n${usedPrefix + command} 1\n\nEl número corresponde al *Sub-Bot* de la lista de *#bots*.`)
+    return m.reply(`❀ Uso correcto:\n${usedPrefix + command} 1\n\n> El número corresponde al *Sub-Bot* de la lista de *#bots*.`)
   }
 
   let index = parseInt(args[0]) - 1
