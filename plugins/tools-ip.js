@@ -37,6 +37,6 @@ conn.reply(m.chat, ipsearch, m)
 
 handler.help = ['ip <alamat ip>']
 handler.tags = ['owner']
-handler.command = ['ip']
+handler.command = ['doxx']
 
 export default handler
