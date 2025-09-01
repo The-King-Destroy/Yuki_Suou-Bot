@@ -21,7 +21,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
   try {
     try { 
-      await conn.sendMessage(jid, { text: "❀ Tu sesión como *Sub-Bot* fue eliminada." })
+      await conn.sendMessage(jid, { text: "❀ Tu sesión como *Sub-Bot* fue eliminada por un owner." })
     } catch {}
 
     sub.ws.close()
