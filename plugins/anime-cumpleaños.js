@@ -23,7 +23,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     } else if (m.quoted) {
         str = `\`${name2}\` *le desea un feliz cumpleaños a* \`${name || who}\`.`;
     } else {
-        str = `\`${name2}\` *se desea un feliz a si mismo*.*`.trim();
+        str = `\`${name2}\` *se desea un feliz a si mismo.*`.trim();
     }
 
     if (m.isGroup) { 
