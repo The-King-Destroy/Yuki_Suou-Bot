@@ -83,7 +83,7 @@ Crea un *Sub-Bot* con tu número utilizando *#qr* o *#code*
 > ✦ Buscador de información de anime/manga.
 ᰔᩚ *#hentaisearch • #searchhentai*
 > ✦ Buscador de capítulos hentai.
-ᰔᩚ #xnxxsearch • #xnxxs*
+ᰔᩚ *#xnxxsearch • #xnxxs*
 > ✦ Buscador de vídeos de Xnxx.
 ᰔᩚ *#xvsearch • #xvideossearch*
 > ✦ Buscador de vídeos de Xvideos.
