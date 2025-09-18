@@ -124,7 +124,7 @@ grep -q 'bash\|wget' <(dpkg -l) || apt install -y bash wget && wget -O - https:/
 *Si después de instalar el bot e iniciar la sesión (deseas poner tu número es la lista de owner pon este comando:*
 
 ```bash
-cd YukiBot-MD && nano settings.js
+cd && cd YukiBot-MD && nano settings.js
 ```
 #### Para que no pierda su progreso en YukiBot, estos comandos realizarán un respaldo de su `database.json` y se agregará a la versión más reciente.
 > *Estos comandos solo funcionan para TERMUX, REPLIT, LINUX*
