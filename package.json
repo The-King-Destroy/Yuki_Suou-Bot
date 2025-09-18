@@ -56,7 +56,6 @@
 "ruhend-scraper": "^7.0.4",
 "syntax-error": "^1.4.0",
 "terminal-image": "^2.0.0",
-"undici": "^5.10.0",
 "url-regex-safe": "^3.0.0",
 "ws": "^8.18.3",
 "yargs": "^17.3.1",
