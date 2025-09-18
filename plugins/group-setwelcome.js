@@ -24,16 +24,16 @@ break
 }
 case 'testwelcome': {
 if (!chat.sWelcome) return m.reply('⚠︎ No hay mensaje de bienvenida configurado.')
-const { img: imgWel, caption: captionWel, mentions: mentionsWel } = await generarBienvenida({ conn, userId: m.sender, groupMetadata, chat })
-await conn.sendMessage(m.chat, { image: { url: imgWel }, caption: captionWel, mentions: mentionsWel }, { quoted: m })
-try { fs.unlinkSync(imgWel) } catch {}
+const { img: ppWel, caption: captionWel, mentions: mentionsWel } = await generarBienvenida({ conn, userId: m.sender, groupMetadata, chat })
+await conn.sendMessage(m.chat, { image: { url: ppWel }, caption: captionWel, mentions: mentionsWel }, { quoted: m })
+try { fs.unlinkSync(ppWel) } catch {}
 break
 }
 case 'testbye': {
 if (!chat.sBye) return m.reply('⚠︎ No hay mensaje de despedida configurado.')
-const { img: imgBye, caption: captionBye, mentions: mentionsBye } = await generarDespedida({ conn, userId: m.sender, groupMetadata, chat })
-await conn.sendMessage(m.chat, { image: { url: imgBye }, caption: captionBye, mentions: mentionsWel }, { quoted: m })
-try { fs.unlinkSync(imgBye) } catch {}
+const { img: ppBye, caption: captionBye, mentions: mentionsBye } = await generarDespedida({ conn, userId: m.sender, groupMetadata, chat })
+await conn.sendMessage(m.chat, { image: { url: ppBye }, caption: captionBye, mentions: mentionsWel }, { quoted: m })
+try { fs.unlinkSync(ppBye) } catch {}
 break
 }}} catch (e) {
 m.reply(`⚠︎ Se ha producido un problema.\n> El detalle del error se mostrará a continuación. Usa ${usedPrefix}report para informarlo.\n\n${e.message}`)
