@@ -5,7 +5,7 @@ if (!text) return conn.reply(m.chat, `❀ Por favor, ingrese un texto para busca
 try {
 await m.react('🕒')
 const res = await getGoogleImageSearch(text)
-const urls = res.getAll()
+const urls = await res.getAll()
 if (urls.length < 2) return conn.reply(m.chat, '✧ No se encontraron suficientes imágenes para un álbum.', m)
 const medias = urls.slice(0, 10).map(url => ({ type: 'image', data: { url } }))
 const caption = `❀ Resultados de búsqueda para: ${text}`
