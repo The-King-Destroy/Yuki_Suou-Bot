@@ -33,7 +33,7 @@ thumbnailUrl: data.image,
 mediaUrl: data.url,
 sourceUrl: data.url,
 }}}, { quoted: m })
-await conn.sendMessage(m.chat, { audio: { url: data.download }, fileName: `${data.title}.mp3`, mimetype: 'audio/mpeg', ptt: true }, { quoted: m })
+await conn.sendMessage(m.chat, { audio: { url: data.download }, fileName: `${data.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
 await m.react('✔️')
 } catch (err) {
 await m.react('✖️')
