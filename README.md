@@ -11,7 +11,7 @@ Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. What
 
 Yuki Bot es un bot de WhatsApp multifuncional basado en `baileys`. Este bot ofrece una variedad de características para mejorar tu experiencia en WhatsApp.
 
-##### Características
+#### Características
 Configuración avanzada de grupos 
 Bienvenidas personalizadas  
 Herramientas útiles  
