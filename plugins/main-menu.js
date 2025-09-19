@@ -292,7 +292,7 @@ let txt = `̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮  
 > ⸙ Restablecer enlace del grupo.
 ✦ *#addwarn • #warn* + <@usuario> | {mencion}
 > ⸙ Advertir aún usuario.
-✦ ︎*#unwarn* • *#delwarn* + <@usuario> | {mencion}
+✦ *#unwarn • #delwarn* + <@usuario> | {mencion}
 > ⸙ Quitar advertencias de un usuario.
 ✦ *#advlist • #listadv*
 > ⸙ Ver lista de usuarios advertidos.
