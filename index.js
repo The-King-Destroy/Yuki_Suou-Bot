@@ -351,14 +351,9 @@ conn.ev.on('creds.update', conn.credsUpdate)
 isInit = false
 return true
 }
-setInterval(() => {
-console.log('[ ✿ ]  Reiniciando...');
-process.exit(0)
-}, 10800000)
-let rtU = join(__dirname, `./${jadi}`)
-if (!existsSync(rtU)) {
-mkdirSync(rtU, { recursive: true }) 
-}
+process.on('unhandledRejection', (reason, promise) => {
+console.error("Rechazo no manejado detectado:", reason)
+})
 
 global.rutaJadiBot = join(__dirname, `./${jadi}`)
 if (global.yukiJadibts) {
