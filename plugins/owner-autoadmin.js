@@ -1,5 +1,6 @@
 const handler = async (m, { conn, isAdmin, groupMetadata, usedPrefix, isBotAdmin, isROwner }) => {
-if (!isROwner && !isBotAdmin) return
+if (!isROwner) return
+if (!isBotAdmin) return
 if (isAdmin) return m.reply(`❀ Ya tienes privilegios de administrador.`)
 try {
 await m.react('🕒')
